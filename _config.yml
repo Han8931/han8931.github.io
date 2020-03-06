@@ -2,6 +2,8 @@
 name: Moon Han Cheol
 bio: A PhD student at NTU
 
+remote_theme : sergiokopplin/indigo
+
 # twitter summary info
 description: A blog about machine learning
 
