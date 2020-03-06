@@ -4,12 +4,16 @@ layout: page
 ---
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
+<h2>Moon Han Cheol</h2>
 <p>I am a PhD student at NTU</p>
 
 <p>Good</p>
 
 <h2>Publications</h2>
+<ul class="publication-list">
 	<li>A Unified Neural Coherence Model</li>
+	<li>WiFi</li>
+</ul>
 
 <h2>Skills</h2>
 
