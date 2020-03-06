@@ -29,28 +29,26 @@ permalink: /:title/
 # analytics-piwik-id: 1
 
 # if you don't want comments in your posts, leave categories empty
-disqus:
-  shortname: mydisqus # enter this from your disqus account
-  categories: [] # only show disqus for posts that have these categories
-
+#disqus:
+#  shortname: mydisqus # enter this from your disqus account
+#  categories: [] # only show disqus for posts that have these categories
+#
 # if you don't have any of social below, comment the line
 # facebook: myfacebook
-twitter: shah_mohak
+twitter: HanCheolMoon1
 # google: mygoogle
-instagram: mohak_shah
 # pinterest: mypinterest
 # linkedin: mylinkedin
 # youtube: myyoutube
 # spotify: myspotify
-github: mohakshah
+github: Han8931
 # lastfm: mylastfm
-stackoverflow: 4590902/mohak
 # quora: userquora
 # reddit: username
 # medium: medium
 # vimeo: myvimeo
 # lanyrd: mylanyrd
-keybase: mohak
+# keybase: 
 # email: myemail@gmail.com
 
 # authors:
