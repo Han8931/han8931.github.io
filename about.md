@@ -9,6 +9,11 @@ layout: page
 
 <p>Good</p>
 
+<h2>Education</h2>
+
+<h3>Yonsei</h3>
+<h3>Chung-Ang</h3>
+
 <h2>Publications</h2>
 <ul class="publication-list">
 	<li>A Unified Neural Coherence Model</li>
