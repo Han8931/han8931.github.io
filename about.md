@@ -8,6 +8,9 @@ layout: page
 
 <p>Good</p>
 
+<h2>Publications</h2>
+	<li>A Unified Neural Coherence Model</li>
+
 <h2>Skills</h2>
 
 <ul class="skill-list">
@@ -19,3 +22,10 @@ layout: page
 	<li>Vim</li>
 	<li>Git</li>
 </ul>
+
+<h2>Contact</h2>
+Multimedia and Interactive Computing Lab (MICL)
+Block N4 #B1C-17
+School of Computer Science and Engineering
+Nanyang Technological University
+Singapore 639798.
