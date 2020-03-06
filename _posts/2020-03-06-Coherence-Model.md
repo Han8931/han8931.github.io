@@ -15,7 +15,7 @@ externalLink: false
 
 This is a coherence model project
 
-![Img](/assets/global.png)
+![Img](/assets/images/global.png)
 
 
 [Paper](https://arxiv.org/abs/1909.00349)
