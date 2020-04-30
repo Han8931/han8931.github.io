@@ -13,8 +13,6 @@ externalLink: false
 
 ## A Unified Neural Coherence Model:
 
-This is a coherence model project
-
 ![Img](/assets/images/global.png)
 
 

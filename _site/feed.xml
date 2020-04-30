@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-07T12:01:22+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Moon Han Cheol</title><subtitle>Han's homepage</subtitle><entry><title type="html">A Unified Neural Coherence Model</title><link href="http://localhost:4000/Coherence-Model/" rel="alternate" type="text/html" title="A Unified Neural Coherence Model" /><published>2020-03-06T22:10:00+08:00</published><updated>2020-03-06T22:10:00+08:00</updated><id>http://localhost:4000/Coherence-Model</id><content type="html" xml:base="http://localhost:4000/Coherence-Model/">&lt;h2 id=&quot;a-unified-neural-coherence-model&quot;&gt;A Unified Neural Coherence Model:&lt;/h2&gt;
+
+&lt;p&gt;This is a coherence model project&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/global.png&quot; alt=&quot;Img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://arxiv.org/abs/1909.00349&quot;&gt;Paper&lt;/a&gt;&lt;/p&gt;</content><author><name>Moon Han Cheol</name></author><category term="project" /><category term="jekyll" /><summary type="html">A Unified Neural Coherence Model:</summary></entry><entry><title type="html">Test</title><link href="http://localhost:4000/Test/" rel="alternate" type="text/html" title="Test" /><published>2020-03-06T00:00:00+08:00</published><updated>2020-03-06T00:00:00+08:00</updated><id>http://localhost:4000/Test</id><content type="html" xml:base="http://localhost:4000/Test/">&lt;h2 id=&quot;test&quot;&gt;Test:&lt;/h2&gt;
+
+&lt;p&gt;This is a test&lt;/p&gt;</content><author><name>Han</name></author><category term="blog" /><category term="Test" /><summary type="html">Test:</summary></entry></feed>

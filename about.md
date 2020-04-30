@@ -5,19 +5,15 @@ layout: page
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
 <h2>Moon Han Cheol</h2>
-<p>I am a PhD student at NTU</p>
-
-<p>Good</p>
-
-<h2>Education</h2>
-
-<h3>Yonsei</h3>
-<h3>Chung-Ang</h3>
+<p>I am a PhD student at NTU. My research interest is on natural language processing and machine learning. </p>
 
 <h2>Publications</h2>
 <ul class="publication-list">
-	<li>A Unified Neural Coherence Model</li>
-	<li>WiFi</li>
+	<li> Junsik Jung, Jooyoung Kim, Han-Cheol Moon, and Kar-Ann Toh. A System for User Identification Using Wi-Fi based in-air Handwritten Signature Signals, Neurocomputing (submitted)</li>
+
+	<li>Han Cheol Moon, Tasnim Mohiuddin, Shafiq Joty and Xu Chi. A Unified Neural Coherence Model. Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP), 2019.  </li>
+
+	<li> Han-Cheol Moon, Se-In Jang, Kangrok Oh, and Kar-Ann Toh, 2017, “An In-Air Signature Verification System Using Wi-Fi Signals”, In Proceedings of the 2017 4th International Conference on Biomedical and Bioinformatics Engineering (ICBBE 2017).  </li>
 </ul>
 
 <h2>Skills</h2>
