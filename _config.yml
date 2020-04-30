@@ -87,6 +87,10 @@ blog: true
 # do you want to show the "tags" inside the posts?
 show-tags: true
 
+#layout: default
+comments: true
+# other options
+
 # related posts inside a post?
 related: true
 
