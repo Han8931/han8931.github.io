@@ -87,6 +87,8 @@ blog: true
 # do you want to show the "tags" inside the posts?
 show-tags: true
 
+disqus_shortname: hancheolmoon
+
 #layout: default
 # other options
 
