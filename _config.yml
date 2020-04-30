@@ -88,7 +88,6 @@ blog: true
 show-tags: true
 
 #layout: default
-comments: true
 # other options
 
 # related posts inside a post?
