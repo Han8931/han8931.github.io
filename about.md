@@ -5,7 +5,7 @@ layout: page
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
 <h2>Moon Han Cheol</h2>
-<p>I am a PhD student at NTU. My research interest is on natural language processing and machine learning. </p>
+<p>I am a PhD student at NTU. My research interest is in a robustness problem in deep neural models for natural language processing. Currently, I am workding on a textual adversarial sample generation task. I love studying math and deep learning theories :)</p>
 
 <h2>Publications</h2>
 <ul class="publication-list">
@@ -17,15 +17,10 @@ layout: page
 </ul>
 
 <h2>Skills</h2>
-
 <ul class="skill-list">
-	<li>Python</li>
-	<li>PyTorch, Tensorflow</li>
-	<li>R</li>
-	<li>Matlab</li>
-	<li>LaTex</li>
-	<li>Vim</li>
-	<li>Git</li>
+	<li>Python, R</li>
+	<li>PyTorch, Tensorflow, Matlab</li>
+	<li>LaTex, Vim, Git</li>
 </ul>
 
 <h2>Contact</h2>
