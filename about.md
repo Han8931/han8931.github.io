@@ -5,7 +5,7 @@ layout: page
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
 <h2>Moon Han Cheol</h2>
-<p>I am a PhD student at NTU. My research interest is in a robustness problem in deep neural models for natural language processing. Currently, I am workding on a textual adversarial sample generation task. I love studying math and deep learning theories :)</p>
+<p>I am a PhD student at NTU. My research interest is in a robustness problem in deep neural models for natural language processing. Currently, I am workding on a textual adversarial sample generation task. I love studying math and machine learning theories, and making notes for them :)</p>
 
 <h2>Publications</h2>
 <ul class="publication-list">
