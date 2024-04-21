@@ -4,10 +4,16 @@
 # Han Cheol Moon
 
 <br />
+I am a curiosity-driven Machine Learning Scientist, passionate about exploring the depths of data and algorithms. 
+As an enthusiastic learner and code lover, I am always eager to expand my knowledge and embrace innovation.
 
 ## Research Interests
 - Natural language processing (NLP)
 - Robustness of NLP systems
+
+## Professional Employments
+- Samsung Electronics
+  - Staff ML/DL Engineer, Sept 2023 - Present
 
 ## Education
 - Nanyang Technological University, 2019-2023
@@ -22,17 +28,17 @@
 - Programming Languages 
   - Python, C/C++, MATLAB, and Bash/Shell
 - ML/DL Research
-  - PyTorch, Tensorflow, Scipy, Numpy, Scikit-learn, Hugging Face, and Pandas
+  - PyTorch, Tensorflow, Scipy, Numpy, Scikit-learn, Pandas, and HuggingFace
 - ML/DL Ops
-  - Git, Docker, Kubernetes, Jenkins, FastAPI, and LangChain  Linux/Unix (Debian and Arch-based distros)
+  - Git, Docker, Kubernetes, Jenkins, DVC, FastAPI, and LangChain  
 - Database
   - SQLite and PostgreSQL with SQLAlchemy and Alembic
+- WebDev
+  - HTML/CSS, Django, and Hugo
 - WorkFlow
-  - I've used Microsoft and GNU/Linux systems (both Debian and Arch-based varieties) with a Vim-based setup for writing scripts and managing files in a tiling window manager (i3). I use Git for version control with Docker and schedule multiple tasks with TaskSpooler. I compile documents using $\LaTeX$. 
+  - I've used Microsoft and GNU/Linux systems (both Debian and Arch-based varieties) with a **Vim**-based setup for writing scripts and managing files in a tiling window manager (**i3**). I use **Git** for version control with **Docker** and schedule multiple tasks with **TaskSpooler**. I compile documents using $\LaTeX$. 
 - Soft Skills
   - Time Management, Teamwork, Problem-solving, Documentation, Engaging Presentation.
-- Miscellaneous
-  - Vim, i3wm, Git, LaTex and Inkscape
   
 ## Teaching
 
