@@ -1,0 +1,3 @@
+[submodule "themes/KeepIt"]
+	path = themes/KeepIt
+	url = git@github.com:Han8931/KeepIt.git
