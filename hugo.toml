@@ -76,7 +76,7 @@ enableEmoji = true
   # website title for Open Graph and Twitter Cards
   title = "Han"
   # website description for RSS, SEO, Open Graph and Twitter Cards
-  description = "Hugo theme - KeepIt"
+  description = "Han's Blog"
   # website images for Open Graph and Twitter Cards
   images = ["/logo.png"]
 
@@ -330,7 +330,7 @@ enableEmoji = true
       fullscreen = true
     # Social share links in post page
     [params.page.share]
-      enable = true
+      enable = false
       Twitter = true
       Facebook = true
       Linkedin = false
@@ -342,11 +342,11 @@ enableEmoji = true
       VK = false
       Buffer = false
       Xing = false
-      Line = true
+      Line = false
       Instapaper = false
       Pocket = false
       Flipboard = false
-      Weibo = true
+      Weibo = false
       Blogger = false
       Baidu = false
       Odnoklassniki = false
