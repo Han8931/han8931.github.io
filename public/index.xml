@@ -7,92 +7,24 @@
             <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>Theme Documentation - Basics</title>
-    <link>http://localhost:1313/theme-documentation-basics/</link>
-    <pubDate>Fri, 06 Mar 2020 21:29:01 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-basics/</guid>
-    <description><![CDATA[<p>Discover what the Hugo - <strong>KeepIt</strong> theme is all about and the core-concepts behind it.</p>]]></description>
+    <title>How to keep sensitive data in Python?</title>
+    <link>http://localhost:1313/20240421_hide-sensitive-data/</link>
+    <pubDate>Sat, 20 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240421_hide-sensitive-data/</guid>
+    <description><![CDATA[How to keep config file? An app&rsquo;s config is everything that is likely to vary between deploys (staging, production, developer environments, etc). This includes:
+Resource handles to the database, Memcached, and other backing services Credentials to external services such as Amazon S3 or Twitter Per-deploy values such as the canonical hostname for the deploy Apps sometimes store config as constants in the code. This is a violation of twelve-factor, which requires strict separation of config from code.]]></description>
 </item>
 <item>
-    <title>Theme Documentation - Content</title>
-    <link>http://localhost:1313/theme-documentation-content/</link>
-    <pubDate>Thu, 05 Mar 2020 15:58:26 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-content/</guid>
-    <description><![CDATA[<p>Find out how to create and organize your content quickly and intuitively in <strong>KeepIt</strong> theme.</p>]]></description>
-</item>
-<item>
-    <title>Theme Documentation - Extended Shortcodes</title>
-    <link>http://localhost:1313/theme-documentation-extended-shortcodes/</link>
-    <pubDate>Tue, 03 Mar 2020 16:29:41 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-extended-shortcodes/</guid>
-    <description><![CDATA[<p><strong>KeepIt</strong> theme provides multiple shortcodes on top of built-in ones in Hugo.</p>]]></description>
-</item>
-<item>
-    <title>Basic Markdown Syntax</title>
-    <link>http://localhost:1313/basic-markdown-syntax/</link>
-    <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/basic-markdown-syntax/</guid>
-    <description><![CDATA[<p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files.</p>]]></description>
-</item>
-<item>
-    <title>Theme Documentation - mermaid Shortcode</title>
-    <link>http://localhost:1313/theme-documentation-mermaid-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 15:29:41 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-mermaid-shortcode/</guid>
-    <description><![CDATA[<a href="https://github.com/Fastbyte01/KeepIt/releases/tag/v0.2.11" rel="noopener noreffer" target="_blank"></a>
-<p>The <code>mermaid</code> shortcode supports diagrams in Hugo with <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener noreffer">Mermaid</a>
- library.</p>]]></description>
-</item>
-<item>
-    <title>Emoji Support</title>
-    <link>http://localhost:1313/emoji-support/</link>
-    <pubDate>Tue, 01 Oct 2019 17:55:28 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/emoji-support/</guid>
-    <description><![CDATA[<p>Emoji can be enabled in a Hugo project in a number of ways.</p>]]></description>
-</item>
-<item>
-    <title>Theme Documentation - echarts Shortcode</title>
-    <link>http://localhost:1313/theme-documentation-echarts-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 14:29:41 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-echarts-shortcode/</guid>
-    <description><![CDATA[<p>The <code>echarts</code> shortcode supports data visualization in Hugo with <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreffer">ECharts</a>
- library.</p>]]></description>
-</item>
-<item>
-    <title>Theme Documentation - mapbox Shortcode</title>
-    <link>http://localhost:1313/theme-documentation-mapbox-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 13:29:41 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-mapbox-shortcode/</guid>
-    <description><![CDATA[<a href="https://github.com/Fastbyte01/KeepIt/releases/tag/v0.2.0" rel="noopener noreffer" target="_blank"></a>
-<p>The <code>mapbox</code> shortcode supports interactive maps in Hugo with <a href="https://docs.mapbox.com/mapbox-gl-js" target="_blank" rel="noopener noreffer">Mapbox GL JS</a>
- library.</p>]]></description>
-</item>
-<item>
-    <title>Theme Documentation - music Shortcode</title>
-    <link>http://localhost:1313/theme-documentation-music-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 12:29:41 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-music-shortcode/</guid>
-    <description><![CDATA[<p>The <code>music</code> shortcode embeds a responsive music player based on <a href="https://github.com/MoePlayer/APlayer" target="_blank" rel="noopener noreffer">APlayer</a>
- and <a href="https://github.com/metowolf/MetingJS" target="_blank" rel="noopener noreffer">MetingJS</a>
-.</p>]]></description>
-</item>
-<item>
-    <title>Theme Documentation - bilibili Shortcode</title>
-    <link>http://localhost:1313/theme-documentation-bilibili-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 11:29:41 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-bilibili-shortcode/</guid>
-    <description><![CDATA[<a href="https://github.com/Fastbyte01/KeepIt/releases/tag/v0.2.0" rel="noopener noreffer" target="_blank"></a>
-<p>The <code>bilibili</code> shortcode embeds a responsive video player for bilibili videos.</p>]]></description>
+    <title>Type hint in Python</title>
+    <link>http://localhost:1313/20240421_type-hint/</link>
+    <pubDate>Sat, 20 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240421_type-hint/</guid>
+    <description><![CDATA[Reference:
+Link ArajanCode Type hinting is not mandatory, but it can make your code easier to understand and debug.
+Improved readability Better IDE support: IDEs and linters can use type hints to check your code for potential errors before runtime. While type hints can be simple classes like float or str , they can also be more complex. The typing module provides a vocabulary of more advanced type hints.
+Type hint cheat sheet Basics 1 2 3 4 5 6 7 8 9 10 11 12 # This is how you declare the type of a variable age: int = 1 # You don&#39;t need to initialize a variable to annotate it a: int # Ok (no value at runtime until assigned) # Doing so can be useful in conditional branches child: bool if age &lt; 18: child = True else: child = False 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 x: int = 1 x: float = 1.]]></description>
 </item>
 </channel>
 </rss>
