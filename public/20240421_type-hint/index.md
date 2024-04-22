@@ -1,9 +1,6 @@
 # Type hint in Python
 
 
-Reference: 
-- [Link](https://sjquant.tistory.com/69)
-- ArajanCode
 
 Type hinting is _not mandatory_, but it can make your code easier to understand and debug. 
 1. Improved readability
@@ -234,4 +231,7 @@ batch_iter([1.1, 1.3, 2.5, 4.2, 5.5], 2)
 ```
 
 Note that in Python 3.12, generic type hint has been changed
+
+## Reference
+- ArjanCodes
 
