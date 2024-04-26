@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Enum - Tag - Han&#39;s XYZ</title>
+        <link>http://localhost:1313/tags/enum/</link>
+        <description>Enum - Tag - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 26 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/enum/" rel="self" type="application/rss+xml" /><item>
+    <title>Enumerate variables with Enum!</title>
+    <link>http://localhost:1313/20240426_enum/</link>
+    <pubDate>Fri, 26 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240426_enum/</guid>
+    <description><![CDATA[Enum is a way that Python enumerate variables. The enum module allows for the creation of enumerated constants—unique, immutable data types that are useful for representing a fixed set of values. These values, which are usually related by their context, are known as enumeration members.
+Enum provides&hellip;
+Uniqueness - Each member of an Enum is unique within its definition, meaning no two members can have the same value. Attempting to define two members with the same value will result in an error unless you explicitly allow aliases.]]></description>
+</item>
+</channel>
+</rss>
