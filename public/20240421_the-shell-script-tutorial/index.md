@@ -2,7 +2,7 @@
 
 
 
-Let's create our first shell script
+Let's create our first simple shell script
 ```sh
 #!/bin/sh
 # This is a comment!

@@ -2,13 +2,12 @@
 
 
 
-Type hinting is _not mandatory_, but it can make your code easier to understand and debug. 
+Type hinting is _not mandatory_, but it can make your code easier to understand and debug by 
 1. Improved readability
 2. Better IDE support: IDEs and linters can use type hints to check your code for potential errors before runtime. 
 
 While type hints can be simple classes like [`float`](https://docs.python.org/3/library/functions.html#float "float") or [`str`](https://docs.python.org/3/library/stdtypes.html#str "str"), they can also be more complex. The [`typing`](https://docs.python.org/3/library/typing.html#module-typing "typing: Support for type hints (see :pep:`484`).") module provides a vocabulary of more advanced type hints.
 
-[Type hint cheat sheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
 
 ### Basics
 
@@ -90,7 +89,6 @@ if x is not None:
 assert x is not None
 print(x.upper())
 ```
-
 
 ### Any
 - `Any` is a special type hint in Python that indicates that a variable can be of any type. It essentially _disables static type checking for that variable_.
@@ -234,4 +232,5 @@ Note that in Python 3.12, generic type hint has been changed
 
 ## Reference
 - ArjanCodes
+- [Type hint cheat sheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
 

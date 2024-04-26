@@ -10,7 +10,7 @@
     <pubDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/20240421_the-shell-script-tutorial/</guid>
-    <description><![CDATA[Let&rsquo;s create our first shell script
+    <description><![CDATA[Let&rsquo;s create our first simple shell script
 1 2 3 #!/bin/sh # This is a comment! echo Hello World # This is a comment, too! The first line tells Unix that the file is to be executed by /bin/sh. This is the standard location of the Bourne shell on just about every Unix system. If you&rsquo;re using GNU/Linux, /bin/sh is normally a symbolic link to bash (or, more recently, dash). The second line begins with a special symbol: #.]]></description>
 </item>
 </channel>
