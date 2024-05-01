@@ -14,6 +14,14 @@
 Pacman ensures your system remains updated by synchronizing the package lists with the master server. This client/server model simplifies the process of downloading and installing packages, along with all their dependencies, using basic commands.]]></description>
 </item>
 <item>
+    <title>Type at the speed of thought!</title>
+    <link>http://localhost:1313/20240501_vim/</link>
+    <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240501_vim/</guid>
+    <description><![CDATA[While it may look somewhat obsolete in an era dominated by graphically rich IDEs, Vim remains not just a highly relevant and effective tool for today&rsquo;s programmers but also a badge of coolness in the tech world. Those who master its commands are often seen as coding wizards. With its unique advantages in speed, efficiency, and customizability, Vim is an invaluable asset in software development environments, proving that old-school can still be trendy.]]></description>
+</item>
+<item>
     <title>Why Use Python&#39;s `pdb` Debugger Over an IDE?</title>
     <link>http://localhost:1313/20240426_pdb/</link>
     <pubDate>Sat, 27 Apr 2024 00:00:00 &#43;0000</pubDate>
