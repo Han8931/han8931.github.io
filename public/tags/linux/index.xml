@@ -4,7 +4,16 @@
         <link>http://localhost:1313/tags/linux/</link>
         <description>Linux - Tag - Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 01 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Handy Pacman Commands in Arch Linux</title>
+    <link>http://localhost:1313/20240501_pacman/</link>
+    <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240501_pacman/</guid>
+    <description><![CDATA[Pacman , the package manager for Arch Linux, is known for its simple binary package format and easy-to-use build system . The primary aim of Pacman is to facilitate straightforward management of packages from both the official repositories and user-generated builds.
+Pacman ensures your system remains updated by synchronizing the package lists with the master server. This client/server model simplifies the process of downloading and installing packages, along with all their dependencies, using basic commands.]]></description>
+</item>
+<item>
     <title>Bash script tutorial</title>
     <link>http://localhost:1313/20240421_the-shell-script-tutorial/</link>
     <pubDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</pubDate>

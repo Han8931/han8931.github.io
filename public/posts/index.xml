@@ -4,7 +4,24 @@
         <link>http://localhost:1313/posts/</link>
         <description>All Posts | Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 26 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 01 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Handy Pacman Commands in Arch Linux</title>
+    <link>http://localhost:1313/20240501_pacman/</link>
+    <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240501_pacman/</guid>
+    <description><![CDATA[Pacman , the package manager for Arch Linux, is known for its simple binary package format and easy-to-use build system . The primary aim of Pacman is to facilitate straightforward management of packages from both the official repositories and user-generated builds.
+Pacman ensures your system remains updated by synchronizing the package lists with the master server. This client/server model simplifies the process of downloading and installing packages, along with all their dependencies, using basic commands.]]></description>
+</item>
+<item>
+    <title>Why Use Python&#39;s `pdb` Debugger Over an IDE?</title>
+    <link>http://localhost:1313/20240426_pdb/</link>
+    <pubDate>Sat, 27 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240426_pdb/</guid>
+    <description><![CDATA[When it comes to debugging Python code, most programmers reach for an Integrated Development Environment (IDE) because of its convenience and powerful features. However, there&rsquo;s a classic, built-in tool that shouldn&rsquo;t be overlooked: Python&rsquo;s own debugger, pdb. This tool might seem basic at first glance, but it offers some compelling advantages, especially in scenarios where an IDE might be less effective. Here&rsquo;s why you might consider using pdb for debugging your Python projects:]]></description>
+</item>
+<item>
     <title>Data validation with Pydantic!</title>
     <link>http://localhost:1313/20240426_pydantic/</link>
     <pubDate>Fri, 26 Apr 2024 00:00:00 &#43;0000</pubDate>
