@@ -4,8 +4,7 @@
 # Han Cheol Moon
 
 <br />
-I am a curiosity-driven Machine Learning Scientist, passionate about exploring the depths of data and algorithms. 
-As an enthusiastic learner and code lover, I am always eager to expand my knowledge and embrace innovation.
+Welcome to Han's XYZ, where you'll explore a world of ideas across every dimension of thought. I am a curiosity-driven Machine Learning Scientist, passionate about exploring the depths of data and algorithms. As an enthusiastic learner and code lover, I am always eager to expand my knowledge and embrace innovation, with a commitment to sharing my insights and discoveries with you.
 
 ## Research Interests
 - Natural language processing (NLP)
