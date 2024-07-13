@@ -28,7 +28,7 @@ git clone https://github.com/justanhduc/task-spooler
 
 #### Install GPU Version
 
-To set up Task Spooler with GPU support, set the `CUDA_HOME` environment variable and run the provided script:
+To set up Task Spooler with GPU support, run the provided script:
 
 ```sh
 ./install_cmake
