@@ -4,7 +4,31 @@
         <link>http://localhost:1313/tags/</link>
         <description>Tags - Tag - Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 07 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Scheduler</title>
+    <link>http://localhost:1313/tags/scheduler/</link>
+    <pubDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/scheduler/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Task Management</title>
+    <link>http://localhost:1313/tags/task-management/</link>
+    <pubDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/task-management/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Taskspooler</title>
+    <link>http://localhost:1313/tags/taskspooler/</link>
+    <pubDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/taskspooler/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Poetry</title>
     <link>http://localhost:1313/tags/poetry/</link>
     <pubDate>Sun, 07 Jul 2024 00:00:00 &#43;0000</pubDate>
@@ -58,30 +82,6 @@
     <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/tags/vim/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Debug</title>
-    <link>http://localhost:1313/tags/debug/</link>
-    <pubDate>Sat, 27 Apr 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/debug/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Pdb</title>
-    <link>http://localhost:1313/tags/pdb/</link>
-    <pubDate>Sat, 27 Apr 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/pdb/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Enum</title>
-    <link>http://localhost:1313/tags/enum/</link>
-    <pubDate>Fri, 26 Apr 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/enum/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
