@@ -31,13 +31,13 @@ git clone https://github.com/justanhduc/task-spooler
 To set up Task Spooler with GPU support, run the provided script:
 
 ```sh
-./install_cmake
+./install_make
 ```
 
 Alternatively, to use CMake:
 
 ```sh
-./install_make
+./install_cmake
 ```
 
 If Task Spooler is already installed, and you want to reinstall or upgrade, run:
