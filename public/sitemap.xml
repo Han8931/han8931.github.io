@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://localhost:1313/20240804_gpg_encryption/</loc><lastmod>2024-08-04T11:27:04&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/20240804_gpg_encryption/</loc><lastmod>2024-08-04T11:31:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20240713_taskspooler/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20240707_poetry/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20240501_pacman/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
@@ -15,15 +15,15 @@
             <loc>http://localhost:1313/20240421_why-linux/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20240421_hide-sensitive-data/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20240421_type-hint/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/categories/</loc><lastmod>2024-08-04T11:27:04&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/decryption/</loc><lastmod>2024-08-04T11:27:04&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/encryption/</loc><lastmod>2024-08-04T11:27:04&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/gpg/</loc><lastmod>2024-08-04T11:27:04&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/categories/gpg/</loc><lastmod>2024-08-04T11:27:04&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/</loc><lastmod>2024-08-04T11:27:04&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/posts/</loc><lastmod>2024-08-04T11:27:04&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/privacy/</loc><lastmod>2024-08-04T11:27:04&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/</loc><lastmod>2024-08-04T11:27:04&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/categories/</loc><lastmod>2024-08-04T11:31:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/decryption/</loc><lastmod>2024-08-04T11:31:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/encryption/</loc><lastmod>2024-08-04T11:31:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/gpg/</loc><lastmod>2024-08-04T11:31:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/categories/gpg/</loc><lastmod>2024-08-04T11:31:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/</loc><lastmod>2024-08-04T11:31:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/posts/</loc><lastmod>2024-08-04T11:31:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/privacy/</loc><lastmod>2024-08-04T11:31:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/</loc><lastmod>2024-08-04T11:31:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/tags/scheduler/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/tags/task-management/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/tags/taskspooler/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
