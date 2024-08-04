@@ -31,43 +31,20 @@ This is how asymmetric encryption works:
    - The recipient uses their private key to decrypt the received message.
    - The private key is the only key that can decrypt the message encrypted with the corresponding public key.
 
+![Example](/images/logo.png)
 
+## How to Use GPG?
 
-### Example
+- **Installation**:
+```sh
+sudo apt-get install gnupg # Ubuntu
+sudo pacman -S gnupg # Arch
+```
 
-1. **Key Pair Generation**:
-   - Alice generates a key pair: `public_key_alice` and `private_key_alice`.
-
-2. **Public Key Distribution**:
-   - Alice shares `public_key_alice` with Bob.
-
-3. **Encryption**:
-   - Bob wants to send a confidential message to Alice.
-   - Bob encrypts the message using `public_key_alice`.
-
-4. **Decryption**:
-   - Alice receives the encrypted message.
-   - Alice decrypts the message using `private_key_alice`.
-
-### Benefits of Asymmetric Encryption
-
-1. **Security**: Even if the public key is intercepted, the message remains secure because only the private key can decrypt it.
-2. **Key Management**: Users only need to protect their private key, making key management simpler compared to symmetric encryption where the key must be securely shared and stored.
-3. **Digital Signatures**: Asymmetric encryption also enables digital signatures, where a private key is used to sign a message, and the corresponding public key is used to verify the signature.
-
-### Practical Uses
-
-1. **Secure Communications**: Ensuring that only the intended recipient can read the message.
-2. **Digital Signatures**: Verifying the authenticity and integrity of a message or document.
-3. **SSL/TLS**: Securing internet communications (e.g., HTTPS websites).
-4. **PGP/GPG**: Encrypting emails and files for secure communication.
-
-### Example Commands with GPG
-
-- **Generate a Key Pair**:
-  ```sh
-  gpg --full-generate-key
-  ```
+- **Generate a GPG Key**:
+```sh
+gpg --full-gen-key
+```
 
 - **Export Public Key**:
   ```sh
@@ -88,26 +65,5 @@ This is how asymmetric encryption works:
   ```sh
   gpg --output file.txt --decrypt encryptedfile.gpg
   ```
-
-In summary, asymmetric encryption is a powerful and flexible cryptographic method that provides enhanced security and key management capabilities, making it suitable for a wide range of applications in digital communications and data protection.
-
-# What is GnuPG?
-GnuPG, also known as GPG, is a free software that implements the OpenPGP (pretty good privacy) standard. It allows you to encrypt and sign your data and communications. It is an essential tool for anyone concerned about privacy and security in their digital life.
-
-
-# How to Use?
-
-## Installation
-```sh
-sudo apt-get install gnupg # Ubuntu
-sudo pacman -S gnupg # Arch
-```
-
-## Generate a GPG Key
-```sh
-gpg --full-gen-key
-```
-
-
 
 
