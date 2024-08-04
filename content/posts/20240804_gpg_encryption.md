@@ -67,4 +67,36 @@ gpg --full-gen-key
   gpg --output file.txt --decrypt encryptedfile.gpg
   ```
 
+## Singinig/Verifying Files
 
+A detached signature is a separate file that contains the signature of the original file.
+```sh
+gpg --output file.sig --detach-sign file.txt
+```
+- `file.txt` is the file you want to sign.
+- `file.sig` is the signature file generated.
+
+To verify the detached signature:
+```sh
+gpg --verify file.sig file.txt
+```
+
+To sign text files, 
+```sh
+gpg --clearsign <file name>
+```
+- This will create a file called `file.txt.asc` which contains the original text and the signature.
+
+To verify
+```sh
+gpg --verify <file.asc>
+```
+
+## A Simple GitHub Verification using ssh with gpg
+
+### Generate SSH key
+- `ssh-keygen -t rsa` or simply `ssh-keygen`
+	- `id_rsa` : private key
+	- `id_rsa.pub` : public key
+- Go to SSH and GPG keys in the setting menu of GitHub
+- Just paste your public key

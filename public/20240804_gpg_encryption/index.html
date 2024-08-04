@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-08-04T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-04T11:42:33+09:00">
+    <meta property="article:modified_time" content="2024-08-04T11:44:57+09:00">
     <meta property="article:tag" content="Gpg">
     <meta property="article:tag" content="Encryption">
     <meta property="article:tag" content="Decryption">
@@ -35,8 +35,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240804_gpg_encryption\/"
-        },"genre": "posts","keywords": "gpg, encryption, decryption, privacy","wordcount":  366 ,
-        "url": "http:\/\/localhost:1313\/20240804_gpg_encryption\/","datePublished": "2024-08-04T00:00:00+00:00","dateModified": "2024-08-04T11:42:33+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "gpg, encryption, decryption, privacy","wordcount":  485 ,
+        "url": "http:\/\/localhost:1313\/20240804_gpg_encryption\/","datePublished": "2024-08-04T00:00:00+00:00","dateModified": "2024-08-04T11:44:57+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -111,8 +111,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Data Encryption using GPG!</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/gpg/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Gpg</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-04">2024-08-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;366 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-04">2024-08-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;485 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -122,6 +122,12 @@
   <ul>
     <li><a href="#asymmetric-encryption">Asymmetric Encryption</a></li>
     <li><a href="#how-to-use-gpg">How to Use GPG?</a></li>
+    <li><a href="#singinigverifying-files">Singinig/Verifying Files</a></li>
+    <li><a href="#a-simple-github-verification-using-ssh-with-gpg">A Simple GitHub Verification using ssh with gpg</a>
+      <ul>
+        <li><a href="#generate-ssh-key">Generate SSH key</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="securing-your-privacy">Securing Your Privacy</h1>
@@ -225,12 +231,68 @@
 </div>
 </div></li>
 </ul>
+<h2 id="singinigverifying-files">Singinig/Verifying Files</h2>
+<p>A detached signature is a separate file that contains the signature of the original file.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gpg --output file.sig --detach-sign file.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>file.txt</code> is the file you want to sign.</li>
+<li><code>file.sig</code> is the signature file generated.</li>
+</ul>
+<p>To verify the detached signature:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gpg --verify file.sig file.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To sign text files,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gpg --clearsign &lt;file name&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>This will create a file called <code>file.txt.asc</code> which contains the original text and the signature.</li>
+</ul>
+<p>To verify</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gpg --verify &lt;file.asc&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="a-simple-github-verification-using-ssh-with-gpg">A Simple GitHub Verification using ssh with gpg</h2>
+<h3 id="generate-ssh-key">Generate SSH key</h3>
+<ul>
+<li><code>ssh-keygen -t rsa</code> or simply <code>ssh-keygen</code>
+<ul>
+<li><code>id_rsa</code> : private key</li>
+<li><code>id_rsa.pub</code> : public key</li>
+</ul>
+</li>
+<li>Go to SSH and GPG keys in the setting menu of GitHub</li>
+<li>Just paste your public key</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2024-08-04&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/a85cf455fe87c13222c30a41a19c5a2bb788a164" target="_blank" title="commit by Han(tabularasa8931@gmail.com) a85cf455fe87c13222c30a41a19c5a2bb788a164: Update">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>a85cf45</a></span>
+                <span>Updated on 2024-08-04&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/7bc5395d41df8377d23f6b90e2dca28297830e7d" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 7bc5395d41df8377d23f6b90e2dca28297830e7d: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>7bc5395</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
