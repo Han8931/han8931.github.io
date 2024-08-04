@@ -31,8 +31,7 @@ This is how asymmetric encryption works:
    - The recipient uses their private key to decrypt the received message.
    - The private key is the only key that can decrypt the message encrypted with the corresponding public key.
 
-![GPGExample](https://github.com/Han8931/han8931.github.io/blob/main/assets/images/gpg_example.png)
-
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/blob/main/assets/images/gpg_example.png" alt="GPG Example" height="400">
 
 ## How to Use GPG?
 
