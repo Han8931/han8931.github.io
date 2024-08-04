@@ -4,7 +4,39 @@
         <link>http://localhost:1313/tags/</link>
         <description>Tags - Tag - Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Decryption</title>
+    <link>http://localhost:1313/tags/decryption/</link>
+    <pubDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/decryption/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Encryption</title>
+    <link>http://localhost:1313/tags/encryption/</link>
+    <pubDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/encryption/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Gpg</title>
+    <link>http://localhost:1313/tags/gpg/</link>
+    <pubDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/gpg/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Privacy</title>
+    <link>http://localhost:1313/tags/privacy/</link>
+    <pubDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/privacy/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Scheduler</title>
     <link>http://localhost:1313/tags/scheduler/</link>
     <pubDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</pubDate>
@@ -50,38 +82,6 @@
     <pubDate>Sun, 07 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/tags/virtual-environment/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Arch</title>
-    <link>http://localhost:1313/tags/arch/</link>
-    <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/arch/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Linux</title>
-    <link>http://localhost:1313/tags/linux/</link>
-    <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/linux/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Pacman</title>
-    <link>http://localhost:1313/tags/pacman/</link>
-    <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/pacman/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Vim</title>
-    <link>http://localhost:1313/tags/vim/</link>
-    <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/vim/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
