@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-08-10T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-08-10T12:04:41+09:00">
     <meta property="article:tag" content="Machine Learning">
     <meta property="article:tag" content="Regression">
     <meta property="article:tag" content="Least Square">
@@ -34,8 +34,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240810_regression1\/"
-        },"genre": "posts","keywords": "machine learning, regression, least square","wordcount":  824 ,
-        "url": "http:\/\/localhost:1313\/20240810_regression1\/","datePublished": "2024-08-10T00:00:00+00:00","dateModified": "2024-08-10T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "machine learning, regression, least square","wordcount":  832 ,
+        "url": "http:\/\/localhost:1313\/20240810_regression1\/","datePublished": "2024-08-10T00:00:00+00:00","dateModified": "2024-08-10T12:04:41+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -110,7 +110,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Getting Started with Regression: An Introductory Guide (Part 1)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;824 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;832 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -119,7 +119,11 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#linear-regression">Linear Regression</a></li>
+    <li><a href="#linear-regression">Linear Regression</a>
+      <ul>
+        <li><a href="#python-code">Python Code</a></li>
+      </ul>
+    </li>
     <li><a href="#overdetermined-and-underdetermined-systems">Overdetermined and Underdetermined Systems</a>
       <ul>
         <li>
@@ -173,6 +177,7 @@ leading to the solution:
 \boldsymbol{\theta} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}.
 \end{align*}
 The equation $\mathbf{X}^T(\mathbf{X} \boldsymbol{\theta} - \mathbf{y}) = 0$ is known as the <em>normal equation</em>.</p>
+<h3 id="python-code">Python Code</h3>
 <p>Let&rsquo;s implement a simple regression in Python:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -263,14 +268,16 @@ The first equation gives us $\boldsymbol{\theta}=-\mathbf{X}^T\boldsymbol{\lambd
 \begin{align*}
 \boldsymbol{\theta}=\mathbf{X}^T(\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{y}.
 \end{align*}
-Note that $\mathbf{X}\mathbf{X}^T$ is often called a \textit{Gram matrix}, $\mathbf{G}$.</p>
+Note that $\mathbf{X}\mathbf{X}^T$ is often called a <em>Gram matrix</em>, $\mathbf{G}$.</p>
+<p>This article continues in Part 2.</p>
 <h4 id="references">References:</h4>
 <p>H. Pishro-Nik, Introduction to Probability, Statistics, and Random Processes, 2014</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2024-08-10</span>
+                <span>Updated on 2024-08-10&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/2880a16fd1801f5958f8d6042bdbdcb06634abf1" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 2880a16fd1801f5958f8d6042bdbdcb06634abf1: Regression">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>2880a16</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>

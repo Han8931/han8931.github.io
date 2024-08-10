@@ -655,7 +655,7 @@ enableEmoji = true
           social = true
           disclaimer = ""
       [languages.en.params.social]
-        GitHub = "https://github.com/Han8931"
+        GitHub = "Han8931" # GitHub ID
         # Twitter = "xxxx"
         # Instagram = "xxxx"
         # Facebook = "xxxx"

@@ -51,6 +51,8 @@ leading to the solution:
 \end{align*}
 The equation $\mathbf{X}^T(\mathbf{X} \boldsymbol{\theta} - \mathbf{y}) = 0$ is known as the *normal equation*.
 
+### Python Code
+
 Let's implement a simple regression in Python:
 ```python
 import numpy as np
@@ -113,7 +115,9 @@ The first equation gives us $\boldsymbol{\theta}=-\mathbf{X}^T\boldsymbol{\lambd
 \begin{align*}
 	\boldsymbol{\theta}=\mathbf{X}^T(\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{y}.
 \end{align*}
-Note that $\mathbf{X}\mathbf{X}^T$ is often called a \textit{Gram matrix}, $\mathbf{G}$.
+Note that $\mathbf{X}\mathbf{X}^T$ is often called a *Gram matrix*, $\mathbf{G}$.
+
+This article continues in Part 2.
 
 #### References:
 H. Pishro-Nik, Introduction to Probability, Statistics, and Random Processes, 2014
