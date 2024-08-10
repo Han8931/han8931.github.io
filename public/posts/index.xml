@@ -4,7 +4,15 @@
         <link>http://localhost:1313/posts/</link>
         <description>All Posts | Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 10 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Getting Started with Regression: An Introductory Guide (Part 1)</title>
+    <link>http://localhost:1313/20240810_regression/</link>
+    <pubDate>Sat, 10 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240810_regression/</guid>
+    <description><![CDATA[Getting Started with Regression: An Introductory Guide (Part 1) Regression is a method used to identify the relationship between input and output variables. In a regression problem, we are given a set of noisy measurements (or output data) $\mathbf{y} = [y_1, \dots, y_d]^T$, which are affected by measurement noise $\boldsymbol{\eta} = [\eta_1, \dots, \eta_d]^T$. The corresponding input data is denoted by $\mathbf{x} = [x_1, \dots, x_d]$. We refer to the collection of these input-output pairs as the training data, $\mathcal{D} = {(\mathbf{x}_1, \mathbf{y}_1), \dots, (\mathbf{x}_m, \mathbf{y}_m)}$.]]></description>
+</item>
+<item>
     <title>Data Encryption using GPG!</title>
     <link>http://localhost:1313/20240804_gpg_encryption/</link>
     <pubDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</pubDate>
@@ -83,15 +91,6 @@ Uniqueness - Each member of an Enum is unique within its definition, meaning no 
     <author>Han</author>
     <guid>http://localhost:1313/20240426_unit-tests/</guid>
     <description><![CDATA[Unit testing involves testing individual components of software in isolation to ensure they function correctly. Automated frameworks facilitate this process, which is integral to ensuring that new changes do not disrupt existing functionality. Unit tests also serve as practical documentation and encourage better software design. This testing method boosts development speed and confidence by confirming component reliability before integration. Early bug detection through unit testing also helps minimize future repair costs and efforts.]]></description>
-</item>
-<item>
-    <title>Bash script tutorial</title>
-    <link>http://localhost:1313/20240421_the-shell-script-tutorial/</link>
-    <pubDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/20240421_the-shell-script-tutorial/</guid>
-    <description><![CDATA[Let&rsquo;s create our first simple shell script
-1 2 3 #!/bin/sh # This is a comment! echo Hello World # This is a comment, too! The first line tells Unix that the file is to be executed by /bin/sh. This is the standard location of the Bourne shell on just about every Unix system. If you&rsquo;re using GNU/Linux, /bin/sh is normally a symbolic link to bash (or, more recently, dash). The second line begins with a special symbol: #.]]></description>
 </item>
 </channel>
 </rss>

@@ -4,7 +4,31 @@
         <link>http://localhost:1313/tags/</link>
         <description>Tags - Tag - Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 10 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Least Square</title>
+    <link>http://localhost:1313/tags/least-square/</link>
+    <pubDate>Sat, 10 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/least-square/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Machine Learning</title>
+    <link>http://localhost:1313/tags/machine-learning/</link>
+    <pubDate>Sat, 10 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/machine-learning/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Regression</title>
+    <link>http://localhost:1313/tags/regression/</link>
+    <pubDate>Sat, 10 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/regression/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Decryption</title>
     <link>http://localhost:1313/tags/decryption/</link>
     <pubDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</pubDate>
@@ -58,30 +82,6 @@
     <pubDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/tags/taskspooler/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Poetry</title>
-    <link>http://localhost:1313/tags/poetry/</link>
-    <pubDate>Sun, 07 Jul 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/poetry/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Python</title>
-    <link>http://localhost:1313/tags/python/</link>
-    <pubDate>Sun, 07 Jul 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/python/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Virtual Environment</title>
-    <link>http://localhost:1313/tags/virtual-environment/</link>
-    <pubDate>Sun, 07 Jul 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/virtual-environment/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

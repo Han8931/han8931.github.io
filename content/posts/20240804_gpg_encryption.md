@@ -48,24 +48,24 @@ gpg --full-gen-key
 ```
 
 - **Export Public Key**:
-  ```sh
-  gpg --export --armor your-email@example.com > publickey.asc
-  ```
+```sh
+gpg --export --armor your-email@example.com > publickey.asc
+```
 
 - **Import Public Key**:
-  ```sh
-  gpg --import publickey.asc
-  ```
+```sh
+gpg --import publickey.asc
+```
 
 - **Encrypt a File**:
-  ```sh
-  gpg --output encryptedfile.gpg --encrypt --recipient recipient@example.com file.txt
-  ```
+```sh
+gpg --output encryptedfile.gpg --encrypt --recipient recipient@example.com file.txt
+```
 
 - **Decrypt a File**:
-  ```sh
-  gpg --output file.txt --decrypt encryptedfile.gpg
-  ```
+```sh
+gpg --output file.txt --decrypt encryptedfile.gpg
+```
 
 ## Singinig/Verifying Files
 
