@@ -10,7 +10,14 @@
     <pubDate>Sat, 10 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/20240810_regression/</guid>
-    <description><![CDATA[Getting Started with Regression: An Introductory Guide (Part 1) Regression is a method used to identify the relationship between input and output variables. In a regression problem, we are given a set of noisy measurements (or output data) $\mathbf{y} = [y_1, \dots, y_d]^T$, which are affected by measurement noise $\boldsymbol{\eta} = [\eta_1, \dots, \eta_d]^T$. The corresponding input data is denoted by $\mathbf{x} = [x_1, \dots, x_d]$. We refer to the collection of these input-output pairs as the training data, $\mathcal{D} = {(\mathbf{x}_1, \mathbf{y}_1), \dots, (\mathbf{x}_m, \mathbf{y}_m)}$.]]></description>
+    <description><![CDATA[Getting Started with Regression: An Introductory Guide (Part 1) Inline Formula: {{&lt; raw &gt;}}(\mathbf{E}=\sum_{i} \mathbf{E}{i}=\mathbf{E}{1}+\mathbf{E}{2}+\mathbf{E}{3}+\cdots){{&lt; /raw &gt;}} (\mathbf{x})
+(\mathbf{x})
+[ a=b+c \ d+e=f ] Block Formula:
+{{&lt; raw &gt;}} [ a=b+c \ d+e=f ] {{&lt; /raw &gt;}}
+Raw content using Markdown syntax: {{&lt; raw &gt;}}Hello{{&lt; /raw &gt;}}
+\begin{align} 1+2 \end{align}
+$$1+2$$
+Regression is a method used to identify the relationship between input and output variables. In a regression problem, we are given a set of noisy measurements (or output data) $\mathbf{y} = [y_1, \dots, y_d]^T$, which are affected by measurement noise $\boldsymbol{\eta} = [\eta_1, \dots, \eta_d]^T$.]]></description>
 </item>
 </channel>
 </rss>

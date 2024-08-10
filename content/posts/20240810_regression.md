@@ -7,9 +7,32 @@ author: Han
 description: "Introduction to Regression: Understanding the Basics (Part 1)"
 tags: ["machine learning", "regression", "least square"]
 categories: ["machine learning"]
+katex: true
+math: true
 ---
 
 # Getting Started with Regression: An Introductory Guide (Part 1)
+
+
+Inline Formula: {{</* raw */>}}\(\mathbf{E}=\sum_{i} \mathbf{E}_{i}=\mathbf{E}_{1}+\mathbf{E}_{2}+\mathbf{E}_{3}+\cdots\){{</* /raw */>}}
+\(\mathbf{x}\)
+
+\(\mathbf{x}\)
+
+\[ a=b+c \\ d+e=f \]
+Block Formula:
+
+{{</* raw */>}}
+\[ a=b+c \\ d+e=f \]
+{{</* /raw */>}}
+
+Raw content using Markdown syntax: {{</* raw */>}}**Hello**{{</* /raw */>}}
+
+\begin{align}
+1+2
+\end{align}
+
+$$1+2$$
 
 Regression is a method used to identify the relationship between input and output variables. In a regression problem, we are given a set of noisy measurements (or output data) $\mathbf{y} = [y_1, \dots, y_d]^T$, which are affected by measurement noise $\boldsymbol{\eta} = [\eta_1, \dots, \eta_d]^T$. The corresponding input data is denoted by $\mathbf{x} = [x_1, \dots, x_d]$. We refer to the collection of these input-output pairs as the training data, $\mathcal{D} = \{(\mathbf{x}_1, \mathbf{y}_1), \dots, (\mathbf{x}_m, \mathbf{y}_m)\}$. The true relationship between the input and output data is unknown and is represented by a function $f(\cdot)$ that maps $\mathbf{x}_n$ to $y_n$, i.e.,
 
