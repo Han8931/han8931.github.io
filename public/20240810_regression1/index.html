@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Getting Started with Regression: An Introductory Guide (Part 1) - Han&#39;s XYZ</title><meta name="Description" content="Introduction to Regression: Understanding the Basics (Part 1)"><meta property="og:url" content="http://localhost:1313/20240810_regression/">
+        <title>Getting Started with Regression: An Introductory Guide (Part 1) - Han&#39;s XYZ</title><meta name="Description" content="Introduction to Regression: Understanding the Basics (Part 1)"><meta property="og:url" content="http://localhost:1313/20240810_regression1/">
   <meta property="og:site_name" content="Han&#39;s XYZ">
   <meta property="og:title" content="Getting Started with Regression: An Introductory Guide (Part 1)">
   <meta property="og:description" content="Introduction to Regression: Understanding the Basics (Part 1)">
@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-08-10T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-10T10:47:52+09:00">
+    <meta property="article:modified_time" content="2024-08-10T00:00:00+00:00">
     <meta property="article:tag" content="Machine Learning">
     <meta property="article:tag" content="Regression">
     <meta property="article:tag" content="Least Square">
@@ -25,7 +25,7 @@
 <meta name="application-name" content="KeepIt">
 <meta name="apple-mobile-web-app-title" content="KeepIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/20240810_regression/" /><link rel="prev" href="http://localhost:1313/20240804_gpg_encryption/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/20240810_regression1/" /><link rel="prev" href="http://localhost:1313/20240804_gpg_encryption/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -33,9 +33,9 @@
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http:\/\/localhost:1313\/20240810_regression\/"
-        },"genre": "posts","keywords": "machine learning, regression, least square","wordcount":  822 ,
-        "url": "http:\/\/localhost:1313\/20240810_regression\/","datePublished": "2024-08-10T00:00:00+00:00","dateModified": "2024-08-10T10:47:52+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "http:\/\/localhost:1313\/20240810_regression1\/"
+        },"genre": "posts","keywords": "machine learning, regression, least square","wordcount":  824 ,
+        "url": "http:\/\/localhost:1313\/20240810_regression1\/","datePublished": "2024-08-10T00:00:00+00:00","dateModified": "2024-08-10T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -110,7 +110,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Getting Started with Regression: An Introductory Guide (Part 1)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;822 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;824 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -119,6 +119,7 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
+    <li><a href="#linear-regression">Linear Regression</a></li>
     <li><a href="#overdetermined-and-underdetermined-systems">Overdetermined and Underdetermined Systems</a>
       <ul>
         <li>
@@ -131,6 +132,7 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="an-introductory-guide-part-1">An Introductory Guide (Part 1)</h1>
+<h2 id="linear-regression">Linear Regression</h2>
 <p>Regression is a method used to identify the relationship between input and output variables. In a regression problem, we are given a set of noisy measurements (or output data) $\mathbf{y} = [y_1, \dots, y_d]^T$, which are affected by measurement noise $\boldsymbol{\eta} = [\eta_1, \dots, \eta_d]^T$. The corresponding input data is denoted by $\mathbf{x} = [x_1, \dots, x_d]$. We refer to the collection of these input-output pairs as the training data, $\mathcal{D} = {(\mathbf{x}_1, \mathbf{y}_1), \dots, (\mathbf{x}_m, \mathbf{y}_m)}$. The true relationship between the input and output data is unknown and is represented by a function $f(\cdot)$ that maps $\mathbf{x}_n$ to $y_n$, i.e.,
 $$
 \mathbf{y} = f(\mathbf{x}).
@@ -268,12 +270,11 @@ Note that $\mathbf{X}\mathbf{X}^T$ is often called a \textit{Gram matrix}, $\mat
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2024-08-10&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/6db11d80167836e9cf2ecf44c27b352e327b4cec" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 6db11d80167836e9cf2ecf44c27b352e327b4cec: Update">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>6db11d8</a></span>
+                <span>Updated on 2024-08-10</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/20240810_regression/index.md" target="_blank">Read Markdown</a>
+                            <a class="link-to-markdown" href="/20240810_regression1/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
                 <span></span>

@@ -1,16 +1,9 @@
----
-weight: 1
-title: "Getting Started with Regression: An Introductory Guide (Part 1)"
-date: 2024-08-10
-draft: false
-author: Han
-description: "Introduction to Regression: Understanding the Basics (Part 1)"
-tags: ["machine learning", "regression", "least square"]
-categories: ["machine learning"]
----
+# Getting Started with Regression: An Introductory Guide (Part 1)
+
 
 # An Introductory Guide (Part 1)
 
+## Linear Regression
 Regression is a method used to identify the relationship between input and output variables. In a regression problem, we are given a set of noisy measurements (or output data) $\mathbf{y} = [y_1, \dots, y_d]^T$, which are affected by measurement noise $\boldsymbol{\eta} = [\eta_1, \dots, \eta_d]^T$. The corresponding input data is denoted by $\mathbf{x} = [x_1, \dots, x_d]$. We refer to the collection of these input-output pairs as the training data, $\mathcal{D} = \{(\mathbf{x}_1, \mathbf{y}_1), \dots, (\mathbf{x}_m, \mathbf{y}_m)\}$. The true relationship between the input and output data is unknown and is represented by a function $f(\cdot)$ that maps $\mathbf{x}_n$ to $y_n$, i.e.,
 $$
 	\mathbf{y} = f(\mathbf{x}).
@@ -40,7 +33,7 @@ MSE = \frac{1}{n}\sum_{i=1}^n (y_i - \mathbf{x}_i \boldsymbol{\theta})^2.
 We can optimize this function in closed form as follows:
 
 \begin{align*}
-J(\boldsymbol{\theta}) &= \|\mathbf{y} - \mathbf{X} \boldsymbol{\theta}\|^2_2 \\\\
+J(\boldsymbol{\theta}) &= \lVert\mathbf{y} - \mathbf{X} \boldsymbol{\theta}\rVert^2_2 \\\\
                         &= (\mathbf{y} - \mathbf{X} \boldsymbol{\theta})^T(\mathbf{y} - \mathbf{X} \boldsymbol{\theta}) \\\\
                         &= \mathbf{y}^T \mathbf{y} - \boldsymbol{\theta}^T \mathbf{X}^T \mathbf{y} - \mathbf{y}^T \mathbf{X} \boldsymbol{\theta} + \boldsymbol{\theta}^T \mathbf{X}^T \mathbf{X} \boldsymbol{\theta}.
 \end{align*}
@@ -124,5 +117,6 @@ Note that $\mathbf{X}\mathbf{X}^T$ is often called a \textit{Gram matrix}, $\mat
 
 #### References:
 H. Pishro-Nik, Introduction to Probability, Statistics, and Random Processes, 2014
+
 
 
