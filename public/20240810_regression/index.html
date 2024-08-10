@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-08-10T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-10T10:08:17+09:00">
+    <meta property="article:modified_time" content="2024-08-10T10:47:52+09:00">
     <meta property="article:tag" content="Machine Learning">
     <meta property="article:tag" content="Regression">
     <meta property="article:tag" content="Least Square">
@@ -34,8 +34,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240810_regression\/"
-        },"genre": "posts","keywords": "machine learning, regression, least square","wordcount":  459 ,
-        "url": "http:\/\/localhost:1313\/20240810_regression\/","datePublished": "2024-08-10T00:00:00+00:00","dateModified": "2024-08-10T10:08:17+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "machine learning, regression, least square","wordcount":  822 ,
+        "url": "http:\/\/localhost:1313\/20240810_regression\/","datePublished": "2024-08-10T00:00:00+00:00","dateModified": "2024-08-10T10:47:52+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -110,73 +110,166 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Getting Started with Regression: An Introductory Guide (Part 1)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;459 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;822 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><h1 id="getting-started-with-regression-an-introductory-guide-part-1">Getting Started with Regression: An Introductory Guide (Part 1)</h1>
-<p>Inline Formula: {{&lt; raw &gt;}}(\mathbf{E}=\sum_{i} \mathbf{E}<em>{i}=\mathbf{E}</em>{1}+\mathbf{E}<em>{2}+\mathbf{E}</em>{3}+\cdots){{&lt; /raw &gt;}}
-(\mathbf{x})</p>
-<p>(\mathbf{x})</p>
-<p>[ a=b+c \ d+e=f ]
-Block Formula:</p>
-<p>{{&lt; raw &gt;}}
-[ a=b+c \ d+e=f ]
-{{&lt; /raw &gt;}}</p>
-<p>Raw content using Markdown syntax: {{&lt; raw &gt;}}<strong>Hello</strong>{{&lt; /raw &gt;}}</p>
-<p>\begin{align}
-1+2
-\end{align}</p>
-<p>$$1+2$$</p>
-<p>Regression is a method used to identify the relationship between input and output variables. In a regression problem, we are given a set of noisy measurements (or output data) $\mathbf{y} = [y_1, \dots, y_d]^T$, which are affected by measurement noise $\boldsymbol{\eta} = [\eta_1, \dots, \eta_d]^T$. The corresponding input data is denoted by $\mathbf{x} = [x_1, \dots, x_d]$. We refer to the collection of these input-output pairs as the training data, $\mathcal{D} = {(\mathbf{x}_1, \mathbf{y}_1), \dots, (\mathbf{x}_m, \mathbf{y}_m)}$. The true relationship between the input and output data is unknown and is represented by a function $f(\cdot)$ that maps $\mathbf{x}_n$ to $y_n$, i.e.,</p>
-<p>[
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#overdetermined-and-underdetermined-systems">Overdetermined and Underdetermined Systems</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#references">References:</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="an-introductory-guide-part-1">An Introductory Guide (Part 1)</h1>
+<p>Regression is a method used to identify the relationship between input and output variables. In a regression problem, we are given a set of noisy measurements (or output data) $\mathbf{y} = [y_1, \dots, y_d]^T$, which are affected by measurement noise $\boldsymbol{\eta} = [\eta_1, \dots, \eta_d]^T$. The corresponding input data is denoted by $\mathbf{x} = [x_1, \dots, x_d]$. We refer to the collection of these input-output pairs as the training data, $\mathcal{D} = {(\mathbf{x}_1, \mathbf{y}_1), \dots, (\mathbf{x}_m, \mathbf{y}_m)}$. The true relationship between the input and output data is unknown and is represented by a function $f(\cdot)$ that maps $\mathbf{x}_n$ to $y_n$, i.e.,
+$$
 \mathbf{y} = f(\mathbf{x}).
-]</p>
-<p>Determining the exact function $f(\cdot)$ from a finite set of data points $\mathcal{D}$ is not feasible because there are infinitely many possible mappings for each $\mathbf{x}<em>i$. Regression helps by introducing structure to the problem. Instead of trying to find the true $f(\cdot)$, we seek an approximate model $g</em>\theta(\cdot)$, which is parameterized by $\boldsymbol{\theta} = [\theta_1,\dots,\theta_d]^T$. For example, we might assume a linear relationship between $(\mathbf{x}_n, \mathbf{y}_n)$:</p>
-<p>[
+$$
+Determining the exact function $f(\cdot)$ from a finite set of data points $\mathcal{D}$ is not feasible because there are infinitely many possible mappings for each $\mathbf{x}_i$.</p>
+<p>The idea of regression is to <em>introduce structure to the problem</em>. Instead of trying to find the true $f(\cdot)$, we seek an approximate model $g_\theta(\cdot)$, which is parameterized by $\boldsymbol{\theta} = [\theta_1,\dots,\theta_d]^T$. For example, we might assume a linear relationship between $(\mathbf{x}_n, \mathbf{y}_n)$:</p>
+<p>\begin{align*}
 g_{\boldsymbol{\theta}}(\mathbf{y}) = \mathbf{X}\boldsymbol{\theta} + \boldsymbol{\eta},
-]</p>
-<p>where $\mathbf{X}$ is an $m \times d$ input matrix derived from our observations. Since the true relationship is unknown, any chosen model is essentially a hypothesis. However, we can quantify the error in our model. Given a parameter $\boldsymbol{\theta}$, the error between the noisy measurements and the estimated values is:</p>
-<p>[
+\end{align*}
+where $\mathbf{X}$ is an $m \times d$ input matrix derived from our observations. Since the true relationship is unknown, any chosen model is essentially a hypothesis. However, we can quantify the error in our model. Given a parameter $\boldsymbol{\theta}$, the error between the noisy measurements and the estimated values is:</p>
+<p>\begin{align*}
 \boldsymbol{\epsilon} = \mathbf{y} - \mathbf{X}\boldsymbol{\theta}.
-]</p>
-<p>The goal of regression is to find the best $\boldsymbol{\theta}$ that minimizes this error. This leads us to the following objective function:</p>
-<p>[
+\end{align*}
+The goal of regression is to find the best $\boldsymbol{\theta}$ that minimizes this error. This leads us to the following objective function:</p>
+<p>\begin{align*}
 J(\boldsymbol{\theta}) = \boldsymbol{\epsilon}^T \boldsymbol{\epsilon}.
-]</p>
-<p>This objective function is equivalent to minimizing the mean squared error (MSE):</p>
-<p>[
+\end{align*}
+This objective function is equivalent to minimizing the mean squared error (MSE):</p>
+<p>\begin{align*}
 MSE = \frac{1}{n}\sum_{i=1}^n (y_i - \mathbf{x}_i \boldsymbol{\theta})^2.
-]</p>
-<p>We can optimize this function in closed form as follows:</p>
-<p>[
-J(\boldsymbol{\theta}) = |\mathbf{y} - \mathbf{X} \boldsymbol{\theta}|^2_2
-= (\mathbf{y} - \mathbf{X} \boldsymbol{\theta})^T(\mathbf{y} - \mathbf{X} \boldsymbol{\theta})
-= \mathbf{y}^T \mathbf{y} - \boldsymbol{\theta}^T \mathbf{X}^T \mathbf{y} - \mathbf{y}^T \mathbf{X} \boldsymbol{\theta} + \boldsymbol{\theta}^T \mathbf{X}^T \mathbf{X} \boldsymbol{\theta}.
-]</p>
-<p>To find the $\boldsymbol{\theta}$ that minimizes the objective function, we compute the derivative of the function and set it equal to zero:</p>
-<p>[
+\end{align*}
+We can optimize this function in closed form as follows:</p>
+<p>\begin{align*}
+J(\boldsymbol{\theta}) &amp;= |\mathbf{y} - \mathbf{X} \boldsymbol{\theta}|^2_2 \\
+&amp;= (\mathbf{y} - \mathbf{X} \boldsymbol{\theta})^T(\mathbf{y} - \mathbf{X} \boldsymbol{\theta}) \\
+&amp;= \mathbf{y}^T \mathbf{y} - \boldsymbol{\theta}^T \mathbf{X}^T \mathbf{y} - \mathbf{y}^T \mathbf{X} \boldsymbol{\theta} + \boldsymbol{\theta}^T \mathbf{X}^T \mathbf{X} \boldsymbol{\theta}.
+\end{align*}
+To find the $\boldsymbol{\theta}$ that minimizes the objective function, we compute the derivative of the function and set it equal to zero:
+\begin{align*}
 \frac{\partial J}{\partial \boldsymbol{\theta}} = -\mathbf{X}^T \mathbf{y} - \mathbf{X}^T \mathbf{y} + \mathbf{X}^T \mathbf{X} \boldsymbol{\theta} + \mathbf{X}^T \mathbf{X} \boldsymbol{\theta} = 0,
-]</p>
-<p>which simplifies to:</p>
-<p>[
+\end{align*}
+which simplifies to:
+\begin{align*}
 \mathbf{X}^T (\mathbf{X} \boldsymbol{\theta} - \mathbf{y}) = 0,
-]</p>
-<p>leading to the solution:</p>
-<p>[
+\end{align*}
+leading to the solution:
+\begin{align*}
 \boldsymbol{\theta} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}.
-]</p>
-<p>The equation $\mathbf{X}^T(\mathbf{X} \boldsymbol{\theta} - \mathbf{y}) = 0$ is known as the <em>normal equation</em>.</p>
+\end{align*}
+The equation $\mathbf{X}^T(\mathbf{X} \boldsymbol{\theta} - \mathbf{y}) = 0$ is known as the <em>normal equation</em>.</p>
+<p>Let&rsquo;s implement a simple regression in Python:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">N</span> <span class="o">=</span> <span class="mi">50</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">w_1</span> <span class="o">=</span> <span class="mf">3.4</span> <span class="c1"># True Parameter</span>
+</span></span><span class="line"><span class="cl"><span class="n">w_0</span> <span class="o">=</span> <span class="mf">0.9</span> <span class="c1"># True Parameter</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">w_1</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">w_0</span> <span class="o">+</span> <span class="mf">0.3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="c1"># Synthesize training data</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># From Scratch</span>
+</span></span><span class="line"><span class="cl"><span class="n">XtX</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">XtXinvX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">XtX</span><span class="p">),</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1"># d x m</span>
+</span></span><span class="line"><span class="cl"><span class="n">W_best</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">XtXinvX</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;W_best: </span><span class="si">{</span><span class="n">W_best</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Pythonic Approach</span>
+</span></span><span class="line"><span class="cl"><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">rcond</span><span class="o">=</span><span class="kc">None</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Theta: </span><span class="si">{</span><span class="n">theta</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_pred</span> <span class="o">=</span> <span class="n">W_best</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">W_best</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">yhat</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">theta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="overdetermined-and-underdetermined-systems">Overdetermined and Underdetermined Systems</h2>
+<p>Recall that the linear regression problem is an optimization problem of finding the optimal parameter as follows:</p>
+<p>$$
+\hat{\boldsymbol{\theta}}=\argmin_{\boldsymbol{\theta}\in \mathbb{R}^d}\lVert y-\mathbf{X}\boldsymbol{\theta}^2 \rVert
+$$
+We say the optimization problem is <em>overdetermined</em> if $\mathbf{X}\in \mathbb{R}^{m\times d}$ is tall and skinny, i.e., $m&gt;d$. This problem has a unique solution $\boldsymbol{\theta}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$ if and only if $\mathbf{X}^T\mathbf{X}$ is invertible. Equivalently, $\mathbf{X}$ should be linearly independent (\ie full rank).</p>
+<p>If $\mathbf{X}$ is fat and short (i.e., $N&lt;d$), a problem is called <em>underdetermined</em>. <strong>This problem will have infinitely many solutions</strong>. Among all the feasible solutions, we will pick the one that minimizes the squared norm. The solution is called the <em>minimum-norm least squares</em>. Consider an underdetermined linear regression problem:</p>
+<p>\begin{align*}
+\boldsymbol{\theta}=\argmin_{\boldsymbol{\theta}\in \mathbb{R}^d} \lVert\boldsymbol{\theta}\rVert^2, \quad\textrm{subject to}\ \mathbf{y} = \mathbf{X}\boldsymbol{\theta},
+\end{align*}
+where $\mathbf{X}\in \mathbb{R}^{m\times d}, \boldsymbol{\theta}\in \mathbb{R}^d,$ and $\mathbf{y}\in \mathbb{R}^m$. If rank$(\mathbf{X})=N$, then the linear regression problem will have a unique global minimum
+\begin{align*}
+\boldsymbol{\theta}=\mathbf{X}^T(\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{y}.
+\end{align*}
+This solution is called the minimum-norm least-squares solution. The proof of this solution is given by:
+\begin{align*}
+\mathcal{L}(\boldsymbol{\theta}, \boldsymbol{\lambda})=\lVert\boldsymbol{\theta}\rVert^2+\boldsymbol{\lambda}^T(\mathbf{X}\boldsymbol{\theta}-\mathbf{y}),
+\end{align*}
+where $\boldsymbol{\lambda}$ is a Lagrange multiplier. The solution of the constrained optimization is the stationary point of the Lagrangian. To find it, we take the derivatives w.r.t., $\boldsymbol{\lambda}$ and $\boldsymbol{\theta}$ as follows:
+\begin{align*}
+\nabla_{\boldsymbol{\theta}} &amp;= 2 \boldsymbol{\theta} + \mathbf{X}^T\boldsymbol{\lambda} = 0\\
+\nabla_{\boldsymbol{\lambda}} &amp;= \mathbf{X}\boldsymbol{\theta} - \mathbf{y} = 0
+\end{align*}
+The first equation gives us $\boldsymbol{\theta}=-\mathbf{X}^T\boldsymbol{\lambda}/2$. Substituting it into the second equation, and assuming that rank$(\mathbf{X})=N$ so that $\mathbf{X}^T\mathbf{X}$ is invertible, we have $\boldsymbol{\lambda} = -2 (\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{y}.$ Thus, we have
+\begin{align*}
+\boldsymbol{\theta}=\mathbf{X}^T(\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{y}.
+\end{align*}
+Note that $\mathbf{X}\mathbf{X}^T$ is often called a \textit{Gram matrix}, $\mathbf{G}$.</p>
+<h4 id="references">References:</h4>
+<p>H. Pishro-Nik, Introduction to Probability, Statistics, and Random Processes, 2014</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2024-08-10&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/f21b02aa7dd80e3e33edd83c2a906f7eda2d0c6c" target="_blank" title="commit by Han(tabularasa8931@gmail.com) f21b02aa7dd80e3e33edd83c2a906f7eda2d0c6c: Update">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>f21b02a</a></span>
+                <span>Updated on 2024-08-10&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/6db11d80167836e9cf2ecf44c27b352e327b4cec" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 6db11d80167836e9cf2ecf44c27b352e327b4cec: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>6db11d8</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
@@ -209,5 +302,5 @@ J(\boldsymbol{\theta}) = |\mathbf{y} - \mathbf{X} \boldsymbol{\theta}|^2_2
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>
