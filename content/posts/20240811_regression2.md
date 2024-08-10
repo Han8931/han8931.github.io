@@ -71,6 +71,9 @@ By taking the partial derivative of $J$ with respect to $\boldsymbol{\theta}$, w
 $$\boldsymbol{\theta} = (\mathbf{X}^TR^{-1}\mathbf{X})^{-1}\mathbf{X}^TR^{-1}\mathbf{y}.$$
 Note that the measurement noise matrix $R$ must be non-singular for a solution to exist.
 
+To learn more, please take a look at this [note](https://github.com/Han8931/deep_statistical_learning)!
+
+This article continues in Part 3.
 
 #### References:
 1. H. Pishro-Nik, Introduction to Probability, Statistics, and Random Processes, 2014

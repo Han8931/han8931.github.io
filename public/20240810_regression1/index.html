@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-08-10T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-10T12:04:41+09:00">
+    <meta property="article:modified_time" content="2024-08-10T16:03:05+09:00">
     <meta property="article:tag" content="Machine Learning">
     <meta property="article:tag" content="Regression">
     <meta property="article:tag" content="Least Square">
@@ -25,7 +25,7 @@
 <meta name="application-name" content="KeepIt">
 <meta name="apple-mobile-web-app-title" content="KeepIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/20240810_regression1/" /><link rel="prev" href="http://localhost:1313/20240804_gpg_encryption/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/20240810_regression1/" /><link rel="prev" href="http://localhost:1313/20240812_recursive_least_square/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -34,8 +34,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240810_regression1\/"
-        },"genre": "posts","keywords": "machine learning, regression, least square","wordcount":  832 ,
-        "url": "http:\/\/localhost:1313\/20240810_regression1\/","datePublished": "2024-08-10T00:00:00+00:00","dateModified": "2024-08-10T12:04:41+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "machine learning, regression, least square","wordcount":  910 ,
+        "url": "http:\/\/localhost:1313\/20240810_regression1\/","datePublished": "2024-08-10T00:00:00+00:00","dateModified": "2024-08-10T16:03:05+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -110,8 +110,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Getting Started with Regression: An Introductory Guide (Part 1)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;832 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;910 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -136,6 +136,7 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="an-introductory-guide-part-1">An Introductory Guide (Part 1)</h1>
+<p>Even with the rapid advancements in deep learning, regression continues to be widely used across various fields (e.g., finance, data science, statistics, and so on), maintaining its importance as a fundamental algorithm. That&rsquo;s why I&rsquo;ve decided to share this post, which is the first article in a dedicated series on regression. This series is designed to provide a thorough review while offering a gentle and accessible introduction.</p>
 <h2 id="linear-regression">Linear Regression</h2>
 <p>Regression is a method used to identify the relationship between input and output variables. In a regression problem, we are given a set of noisy measurements (or output data) $\mathbf{y} = [y_1, \dots, y_d]^T$, which are affected by measurement noise $\boldsymbol{\eta} = [\eta_1, \dots, \eta_d]^T$. The corresponding input data is denoted by $\mathbf{x} = [x_1, \dots, x_d]$. We refer to the collection of these input-output pairs as the training data, $\mathcal{D} = {(\mathbf{x}_1, \mathbf{y}_1), \dots, (\mathbf{x}_m, \mathbf{y}_m)}$. The true relationship between the input and output data is unknown and is represented by a function $f(\cdot)$ that maps $\mathbf{x}_n$ to $y_n$, i.e.,
 $$
@@ -269,15 +270,19 @@ The first equation gives us $\boldsymbol{\theta}=-\mathbf{X}^T\boldsymbol{\lambd
 \boldsymbol{\theta}=\mathbf{X}^T(\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{y}.
 \end{align*}
 Note that $\mathbf{X}\mathbf{X}^T$ is often called a <em>Gram matrix</em>, $\mathbf{G}$.</p>
+<p>To learn more, please take a look at this <a href="https://github.com/Han8931/deep_statistical_learning" target="_blank" rel="noopener noreffer">note</a>
+!</p>
 <p>This article continues in Part 2.</p>
 <h4 id="references">References:</h4>
-<p>H. Pishro-Nik, Introduction to Probability, Statistics, and Random Processes, 2014</p>
+<ol>
+<li>H. Pishro-Nik, Introduction to Probability, Statistics, and Random Processes, 2014</li>
+</ol>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2024-08-10&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/2880a16fd1801f5958f8d6042bdbdcb06634abf1" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 2880a16fd1801f5958f8d6042bdbdcb06634abf1: Regression">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>2880a16</a></span>
+                <span>Updated on 2024-08-10&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/2be0be11b7aeeb6355f01826d96b3738a3d446e3" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 2be0be11b7aeeb6355f01826d96b3738a3d446e3: Fix Regression and Github link issue">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>2be0be1</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
@@ -296,7 +301,7 @@ Note that $\mathbf{X}\mathbf{X}^T$ is often called a <em>Gram matrix</em>, $\mat
         </section>
     </div>
 
-    <div class="post-nav"><a href="/20240804_gpg_encryption/" class="prev" rel="prev" title="Data Encryption using GPG!"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Data Encryption using GPG!</a></div>
+    <div class="post-nav"><a href="/20240812_recursive_least_square/" class="prev" rel="prev" title="Getting Started with Regression: An Introductory Guide (Part 3)"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Getting Started with Regression: An Introductory Guide (Part 3)</a></div>
 </div>
 </article></div>
             </main><footer class="footer">

@@ -3,6 +3,8 @@
 
 # An Introductory Guide (Part 1)
 
+Even with the rapid advancements in deep learning, regression continues to be widely used across various fields (e.g., finance, data science, statistics, and so on), maintaining its importance as a fundamental algorithm. That's why I've decided to share this post, which is the first article in a dedicated series on regression. This series is designed to provide a thorough review while offering a gentle and accessible introduction.
+
 ## Linear Regression
 Regression is a method used to identify the relationship between input and output variables. In a regression problem, we are given a set of noisy measurements (or output data) $\mathbf{y} = [y_1, \dots, y_d]^T$, which are affected by measurement noise $\boldsymbol{\eta} = [\eta_1, \dots, \eta_d]^T$. The corresponding input data is denoted by $\mathbf{x} = [x_1, \dots, x_d]$. We refer to the collection of these input-output pairs as the training data, $\mathcal{D} = \{(\mathbf{x}_1, \mathbf{y}_1), \dots, (\mathbf{x}_m, \mathbf{y}_m)\}$. The true relationship between the input and output data is unknown and is represented by a function $f(\cdot)$ that maps $\mathbf{x}_n$ to $y_n$, i.e.,
 $$
@@ -117,10 +119,11 @@ The first equation gives us $\boldsymbol{\theta}=-\mathbf{X}^T\boldsymbol{\lambd
 \end{align*}
 Note that $\mathbf{X}\mathbf{X}^T$ is often called a *Gram matrix*, $\mathbf{G}$.
 
+To learn more, please take a look at this [note](https://github.com/Han8931/deep_statistical_learning)!
+
 This article continues in Part 2.
 
 #### References:
-H. Pishro-Nik, Introduction to Probability, Statistics, and Random Processes, 2014
-
+1. H. Pishro-Nik, Introduction to Probability, Statistics, and Random Processes, 2014
 
 
