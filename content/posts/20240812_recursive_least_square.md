@@ -1,7 +1,7 @@
 ---
 weight: 1
 title: "Getting Started with Regression: An Introductory Guide (Part 3)"
-date: 2024-08-10
+date: 2024-08-12
 draft: false
 author: Han
 description: "Introduction to Regression: Recursive Least Squares (Part 3)"
