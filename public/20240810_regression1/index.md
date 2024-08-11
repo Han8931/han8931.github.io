@@ -1,4 +1,4 @@
-# Getting Started with Regression: An Introductory Guide (Part 1)
+# Getting Started with Regression (Part 1)
 
 
 # An Introductory Guide (Part 1)

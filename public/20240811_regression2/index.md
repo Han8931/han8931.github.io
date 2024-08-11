@@ -1,4 +1,4 @@
-# Getting Started with Regression: An Introductory Guide (Part 2)
+# Getting Started with Regression (Part 2)
 
 
 # An Introductory Guide (Part 2)
@@ -11,7 +11,7 @@ In machine learning, one of the key challenges is finding the right balance betw
   
 - **Underfitting**, on the other hand, happens when a model is too simple to capture the underlying patterns in the data, leading to poor performance both on the training data and on new data.
 
-To address these issues, regularization techniques are often used. Regularization involves adding a penalty term to the model's objective function, which helps control the complexity of the model and prevents it from overfitting.
+To address these issues, regularization techniques are often used. Regularization involves **adding a penalty term to the model's objective function, which helps control the complexity of the model and prevents it from overfitting**.
 
 
 ## Overdetermined and Underdetermined Problems
@@ -22,14 +22,14 @@ $$\boldsymbol{\theta}_{opt} = \argmin\_{\boldsymbol{\theta}\in \mathbb{R}^d}\lVe
 
 ### Overdetermined Systems
 
-An optimization problem is termed _overdetermined_ when the design matrix (or data matrix) $\mathbf{X}\in \mathbb{R}^{m\times d}$ has more rows than columns, i.e., $m>d$. This configuration means that there are more equations than unknowns, typically leading to a unique solution. The unique solution can be found using the formula: 
+An optimization problem is termed _overdetermined_ when the design matrix (or data matrix) $\mathbf{X}\in \mathbb{R}^{m\times d}$ has more rows than columns, i.e., $m>d$. This configuration means that there are more equations than unknowns, typically leading to a unique solution. In other words, *there is more information available than the number of unknowns*. The unique solution can be found using the formula: 
 $$\boldsymbol{\theta} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$$
 
 The solution exists if and only if $\mathbf{X}^T\mathbf{X}$ is invertible, which is true when the columns of $\mathbf{X}$ are linearly independent, meaning $\mathbf{X}$ is full rank. 
 
 ### Underdetermined Systems
 
-In contrast, when $\mathbf{X}$ is fat and short (i.e., $N<d$), the problem is called _underdetermined_. In this scenario, there are more unknowns than equations, leading to infinitely many solutions. Among these, the solution that minimizes the squared norm of the parameters is preferred. This solution is known as the minimum-norm least-squares solution.
+In contrast, when $\mathbf{X}$ is fat and short (i.e., $N<d$), the problem is called _underdetermined_. In this scenario, there are more unknowns than equations, leading to infinitely many solutions. This occurs because *the system has less information than the number of unknowns*. Among these, the solution that minimizes the squared norm of the parameters is preferred. This solution is known as the minimum-norm least-squares solution.
 
 For an underdetermined linear regression problem, the objective can be written as:
 
@@ -65,7 +65,7 @@ Note that $\mathbf{X}\mathbf{X}^T$ is often called a _Gram matrix_, $\mathbf{G}$
 
 ## Regularization and Ridge Regression
 
-Regularization means that instead of seeking the model parameters by minimizing the training loss alone, we add a penalty term that encourages the parameters to "behave better," effectively controlling their magnitude. Ridge regression is a widely-used regularization technique that adds a penalty proportional to the square of the magnitude of the model parameters.
+Regularization means that instead of seeking the model parameters by minimizing the training loss alone, we add a penalty term that encourages the parameters to behave better, effectively controlling their magnitude. Ridge regression is a widely-used regularization technique that adds a penalty proportional to the square of the magnitude of the model parameters.
 
 The objective function for ridge regression is formulated as:
 
@@ -121,7 +121,7 @@ It's important to note that $\mathbf{X}^T\mathbf{X}$ is always symmetric. Accord
 
 Even if $\mathbf{X}^T\mathbf{X}$ is not invertible (or is close to being non-invertible), the regularization constant $\lambda$ ensures invertibility by making the matrix full-rank.
 
-## Dual Form of Ridge Regression
+### Dual Form of Ridge Regression
 
 Ridge regression can also be expressed in its dual form, which is particularly useful for solving underdetermined problems:
 \begin{align*}
@@ -155,7 +155,7 @@ By denoting the error vector $\mathbf{y}-\mathbf{X}\boldsymbol{\theta}$ as $\bol
 	J(\tilde{\mathbf{x}}) &= \boldsymbol{\epsilon}^TR^{-1}\boldsymbol{\epsilon}=\frac{\boldsymbol{\epsilon}_1^2}{\sigma_1^2}+\dots+\frac{\boldsymbol{\epsilon}_l^2}{\sigma_l^2}\\\\
 					&= (\mathbf{y}-\mathbf{X}\boldsymbol{\theta})^TR^{-1}(\mathbf{y}-\mathbf{X}\boldsymbol{\theta})
 \end{align*}
-Note that by dividing each residual by its variance, we effectively equalize the influence of each data point on the overall fitting process. Subsequently, by taking the partial derivative of $J$ with respect to $\boldsymbol{\theta}$, we get the best estimate of the parameter, which is given by
+Note that by dividing each residual by its variance, we effectively *equalize the influence of each data point on the overall fitting process*. Subsequently, by taking the partial derivative of $J$ with respect to $\boldsymbol{\theta}$, we get the best estimate of the parameter, which is given by
 $$\boldsymbol{\theta} = (\mathbf{X}^TR^{-1}\mathbf{X})^{-1}\mathbf{X}^TR^{-1}\mathbf{y}.$$
 Note that the measurement noise matrix $R$ must be non-singular for a solution to exist.
 
