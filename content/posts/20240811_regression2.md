@@ -5,7 +5,7 @@ date: 2024-08-11
 draft: false
 author: Han
 description: "Introduction to Regression: Understanding the Basics (Part 2)"
-tags: ["machine learning", "regression", "least square"]
+tags: ["machine learning", "regression", "least square", "ridge regression", "weighted regression", "dual form"]
 categories: ["machine learning"]
 ---
 

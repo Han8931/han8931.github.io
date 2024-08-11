@@ -87,41 +87,9 @@ plt.plot(t, y_pred, 'r', linewidth=4)
 plt.show()
 ```
 
-## Overdetermined and Underdetermined Systems
-Recall that the linear regression problem is an optimization problem of finding the optimal parameter as follows:
-
-$$
-\hat{\boldsymbol{\theta}}=\argmin_{\boldsymbol{\theta}\in \mathbb{R}^d}\lVert y-\mathbf{X}\boldsymbol{\theta}^2 \rVert
-$$
-We say the optimization problem is *overdetermined* if $\mathbf{X}\in \mathbb{R}^{m\times d}$ is tall and skinny, i.e., $m>d$. This problem has a unique solution $\boldsymbol{\theta}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$ if and only if $\mathbf{X}^T\mathbf{X}$ is invertible. Equivalently, $\mathbf{X}$ should be linearly independent (\ie full rank). 
-
-If $\mathbf{X}$ is fat and short (i.e., $N<d$), a problem is called *underdetermined*. **This problem will have infinitely many solutions**. Among all the feasible solutions, we will pick the one that minimizes the squared norm. The solution is called the *minimum-norm least squares*. Consider an underdetermined linear regression problem:  
-
-\begin{align*}
-	\boldsymbol{\theta}=\argmin_{\boldsymbol{\theta}\in \mathbb{R}^d} \lVert\boldsymbol{\theta}\rVert^2, \quad\textrm{subject to}\ \mathbf{y} = \mathbf{X}\boldsymbol{\theta},
-\end{align*}
-where $\mathbf{X}\in \mathbb{R}^{m\times d}, \boldsymbol{\theta}\in \mathbb{R}^d,$ and $\mathbf{y}\in \mathbb{R}^m$. If rank$(\mathbf{X})=N$, then the linear regression problem will have a unique global minimum 
-\begin{align*}
-	\boldsymbol{\theta}=\mathbf{X}^T(\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{y}.
-\end{align*}
-This solution is called the minimum-norm least-squares solution. The proof of this solution is given by:
-\begin{align*}
-	\mathcal{L}(\boldsymbol{\theta}, \boldsymbol{\lambda})=\lVert\boldsymbol{\theta}\rVert^2+\boldsymbol{\lambda}^T(\mathbf{X}\boldsymbol{\theta}-\mathbf{y}),
-\end{align*}
-where $\boldsymbol{\lambda}$ is a Lagrange multiplier. The solution of the constrained optimization is the stationary point of the Lagrangian. To find it, we take the derivatives w.r.t., $\boldsymbol{\lambda}$ and $\boldsymbol{\theta}$ as follows: 
-\begin{align*}
-	\nabla_{\boldsymbol{\theta}} &= 2 \boldsymbol{\theta} + \mathbf{X}^T\boldsymbol{\lambda} = 0\\\\
-	\nabla_{\boldsymbol{\lambda}} &= \mathbf{X}\boldsymbol{\theta} - \mathbf{y} = 0
-\end{align*}
-The first equation gives us $\boldsymbol{\theta}=-\mathbf{X}^T\boldsymbol{\lambda}/2$. Substituting it into the second equation, and assuming that rank$(\mathbf{X})=N$ so that $\mathbf{X}^T\mathbf{X}$ is invertible, we have $\boldsymbol{\lambda} = -2 (\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{y}.$ Thus, we have
-\begin{align*}
-	\boldsymbol{\theta}=\mathbf{X}^T(\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{y}.
-\end{align*}
-Note that $\mathbf{X}\mathbf{X}^T$ is often called a *Gram matrix*, $\mathbf{G}$.
-
 To learn more, please take a look at this [note](https://github.com/Han8931/deep_statistical_learning)!
 
-This article continues in Part 2.
+This article continues in [Part 2](https://han8931.github.io/20240811_regression2/).
 
 #### References:
 1. H. Pishro-Nik, Introduction to Probability, Statistics, and Random Processes, 2014

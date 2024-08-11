@@ -34,7 +34,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240810_regression1\/"
-        },"genre": "posts","keywords": "machine learning, regression, least square","wordcount":  910 ,
+        },"genre": "posts","keywords": "machine learning, regression, least square","wordcount":  648 ,
         "url": "http:\/\/localhost:1313\/20240810_regression1\/","datePublished": "2024-08-10T00:00:00+00:00","dateModified": "2024-08-11T18:12:24+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -110,8 +110,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Getting Started with Regression (Part 1)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;910 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-10">2024-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;648 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -121,12 +121,7 @@
   <ul>
     <li><a href="#linear-regression">Linear Regression</a>
       <ul>
-        <li><a href="#python-code">Python Code</a></li>
-      </ul>
-    </li>
-    <li><a href="#overdetermined-and-underdetermined-systems">Overdetermined and Underdetermined Systems</a>
-      <ul>
-        <li>
+        <li><a href="#python-code">Python Code</a>
           <ul>
             <li><a href="#references">References:</a></li>
           </ul>
@@ -242,37 +237,10 @@ The equation $\mathbf{X}^T(\mathbf{X} \boldsymbol{\theta} - \mathbf{y}) = 0$ is 
 </span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="overdetermined-and-underdetermined-systems">Overdetermined and Underdetermined Systems</h2>
-<p>Recall that the linear regression problem is an optimization problem of finding the optimal parameter as follows:</p>
-<p>$$
-\hat{\boldsymbol{\theta}}=\argmin_{\boldsymbol{\theta}\in \mathbb{R}^d}\lVert y-\mathbf{X}\boldsymbol{\theta}^2 \rVert
-$$
-We say the optimization problem is <em>overdetermined</em> if $\mathbf{X}\in \mathbb{R}^{m\times d}$ is tall and skinny, i.e., $m&gt;d$. This problem has a unique solution $\boldsymbol{\theta}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$ if and only if $\mathbf{X}^T\mathbf{X}$ is invertible. Equivalently, $\mathbf{X}$ should be linearly independent (\ie full rank).</p>
-<p>If $\mathbf{X}$ is fat and short (i.e., $N&lt;d$), a problem is called <em>underdetermined</em>. <strong>This problem will have infinitely many solutions</strong>. Among all the feasible solutions, we will pick the one that minimizes the squared norm. The solution is called the <em>minimum-norm least squares</em>. Consider an underdetermined linear regression problem:</p>
-<p>\begin{align*}
-\boldsymbol{\theta}=\argmin_{\boldsymbol{\theta}\in \mathbb{R}^d} \lVert\boldsymbol{\theta}\rVert^2, \quad\textrm{subject to}\ \mathbf{y} = \mathbf{X}\boldsymbol{\theta},
-\end{align*}
-where $\mathbf{X}\in \mathbb{R}^{m\times d}, \boldsymbol{\theta}\in \mathbb{R}^d,$ and $\mathbf{y}\in \mathbb{R}^m$. If rank$(\mathbf{X})=N$, then the linear regression problem will have a unique global minimum
-\begin{align*}
-\boldsymbol{\theta}=\mathbf{X}^T(\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{y}.
-\end{align*}
-This solution is called the minimum-norm least-squares solution. The proof of this solution is given by:
-\begin{align*}
-\mathcal{L}(\boldsymbol{\theta}, \boldsymbol{\lambda})=\lVert\boldsymbol{\theta}\rVert^2+\boldsymbol{\lambda}^T(\mathbf{X}\boldsymbol{\theta}-\mathbf{y}),
-\end{align*}
-where $\boldsymbol{\lambda}$ is a Lagrange multiplier. The solution of the constrained optimization is the stationary point of the Lagrangian. To find it, we take the derivatives w.r.t., $\boldsymbol{\lambda}$ and $\boldsymbol{\theta}$ as follows:
-\begin{align*}
-\nabla_{\boldsymbol{\theta}} &amp;= 2 \boldsymbol{\theta} + \mathbf{X}^T\boldsymbol{\lambda} = 0\\
-\nabla_{\boldsymbol{\lambda}} &amp;= \mathbf{X}\boldsymbol{\theta} - \mathbf{y} = 0
-\end{align*}
-The first equation gives us $\boldsymbol{\theta}=-\mathbf{X}^T\boldsymbol{\lambda}/2$. Substituting it into the second equation, and assuming that rank$(\mathbf{X})=N$ so that $\mathbf{X}^T\mathbf{X}$ is invertible, we have $\boldsymbol{\lambda} = -2 (\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{y}.$ Thus, we have
-\begin{align*}
-\boldsymbol{\theta}=\mathbf{X}^T(\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{y}.
-\end{align*}
-Note that $\mathbf{X}\mathbf{X}^T$ is often called a <em>Gram matrix</em>, $\mathbf{G}$.</p>
-<p>To learn more, please take a look at this <a href="https://github.com/Han8931/deep_statistical_learning" target="_blank" rel="noopener noreffer">note</a>
+</div><p>To learn more, please take a look at this <a href="https://github.com/Han8931/deep_statistical_learning" target="_blank" rel="noopener noreffer">note</a>
 !</p>
-<p>This article continues in Part 2.</p>
+<p>This article continues in <a href="https://han8931.github.io/20240811_regression2/" target="_blank" rel="noopener noreffer">Part 2</a>
+.</p>
 <h4 id="references">References:</h4>
 <ol>
 <li>H. Pishro-Nik, Introduction to Probability, Statistics, and Random Processes, 2014</li>

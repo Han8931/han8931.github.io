@@ -4,13 +4,13 @@
         <link>http://localhost:1313/tags/recursive-least-squares/</link>
         <description>Recursive Least Squares - Tag - Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 10 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/recursive-least-squares/" rel="self" type="application/rss+xml" /><item>
-    <title>Getting Started with Regression: An Introductory Guide (Part 3)</title>
-    <link>http://localhost:1313/20240810_recursive_least_square/</link>
-    <pubDate>Sat, 10 Aug 2024 00:00:00 &#43;0000</pubDate>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/recursive-least-squares/" rel="self" type="application/rss+xml" /><item>
+    <title>Getting Started with Regression (Part 3)</title>
+    <link>http://localhost:1313/20240811_recursive_least_square/</link>
+    <pubDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20240810_recursive_least_square/</guid>
-    <description><![CDATA[Hi Deep Dive into Regression: Recursive Least Squares Explained (Part 3) Ordinary least squares assumes that all data is available at once, but in practice, this isn&rsquo;t always the case. Often, measurements are obtained sequentially, and we need to update our estimates as new data comes in. Simply augmenting the data matrix $\mathbf{X}$ each time a new measurement arrives can become computationally expensive, especially when dealing with a large number of measurements.]]></description>
+    <guid>http://localhost:1313/20240811_recursive_least_square/</guid>
+    <description><![CDATA[Deep Dive into Regression: Recursive Least Squares Explained (Part 3) Introduction to Recursive Least Squares Ordinary least squares assumes that all data is available at once, but in practice, this isn&rsquo;t always the case. Often, measurements are obtained sequentially, and we need to update our estimates as new data comes in. Simply augmenting the data matrix $\mathbf{X}$ each time a new measurement arrives can become computationally expensive, especially when dealing with a large number of measurements.]]></description>
 </item>
 </channel>
 </rss>

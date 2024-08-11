@@ -5,6 +5,14 @@
         <description>Tags - Tag - Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
             <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Dual Form</title>
+    <link>http://localhost:1313/tags/dual-form/</link>
+    <pubDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/dual-form/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Least Square</title>
     <link>http://localhost:1313/tags/least-square/</link>
     <pubDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</pubDate>
@@ -21,11 +29,35 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
+    <title>Recursive Least Squares</title>
+    <link>http://localhost:1313/tags/recursive-least-squares/</link>
+    <pubDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/recursive-least-squares/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Regression</title>
     <link>http://localhost:1313/tags/regression/</link>
     <pubDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/tags/regression/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Ridge Regression</title>
+    <link>http://localhost:1313/tags/ridge-regression/</link>
+    <pubDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/ridge-regression/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Weighted Regression</title>
+    <link>http://localhost:1313/tags/weighted-regression/</link>
+    <pubDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/weighted-regression/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -50,38 +82,6 @@
     <pubDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/tags/gpg/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Privacy</title>
-    <link>http://localhost:1313/tags/privacy/</link>
-    <pubDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/privacy/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Scheduler</title>
-    <link>http://localhost:1313/tags/scheduler/</link>
-    <pubDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/scheduler/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Task Management</title>
-    <link>http://localhost:1313/tags/task-management/</link>
-    <pubDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/task-management/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Taskspooler</title>
-    <link>http://localhost:1313/tags/taskspooler/</link>
-    <pubDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/taskspooler/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
