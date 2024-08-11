@@ -4,7 +4,17 @@
         <link>http://localhost:1313/tags/least-square/</link>
         <description>Least Square - Tag - Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 10 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/least-square/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/least-square/" rel="self" type="application/rss+xml" /><item>
+    <title>Getting Started with Regression: An Introductory Guide (Part 2)</title>
+    <link>http://localhost:1313/20240811_regression2/</link>
+    <pubDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240811_regression2/</guid>
+    <description><![CDATA[An Introductory Guide (Part 2) Regularization Regularization means that instead of seeking the model parameters by minimizing the training loss alone, we add a penalty term to force the parameters to ``behave better&rsquo;&rsquo;. With the ridge regression principle, we can optimize it as follows:
+\begin{align*} J(\boldsymbol{\theta}) &amp;= \lVert\mathbf{y}-\mathbf{X}\boldsymbol{\theta}\rVert^2_2 + \lambda \lVert\boldsymbol{\theta}\rVert^2_2 \\ &amp;= (\mathbf{y}-\mathbf{X}\boldsymbol{\theta})^T(\mathbf{y}-\mathbf{X}\boldsymbol{\theta})+\lambda\boldsymbol{\theta}^T\boldsymbol{\theta}\\ &amp;= (\mathbf{y}^T-\boldsymbol{\theta}^T\mathbf{X}^T)(\mathbf{y}-\mathbf{X}\boldsymbol{\theta})+\lambda\boldsymbol{\theta}^T\boldsymbol{\theta}\\ &amp;= \mathbf{y}^T\mathbf{y}-\boldsymbol{\theta}^T\mathbf{X}^T\mathbf{y}-\mathbf{y}^T\mathbf{X}\boldsymbol{\theta}+\boldsymbol{\theta}^T\mathbf{X}^T\mathbf{X}\boldsymbol{\theta}+\boldsymbol{\theta}^T\lambda\mathbf{I}\boldsymbol{\theta}\\ \frac{\partial J}{\partial \boldsymbol{\theta}}&amp;= -\mathbf{X}^T\mathbf{y}-\mathbf{X}^T\mathbf{y}+\mathbf{X}^T\mathbf{X}\boldsymbol{\theta}+\mathbf{X}^T\mathbf{X}\boldsymbol{\theta}+2\lambda\mathbf{I}\boldsymbol{\theta} = 0\\ \boldsymbol{\theta}	&amp;= (\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\mathbf{X}^T\mathbf{y} \end{align*}
+If $\lambda\to 0$, then $\lVert\mathbf{y}-\mathbf{X}\boldsymbol{\theta}\rVert^2_2 + \underbrace{\lambda \lVert\boldsymbol{\theta}\rVert^2_2}_{=0}$ $\lambda\to \infty$, then $\underbrace{\frac{1}{\lambda}\lVert\mathbf{y}-\mathbf{X}\boldsymbol{\theta}\rVert^2_2}_{=0} + \lVert\boldsymbol{\theta}\rVert^2_2$, since what we want to do is to minimize the objective function, we can divide it by $\lambda$.]]></description>
+</item>
+<item>
     <title>Getting Started with Regression: An Introductory Guide (Part 1)</title>
     <link>http://localhost:1313/20240810_regression1/</link>
     <pubDate>Sat, 10 Aug 2024 00:00:00 &#43;0000</pubDate>

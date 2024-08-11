@@ -1,13 +1,5 @@
----
-weight: 1
-title: "Getting Started with Regression: An Introductory Guide (Part 2)"
-date: 2024-08-11
-draft: false
-author: Han
-description: "Introduction to Regression: Understanding the Basics (Part 2)"
-tags: ["machine learning", "regression", "least square"]
-categories: ["machine learning"]
----
+# Getting Started with Regression: An Introductory Guide (Part 2)
+
 
 # An Introductory Guide (Part 2)
 
@@ -174,5 +166,6 @@ This article continues in Part 3.
 #### References:
 1. H. Pishro-Nik, Introduction to Probability, Statistics, and Random Processes, 2014
 2. Simon, Dan, Optimal State Estimation: Kalman, H Infinity, and Nonlinear Approaches, 2006
+
 
 

@@ -2,6 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>http://localhost:1313/20240811_regression2/</loc><lastmod>2024-08-11T00:11:31&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20240810_regression1/</loc><lastmod>2024-08-11T00:11:31&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20240804_gpg_encryption/</loc><lastmod>2024-08-10T10:08:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20240713_taskspooler/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
