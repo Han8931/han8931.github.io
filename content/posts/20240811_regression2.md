@@ -45,7 +45,7 @@ For an underdetermined linear regression problem, the objective can be written a
 	\boldsymbol{\theta} = \argmin\_{\boldsymbol{\theta}\in \mathbb{R}^d} \lVert \boldsymbol{\theta}\rVert^2, \quad \textrm{subject to}\ \mathbf{y} = \mathbf{X}\boldsymbol{\theta}.
 \end{align*}
 
-Here, $\mathbf{X}\in \mathbb{R}^{m\times d}, \boldsymbol{\theta}\in \mathbb{R}^d,$ and $\mathbf{y}\in \mathbb{R}^m$. If the matrix has full rank, meaning rank$(\mathbf{X})=N$, then the linear regression problem will have a unique global minimum 
+Here, $\mathbf{X}\in \mathbb{R}^{m\times d}, \boldsymbol{\theta}\in \mathbb{R}^d,$ and $\mathbf{y}\in \mathbb{R}^m$. If the matrix has full rank, meaning rank$(\mathbf{X})=m$, then the linear regression problem will have a unique global minimum 
 
 \begin{align*}
 	\boldsymbol{\theta} = \mathbf{X}^T(\mathbf{X}\mathbf{X}^T)^{-1}\mathbf{y}.
