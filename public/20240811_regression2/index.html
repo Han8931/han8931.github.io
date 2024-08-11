@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-08-11T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-11T10:25:52+09:00">
+    <meta property="article:modified_time" content="2024-08-11T18:14:02+09:00">
     <meta property="article:tag" content="Machine Learning">
     <meta property="article:tag" content="Regression">
     <meta property="article:tag" content="Least Square">
@@ -35,7 +35,7 @@
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240811_regression2\/"
         },"genre": "posts","keywords": "machine learning, regression, least square","wordcount":  1197 ,
-        "url": "http:\/\/localhost:1313\/20240811_regression2\/","datePublished": "2024-08-11T00:00:00+00:00","dateModified": "2024-08-11T10:25:52+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        "url": "http:\/\/localhost:1313\/20240811_regression2\/","datePublished": "2024-08-11T00:00:00+00:00","dateModified": "2024-08-11T18:14:02+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -164,7 +164,7 @@
 $$\boldsymbol{\theta} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$$</p>
 <p>The solution exists if and only if $\mathbf{X}^T\mathbf{X}$ is invertible, which is true when the columns of $\mathbf{X}$ are linearly independent, meaning $\mathbf{X}$ is full rank.</p>
 <h3 id="underdetermined-systems">Underdetermined Systems</h3>
-<p>In contrast, when $\mathbf{X}$ is fat and short (i.e., $N&lt;d$), the problem is called <em>underdetermined</em>. In this scenario, there are more unknowns than equations, leading to infinitely many solutions. This occurs because <em>the system has less information than the number of unknowns</em>. Among these, the solution that minimizes the squared norm of the parameters is preferred. This solution is known as the minimum-norm least-squares solution.</p>
+<p>In contrast, when $\mathbf{X}$ is fat and short (i.e., $m&lt;d$), the problem is called <em>underdetermined</em>. In this scenario, there are more unknowns than equations, leading to infinitely many solutions. This occurs because <em>the system has less information than the number of unknowns</em>. Among these, the solution that minimizes the squared norm of the parameters is preferred. This solution is known as the minimum-norm least-squares solution.</p>
 <p>For an underdetermined linear regression problem, the objective can be written as:</p>
 <p>\begin{align*}
 \boldsymbol{\theta} = \argmin_{\boldsymbol{\theta}\in \mathbb{R}^d} \lVert \boldsymbol{\theta}\rVert^2, \quad \textrm{subject to}\ \mathbf{y} = \mathbf{X}\boldsymbol{\theta}.
@@ -276,8 +276,8 @@ Note that the measurement noise matrix $R$ must be non-singular for a solution t
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2024-08-11&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/314b27e13afd581d345169334fe9303085ff6ef6" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 314b27e13afd581d345169334fe9303085ff6ef6: Update">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>314b27e</a></span>
+                <span>Updated on 2024-08-11&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/908c1d34875eafe3a0ba65022da09d5356a8215f" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 908c1d34875eafe3a0ba65022da09d5356a8215f: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>908c1d3</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
