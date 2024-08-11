@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-08-11T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-11T00:11:31+09:00">
+    <meta property="article:modified_time" content="2024-08-11T10:25:52+09:00">
     <meta property="article:tag" content="Machine Learning">
     <meta property="article:tag" content="Regression">
     <meta property="article:tag" content="Least Square">
@@ -34,8 +34,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240811_regression2\/"
-        },"genre": "posts","keywords": "machine learning, regression, least square","wordcount":  1147 ,
-        "url": "http:\/\/localhost:1313\/20240811_regression2\/","datePublished": "2024-08-11T00:00:00+00:00","dateModified": "2024-08-11T00:11:31+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "machine learning, regression, least square","wordcount":  1171 ,
+        "url": "http:\/\/localhost:1313\/20240811_regression2\/","datePublished": "2024-08-11T00:00:00+00:00","dateModified": "2024-08-11T10:25:52+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -110,7 +110,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Getting Started with Regression: An Introductory Guide (Part 2)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-11">2024-08-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1147 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-11">2024-08-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1171 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -253,7 +253,7 @@ R &amp;= \mathbb{E}(\eta\eta^T)\\
 &amp;= \begin{bmatrix}
 \sigma_1^2 &amp; \dots &amp; 0\\
 \vdots &amp; \ddots &amp; \vdots\\
-0 &amp; \ddots &amp; \sigma_l^2
+0 &amp; \dots &amp; \sigma_l^2
 \end{bmatrix}
 \end{align*}</p>
 <p>By denoting the error vector $\mathbf{y}-\mathbf{X}\boldsymbol{\theta}$ as $\boldsymbol{\epsilon} = (\epsilon_1, \dots, \epsilon_l)^T$, we will minimize the sum of squared differences weighted over the variations of the measurements:
@@ -261,7 +261,7 @@ R &amp;= \mathbb{E}(\eta\eta^T)\\
 J(\tilde{\mathbf{x}}) &amp;= \boldsymbol{\epsilon}^TR^{-1}\boldsymbol{\epsilon}=\frac{\boldsymbol{\epsilon}_1^2}{\sigma_1^2}+\dots+\frac{\boldsymbol{\epsilon}_l^2}{\sigma_l^2}\\
 &amp;= (\mathbf{y}-\mathbf{X}\boldsymbol{\theta})^TR^{-1}(\mathbf{y}-\mathbf{X}\boldsymbol{\theta})
 \end{align*}
-By taking the partial derivative of $J$ with respect to $\boldsymbol{\theta}$, we get the best estimate of the parameter, which is given by
+Note that by dividing each residual by its variance, we effectively equalize the influence of each data point on the overall fitting process. Subsequently, by taking the partial derivative of $J$ with respect to $\boldsymbol{\theta}$, we get the best estimate of the parameter, which is given by
 $$\boldsymbol{\theta} = (\mathbf{X}^TR^{-1}\mathbf{X})^{-1}\mathbf{X}^TR^{-1}\mathbf{y}.$$
 Note that the measurement noise matrix $R$ must be non-singular for a solution to exist.</p>
 <p>To learn more, please take a look at this <a href="https://github.com/Han8931/deep_statistical_learning" target="_blank" rel="noopener noreffer">note</a>
@@ -276,8 +276,8 @@ Note that the measurement noise matrix $R$ must be non-singular for a solution t
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2024-08-11&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/677b125fd7f1428588fdcd8e588bd17aaf83ce48" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 677b125fd7f1428588fdcd8e588bd17aaf83ce48: Update regression">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>677b125</a></span>
+                <span>Updated on 2024-08-11&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/314b27e13afd581d345169334fe9303085ff6ef6" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 314b27e13afd581d345169334fe9303085ff6ef6: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>314b27e</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
