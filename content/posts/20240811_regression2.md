@@ -154,7 +154,7 @@ Up to this point, we have assumed that all measurements are equally reliable. Ho
 	  &= \begin{bmatrix}
 		  \sigma_1^2 & \dots & 0\\\\
 		  \vdots & \ddots & \vdots\\\\
-		  0 & \ddots & \sigma_l^2
+		  0 & \dots & \sigma_l^2
 	  \end{bmatrix}
 \end{align*}
 
@@ -163,7 +163,7 @@ By denoting the error vector $\mathbf{y}-\mathbf{X}\boldsymbol{\theta}$ as $\bol
 	J(\tilde{\mathbf{x}}) &= \boldsymbol{\epsilon}^TR^{-1}\boldsymbol{\epsilon}=\frac{\boldsymbol{\epsilon}_1^2}{\sigma_1^2}+\dots+\frac{\boldsymbol{\epsilon}_l^2}{\sigma_l^2}\\\\
 					&= (\mathbf{y}-\mathbf{X}\boldsymbol{\theta})^TR^{-1}(\mathbf{y}-\mathbf{X}\boldsymbol{\theta})
 \end{align*}
-By taking the partial derivative of $J$ with respect to $\boldsymbol{\theta}$, we get the best estimate of the parameter, which is given by
+Note that by dividing each residual by its variance, we effectively equalize the influence of each data point on the overall fitting process. Subsequently, by taking the partial derivative of $J$ with respect to $\boldsymbol{\theta}$, we get the best estimate of the parameter, which is given by
 $$\boldsymbol{\theta} = (\mathbf{X}^TR^{-1}\mathbf{X})^{-1}\mathbf{X}^TR^{-1}\mathbf{y}.$$
 Note that the measurement noise matrix $R$ must be non-singular for a solution to exist.
 
