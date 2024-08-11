@@ -37,7 +37,7 @@ The solution exists if and only if $\mathbf{X}^T\mathbf{X}$ is invertible, which
 
 ### Underdetermined Systems
 
-In contrast, when $\mathbf{X}$ is fat and short (i.e., $N<d$), the problem is called _underdetermined_. In this scenario, there are more unknowns than equations, leading to infinitely many solutions. This occurs because *the system has less information than the number of unknowns*. Among these, the solution that minimizes the squared norm of the parameters is preferred. This solution is known as the minimum-norm least-squares solution.
+In contrast, when $\mathbf{X}$ is fat and short (i.e., $m<d$), the problem is called _underdetermined_. In this scenario, there are more unknowns than equations, leading to infinitely many solutions. This occurs because *the system has less information than the number of unknowns*. Among these, the solution that minimizes the squared norm of the parameters is preferred. This solution is known as the minimum-norm least-squares solution.
 
 For an underdetermined linear regression problem, the objective can be written as:
 
