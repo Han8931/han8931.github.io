@@ -4,9 +4,17 @@
         <link>http://localhost:1313/</link>
         <description>Han&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 12 Aug 2024 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Getting Started with Regression (Part 3)</title>
+    <link>http://localhost:1313/20240812_recursive_least_square/</link>
+    <pubDate>Mon, 12 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240812_recursive_least_square/</guid>
+    <description><![CDATA[Deep Dive into Regression: Recursive Least Squares Explained (Part 3) Introduction to Recursive Least Squares Ordinary least squares assumes that all data is available at once, but in practice, this isn&rsquo;t always the case. Often, measurements are obtained sequentially, and we need to update our estimates as new data comes in. Simply augmenting the data matrix $\mathbf{X}$ each time a new measurement arrives can become computationally expensive, especially when dealing with a large number of measurements.]]></description>
+</item>
+<item>
     <title>Getting Started with Regression (Part 2)</title>
     <link>http://localhost:1313/20240811_regression2/</link>
     <pubDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</pubDate>
@@ -85,16 +93,6 @@ Pacman ensures your system remains updated by synchronizing the package lists wi
     <description><![CDATA[Python&rsquo;s dynamic typing system is indeed convenient, allowing you to create variables without explicitly declaring their types. While this flexibility can streamline development, it can also introduce unexpected behavior, particularly when handling data from external sources like APIs or user input.
 Consider the following scenario:
 1 2 employee = Employee(&#34;Han&#34;, 30) # Correct employee = Employee(&#34;Moon&#34;, &#34;30&#34;) # Correct Here, the second argument is intended to represent an age, typically an integer.]]></description>
-</item>
-<item>
-    <title>Enumerate variables with Enum!</title>
-    <link>http://localhost:1313/20240426_enum/</link>
-    <pubDate>Fri, 26 Apr 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/20240426_enum/</guid>
-    <description><![CDATA[Enum is a way that Python enumerate variables. The enum module allows for the creation of enumerated constants—unique, immutable data types that are useful for representing a fixed set of values. These values, which are usually related by their context, are known as enumeration members.
-Enum provides&hellip;
-Uniqueness - Each member of an Enum is unique within its definition, meaning no two members can have the same value. Attempting to define two members with the same value will result in an error unless you explicitly allow aliases.]]></description>
 </item>
 </channel>
 </rss>
