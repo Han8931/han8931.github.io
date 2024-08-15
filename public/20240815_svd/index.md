@@ -28,11 +28,11 @@ Now, let's derive the eigenvectors of $U$:
 \end{align*}
 Thus, $Av_i$ is an eigenvector of $AA^T$. However, to ensure that the matrix $U$ is orthonormal, we need to normalize these vectors as follows:
 \begin{align*}
-	u_i &= \frac{Av_i}{\|Av_i\|} \\\\
+	u_i &= \frac{Av_i}{\lVert Av_i\rVert} \\\\
 		&= \frac{Av_i}{\sqrt{(Av_i)^TAv_i}} \\\\
 		&= \frac{Av_i}{\sqrt{v_i^TA^TAv_i}} \\\\
 		&= \frac{Av_i}{\sqrt{v_i^T\lambda_i v_i}} \\\\
-		&= \frac{Av_i}{\sigma_i \underbrace{\|v_i\|}_{=1}} \\\\
+		&= \frac{Av_i}{\sigma_i \underbrace{\lVert v_i\rVert}_{=1}} \\\\
 		&= \frac{Av_i}{\sigma_i}.
 \end{align*}
 We can express $U$ as follows:
