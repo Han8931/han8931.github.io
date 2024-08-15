@@ -4,20 +4,44 @@
         <link>http://localhost:1313/tags/</link>
         <description>Tags - Tag - Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 12 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
-    <title>Least Square</title>
-    <link>http://localhost:1313/tags/least-square/</link>
-    <pubDate>Mon, 12 Aug 2024 00:00:00 &#43;0000</pubDate>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 15 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Linear Algebra</title>
+    <link>http://localhost:1313/tags/linear-algebra/</link>
+    <pubDate>Thu, 15 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/tags/least-square/</guid>
+    <guid>http://localhost:1313/tags/linear-algebra/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Machine Learning</title>
     <link>http://localhost:1313/tags/machine-learning/</link>
-    <pubDate>Mon, 12 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <pubDate>Thu, 15 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/tags/machine-learning/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Singular Value Decomposition</title>
+    <link>http://localhost:1313/tags/singular-value-decomposition/</link>
+    <pubDate>Thu, 15 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/singular-value-decomposition/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Svd</title>
+    <link>http://localhost:1313/tags/svd/</link>
+    <pubDate>Thu, 15 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/svd/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Least Square</title>
+    <link>http://localhost:1313/tags/least-square/</link>
+    <pubDate>Mon, 12 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/least-square/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -58,30 +82,6 @@
     <pubDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/tags/weighted-regression/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Decryption</title>
-    <link>http://localhost:1313/tags/decryption/</link>
-    <pubDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/decryption/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Encryption</title>
-    <link>http://localhost:1313/tags/encryption/</link>
-    <pubDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/encryption/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Gpg</title>
-    <link>http://localhost:1313/tags/gpg/</link>
-    <pubDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/gpg/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
