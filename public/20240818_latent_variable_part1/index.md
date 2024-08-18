@@ -7,7 +7,7 @@
 
 Let's say we want to classify some data. If we had access to a corresponding latent variable for each observation $ \mathbf{x}_i $, modeling would be more straightforward. To illustrate this, consider the challenge of finding the latent variable (i.e., the true class of $ \mathbf{x} $). It can be expressed like $ z^* = \argmax\_{z} p(\mathbf{x} | z) $. It is hard to identify the true clusters without prior knowledge about them. For example, we can cluster like Fig. (b) or (c). 
 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/latent_variable.png" alt="Latent Variable" height="400">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/latent_variable.png" alt="Latent Variable" height="350">
 
 Consider modeling the complete data set $ p(\mathbf{x} | z) $ under the assumption that the observations are independent and identically distributed (i.i.d.). Based on the above Fig. (c), the joint distribution for a single observation $ (\mathbf{x}\_i, \mathbf{z}\_i) $ given the model parameters $ \boldsymbol{\theta} $ can be expressed:
 
@@ -145,7 +145,7 @@ where we have defined
 \end{align*}
 We can interpret $N_k$ as the effective number of points assigned to cluster $k$. We can obtain the MLE solutions for other variables similarly.
 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/gmm_em.png" alt="EM Algorithm for GMM" height="430">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/gmm_em.png" alt="EM Algorithm for GMM" height="480">
 
 **References**:
 - Christoper M. Bishop, Pattern Recognition and Machine Learning, 2006
