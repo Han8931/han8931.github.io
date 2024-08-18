@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://localhost:1313/20240818_latent_variable_part1/</loc><lastmod>2024-08-18T14:03:06&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/20240818_latent_variable_part1/</loc><lastmod>2024-08-18T14:04:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20240815_svd/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20240812_recursive_least_square/</loc><lastmod>2024-08-18T13:55:09&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20240811_regression2/</loc><lastmod>2024-08-12T06:19:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
@@ -20,17 +20,17 @@
             <loc>http://localhost:1313/20240421_why-linux/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>http://localhost:1313/20240421_hide-sensitive-data/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>http://localhost:1313/20240421_type-hint/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>http://localhost:1313/categories/</loc><lastmod>2024-08-18T14:03:06&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/clustering/</loc><lastmod>2024-08-18T14:03:06&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/gaussian-mixture-modeling/</loc><lastmod>2024-08-18T14:03:06&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/gmm/</loc><lastmod>2024-08-18T14:03:06&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/</loc><lastmod>2024-08-18T14:03:06&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/k-means-clustering/</loc><lastmod>2024-08-18T14:03:06&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/latent-variable/</loc><lastmod>2024-08-18T14:03:06&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/machine-learning/</loc><lastmod>2024-08-18T14:03:06&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/categories/machine-learning/</loc><lastmod>2024-08-18T14:03:06&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/posts/</loc><lastmod>2024-08-18T14:03:06&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/</loc><lastmod>2024-08-18T14:03:06&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/categories/</loc><lastmod>2024-08-18T14:04:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/clustering/</loc><lastmod>2024-08-18T14:04:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/gaussian-mixture-modeling/</loc><lastmod>2024-08-18T14:04:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/gmm/</loc><lastmod>2024-08-18T14:04:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/</loc><lastmod>2024-08-18T14:04:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/k-means-clustering/</loc><lastmod>2024-08-18T14:04:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/latent-variable/</loc><lastmod>2024-08-18T14:04:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/machine-learning/</loc><lastmod>2024-08-18T14:04:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/categories/machine-learning/</loc><lastmod>2024-08-18T14:04:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/posts/</loc><lastmod>2024-08-18T14:04:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/</loc><lastmod>2024-08-18T14:04:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/tags/linear-algebra/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/categories/linear-algebra/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/categories/math/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
