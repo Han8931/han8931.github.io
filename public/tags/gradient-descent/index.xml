@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Gradient Descent - Tag - Han&#39;s XYZ</title>
+        <link>http://localhost:1313/tags/gradient-descent/</link>
+        <description>Gradient Descent - Tag - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 18 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/gradient-descent/" rel="self" type="application/rss+xml" /><item>
+    <title>Direction of Gradient Descent Update</title>
+    <link>http://localhost:1313/20240819_gradient_descent/</link>
+    <pubDate>Sun, 18 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240819_gradient_descent/</guid>
+    <description><![CDATA[On Gradient Descent Gradient is a vector function that represents a direction of steepest increase of a function to be differentiated at a certain point. For example, a convex function $z = ax^2+by^2$ has a gradient $[2ax, 2by]$. Its steepest descent direction is $[-2ax, -2by]$. At the point $x_0,y_0$, the gradient direction for the function is $2ax_0(y-y_0) = 2by_0(x-x_0)$. But then the lowest point $(x,y) = (0,0)$ does not lie on the line.]]></description>
+</item>
+</channel>
+</rss>
