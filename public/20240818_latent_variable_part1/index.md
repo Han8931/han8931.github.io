@@ -7,7 +7,7 @@
 
 Let's say we want to classify some data. If we had access to a corresponding latent variable for each observation $ \mathbf{x}_i $, modeling would be more straightforward. To illustrate this, consider the challenge of finding the latent variable (i.e., the true class of $ \mathbf{x} $). It can be expressed like $ z^* = \argmax\_{z} p(\mathbf{x} | z) $. It is hard to identify the true clusters without prior knowledge about them. For example, we can cluster like Fig. (b) or (c). 
 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/latent_variable.png" alt="Latent Variable" height="350">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/latent_variable.png" alt="Latent Variable" height="250">
 
 Consider modeling the complete data set $ p(\mathbf{x} | z) $ under the assumption that the observations are independent and identically distributed (i.i.d.). Based on the above Fig. (c), the joint distribution for a single observation $ (\mathbf{x}\_i, \mathbf{z}\_i) $ given the model parameters $ \boldsymbol{\theta} $ can be expressed:
 

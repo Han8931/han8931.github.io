@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-08-18T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-18T13:55:09+09:00">
+    <meta property="article:modified_time" content="2024-08-18T14:03:06+09:00">
     <meta property="article:tag" content="Machine Learning">
     <meta property="article:tag" content="Latent Variable">
     <meta property="article:tag" content="K-Means Clustering">
@@ -38,7 +38,7 @@
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240818_latent_variable_part1\/"
         },"genre": "posts","keywords": "machine learning, latent variable, k-means clustering, clustering, gmm, Gaussian mixture modeling","wordcount":  1816 ,
-        "url": "http:\/\/localhost:1313\/20240818_latent_variable_part1\/","datePublished": "2024-08-18T00:00:00+00:00","dateModified": "2024-08-18T13:55:09+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        "url": "http:\/\/localhost:1313\/20240818_latent_variable_part1\/","datePublished": "2024-08-18T00:00:00+00:00","dateModified": "2024-08-18T14:03:06+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -140,7 +140,7 @@
             </div><div class="content" id="content"><h1 id="latent-variable-modeling">Latent Variable Modeling</h1>
 <h2 id="motivation-of-latent-variable-modeling">Motivation of Latent Variable Modeling</h2>
 <p>Let&rsquo;s say we want to classify some data. If we had access to a corresponding latent variable for each observation $ \mathbf{x}_i $, modeling would be more straightforward. To illustrate this, consider the challenge of finding the latent variable (i.e., the true class of $ \mathbf{x} $). It can be expressed like $ z^* = \argmax_{z} p(\mathbf{x} | z) $. It is hard to identify the true clusters without prior knowledge about them. For example, we can cluster like Fig. (b) or (c).</p>
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/latent_variable.png" alt="Latent Variable" height="350">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/latent_variable.png" alt="Latent Variable" height="250">
 <p>Consider modeling the complete data set $ p(\mathbf{x} | z) $ under the assumption that the observations are independent and identically distributed (i.i.d.). Based on the above Fig. (c), the joint distribution for a single observation $ (\mathbf{x}_i, \mathbf{z}_i) $ given the model parameters $ \boldsymbol{\theta} $ can be expressed:</p>
 <p>\begin{align*}
 p(\mathbf{x}_i, \mathbf{z}_i | \boldsymbol{\theta}) =
@@ -258,8 +258,8 @@ We can interpret $N_k$ as the effective number of points assigned to cluster $k$
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2024-08-18&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/716f0159286f5587944dd4cb642ed8a7624317b2" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 716f0159286f5587944dd4cb642ed8a7624317b2: Update">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>716f015</a></span>
+                <span>Updated on 2024-08-18&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/2e4acce0aa7b74037a2c51130973fd5360ef6db8" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 2e4acce0aa7b74037a2c51130973fd5360ef6db8: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>2e4acce</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
