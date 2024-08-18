@@ -163,4 +163,4 @@ This chapter will be posted soon. Stay tuned for updates!
 <!-- The RLS method is versatile and powerful, capable of handling a wide range of scenarios where data arrives sequentially, and efficient updates are needed without recalculating from scratch. -->
 
 #### References:
-1. Simon, Dan, Optimal State Estimation: Kalman, H Infinity, and Nonlinear Approaches, 2006
+1. Simon Dan, Optimal State Estimation: Kalman, H Infinity, and Nonlinear Approaches, 2006
