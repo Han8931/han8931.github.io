@@ -140,7 +140,9 @@
             </div><div class="content" id="content"><h1 id="latent-variable-modeling">Latent Variable Modeling</h1>
 <h2 id="motivation-of-latent-variable-modeling">Motivation of Latent Variable Modeling</h2>
 <p>Let&rsquo;s say we want to classify some data. If we had access to a corresponding latent variable for each observation $ \mathbf{x}_i $, modeling would be more straightforward. To illustrate this, consider the challenge of finding the latent variable (i.e., the true class of $ \mathbf{x} $). It can be expressed like $ z^* = \argmax_{z} p(\mathbf{x} | z) $. It is hard to identify the true clusters without prior knowledge about them. For example, we can cluster like Fig. (b) or (c).</p>
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/latent_variable.png" alt="Latent Variable" height="250">
+<p style="text-align:center;"> 
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/latent_variable.png" alt="Latent Variable" height="130">
+</p>
 <p>Consider modeling the complete data set $ p(\mathbf{x} | z) $ under the assumption that the observations are independent and identically distributed (i.i.d.). Based on the above Fig. (c), the joint distribution for a single observation $ (\mathbf{x}_i, \mathbf{z}_i) $ given the model parameters $ \boldsymbol{\theta} $ can be expressed:</p>
 <p>\begin{align*}
 p(\mathbf{x}_i, \mathbf{z}_i | \boldsymbol{\theta}) =
@@ -249,7 +251,9 @@ where we have defined
 N_k = \sum_{n=1}^{N}\gamma(z_{nk}).
 \end{align*}
 We can interpret $N_k$ as the effective number of points assigned to cluster $k$. We can obtain the MLE solutions for other variables similarly.</p>
+<p style="text-align:center;"> 
 <img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/gmm_em.png" alt="EM Algorithm for GMM" height="480">
+</p> 
 <p><strong>References</strong>:</p>
 <ul>
 <li>Christoper M. Bishop, Pattern Recognition and Machine Learning, 2006</li>
