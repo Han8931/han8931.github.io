@@ -7,6 +7,14 @@
             <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 19 Aug 2024 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Direction of Gradient Descent Update</title>
+    <link>http://localhost:1313/20240819_gradient_descent/</link>
+    <pubDate>Mon, 19 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240819_gradient_descent/</guid>
+    <description><![CDATA[On Gradient Descent Gradient descent is an optimization algorithm used to minimize a function by iteratively moving towards the function&rsquo;s minimum value. It is a fundamental concept in machine learning, particularly in training models such as neural networks. The gradient is a vector that represents the direction of the steepest increase of the function at a given point. For example, for a convex function $z = ax^2 + by^2$, the gradient is $[2ax, 2by]$, which points in the direction of the steepest ascent.]]></description>
+</item>
+<item>
     <title>Introduction to Latent Variable Modeling (Part 1)</title>
     <link>http://localhost:1313/20240818_latent_variable_part1/</link>
     <pubDate>Sun, 18 Aug 2024 00:00:00 &#43;0000</pubDate>
@@ -83,14 +91,6 @@ Installation: You can install Poetry through its custom installer script or usin
     <guid>http://localhost:1313/20240501_pacman/</guid>
     <description><![CDATA[Pacman , the package manager for Arch Linux, is known for its simple binary package format and easy-to-use build system . The primary aim of Pacman is to facilitate straightforward management of packages from both the official repositories and user-generated builds.
 Pacman ensures your system remains updated by synchronizing the package lists with the master server. This client/server model simplifies the process of downloading and installing packages, along with all their dependencies, using basic commands.]]></description>
-</item>
-<item>
-    <title>Vim, Type at the Speed of Thought!</title>
-    <link>http://localhost:1313/20240501_vim/</link>
-    <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/20240501_vim/</guid>
-    <description><![CDATA[While it may look somewhat obsolete in an era dominated by graphically rich IDEs, Vim remains not just a highly relevant and effective tool for today&rsquo;s programmers but also a badge of coolness in the tech world. Those who master its commands are often seen as coding wizards. With its unique advantages in speed, efficiency, and customizability, Vim is an invaluable asset in software development environments, proving that old-school can still be trendy.]]></description>
 </item>
 </channel>
 </rss>

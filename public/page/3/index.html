@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta name="generator" content="Hugo 0.129.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.131.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -103,6 +103,14 @@
 <a href="mailto:tabularasa8931@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a>
 </div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/20240426_pydantic/">Data validation with Pydantic!</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
+</span>&nbsp;<span class="post-publish">published on <time datetime="2024-04-26">2024-04-26</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content">Python&rsquo;s dynamic typing system is indeed convenient, allowing you to create variables without explicitly declaring their types. While this flexibility can streamline development, it can also introduce unexpected behavior, particularly when handling data from external sources like APIs or user input.
+Consider the following scenario:
+1 2 employee = Employee(&#34;Han&#34;, 30) # Correct employee = Employee(&#34;Moon&#34;, &#34;30&#34;) # Correct Here, the second argument is intended to represent an age, typically an integer.</div><div class="post-footer">
+        <a href="/20240426_pydantic/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/pydantic/">Pydantic</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/20240426_enum/">Enumerate variables with Enum!</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-publish">published on <time datetime="2024-04-26">2024-04-26</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content">Enum is a way that Python enumerate variables. The enum module allows for the creation of enumerated constants—unique, immutable data types that are useful for representing a fixed set of values. These values, which are usually related by their context, are known as enumeration members.
@@ -137,14 +145,6 @@ Linux, an open-source operating system, embodies the principles of minimalism by
 Resource handles to the database, Memcached, and other backing services Credentials to external services such as Amazon S3 or Twitter Per-deploy values such as the canonical hostname for the deploy Apps sometimes store config as constants in the code. This is a violation of twelve-factor, which requires strict separation of config from code.</div><div class="post-footer">
         <a href="/20240421_hide-sensitive-data/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/dotenv/">Dotenv</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/20240421_type-hint/">Type hint in Python</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
-</span>&nbsp;<span class="post-publish">published on <time datetime="2024-04-20">2024-04-20</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content">Type hinting is not mandatory, but it can make your code easier to understand and debug by
-Improved readability Better IDE support: IDEs and linters can use type hints to check your code for potential errors before runtime. While type hints can be simple classes like float or str , they can also be more complex. The typing module provides a vocabulary of more advanced type hints.
-Basics 1 2 3 4 5 6 7 8 9 10 11 12 # This is how you declare the type of a variable age: int = 1 # You don&#39;t need to initialize a variable to annotate it a: int # Ok (no value at runtime until assigned) # Doing so can be useful in conditional branches child: bool if age &lt; 18: child = True else: child = False 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 x: int = 1 x: float = 1.</div><div class="post-footer">
-        <a href="/20240421_type-hint/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/type-hint/">Type Hint</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -157,9 +157,13 @@ Basics 1 2 3 4 5 6 7 8 9 10 11 12 # This is how you declare the type of a variab
                     <span class="page-link">
                         <a href="/page/3/">3</a>
                     </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/4/">4</a>
+                    </span>
                 </li></ul></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.129.0">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.131.0">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
