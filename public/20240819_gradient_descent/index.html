@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-08-19T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-19T22:11:55+09:00">
+    <meta property="article:modified_time" content="2024-08-19T22:14:11+09:00">
     <meta property="article:tag" content="Machine Learning">
     <meta property="article:tag" content="Gradient Descent">
     <meta property="article:tag" content="Gradient">
@@ -35,7 +35,7 @@
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240819_gradient_descent\/"
         },"genre": "posts","keywords": "machine learning, gradient descent, gradient","wordcount":  333 ,
-        "url": "http:\/\/localhost:1313\/20240819_gradient_descent\/","datePublished": "2024-08-19T00:00:00+00:00","dateModified": "2024-08-19T22:11:55+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        "url": "http:\/\/localhost:1313\/20240819_gradient_descent\/","datePublished": "2024-08-19T00:00:00+00:00","dateModified": "2024-08-19T22:14:11+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -139,7 +139,7 @@ $$f(\bar{\mathbf{x}}+\mathbf{d})\approx f(\bar{\mathbf{x}})+\nabla f(\bar{\mathb
 $$|\nabla f(\bar{\mathbf{x}})^T\mathbf{d}|\leq \lVert\nabla f(\bar{\mathbf{x}})\rVert \ \lVert\mathbf{d}\rVert.$$
 The equality holds if and only if $\mathbf{d}=\lambda \nabla f(\bar{\mathbf{x}})$, where $\lambda\in \mathbb{R}$. Since we want to minimize the function $f$, we negate the steepest direction $\mathbf{d}^{*}$, then
 $$f(\bar{\mathbf{x}}+\mathbf{d})\approx f(\bar{\mathbf{x}})-\lambda\nabla f(\bar{\mathbf{x}})^T\nabla f(\bar{\mathbf{x}}).$$
-Since $\nabla f(\bar{\mathbf{x}})^T\nabla f(\bar{\mathbf{x}})$ is \textbf{always positive}, the term $-\lambda\nabla f(\bar{\mathbf{x}})^T\nabla f(\bar{\mathbf{x}})$ is always negative. Therefore by updating $\rvx$
+Since $\nabla f(\bar{\mathbf{x}})^T\nabla f(\bar{\mathbf{x}})$ is <strong>always positive</strong>, the term $-\lambda\nabla f(\bar{\mathbf{x}})^T\nabla f(\bar{\mathbf{x}})$ is always negative. Therefore by updating $\mathbf{x}$
 $$\mathbf{x}^{(k+1)} = \mathbf{x}^{(k)} - \eta \nabla f(\mathbf{x}^{(k)}),$$
 we get
 $$f(\mathbf{x}^{(k+1)}) &lt; f(\mathbf{x}^{(k)}).$$</p>
@@ -155,8 +155,8 @@ $$f(\mathbf{x}^{(k+1)}) &lt; f(\mathbf{x}^{(k)}).$$</p>
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2024-08-19&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/d31c94b8f6d6bae6da825c61bc01368b501b15ba" target="_blank" title="commit by Han(tabularasa8931@gmail.com) d31c94b8f6d6bae6da825c61bc01368b501b15ba: Update">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>d31c94b</a></span>
+                <span>Updated on 2024-08-19&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/357a47787f84de6bee3d584db30fa37af92a26b1" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 357a47787f84de6bee3d584db30fa37af92a26b1: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>357a477</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
