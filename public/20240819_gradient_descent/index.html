@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-08-19T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-18T14:36:36+09:00">
+    <meta property="article:modified_time" content="2024-08-19T22:11:55+09:00">
     <meta property="article:tag" content="Machine Learning">
     <meta property="article:tag" content="Gradient Descent">
     <meta property="article:tag" content="Gradient">
@@ -34,8 +34,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240819_gradient_descent\/"
-        },"genre": "posts","keywords": "machine learning, gradient descent, gradient","wordcount":  331 ,
-        "url": "http:\/\/localhost:1313\/20240819_gradient_descent\/","datePublished": "2024-08-19T00:00:00+00:00","dateModified": "2024-08-18T14:36:36+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "machine learning, gradient descent, gradient","wordcount":  333 ,
+        "url": "http:\/\/localhost:1313\/20240819_gradient_descent\/","datePublished": "2024-08-19T00:00:00+00:00","dateModified": "2024-08-19T22:11:55+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -110,7 +110,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Direction of Gradient Descent Update</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-19">2024-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;331 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-19">2024-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;333 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -136,7 +136,7 @@ $$f(\mathbf{x})\approx f(\bar{\mathbf{x}})+\nabla f(\bar{\mathbf{x}})^T(x-\bar{\
 Now let $\mathbf{d}\neq0, |\mathbf{d}|=1$ be a direction, and in consideration of a new point $\mathbf{x}:=\bar{\mathbf{x}}+\mathbf{d}$, we define:
 $$f(\bar{\mathbf{x}}+\mathbf{d})\approx f(\bar{\mathbf{x}})+\nabla f(\bar{\mathbf{x}})^T\mathbf{d}$$</p>
 <p>We would like to choose $\mathbf{d}$ that minimizes the function $f$. From the Cauchy-Schwarz inequality<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> , we know that
-$$|\nabla f(\bar{\mathbf{x}})^T\mathbf{d}|\leq \lVert\nabla f(\bar{\mathbf{x}})\rVert,\lVert\mathbf{d}\rVert.$$
+$$|\nabla f(\bar{\mathbf{x}})^T\mathbf{d}|\leq \lVert\nabla f(\bar{\mathbf{x}})\rVert \ \lVert\mathbf{d}\rVert.$$
 The equality holds if and only if $\mathbf{d}=\lambda \nabla f(\bar{\mathbf{x}})$, where $\lambda\in \mathbb{R}$. Since we want to minimize the function $f$, we negate the steepest direction $\mathbf{d}^{*}$, then
 $$f(\bar{\mathbf{x}}+\mathbf{d})\approx f(\bar{\mathbf{x}})-\lambda\nabla f(\bar{\mathbf{x}})^T\nabla f(\bar{\mathbf{x}}).$$
 Since $\nabla f(\bar{\mathbf{x}})^T\nabla f(\bar{\mathbf{x}})$ is \textbf{always positive}, the term $-\lambda\nabla f(\bar{\mathbf{x}})^T\nabla f(\bar{\mathbf{x}})$ is always negative. Therefore by updating $\rvx$
@@ -147,7 +147,7 @@ $$f(\mathbf{x}^{(k+1)}) &lt; f(\mathbf{x}^{(k)}).$$</p>
 <hr>
 <ol>
 <li id="fn:1">
-<p>Cauchy-Schwarz Inequaility: $|\mathbf{a}\cdot \mathbf{b}|\leq \lVert\mathbf{a}\rVert , \lVert\mathbf{b}\rVert$. Equality holds if and only if either $\mathbf{a}$ or $\mathbf{b}$ is a multiple of the other.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>Cauchy-Schwarz Inequaility: $|\mathbf{a}\cdot \mathbf{b}|\leq \lVert\mathbf{a}\rVert \ \lVert\mathbf{b}\rVert$. Equality holds if and only if either $\mathbf{a}$ or $\mathbf{b}$ is a multiple of the other.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </div>
@@ -155,8 +155,8 @@ $$f(\mathbf{x}^{(k+1)}) &lt; f(\mathbf{x}^{(k)}).$$</p>
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2024-08-18&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/50bba91e34bf63572e62069299bc184c6c4659d4" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 50bba91e34bf63572e62069299bc184c6c4659d4: Update">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>50bba91</a></span>
+                <span>Updated on 2024-08-19&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/d31c94b8f6d6bae6da825c61bc01368b501b15ba" target="_blank" title="commit by Han(tabularasa8931@gmail.com) d31c94b8f6d6bae6da825c61bc01368b501b15ba: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>d31c94b</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
