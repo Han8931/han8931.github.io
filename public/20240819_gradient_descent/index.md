@@ -21,8 +21,8 @@ We would like to choose $\mathbf{d}$ that minimizes the function $f$. From the C
 $$|\nabla f(\bar{\mathbf{x}})^T\mathbf{d}|\leq \lVert\nabla f(\bar{\mathbf{x}})\rVert \ \lVert\mathbf{d}\rVert.$$
 The equality holds if and only if $\mathbf{d}=\lambda \nabla f(\bar{\mathbf{x}})$, where $\lambda\in \mathbb{R}$. Since we want to minimize the function $f$, we negate the steepest direction $\mathbf{d}^{*}$, then 
 $$f(\bar{\mathbf{x}}+\mathbf{d})\approx f(\bar{\mathbf{x}})-\lambda\nabla f(\bar{\mathbf{x}})^T\nabla f(\bar{\mathbf{x}}).$$
-Since $\nabla f(\bar{\mathbf{x}})^T\nabla f(\bar{\mathbf{x}})$ is **always positive**, the term $-\lambda\nabla f(\bar{\mathbf{x}})^T\nabla f(\bar{\mathbf{x}})$ is always negative. Therefore by updating $\mathbf{x}$
-$$\mathbf{x}^{(k+1)} = \mathbf{x}^{(k)} - \eta \nabla f(\mathbf{x}^{(k)}),$$
+Since $\nabla f(\bar{\mathbf{x}})^T\nabla f(\bar{\mathbf{x}})$ is **always positive**, the term $-\lambda\nabla f(\bar{\mathbf{x}})^T\nabla f(\bar{\mathbf{x}})$ is always negative. Therefore, by updating $\mathbf{x}$
+$$\mathbf{x}^{(k+1)} = \mathbf{x}^{(k)} - \lambda \nabla f(\mathbf{x}^{(k)}),$$
 we get
 $$f(\mathbf{x}^{(k+1)}) < f(\mathbf{x}^{(k)}).$$
 
