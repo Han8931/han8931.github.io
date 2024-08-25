@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-08-25T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-08-25T10:54:40+09:00">
     <meta property="article:tag" content="Machine Learning">
     <meta property="article:tag" content="Svm">
     <meta property="article:tag" content="Support Vector Machines">
@@ -35,7 +35,7 @@
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240825_svm1\/"
         },"genre": "posts","keywords": "machine learning, svm, Support vector machines","wordcount":  2276 ,
-        "url": "http:\/\/localhost:1313\/20240825_svm1\/","datePublished": "2024-08-25T00:00:00+00:00","dateModified": "2024-08-25T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        "url": "http:\/\/localhost:1313\/20240825_svm1\/","datePublished": "2024-08-25T00:00:00+00:00","dateModified": "2024-08-25T10:54:40+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -244,7 +244,7 @@ Let&rsquo;s look at the new constraint. If some data points are misclassified, t
 &amp;\min_{\mathbf{x}} f(\mathbf{x}) \\
 &amp;\text{subject to}\quad g(\mathbf{x})=0.
 \end{align*}
-To find the minimum of $f$ under the constraint $g(\mathbf{x})$, we use the method of \textit{Lagrange multipliers}. The key idea is that at the optimal point, the gradient of $f(\mathbf{x})$ must be parallel to the gradient of $g(\mathbf{x})$. Mathematically, this condition is expressed as:
+To find the minimum of $f$ under the constraint $g(\mathbf{x})$, we use the method of <em>Lagrange multipliers</em>. The key idea is that at the optimal point, the gradient of $f(\mathbf{x})$ must be parallel to the gradient of $g(\mathbf{x})$. Mathematically, this condition is expressed as:
 $$\nabla f(\mathbf{x}) = \lambda\nabla g(\mathbf{x}).$$</p>
 <h4 id="example">Example:</h4>
 <p>Consider a simple 2D example where you want to minimize the function $f(x,y)=x^2+y^2$, which represents a circle centered at the origin. This function increases as you move away from the origin, so the minimum is at the origin.</p>
@@ -275,10 +275,10 @@ Here, we maximize the Lagrangian with respect to the multipliers $\alpha_i$, whi
 <h3 id="handling-inequality-constraints-with-kkt-conditions">Handling Inequality Constraints with KKT Conditions</h3>
 <p>You may observe that the method of Lagrange multipliers is used for equality constraints. However, it can be extended to handle inequality constraints through the use of additional conditions known as the <em>Karush-Kuhn-Tucker (KKT) conditions</em>. These conditions ensure that the solution satisfies the necessary optimality criteria for problems with inequality constraints.</p>
 <h2 id="the-wolfe-dual-problem">The Wolfe Dual Problem</h2>
-<p>The Lagrangian problem for SVM optimization involves $N$ inequality constraints, where $N$ is the number of training examples. This problem is typically tacked using its \textit{dual form}. The duality principle provides a powerful framework, stating that <strong>an optimization problem can be approached from two perspectives</strong>:</p>
+<p>The Lagrangian problem for SVM optimization involves $N$ inequality constraints, where $N$ is the number of training examples. This problem is typically tacked using its <em>dual form</em>. The duality principle provides a powerful framework, stating that <strong>an optimization problem can be approached from two perspectives</strong>:</p>
 <p>\begin{enumerate}
-\item The \textit{primal problem}, which in our context is a minimization problem.
-\item The \textit{dual problem}, which is a maximization problem.
+\item The <em>primal problem</em>, which in our context is a minimization problem.
+\item The <em>dual problem</em>, which is a maximization problem.
 \end{enumerate}
 An important aspect of duality is that <strong>the maximum value of the dual problem is always less than or equal to the minimum value of the primal problem.</strong> This relationship means that the dual problem <strong>provides a lower bound to the solution of the primal problem</strong>.</p>
 <p>In the context of SVM optimization, we are dealing with a convex optimization problem. According to <em>Slater&rsquo;s condition</em>, which applies to problems with affine constraints, strong duality holds. Strong duality implies that the optimal values of the primal and dual problems are equal, meaning the maximum value of the dual problem equals the minimum value of the primal problem. This equality allows us to solve the dual problem instead of the primal problem, often leading to computational advantages.</p>
@@ -342,7 +342,8 @@ One important aspect of the dual problem is that it only involves the dot produc
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2024-08-25</span>
+                <span>Updated on 2024-08-25&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/840d3e7147e7d0697924e84a2fa2ee3131de32d0" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 840d3e7147e7d0697924e84a2fa2ee3131de32d0: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>840d3e7</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
