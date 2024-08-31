@@ -3,12 +3,13 @@
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
             <loc>http://localhost:1313/20240825_svm1/</loc><lastmod>2024-08-25T11:15:24&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/20240825_svm2/</loc><lastmod>2024-08-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20240819_gradient_descent/</loc><lastmod>2024-08-25T10:54:40&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/20240818_latent_variable_part1/</loc><lastmod>2024-08-18T14:12:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/20240815_svd/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://localhost:1313/20240812_recursive_least_square/</loc><lastmod>2024-08-18T13:55:09&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/20240811_regression2/</loc><lastmod>2024-08-12T06:19:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://localhost:1313/20240810_regression1/</loc><lastmod>2024-08-12T06:19:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://localhost:1313/20240818_latent_variable_part1/</loc><lastmod>2024-08-18T14:12:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://localhost:1313/20240815_svd/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://localhost:1313/20240812_recursive_least_square/</loc><lastmod>2024-08-18T13:55:09&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://localhost:1313/20240811_regression2/</loc><lastmod>2024-08-12T06:19:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://localhost:1313/20240810_regression1/</loc><lastmod>2024-08-12T06:19:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>http://localhost:1313/20240804_gpg_encryption/</loc><lastmod>2024-08-10T10:08:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>http://localhost:1313/20240713_taskspooler/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
             <loc>http://localhost:1313/20240707_poetry/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
@@ -32,22 +33,22 @@
             <loc>http://localhost:1313/tags/</loc><lastmod>2024-08-25T11:15:24&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/tags/gradient/</loc><lastmod>2024-08-25T10:54:40&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/tags/gradient-descent/</loc><lastmod>2024-08-25T10:54:40&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/clustering/</loc><lastmod>2024-08-18T14:12:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/gaussian-mixture-modeling/</loc><lastmod>2024-08-18T14:12:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/gmm/</loc><lastmod>2024-08-18T14:12:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/k-means-clustering/</loc><lastmod>2024-08-18T14:12:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/latent-variable/</loc><lastmod>2024-08-18T14:12:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/linear-algebra/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://localhost:1313/categories/linear-algebra/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://localhost:1313/categories/math/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://localhost:1313/tags/singular-value-decomposition/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://localhost:1313/tags/svd/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://localhost:1313/tags/least-square/</loc><lastmod>2024-08-18T13:55:09&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/recursive-least-squares/</loc><lastmod>2024-08-18T13:55:09&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/regression/</loc><lastmod>2024-08-18T13:55:09&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/dual-form/</loc><lastmod>2024-08-12T06:19:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://localhost:1313/tags/ridge-regression/</loc><lastmod>2024-08-12T06:19:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://localhost:1313/tags/weighted-regression/</loc><lastmod>2024-08-12T06:19:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://localhost:1313/tags/clustering/</loc><lastmod>2024-08-18T14:12:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://localhost:1313/tags/gaussian-mixture-modeling/</loc><lastmod>2024-08-18T14:12:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://localhost:1313/tags/gmm/</loc><lastmod>2024-08-18T14:12:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://localhost:1313/tags/k-means-clustering/</loc><lastmod>2024-08-18T14:12:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://localhost:1313/tags/latent-variable/</loc><lastmod>2024-08-18T14:12:48&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://localhost:1313/tags/linear-algebra/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://localhost:1313/categories/linear-algebra/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://localhost:1313/categories/math/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://localhost:1313/tags/singular-value-decomposition/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://localhost:1313/tags/svd/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://localhost:1313/tags/least-square/</loc><lastmod>2024-08-18T13:55:09&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://localhost:1313/tags/recursive-least-squares/</loc><lastmod>2024-08-18T13:55:09&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://localhost:1313/tags/regression/</loc><lastmod>2024-08-18T13:55:09&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://localhost:1313/tags/dual-form/</loc><lastmod>2024-08-12T06:19:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://localhost:1313/tags/ridge-regression/</loc><lastmod>2024-08-12T06:19:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://localhost:1313/tags/weighted-regression/</loc><lastmod>2024-08-12T06:19:45&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>http://localhost:1313/tags/decryption/</loc><lastmod>2024-08-10T10:08:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>http://localhost:1313/tags/encryption/</loc><lastmod>2024-08-10T10:08:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>http://localhost:1313/tags/gpg/</loc><lastmod>2024-08-10T10:08:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>

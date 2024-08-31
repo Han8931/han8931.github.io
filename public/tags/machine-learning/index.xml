@@ -14,6 +14,16 @@
 What truly sets SVMs apart is their ability to handle both linear and non-linear data through the kernel trick, allowing them to adapt to a wide range of problems with impressive accuracy.]]></description>
 </item>
 <item>
+    <title>Introduction to SVM Part 2. LS-SVM</title>
+    <link>http://localhost:1313/20240825_svm2/</link>
+    <pubDate>Sun, 25 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240825_svm2/</guid>
+    <description><![CDATA[Introduction to Least-Square SVM Introduction Least Squares Support Vector Machine (LS-SVM) is a modified version of the traditional Support Vector Machine (SVM) that simplifies the quadratic optimization problem by using a \textit{least squares cost function}. LS-SVM transforms the quadratic programming problem in classical SVM into a set of linear equations, which are easier and faster to solve.
+\subsection{Optimization Problem (Primal Problem)}
+\begin{align*} &amp;\min_{w, b, e} \frac{1}{2} \lVert w\rVert^2 + \frac{\gamma}{2} \sum_{i=1}^N e_i^2,\ &amp;\text{subject to } y_i (w^T \phi(x_i) + b) = 1 - e_i, \ \forall i \end{align*} where: \begin{itemize} \item $w$ is the weight vector.]]></description>
+</item>
+<item>
     <title>Direction of Gradient Descent Update</title>
     <link>http://localhost:1313/20240819_gradient_descent/</link>
     <pubDate>Mon, 19 Aug 2024 00:00:00 &#43;0000</pubDate>

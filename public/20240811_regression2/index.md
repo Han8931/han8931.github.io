@@ -1,4 +1,4 @@
-# Getting Started with Regression (Part 2)
+# Getting Started with Regression Part 2. Ridge Regression
 
 
 # An Introductory Guide (Part 2)

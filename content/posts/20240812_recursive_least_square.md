@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: "Getting Started with Regression (Part 3)"
+title: "Getting Started with Regression Part 3. RLS"
 date: 2024-08-12
 draft: false
 author: Han

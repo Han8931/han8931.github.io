@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: "Getting Started with Regression (Part 2)"
+title: "Getting Started with Regression Part 2. Ridge Regression"
 date: 2024-08-11
 draft: false
 author: Han

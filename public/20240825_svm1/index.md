@@ -1,4 +1,4 @@
-# Introduction to SVM Part 1.
+# Introduction to SVM Part 1. Basics
 
 
 # Support Vector Machine

@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: "Getting Started with Regression (Part 1)"
+title: "Getting Started with Regression Part 1. Basics"
 date: 2024-08-10
 draft: false
 author: Han

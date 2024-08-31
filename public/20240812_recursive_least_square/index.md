@@ -1,4 +1,4 @@
-# Getting Started with Regression (Part 3)
+# Getting Started with Regression Part 3. RLS
 
 
 <h1 style="line-height: 1.3;">Deep Dive into Regression: Recursive Least Squares Explained (Part 3)</h1>

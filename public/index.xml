@@ -4,10 +4,19 @@
         <link>http://localhost:1313/</link>
         <description>Han&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 25 Aug 2024 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 31 Aug 2024 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>Introduction to SVM Part 1.</title>
+    <title>Introduction to SVM Part 2. LS-SVM</title>
+    <link>http://localhost:1313/20240825_svm2/</link>
+    <pubDate>Sat, 31 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240825_svm2/</guid>
+    <description><![CDATA[Introduction to Least-Square SVM Introduction Least Squares Support Vector Machine (LS-SVM) is a modified version of the traditional Support Vector Machine (SVM) that simplifies the quadratic optimization problem by using a least squares cost function. LS-SVM transforms the quadratic programming problem in classical SVM into a set of linear equations, which are easier and faster to solve.
+Optimization Problem (Primal Problem) \begin{align*} &amp;\min_{w, b, e} \frac{1}{2} \lVert w\rVert^2 + \frac{\gamma}{2} \sum_{i=1}^N e_i^2,\\ &amp;\text{subject to } y_i (w^T \phi(x_i) + b) = 1 - e_i, \ \forall i \end{align*} where:]]></description>
+</item>
+<item>
+    <title>Introduction to SVM Part 1. Basics</title>
     <link>http://localhost:1313/20240825_svm1/</link>
     <pubDate>Sun, 25 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
@@ -40,7 +49,7 @@ What truly sets SVMs apart is their ability to handle both linear and non-linear
     <description><![CDATA[Singular Value Decomposition In linear algebra, the singular value decomposition (SVD) is a factorization of a real or complex matrix. It generalizes the eigendecomposition of a square matrix by extending the concept to asymmetric or rectangular matrices, which cannot be diagonalized directly using eigendecomposition. The SVD aims to find the following decomposition of a real-valued matrix $A$: $$A = U\Sigma V^T,$$ where $U$ and $V$ are orthogonal (orthonormal) matrices, and $\Sigma$ is a diagonal matrix.]]></description>
 </item>
 <item>
-    <title>Getting Started with Regression (Part 3)</title>
+    <title>Getting Started with Regression Part 3. RLS</title>
     <link>http://localhost:1313/20240812_recursive_least_square/</link>
     <pubDate>Mon, 12 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
@@ -48,7 +57,7 @@ What truly sets SVMs apart is their ability to handle both linear and non-linear
     <description><![CDATA[Deep Dive into Regression: Recursive Least Squares Explained (Part 3) Introduction to Recursive Least Squares Ordinary least squares assumes that all data is available at once, but in practice, this isn&rsquo;t always the case. Often, measurements are obtained sequentially, and we need to update our estimates as new data comes in. Simply augmenting the data matrix $\mathbf{X}$ each time a new measurement arrives can become computationally expensive, especially when dealing with a large number of measurements.]]></description>
 </item>
 <item>
-    <title>Getting Started with Regression (Part 2)</title>
+    <title>Getting Started with Regression Part 2. Ridge Regression</title>
     <link>http://localhost:1313/20240811_regression2/</link>
     <pubDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
@@ -58,7 +67,7 @@ Overfitting occurs when a model is too complex and captures not only the underly
 Underfitting, on the other hand, happens when a model is too simple to capture the underlying patterns in the data, leading to poor performance both on the training data and on new data.]]></description>
 </item>
 <item>
-    <title>Getting Started with Regression (Part 1)</title>
+    <title>Getting Started with Regression Part 1. Basics</title>
     <link>http://localhost:1313/20240810_regression1/</link>
     <pubDate>Sat, 10 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
@@ -82,15 +91,6 @@ Asymmetric Encryption Before looking at GPG, let’s first review some encryptio
     <guid>http://localhost:1313/20240713_taskspooler/</guid>
     <description><![CDATA[What is TaskSpooler ? TaskSpooler (ts) is a lightweight job scheduler that allows you to queue up your tasks and execute them in order. It’s particularly useful for environments where tasks need to be managed sequentially or with a controlled degree of parallelism. Unlike more complex systems like SLURM, TaskSpooler is designed for simplicity and ease of use, making it accessible for individual researchers and small teams.
 Efficient Job Scheduling for ML/DL Researchers with Taskspooler In the dynamic field of Machine Learning (ML) and Deep Learning (DL), managing and optimizing computational resources is crucial.]]></description>
-</item>
-<item>
-    <title>Dependency Management in Python</title>
-    <link>http://localhost:1313/20240707_poetry/</link>
-    <pubDate>Sun, 07 Jul 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/20240707_poetry/</guid>
-    <description><![CDATA[Introduction Poetry is a dependency management and packaging tool in Python, aiming to improve how you define, install, and manage project dependencies.
-Installation: You can install Poetry through its custom installer script or using package managers. The recommended way is to use their installer script to ensure you get the latest version. Creating a New Project: Use poetry new &lt;project-name&gt; to create a new project with a standard layout. Adding Dependencies: Add new dependencies directly to your project using poetry add &lt;package&gt;.]]></description>
 </item>
 </channel>
 </rss>
