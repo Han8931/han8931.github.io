@@ -4,41 +4,45 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Vim, Type at the Speed of Thought! - Han&#39;s XYZ</title><meta name="Description" content="The Appeal of Vim in Modern Programming"><meta property="og:url" content="http://localhost:1313/20240501_vim/">
+        <title>Introduction to SVM Part 3. Asymmetric Kernels - Han&#39;s XYZ</title><meta name="Description" content="Introduction to Asymmetric Kernels"><meta property="og:url" content="http://localhost:1313/20240902_svm3/">
   <meta property="og:site_name" content="Han&#39;s XYZ">
-  <meta property="og:title" content="Vim, Type at the Speed of Thought!">
-  <meta property="og:description" content="The Appeal of Vim in Modern Programming">
+  <meta property="og:title" content="Introduction to SVM Part 3. Asymmetric Kernels">
+  <meta property="og:description" content="Introduction to Asymmetric Kernels">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-05-01T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-31T10:02:57+09:00">
-    <meta property="article:tag" content="Vim">
+    <meta property="article:published_time" content="2024-09-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-01T00:00:00+00:00">
+    <meta property="article:tag" content="Machine Learning">
+    <meta property="article:tag" content="Svm">
+    <meta property="article:tag" content="Support Vector Machines">
+    <meta property="article:tag" content="Least-Square SVM">
+    <meta property="article:tag" content="Asymmetric Kernels">
     <meta property="og:image" content="http://localhost:1313/logo.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/logo.png">
-  <meta name="twitter:title" content="Vim, Type at the Speed of Thought!">
-  <meta name="twitter:description" content="The Appeal of Vim in Modern Programming">
+  <meta name="twitter:title" content="Introduction to SVM Part 3. Asymmetric Kernels">
+  <meta name="twitter:description" content="Introduction to Asymmetric Kernels">
 <meta name="application-name" content="KeepIt">
 <meta name="apple-mobile-web-app-title" content="KeepIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/20240501_vim/" /><link rel="prev" href="http://localhost:1313/20240426_pdb/" /><link rel="next" href="http://localhost:1313/20240501_pacman/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/20240902_svm3/" /><link rel="prev" href="http://localhost:1313/20240825_svm2/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Vim, Type at the Speed of Thought!",
+        "headline": "Introduction to SVM Part 3. Asymmetric Kernels",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http:\/\/localhost:1313\/20240501_vim\/"
-        },"genre": "posts","keywords": "vim","wordcount":  452 ,
-        "url": "http:\/\/localhost:1313\/20240501_vim\/","datePublished": "2024-05-01T00:00:00+00:00","dateModified": "2024-08-31T10:02:57+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "http:\/\/localhost:1313\/20240902_svm3\/"
+        },"genre": "posts","keywords": "machine learning, svm, Support vector machines, Least-Square SVM, Asymmetric Kernels","wordcount":  713 ,
+        "url": "http:\/\/localhost:1313\/20240902_svm3\/","datePublished": "2024-09-01T00:00:00+00:00","dateModified": "2024-09-01T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Han"
-            },"description": "The Appeal of Vim in Modern Programming"
+            },"description": "Introduction to Asymmetric Kernels"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -105,43 +109,120 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Vim, Type at the Speed of Thought!</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Introduction to SVM Part 3. Asymmetric Kernels</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
-</span>&nbsp;<span class="post-category">included in <a href="/categories/vim/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Vim</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-05-01">2024-05-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;452 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-09-01">2024-09-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;713 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>While it may look somewhat obsolete in an era dominated by graphically rich IDEs, Vim remains not just a highly relevant and effective tool for today&rsquo;s programmers but also a badge of coolness in the tech world. Those who master its commands are often seen as <strong>coding wizards</strong>. With its unique advantages in speed, efficiency, and customizability, Vim is an invaluable asset in software development environments, proving that old-school can still be trendy.</p>
-<p>Vim is celebrated for its minimalistic approach, using fewer system resources, which facilitates fast and responsive editing. This efficiency is further enhanced by Vim&rsquo;s command-driven interface, allowing developers to perform complex edits quickly through simple keystrokes. This minimizes the need for mouse use, thereby reducing the risk of repetitive strain injuries on the wrists.</p>
-<p>Here&rsquo;s an example of how to yank (copy) and paste in Vim:</p>
-<ol>
-<li>To <strong>yank</strong> (copy) a line in Vim, just press <code>yy</code>.</li>
-<li>To <strong>paste</strong> the yanked text, simply move the cursor to where you want to insert the copied text and press <code>p</code> to paste after the cursor position or <code>P</code> to paste before it.</li>
-</ol>
-<p>The universal Ctrl+C to copy and Ctrl+V to paste are straightforward and familiar to most users. However, this often requires alternating between the keyboard and mouse, which can slow down the editing process and increase physical strain on the wrists. Vim&rsquo;s approach is designed to keep your fingers on the keyboard, reducing the need to switch to a mouse and enhancing focus and productivity. This is especially beneficial in coding and scripting environments where rapid navigation and changes are common.</p>
-<p style="text-align:center;"> 
-<img src="https://ucarecdn.com/d230843d-af86-4a19-a4d0-53f49b3aca81/-/format/auto/-/preview/3000x3000/-/quality/lighter/">
-</p> 
-<p>Beyond its capabilities as a programming editor, Vim excels as a general-purpose text editor. It&rsquo;s an excellent tool for note-taking and managing documentation, thanks to its lightweight nature and fast operation. Moreover, Vim is highly effective for composing complex documents in LaTeX (See my <a href="https://github.com/Han8931/deep_statistical_learning" target="_blank" rel="noopener noreffer">machine learning study notes</a>
-!), allowing users to edit large amounts of text with ease and precision. The ability to customize Vim with plugins and scripts also extends its functionality into areas like PDF viewing and reference management.</p>
-<p>Customizability is another cornerstone of Vim&rsquo;s design. Developers can adjust nearly every aspect of the editor to fit their workflow, from key bindings to complex integrations. Vim&rsquo;s adaptability extends to broader system configurations, seamlessly integrating with tools like the i3 window manager (i3wm) and file browsers like LF and Ranger. This integration allows for a more unified and efficient desktop environment, where everything from file management to window resizing is streamlined through Vim-like commands.</p>
-<p>Mastering Vim not only boosts your coding efficiency but also earns you some cool points among tech peers who appreciate the power and elegance of classic tools.</p>
-<p>I will post more Vim tips soon!</p>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#ask-ls-primal-problem-formulation">AsK-LS Primal Problem Formulation</a></li>
+    <li><a href="#dual-form">Dual Form</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="introduction-to-asymmetric-kernels">Introduction to Asymmetric Kernels</h1>
+<p>Recall that the dual form of LS-SVM is given by
+\begin{align*}
+\begin{bmatrix}
+0 &amp; y^T \\
+y &amp; \Omega + \frac{1}{\gamma} I
+\end{bmatrix}
+\begin{bmatrix}
+b \\
+\alpha
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+e
+\end{bmatrix}
+\end{align*}
+An interesting point here is that using an asymmetric kernel in LS-SVM will not reduce to its symmetrization and asymmetric information can be learned. Then we can develop asymmetric kernels in the LS-SVM framework in a straightforward way.</p>
+<p>Asymmetric kernels are particularly useful in capturing directional relationships in data that symmetric kernels cannot. For instance, in scenarios involving directed graphs or conditional probabilities, the relationship from $x$ to $y$ is inherently different from the relationship from $y$ to $x$.</p>
+<h2 id="ask-ls-primal-problem-formulation">AsK-LS Primal Problem Formulation</h2>
+<p>We first define a generalized kernel trick for an inner product of two mappings $\phi_s$ and $\phi_t$.
+\begin{align*}
+K(\mathbf{u}, \mathbf{v}) = \langle \phi_s(\mathbf{u}), \phi_t(\mathbf{v})\rangle, \forall \mathbf{u} \in \mathbb{R}^{d_s}, \mathbf{v} \in \mathbb{R}^{d_t},
+\end{align*}
+where $\phi_s: \mathbb{R}^{d_s}\to \mathbb{R}^{p}$, $\phi_t: \mathbb{R}^{d_t}\to \mathbb{R}^{p}$, and $\mathbb{R}^p$ is a high-dimensional or even an infinite-dimensional space. Note that $d_s$ and $d_t$ can be different.</p>
+<p>This formulation is closely related to the traditional LS-SVM but extends it by simultaneously considering both source and target feature spaces. The optimization goal is to find the weight vectors $ \omega $ and $ \nu $, and bias terms $ b_1 $ and $ b_2 $, that minimize the following objective function:</p>
+<p>\begin{align*}
+\min_{\omega, \nu, b_1, b_2, e, h} \frac{1}{2} \omega^T \nu + \frac{\gamma}{2} \sum_{i=1}^m e_i^2 + \frac{\gamma}{2} \sum_{i=1}^m h_i^2,
+\end{align*}
+subject to the constraints:
+\begin{align*}
+&amp; y_i (\omega^T \phi_s(x_i) + b_1) = 1 - e_i\
+&amp; y_i (\nu^T \phi_t(x_i) + b_2) = 1 - h_i
+\end{align*}
+Here:</p>
+<ul>
+<li>$ \omega $ and $ \nu $ are weight vectors for the source and target features.</li>
+<li>$ \phi_s(x) $ and $ \phi_t(x) $ are the source and target feature mappings.</li>
+<li>$ e_i $ and $ h_i $ are error terms for the source and target constraints.</li>
+<li>$ \gamma $ is a regularization parameter.
+Note that this formulation is almost the same as the LS-SVM except that this considers both the source and target feature spaces simultaneously.</li>
+</ul>
+<h2 id="dual-form">Dual Form</h2>
+<p>Let&rsquo;s transform it into a <em>dual</em> form. The dual problem involves solving a system of linear equations derived from the primal problem&rsquo;s Lagrangian. The Lagrangian function for the primal problem is:</p>
+<p>\begin{align*}
+\mathcal{L}( \omega, \nu, b_1, b_2, e, h, \alpha, \beta) &amp;= \frac{1}{2} \omega^T \nu + \frac{\gamma}{2} \sum_{i=1}^m e_i^2 + \frac{\gamma}{2} \sum_{i=1}^m h_i^2\\
++ \sum_{i=1}^m \alpha_i (1 - e_i &amp;- y_i (\omega^T \phi_s(x_i) + b_1)) + \sum_{i=1}^m \beta_i (1 - h_i - y_i (\nu^T \phi_t(x_i) + b_2))
+\end{align*}</p>
+<p>The KKT conditions are derived by setting the partial derivatives of the Lagrangian with respect to $ \omega, \nu, b_1, b_2, e, $ and $ h $ to zero. The dual problem leads to the following linear system:</p>
+<p>\begin{align*}
+\begin{bmatrix}
+0 &amp; 0 &amp; Y^T &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; Y^T \\
+Y &amp; 0 &amp; \frac{I}{\gamma} &amp; H \\
+0 &amp; Y &amp; H^T &amp; \frac{I}{\gamma}
+\end{bmatrix}
+\begin{bmatrix}
+b_1 \\
+b_2 \\
+\alpha \\
+\beta
+\end{bmatrix}
+=\begin{bmatrix}
+0 \\
+0 \\
+1 \\
+1
+\end{bmatrix}
+\end{align*}
+where:</p>
+<ul>
+<li>$ Y $ is a vector of class labels.</li>
+<li>$ H $ is the kernel matrix with elements $ H_{ij} = y_i K(x_i, x_j) y_j $, where $ K(x_i, x_j) = \langle \phi_s(x_i), \phi_t(x_j) \rangle $ is the asymmetric kernel function.
+<ul>
+<li>For an asymmetric kernel $ K $, the kernel function $ K(x_i, x_j) \neq K(x_j, x_i) $. This asymmetry is directly incorporated into the matrix $ H $, where:
+\begin{align*}
+H_{ij} &amp;= y_i K(x_i, x_j) y_j \\
+H_{ji} &amp;= y_j K(x_j, x_i) y_i
+\end{align*}</li>
+</ul>
+</li>
+</ul>
+<p>AsK-LS uses two different feature mappings $ \phi_s $ and $ \phi_t $ for the source and target features. This approach allows capturing more information compared to symmetric kernels. The dual solution provides weight vectors $ \omega $ and $ \nu $, which span the target and source feature spaces, respectively.</p>
+<p>The decision functions for classification from the source and target perspectives are given by
+\begin{align*}
+f_s(x) &amp;= \sum_{i=1}^m \beta_i y_i K(x, x_i) + b_1\\
+f_t(x) &amp;= \sum_{i=1}^m \alpha_i y_i K(x_i, x) + b_2
+\end{align*}
+These decision functions leverage the learned asymmetric relationships in the data, providing a more nuanced classification model.</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2024-08-31&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/53fba5abd4edf833142d4f4df69247e3966a5f47" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 53fba5abd4edf833142d4f4df69247e3966a5f47: Update">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>53fba5a</a></span>
+                <span>Updated on 2024-09-01</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/20240501_vim/index.md" target="_blank">Read Markdown</a>
+                            <a class="link-to-markdown" href="/20240902_svm3/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
                 <span></span>
@@ -150,14 +231,13 @@
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/vim/">Vim</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/svm/">Svm</a>,&nbsp;<a href="/tags/support-vector-machines/">Support Vector Machines</a>,&nbsp;<a href="/tags/least-square-svm/">Least-Square SVM</a>,&nbsp;<a href="/tags/asymmetric-kernels/">Asymmetric Kernels</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/20240426_pdb/" class="prev" rel="prev" title="Why Use Python&#39;s `pdb` Debugger Over an IDE?"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Why Use Python&#39;s `pdb` Debugger Over an IDE?</a>
-            <a href="/20240501_pacman/" class="next" rel="next" title="Handy Pacman Commands in Arch Linux">Handy Pacman Commands in Arch Linux<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/20240825_svm2/" class="prev" rel="prev" title="Introduction to SVM Part 2. LS-SVM"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Introduction to SVM Part 2. LS-SVM</a></div>
 </div>
 </article></div>
             </main><footer class="footer">

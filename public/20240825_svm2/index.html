@@ -4,24 +4,26 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Introduction to SVM Part 2. LS-SVM - Han&#39;s XYZ</title><meta name="Description" content="Introduction to Support Vector Machines Part 1."><meta property="og:url" content="http://localhost:1313/20240825_svm2/">
+        <title>Introduction to SVM Part 2. LS-SVM - Han&#39;s XYZ</title><meta name="Description" content="Introduction to Support Vector Machines Part 2."><meta property="og:url" content="http://localhost:1313/20240825_svm2/">
   <meta property="og:site_name" content="Han&#39;s XYZ">
   <meta property="og:title" content="Introduction to SVM Part 2. LS-SVM">
-  <meta property="og:description" content="Introduction to Support Vector Machines Part 1.">
+  <meta property="og:description" content="Introduction to Support Vector Machines Part 2.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-08-31T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-31T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-08-31T10:02:57+09:00">
     <meta property="article:tag" content="Machine Learning">
     <meta property="article:tag" content="Svm">
     <meta property="article:tag" content="Support Vector Machines">
+    <meta property="article:tag" content="Least-Square SVM">
+    <meta property="article:tag" content="LS-SVM">
     <meta property="og:image" content="http://localhost:1313/logo.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/logo.png">
   <meta name="twitter:title" content="Introduction to SVM Part 2. LS-SVM">
-  <meta name="twitter:description" content="Introduction to Support Vector Machines Part 1.">
+  <meta name="twitter:description" content="Introduction to Support Vector Machines Part 2.">
 <meta name="application-name" content="KeepIt">
 <meta name="apple-mobile-web-app-title" content="KeepIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -34,13 +36,13 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240825_svm2\/"
-        },"genre": "posts","keywords": "machine learning, svm, Support vector machines","wordcount":  767 ,
-        "url": "http:\/\/localhost:1313\/20240825_svm2\/","datePublished": "2024-08-31T00:00:00+00:00","dateModified": "2024-08-31T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "machine learning, svm, Support vector machines, Least-Square SVM, LS-SVM","wordcount":  767 ,
+        "url": "http:\/\/localhost:1313\/20240825_svm2\/","datePublished": "2024-08-31T00:00:00+00:00","dateModified": "2024-08-31T10:02:57+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
                 "name": "Han"
-            },"description": "Introduction to Support Vector Machines Part 1."
+            },"description": "Introduction to Support Vector Machines Part 2."
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -204,7 +206,7 @@ b \\
 1_n
 \end{bmatrix}
 \end{align*}
-Note that the dimension of the matrix on the left-hand side is $(N+1)\times (N+1)$. Once we have $b$ and $\alpha$ by solving the linear system, the decision function for \textbf{a new input} $x$ can be obtained by:
+Note that the dimension of the matrix on the left-hand side is $(N+1)\times (N+1)$. Once we have $b$ and $\alpha$ by solving the linear system, the decision function for <strong>a new input</strong> $x$ can be obtained by:
 \begin{align*}
 f(x) = \sum_{i=1}^n \alpha_i y_i K(x_i, x) + b.
 \end{align*}</p>
@@ -295,7 +297,8 @@ f(x) = \sum_{i=1}^3 \alpha_i y_i K(x, x_i) + b
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2024-08-31</span>
+                <span>Updated on 2024-08-31&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/53fba5abd4edf833142d4f4df69247e3966a5f47" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 53fba5abd4edf833142d4f4df69247e3966a5f47: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>53fba5a</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
@@ -308,7 +311,7 @@ f(x) = \sum_{i=1}^3 \alpha_i y_i K(x, x_i) + b
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/svm/">Svm</a>,&nbsp;<a href="/tags/support-vector-machines/">Support Vector Machines</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/svm/">Svm</a>,&nbsp;<a href="/tags/support-vector-machines/">Support Vector Machines</a>,&nbsp;<a href="/tags/least-square-svm/">Least-Square SVM</a>,&nbsp;<a href="/tags/ls-svm/">LS-SVM</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>

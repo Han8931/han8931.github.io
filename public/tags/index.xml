@@ -4,10 +4,26 @@
         <link>http://localhost:1313/tags/</link>
         <description>Tags - Tag - Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 25 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 31 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Least-Square SVM</title>
+    <link>http://localhost:1313/tags/least-square-svm/</link>
+    <pubDate>Sat, 31 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/least-square-svm/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>LS-SVM</title>
+    <link>http://localhost:1313/tags/ls-svm/</link>
+    <pubDate>Sat, 31 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/tags/ls-svm/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Machine Learning</title>
     <link>http://localhost:1313/tags/machine-learning/</link>
-    <pubDate>Sun, 25 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <pubDate>Sat, 31 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/tags/machine-learning/</guid>
     <description><![CDATA[]]></description>
@@ -15,7 +31,7 @@
 <item>
     <title>Support Vector Machines</title>
     <link>http://localhost:1313/tags/support-vector-machines/</link>
-    <pubDate>Sun, 25 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <pubDate>Sat, 31 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/tags/support-vector-machines/</guid>
     <description><![CDATA[]]></description>
@@ -23,7 +39,7 @@
 <item>
     <title>Svm</title>
     <link>http://localhost:1313/tags/svm/</link>
-    <pubDate>Sun, 25 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <pubDate>Sat, 31 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/tags/svm/</guid>
     <description><![CDATA[]]></description>
@@ -66,22 +82,6 @@
     <pubDate>Sun, 18 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/tags/gmm/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>K-Means Clustering</title>
-    <link>http://localhost:1313/tags/k-means-clustering/</link>
-    <pubDate>Sun, 18 Aug 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/k-means-clustering/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Latent Variable</title>
-    <link>http://localhost:1313/tags/latent-variable/</link>
-    <pubDate>Sun, 18 Aug 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/tags/latent-variable/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

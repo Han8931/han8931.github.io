@@ -4,9 +4,17 @@
         <link>http://localhost:1313/</link>
         <description>Han&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 31 Aug 2024 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Introduction to SVM Part 3. Asymmetric Kernels</title>
+    <link>http://localhost:1313/20240902_svm3/</link>
+    <pubDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240902_svm3/</guid>
+    <description><![CDATA[Introduction to Asymmetric Kernels Recall that the dual form of LS-SVM is given by \begin{align*} \begin{bmatrix} 0 &amp; y^T \\ y &amp; \Omega + \frac{1}{\gamma} I \end{bmatrix} \begin{bmatrix} b \\ \alpha \end{bmatrix} = \begin{bmatrix} 0 \\ e \end{bmatrix} \end{align*} An interesting point here is that using an asymmetric kernel in LS-SVM will not reduce to its symmetrization and asymmetric information can be learned. Then we can develop asymmetric kernels in the LS-SVM framework in a straightforward way.]]></description>
+</item>
+<item>
     <title>Introduction to SVM Part 2. LS-SVM</title>
     <link>http://localhost:1313/20240825_svm2/</link>
     <pubDate>Sat, 31 Aug 2024 00:00:00 &#43;0000</pubDate>
@@ -82,15 +90,6 @@ Underfitting, on the other hand, happens when a model is too simple to capture t
     <guid>http://localhost:1313/20240804_gpg_encryption/</guid>
     <description><![CDATA[Securing Your Privacy The importance of securing your data has become critical in the modern digital era. This post explores a versatile tool called GnuPG, or GNU Privacy Guard, which allows you to encrypt your data and communications, ensuring that only the intended recipients can access them.
 Asymmetric Encryption Before looking at GPG, let’s first review some encryption approaches. A very naive approach to sharing encrypted files is to use the same secret key between a sender and a receiver.]]></description>
-</item>
-<item>
-    <title>Manage your task with TaskSpooler!</title>
-    <link>http://localhost:1313/20240713_taskspooler/</link>
-    <pubDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/20240713_taskspooler/</guid>
-    <description><![CDATA[What is TaskSpooler ? TaskSpooler (ts) is a lightweight job scheduler that allows you to queue up your tasks and execute them in order. It’s particularly useful for environments where tasks need to be managed sequentially or with a controlled degree of parallelism. Unlike more complex systems like SLURM, TaskSpooler is designed for simplicity and ease of use, making it accessible for individual researchers and small teams.
-Efficient Job Scheduling for ML/DL Researchers with Taskspooler In the dynamic field of Machine Learning (ML) and Deep Learning (DL), managing and optimizing computational resources is crucial.]]></description>
 </item>
 </channel>
 </rss>

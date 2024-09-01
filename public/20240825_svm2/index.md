@@ -77,7 +77,7 @@ By using the expression of $\alpha$ and $b$, we get
 	1_n
 	\end{bmatrix}
 \end{align*}
-Note that the dimension of the matrix on the left-hand side is $(N+1)\times (N+1)$. Once we have $b$ and $\alpha$ by solving the linear system, the decision function for \textbf{a new input} $x$ can be obtained by:
+Note that the dimension of the matrix on the left-hand side is $(N+1)\times (N+1)$. Once we have $b$ and $\alpha$ by solving the linear system, the decision function for **a new input** $x$ can be obtained by:
 \begin{align*}
 	f(x) = \sum_{i=1}^n \alpha_i y_i K(x_i, x) + b.
 \end{align*}
