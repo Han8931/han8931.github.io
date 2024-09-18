@@ -169,9 +169,9 @@ enableEmoji = true
     # whether to use the absolute URL based on the baseURL in search index
     absoluteURL = false
     [params.search.algolia]
-      index = ""
-      appID = ""
-      searchKey = ""
+      index = "github"
+      appID = "A9NUSQZEO5"
+      searchKey = "e255482bc340762a0da27f50eddd2765"
 
   # Home page config
   [params.home]
@@ -640,9 +640,9 @@ enableEmoji = true
         highlightTag = "em"
         absoluteURL = false
         [languages.en.params.search.algolia]
-          index = "index.en"
-          appID = "PASDMWALPK"
-          searchKey = "b42948e51daaa93df92381c8e2ac0f93"
+          index = "github"
+          appID = "A9NUSQZEO5"
+          searchKey = "e255482bc340762a0da27f50eddd2765"
       [languages.en.params.home]
         rss = 10
         [languages.en.params.home.profile]
