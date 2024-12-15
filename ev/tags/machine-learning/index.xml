@@ -1,0 +1,84 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Machine Learning - Tag - Han&#39;s XYZ</title>
+        <link>https://han8931.github.io/tags/machine-learning/</link>
+        <description>Machine Learning - Tag - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/tags/machine-learning/" rel="self" type="application/rss+xml" /><item>
+    <title>Introduction to SVM Part 3. Asymmetric Kernels</title>
+    <link>https://han8931.github.io/20240902_svm3/</link>
+    <pubDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240902_svm3/</guid>
+    <description><![CDATA[Introduction to Asymmetric Kernels Recall that the dual form of LS-SVM is given by \begin{align*} \begin{bmatrix} 0 &amp; y^T \\ y &amp; \Omega + \frac{1}{\gamma} I \end{bmatrix} \begin{bmatrix} b \\ \alpha \end{bmatrix} = \begin{bmatrix} 0 \\ e \end{bmatrix} \end{align*} An interesting point here is that using an asymmetric kernel in LS-SVM will not reduce to its symmetrization and asymmetric information can be learned. Then we can develop asymmetric kernels in the LS-SVM framework in a straightforward way.]]></description>
+</item>
+<item>
+    <title>Introduction to SVM Part 2. LS-SVM</title>
+    <link>https://han8931.github.io/20240825_svm2/</link>
+    <pubDate>Sat, 31 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240825_svm2/</guid>
+    <description><![CDATA[Introduction to Least-Square SVM Introduction Least Squares Support Vector Machine (LS-SVM) is a modified version of the traditional Support Vector Machine (SVM) that simplifies the quadratic optimization problem by using a least squares cost function. LS-SVM transforms the quadratic programming problem in classical SVM into a set of linear equations, which are easier and faster to solve.
+Optimization Problem (Primal Problem) \begin{align*} &amp;\min_{w, b, e} \frac{1}{2} \lVert w\rVert^2 + \frac{\gamma}{2} \sum_{i=1}^N e_i^2,\\ &amp;\text{subject to } y_i (w^T \phi(x_i) + b) = 1 - e_i, \ \forall i \end{align*} where:]]></description>
+</item>
+<item>
+    <title>Introduction to SVM Part 1. Basics</title>
+    <link>https://han8931.github.io/20240825_svm1/</link>
+    <pubDate>Sun, 25 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240825_svm1/</guid>
+    <description><![CDATA[Support Vector Machine Introduction Support Vector Machines (SVMs) are among the most effective and versatile tools in machine learning, widely used for various tasks. SVMs work by finding the optimal boundary, or hyperplane, that separates different classes of data with the maximum margin, making them highly reliable for classification, especially with complex datasets.
+What truly sets SVMs apart is their ability to handle both linear and non-linear data through the kernel trick, allowing them to adapt to a wide range of problems with impressive accuracy.]]></description>
+</item>
+<item>
+    <title>Direction of Gradient Descent Update</title>
+    <link>https://han8931.github.io/20240819_gradient_descent/</link>
+    <pubDate>Mon, 19 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240819_gradient_descent/</guid>
+    <description><![CDATA[On Gradient Descent Gradient descent is an optimization algorithm used to minimize a function by iteratively moving towards the function&rsquo;s minimum value. It is a fundamental concept in machine learning, particularly in training models such as neural networks. The gradient is a vector that represents the direction of the steepest increase of the function at a given point. For example, for a convex function $z = ax^2 + by^2$, the gradient is $[2ax, 2by]$, which points in the direction of the steepest ascent.]]></description>
+</item>
+<item>
+    <title>Introduction to Latent Variable Modeling (Part 1)</title>
+    <link>https://han8931.github.io/20240818_latent_variable_part1/</link>
+    <pubDate>Sun, 18 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240818_latent_variable_part1/</guid>
+    <description><![CDATA[Latent Variable Modeling Motivation of Latent Variable Modeling Let&rsquo;s say we want to classify some data. If we had access to a corresponding latent variable for each observation $ \mathbf{x}_i $, modeling would be more straightforward. To illustrate this, consider the challenge of finding the latent variable (i.e., the true class of $ \mathbf{x} $). It can be expressed like $ z^* = \argmax_{z} p(\mathbf{x} | z) $. It is hard to identify the true clusters without prior knowledge about them.]]></description>
+</item>
+<item>
+    <title>Gentle Introduction to Singular Value Decomposition</title>
+    <link>https://han8931.github.io/20240815_svd/</link>
+    <pubDate>Thu, 15 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240815_svd/</guid>
+    <description><![CDATA[Singular Value Decomposition In linear algebra, the singular value decomposition (SVD) is a factorization of a real or complex matrix. It generalizes the eigendecomposition of a square matrix by extending the concept to asymmetric or rectangular matrices, which cannot be diagonalized directly using eigendecomposition. The SVD aims to find the following decomposition of a real-valued matrix $A$: $$A = U\Sigma V^T,$$ where $U$ and $V$ are orthogonal (orthonormal) matrices, and $\Sigma$ is a diagonal matrix.]]></description>
+</item>
+<item>
+    <title>Getting Started with Regression Part 3. RLS</title>
+    <link>https://han8931.github.io/20240812_recursive_least_square/</link>
+    <pubDate>Mon, 12 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240812_recursive_least_square/</guid>
+    <description><![CDATA[Deep Dive into Regression: Recursive Least Squares Explained (Part 3) Introduction to Recursive Least Squares Ordinary least squares assumes that all data is available at once, but in practice, this isn&rsquo;t always the case. Often, measurements are obtained sequentially, and we need to update our estimates as new data comes in. Simply augmenting the data matrix $\mathbf{X}$ each time a new measurement arrives can become computationally expensive, especially when dealing with a large number of measurements.]]></description>
+</item>
+<item>
+    <title>Getting Started with Regression Part 2. Ridge Regression</title>
+    <link>https://han8931.github.io/20240811_regression2/</link>
+    <pubDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240811_regression2/</guid>
+    <description><![CDATA[An Introductory Guide (Part 2) Understanding Ridge Regression In machine learning, one of the key challenges is finding the right balance between underfitting and overfitting a model.
+Overfitting occurs when a model is too complex and captures not only the underlying patterns in the training data but also the noise. This results in a model that performs well on the training data but poorly on new, unseen data.
+Underfitting, on the other hand, happens when a model is too simple to capture the underlying patterns in the data, leading to poor performance both on the training data and on new data.]]></description>
+</item>
+<item>
+    <title>Getting Started with Regression Part 1. Basics</title>
+    <link>https://han8931.github.io/20240810_regression1/</link>
+    <pubDate>Sat, 10 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240810_regression1/</guid>
+    <description><![CDATA[An Introductory Guide (Part 1) Even with the rapid advancements in deep learning, regression continues to be widely used across various fields (e.g., finance, data science, statistics, and so on), maintaining its importance as a fundamental algorithm. That&rsquo;s why I&rsquo;ve decided to share this post, which is the first article in a dedicated series on regression. This series is designed to provide a thorough review while offering a gentle and accessible introduction.]]></description>
+</item>
+</channel>
+</rss>

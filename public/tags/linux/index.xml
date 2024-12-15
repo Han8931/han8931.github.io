@@ -1,33 +1,33 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Linux - Tag - Han&#39;s XYZ</title>
-        <link>https://han8931.github.io/tags/linux/</link>
+        <link>http://localhost:1313/tags/linux/</link>
         <description>Linux - Tag - Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 01 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 01 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/" rel="self" type="application/rss+xml" /><item>
     <title>Handy Pacman Commands in Arch Linux</title>
-    <link>https://han8931.github.io/20240501_pacman/</link>
+    <link>http://localhost:1313/20240501_pacman/</link>
     <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/20240501_pacman/</guid>
+    <guid>http://localhost:1313/20240501_pacman/</guid>
     <description><![CDATA[Pacman , the package manager for Arch Linux, is known for its simple binary package format and easy-to-use build system . The primary aim of Pacman is to facilitate straightforward management of packages from both the official repositories and user-generated builds.
 Pacman ensures your system remains updated by synchronizing the package lists with the master server. This client/server model simplifies the process of downloading and installing packages, along with all their dependencies, using basic commands.]]></description>
 </item>
 <item>
     <title>Bash script tutorial</title>
-    <link>https://han8931.github.io/20240421_the-shell-script-tutorial/</link>
+    <link>http://localhost:1313/20240421_the-shell-script-tutorial/</link>
     <pubDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/20240421_the-shell-script-tutorial/</guid>
+    <guid>http://localhost:1313/20240421_the-shell-script-tutorial/</guid>
     <description><![CDATA[Let&rsquo;s create our first simple shell script
 1 2 3 #!/bin/sh # This is a comment! echo Hello World # This is a comment, too! The first line tells Unix that the file is to be executed by /bin/sh. This is the standard location of the Bourne shell on just about every Unix system. If you&rsquo;re using GNU/Linux, /bin/sh is normally a symbolic link to bash (or, more recently, dash). The second line begins with a special symbol: #.]]></description>
 </item>
 <item>
     <title>Minimalism Through Linux</title>
-    <link>https://han8931.github.io/20240421_why-linux/</link>
+    <link>http://localhost:1313/20240421_why-linux/</link>
     <pubDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/20240421_why-linux/</guid>
+    <guid>http://localhost:1313/20240421_why-linux/</guid>
     <description><![CDATA[Linux, A Path to Digital Simplicity In an age dominated by digital clutter and overwhelming software choices, the minimalist philosophy stands out as a beacon for those seeking simplicity and efficiency. This approach not only applies to physical possessions but extends into the digital realm, where Linux has become a preferred tool for minimalists.
 Linux, an open-source operating system, embodies the principles of minimalism by offering users control over their digital environments.]]></description>
 </item>

@@ -1,87 +1,87 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Tags - Tag - Han&#39;s XYZ</title>
-        <link>https://han8931.github.io/tags/</link>
+        <link>http://localhost:1313/tags/</link>
         <description>Tags - Tag - Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
     <title>Asymmetric Kernels</title>
-    <link>https://han8931.github.io/tags/asymmetric-kernels/</link>
+    <link>http://localhost:1313/tags/asymmetric-kernels/</link>
     <pubDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/tags/asymmetric-kernels/</guid>
+    <guid>http://localhost:1313/tags/asymmetric-kernels/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Least-Square SVM</title>
-    <link>https://han8931.github.io/tags/least-square-svm/</link>
+    <link>http://localhost:1313/tags/least-square-svm/</link>
     <pubDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/tags/least-square-svm/</guid>
+    <guid>http://localhost:1313/tags/least-square-svm/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Machine Learning</title>
-    <link>https://han8931.github.io/tags/machine-learning/</link>
+    <link>http://localhost:1313/tags/machine-learning/</link>
     <pubDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/tags/machine-learning/</guid>
+    <guid>http://localhost:1313/tags/machine-learning/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Support Vector Machines</title>
-    <link>https://han8931.github.io/tags/support-vector-machines/</link>
+    <link>http://localhost:1313/tags/support-vector-machines/</link>
     <pubDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/tags/support-vector-machines/</guid>
+    <guid>http://localhost:1313/tags/support-vector-machines/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Svm</title>
-    <link>https://han8931.github.io/tags/svm/</link>
+    <link>http://localhost:1313/tags/svm/</link>
     <pubDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/tags/svm/</guid>
+    <guid>http://localhost:1313/tags/svm/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>LS-SVM</title>
-    <link>https://han8931.github.io/tags/ls-svm/</link>
+    <link>http://localhost:1313/tags/ls-svm/</link>
     <pubDate>Sat, 31 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/tags/ls-svm/</guid>
+    <guid>http://localhost:1313/tags/ls-svm/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Gradient</title>
-    <link>https://han8931.github.io/tags/gradient/</link>
+    <link>http://localhost:1313/tags/gradient/</link>
     <pubDate>Mon, 19 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/tags/gradient/</guid>
+    <guid>http://localhost:1313/tags/gradient/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Gradient Descent</title>
-    <link>https://han8931.github.io/tags/gradient-descent/</link>
+    <link>http://localhost:1313/tags/gradient-descent/</link>
     <pubDate>Mon, 19 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/tags/gradient-descent/</guid>
+    <guid>http://localhost:1313/tags/gradient-descent/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Clustering</title>
-    <link>https://han8931.github.io/tags/clustering/</link>
+    <link>http://localhost:1313/tags/clustering/</link>
     <pubDate>Sun, 18 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/tags/clustering/</guid>
+    <guid>http://localhost:1313/tags/clustering/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Gaussian Mixture Modeling</title>
-    <link>https://han8931.github.io/tags/gaussian-mixture-modeling/</link>
+    <link>http://localhost:1313/tags/gaussian-mixture-modeling/</link>
     <pubDate>Sun, 18 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/tags/gaussian-mixture-modeling/</guid>
+    <guid>http://localhost:1313/tags/gaussian-mixture-modeling/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

@@ -1,0 +1,81 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Python - Tag - Han&#39;s XYZ</title>
+        <link>https://han8931.github.io/tags/python/</link>
+        <description>Python - Tag - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 07 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/tags/python/" rel="self" type="application/rss+xml" /><item>
+    <title>Dependency Management in Python</title>
+    <link>https://han8931.github.io/20240707_poetry/</link>
+    <pubDate>Sun, 07 Jul 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240707_poetry/</guid>
+    <description><![CDATA[Introduction Poetry is a dependency management and packaging tool in Python, aiming to improve how you define, install, and manage project dependencies.
+Installation: You can install Poetry through its custom installer script or using package managers. The recommended way is to use their installer script to ensure you get the latest version. Creating a New Project: Use poetry new &lt;project-name&gt; to create a new project with a standard layout. Adding Dependencies: Add new dependencies directly to your project using poetry add &lt;package&gt;.]]></description>
+</item>
+<item>
+    <title>Why Use Python&#39;s `pdb` Debugger Over an IDE?</title>
+    <link>https://han8931.github.io/20240426_pdb/</link>
+    <pubDate>Sat, 27 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240426_pdb/</guid>
+    <description><![CDATA[When it comes to debugging Python code, most programmers reach for an Integrated Development Environment (IDE) because of its convenience and powerful features. However, there&rsquo;s a classic, built-in tool that shouldn&rsquo;t be overlooked: Python&rsquo;s own debugger, pdb. This tool might seem basic at first glance, but it offers some compelling advantages, especially in scenarios where an IDE might be less effective. Here&rsquo;s why you might consider using pdb for debugging your Python projects:]]></description>
+</item>
+<item>
+    <title>Data validation with Pydantic!</title>
+    <link>https://han8931.github.io/20240426_pydantic/</link>
+    <pubDate>Fri, 26 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240426_pydantic/</guid>
+    <description><![CDATA[Python&rsquo;s dynamic typing system is indeed convenient, allowing you to create variables without explicitly declaring their types. While this flexibility can streamline development, it can also introduce unexpected behavior, particularly when handling data from external sources like APIs or user input.
+Consider the following scenario:
+1 2 employee = Employee(&#34;Han&#34;, 30) # Correct employee = Employee(&#34;Moon&#34;, &#34;30&#34;) # Correct Here, the second argument is intended to represent an age, typically an integer.]]></description>
+</item>
+<item>
+    <title>Enumerate variables with Enum!</title>
+    <link>https://han8931.github.io/20240426_enum/</link>
+    <pubDate>Fri, 26 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240426_enum/</guid>
+    <description><![CDATA[Enum is a way that Python enumerate variables. The enum module allows for the creation of enumerated constants—unique, immutable data types that are useful for representing a fixed set of values. These values, which are usually related by their context, are known as enumeration members.
+Enum provides&hellip;
+Uniqueness - Each member of an Enum is unique within its definition, meaning no two members can have the same value. Attempting to define two members with the same value will result in an error unless you explicitly allow aliases.]]></description>
+</item>
+<item>
+    <title>Unit Test with Pytest</title>
+    <link>https://han8931.github.io/20240426_unit-tests/</link>
+    <pubDate>Fri, 26 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240426_unit-tests/</guid>
+    <description><![CDATA[Unit testing involves testing individual components of software in isolation to ensure they function correctly. Automated frameworks facilitate this process, which is integral to ensuring that new changes do not disrupt existing functionality. Unit tests also serve as practical documentation and encourage better software design. This testing method boosts development speed and confidence by confirming component reliability before integration. Early bug detection through unit testing also helps minimize future repair costs and efforts.]]></description>
+</item>
+<item>
+    <title>Bash script tutorial</title>
+    <link>https://han8931.github.io/20240421_the-shell-script-tutorial/</link>
+    <pubDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240421_the-shell-script-tutorial/</guid>
+    <description><![CDATA[Let&rsquo;s create our first simple shell script
+1 2 3 #!/bin/sh # This is a comment! echo Hello World # This is a comment, too! The first line tells Unix that the file is to be executed by /bin/sh. This is the standard location of the Bourne shell on just about every Unix system. If you&rsquo;re using GNU/Linux, /bin/sh is normally a symbolic link to bash (or, more recently, dash). The second line begins with a special symbol: #.]]></description>
+</item>
+<item>
+    <title>How to keep sensitive data in Python?</title>
+    <link>https://han8931.github.io/20240421_hide-sensitive-data/</link>
+    <pubDate>Sat, 20 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240421_hide-sensitive-data/</guid>
+    <description><![CDATA[An app&rsquo;s config is everything that is likely to vary between deploys (staging, production, developer environments, etc). This includes:
+Resource handles to the database, Memcached, and other backing services Credentials to external services such as Amazon S3 or Twitter Per-deploy values such as the canonical hostname for the deploy Apps sometimes store config as constants in the code. This is a violation of twelve-factor, which requires strict separation of config from code.]]></description>
+</item>
+<item>
+    <title>Type hint in Python</title>
+    <link>https://han8931.github.io/20240421_type-hint/</link>
+    <pubDate>Sat, 20 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240421_type-hint/</guid>
+    <description><![CDATA[Type hinting is not mandatory, but it can make your code easier to understand and debug by
+Improved readability Better IDE support: IDEs and linters can use type hints to check your code for potential errors before runtime. While type hints can be simple classes like float or str , they can also be more complex. The typing module provides a vocabulary of more advanced type hints.
+Basics 1 2 3 4 5 6 7 8 9 10 11 12 # This is how you declare the type of a variable age: int = 1 # You don&#39;t need to initialize a variable to annotate it a: int # Ok (no value at runtime until assigned) # Doing so can be useful in conditional branches child: bool if age &lt; 18: child = True else: child = False 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 x: int = 1 x: float = 1.]]></description>
+</item>
+</channel>
+</rss>

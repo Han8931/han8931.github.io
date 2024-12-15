@@ -1,79 +1,79 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Categories - Category - Han&#39;s XYZ</title>
-        <link>https://han8931.github.io/categories/</link>
+        <link>http://localhost:1313/categories/</link>
         <description>Categories - Category - Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/" rel="self" type="application/rss+xml" /><item>
     <title>Machine Learning</title>
-    <link>https://han8931.github.io/categories/machine-learning/</link>
+    <link>http://localhost:1313/categories/machine-learning/</link>
     <pubDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/categories/machine-learning/</guid>
+    <guid>http://localhost:1313/categories/machine-learning/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Linear Algebra</title>
-    <link>https://han8931.github.io/categories/linear-algebra/</link>
+    <link>http://localhost:1313/categories/linear-algebra/</link>
     <pubDate>Thu, 15 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/categories/linear-algebra/</guid>
+    <guid>http://localhost:1313/categories/linear-algebra/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Math</title>
-    <link>https://han8931.github.io/categories/math/</link>
+    <link>http://localhost:1313/categories/math/</link>
     <pubDate>Thu, 15 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/categories/math/</guid>
+    <guid>http://localhost:1313/categories/math/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Gpg</title>
-    <link>https://han8931.github.io/categories/gpg/</link>
+    <link>http://localhost:1313/categories/gpg/</link>
     <pubDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/categories/gpg/</guid>
+    <guid>http://localhost:1313/categories/gpg/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Tools</title>
-    <link>https://han8931.github.io/categories/tools/</link>
+    <link>http://localhost:1313/categories/tools/</link>
     <pubDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/categories/tools/</guid>
+    <guid>http://localhost:1313/categories/tools/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Python</title>
-    <link>https://han8931.github.io/categories/python/</link>
+    <link>http://localhost:1313/categories/python/</link>
     <pubDate>Sun, 07 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/categories/python/</guid>
+    <guid>http://localhost:1313/categories/python/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Linux</title>
-    <link>https://han8931.github.io/categories/linux/</link>
+    <link>http://localhost:1313/categories/linux/</link>
     <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/categories/linux/</guid>
+    <guid>http://localhost:1313/categories/linux/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Vim</title>
-    <link>https://han8931.github.io/categories/vim/</link>
+    <link>http://localhost:1313/categories/vim/</link>
     <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/categories/vim/</guid>
+    <guid>http://localhost:1313/categories/vim/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Programming</title>
-    <link>https://han8931.github.io/categories/programming/</link>
+    <link>http://localhost:1313/categories/programming/</link>
     <pubDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/categories/programming/</guid>
+    <guid>http://localhost:1313/categories/programming/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

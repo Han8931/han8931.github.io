@@ -1,0 +1,25 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Least-Square SVM - Tag - Han&#39;s XYZ</title>
+        <link>https://han8931.github.io/tags/least-square-svm/</link>
+        <description>Least-Square SVM - Tag - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/tags/least-square-svm/" rel="self" type="application/rss+xml" /><item>
+    <title>Introduction to SVM Part 3. Asymmetric Kernels</title>
+    <link>https://han8931.github.io/20240902_svm3/</link>
+    <pubDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240902_svm3/</guid>
+    <description><![CDATA[Introduction to Asymmetric Kernels Recall that the dual form of LS-SVM is given by \begin{align*} \begin{bmatrix} 0 &amp; y^T \\ y &amp; \Omega + \frac{1}{\gamma} I \end{bmatrix} \begin{bmatrix} b \\ \alpha \end{bmatrix} = \begin{bmatrix} 0 \\ e \end{bmatrix} \end{align*} An interesting point here is that using an asymmetric kernel in LS-SVM will not reduce to its symmetrization and asymmetric information can be learned. Then we can develop asymmetric kernels in the LS-SVM framework in a straightforward way.]]></description>
+</item>
+<item>
+    <title>Introduction to SVM Part 2. LS-SVM</title>
+    <link>https://han8931.github.io/20240825_svm2/</link>
+    <pubDate>Sat, 31 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20240825_svm2/</guid>
+    <description><![CDATA[Introduction to Least-Square SVM Introduction Least Squares Support Vector Machine (LS-SVM) is a modified version of the traditional Support Vector Machine (SVM) that simplifies the quadratic optimization problem by using a least squares cost function. LS-SVM transforms the quadratic programming problem in classical SVM into a set of linear equations, which are easier and faster to solve.
+Optimization Problem (Primal Problem) \begin{align*} &amp;\min_{w, b, e} \frac{1}{2} \lVert w\rVert^2 + \frac{\gamma}{2} \sum_{i=1}^N e_i^2,\\ &amp;\text{subject to } y_i (w^T \phi(x_i) + b) = 1 - e_i, \ \forall i \end{align*} where:]]></description>
+</item>
+</channel>
+</rss>
