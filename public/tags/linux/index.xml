@@ -1,35 +1,72 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Linux - Tag - Han&#39;s XYZ</title>
-        <link>http://localhost:1313/tags/linux/</link>
+        <link>https://han8931.github.io/tags/linux/</link>
         <description>Linux - Tag - Han&#39;s XYZ</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 01 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 05 Jan 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Install Arch Linux</title>
+    <link>https://han8931.github.io/20250105_arch/</link>
+    <pubDate>Sun, 05 Jan 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20250105_arch/</guid>
+    <description><![CDATA[<p>I recently bought a mini PC because I wanted a lightweight machine that I can easily carry anywhere. Arch Linux&rsquo;s minimalistic, rolling-release approach aligns perfectly with my love for a Vim-based workflow and a highly customizable setup. While the process can seem intimidating at first, it’s an incredibly rewarding experience that offers complete control over your system.</p>
+<hr>
+<h1 id="installing-arch-linux-uefi-or-bios">Installing Arch Linux (UEFI or BIOS)</h1>
+<p>Arch Linux is well-known for giving users full control over their system. This guide walks you through a fresh Arch Linux installation. While it is detailed, always refer to the <a href="https://wiki.archlinux.org/" target="_blank" rel="noopener noreffer">official Arch Wiki</a>
+ for up-to-date information.</p>]]></description>
+</item>
+<item>
     <title>Handy Pacman Commands in Arch Linux</title>
-    <link>http://localhost:1313/20240501_pacman/</link>
+    <link>https://han8931.github.io/20240501_pacman/</link>
     <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20240501_pacman/</guid>
-    <description><![CDATA[Pacman , the package manager for Arch Linux, is known for its simple binary package format and easy-to-use build system . The primary aim of Pacman is to facilitate straightforward management of packages from both the official repositories and user-generated builds.
-Pacman ensures your system remains updated by synchronizing the package lists with the master server. This client/server model simplifies the process of downloading and installing packages, along with all their dependencies, using basic commands.]]></description>
+    <guid>https://han8931.github.io/20240501_pacman/</guid>
+    <description><![CDATA[<p><a href="https://archlinux.org/pacman/" target="_blank" rel="noopener noreffer">Pacman</a>
+, the package manager for Arch Linux, is known for its <strong>simple</strong> binary package format and <strong>easy-to-use</strong> <a href="https://wiki.archlinux.org/title/Arch_build_system" title="Arch build system" target="_blank" rel="noopener noreffer">build system</a>
+. The primary aim of Pacman is to facilitate straightforward management of packages from both the <a href="https://wiki.archlinux.org/title/Official_repositories" title="Official repositories" target="_blank" rel="noopener noreffer">official repositories</a>
+ and user-generated builds.</p>
+<p>Pacman ensures your system remains updated by synchronizing the package lists with the master server. This client/server model simplifies the process of downloading and installing packages, along with all their dependencies, using basic commands.</p>]]></description>
 </item>
 <item>
     <title>Bash script tutorial</title>
-    <link>http://localhost:1313/20240421_the-shell-script-tutorial/</link>
+    <link>https://han8931.github.io/20240421_the-shell-script-tutorial/</link>
     <pubDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20240421_the-shell-script-tutorial/</guid>
-    <description><![CDATA[Let&rsquo;s create our first simple shell script
-1 2 3 #!/bin/sh # This is a comment! echo Hello World # This is a comment, too! The first line tells Unix that the file is to be executed by /bin/sh. This is the standard location of the Bourne shell on just about every Unix system. If you&rsquo;re using GNU/Linux, /bin/sh is normally a symbolic link to bash (or, more recently, dash). The second line begins with a special symbol: #.]]></description>
+    <guid>https://han8931.github.io/20240421_the-shell-script-tutorial/</guid>
+    <description><![CDATA[<p>Let&rsquo;s create our first simple shell script</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1"># This is a comment!</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> Hello World        <span class="c1"># This is a comment, too!</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>The first line tells Unix that the file is to be executed by <code>/bin/sh</code>. This is the standard location of the <em>Bourne shell</em> on just about every Unix system. If you&rsquo;re using GNU/Linux, /bin/sh is normally a symbolic link to bash (or, more recently, dash).</li>
+<li>The second line begins with a special symbol: <code>#</code>. This marks the line as a comment, and it is ignored completely by the shell.</li>
+<li>The only exception is when the <em>very first</em> line of the file starts with <code>#!</code> (shebang) - as ours does. This is a special directive which Unix treats specially. It means that even if you are using csh, ksh, or anything else as your interactive shell, that what follows should be interpreted by the Bourne shell.</li>
+<li>Similarly, a Perl script may start with the line <code>#!/usr/bin/perl</code> to tell your interactive shell that the program which follows should be executed by perl. For Bourne shell programming, we shall stick to <code>#!/bin/sh.</code></li>
+<li>The third line runs a command: <code>echo</code>, with two parameters, or arguments - the first is <code>&quot;Hello&quot;</code>; the second is <code>&quot;World&quot;</code>.</li>
+<li>Note that <code>echo</code> will automatically put a single space between its parameters.</li>
+<li>To make it executable, run <code>chmod +rx &lt;filename&gt;</code></li>
+</ul>
+<h2 id="variables">Variables</h2>
+<p>Let&rsquo;s look back at our first Hello World example. This could be done using variables. Note that <em>there must be no spaces around the &ldquo;<code>=</code>&rdquo; sign</em>: <code>VAR=value</code> works; <code>VAR = value</code> doesn&rsquo;t work. In the first case, the shell sees the &ldquo;<code>=</code>&rdquo; symbol and treats the command as a variable assignment. In the second case, the shell assumes that VAR must be the name of a command and tries to execute it.</p>]]></description>
 </item>
 <item>
     <title>Minimalism Through Linux</title>
-    <link>http://localhost:1313/20240421_why-linux/</link>
+    <link>https://han8931.github.io/20240421_why-linux/</link>
     <pubDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20240421_why-linux/</guid>
-    <description><![CDATA[Linux, A Path to Digital Simplicity In an age dominated by digital clutter and overwhelming software choices, the minimalist philosophy stands out as a beacon for those seeking simplicity and efficiency. This approach not only applies to physical possessions but extends into the digital realm, where Linux has become a preferred tool for minimalists.
-Linux, an open-source operating system, embodies the principles of minimalism by offering users control over their digital environments.]]></description>
+    <guid>https://han8931.github.io/20240421_why-linux/</guid>
+    <description><![CDATA[<h3 id="linux-a-path-to-digital-simplicity">Linux, A Path to Digital Simplicity</h3>
+<p>In an age dominated by digital clutter and overwhelming software choices, the minimalist philosophy stands out as a beacon for those seeking simplicity and efficiency. This approach not only applies to physical possessions but extends into the digital realm, where Linux has become a preferred tool for minimalists.</p>
+<p>Linux, an open-source operating system, embodies the principles of minimalism by offering users control over their digital environments. Unlike mainstream operating systems that often come loaded with non-essential features and bloatware, Linux allows users to select only the components they need, creating a lean and efficient system.</p>]]></description>
 </item>
 </channel>
 </rss>

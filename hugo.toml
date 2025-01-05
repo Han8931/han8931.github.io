@@ -29,7 +29,7 @@ enableGitInfo = true
 enableEmoji = true
 
 # Author config
-[author]
+[params.author]
   name = "Han"
   email = "tabularasa8931@gmail.com"
   link = ""

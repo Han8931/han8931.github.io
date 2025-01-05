@@ -1,17 +1,17 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Minimalism - Tag - Han&#39;s XYZ</title>
-        <link>http://localhost:1313/tags/minimalism/</link>
+        <link>https://han8931.github.io/tags/minimalism/</link>
         <description>Minimalism - Tag - Han&#39;s XYZ</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/minimalism/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/tags/minimalism/" rel="self" type="application/rss+xml" /><item>
     <title>Minimalism Through Linux</title>
-    <link>http://localhost:1313/20240421_why-linux/</link>
+    <link>https://han8931.github.io/20240421_why-linux/</link>
     <pubDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20240421_why-linux/</guid>
-    <description><![CDATA[Linux, A Path to Digital Simplicity In an age dominated by digital clutter and overwhelming software choices, the minimalist philosophy stands out as a beacon for those seeking simplicity and efficiency. This approach not only applies to physical possessions but extends into the digital realm, where Linux has become a preferred tool for minimalists.
-Linux, an open-source operating system, embodies the principles of minimalism by offering users control over their digital environments.]]></description>
+    <guid>https://han8931.github.io/20240421_why-linux/</guid>
+    <description><![CDATA[<h3 id="linux-a-path-to-digital-simplicity">Linux, A Path to Digital Simplicity</h3>
+<p>In an age dominated by digital clutter and overwhelming software choices, the minimalist philosophy stands out as a beacon for those seeking simplicity and efficiency. This approach not only applies to physical possessions but extends into the digital realm, where Linux has become a preferred tool for minimalists.</p>
+<p>Linux, an open-source operating system, embodies the principles of minimalism by offering users control over their digital environments. Unlike mainstream operating systems that often come loaded with non-essential features and bloatware, Linux allows users to select only the components they need, creating a lean and efficient system.</p>]]></description>
 </item>
 </channel>
 </rss>

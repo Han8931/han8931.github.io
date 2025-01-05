@@ -1,72 +1,140 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Python - Category - Han&#39;s XYZ</title>
-        <link>http://localhost:1313/categories/python/</link>
+        <link>https://han8931.github.io/categories/python/</link>
         <description>Python - Category - Han&#39;s XYZ</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 07 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/python/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 05 Jan 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/categories/python/" rel="self" type="application/rss+xml" /><item>
+    <title>Asyncio in Python: A Deep Dive into Asynchronous I/O</title>
+    <link>https://han8931.github.io/20250105_asyncio/</link>
+    <pubDate>Sun, 05 Jan 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/20250105_asyncio/</guid>
+    <description><![CDATA[<p>For the past few months, I&rsquo;ve been working on an exciting internal project at my company: taking users&rsquo; documents and running them through LLM APIs to translate and summarize their content, somewhat similar to <a href="https://www.deepl.com/" target="_blank" rel="noopener noreffer">DeepL</a>
+. The output is a collection of translated documents, each overlaid with the newly translated text. Our goal is to provide a stable service that can handle large files efficiently for thousands of employees at Samsung—no small task! To achieve this, we needed a concurrency strategy that supports high throughput while remaining responsive. <strong>That&rsquo;s where Asyncio comes in.</strong></p>]]></description>
+</item>
+<item>
     <title>Dependency Management in Python</title>
-    <link>http://localhost:1313/20240707_poetry/</link>
+    <link>https://han8931.github.io/20240707_poetry/</link>
     <pubDate>Sun, 07 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20240707_poetry/</guid>
-    <description><![CDATA[Introduction Poetry is a dependency management and packaging tool in Python, aiming to improve how you define, install, and manage project dependencies.
-Installation: You can install Poetry through its custom installer script or using package managers. The recommended way is to use their installer script to ensure you get the latest version. Creating a New Project: Use poetry new &lt;project-name&gt; to create a new project with a standard layout. Adding Dependencies: Add new dependencies directly to your project using poetry add &lt;package&gt;.]]></description>
+    <guid>https://han8931.github.io/20240707_poetry/</guid>
+    <description><![CDATA[<h1 id="introduction">Introduction</h1>
+<p><strong>Poetry</strong> is a dependency management and packaging tool in Python, aiming to improve how you define, install, and manage project dependencies.</p>
+<ol>
+<li>Installation: You can install Poetry through its custom installer script or using package managers. The recommended way is to use their installer script to ensure you get the latest version.</li>
+<li>Creating a New Project: Use <code>poetry new &lt;project-name&gt;</code> to create a new project with a standard layout.</li>
+<li>Adding Dependencies: Add new dependencies directly to your project using <code>poetry add &lt;package&gt;</code>. Poetry will resolve the dependencies and update the <code>pyproject.toml</code> and <code>poetry.lock</code> files.</li>
+<li>Installing Dependencies: Running <code>poetry install</code> in your project directory will install all dependencies defined in your <code>pyproject.toml</code> file.</li>
+</ol>
+<h2 id="poetry-example">Poetry Example</h2>
+<h3 id="setting-up-a-new-project">Setting Up a New Project</h3>
+<p>To create a new project named <code>example_project</code> with Poetry and manage its dependencies:</p>]]></description>
 </item>
 <item>
     <title>Why Use Python&#39;s `pdb` Debugger Over an IDE?</title>
-    <link>http://localhost:1313/20240426_pdb/</link>
+    <link>https://han8931.github.io/20240426_pdb/</link>
     <pubDate>Sat, 27 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20240426_pdb/</guid>
-    <description><![CDATA[When it comes to debugging Python code, most programmers reach for an Integrated Development Environment (IDE) because of its convenience and powerful features. However, there&rsquo;s a classic, built-in tool that shouldn&rsquo;t be overlooked: Python&rsquo;s own debugger, pdb. This tool might seem basic at first glance, but it offers some compelling advantages, especially in scenarios where an IDE might be less effective. Here&rsquo;s why you might consider using pdb for debugging your Python projects:]]></description>
+    <guid>https://han8931.github.io/20240426_pdb/</guid>
+    <description><![CDATA[<p>When it comes to debugging Python code, most programmers reach for an Integrated Development Environment (IDE) because of its convenience and powerful features. However, there&rsquo;s a classic, built-in tool that shouldn&rsquo;t be overlooked: Python&rsquo;s own debugger, <code>pdb</code>. This tool might seem basic at first glance, but it offers some compelling advantages, especially in scenarios where an IDE might be less effective. Here&rsquo;s why you might consider using <code>pdb</code> for debugging your Python projects:</p>]]></description>
 </item>
 <item>
     <title>Data validation with Pydantic!</title>
-    <link>http://localhost:1313/20240426_pydantic/</link>
+    <link>https://han8931.github.io/20240426_pydantic/</link>
     <pubDate>Fri, 26 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20240426_pydantic/</guid>
-    <description><![CDATA[Python&rsquo;s dynamic typing system is indeed convenient, allowing you to create variables without explicitly declaring their types. While this flexibility can streamline development, it can also introduce unexpected behavior, particularly when handling data from external sources like APIs or user input.
-Consider the following scenario:
-1 2 employee = Employee(&#34;Han&#34;, 30) # Correct employee = Employee(&#34;Moon&#34;, &#34;30&#34;) # Correct Here, the second argument is intended to represent an age, typically an integer.]]></description>
+    <guid>https://han8931.github.io/20240426_pydantic/</guid>
+    <description><![CDATA[<p>Python&rsquo;s dynamic typing system is indeed convenient, allowing you to create variables without explicitly declaring their types. While this flexibility can streamline development, it can also introduce unexpected behavior, particularly when handling data from external sources like APIs or user input.</p>
+<p>Consider the following scenario:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">employee</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&#34;Han&#34;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="c1"># Correct</span>
+</span></span><span class="line"><span class="cl"><span class="n">employee</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&#34;Moon&#34;</span><span class="p">,</span> <span class="s2">&#34;30&#34;</span><span class="p">)</span> <span class="c1"># Correct</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Here, the second argument is intended to represent an age, typically an integer. However, in the second example, it&rsquo;s a string, potentially leading to errors or unexpected behavior down the line.</li>
+</ul>
+<p>To address such issues, Pydantic offers a solution through data validation. Pydantic is a library specifically designed for this purpose, ensuring that the data conforms to pre-defined schemas.</p>]]></description>
 </item>
 <item>
     <title>Enumerate variables with Enum!</title>
-    <link>http://localhost:1313/20240426_enum/</link>
+    <link>https://han8931.github.io/20240426_enum/</link>
     <pubDate>Fri, 26 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20240426_enum/</guid>
-    <description><![CDATA[Enum is a way that Python enumerate variables. The enum module allows for the creation of enumerated constants—unique, immutable data types that are useful for representing a fixed set of values. These values, which are usually related by their context, are known as enumeration members.
-Enum provides&hellip;
-Uniqueness - Each member of an Enum is unique within its definition, meaning no two members can have the same value. Attempting to define two members with the same value will result in an error unless you explicitly allow aliases.]]></description>
+    <guid>https://han8931.github.io/20240426_enum/</guid>
+    <description><![CDATA[<p><code>Enum</code> is a way that Python enumerate variables. The <code>enum</code> module allows for the creation of enumerated constants—unique, immutable data types that are useful for representing a fixed set of values. These values, which are usually related by their context, are known as enumeration members.</p>
+<p>Enum provides&hellip;</p>
+<ol>
+<li><strong>Uniqueness</strong> - Each member of an <code>Enum</code> is unique within its definition, meaning no two members can have the same value. Attempting to define two members with the same value will result in an error unless you explicitly allow aliases.</li>
+<li><strong>Immutability</strong> - Enum members are immutable. Once the <code>Enum</code> class is defined, you cannot change the members or their values.</li>
+<li><strong>Iterability and Comparability</strong> - Enum classes support iteration over their members and can be compared using identity and equality checks.</li>
+<li><strong>Accessing Members</strong> - You can access enumeration members by their names or values:</li>
+<li><strong>Auto</strong> - If you want to automatically assign values to enum members, you can use the <code>auto()</code> function from the same module:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">State</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="n">PLAYING</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl">	<span class="n">PAUSED</span><span class="o">=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">	<span class="n">GAME_OVER</span><span class="o">=</span><span class="mi">2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If we just want to make sure them to be unique and automatically assigned, then use <code>auto()</code></p>]]></description>
 </item>
 <item>
     <title>Unit Test with Pytest</title>
-    <link>http://localhost:1313/20240426_unit-tests/</link>
+    <link>https://han8931.github.io/20240426_unit-tests/</link>
     <pubDate>Fri, 26 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20240426_unit-tests/</guid>
-    <description><![CDATA[Unit testing involves testing individual components of software in isolation to ensure they function correctly. Automated frameworks facilitate this process, which is integral to ensuring that new changes do not disrupt existing functionality. Unit tests also serve as practical documentation and encourage better software design. This testing method boosts development speed and confidence by confirming component reliability before integration. Early bug detection through unit testing also helps minimize future repair costs and efforts.]]></description>
+    <guid>https://han8931.github.io/20240426_unit-tests/</guid>
+    <description><![CDATA[<p>Unit testing involves testing individual components of software in <strong>isolation to ensure they function correctly</strong>. Automated frameworks facilitate this process, which <strong>is integral to ensuring that new changes do not disrupt existing functionality</strong>. Unit tests also serve as practical documentation and encourage better software design. This testing method boosts development speed and confidence by confirming component reliability before integration. Early bug detection through unit testing also helps minimize future repair costs and efforts.</p>]]></description>
 </item>
 <item>
     <title>How to keep sensitive data in Python?</title>
-    <link>http://localhost:1313/20240421_hide-sensitive-data/</link>
+    <link>https://han8931.github.io/20240421_hide-sensitive-data/</link>
     <pubDate>Sat, 20 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20240421_hide-sensitive-data/</guid>
-    <description><![CDATA[An app&rsquo;s config is everything that is likely to vary between deploys (staging, production, developer environments, etc). This includes:
-Resource handles to the database, Memcached, and other backing services Credentials to external services such as Amazon S3 or Twitter Per-deploy values such as the canonical hostname for the deploy Apps sometimes store config as constants in the code. This is a violation of twelve-factor, which requires strict separation of config from code.]]></description>
+    <guid>https://han8931.github.io/20240421_hide-sensitive-data/</guid>
+    <description><![CDATA[<p>An app&rsquo;s <em>config</em> is everything that is likely to vary between <a href="https://12factor.net/codebase" target="_blank" rel="noopener noreffer">deploys</a>
+ (staging, production, developer environments, etc). This includes:</p>
+<ul>
+<li>Resource handles to the database, Memcached, and other <a href="https://12factor.net/backing-services" target="_blank" rel="noopener noreffer">backing services</a>
+</li>
+<li>Credentials to external services such as Amazon S3 or Twitter</li>
+<li>Per-deploy values such as the canonical hostname for the deploy</li>
+</ul>
+<p>Apps sometimes store config as constants in the code. This is a violation of twelve-factor, which requires <strong>strict separation of config from code</strong>. Config varies substantially across deploys, code does not.</p>]]></description>
 </item>
 <item>
     <title>Type hint in Python</title>
-    <link>http://localhost:1313/20240421_type-hint/</link>
+    <link>https://han8931.github.io/20240421_type-hint/</link>
     <pubDate>Sat, 20 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20240421_type-hint/</guid>
-    <description><![CDATA[Type hinting is not mandatory, but it can make your code easier to understand and debug by
-Improved readability Better IDE support: IDEs and linters can use type hints to check your code for potential errors before runtime. While type hints can be simple classes like float or str , they can also be more complex. The typing module provides a vocabulary of more advanced type hints.
-Basics 1 2 3 4 5 6 7 8 9 10 11 12 # This is how you declare the type of a variable age: int = 1 # You don&#39;t need to initialize a variable to annotate it a: int # Ok (no value at runtime until assigned) # Doing so can be useful in conditional branches child: bool if age &lt; 18: child = True else: child = False 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 x: int = 1 x: float = 1.]]></description>
+    <guid>https://han8931.github.io/20240421_type-hint/</guid>
+    <description><![CDATA[<p>Type hinting is <em>not mandatory</em>, but it can make your code easier to understand and debug by</p>
+<ol>
+<li>Improved readability</li>
+<li>Better IDE support: IDEs and linters can use type hints to check your code for potential errors before runtime.</li>
+</ol>
+<p>While type hints can be simple classes like <a href="https://docs.python.org/3/library/functions.html#float" title="float" target="_blank" rel="noopener noreffer"><code>float</code></a>
+ or <a href="https://docs.python.org/3/library/stdtypes.html#str" title="str" target="_blank" rel="noopener noreffer"><code>str</code></a>
+, they can also be more complex. The <a href="https://docs.python.org/3/library/typing.html#module-typing" title="typing: Support for type hints (see :pep:`484`)." target="_blank" rel="noopener noreffer"><code>typing</code></a>
+ module provides a vocabulary of more advanced type hints.</p>]]></description>
 </item>
 </channel>
 </rss>

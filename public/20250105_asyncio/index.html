@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Asyncio in Python: A Deep Dive into Asynchronous I/O - Han&#39;s XYZ</title><meta name="Description" content="Introduction to asyncio library"><meta property="og:url" content="https://han8931.github.io/20250105_asyncio/">
+  <meta property="og:site_name" content="Han&#39;s XYZ">
+  <meta property="og:title" content="Asyncio in Python: A Deep Dive into Asynchronous I/O">
+  <meta property="og:description" content="Introduction to asyncio library">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-05T00:00:00+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Asyncio">
+    <meta property="og:image" content="https://han8931.github.io/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://han8931.github.io/logo.png">
+  <meta name="twitter:title" content="Asyncio in Python: A Deep Dive into Asynchronous I/O">
+  <meta name="twitter:description" content="Introduction to asyncio library">
+<meta name="application-name" content="KeepIt">
+<meta name="apple-mobile-web-app-title" content="KeepIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://han8931.github.io/20250105_asyncio/" /><link rel="prev" href="https://han8931.github.io/20250105_arch/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Asyncio in Python: A Deep Dive into Asynchronous I/O",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/han8931.github.io\/20250105_asyncio\/"
+        },"genre": "posts","keywords": "python, asyncio","wordcount":  1964 ,
+        "url": "https:\/\/han8931.github.io\/20250105_asyncio\/","datePublished": "2025-01-05T00:00:00+00:00","dateModified": "2025-01-05T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Han"
+            },"description": "Introduction to asyncio library"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Asyncio in Python: A Deep Dive into Asynchronous I/O</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a>&nbsp;<a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-01-05">2025-01-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1964 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;10 minutes&nbsp;<span id="/20250105_asyncio/" class="leancloud_visitors" data-flag-title="Asyncio in Python: A Deep Dive into Asynchronous I/O">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-concurrency-matters">Why Concurrency Matters</a>
+      <ul>
+        <li><a href="#the-synchronous-bottleneck">The Synchronous Bottleneck</a></li>
+        <li><a href="#concurrency-as-a-solution">Concurrency as a Solution</a></li>
+        <li><a href="#concurrency-vs-parallelism">Concurrency vs. Parallelism</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-io-bound-vs-cpu-bound-distinction">The I/O-Bound vs. CPU-Bound Distinction</a></li>
+    <li><a href="#a-primer-on-processes-threads-and-the-gil">A Primer on Processes, Threads, and the GIL</a>
+      <ul>
+        <li><a href="#processes">Processes</a></li>
+        <li><a href="#threads">Threads</a>
+          <ul>
+            <li><a href="#multithreading-in-python">Multithreading in Python</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#the-global-interpreter-lock-gil-in-more-detail">The Global Interpreter Lock (GIL) in More Detail</a></li>
+    <li><a href="#enter-asyncio-asynchronous-io-in-a-single-thread">Enter Asyncio: Asynchronous I/O in a Single Thread</a>
+      <ul>
+        <li><a href="#coroutines">Coroutines</a></li>
+        <li><a href="#event-loop">Event Loop</a></li>
+      </ul>
+    </li>
+    <li><a href="#where-asyncio-shinesand-where-it-doesnt">Where Asyncio Shines—and Where It Doesn&rsquo;t</a>
+      <ul>
+        <li><a href="#the-sweet-spot-io-bound-work">The Sweet Spot: I/O-Bound Work</a></li>
+        <li><a href="#handling-cpu-bound-work">Handling CPU-Bound Work</a></li>
+      </ul>
+    </li>
+    <li><a href="#putting-it-all-together-an-example">Putting It All Together: An Example</a>
+      <ul>
+        <li><a href="#synchronous-approach">Synchronous Approach</a></li>
+        <li><a href="#asyncio-approach">Asyncio Approach</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>For the past few months, I&rsquo;ve been working on an exciting internal project at my company: taking users&rsquo; documents and running them through LLM APIs to translate and summarize their content, somewhat similar to <a href="https://www.deepl.com/" target="_blank" rel="noopener noreffer">DeepL</a>
+. The output is a collection of translated documents, each overlaid with the newly translated text. Our goal is to provide a stable service that can handle large files efficiently for thousands of employees at Samsung—no small task! To achieve this, we needed a concurrency strategy that supports high throughput while remaining responsive. <strong>That&rsquo;s where Asyncio comes in.</strong></p>
+<p>In this post, we&rsquo;ll look at how Python tackles concurrency through <strong>Asyncio</strong>, a library designed to handle asynchronous I/O. We&rsquo;ll explore the concepts of concurrency, parallelism, multitasking, the difference between I/O-bound and CPU-bound tasks, and finally see how Asyncio harnesses cooperative multitasking to help your applications handle large-scale I/O more effectively. Whether you&rsquo;re building an internal service for employees or creating a high-performance web server, Asyncio&rsquo;s approach to concurrency might just be the key to unlocking the scalability you need.</p>
+<h1 id="asyncio-in-python-a-deep-dive-into-asynchronous-io">Asyncio in Python: A Deep Dive into Asynchronous I/O</h1>
+<p>Modern software frequently needs to handle large volumes of input/output (I/O) operations. For instance, you might be retrieving data from web services, communicating with microservices over a network, or running multiple database queries simultaneously. These tasks can often take hundreds of milliseconds—or even seconds—if the network is under heavy load or the database is busy.</p>
+<p>If you approach these operations in a strictly <em>synchronous</em> manner—doing one after another—each I/O request can block the execution of your entire application. When you have many such requests, total execution time can balloon significantly. Picture having to process 100 requests, each taking 1 second. Doing that sequentially results in a 100-second runtime. However, <em>if you can handle them concurrently</em>, you might complete all in roughly the same amount of time as a single request.</p>
+<p>In this post, we’ll look at how Python tackles concurrency through <strong>Asyncio</strong>, a library designed to handle asynchronous I/O. We’ll explore the concepts of concurrency, parallelism, multitasking, the difference between I/O-bound and CPU-bound tasks, and finally see how Asyncio harnesses cooperative multitasking to help your applications handle I/O more efficiently.</p>
+<hr>
+<h2 id="why-concurrency-matters">Why Concurrency Matters</h2>
+<h3 id="the-synchronous-bottleneck">The Synchronous Bottleneck</h3>
+<p>In a <strong>synchronous</strong> application, each line of code must complete before moving on to the next. This is usually acceptable for simple tasks but becomes problematic if a single operation is slow or unresponsive. While any operation can block an application, many applications will be stuck waiting for I/O. <em>I/O refers to a computer&rsquo;s input and output devices such as a keyboard, hard drive, and, most commonly, a network card.</em> A classic example is a web server that processes each request in series; if one request takes longer than expected, all subsequent requests are delayed. Users of a slow website or client application may experience hang-ups, timeouts, or sluggish responsiveness due to this &ldquo;queue&rdquo; of operations.</p>
+<h3 id="concurrency-as-a-solution">Concurrency as a Solution</h3>
+<p><strong>Concurrency</strong> allows multiple tasks to be <em>in progress</em> simultaneously. In code terms, this often means starting multiple operations and then efficiently switching between them, so the application doesn&rsquo;t grind to a halt waiting on just one task. For I/O-bound tasks, concurrency can provide remarkable speedups because while one operation is waiting on a response, your program can continue working on other tasks.</p>
+<h3 id="concurrency-vs-parallelism">Concurrency vs. Parallelism</h3>
+<p>It’s important to distinguish <strong>concurrency</strong> from <strong>parallelism</strong>:</p>
+<ul>
+<li><strong>Concurrency</strong> means you can have multiple tasks in progress at once, but they are not necessarily all running <em>at the exact same moment</em>.</li>
+<li><strong>Parallelism</strong> means two or more tasks <em>truly run at the same time</em>, which requires at least as many CPU cores as the number of tasks you want to run in parallel.</li>
+</ul>
+<p>Even on a single-core machine, you can achieve concurrency by rapidly switching (or <em>time slicing</em>) between tasks. However, <em>true</em> parallelism requires multiple CPU cores, letting tasks run simultaneously without interrupting each other.</p>
+<hr>
+<h2 id="the-io-bound-vs-cpu-bound-distinction">The I/O-Bound vs. CPU-Bound Distinction</h2>
+<p>When we label a particular operation as <strong>I/O-bound</strong> or <strong>CPU-bound</strong>, we&rsquo;re describing what fundamentally limits its performance.</p>
+<ul>
+<li><strong>I/O-Bound</strong>: The operation spends most of its time waiting for I/O devices such as hard drives or network interfaces. Examples include fetching a remote web page, reading from a file, or waiting on a database query. These tasks can benefit significantly from concurrency, because while one operation waits, the program can do other work.</li>
+<li><strong>CPU-Bound</strong>: The task is primarily gated by processor speed. Examples include computing the nth Fibonacci number using a recursive function, performing complex data analysis, or running CPU-intensive algorithms. <em>Concurrency alone may not help here, especially in Python, because of the</em> <strong>Global Interpreter Lock (GIL)</strong>.</li>
+</ul>
+<hr>
+<h2 id="a-primer-on-processes-threads-and-the-gil">A Primer on Processes, Threads, and the GIL</h2>
+<h3 id="processes">Processes</h3>
+<p>A <strong>process</strong> is a running instance of an application with its own memory space. An example of creating a Python process would be running a simple &ldquo;hello world&rdquo; application or typing python at the command line to start up the REPL (read eval print loop). Modern operating systems allow multiple processes to run at once. If your CPU has multiple cores, it can execute processes truly in parallel. Otherwise, the OS uses <em>time slicing</em> to rapidly switch among processes.</p>
+<h3 id="threads">Threads</h3>
+<p>A <strong>thread</strong> is a more lightweight form of concurrency that runs within a single process, sharing the parent process&rsquo;s memory space. Threads have no their own memory. <em>A process will always have at least one thread associated with it, usually known as the main thread.</em> A process can also create other threads, which are more commonly known as <em>worker</em> or <em>background</em> threads. These threads can perform other work concurrently alongside the main thread. Threads, much like processes, can run alongside one another on a multi-core CPU, and the operating system can also switch between them via time slicing. When we run a normal Python application, we create a process as well as a <strong>main thread</strong> that will be responsible for running our Python application.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import os
+</span></span><span class="line"><span class="cl">import threading
+</span></span><span class="line"><span class="cl">	 
+</span></span><span class="line"><span class="cl">print(f&#39;Python process with process id: {os.getpid()}&#39;)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">num_threads = threading.active_count()
+</span></span><span class="line"><span class="cl">thread_name = threading.current_thread().name
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">print(f&#39;{num_threads} thread(s) are running&#39;)
+</span></span><span class="line"><span class="cl">print(f&#39;The current thread is {thread_name}&#39;)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="multithreading-in-python">Multithreading in Python</h4>
+<p>You might assume that starting multiple threads automatically takes advantage of multi-core systems. <strong>However, Python has a key constraint called the Global Interpreter Lock (GIL).</strong> The GIL ensures that only one thread can run one Python instruction at a time. This means that even on a multi-core machine, your Python code cannot run more than one CPU-bound thread simultaneously within the same process.</p>
+<p><strong>So, are threads useless in Python?</strong> Far from it. Threads <em>do</em> provide genuine concurrency for I/O-bound tasks because Python releases the GIL during I/O operations. This allows you to overlap network calls, file reads, etc., effectively improving throughput. Yet for CPU-bound tasks, you won’t get true parallelism using just threads.</p>
+<hr>
+<h2 id="the-global-interpreter-lock-gil-in-more-detail">The Global Interpreter Lock (GIL) in More Detail</h2>
+<p>The <strong>Global Interpreter Lock</strong> is often regarded as a tricky limitation in Python. At a high level, the GIL:</p>
+<ol>
+<li><strong>Prevents multiple native threads from executing Python bytecode simultaneously</strong>.</li>
+<li><strong>Releases the lock</strong> when code interacts with the operating system for I/O (e.g., network or disk).</li>
+<li><strong>Reacquires the lock</strong> once I/O completes and Python bytecode needs to be executed again.</li>
+</ol>
+<p>Why does it exist? The main reason is memory safety in the <strong>CPython</strong> implementation, which relies heavily on <em>reference counting</em> to manage objects. While convenient, reference counting can become unsafe when multiple threads mutate the same objects without careful synchronization.</p>
+<p>For I/O-bound code—like sending concurrent HTTP requests—this arrangement works well. You start multiple threads, each waiting on different I/O operations, and the GIL is periodically released while those operations happen, giving an overall speedup. For CPU-bound tasks—like computing Fibonacci numbers with a naive recursion—threads won’t help much because the lock is rarely released. Instead, you might use <strong>multiprocessing</strong> or specialized libraries that bypass the GIL for compute-intensive work.</p>
+<hr>
+<h2 id="enter-asyncio-asynchronous-io-in-a-single-thread">Enter Asyncio: Asynchronous I/O in a Single Thread</h2>
+<p><strong>Asyncio</strong> is Python’s built-in library (introduced in Python 3.4 and improved in Python 3.5 with the <code>async</code> and <code>await</code> keywords) that focuses on concurrent I/O without the overhead of managing threads or processes.</p>
+<h3 id="coroutines">Coroutines</h3>
+<p>The foundation of Asyncio is the concept of a <strong>coroutine</strong>—a special function that can pause itself (<code>await</code>) while waiting for an I/O operation, and then resume right where it left off once the operation completes. While one coroutine is waiting, other coroutines can continue running, effectively achieving concurrency <em>within a single thread</em>.</p>
+<h3 id="event-loop">Event Loop</h3>
+<p>At the core of every Asyncio program is the <strong>event loop</strong>. Think of it as a manager that schedules coroutines. The event loop steps through coroutines one by one:</p>
+<ol>
+<li>A coroutine starts running until it hits an <code>await</code> for an I/O operation.</li>
+<li>The coroutine &ldquo;pauses,&rdquo; returning control to the event loop.</li>
+<li>The event loop checks if there&rsquo;s another coroutine ready to run. If so, it switches to that coroutine immediately.</li>
+<li>Meanwhile, the operating system handles the actual I/O. Once the I/O is ready (e.g., the network has responded), the event loop &ldquo;wakes up&rdquo; the paused coroutine and resumes its execution.</li>
+</ol>
+<p>Because <strong>only one</strong> thread is responsible for executing Python code, the GIL is never contended between multiple threads.</p>
+<hr>
+<h2 id="where-asyncio-shinesand-where-it-doesnt">Where Asyncio Shines—and Where It Doesn&rsquo;t</h2>
+<h3 id="the-sweet-spot-io-bound-work">The Sweet Spot: I/O-Bound Work</h3>
+<p>Asyncio is <em>incredibly useful</em> when you’re dealing with a large number of concurrent I/O operations. Common examples include:</p>
+<ul>
+<li>Building high-performance web servers that handle thousands of simultaneous connections.</li>
+<li>Writing web scrapers that fetch and parse dozens or hundreds of pages concurrently.</li>
+<li>Coordinating multiple microservice requests in a single workflow without blocking.</li>
+</ul>
+<p>In these scenarios, Asyncio’s single-threaded event loop can handle many I/O-bound coroutines, each pausing when it must wait for data. This often results in a dramatic improvement in throughput compared to a purely synchronous approach.</p>
+<h3 id="handling-cpu-bound-work">Handling CPU-Bound Work</h3>
+<p>What if your task is mainly compute-heavy? Asyncio won&rsquo;t magically run CPU-bound code in parallel because the GIL still applies to Python bytecode, and you’re still on a single thread. For CPU-bound tasks—like image processing, machine learning, or large-scale data transformations—you&rsquo;d likely want to offload work to another process or leverage special libraries that release the GIL.</p>
+<p>That said, Asyncio does provide <em>interoperability</em> with <strong>threading</strong> and <strong>multiprocessing</strong>; you can combine CPU-intensive tasks with your I/O-bound coroutines. For instance, you can use <code>asyncio.to_thread</code> (in Python 3.9+) to run a CPU-bound function in a separate thread or harness a process pool executor for true parallelism at the CPU level.</p>
+<hr>
+<h2 id="putting-it-all-together-an-example">Putting It All Together: An Example</h2>
+<p>Below is a simplified comparison of synchronous, multithreaded, and Asyncio-based approaches to fetching two web pages:</p>
+<h3 id="synchronous-approach">Synchronous Approach</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">fetch_example</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.example.com&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">sync_fetch</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">status_one</span> <span class="o">=</span> <span class="n">fetch_example</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">status_two</span> <span class="o">=</span> <span class="n">fetch_example</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Synchronous: </span><span class="si">{</span><span class="n">status_one</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">status_two</span><span class="si">}</span><span class="s2">, time=</span><span class="si">{</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sync_fetch</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Synchronous</strong> mode fetches one URL at a time. If each request blocks for one second, the total time is roughly two seconds.</p>
+<p>Here, Python will release the GIL while waiting for the network, letting both threads run concurrently. The total time is potentially cut almost in half, assuming the responses come back quickly.</p>
+<h3 id="asyncio-approach">Asyncio Approach</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">asyncio</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">aiohttp</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">async_fetch_example</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">async</span> <span class="k">with</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientSession</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">async</span> <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.example.com&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">status</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">async_fetch_example</span><span class="p">(),</span> <span class="n">async_fetch_example</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Asyncio: time=</span><span class="si">{</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>With <strong>Asyncio</strong>, both fetch operations are initiated concurrently in the same thread, with the event loop switching between them whenever one is waiting for I/O. Like multithreading, you should see a meaningful speedup compared to the synchronous approach—but without the complexities of shared data across threads.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-01-05</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/20250105_asyncio/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/asyncio/">Asyncio</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/20250105_arch/" class="prev" rel="prev" title="Install Arch Linux"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Install Arch Linux</a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.139.4">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"en","pageSize":10,"placeholder":"Your comment ...","recordIP":true,"serverURLs":"https://leancloud.xxxxx.com","visitor":true}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"A9NUSQZEO5","algoliaIndex":"github","algoliaSearchKey":"e255482bc340762a0da27f50eddd2765","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

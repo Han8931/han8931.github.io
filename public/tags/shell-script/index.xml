@@ -1,17 +1,38 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Shell Script - Tag - Han&#39;s XYZ</title>
-        <link>http://localhost:1313/tags/shell-script/</link>
+        <link>https://han8931.github.io/tags/shell-script/</link>
         <description>Shell Script - Tag - Han&#39;s XYZ</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/shell-script/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/tags/shell-script/" rel="self" type="application/rss+xml" /><item>
     <title>Bash script tutorial</title>
-    <link>http://localhost:1313/20240421_the-shell-script-tutorial/</link>
+    <link>https://han8931.github.io/20240421_the-shell-script-tutorial/</link>
     <pubDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20240421_the-shell-script-tutorial/</guid>
-    <description><![CDATA[Let&rsquo;s create our first simple shell script
-1 2 3 #!/bin/sh # This is a comment! echo Hello World # This is a comment, too! The first line tells Unix that the file is to be executed by /bin/sh. This is the standard location of the Bourne shell on just about every Unix system. If you&rsquo;re using GNU/Linux, /bin/sh is normally a symbolic link to bash (or, more recently, dash). The second line begins with a special symbol: #.]]></description>
+    <guid>https://han8931.github.io/20240421_the-shell-script-tutorial/</guid>
+    <description><![CDATA[<p>Let&rsquo;s create our first simple shell script</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1"># This is a comment!</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> Hello World        <span class="c1"># This is a comment, too!</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>The first line tells Unix that the file is to be executed by <code>/bin/sh</code>. This is the standard location of the <em>Bourne shell</em> on just about every Unix system. If you&rsquo;re using GNU/Linux, /bin/sh is normally a symbolic link to bash (or, more recently, dash).</li>
+<li>The second line begins with a special symbol: <code>#</code>. This marks the line as a comment, and it is ignored completely by the shell.</li>
+<li>The only exception is when the <em>very first</em> line of the file starts with <code>#!</code> (shebang) - as ours does. This is a special directive which Unix treats specially. It means that even if you are using csh, ksh, or anything else as your interactive shell, that what follows should be interpreted by the Bourne shell.</li>
+<li>Similarly, a Perl script may start with the line <code>#!/usr/bin/perl</code> to tell your interactive shell that the program which follows should be executed by perl. For Bourne shell programming, we shall stick to <code>#!/bin/sh.</code></li>
+<li>The third line runs a command: <code>echo</code>, with two parameters, or arguments - the first is <code>&quot;Hello&quot;</code>; the second is <code>&quot;World&quot;</code>.</li>
+<li>Note that <code>echo</code> will automatically put a single space between its parameters.</li>
+<li>To make it executable, run <code>chmod +rx &lt;filename&gt;</code></li>
+</ul>
+<h2 id="variables">Variables</h2>
+<p>Let&rsquo;s look back at our first Hello World example. This could be done using variables. Note that <em>there must be no spaces around the &ldquo;<code>=</code>&rdquo; sign</em>: <code>VAR=value</code> works; <code>VAR = value</code> doesn&rsquo;t work. In the first case, the shell sees the &ldquo;<code>=</code>&rdquo; symbol and treats the command as a variable assignment. In the second case, the shell assumes that VAR must be the name of a command and tries to execute it.</p>]]></description>
 </item>
 </channel>
 </rss>

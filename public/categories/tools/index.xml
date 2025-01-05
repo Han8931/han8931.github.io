@@ -1,17 +1,20 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Tools - Category - Han&#39;s XYZ</title>
-        <link>http://localhost:1313/categories/tools/</link>
+        <link>https://han8931.github.io/categories/tools/</link>
         <description>Tools - Category - Han&#39;s XYZ</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/tools/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/categories/tools/" rel="self" type="application/rss+xml" /><item>
     <title>Manage your task with TaskSpooler!</title>
-    <link>http://localhost:1313/20240713_taskspooler/</link>
+    <link>https://han8931.github.io/20240713_taskspooler/</link>
     <pubDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20240713_taskspooler/</guid>
-    <description><![CDATA[What is TaskSpooler ? TaskSpooler (ts) is a lightweight job scheduler that allows you to queue up your tasks and execute them in order. It’s particularly useful for environments where tasks need to be managed sequentially or with a controlled degree of parallelism. Unlike more complex systems like SLURM, TaskSpooler is designed for simplicity and ease of use, making it accessible for individual researchers and small teams.
-Efficient Job Scheduling for ML/DL Researchers with Taskspooler In the dynamic field of Machine Learning (ML) and Deep Learning (DL), managing and optimizing computational resources is crucial.]]></description>
+    <guid>https://han8931.github.io/20240713_taskspooler/</guid>
+    <description><![CDATA[<h1 id="what-is-taskspoolerhttpsgithubcomjustanhductask-spooler">What is <a href="https://github.com/justanhduc/task-spooler" target="_blank" rel="noopener noreffer">TaskSpooler</a>
+?</h1>
+<p><a href="https://github.com/justanhduc/task-spooler" target="_blank" rel="noopener noreffer">TaskSpooler</a>
+ (ts) is a lightweight job scheduler that allows you to queue up your tasks and execute them in order. It’s particularly useful for environments where tasks need to be managed sequentially or with a controlled degree of parallelism. Unlike more complex systems like SLURM, TaskSpooler is designed for simplicity and ease of use, making it accessible for individual researchers and small teams.</p>
+<h2 id="efficient-job-scheduling-for-mldl-researchers-with-taskspooler">Efficient Job Scheduling for ML/DL Researchers with Taskspooler</h2>
+<p>In the dynamic field of Machine Learning (ML) and Deep Learning (DL), managing and optimizing computational resources is crucial. For researchers frequently running numerous experiments, an efficient job scheduler can be a game-changer. Enter <strong>Taskspooler</strong>, a powerful yet user-friendly job scheduler for Linux, designed to help you manage and schedule your jobs in a queue. Taskspooler is a simpler alternative to SLURM, providing many benefits for ML/DL researchers, especially when it comes to utilizing GPUs efficiently.</p>]]></description>
 </item>
 </channel>
 </rss>

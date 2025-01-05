@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta name="generator" content="Hugo 0.133.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.139.4">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Han&#39;s XYZ</title><meta name="Description" content="Han&#39;s Blog"><meta property="og:url" content="http://localhost:1313/">
+        <title>Han&#39;s XYZ</title><meta name="Description" content="Han&#39;s Blog"><meta property="og:url" content="https://han8931.github.io/">
   <meta property="og:site_name" content="Han&#39;s XYZ">
   <meta property="og:title" content="Han&#39;s XYZ">
   <meta property="og:description" content="Han&#39;s Blog">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
-    <meta property="og:image" content="http://localhost:1313/logo.png">
+    <meta property="og:image" content="https://han8931.github.io/logo.png">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/logo.png">
+  <meta name="twitter:image" content="https://han8931.github.io/logo.png">
   <meta name="twitter:title" content="Han&#39;s XYZ">
   <meta name="twitter:description" content="Han&#39;s Blog">
 <meta name="application-name" content="KeepIt">
 <meta name="apple-mobile-web-app-title" content="KeepIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/" /><link rel="alternate" href="/index.xml" type="application/rss+xml" title="Han&#39;s XYZ">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://han8931.github.io/" /><link rel="alternate" href="/index.xml" type="application/rss+xml" title="Han&#39;s XYZ">
     <link rel="feed" href="/index.xml" type="application/rss+xml" title="Han&#39;s XYZ"><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "WebSite",
-        "url": "http:\/\/localhost:1313\/","inLanguage": "en","author": {
-                "@type": "Person",
-                "name": "Han"
-            },"description": "Han's Blog","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","name": "Han's XYZ"
+        "url": "https:\/\/han8931.github.io\/","inLanguage": "en","description": "Han's Blog","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","name": "Han's XYZ"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -103,43 +100,75 @@
 <a href="mailto:tabularasa8931@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a>
 </div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/20250105_asyncio/">Asyncio in Python: A Deep Dive into Asynchronous I/O</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
+</span>&nbsp;<span class="post-publish">published on <time datetime="2025-01-05">2025-01-05</time></span>&nbsp;<span class="post-category">included in <a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a>&nbsp;<a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content"><p>For the past few months, I&rsquo;ve been working on an exciting internal project at my company: taking users&rsquo; documents and running them through LLM APIs to translate and summarize their content, somewhat similar to <a href="https://www.deepl.com/" target="_blank" rel="noopener noreffer">DeepL</a>
+. The output is a collection of translated documents, each overlaid with the newly translated text. Our goal is to provide a stable service that can handle large files efficiently for thousands of employees at Samsung—no small task! To achieve this, we needed a concurrency strategy that supports high throughput while remaining responsive. <strong>That&rsquo;s where Asyncio comes in.</strong></p></div><div class="post-footer">
+        <a href="/20250105_asyncio/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/asyncio/">Asyncio</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/20250105_arch/">Install Arch Linux</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
+</span>&nbsp;<span class="post-publish">published on <time datetime="2025-01-05">2025-01-05</time></span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div><div class="content"><p>I recently bought a mini PC because I wanted a lightweight machine that I can easily carry anywhere. Arch Linux&rsquo;s minimalistic, rolling-release approach aligns perfectly with my love for a Vim-based workflow and a highly customizable setup. While the process can seem intimidating at first, it’s an incredibly rewarding experience that offers complete control over your system.</p>
+<hr>
+<h1 id="installing-arch-linux-uefi-or-bios">Installing Arch Linux (UEFI or BIOS)</h1>
+<p>Arch Linux is well-known for giving users full control over their system. This guide walks you through a fresh Arch Linux installation. While it is detailed, always refer to the <a href="https://wiki.archlinux.org/" target="_blank" rel="noopener noreffer">official Arch Wiki</a>
+ for up-to-date information.</p></div><div class="post-footer">
+        <a href="/20250105_arch/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/arch/">Arch</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/20240902_svm3/">Introduction to SVM Part 3. Asymmetric Kernels</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
-</span>&nbsp;<span class="post-publish">published on <time datetime="2024-09-01">2024-09-01</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content">Introduction to Asymmetric Kernels Recall that the dual form of LS-SVM is given by \begin{align*} \begin{bmatrix} 0 &amp; y^T \\ y &amp; \Omega + \frac{1}{\gamma} I \end{bmatrix} \begin{bmatrix} b \\ \alpha \end{bmatrix} = \begin{bmatrix} 0 \\ e \end{bmatrix} \end{align*} An interesting point here is that using an asymmetric kernel in LS-SVM will not reduce to its symmetrization and asymmetric information can be learned. Then we can develop asymmetric kernels in the LS-SVM framework in a straightforward way.</div><div class="post-footer">
+</span>&nbsp;<span class="post-publish">published on <time datetime="2024-09-01">2024-09-01</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content"><h1 id="introduction-to-asymmetric-kernels">Introduction to Asymmetric Kernels</h1>
+<p>Recall that the dual form of LS-SVM is given by
+\begin{align*}
+\begin{bmatrix}
+0 &amp; y^T \\
+y &amp; \Omega + \frac{1}{\gamma} I
+\end{bmatrix}
+\begin{bmatrix}
+b \\
+\alpha
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+e
+\end{bmatrix}
+\end{align*}
+An interesting point here is that using an asymmetric kernel in LS-SVM will not reduce to its symmetrization and asymmetric information can be learned. Then we can develop asymmetric kernels in the LS-SVM framework in a straightforward way.</p></div><div class="post-footer">
         <a href="/20240902_svm3/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/svm/">Svm</a>,&nbsp;<a href="/tags/support-vector-machines/">Support Vector Machines</a>,&nbsp;<a href="/tags/least-square-svm/">Least-Square SVM</a>,&nbsp;<a href="/tags/asymmetric-kernels/">Asymmetric Kernels</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/20240825_svm2/">Introduction to SVM Part 2. LS-SVM</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
-</span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-31">2024-08-31</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content">Introduction to Least-Square SVM Introduction Least Squares Support Vector Machine (LS-SVM) is a modified version of the traditional Support Vector Machine (SVM) that simplifies the quadratic optimization problem by using a least squares cost function. LS-SVM transforms the quadratic programming problem in classical SVM into a set of linear equations, which are easier and faster to solve.
-Optimization Problem (Primal Problem) \begin{align*} &amp;\min_{w, b, e} \frac{1}{2} \lVert w\rVert^2 + \frac{\gamma}{2} \sum_{i=1}^N e_i^2,\\ &amp;\text{subject to } y_i (w^T \phi(x_i) + b) = 1 - e_i, \ \forall i \end{align*} where:</div><div class="post-footer">
+</span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-31">2024-08-31</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content"><h1 id="introduction-to-least-square-svm">Introduction to Least-Square SVM</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Least Squares Support Vector Machine (LS-SVM) is a modified version of the traditional Support Vector Machine (SVM) that simplifies the quadratic optimization problem by using a <em>least squares cost function</em>. LS-SVM transforms the quadratic programming problem in classical SVM into a set of linear equations, which are easier and faster to solve.</p>
+<h3 id="optimization-problem-primal-problem">Optimization Problem (Primal Problem)</h3>
+<p>\begin{align*}
+&amp;\min_{w, b, e} \frac{1}{2} \lVert w\rVert^2 + \frac{\gamma}{2} \sum_{i=1}^N e_i^2,\\
+&amp;\text{subject to } y_i (w^T \phi(x_i) + b) = 1 - e_i, \ \forall i
+\end{align*}
+where:</p></div><div class="post-footer">
         <a href="/20240825_svm2/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/svm/">Svm</a>,&nbsp;<a href="/tags/support-vector-machines/">Support Vector Machines</a>,&nbsp;<a href="/tags/least-square-svm/">Least-Square SVM</a>,&nbsp;<a href="/tags/ls-svm/">LS-SVM</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/20240825_svm1/">Introduction to SVM Part 1. Basics</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
-</span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-25">2024-08-25</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content">Support Vector Machine Introduction Support Vector Machines (SVMs) are among the most effective and versatile tools in machine learning, widely used for various tasks. SVMs work by finding the optimal boundary, or hyperplane, that separates different classes of data with the maximum margin, making them highly reliable for classification, especially with complex datasets.
-What truly sets SVMs apart is their ability to handle both linear and non-linear data through the kernel trick, allowing them to adapt to a wide range of problems with impressive accuracy.</div><div class="post-footer">
+</span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-25">2024-08-25</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content"><h1 id="support-vector-machine">Support Vector Machine</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Support Vector Machines (SVMs) are among the most effective and versatile tools in machine learning, widely used for various tasks. SVMs work by finding the optimal boundary, or hyperplane, that separates different classes of data with the maximum margin, making them highly reliable for classification, especially with complex datasets.</p>
+<p>What truly sets SVMs apart is their ability to handle both linear and non-linear data through the <em>kernel trick</em>, allowing them to adapt to a wide range of problems with impressive accuracy. In this blog post, we&rsquo;ll delve into how SVMs work and gently explore the mathematical foundations behind their powerful performance.</p></div><div class="post-footer">
         <a href="/20240825_svm1/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/svm/">Svm</a>,&nbsp;<a href="/tags/support-vector-machines/">Support Vector Machines</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/20240819_gradient_descent/">Direction of Gradient Descent Update</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
-</span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-19">2024-08-19</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content">On Gradient Descent Gradient descent is an optimization algorithm used to minimize a function by iteratively moving towards the function&rsquo;s minimum value. It is a fundamental concept in machine learning, particularly in training models such as neural networks. The gradient is a vector that represents the direction of the steepest increase of the function at a given point. For example, for a convex function $z = ax^2 + by^2$, the gradient is $[2ax, 2by]$, which points in the direction of the steepest ascent.</div><div class="post-footer">
+</span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-19">2024-08-19</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content"><h1 id="on-gradient-descent">On Gradient Descent</h1>
+<p>Gradient descent is an optimization algorithm used to minimize a function by iteratively moving towards the function&rsquo;s minimum value. It is a fundamental concept in machine learning, particularly in training models such as neural networks. The gradient is a vector that represents the direction of the steepest increase of the function at a given point. For example, for a convex function $z = ax^2 + by^2$, the gradient is $[2ax, 2by]$, which points in the direction of the steepest ascent.</p></div><div class="post-footer">
         <a href="/20240819_gradient_descent/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/gradient-descent/">Gradient Descent</a>,&nbsp;<a href="/tags/gradient/">Gradient</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/20240818_latent_variable_part1/">Introduction to Latent Variable Modeling (Part 1)</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
-</span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-18">2024-08-18</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content">Latent Variable Modeling Motivation of Latent Variable Modeling Let&rsquo;s say we want to classify some data. If we had access to a corresponding latent variable for each observation $ \mathbf{x}_i $, modeling would be more straightforward. To illustrate this, consider the challenge of finding the latent variable (i.e., the true class of $ \mathbf{x} $). It can be expressed like $ z^* = \argmax_{z} p(\mathbf{x} | z) $. It is hard to identify the true clusters without prior knowledge about them.</div><div class="post-footer">
-        <a href="/20240818_latent_variable_part1/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/latent-variable/">Latent Variable</a>,&nbsp;<a href="/tags/k-means-clustering/">K-Means Clustering</a>,&nbsp;<a href="/tags/clustering/">Clustering</a>,&nbsp;<a href="/tags/gmm/">Gmm</a>,&nbsp;<a href="/tags/gaussian-mixture-modeling/">Gaussian Mixture Modeling</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/20240815_svd/">Gentle Introduction to Singular Value Decomposition</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
-</span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-15">2024-08-15</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a>&nbsp;<a href="/categories/linear-algebra/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linear Algebra</a>&nbsp;<a href="/categories/math/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Math</a></span></div><div class="content">Singular Value Decomposition In linear algebra, the singular value decomposition (SVD) is a factorization of a real or complex matrix. It generalizes the eigendecomposition of a square matrix by extending the concept to asymmetric or rectangular matrices, which cannot be diagonalized directly using eigendecomposition. The SVD aims to find the following decomposition of a real-valued matrix $A$: $$A = U\Sigma V^T,$$ where $U$ and $V$ are orthogonal (orthonormal) matrices, and $\Sigma$ is a diagonal matrix.</div><div class="post-footer">
-        <a href="/20240815_svd/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/svd/">Svd</a>,&nbsp;<a href="/tags/singular-value-decomposition/">Singular Value Decomposition</a>,&nbsp;<a href="/tags/linear-algebra/">Linear Algebra</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -158,8 +187,8 @@ What truly sets SVMs apart is their ability to handle both linear and non-linear
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.133.0">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.139.4">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
