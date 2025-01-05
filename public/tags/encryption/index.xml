@@ -1,14 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Encryption - Tag - Han&#39;s XYZ</title>
-        <link>https://han8931.github.io/tags/encryption/</link>
+        <link>http://localhost:1313/tags/encryption/</link>
         <description>Encryption - Tag - Han&#39;s XYZ</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/tags/encryption/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/encryption/" rel="self" type="application/rss+xml" /><item>
     <title>Data Encryption using GPG!</title>
-    <link>https://han8931.github.io/20240804_gpg_encryption/</link>
+    <link>http://localhost:1313/20240804_gpg_encryption/</link>
     <pubDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/20240804_gpg_encryption/</guid>
+    <guid>http://localhost:1313/20240804_gpg_encryption/</guid>
     <description><![CDATA[<h1 id="securing-your-privacy">Securing Your Privacy</h1>
 <p>The importance of securing your data has become critical in the modern digital era. This post explores a versatile tool called GnuPG, or GNU Privacy Guard, which allows you to encrypt your data and communications, ensuring that only the intended recipients can access them.</p>
 <h2 id="asymmetric-encryption">Asymmetric Encryption</h2>

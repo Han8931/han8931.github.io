@@ -1,14 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Taskspooler - Tag - Han&#39;s XYZ</title>
-        <link>https://han8931.github.io/tags/taskspooler/</link>
+        <link>http://localhost:1313/tags/taskspooler/</link>
         <description>Taskspooler - Tag - Han&#39;s XYZ</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/tags/taskspooler/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/taskspooler/" rel="self" type="application/rss+xml" /><item>
     <title>Manage your task with TaskSpooler!</title>
-    <link>https://han8931.github.io/20240713_taskspooler/</link>
+    <link>http://localhost:1313/20240713_taskspooler/</link>
     <pubDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/20240713_taskspooler/</guid>
+    <guid>http://localhost:1313/20240713_taskspooler/</guid>
     <description><![CDATA[<h1 id="what-is-taskspoolerhttpsgithubcomjustanhductask-spooler">What is <a href="https://github.com/justanhduc/task-spooler" target="_blank" rel="noopener noreffer">TaskSpooler</a>
 ?</h1>
 <p><a href="https://github.com/justanhduc/task-spooler" target="_blank" rel="noopener noreffer">TaskSpooler</a>

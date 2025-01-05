@@ -1,14 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Recursive Least Squares - Tag - Han&#39;s XYZ</title>
-        <link>https://han8931.github.io/tags/recursive-least-squares/</link>
+        <link>http://localhost:1313/tags/recursive-least-squares/</link>
         <description>Recursive Least Squares - Tag - Han&#39;s XYZ</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 12 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/tags/recursive-least-squares/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 12 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/recursive-least-squares/" rel="self" type="application/rss+xml" /><item>
     <title>Getting Started with Regression Part 3. RLS</title>
-    <link>https://han8931.github.io/20240812_recursive_least_square/</link>
+    <link>http://localhost:1313/20240812_recursive_least_square/</link>
     <pubDate>Mon, 12 Aug 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/20240812_recursive_least_square/</guid>
+    <guid>http://localhost:1313/20240812_recursive_least_square/</guid>
     <description><![CDATA[<h1 style="line-height: 1.3;">Deep Dive into Regression: Recursive Least Squares Explained (Part 3)</h1>
 <h2 id="introduction-to-recursive-least-squares">Introduction to Recursive Least Squares</h2>
 <p>Ordinary least squares assumes that all data is available at once, but in practice, this isn&rsquo;t always the case. <strong>Often, measurements are obtained sequentially</strong>, and we need to update our estimates as new data comes in. Simply augmenting the data matrix $\mathbf{X}$ each time a new measurement arrives can become computationally expensive, especially when dealing with a large number of measurements. This is where <strong><em>Recursive Least Squares</em></strong> (RLS) comes into play.</p>]]></description>

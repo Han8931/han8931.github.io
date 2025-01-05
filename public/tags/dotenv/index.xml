@@ -1,14 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Dotenv - Tag - Han&#39;s XYZ</title>
-        <link>https://han8931.github.io/tags/dotenv/</link>
+        <link>http://localhost:1313/tags/dotenv/</link>
         <description>Dotenv - Tag - Han&#39;s XYZ</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 20 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/tags/dotenv/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 20 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/dotenv/" rel="self" type="application/rss+xml" /><item>
     <title>How to keep sensitive data in Python?</title>
-    <link>https://han8931.github.io/20240421_hide-sensitive-data/</link>
+    <link>http://localhost:1313/20240421_hide-sensitive-data/</link>
     <pubDate>Sat, 20 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/20240421_hide-sensitive-data/</guid>
+    <guid>http://localhost:1313/20240421_hide-sensitive-data/</guid>
     <description><![CDATA[<p>An app&rsquo;s <em>config</em> is everything that is likely to vary between <a href="https://12factor.net/codebase" target="_blank" rel="noopener noreffer">deploys</a>
  (staging, production, developer environments, etc). This includes:</p>
 <ul>

@@ -1,14 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Shell Script - Tag - Han&#39;s XYZ</title>
-        <link>https://han8931.github.io/tags/shell-script/</link>
+        <link>http://localhost:1313/tags/shell-script/</link>
         <description>Shell Script - Tag - Han&#39;s XYZ</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/tags/shell-script/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/shell-script/" rel="self" type="application/rss+xml" /><item>
     <title>Bash script tutorial</title>
-    <link>https://han8931.github.io/20240421_the-shell-script-tutorial/</link>
+    <link>http://localhost:1313/20240421_the-shell-script-tutorial/</link>
     <pubDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/20240421_the-shell-script-tutorial/</guid>
+    <guid>http://localhost:1313/20240421_the-shell-script-tutorial/</guid>
     <description><![CDATA[<p>Let&rsquo;s create our first simple shell script</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

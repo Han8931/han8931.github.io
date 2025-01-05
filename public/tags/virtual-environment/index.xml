@@ -1,14 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Virtual Environment - Tag - Han&#39;s XYZ</title>
-        <link>https://han8931.github.io/tags/virtual-environment/</link>
+        <link>http://localhost:1313/tags/virtual-environment/</link>
         <description>Virtual Environment - Tag - Han&#39;s XYZ</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 07 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/tags/virtual-environment/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 07 Jul 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/virtual-environment/" rel="self" type="application/rss+xml" /><item>
     <title>Dependency Management in Python</title>
-    <link>https://han8931.github.io/20240707_poetry/</link>
+    <link>http://localhost:1313/20240707_poetry/</link>
     <pubDate>Sun, 07 Jul 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/20240707_poetry/</guid>
+    <guid>http://localhost:1313/20240707_poetry/</guid>
     <description><![CDATA[<h1 id="introduction">Introduction</h1>
 <p><strong>Poetry</strong> is a dependency management and packaging tool in Python, aiming to improve how you define, install, and manage project dependencies.</p>
 <ol>

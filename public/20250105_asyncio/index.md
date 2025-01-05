@@ -5,7 +5,7 @@ For the past few months, I've been working on an exciting internal project at my
 
 In this post, we'll look at how Python tackles concurrency through **Asyncio**, a library designed to handle asynchronous I/O. We'll explore the concepts of concurrency, parallelism, multitasking, the difference between I/O-bound and CPU-bound tasks, and finally see how Asyncio harnesses cooperative multitasking to help your applications handle large-scale I/O more effectively. Whether you're building an internal service for employees or creating a high-performance web server, Asyncio's approach to concurrency might just be the key to unlocking the scalability you need.
 
-# Asyncio in Python: A Deep Dive into Asynchronous I/O
+# A Deep Dive into Asynchronous I/O
 
 Modern software frequently needs to handle large volumes of input/output (I/O) operations. For instance, you might be retrieving data from web services, communicating with microservices over a network, or running multiple database queries simultaneously. These tasks can often take hundreds of milliseconds—or even seconds—if the network is under heavy load or the database is busy.
 

@@ -1,14 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Pacman - Tag - Han&#39;s XYZ</title>
-        <link>https://han8931.github.io/tags/pacman/</link>
+        <link>http://localhost:1313/tags/pacman/</link>
         <description>Pacman - Tag - Han&#39;s XYZ</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 01 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://han8931.github.io/tags/pacman/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 01 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/pacman/" rel="self" type="application/rss+xml" /><item>
     <title>Handy Pacman Commands in Arch Linux</title>
-    <link>https://han8931.github.io/20240501_pacman/</link>
+    <link>http://localhost:1313/20240501_pacman/</link>
     <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>https://han8931.github.io/20240501_pacman/</guid>
+    <guid>http://localhost:1313/20240501_pacman/</guid>
     <description><![CDATA[<p><a href="https://archlinux.org/pacman/" target="_blank" rel="noopener noreffer">Pacman</a>
 , the package manager for Arch Linux, is known for its <strong>simple</strong> binary package format and <strong>easy-to-use</strong> <a href="https://wiki.archlinux.org/title/Arch_build_system" title="Arch build system" target="_blank" rel="noopener noreffer">build system</a>
 . The primary aim of Pacman is to facilitate straightforward management of packages from both the <a href="https://wiki.archlinux.org/title/Official_repositories" title="Official repositories" target="_blank" rel="noopener noreffer">official repositories</a>
