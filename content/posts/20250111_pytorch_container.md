@@ -1,10 +1,10 @@
 ---
 weight: 1
 title: "Run Pytorch Container in Arch Linux"
-date: 2025-01-05
+date: 2025-01-11
 draft: false
 author: Han
-description: "Introduction to asyncio library"
+description: "Setting Up DL/ML Environments"
 tags: ["pytorch", "arch", "container", "docker"]
 categories: ["programming", "linux"]
 ---
