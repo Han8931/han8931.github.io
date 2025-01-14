@@ -1,22 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Latent Variable on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/latent-variable/</link>
-    <description>Recent content in Latent Variable on Han&#39;s XYZ</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 18 Aug 2024 14:12:48 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/latent-variable/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Introduction to Latent Variable Modeling (Part 1)</title>
-      <link>http://localhost:1313/20240818_latent_variable_part1/</link>
-      <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20240818_latent_variable_part1/</guid>
-      <description>&lt;h1 id=&#34;latent-variable-modeling&#34;&gt;Latent Variable Modeling&lt;/h1&gt;&#xA;&lt;h2 id=&#34;motivation-of-latent-variable-modeling&#34;&gt;Motivation of Latent Variable Modeling&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s say we want to classify some data. If we had access to a corresponding latent variable for each observation $ \mathbf{x}_i $, modeling would be more straightforward. To illustrate this, consider the challenge of finding the latent variable (i.e., the true class of $ \mathbf{x} $). It can be expressed like $ z^* = \argmax_{z} p(\mathbf{x} | z) $. It is hard to identify the true clusters without prior knowledge about them. For example, we can cluster like Fig. (b) or (c).&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Latent Variable - Tag - Han&#39;s XYZ</title>
+        <link>http://localhost:1313/tags/latent-variable/</link>
+        <description>Latent Variable - Tag - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 18 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/latent-variable/" rel="self" type="application/rss+xml" /><item>
+    <title>Introduction to Latent Variable Modeling (Part 1)</title>
+    <link>http://localhost:1313/20240818_latent_variable_part1/</link>
+    <pubDate>Sun, 18 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240818_latent_variable_part1/</guid>
+    <description><![CDATA[<h1 id="latent-variable-modeling">Latent Variable Modeling</h1>
+<h2 id="motivation-of-latent-variable-modeling">Motivation of Latent Variable Modeling</h2>
+<p>Let&rsquo;s say we want to classify some data. If we had access to a corresponding latent variable for each observation $ \mathbf{x}_i $, modeling would be more straightforward. To illustrate this, consider the challenge of finding the latent variable (i.e., the true class of $ \mathbf{x} $). It can be expressed like $ z^* = \argmax_{z} p(\mathbf{x} | z) $. It is hard to identify the true clusters without prior knowledge about them. For example, we can cluster like Fig. (b) or (c).</p>]]></description>
+</item>
+</channel>
 </rss>

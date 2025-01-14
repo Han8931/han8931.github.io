@@ -103,6 +103,15 @@
 <a href="mailto:tabularasa8931@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a>
 </div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/20240804_gpg_encryption/">Data Encryption using GPG!</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
+</span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-04">2024-08-04</time></span>&nbsp;<span class="post-category">included in <a href="/categories/gpg/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Gpg</a></span></div><div class="content"><h1 id="securing-your-privacy">Securing Your Privacy</h1>
+<p>The importance of securing your data has become critical in the modern digital era. This post explores a versatile tool called GnuPG, or GNU Privacy Guard, which allows you to encrypt your data and communications, ensuring that only the intended recipients can access them.</p>
+<h2 id="asymmetric-encryption">Asymmetric Encryption</h2>
+<p>Before looking at GPG, let’s first review some encryption approaches. A very naive approach to sharing encrypted files is to use the same secret key between a sender and a receiver. This approach is known as symmetric encryption. However, the symmetric approach has a limitation in that it requires a secure method for key exchange.</p></div><div class="post-footer">
+        <a href="/20240804_gpg_encryption/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/gpg/">Gpg</a>,&nbsp;<a href="/tags/encryption/">Encryption</a>,&nbsp;<a href="/tags/decryption/">Decryption</a>,&nbsp;<a href="/tags/privacy/">Privacy</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/20240713_taskspooler/">Manage your task with TaskSpooler!</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-publish">published on <time datetime="2024-07-13">2024-07-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tools</a></span></div><div class="content"><h1 id="what-is-taskspoolerhttpsgithubcomjustanhductask-spooler">What is <a href="https://github.com/justanhduc/task-spooler" target="_blank" rel="noopener noreffer">TaskSpooler</a>
@@ -151,27 +160,6 @@
 </span>&nbsp;<span class="post-publish">published on <time datetime="2024-04-27">2024-04-27</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content"><p>When it comes to debugging Python code, most programmers reach for an Integrated Development Environment (IDE) because of its convenience and powerful features. However, there&rsquo;s a classic, built-in tool that shouldn&rsquo;t be overlooked: Python&rsquo;s own debugger, <code>pdb</code>. This tool might seem basic at first glance, but it offers some compelling advantages, especially in scenarios where an IDE might be less effective. Here&rsquo;s why you might consider using <code>pdb</code> for debugging your Python projects:</p></div><div class="post-footer">
         <a href="/20240426_pdb/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/pdb/">Pdb</a>,&nbsp;<a href="/tags/debug/">Debug</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/20240426_pydantic/">Data validation with Pydantic!</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
-</span>&nbsp;<span class="post-publish">published on <time datetime="2024-04-26">2024-04-26</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content"><p>Python&rsquo;s dynamic typing system is indeed convenient, allowing you to create variables without explicitly declaring their types. While this flexibility can streamline development, it can also introduce unexpected behavior, particularly when handling data from external sources like APIs or user input.</p>
-<p>Consider the following scenario:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">employee</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&#34;Han&#34;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="c1"># Correct</span>
-</span></span><span class="line"><span class="cl"><span class="n">employee</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&#34;Moon&#34;</span><span class="p">,</span> <span class="s2">&#34;30&#34;</span><span class="p">)</span> <span class="c1"># Correct</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>Here, the second argument is intended to represent an age, typically an integer. However, in the second example, it&rsquo;s a string, potentially leading to errors or unexpected behavior down the line.</li>
-</ul>
-<p>To address such issues, Pydantic offers a solution through data validation. Pydantic is a library specifically designed for this purpose, ensuring that the data conforms to pre-defined schemas.</p></div><div class="post-footer">
-        <a href="/20240426_pydantic/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/pydantic/">Pydantic</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>

@@ -1,36 +1,60 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Support Vector Machines on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/support-vector-machines/</link>
-    <description>Recent content in Support Vector Machines on Han&#39;s XYZ</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 02 Sep 2024 04:04:27 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/support-vector-machines/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Introduction to SVM Part 3. Asymmetric Kernels</title>
-      <link>http://localhost:1313/20240902_svm3/</link>
-      <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20240902_svm3/</guid>
-      <description>&lt;h1 id=&#34;introduction-to-asymmetric-kernels&#34;&gt;Introduction to Asymmetric Kernels&lt;/h1&gt;&#xA;&lt;p&gt;Recall that the dual form of LS-SVM is given by&#xA;\begin{align*}&#xA;\begin{bmatrix}&#xA;0 &amp;amp; y^T \\&#xA;y &amp;amp; \Omega + \frac{1}{\gamma} I&#xA;\end{bmatrix}&#xA;\begin{bmatrix}&#xA;b \\&#xA;\alpha&#xA;\end{bmatrix}&#xA;=&#xA;\begin{bmatrix}&#xA;0 \\&#xA;e&#xA;\end{bmatrix}&#xA;\end{align*}&#xA;An interesting point here is that using an asymmetric kernel in LS-SVM will not reduce to its symmetrization and asymmetric information can be learned. Then we can develop asymmetric kernels in the LS-SVM framework in a straightforward way.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Introduction to SVM Part 2. LS-SVM</title>
-      <link>http://localhost:1313/20240825_svm2/</link>
-      <pubDate>Sat, 31 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20240825_svm2/</guid>
-      <description>&lt;h1 id=&#34;introduction-to-least-square-svm&#34;&gt;Introduction to Least-Square SVM&lt;/h1&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Least Squares Support Vector Machine (LS-SVM) is a modified version of the traditional Support Vector Machine (SVM) that simplifies the quadratic optimization problem by using a &lt;em&gt;least squares cost function&lt;/em&gt;. LS-SVM transforms the quadratic programming problem in classical SVM into a set of linear equations, which are easier and faster to solve.&lt;/p&gt;&#xA;&lt;h3 id=&#34;optimization-problem-primal-problem&#34;&gt;Optimization Problem (Primal Problem)&lt;/h3&gt;&#xA;&lt;p&gt;\begin{align*}&#xA;&amp;amp;\min_{w, b, e} \frac{1}{2} \lVert w\rVert^2 + \frac{\gamma}{2} \sum_{i=1}^N e_i^2,\\&#xA;&amp;amp;\text{subject to } y_i (w^T \phi(x_i) + b) = 1 - e_i, \ \forall i&#xA;\end{align*}&#xA;where:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Introduction to SVM Part 1. Basics</title>
-      <link>http://localhost:1313/20240825_svm1/</link>
-      <pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20240825_svm1/</guid>
-      <description>&lt;h1 id=&#34;support-vector-machine&#34;&gt;Support Vector Machine&lt;/h1&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Support Vector Machines (SVMs) are among the most effective and versatile tools in machine learning, widely used for various tasks. SVMs work by finding the optimal boundary, or hyperplane, that separates different classes of data with the maximum margin, making them highly reliable for classification, especially with complex datasets.&lt;/p&gt;&#xA;&lt;p&gt;What truly sets SVMs apart is their ability to handle both linear and non-linear data through the &lt;em&gt;kernel trick&lt;/em&gt;, allowing them to adapt to a wide range of problems with impressive accuracy. In this blog post, we&amp;rsquo;ll delve into how SVMs work and gently explore the mathematical foundations behind their powerful performance.&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Support Vector Machines - Tag - Han&#39;s XYZ</title>
+        <link>http://localhost:1313/tags/support-vector-machines/</link>
+        <description>Support Vector Machines - Tag - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/support-vector-machines/" rel="self" type="application/rss+xml" /><item>
+    <title>Introduction to SVM Part 3. Asymmetric Kernels</title>
+    <link>http://localhost:1313/20240902_svm3/</link>
+    <pubDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240902_svm3/</guid>
+    <description><![CDATA[<h1 id="introduction-to-asymmetric-kernels">Introduction to Asymmetric Kernels</h1>
+<p>Recall that the dual form of LS-SVM is given by
+\begin{align*}
+\begin{bmatrix}
+0 &amp; y^T \\
+y &amp; \Omega + \frac{1}{\gamma} I
+\end{bmatrix}
+\begin{bmatrix}
+b \\
+\alpha
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+e
+\end{bmatrix}
+\end{align*}
+An interesting point here is that using an asymmetric kernel in LS-SVM will not reduce to its symmetrization and asymmetric information can be learned. Then we can develop asymmetric kernels in the LS-SVM framework in a straightforward way.</p>]]></description>
+</item>
+<item>
+    <title>Introduction to SVM Part 2. LS-SVM</title>
+    <link>http://localhost:1313/20240825_svm2/</link>
+    <pubDate>Sat, 31 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240825_svm2/</guid>
+    <description><![CDATA[<h1 id="introduction-to-least-square-svm">Introduction to Least-Square SVM</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Least Squares Support Vector Machine (LS-SVM) is a modified version of the traditional Support Vector Machine (SVM) that simplifies the quadratic optimization problem by using a <em>least squares cost function</em>. LS-SVM transforms the quadratic programming problem in classical SVM into a set of linear equations, which are easier and faster to solve.</p>
+<h3 id="optimization-problem-primal-problem">Optimization Problem (Primal Problem)</h3>
+<p>\begin{align*}
+&amp;\min_{w, b, e} \frac{1}{2} \lVert w\rVert^2 + \frac{\gamma}{2} \sum_{i=1}^N e_i^2,\\
+&amp;\text{subject to } y_i (w^T \phi(x_i) + b) = 1 - e_i, \ \forall i
+\end{align*}
+where:</p>]]></description>
+</item>
+<item>
+    <title>Introduction to SVM Part 1. Basics</title>
+    <link>http://localhost:1313/20240825_svm1/</link>
+    <pubDate>Sun, 25 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240825_svm1/</guid>
+    <description><![CDATA[<h1 id="support-vector-machine">Support Vector Machine</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Support Vector Machines (SVMs) are among the most effective and versatile tools in machine learning, widely used for various tasks. SVMs work by finding the optimal boundary, or hyperplane, that separates different classes of data with the maximum margin, making them highly reliable for classification, especially with complex datasets.</p>
+<p>What truly sets SVMs apart is their ability to handle both linear and non-linear data through the <em>kernel trick</em>, allowing them to adapt to a wide range of problems with impressive accuracy. In this blog post, we&rsquo;ll delve into how SVMs work and gently explore the mathematical foundations behind their powerful performance.</p>]]></description>
+</item>
+</channel>
 </rss>
