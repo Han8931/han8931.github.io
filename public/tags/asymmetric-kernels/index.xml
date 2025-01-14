@@ -1,33 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Asymmetric Kernels - Tag - Han&#39;s XYZ</title>
-        <link>http://localhost:1313/tags/asymmetric-kernels/</link>
-        <description>Asymmetric Kernels - Tag - Han&#39;s XYZ</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/asymmetric-kernels/" rel="self" type="application/rss+xml" /><item>
-    <title>Introduction to SVM Part 3. Asymmetric Kernels</title>
-    <link>http://localhost:1313/20240902_svm3/</link>
-    <pubDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/20240902_svm3/</guid>
-    <description><![CDATA[<h1 id="introduction-to-asymmetric-kernels">Introduction to Asymmetric Kernels</h1>
-<p>Recall that the dual form of LS-SVM is given by
-\begin{align*}
-\begin{bmatrix}
-0 &amp; y^T \\
-y &amp; \Omega + \frac{1}{\gamma} I
-\end{bmatrix}
-\begin{bmatrix}
-b \\
-\alpha
-\end{bmatrix}
-=
-\begin{bmatrix}
-0 \\
-e
-\end{bmatrix}
-\end{align*}
-An interesting point here is that using an asymmetric kernel in LS-SVM will not reduce to its symmetrization and asymmetric information can be learned. Then we can develop asymmetric kernels in the LS-SVM framework in a straightforward way.</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Asymmetric Kernels on Han&#39;s XYZ</title>
+    <link>http://localhost:1313/tags/asymmetric-kernels/</link>
+    <description>Recent content in Asymmetric Kernels on Han&#39;s XYZ</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Mon, 02 Sep 2024 04:04:27 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/asymmetric-kernels/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction to SVM Part 3. Asymmetric Kernels</title>
+      <link>http://localhost:1313/20240902_svm3/</link>
+      <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/20240902_svm3/</guid>
+      <description>&lt;h1 id=&#34;introduction-to-asymmetric-kernels&#34;&gt;Introduction to Asymmetric Kernels&lt;/h1&gt;&#xA;&lt;p&gt;Recall that the dual form of LS-SVM is given by&#xA;\begin{align*}&#xA;\begin{bmatrix}&#xA;0 &amp;amp; y^T \\&#xA;y &amp;amp; \Omega + \frac{1}{\gamma} I&#xA;\end{bmatrix}&#xA;\begin{bmatrix}&#xA;b \\&#xA;\alpha&#xA;\end{bmatrix}&#xA;=&#xA;\begin{bmatrix}&#xA;0 \\&#xA;e&#xA;\end{bmatrix}&#xA;\end{align*}&#xA;An interesting point here is that using an asymmetric kernel in LS-SVM will not reduce to its symmetrization and asymmetric information can be learned. Then we can develop asymmetric kernels in the LS-SVM framework in a straightforward way.&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>
