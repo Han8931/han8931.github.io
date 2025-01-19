@@ -10,7 +10,8 @@
     <pubDate>Sat, 11 Jan 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/20250111_pytorch_container/</guid>
-    <description><![CDATA[<h1 id="setting-up-experiment-environments-a-challenge-for-arch-linux-users">Setting Up Experiment Environments: A Challenge for Arch Linux Users</h1>
+    <description><![CDATA[<h1 id="setting-up-dl-experiment-environments">Setting Up DL Experiment Environments</h1>
+<h2 id="a-challenge-for-arch-linux-users">A Challenge for Arch Linux Users</h2>
 <p>If you&rsquo;ve ever tried to set up a new experiment environment for deep learning on Arch Linux, you&rsquo;re probably familiar with the challenges involved. Arch Linux, renowned for its rolling-release model and cutting-edge updates, provides unparalleled flexibility and control over your system. However, this same flexibility can often lead to headaches when setting up complex environments for machine learning or deep learning experiments. Dependency conflicts, missing libraries, and version mismatches are all too common.</p>]]></description>
 </item>
 </channel>
