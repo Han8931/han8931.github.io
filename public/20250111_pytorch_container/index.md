@@ -2,7 +2,9 @@
 
 
 
-# Setting Up Experiment Environments: A Challenge for Arch Linux Users
+# Setting Up DL Experiment Environments
+
+## A Challenge for Arch Linux Users
 
 If you've ever tried to set up a new experiment environment for deep learning on Arch Linux, you're probably familiar with the challenges involved. Arch Linux, renowned for its rolling-release model and cutting-edge updates, provides unparalleled flexibility and control over your system. However, this same flexibility can often lead to headaches when setting up complex environments for machine learning or deep learning experiments. Dependency conflicts, missing libraries, and version mismatches are all too common.
 

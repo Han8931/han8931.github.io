@@ -1,22 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Enum on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/enum/</link>
-    <description>Recent content in Enum on Han&#39;s XYZ</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 04 Aug 2024 10:40:37 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/enum/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Enumerate variables with Enum!</title>
-      <link>http://localhost:1313/20240426_enum/</link>
-      <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20240426_enum/</guid>
-      <description>&lt;p&gt;&lt;code&gt;Enum&lt;/code&gt; is a way that Python enumerate variables. The &lt;code&gt;enum&lt;/code&gt; module allows for the creation of enumerated constants—unique, immutable data types that are useful for representing a fixed set of values. These values, which are usually related by their context, are known as enumeration members.&lt;/p&gt;&#xA;&lt;p&gt;Enum provides&amp;hellip;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Uniqueness&lt;/strong&gt; - Each member of an &lt;code&gt;Enum&lt;/code&gt; is unique within its definition, meaning no two members can have the same value. Attempting to define two members with the same value will result in an error unless you explicitly allow aliases.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Immutability&lt;/strong&gt; - Enum members are immutable. Once the &lt;code&gt;Enum&lt;/code&gt; class is defined, you cannot change the members or their values.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Iterability and Comparability&lt;/strong&gt; - Enum classes support iteration over their members and can be compared using identity and equality checks.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Accessing Members&lt;/strong&gt; - You can access enumeration members by their names or values:&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Auto&lt;/strong&gt; - If you want to automatically assign values to enum members, you can use the &lt;code&gt;auto()&lt;/code&gt; function from the same module:&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;enum&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Enum&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;State&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Enum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#x9;&lt;span class=&#34;n&#34;&gt;PLAYING&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#x9;&lt;span class=&#34;n&#34;&gt;PAUSED&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#x9;&lt;span class=&#34;n&#34;&gt;GAME_OVER&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;If we just want to make sure them to be unique and automatically assigned, then use &lt;code&gt;auto()&lt;/code&gt;&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Enum - Tag - Han&#39;s XYZ</title>
+        <link>http://localhost:1313/tags/enum/</link>
+        <description>Enum - Tag - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 26 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/enum/" rel="self" type="application/rss+xml" /><item>
+    <title>Enumerate variables with Enum!</title>
+    <link>http://localhost:1313/20240426_enum/</link>
+    <pubDate>Fri, 26 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240426_enum/</guid>
+    <description><![CDATA[<p><code>Enum</code> is a way that Python enumerate variables. The <code>enum</code> module allows for the creation of enumerated constants—unique, immutable data types that are useful for representing a fixed set of values. These values, which are usually related by their context, are known as enumeration members.</p>
+<p>Enum provides&hellip;</p>
+<ol>
+<li><strong>Uniqueness</strong> - Each member of an <code>Enum</code> is unique within its definition, meaning no two members can have the same value. Attempting to define two members with the same value will result in an error unless you explicitly allow aliases.</li>
+<li><strong>Immutability</strong> - Enum members are immutable. Once the <code>Enum</code> class is defined, you cannot change the members or their values.</li>
+<li><strong>Iterability and Comparability</strong> - Enum classes support iteration over their members and can be compared using identity and equality checks.</li>
+<li><strong>Accessing Members</strong> - You can access enumeration members by their names or values:</li>
+<li><strong>Auto</strong> - If you want to automatically assign values to enum members, you can use the <code>auto()</code> function from the same module:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">State</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="n">PLAYING</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl">	<span class="n">PAUSED</span><span class="o">=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">	<span class="n">GAME_OVER</span><span class="o">=</span><span class="mi">2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If we just want to make sure them to be unique and automatically assigned, then use <code>auto()</code></p>]]></description>
+</item>
+</channel>
 </rss>

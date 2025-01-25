@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-01-11T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-01-11T11:48:56+09:00">
+    <meta property="article:modified_time" content="2025-01-19T21:42:20+09:00">
     <meta property="article:tag" content="Pytorch">
     <meta property="article:tag" content="Arch">
     <meta property="article:tag" content="Container">
@@ -35,8 +35,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20250111_pytorch_container\/"
-        },"genre": "posts","keywords": "pytorch, arch, container, docker","wordcount":  705 ,
-        "url": "http:\/\/localhost:1313\/20250111_pytorch_container\/","datePublished": "2025-01-11T00:00:00+00:00","dateModified": "2025-01-11T11:48:56+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "pytorch, arch, container, docker","wordcount":  706 ,
+        "url": "http:\/\/localhost:1313\/20250111_pytorch_container\/","datePublished": "2025-01-11T00:00:00+00:00","dateModified": "2025-01-19T21:42:20+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -111,7 +111,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Run Pytorch Container in Arch Linux</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-01-11">2025-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;705 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-01-11">2025-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;706 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -120,6 +120,7 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
+    <li><a href="#a-challenge-for-arch-linux-users">A Challenge for Arch Linux Users</a></li>
     <li><a href="#install-docker-on-arch">Install Docker on Arch</a></li>
     <li><a href="#pytorch-container">PyTorch Container</a>
       <ul>
@@ -128,7 +129,8 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="setting-up-experiment-environments-a-challenge-for-arch-linux-users">Setting Up Experiment Environments: A Challenge for Arch Linux Users</h1>
+            </div><div class="content" id="content"><h1 id="setting-up-dl-experiment-environments">Setting Up DL Experiment Environments</h1>
+<h2 id="a-challenge-for-arch-linux-users">A Challenge for Arch Linux Users</h2>
 <p>If you&rsquo;ve ever tried to set up a new experiment environment for deep learning on Arch Linux, you&rsquo;re probably familiar with the challenges involved. Arch Linux, renowned for its rolling-release model and cutting-edge updates, provides unparalleled flexibility and control over your system. However, this same flexibility can often lead to headaches when setting up complex environments for machine learning or deep learning experiments. Dependency conflicts, missing libraries, and version mismatches are all too common.</p>
 <p>One particular pain point is the setup of Python environments using tools like Conda or virtual environments. While these tools work seamlessly on many systems, Arch Linux users often encounter version conflicts. Installing Conda itself can be tricky and painful.</p>
 <p>For researchers and developers, this process can feel like a significant barrier to productivity. Instead of focusing on model development or data analysis, hours are spent troubleshooting environment issues. On Arch Linux, where package versions are always at the bleeding edge, finding compatibility between your system and the tools required by frameworks like PyTorch can be very challenging.</p>
@@ -292,8 +294,8 @@ To persist changes, save your code in the mounted directory (e.g., <code>/worksp
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2025-01-11&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/8fd8eacc5e51830214b0a833b583309d9c68aee4" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 8fd8eacc5e51830214b0a833b583309d9c68aee4: Update">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>8fd8eac</a></span>
+                <span>Updated on 2025-01-19&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/c0a67ddf0198bbc02f755caf49d7262e864f1def" target="_blank" title="commit by Han(tabularasa8931@gmail.com) c0a67ddf0198bbc02f755caf49d7262e864f1def: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>c0a67dd</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
@@ -316,7 +318,7 @@ To persist changes, save your code in the mounted directory (e.g., <code>/worksp
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.140.2">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.139.4">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
