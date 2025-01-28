@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Drafts on Han&#39;s XYZ</title>
+    <link>http://localhost:1313/drafts/</link>
+    <description>Recent content in Drafts on Han&#39;s XYZ</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <atom:link href="http://localhost:1313/drafts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/drafts/github_actions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/drafts/github_actions/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/drafts/how_to_write_functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/drafts/how_to_write_functions/</guid>
+      <description>&lt;p&gt;Writing clean, efficient, and well-structured functions in Python is a skill that takes time to master. I&amp;rsquo;ve learned so much about this craft, thanks to &lt;a href=&#34;https://www.youtube.com/@ArjanCodes&#34;&gt;ArjanCodes&lt;/a&gt;, a YouTube channel that has been like a Python guru to me.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/drafts/reinforcement_learning_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/drafts/reinforcement_learning_1/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
