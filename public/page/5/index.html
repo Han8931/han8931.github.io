@@ -103,6 +103,20 @@
 <a href="mailto:tabularasa8931@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a>
 </div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/20240421_hide-sensitive-data/">How to keep sensitive data in Python?</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
+</span>&nbsp;<span class="post-publish">published on <time datetime="2024-04-20">2024-04-20</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content"><p>An app&rsquo;s <em>config</em> is everything that is likely to vary between <a href="https://12factor.net/codebase" target="_blank" rel="noopener noreffer">deploys</a>
+ (staging, production, developer environments, etc). This includes:</p>
+<ul>
+<li>Resource handles to the database, Memcached, and other <a href="https://12factor.net/backing-services" target="_blank" rel="noopener noreffer">backing services</a>
+</li>
+<li>Credentials to external services such as Amazon S3 or Twitter</li>
+<li>Per-deploy values such as the canonical hostname for the deploy</li>
+</ul>
+<p>Apps sometimes store config as constants in the code. This is a violation of twelve-factor, which requires <strong>strict separation of config from code</strong>. Config varies substantially across deploys, code does not.</p></div><div class="post-footer">
+        <a href="/20240421_hide-sensitive-data/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/dotenv/">Dotenv</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/20240421_type-hint/">Type hint in Python</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-publish">published on <time datetime="2024-04-20">2024-04-20</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content"><p>Type hinting is <em>not mandatory</em>, but it can make your code easier to understand and debug by</p>

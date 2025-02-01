@@ -1,78 +1,80 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Categories on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/categories/</link>
-    <description>Recent content in Categories on Han&#39;s XYZ</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 28 Jan 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Programming</title>
-      <link>http://localhost:1313/categories/programming/</link>
-      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/programming/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Python</title>
-      <link>http://localhost:1313/categories/python/</link>
-      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/python/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Linux</title>
-      <link>http://localhost:1313/categories/linux/</link>
-      <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/linux/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Machine Learning</title>
-      <link>http://localhost:1313/categories/machine-learning/</link>
-      <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/machine-learning/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Linear Algebra</title>
-      <link>http://localhost:1313/categories/linear-algebra/</link>
-      <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/linear-algebra/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Math</title>
-      <link>http://localhost:1313/categories/math/</link>
-      <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/math/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Gpg</title>
-      <link>http://localhost:1313/categories/gpg/</link>
-      <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/gpg/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tools</title>
-      <link>http://localhost:1313/categories/tools/</link>
-      <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/tools/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vim</title>
-      <link>http://localhost:1313/categories/vim/</link>
-      <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/vim/</guid>
-      <description></description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - Category - Han&#39;s XYZ</title>
+        <link>http://localhost:1313/categories/</link>
+        <description>Categories - Category - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 28 Jan 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Programming</title>
+    <link>http://localhost:1313/categories/programming/</link>
+    <pubDate>Tue, 28 Jan 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/categories/programming/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Python</title>
+    <link>http://localhost:1313/categories/python/</link>
+    <pubDate>Tue, 28 Jan 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/categories/python/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Linux</title>
+    <link>http://localhost:1313/categories/linux/</link>
+    <pubDate>Sat, 11 Jan 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/categories/linux/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Machine Learning</title>
+    <link>http://localhost:1313/categories/machine-learning/</link>
+    <pubDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/categories/machine-learning/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Linear Algebra</title>
+    <link>http://localhost:1313/categories/linear-algebra/</link>
+    <pubDate>Thu, 15 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/categories/linear-algebra/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Math</title>
+    <link>http://localhost:1313/categories/math/</link>
+    <pubDate>Thu, 15 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/categories/math/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Gpg</title>
+    <link>http://localhost:1313/categories/gpg/</link>
+    <pubDate>Sun, 04 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/categories/gpg/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Tools</title>
+    <link>http://localhost:1313/categories/tools/</link>
+    <pubDate>Sat, 13 Jul 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/categories/tools/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Vim</title>
+    <link>http://localhost:1313/categories/vim/</link>
+    <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/categories/vim/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>

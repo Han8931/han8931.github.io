@@ -19,10 +19,24 @@
     </item>
     <item>
       <title></title>
+      <link>http://localhost:1313/drafts/how_to_hugo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/drafts/how_to_hugo/</guid>
+      <description>&lt;h1 id=&#34;theme-documentation---built-in-shortcodes&#34;&gt;Theme Documentation - Built-in Shortcodes&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Hugo&lt;/strong&gt; provides multiple built-in shortcodes for author convenience and to keep your markdown content clean.&lt;/p&gt;&#xA;&lt;!--more--&gt;&#xA;&lt;p&gt;Hugo uses Markdown for its simple content format. However, there are a lot of things that Markdown doesn’t support well. You could use pure HTML to expand possibilities.&lt;/p&gt;&#xA;&lt;p&gt;But this happens to be a bad idea. Everyone uses Markdown because it’s pure and simple to read even non-rendered. You should avoid HTML to keep it as simple as possible.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
       <link>http://localhost:1313/drafts/how_to_write_functions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/drafts/how_to_write_functions/</guid>
-      <description>&lt;p&gt;Writing clean, efficient, and well-structured functions in Python is a skill that takes time to master. I&amp;rsquo;ve learned so much about this craft, thanks to &lt;a href=&#34;https://www.youtube.com/@ArjanCodes&#34;&gt;ArjanCodes&lt;/a&gt;, a YouTube channel that has been like a Python guru to me.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Writing clean, efficient, and well-structured functions in Python is a skill that takes time to master. I&amp;rsquo;ve learned so much about this craft, thanks to &lt;a href=&#34;https://www.youtube.com/@ArjanCodes&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;ArjanCodes&lt;/a&gt;&#xA;, a YouTube channel that has been like a Python guru to me.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/drafts/pep8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/drafts/pep8/</guid>
+      <description>&lt;h1 id=&#34;python-naming-conventions-a-guide-to-writing-clean-and-readable-code&#34;&gt;Python Naming Conventions: A Guide to Writing Clean and Readable Code&lt;/h1&gt;&#xA;&lt;p&gt;When writing Python code, adhering to consistent naming conventions is crucial for readability and maintainability. Python&amp;rsquo;s official style guide, &lt;a href=&#34;https://peps.python.org/pep-0008/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;PEP 8&lt;/a&gt;&#xA;, provides clear guidelines on how to name variables, functions, classes, and other elements in your code. In this blog post, we&amp;rsquo;ll explore these conventions and provide examples to help you write clean, professional Python code.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Note: PEP 8 is &lt;strong&gt;a document that provides various guidelines to write the readable in Python&lt;/strong&gt;. PEP 8 describes how the developer can write beautiful code.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>

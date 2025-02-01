@@ -1,22 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Protocols on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/protocols/</link>
-    <description>Recent content in Protocols on Han&#39;s XYZ</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 28 Jan 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/protocols/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Abstract Classes or Protocols</title>
-      <link>http://localhost:1313/20250128_python_protocol_abstract_classes/</link>
-      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20250128_python_protocol_abstract_classes/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;When it comes to writing clean, maintainable, and scalable Python code, design matters. As your projects grow, you&amp;rsquo;ll often find yourself needing to enforce structure, ensure consistency, and promote reusability. This is where Python&amp;rsquo;s &lt;a href=&#34;https://docs.python.org/3/library/abc.html&#34;&gt;Abstract Base Classes (ABCs)&lt;/a&gt; and &lt;a href=&#34;https://www.python.org/dev/peps/pep-0544/&#34;&gt;Protocols&lt;/a&gt; come into play—two powerful features that help you design better software.&lt;/p&gt;&#xA;&lt;p&gt;Abstract classes act as &lt;strong&gt;blueprints for other classes, allowing you to define methods that must be implemented by any subclass&lt;/strong&gt;. They&amp;rsquo;re typically used for creating a shared foundation while enforcing a specific structure. Protocols, on the other hand, take a more flexible approach. Instead of relying on inheritance, they &lt;strong&gt;let you define interfaces based on behavior&lt;/strong&gt;, making them ideal for &lt;em&gt;duck typing&lt;/em&gt; (or &lt;em&gt;structural subtyping&lt;/em&gt;) and runtime flexibility.&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Protocols - Tag - Han&#39;s XYZ</title>
+        <link>http://localhost:1313/tags/protocols/</link>
+        <description>Protocols - Tag - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 28 Jan 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/protocols/" rel="self" type="application/rss+xml" /><item>
+    <title>Abstract Classes or Protocols</title>
+    <link>http://localhost:1313/20250128_python_protocol_abstract_classes/</link>
+    <pubDate>Tue, 28 Jan 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20250128_python_protocol_abstract_classes/</guid>
+    <description><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>When it comes to writing clean, maintainable, and scalable Python code, design matters. As your projects grow, you&rsquo;ll often find yourself needing to enforce structure, ensure consistency, and promote reusability. This is where Python&rsquo;s <a href="https://docs.python.org/3/library/abc.html" target="_blank" rel="noopener noreffer">Abstract Base Classes (ABCs)</a>
+ and <a href="https://www.python.org/dev/peps/pep-0544/" target="_blank" rel="noopener noreffer">Protocols</a>
+ come into play—two powerful features that help you design better software.</p>
+<p>Abstract classes act as <strong>blueprints for other classes, allowing you to define methods that must be implemented by any subclass</strong>. They&rsquo;re typically used for creating a shared foundation while enforcing a specific structure. Protocols, on the other hand, take a more flexible approach. Instead of relying on inheritance, they <strong>let you define interfaces based on behavior</strong>, making them ideal for <em>duck typing</em> (or <em>structural subtyping</em>) and runtime flexibility.</p>]]></description>
+</item>
+</channel>
 </rss>
