@@ -19,9 +19,8 @@ To help general readers navigate DeepSeek's innovations more easily, I decided t
 
 # Multi-Head Latent Attention
 
-
 <p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/mla.png" alt="Multi-head latent attention" height="400">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/mla_diagram.png" alt="Multi-head latent attention" height="400">
 </p> 
 
 
