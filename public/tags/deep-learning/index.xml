@@ -5,14 +5,14 @@
         <description>Deep Learning - Tag - Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
             <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 14 Feb 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/deep-learning/" rel="self" type="application/rss+xml" /><item>
-    <title>Understanding DeepSeek Part 1</title>
+    <title>Inside DeepSeek-R1</title>
     <link>http://localhost:1313/20250214_deepseek_componenet/</link>
     <pubDate>Fri, 14 Feb 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/20250214_deepseek_componenet/</guid>
-    <description><![CDATA[<p>The recent developments surrounding DeepSeek have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their approaches and engineering techniques are impressive, and I really enjoyed reading their reports. However, I found that understanding their key ideas required a substantial amount of effort.</p>
-<p>The DeepSeek&rsquo;s</p>
-<p>To help general readers navigate DeepSeek’s innovations more easily, I decided to write this post as a gentle introduction to their key components. I hope that this will provide a clear and accessible explanation of their major contributions. I strongly encourage you to read their reports in detail!</p>]]></description>
+    <description><![CDATA[<p><a href="https://www.deepseek.com/" target="_blank" rel="noopener noreffer">DeepSeek</a>
+&rsquo;s latest moves have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their engineering techniques behind DeepSeek are truly impressive, and their reports are quite enjoyable. However, understanding their core ideas can be challenging and demands a substantial amount of effort.</p>
+<p>At the forefront of this innovation is DeepSeek-R1, a model that built upon the foundation established by preceding projects such as DeepSeek Coder, Math, MoE, and notably, the DeepSeek-V3 model. While DeepSeek-R1 is the center of the DeepSeek&rsquo;s frenzy, its success is rooted on these past works.</p>]]></description>
 </item>
 </channel>
 </rss>
