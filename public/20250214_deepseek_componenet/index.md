@@ -1,4 +1,4 @@
-# Understanding DeepSeek Part 1
+# Inside DeepSeek-R1
 
 [DeepSeek](https://www.deepseek.com/)'s latest moves have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their engineering techniques behind DeepSeek are truly impressive, and their reports are quite enjoyable. However, understanding their core ideas can be challenging and demands a substantial amount of effort.
 
@@ -9,6 +9,11 @@ To help general readers navigate DeepSeek's innovations more easily, I decided t
 ---
 
 # Multi-Head Latent Attention
+
+
+<p style="text-align:center;"> 
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/mla.pdf" alt="Multi-head latent attention" height="400">
+</p> 
 
 
 ### Quick Review of Multi-Head Attention
@@ -43,8 +48,6 @@ DeepSeek addresses this memory-intensive KV caching problem by introducing an al
 - $W^{DKV}\in \mathbb{R}^{d_c\times d}$ is the down-projection matrix that generates the latent vector $\mathbf{c}\_t^{KV}$.
 - $W^{UK},W^{UV}\in \mathbb{R}^{d_hn_h\times d_c}$ are the up-projection matrices for keys and values, respectively. These operations help reconstruct the compressed information of $\mathbf{h}\_t$.
 - $W^{KR}\in \mathbb{R}^{d\_h^R\times d}$ is the matrix responsible for generating the positional embedding vector. I will explain it soon. 
-
-Unlike traditional KV caching, MLA only stores the compressed vector ctKVctKV​ during inference. Furthermore, unlike Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks.
 
 Unlike standard KV-caching, MLA only needs to cache the compressed vector $\mathbf{c}\_t^{KV}$ during inference. unlike Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks. 
 
@@ -93,6 +96,11 @@ where $W^O\in \mathbb{R}^{d\times d\_hn\_h}$ is the output projection matrix.
 
 
 # Mixture-of-Experts in DeepSeek
+
+<p style="text-align:center;"> 
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/deepseek_moe.png" alt="Multi-head latent attention" height="400">
+</p> 
+
 
 Traditional Mixture-of-Experts (MoE) models often suffer from two key issues:
 - **Knowledge Hybridity**: Certain experts tend to cover a wide range of diverse knowledge rather than specializing in specific topics. This happens because input tokens are more frequently assigned to these experts than others, forcing them to handle vastly different types of knowledge.
@@ -158,6 +166,11 @@ In sum, **clipping serves as a regularizer** by restricting the rewards to the p
 
 ## GRPO: PPO for DeepSeek
 
+<p style="text-align:center;"> 
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/grpo.png" alt="Multi-head latent attention" height="400">
+</p> 
+
+
 GRPO can be expressed as follows:
 \begin{align*}
 	\mathcal{J} = \frac{1}{G}\sum\_{i=1}^{G} \min \left(\frac{\pi\_{\theta}\left(o\_i | q\right)}{\pi\_{\theta\_{\text{k}}}\left(o\_i | q\right)} A_i, \text{ Clip}\left(\frac{\pi\_{\theta}\left(o\_i | q\right)}{\pi\_{\theta\_{\text{k}}}\left(o_i | q\right)}, 1-\varepsilon, 1+\varepsilon\right) A_{i}\right) -\beta D\_{KL}(\pi\_{\theta}\| \pi\_{\text{ref}}).
@@ -184,6 +197,10 @@ To train DeepSeek-R1-Zero, a rule-based reward signal was adopted. Two types of 
 - **Format rewards**: In addition to the accuracy reward model, they employed a format reward model that enforces the model to put its thinking process between `<think>` and `</think>` tags.
 
 Notably, DeepSeek-R1 does not rely on a neural reward model—likely because neural models may not consistently provide reliable rewards for training.
+
+<p style="text-align:center;"> 
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/aha_moment.png" alt="Multi-head latent attention" height="400">
+</p> 
 
 The team also reported an intriguing "aha moment" with DeepSeek-R1-Zero:
 

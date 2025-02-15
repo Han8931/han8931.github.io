@@ -4,9 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Understanding DeepSeek Part 1 - Han&#39;s XYZ</title><meta name="Description" content="A Gentle Guide to DeepSeek"><meta property="og:url" content="http://localhost:1313/20250214_deepseek_componenet/">
+        <title>Inside DeepSeek-R1 - Han&#39;s XYZ</title><meta name="Description" content="A Gentle Guide to DeepSeek"><meta property="og:url" content="http://localhost:1313/20250214_deepseek_componenet/">
   <meta property="og:site_name" content="Han&#39;s XYZ">
-  <meta property="og:title" content="Understanding DeepSeek Part 1">
+  <meta property="og:title" content="Inside DeepSeek-R1">
   <meta property="og:description" content="A Gentle Guide to DeepSeek">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
@@ -20,7 +20,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/logo.png">
-  <meta name="twitter:title" content="Understanding DeepSeek Part 1">
+  <meta name="twitter:title" content="Inside DeepSeek-R1">
   <meta name="twitter:description" content="A Gentle Guide to DeepSeek">
 <meta name="application-name" content="KeepIt">
 <meta name="apple-mobile-web-app-title" content="KeepIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -29,12 +29,12 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Understanding DeepSeek Part 1",
+        "headline": "Inside DeepSeek-R1",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20250214_deepseek_componenet\/"
-        },"genre": "posts","keywords": "DeepSeek, LLM, Deep Learning","wordcount":  2040 ,
+        },"genre": "posts","keywords": "DeepSeek, LLM, Deep Learning","wordcount":  1994 ,
         "url": "http:\/\/localhost:1313\/20250214_deepseek_componenet\/","datePublished": "2025-02-14T00:00:00+00:00","dateModified": "2025-02-14T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -107,10 +107,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Understanding DeepSeek Part 1</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Inside DeepSeek-R1</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/nlp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>NLP</a>&nbsp;<a href="/categories/llm/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>LLM</a>&nbsp;<a href="/categories/deep-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Deep Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-02-14">2025-02-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2040 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-02-14">2025-02-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1994 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;10 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -151,6 +151,9 @@
 <p>To help general readers navigate DeepSeek&rsquo;s innovations more easily, I decided to write this post as a gentle introduction to their key components. I will begin by exploring the key ideas of V3 model, which serves as a cornerstone for DeepSeek-R1. I hope that this post will provide a clear and accessible explanation of their major contributions. Also, I strongly encourage you to read their reports :)</p>
 <hr>
 <h1 id="multi-head-latent-attention">Multi-Head Latent Attention</h1>
+<p style="text-align:center;"> 
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/mla.pdf" alt="Multi-head latent attention" height="400">
+</p> 
 <h3 id="quick-review-of-multi-head-attention">Quick Review of Multi-Head Attention</h3>
 <p>The query, key, and value in a standard multi-head attention (MHA) mechanism can be expressed as follows:</p>
 <p>\begin{align*}
@@ -181,7 +184,6 @@
 <li>$W^{UK},W^{UV}\in \mathbb{R}^{d_hn_h\times d_c}$ are the up-projection matrices for keys and values, respectively. These operations help reconstruct the compressed information of $\mathbf{h}_t$.</li>
 <li>$W^{KR}\in \mathbb{R}^{d_h^R\times d}$ is the matrix responsible for generating the positional embedding vector. I will explain it soon.</li>
 </ul>
-<p>Unlike traditional KV caching, MLA only stores the compressed vector ctKVctKV​ during inference. Furthermore, unlike Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks.</p>
 <p>Unlike standard KV-caching, MLA only needs to cache the compressed vector $\mathbf{c}_t^{KV}$ during inference. unlike Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks.</p>
 <h4 id="efficient-computation-without-explicit-key--value-computation">Efficient Computation Without Explicit Key &amp; Value Computation</h4>
 <p>A key advantage of MLA is that it avoids explicitly computing and storing full-sized key and value matrices. Instead, attention scores are computed directly in the compressed space:</p>
@@ -221,6 +223,9 @@ u_t &amp;= W^O[o_{t,1}, \dots, o_{t,n_h}]\\
 \end{align*}
 where $W^O\in \mathbb{R}^{d\times d_hn_h}$ is the output projection matrix.</p>
 <h1 id="mixture-of-experts-in-deepseek">Mixture-of-Experts in DeepSeek</h1>
+<p style="text-align:center;"> 
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/deepseek_moe.png" alt="Multi-head latent attention" height="400">
+</p> 
 <p>Traditional Mixture-of-Experts (MoE) models often suffer from two key issues:</p>
 <ul>
 <li><strong>Knowledge Hybridity</strong>: Certain experts tend to cover a wide range of diverse knowledge rather than specializing in specific topics. This happens because input tokens are more frequently assigned to these experts than others, forcing them to handle vastly different types of knowledge.</li>
@@ -279,6 +284,9 @@ Since the advantage is negative, the objective will increase if the action becom
 </ol>
 <p>In sum, <strong>clipping serves as a regularizer</strong> by restricting the rewards to the policy, which change it dramatically with the hyperparameter $\varepsilon$ corresponds to how far away the new policy can go from the old while still profiting the objective.</p>
 <h2 id="grpo-ppo-for-deepseek">GRPO: PPO for DeepSeek</h2>
+<p style="text-align:center;"> 
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/grpo.png" alt="Multi-head latent attention" height="400">
+</p> 
 <p>GRPO can be expressed as follows:
 \begin{align*}
 \mathcal{J} = \frac{1}{G}\sum_{i=1}^{G} \min \left(\frac{\pi_{\theta}\left(o_i | q\right)}{\pi_{\theta_{\text{k}}}\left(o_i | q\right)} A_i, \text{ Clip}\left(\frac{\pi_{\theta}\left(o_i | q\right)}{\pi_{\theta_{\text{k}}}\left(o_i | q\right)}, 1-\varepsilon, 1+\varepsilon\right) A_{i}\right) -\beta D_{KL}(\pi_{\theta}| \pi_{\text{ref}}).
@@ -302,6 +310,9 @@ Since the advantage is negative, the objective will increase if the action becom
 <li><strong>Format rewards</strong>: In addition to the accuracy reward model, they employed a format reward model that enforces the model to put its thinking process between <code>&lt;think&gt;</code> and <code>&lt;/think&gt;</code> tags.</li>
 </ul>
 <p>Notably, DeepSeek-R1 does not rely on a neural reward model—likely because neural models may not consistently provide reliable rewards for training.</p>
+<p style="text-align:center;"> 
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/aha_moment.png" alt="Multi-head latent attention" height="400">
+</p> 
 <p>The team also reported an intriguing &ldquo;aha moment&rdquo; with DeepSeek-R1-Zero:</p>
 <p>&ldquo;<em>DeepSeek-R1-Zero learns to allocate more thinking time to a problem by reevaluating its initial approach. This behavior is not only a testament to the model&rsquo;s growing reasoning abilities but also a captivating example of how reinforcement learning can lead to unexpected and sophisticated outcomes.</em>&rdquo;</p>
 <p>However, such behavior appears infrequently. More often, DeepSeek-R1-Zero tends to generate gibberish outputs, which may be attributed to the inherently unstable nature of RL training.</p>
