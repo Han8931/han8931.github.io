@@ -7,15 +7,33 @@ author: Han
 description: "A Gentle Guide to DeepSeek"
 tags: ["DeepSeek", "LLM", "Deep Learning"]
 categories: ["NLP", "LLM", "Deep Learning"]
-
 ---
+
 [DeepSeek](https://www.deepseek.com/)'s latest moves have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their engineering techniques behind DeepSeek are truly impressive, and their reports are quite enjoyable. However, understanding their core ideas can be challenging and demands a substantial amount of effort.
 
 At the forefront of this innovation is DeepSeek-R1, a model that built upon the foundation established by preceding projects such as DeepSeek Coder, Math, MoE, and notably, the DeepSeek-V3 model. While DeepSeek-R1 is the center of the DeepSeek's frenzy, its success is rooted on these past works. 
 
-To help general readers navigate DeepSeek's innovations more easily, I decided to write this post as a gentle introduction to their key components. I will begin by exploring the key ideas of V3 model, which serves as a cornerstone for DeepSeek-R1. I hope that this post will provide a clear and accessible explanation of their major contributions. Also, I strongly encourage you to read their reports :)
+To help general readers navigate DeepSeek's innovations more easily, I decided to write this post as a gentle introduction to their key components. I will begin by exploring the key ideas of V3 model, which serves as a cornerstone for DeepSeek-R1. I hope that this post will provide a clear and accessible explanation of their major contributions. Also, I strongly encourage you to read their reports :) 
 
 ---
+
+## Contents
+
+1. [Multi-Head Latent Attention](#multi-head-latent-attention)
+    - [Quick Review of Multi-Head Attention](#quick-review-of-multi-head-attention)
+    - [Low-Rank Joint Compression](#low-rank-joint-compression)
+    - [Efficient Computation Without Explicit Key & Value Computation](#efficient-computation-without-explicit-key-and-value-computation)
+    - [Decoupled RoPE](#decoupled-rope)
+2. [Mixture-of-Experts in DeepSeek](#mixture-of-experts-in-deepseek)
+    - [The Role of Shared Experts](#the-role-of-shared-experts)
+3. [Group Relative Policy Optimization](#group-relative-policy-optimization)
+    - [Proximal Policy Optimization](#proximal-policy-optimization)
+    - [GRPO: PPO for DeepSeek](#grpo-ppo-for-deepseek)
+4. [DeepSeek R1-Zero](#deepseek-r1-zero)
+5. [Conclusion](#conclusion)
+
+---
+
 
 # Multi-Head Latent Attention
 
@@ -59,7 +77,7 @@ DeepSeek addresses this memory-intensive KV caching problem by introducing an al
 
 Unlike standard KV-caching, MLA only needs to cache the compressed vector $\mathbf{c}\_t^{KV}$ during inference. unlike Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks. 
 
-#### Efficient Computation Without Explicit Key & Value Computation
+#### Efficient Computation Without Explicit Key and Value Computation
 
 A key advantage of MLA is that it avoids explicitly computing and storing full-sized key and value matrices. Instead, attention scores are computed directly in the compressed space:
 

@@ -34,7 +34,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20250214_deepseek_inside\/"
-        },"genre": "posts","keywords": "DeepSeek, LLM, Deep Learning","wordcount":  1994 ,
+        },"genre": "posts","keywords": "DeepSeek, LLM, Deep Learning","wordcount":  2038 ,
         "url": "http:\/\/localhost:1313\/20250214_deepseek_inside\/","datePublished": "2025-02-14T00:00:00+00:00","dateModified": "2025-02-15T17:47:01+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -110,7 +110,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Inside DeepSeek-R1</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/nlp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>NLP</a>&nbsp;<a href="/categories/llm/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>LLM</a>&nbsp;<a href="/categories/deep-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Deep Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-02-14">2025-02-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1994 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-02-14">2025-02-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2038 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;10 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -119,12 +119,16 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
+    <li><a href="#contents">Contents</a></li>
+  </ul>
+
+  <ul>
     <li>
       <ul>
         <li><a href="#quick-review-of-multi-head-attention">Quick Review of Multi-Head Attention</a></li>
         <li><a href="#low-rank-joint-compression">Low-Rank Joint Compression</a>
           <ul>
-            <li><a href="#efficient-computation-without-explicit-key--value-computation">Efficient Computation Without Explicit Key &amp; Value Computation</a></li>
+            <li><a href="#efficient-computation-without-explicit-key-and-value-computation">Efficient Computation Without Explicit Key and Value Computation</a></li>
             <li><a href="#decoupled-rope">Decoupled RoPE</a></li>
           </ul>
         </li>
@@ -149,6 +153,43 @@
 &rsquo;s latest moves have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their engineering techniques behind DeepSeek are truly impressive, and their reports are quite enjoyable. However, understanding their core ideas can be challenging and demands a substantial amount of effort.</p>
 <p>At the forefront of this innovation is DeepSeek-R1, a model that built upon the foundation established by preceding projects such as DeepSeek Coder, Math, MoE, and notably, the DeepSeek-V3 model. While DeepSeek-R1 is the center of the DeepSeek&rsquo;s frenzy, its success is rooted on these past works.</p>
 <p>To help general readers navigate DeepSeek&rsquo;s innovations more easily, I decided to write this post as a gentle introduction to their key components. I will begin by exploring the key ideas of V3 model, which serves as a cornerstone for DeepSeek-R1. I hope that this post will provide a clear and accessible explanation of their major contributions. Also, I strongly encourage you to read their reports :)</p>
+<hr>
+<h2 id="contents">Contents</h2>
+<ol>
+<li><a href="#multi-head-latent-attention" rel="">Multi-Head Latent Attention</a>
+
+<ul>
+<li><a href="#quick-review-of-multi-head-attention" rel="">Quick Review of Multi-Head Attention</a>
+</li>
+<li><a href="#low-rank-joint-compression" rel="">Low-Rank Joint Compression</a>
+</li>
+<li><a href="#efficient-computation-without-explicit-key-and-value-computation" rel="">Efficient Computation Without Explicit Key &amp; Value Computation</a>
+</li>
+<li><a href="#decoupled-rope" rel="">Decoupled RoPE</a>
+</li>
+</ul>
+</li>
+<li><a href="#mixture-of-experts-in-deepseek" rel="">Mixture-of-Experts in DeepSeek</a>
+
+<ul>
+<li><a href="#the-role-of-shared-experts" rel="">The Role of Shared Experts</a>
+</li>
+</ul>
+</li>
+<li><a href="#group-relative-policy-optimization" rel="">Group Relative Policy Optimization</a>
+
+<ul>
+<li><a href="#proximal-policy-optimization" rel="">Proximal Policy Optimization</a>
+</li>
+<li><a href="#grpo-ppo-for-deepseek" rel="">GRPO: PPO for DeepSeek</a>
+</li>
+</ul>
+</li>
+<li><a href="#deepseek-r1-zero" rel="">DeepSeek R1-Zero</a>
+</li>
+<li><a href="#conclusion" rel="">Conclusion</a>
+</li>
+</ol>
 <hr>
 <h1 id="multi-head-latent-attention">Multi-Head Latent Attention</h1>
 <p style="text-align:center;"> 
@@ -185,7 +226,7 @@
 <li>$W^{KR}\in \mathbb{R}^{d_h^R\times d}$ is the matrix responsible for generating the positional embedding vector. I will explain it soon.</li>
 </ul>
 <p>Unlike standard KV-caching, MLA only needs to cache the compressed vector $\mathbf{c}_t^{KV}$ during inference. unlike Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks.</p>
-<h4 id="efficient-computation-without-explicit-key--value-computation">Efficient Computation Without Explicit Key &amp; Value Computation</h4>
+<h4 id="efficient-computation-without-explicit-key-and-value-computation">Efficient Computation Without Explicit Key and Value Computation</h4>
 <p>A key advantage of MLA is that it avoids explicitly computing and storing full-sized key and value matrices. Instead, attention scores are computed directly in the compressed space:</p>
 <p>\begin{align*}
 q_t^Tk_t &amp;= (W^{UQ}c_t^Q)^T(W^{UK}c_t^{KV})\\
