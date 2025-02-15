@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-02-14T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-02-15T17:47:01+09:00">
+    <meta property="article:modified_time" content="2025-02-15T18:03:38+09:00">
     <meta property="article:tag" content="DeepSeek">
     <meta property="article:tag" content="LLM">
     <meta property="article:tag" content="Deep Learning">
@@ -34,8 +34,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20250214_deepseek_inside\/"
-        },"genre": "posts","keywords": "DeepSeek, LLM, Deep Learning","wordcount":  2038 ,
-        "url": "http:\/\/localhost:1313\/20250214_deepseek_inside\/","datePublished": "2025-02-14T00:00:00+00:00","dateModified": "2025-02-15T17:47:01+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "DeepSeek, LLM, Deep Learning","wordcount":  2041 ,
+        "url": "http:\/\/localhost:1313\/20250214_deepseek_inside\/","datePublished": "2025-02-14T00:00:00+00:00","dateModified": "2025-02-15T18:03:38+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -110,7 +110,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Inside DeepSeek-R1</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/nlp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>NLP</a>&nbsp;<a href="/categories/llm/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>LLM</a>&nbsp;<a href="/categories/deep-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Deep Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-02-14">2025-02-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2038 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-02-14">2025-02-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2041 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;10 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -192,9 +192,6 @@
 </ol>
 <hr>
 <h1 id="multi-head-latent-attention">Multi-Head Latent Attention</h1>
-<p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/mla_diagram.png" alt="Multi-head latent attention" height="400">
-</p> 
 <h3 id="quick-review-of-multi-head-attention">Quick Review of Multi-Head Attention</h3>
 <p>The query, key, and value in a standard multi-head attention (MHA) mechanism can be expressed as follows:</p>
 <p>\begin{align*}
@@ -210,7 +207,10 @@
 </ul>
 <p>During inference, all keys and values need to be cached to speed up computation. A cache requirement of MHA is roughly $2n_hd_hl$ elements per token (i.e., key, value for across all layers and heads). This heavy KV cache creates a major bottleneck, limiting the maximum batch size and sequence length during deployment.</p>
 <h3 id="low-rank-joint-compression">Low-Rank Joint Compression</h3>
-<p>DeepSeek addresses this memory-intensive KV caching problem by introducing an alternative attention mechanism called Multi-Head Latent Attention (MLA). The core idea behind MLA is to compress keys and values into a low-dimensional latent space. Let’s break it down step by step:</p>
+<p style="text-align:center;"> 
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/mla_diagram.png" alt="Multi-head latent attention" height="400">
+</p> 
+<p>DeepSeek addresses this memory-intensive KV caching problem by introducing an alternative attention mechanism called <em>Multi-Head Latent Attention</em> (MLA). The core idea behind MLA is to compress keys and values into a low-dimensional latent space. Let’s break it down step by step:</p>
 <p>\begin{align*}
 \mathbf{c}_t^{KV} &amp;= W^{DKV}\mathbf{h}_t\\
 [\mathbf{k}_{t,1}^C; \mathbf{k}_{t,2}^C; \dots ;\mathbf{k}_{t,n_h}^C] = \mathbf{k}_t^{C} &amp;= W^{UK}\mathbf{c}_t^{KV}\\
@@ -219,18 +219,21 @@
 [\mathbf{v}_{t,1}^C; \mathbf{v}_{t,2}^C; \dots ;\mathbf{v}_{t,n_h}^C] = \mathbf{v}_t^{C} &amp;= W^{UV}\mathbf{c}_t^{KV}
 \end{align*}</p>
 <ul>
-<li>$D$ and $U$ superscripts denote the up- and down- projection, respectively.</li>
+<li>The superscripts $D$ and $U$ denote the up- and down- projection, respectively.</li>
 <li>$\mathbf{c}_t^{KV}\in \mathbb{R}^{d_c}$ is the <em>compressed latent vector</em> for keys and values, where $d_c\ll d_hn_h$. Note that this is <em>not</em> a query vector.</li>
 <li>$W^{DKV}\in \mathbb{R}^{d_c\times d}$ is the down-projection matrix that generates the latent vector $\mathbf{c}_t^{KV}$.</li>
 <li>$W^{UK},W^{UV}\in \mathbb{R}^{d_hn_h\times d_c}$ are the up-projection matrices for keys and values, respectively. These operations help reconstruct the compressed information of $\mathbf{h}_t$.</li>
 <li>$W^{KR}\in \mathbb{R}^{d_h^R\times d}$ is the matrix responsible for generating the positional embedding vector. I will explain it soon.</li>
 </ul>
-<p>Unlike standard KV-caching, MLA only needs to cache the compressed vector $\mathbf{c}_t^{KV}$ during inference. unlike Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks.</p>
+<p>Unlike standard attention mechanisms like Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA only needs to cache the compressed vector $\mathbf{c}_t^{KV}$ during inference. MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks.</p>
+<p style="text-align:center;"> 
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/attention_overview.png" alt="Attention mechanisms" height="400">
+</p> 
 <h4 id="efficient-computation-without-explicit-key-and-value-computation">Efficient Computation Without Explicit Key and Value Computation</h4>
-<p>A key advantage of MLA is that it avoids explicitly computing and storing full-sized key and value matrices. Instead, attention scores are computed directly in the compressed space:</p>
+<p>A key advantage of MLA is that it avoids explicit computation of the full-sized key and value matrices. Instead, attention scores can be computed as follows:</p>
 <p>\begin{align*}
 q_t^Tk_t &amp;= (W^{UQ}c_t^Q)^T(W^{UK}c_t^{KV})\\
-&amp;= (c_t^Q)^T(W^{UQT}W^{UK})c_t^{KV}.
+&amp;= (c_t^Q)^T(W^{UQT}W^{UK})c_t^{KV},
 \end{align*}
 where $W^{UQT}W^{UK}$ is a pre-computed matrix product of the two projection matrices. Similarly, for values:
 \begin{align*}
@@ -240,10 +243,11 @@ The final output is given by
 \begin{align*}
 u_t &amp;= W^O[o_{t,1}, \dots, o_{t,n_h}]\\
 &amp;= W^O[\text{AttnScore}\cdot (W^{UV}c_t^{KV})]\\
-&amp;= W^OW^{UV}[\text{AttnScore}\cdot (c_t^{KV})]
-\end{align*}</p>
+&amp;= W^OW^{UV}[\text{AttnScore}\cdot (c_t^{KV})],
+\end{align*}
+where $W^O\in \mathbb{R}^{d\times d_hn_h}$ is the output projection matrix.</p>
 <h4 id="decoupled-rope">Decoupled RoPE</h4>
-<p>A potential issue with MLA is how to incorporate positional embeddings. While sinusoidal positional embeddings are a simple option, research has shown that Rotary Positional Embedding (RoPE) offers better performance. However, applying RoPE in MLA poses a challenge: normally, RoPE modifies keys and values directly, which would require explicit computation of keys (i.e, $\mathbf{k}_t^{C}=W^{UK} c_t^{KV}$)—defeating the MLA&rsquo;s efficiency.</p>
+<p>A potential issue with MLA is how to incorporate positional embeddings (PE). While sinusoidal positional embeddings are a straightforward option, research has shown that Rotary Positional Embedding (RoPE) tends to provide better performance. However, applying RoPE in MLA poses a challenge: normally, RoPE modifies keys and values directly, which would require explicit computation of keys (i.e, $\mathbf{k}_t^{C}=W^{UK} c_t^{KV}$)—defeating the MLA&rsquo;s efficiency.</p>
 <p>DeepSeek circumvents this issue by introducing an explicit positional embedding vector $\mathbf{k}_t^{R}$, called <em>decoupled RoPE</em>. The PE vector is separately broadcasted across the keys. This allows MLA to benefit from RoPE without losing the efficiency gains of its compression scheme.</p>
 <p>To further reduce activation memory during training, DeepSeek also compresses queries:
 \begin{align*}
@@ -260,9 +264,8 @@ u_t &amp;= W^O[o_{t,1}, \dots, o_{t,n_h}]\\
 <p>Finally, the attention queries ($\mathbf{q}_{t,i}$), keys ($\mathbf{k}_{j,i}$), and values ($\mathbf{v}_{j,i}^C$) are combined to yield the final attention output $\mathbf{u}_t$:
 \begin{align*}
 \mathbf{o}_{t,i} &amp;= \sum_{j=1}^t\text{Softmax}_j\Bigg( \frac{\mathbf{q}_{t,i}^T\mathbf{k}_{j,i}}{\sqrt{d_h+d_h^R}} \Bigg)\mathbf{v}_{j,i}^C,\\
-\mathbf{u}_t &amp;= W^O[\mathbf{o}_{t,1};\mathbf{o}_{t,2};\dots;\mathbf{o}_{t,n_h}],
-\end{align*}
-where $W^O\in \mathbb{R}^{d\times d_hn_h}$ is the output projection matrix.</p>
+\mathbf{u}_t &amp;= W^O[\mathbf{o}_{t,1};\mathbf{o}_{t,2};\dots;\mathbf{o}_{t,n_h}].
+\end{align*}</p>
 <h1 id="mixture-of-experts-in-deepseek">Mixture-of-Experts in DeepSeek</h1>
 <p style="text-align:center;"> 
 <img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/deepseek_moe.png" alt="DeepSeek MoE" height="350">
@@ -363,8 +366,8 @@ Since the advantage is negative, the objective will increase if the action becom
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2025-02-15&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/94dea4731e0c8977fb8f24e1ac26890e536b54c9" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 94dea4731e0c8977fb8f24e1ac26890e536b54c9: Update">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>94dea47</a></span>
+                <span>Updated on 2025-02-15&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/478b0edc5051c21fefacfc11ac6b4a7492f229bd" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 478b0edc5051c21fefacfc11ac6b4a7492f229bd: Add contents table">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>478b0ed</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>

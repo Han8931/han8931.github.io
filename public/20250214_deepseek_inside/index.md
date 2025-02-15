@@ -29,10 +29,6 @@ To help general readers navigate DeepSeek's innovations more easily, I decided t
 
 # Multi-Head Latent Attention
 
-<p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/mla_diagram.png" alt="Multi-head latent attention" height="400">
-</p> 
-
 
 ### Quick Review of Multi-Head Attention
 
@@ -52,7 +48,11 @@ During inference, all keys and values need to be cached to speed up computation.
 
 ### Low-Rank Joint Compression
 
-DeepSeek addresses this memory-intensive KV caching problem by introducing an alternative attention mechanism called Multi-Head Latent Attention (MLA). The core idea behind MLA is to compress keys and values into a low-dimensional latent space. Let’s break it down step by step:
+<p style="text-align:center;"> 
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/mla_diagram.png" alt="Multi-head latent attention" height="400">
+</p> 
+
+DeepSeek addresses this memory-intensive KV caching problem by introducing an alternative attention mechanism called *Multi-Head Latent Attention* (MLA). The core idea behind MLA is to compress keys and values into a low-dimensional latent space. Let’s break it down step by step:
 
 \begin{align*}
 	\mathbf{c}_t^{KV} &= W^{DKV}\mathbf{h}_t\\\\
@@ -61,21 +61,25 @@ DeepSeek addresses this memory-intensive KV caching problem by introducing an al
 	\mathbf{k}\_{t,i} &= [\mathbf{k}\_{t,i}^C;\mathbf{k}_t^{R}]\\\\
 	[\mathbf{v}\_{t,1}^C; \mathbf{v}\_{t,2}^C; \dots ;\mathbf{v}\_{t,n_h}^C] = \mathbf{v}_t^{C} &= W^{UV}\mathbf{c}_t^{KV}
 \end{align*}
-- $D$ and $U$ superscripts denote the up- and down- projection, respectively.
+- The superscripts $D$ and $U$ denote the up- and down- projection, respectively.
 - $\mathbf{c}\_t^{KV}\in \mathbb{R}^{d_c}$ is the *compressed latent vector* for keys and values, where $d_c\ll d_hn_h$. Note that this is *not* a query vector.
 - $W^{DKV}\in \mathbb{R}^{d_c\times d}$ is the down-projection matrix that generates the latent vector $\mathbf{c}\_t^{KV}$.
 - $W^{UK},W^{UV}\in \mathbb{R}^{d_hn_h\times d_c}$ are the up-projection matrices for keys and values, respectively. These operations help reconstruct the compressed information of $\mathbf{h}\_t$.
 - $W^{KR}\in \mathbb{R}^{d\_h^R\times d}$ is the matrix responsible for generating the positional embedding vector. I will explain it soon. 
 
-Unlike standard KV-caching, MLA only needs to cache the compressed vector $\mathbf{c}\_t^{KV}$ during inference. unlike Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks. 
+Unlike standard attention mechanisms like Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA only needs to cache the compressed vector $\mathbf{c}\_t^{KV}$ during inference. MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks. 
+
+<p style="text-align:center;"> 
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/attention_overview.png" alt="Attention mechanisms" height="400">
+</p> 
 
 #### Efficient Computation Without Explicit Key and Value Computation
 
-A key advantage of MLA is that it avoids explicitly computing and storing full-sized key and value matrices. Instead, attention scores are computed directly in the compressed space:
+A key advantage of MLA is that it avoids explicit computation of the full-sized key and value matrices. Instead, attention scores can be computed as follows:
 
 \begin{align*}
     q\_t^Tk\_t &= (W^{UQ}c\_t^Q)^T(W^{UK}c\_t^{KV})\\\\
-             &= (c\_t^Q)^T(W^{UQT}W^{UK})c\_t^{KV}.
+             &= (c\_t^Q)^T(W^{UQT}W^{UK})c\_t^{KV},
 \end{align*}
 where $W^{UQT}W^{UK}$ is a pre-computed matrix product of the two projection matrices. Similarly, for values:
 \begin{align*}
@@ -85,12 +89,13 @@ The final output is given by
 \begin{align*}
     u_t &= W^O[o\_{t,1}, \dots, o\_{t,n_h}]\\\\
         &= W^O[\text{AttnScore}\cdot (W^{UV}c\_t^{KV})]\\\\
-        &= W^OW^{UV}[\text{AttnScore}\cdot (c\_t^{KV})]
+        &= W^OW^{UV}[\text{AttnScore}\cdot (c\_t^{KV})],
 \end{align*}
+where $W^O\in \mathbb{R}^{d\times d\_hn\_h}$ is the output projection matrix.
 
 #### Decoupled RoPE
 
-A potential issue with MLA is how to incorporate positional embeddings. While sinusoidal positional embeddings are a simple option, research has shown that Rotary Positional Embedding (RoPE) offers better performance. However, applying RoPE in MLA poses a challenge: normally, RoPE modifies keys and values directly, which would require explicit computation of keys (i.e, $\mathbf{k}\_t^{C}=W^{UK} c\_t^{KV}$)—defeating the MLA's efficiency.
+A potential issue with MLA is how to incorporate positional embeddings (PE). While sinusoidal positional embeddings are a straightforward option, research has shown that Rotary Positional Embedding (RoPE) tends to provide better performance. However, applying RoPE in MLA poses a challenge: normally, RoPE modifies keys and values directly, which would require explicit computation of keys (i.e, $\mathbf{k}\_t^{C}=W^{UK} c\_t^{KV}$)—defeating the MLA's efficiency.
 
 DeepSeek circumvents this issue by introducing an explicit positional embedding vector $\mathbf{k}\_t^{R}$, called *decoupled RoPE*. The PE vector is separately broadcasted across the keys. This allows MLA to benefit from RoPE without losing the efficiency gains of its compression scheme.
 
@@ -108,17 +113,14 @@ To further reduce activation memory during training, DeepSeek also compresses qu
 Finally, the attention queries ($\mathbf{q}\_{t,i}$), keys ($\mathbf{k}\_{j,i}$), and values ($\mathbf{v}\_{j,i}^C$) are combined to yield the final attention output $\mathbf{u}\_t$:
 \begin{align*}
 	\mathbf{o}\_{t,i} &= \sum\_{j=1}^t\text{Softmax}\_j\Bigg( \frac{\mathbf{q}\_{t,i}^T\mathbf{k}\_{j,i}}{\sqrt{d_h+d_h^R}} \Bigg)\mathbf{v}\_{j,i}^C,\\\\
-	\mathbf{u}\_t &= W^O[\mathbf{o}\_{t,1};\mathbf{o}\_{t,2};\dots;\mathbf{o}\_{t,n_h}],
+	\mathbf{u}\_t &= W^O[\mathbf{o}\_{t,1};\mathbf{o}\_{t,2};\dots;\mathbf{o}\_{t,n_h}].
 \end{align*}
-where $W^O\in \mathbb{R}^{d\times d\_hn\_h}$ is the output projection matrix.
-
 
 # Mixture-of-Experts in DeepSeek
 
 <p style="text-align:center;"> 
 <img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/deepseek_moe.png" alt="DeepSeek MoE" height="350">
 </p> 
-
 
 Traditional Mixture-of-Experts (MoE) models often suffer from two key issues:
 - **Knowledge Hybridity**: Certain experts tend to cover a wide range of diverse knowledge rather than specializing in specific topics. This happens because input tokens are more frequently assigned to these experts than others, forcing them to handle vastly different types of knowledge.
