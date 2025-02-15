@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: "Understanding DeepSeek Part 1"
+title: "Inside DeepSeek-R1"
 date: 2025-02-14
 draft: false
 author: Han
