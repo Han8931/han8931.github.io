@@ -6,10 +6,10 @@
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
             <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 14 Feb 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/llm/" rel="self" type="application/rss+xml" /><item>
     <title>Inside DeepSeek-R1</title>
-    <link>http://localhost:1313/20250214_deepseek_componenet/</link>
+    <link>http://localhost:1313/20250214_deepseek_inside/</link>
     <pubDate>Fri, 14 Feb 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20250214_deepseek_componenet/</guid>
+    <guid>http://localhost:1313/20250214_deepseek_inside/</guid>
     <description><![CDATA[<p><a href="https://www.deepseek.com/" target="_blank" rel="noopener noreffer">DeepSeek</a>
 &rsquo;s latest moves have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their engineering techniques behind DeepSeek are truly impressive, and their reports are quite enjoyable. However, understanding their core ideas can be challenging and demands a substantial amount of effort.</p>
 <p>At the forefront of this innovation is DeepSeek-R1, a model that built upon the foundation established by preceding projects such as DeepSeek Coder, Math, MoE, and notably, the DeepSeek-V3 model. While DeepSeek-R1 is the center of the DeepSeek&rsquo;s frenzy, its success is rooted on these past works.</p>]]></description>
