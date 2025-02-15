@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Understanding DeepSeek Part 1 - Han&#39;s XYZ</title><meta name="Description" content="A Gentle Guide to DeepSeek"><meta property="og:url" content="http://localhost:1313/drafts/20250214_deepseek_componenet/">
+  <meta property="og:site_name" content="Han&#39;s XYZ">
+  <meta property="og:title" content="Understanding DeepSeek Part 1">
+  <meta property="og:description" content="A Gentle Guide to DeepSeek">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="drafts">
+    <meta property="article:published_time" content="2025-02-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-14T00:00:00+00:00">
+    <meta property="article:tag" content="DeepSeek">
+    <meta property="article:tag" content="LLM">
+    <meta property="article:tag" content="Deep Learning">
+    <meta property="og:image" content="http://localhost:1313/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/logo.png">
+  <meta name="twitter:title" content="Understanding DeepSeek Part 1">
+  <meta name="twitter:description" content="A Gentle Guide to DeepSeek">
+<meta name="application-name" content="KeepIt">
+<meta name="apple-mobile-web-app-title" content="KeepIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/drafts/20250214_deepseek_componenet/" /><link rel="prev" href="http://localhost:1313/drafts/github_actions/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Understanding DeepSeek Part 1",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/drafts\/20250214_deepseek_componenet\/"
+        },"genre": "drafts","keywords": "DeepSeek, LLM, Deep Learning","wordcount":  2295 ,
+        "url": "http:\/\/localhost:1313\/drafts\/20250214_deepseek_componenet\/","datePublished": "2025-02-14T00:00:00+00:00","dateModified": "2025-02-14T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Han"
+            },"description": "A Gentle Guide to DeepSeek"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">Understanding DeepSeek Part 1</h1><div class="content" id="content"><p>The recent developments surrounding DeepSeek have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their approaches and engineering techniques are impressive, and I really enjoyed reading their reports. However, I found that understanding their key ideas required a substantial amount of effort.</p>
+<p>The DeepSeek&rsquo;s</p>
+<p>To help general readers navigate DeepSeek’s innovations more easily, I decided to write this post as a gentle introduction to their key components. I hope that this will provide a clear and accessible explanation of their major contributions. I strongly encourage you to read their reports in detail!</p>
+<hr>
+<!-- ## Contents -->
+<!-- 1. [Multi-Head Latent Attention](#multi-head-latent-attention) -->
+<!--     <!-1- - [Quick Review of Multi-Head Attention](#quick-review-of-multi-head-attention) -1-> -->
+<!--     <!-1- - [Low-Rank Joint Compression](#low-rank-joint-compression) -1-> -->
+<!-- 2. [DeepSeek MoE](#deepseek-moe) -->
+<!-- --- -->
+<h1 id="multi-head-latent-attention">Multi-Head Latent Attention</h1>
+<h3 id="quick-review-of-multi-head-attention">Quick Review of Multi-Head Attention</h3>
+<p>The query, key, and value in a standard multi-head attention (MHA) mechanism can be expressed as follows:</p>
+<p>\begin{align*}
+\mathbf{q}_t &amp;= W^{Q}\mathbf{h}_t\\
+\mathbf{k}_t &amp;= W^{K}\mathbf{h}_t\\
+\mathbf{v}_t &amp;= W^{V}\mathbf{h}_t
+\end{align*}</p>
+<ul>
+<li>$\mathbf{q}_t,\mathbf{k}_t,\mathbf{v}_t\in \mathbb{R}^{d_hn_h}$</li>
+<li>$\mathbf{h}_t\in \mathbb{R}^{d}$: Attention input of the $t$-th token at an layer.</li>
+<li>$d_h$: the attention head&rsquo;s dimension</li>
+<li>$n_h$: the number of attention heads</li>
+</ul>
+<p>During inference, all keys and values need to be cached to speed up computation. A cache requirement of MHA is roughly $2n_hd_hl$ elements per token (i.e., key, value for across all layers and heads). This heavy KV cache creates a major bottleneck, limiting the maximum batch size and sequence length during deployment.</p>
+<h3 id="low-rank-joint-compression">Low-Rank Joint Compression</h3>
+<p>DeepSeek addresses this memory-intensive KV caching problem by introducing an alternative attention mechanism called Multi-Head Latent Attention (MLA). The core idea behind MLA is to compress keys and values into a low-dimensional latent space. Let’s break it down step by step:</p>
+<p>\begin{align*}
+\mathbf{c}_t^{KV} &amp;= W^{DKV}\mathbf{h}_t\\
+[\mathbf{k}_{t,1}^C; \mathbf{k}_{t,2}^C; \dots ;\mathbf{k}_{t,n_h}^C;] = \mathbf{k}_t^{C} &amp;= W^{UK}\mathbf{c}_t^{KV}\\
+\mathbf{k}_t^{R} &amp;= \text{RoPE}(W^{KR}\mathbf{h}_t)\\
+\mathbf{k}_{t,i} &amp;= [\mathbf{k}_{t,i}^C;\mathbf{k}_t^{R}]\\
+[\mathbf{v}_{t,1}^C; \mathbf{v}_{t,2}^C; \dots ;\mathbf{v}_{t,n_h}^C;] = \mathbf{v}_t^{C} &amp;= W^{UV}\mathbf{c}_t^{KV}
+\end{align*}</p>
+<ul>
+<li>$D$ and $U$ superscripts denote the up- and down- projection, respectively.</li>
+<li>$\mathbf{c}_t^{KV}\in \mathbb{R}^{d_c}$ is the <em>compressed latent vector</em> for keys and values, where $d_c\ll d_hn_h$. Note that this is <em>not</em> a query vector.</li>
+<li>$W^{DKV}\in \mathbb{R}^{d_c\times d}$ is the down-projection matrix that generates the latent vector $\mathbf{c}_t^{KV}$.</li>
+<li>$W^{UK},W^{UV}\in \mathbb{R}^{d_hn_h\times d_c}$ are the up-projection matrices for keys and values, respectively. These operations help reconstruct the compressed information of $\mathbf{h}_t$.</li>
+<li>$W^{KR}\in \mathbb{R}^{d_h^R\times d}$ is the matrix responsible for generating the positional embedding vector. I will explain it soon.</li>
+</ul>
+<p>Unlike traditional KV caching, MLA only stores the compressed vector ctKVctKV​ during inference. Furthermore, unlike Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks.</p>
+<p>Unlike standard KV-caching, MLA only needs to cache the compressed vector $\mathbf{c}_t^{KV}$ during inference. unlike Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks.</p>
+<h4 id="efficient-computation-without-explicit-keyvalue-storage">Efficient Computation Without Explicit Key/Value Storage</h4>
+<p>A key advantage of MLA is that it avoids explicitly computing and storing full-sized key and value matrices. Instead, attention scores are computed directly in the compressed space:</p>
+<p>\begin{align*}
+q_t^Tk_t &amp;= (W^{UQ}c_t^Q)^T(W^{UK}c_t^{KV})\\
+&amp;= (c_t^Q)^T(W^{UQT}W^{UK})c_t^{KV}.
+\end{align*}
+where $W^{UQT}W^{UK}$ is a pre-computed matrix product of the two projection matrices. Similarly, for values:
+\begin{align*}
+o_{t,i} = \text{AttnScore}\cdot v_t^C.
+\end{align*}
+The final output is given by
+\begin{align*}
+u_t &amp;= W^O[o_{t,1}, \dots, o_{t,n_h}]\\
+&amp;= W^O[\text{AttnScore}\cdot (W^{UV}c_t^{KV})]\\
+&amp;= W^OW^{UV}[\text{AttnScore}\cdot (c_t^{KV})]
+\end{align*}</p>
+<h4 id="decoupled-rope">Decoupled RoPE</h4>
+<p>A potential issue with MLA is how to incorporate positional embeddings. While sinusoidal positional embeddings are a simple option, research has shown that Rotary Positional Embedding (RoPE) offers better performance. However, applying RoPE in MLA poses a challenge: normally, RoPE modifies keys and values directly, which would require explicit computation of keys (i.e, $\mathbf{k}_t^{C}=W^{UK} c_t^{KV}$)—defeating the MLA&rsquo;s efficiency.</p>
+<p>DeepSeek circumvents this issue by introducing an explicit positional embedding vector $\mathbf{k}_t^{R}$, called <em>decoupled RoPE</em>. The PE vector is separately broadcasted across the keys. This allows MLA to benefit from RoPE without losing the efficiency gains of its compression scheme.</p>
+<p>To further reduce activation memory during training, DeepSeek also compresses queries:
+\begin{align*}
+\mathbf{c}_t^{Q} &amp;= W^{DQ}\mathbf{h}_t\\
+[\mathbf{q}_{t,1}^C; \mathbf{q}_{t,2}^C; \dots ;\mathbf{q}_{t,n_h}^C;] = \mathbf{q}_t^{C} &amp;= W^{UQ}\mathbf{c}_t^{Q}\\
+[\mathbf{q}_{t,1}^R; \mathbf{q}_{t,2}^R; \dots ;\mathbf{q}_{t,n_h}^R;] = \mathbf{q}_t^{R} &amp;= \text{RoPE}(W^{QR}\mathbf{c}_t^Q)\\
+\mathbf{q}_{t,i} &amp;= [\mathbf{q}_{t,i}^C;\mathbf{q}_{t,i}^{R}]
+\end{align*}</p>
+<ul>
+<li>$\mathbf{c}_t^{Q}\in \mathbb{R}^{d_c&rsquo;}$ is the compressed latent vector for queries, where $d_c&rsquo;\ll d_hn_h$</li>
+<li>$W^{DQ}\in \mathbb{R}^{d_c&rsquo;\times d}$ and $W^{UQ}\in \mathbb{R}^{d_hn_h\times d_c&rsquo;}$ are the down- and up- projection matrices for queries, respectively.</li>
+<li>$W^{QR}\in \mathbb{R}^{d_h^Rn_h\times d_c&rsquo;}$ is the matrix for decoupled queries of RoPE.</li>
+</ul>
+<p>Finally, the attention queries ($\mathbf{q}_{t,i}$), keys ($\mathbf{k}_{j,i}$), and values ($\mathbf{v}_{j,i}^C$) are combined to yield the final attention output $\mathbf{u}_t$:
+\begin{align*}
+\mathbf{o}_{t,i} &amp;= \sum_{j=1}^t\text{Softmax}_j\Bigg( \frac{\mathbf{q}_{t,i}^T\mathbf{k}_{j,i}}{\sqrt{d_h+d_h^R}} \Bigg)\mathbf{v}_{j,i}^C,\\
+\mathbf{u}_t &amp;= W^O[\mathbf{o}_{t,1};\mathbf{o}_{t,2};\dots;\mathbf{o}_{t,n_h}],
+\end{align*}
+where $W^O\in \mathbb{R}^{d\times d_hn_h}$ is the output projection matrix.</p>
+<h1 id="mixture-of-experts-in-deepseek">Mixture-of-Experts in DeepSeek</h1>
+<p>Traditional Mixture-of-Experts (MoE) models often suffer from two key issues:</p>
+<ul>
+<li><strong>Knowledge Hybridity</strong>: Certain experts tend to cover a wide range of diverse knowledge rather than specializing in specific topics. This happens because input tokens are more frequently assigned to these experts than others, forcing them to handle vastly different types of knowledge.</li>
+<li><strong>Knowledge Redundancy</strong>: Different experts often end up processing tokens that require overlapping knowledge. This redundancy limits expert specialization and efficiency.</li>
+</ul>
+<p>If you are familiar with <em>Principal Component Analysis</em> (PCA), you may recognize that these issues in MoE are conceptually similar to the problems that PCA aims to address—eliminating redundancy and improving feature separation.</p>
+<p>The above issues collectively hinder the effectiveness of expert in MoE architectures. To address them, DeepSeek introduces a novel approach that incorporates a dedicated expert for common knowledge, called a <em>shared expert</em>.</p>
+<p>The following equation provides an overview of DeepSeek&rsquo;s MoE architecture:
+\begin{align*}
+\mathbf{h}_t&rsquo; = \mathbf{u}_t+\sum^{N_s}_{i=1}FFN_i^{(s)}(\mathbf{u}_t)+\sum^{N_r}_{i=1}g_{i,t}FFN_i^{(r)}(\mathbf{u}_t),
+\end{align*}</p>
+<ul>
+<li>$\mathbf{u}_t$: FFN input of the $t$-th token.</li>
+<li>$\mathbf{h}_t&rsquo;$ FFN output</li>
+<li>$N_s$ and $N_r$ are the number of <em>shared experts</em> and the <em>routed experts</em>, respectively.</li>
+<li>$FFN_i^{(s)}(\cdot)$ and $FFN_i^{(r)}(\cdot)$ are the $i$-th shared expert and the $i$-th routed expert, respectively.</li>
+</ul>
+<h2 id="the-role-of-shared-experts">The Role of Shared Experts</h2>
+<p>Unlike traditional MoE models, where all experts compete to process tokens, <strong>DeepSeek&rsquo;s shared experts are always active</strong>. These experts are responsible for <strong>capturing and consolidating common knowledge across different input contexts</strong>. By concentrating general knowledge within shared experts, DeepSeek reduces redundancy among routed experts.</p>
+<p>This separation of responsibilities allows routed experts to focus more effectively on specialized tasks, leading to better model efficiency and performance.</p>
+<h1 id="group-relative-policy-optimization">Group Relative Policy Optimization</h1>
+<p>DeepSeek introduces a reinforcement learning (RL) algorithm called <em>Group Relative Policy Optimization</em> (GRPO), which is a simple variant of <em>Proximal Policy Optimization</em> (PPO). If you have basic understanding of RL and PPO, GRPO is quite straightforward. Let&rsquo;s first go over the PPO.</p>
+<h2 id="proximal-policy-optimization">Proximal Policy Optimization</h2>
+<p>PPO was proposed to address the instability of the vanilla <em>policy gradient algorithm</em> (i.e., REINFORCE algorithm). <strong>The core idea of PPO is to stabilize the policy update process by restricting the amount of update.</strong> The objective function of PPO is given by
+\begin{align*}
+\theta_{k+1} = \operatorname{argmax}_{\theta} \mathbb{E}_{s,a\sim \pi_{\theta_k}} [L(s, a, \theta_k, \theta)],
+\end{align*}
+where $\theta_{k}$ is a parameter of a policy network at $k$-th step, $\theta$ is the current policy we want to update, and the $A$ is the advantage (\i.e., reward). Finally, the loss function $L$ is given by
+\begin{align*}
+L(s, a, \theta_k, \theta) = \min \left(\frac{\pi_{\theta}\left(a | s\right)}{\pi_{\theta_{\text {k}}}\left(a | s\right)} A^{\pi_{\theta_k}}(s,a), \text{ Clip}\Bigg(\frac{\pi_{\theta}\left(a | s\right)}{\pi_{\theta_{\text{k}}}\left(a | s\right)}, 1-\varepsilon, 1+\varepsilon\Bigg) A^{\pi_{\theta_k}}(s,a)\right).
+\end{align*}
+Roughly, $\varepsilon$ is a hyperparameter which says how far away the new policy is allowed to go from the old one. A simpler expression of the above expression is
+\begin{align*}
+L(s, a, \theta_k, \theta) = \min \left(\frac{\pi_{\theta}\left(a | s\right)}{\pi_{\theta_{\text {k}}}\left(a | s\right)} A^{\pi_{\theta_k}}(s,a), g(\varepsilon, A^{\pi_{\theta_k}}(s,a)) \right),
+\end{align*}
+where
+\begin{align*}
+g(\varepsilon,A) =
+\begin{cases}
+(1+\varepsilon)A &amp; A\geq 0\\
+(1-\varepsilon)A &amp; A&lt; 0.
+\end{cases}
+\end{align*}
+There are two cases:</p>
+<ol>
+<li>$A\geq 0$: The advantage for that state-action pair is positive, in which case its contribution to the objective reduces to
+\begin{align*}
+L(s, a, \theta_k, \theta) = \min \left(\frac{\pi_{\theta}\left(a | s\right)}{\pi_{\theta_{\text{k}}}\left(a | s\right)}, 1+\varepsilon \right) A^{\pi_{\theta_k}}(s,a).
+\end{align*}
+As the advantage is positive, the objective will increase if the action becomes more likely that is, if $\pi_{\theta}(a|s)$ increases. But the min in this term puts a limit to how much the objective can increase. Once $\pi_{\theta}(a|s) &gt; (1+\epsilon) \pi_{\theta_k}(a|s)$, the min kicks in and this term hits a ceiling of $(1+\epsilon) A^{\pi_{\theta_k}}(s,a)$. Thus, the new policy does not benefit by going far away from the old policy.</li>
+<li>$A&lt;0$: The advantage for that state-action pair is negative, in which case its contribution to the objective reduces to
+\begin{align*}
+L(s, a, \theta_k, \theta) = \max \left(\frac{\pi_{\theta}\left(a | s\right)}{\pi_{\theta_{\text{k}}}\left(a | s\right)}, 1-\varepsilon \right) A^{\pi_{\theta_k}}(s,a).
+\end{align*}
+Since the advantage is negative, the objective will increase if the action becomes less likely. In other words, if $\pi_{\theta}(a|s)$ decreases. But the max in this term puts a limit to how much the objective can increase. Once $\pi_{\theta}(a|s) &lt; (1-\varepsilon) \pi_{\theta_k}(a|s)$, the max kicks in and this term hits a ceiling of $(1-\varepsilon) A^{\pi_{\theta_k}}(s,a)$. Thus, again, the new policy does not benefit by going far away from the old policy.</li>
+</ol>
+<p>In sum, <strong>clipping serves as a regularizer</strong> by restricting the rewards to the policy, which change it dramatically with the hyperparameter $\varepsilon$ corresponds to how far away the new policy can go from the old while still profiting the objective.</p>
+<h2 id="grpo-ppo-for-deepseek">GRPO: PPO for DeepSeek</h2>
+<p>GRPO can be expressed as follows:
+\begin{align*}
+\mathcal{J} = \frac{1}{G}\sum_{i=1}^{G} \min \left(\frac{\pi_{\theta}\left(o_i | q\right)}{\pi_{\theta_{\text{k}}}\left(o_i | q\right)} A_i, \text{ Clip}\left(\frac{\pi_{\theta}\left(o_i | q\right)}{\pi_{\theta_{\text{k}}}\left(o_i | q\right)}, 1-\varepsilon, 1+\varepsilon\right) A_{i}\right) -\beta D_{KL}(\pi_{\theta}| \pi_{\text{ref}}).
+\end{align*}</p>
+<ul>
+<li>GRPO first samples a group of outputs ${o_1, o_2,\dots, o_G }$ from the old policy $\pi_{\theta_k}$</li>
+<li>Then it optimizes the policy model by maximizing the objective</li>
+<li>The KL-divergence is used to restrict the sudden change of policy.</li>
+<li>The advantage can be calculated by averaging and normalizing the rewards.</li>
+<li>Instead of using a value model explicitly, GRPO computes a value of the states (i.e., $o_i$) by averaging them.
+- Note that $A(s,a) = Q(s,a)-V(s)$</li>
+<li>$\pi_{\text{ref}}$ is the reference model, which is an initial SFT model.</li>
+</ul>
+<h1 id="deepseek-r1">DeepSeek-R1</h1>
+<p>\begin{itemize}
+\item DeepSeek-R1-Zero, which applies RL directly to the base model without any SFT data,
+\item DeepSeek-R1, which applies RL starting from a checkpoint fine-tuned with thousands of long Chain-of-Thought (CoT) examples.
+\item Distill the reasoning capability from DeepSeek-R1 to small dense models.
+\end{itemize}</p>
+<p>\subsection{DeepSeek-R1-Zero}
+The reward is the source of the training signal, which decides the optimization direction of RL. To train DeepSeek-R1-Zero, we adopt a rule-based reward system that mainly consists of two types of rewards:</p>
+<p>\begin{itemize}
+\item Accuracy rewards: The accuracy reward model evaluates whether the response is correct. For example, in the case of math problems with deterministic results, the model is required to provide the final answer in a specified format (\eg within a box), enabling reliable rule-based verification of correctness. Similarly, for LeetCode problems, a compiler can be used to generate feedback based on predefined test cases.
+\item Format rewards: In addition to the accuracy reward model, we employ a format reward model that enforces the model to put its thinking process between <think> and </think> tags.
+\end{itemize}</p>
+<p>Note that \textit{R1 does not use a neural reward model.}</p>
+<p>Aha Moment of DeepSeek-R1-Zero A particularly intriguing phenomenon observed during the training of DeepSeek-R1-Zero is the occurrence of an aha moment. This moment, as illustrated in Table 3, occurs in an intermediate version of the model. During this phase, \textbf{DeepSeek-R1-Zero learns to allocate more thinking time to a problem by reevaluating its initial approach.} This behavior is not only a testament to the model&rsquo;s growing reasoning abilities but also a captivating example of how reinforcement learning can lead to unexpected and sophisticated outcomes.</p>
+<p>This moment is not only an aha moment for the model but also for the researchers observing its behavior. It underscores the power and beauty of reinforcement learning: rather than explicitly teaching the model on how to solve a problem, we simply provide it with the right incentives, and it autonomously develops advanced problem-solving strategies. The aha moment serves as a powerful reminder of the potential of RL to unlock new levels of intelligence in artificial systems, paving the way for more autonomous and adaptive models in the future.</p>
+<p>\begin{figure}[t]
+\centering
+\includegraphics[scale=0.5]{./images/DeepSeek/aha_moment.png}
+\end{figure}</p>
+<p>\subsection{DeepSeek-R1}
+We construct and collect a small amount of long CoT data (thousands) to fine-tune the model as the initial RL actor.</p>
+<p>\begin{itemize}
+\item A key limitation of DeepSeek-R1-Zero is that its content is often not suitable for reading
+\item In contrast, when creating cold-start data for DeepSeek-R1, we design a readable pattern that includes a summary at the end of each response and filters out responses that are not reader-friendly. Here, we define the output format as |special-token|<reasoning-process>|special-token|<summary>, where the reasoning process is the CoT for the query, and the summary is used to summarize the reasoning results.
+\end{itemize}</p>
+<p>When reasoning-oriented RL converges, we utilize the resulting checkpoint to collect SFT (Supervised Fine-Tuning) data for the subsequent round. Unlike the initial cold-start data, which primarily focuses on reasoning, this stage incorporates data from other domains to enhance the model&rsquo;s capabilities in writing, role-playing, and other general-purpose tasks. Specifically, we generate the data and fine-tune the model as described below.</p>
+<p>We curate reasoning prompts and generate reasoning trajectories by performing rejection sampling from the checkpoint from the above RL training. In the previous stage, we only included data that could be evaluated using rule-based rewards. However, in this stage, we expand the dataset by incorporating additional data, some of which use a generative reward model by feeding the ground-truth and model predictions into DeepSeek-V3 for judgment. Additionally, because the model output is sometimes chaotic and difficult to read, we have filtered out chain-of-thought with mixed languages, long parapraphs, and code blocks. For each prompt, we sample multiple responses and retain only the correct ones. In total, we collect about 600k reasoning related training samples.</p>
+<p>To equip more efficient smaller models with reasoning capabilities like DeepSeek-R1, we directly fine-tuned open-source models like Qwen (Qwen, 2024b) and Llama (AI@Meta, 2024) using the 800k samples curated with DeepSeek-R1.</p>
+</div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.143.1">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"A9NUSQZEO5","algoliaIndex":"github","algoliaSearchKey":"e255482bc340762a0da27f50eddd2765","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

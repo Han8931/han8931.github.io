@@ -1,163 +1,158 @@
-# Theme Documentation - Built-in Shortcodes
+<!--# Theme Documentation - Built-in Shortcodes -->
 
 
-**Hugo** provides multiple built-in shortcodes for author convenience and to keep your markdown content clean.
+<!--**Hugo** provides multiple built-in shortcodes for author convenience and to keep your markdown content clean. -->
 
-<!--more-->
+<!--<!-1-more--> -->
 
-Hugo uses Markdown for its simple content format. However, there are a lot of things that Markdown doesn’t support well. You could use pure HTML to expand possibilities.
+<!--Hugo uses Markdown for its simple content format. However, there are a lot of things that Markdown doesn’t support well. You could use pure HTML to expand possibilities. -->
 
-But this happens to be a bad idea. Everyone uses Markdown because it’s pure and simple to read even non-rendered. You should avoid HTML to keep it as simple as possible.
+<!--But this happens to be a bad idea. Everyone uses Markdown because it’s pure and simple to read even non-rendered. You should avoid HTML to keep it as simple as possible. -->
 
-To avoid this limitations, Hugo created [shortcodes](https://gohugo.io/extras/shortcodes/).
-A shortcode is a simple snippet that can generate reasonable HTML code and conforms to Markdown's design philosophy.
+<!--To avoid this limitations, Hugo created [shortcodes](https://gohugo.io/extras/shortcodes/). -->
+<!--A shortcode is a simple snippet that can generate reasonable HTML code and conforms to Markdown's design philosophy. -->
 
-Hugo ships with a set of predefined shortcodes that represent very common usage. These shortcodes are provided for author convenience and to keep your markdown content clean.
+<!--Hugo ships with a set of predefined shortcodes that represent very common usage. These shortcodes are provided for author convenience and to keep your markdown content clean. -->
 
-## 1 figure {#figure}
+<!--## 1 figure {#figure} -->
 
-[Documentation of `figure`](https://gohugo.io/content-management/shortcodes#figure)
+<!--[Documentation of `figure`](https://gohugo.io/content-management/shortcodes#figure) -->
 
-Example `figure` input:
+<!--Example `figure` input: -->
 
-```markdown
-{{</* figure src="/images/lighthouse.jpg" title="Lighthouse (figure)" */>}}
-```
+<!--```markdown -->
+<!--{{</* figure src="/images/lighthouse.jpg" title="Lighthouse (figure)" */>}} -->
+<!--``` -->
 
-The rendered output looks like this:
+<!--The rendered output looks like this: -->
 
-{{< figure src="/images/lighthouse.jpg" title="Lighthouse (figure)" >}}
+<!--{{< figure src="/images/lighthouse.jpg" title="Lighthouse (figure)" >}} -->
 
-The HTML looks like this:
+<!--The HTML looks like this: -->
 
-```html
-<figure>
-    <img src="/images/lighthouse.jpg"/>
-    <figcaption>
-        <h4>Lighthouse (figure)</h4>
-    </figcaption>
-</figure>
-```
+<!--```html -->
+<!--<figure> -->
+<!--    <img src="/images/lighthouse.jpg"/> -->
+<!--    <figcaption> -->
+<!--        <h4>Lighthouse (figure)</h4> -->
+<!--    </figcaption> -->
+<!--</figure> -->
+<!--``` -->
 
-## 2 gist
+<!--## 2 gist -->
 
-[Documentation of `gist`](https://gohugo.io/content-management/shortcodes#gist)
+<!--[Documentation of `gist`](https://gohugo.io/content-management/shortcodes#gist) -->
 
-Example `gist` input:
+<!--Example `gist` input: -->
 
-```markdown
-{{</* gist spf13 7896402 */>}}
-```
+<!--```markdown -->
+<!--{{</* gist spf13 7896402 */>}} -->
+<!--``` -->
 
-The rendered output looks like this:
+<!--The rendered output looks like this: -->
 
-{{< gist spf13 7896402 >}}
+<!--{{< gist spf13 7896402 >}} -->
 
-The HTML looks like this:
+<!--The HTML looks like this: -->
 
-```html
-<script type="application/javascript" src="https://gist.github.com/spf13/7896402.js"></script>
-```
+<!--```html -->
+<!--<script type="application/javascript" src="https://gist.github.com/spf13/7896402.js"></script> -->
+<!--``` -->
 
-## 3 highlight
+<!--## 3 highlight -->
 
-[Documentation of `highlight`](https://gohugo.io/content-management/shortcodes#instagram)
+<!--[Documentation of `highlight`](https://gohugo.io/content-management/shortcodes#instagram) -->
 
-Example `highlight` input:
+<!--Example `highlight` input: -->
 
-```markdown
-{{</* highlight html */>}}
-<section id="main">
-    <div>
-        <h1 id="title">{{ .Title }}</h1>
-        {{ range .Pages }}
-            {{ .Render "summary"}}
-        {{ end }}
-    </div>
-</section>
-{{</* /highlight */>}}
-```
+<!--```markdown -->
+<!--{{</* highlight html */>}} -->
+<!--<section id="main"> -->
+<!--    <div> -->
+<!--        <h1 id="title">{{ .Title }}</h1> -->
+<!--        {{ range .Pages }} -->
+<!--            {{ .Render "summary"}} -->
+<!--        {{ end }} -->
+<!--    </div> -->
+<!--</section> -->
+<!--{{</* /highlight */>}} -->
+<!--``` -->
 
-The rendered output looks like this:
+<!--The rendered output looks like this: -->
 
-{{< highlight html >}}
-<section id="main">
-    <div>
-        <h1 id="title">{{ .Title }}</h1>
-        {{ range .Pages }}
-            {{ .Render "summary"}}
-        {{ end }}
-    </div>
-</section>
-{{< /highlight >}}
+<!--{{< highlight html >}} -->
+<!--<section id="main"> -->
+<!--    <div> -->
+<!--        <h1 id="title">{{ .Title }}</h1> -->
+<!--        {{ range .Pages }} -->
+<!--            {{ .Render "summary"}} -->
+<!--        {{ end }} -->
+<!--    </div> -->
+<!--</section> -->
+<!--{{< /highlight >}} -->
 
-## 4 instagram
+<!--## 4 instagram -->
 
-[Documentation of `instagram`](https://gohugo.io/content-management/shortcodes#instagram)
+<!--[Documentation of `instagram`](https://gohugo.io/content-management/shortcodes#instagram) -->
 
-{{< admonition question "Instagram’s API was deprecated since October 24th, 2020" >}}
-The instagram-shortcode refers an endpoint of Instagram’s API, that’s deprecated since October 24th, 2020.
-Thus, no images can be fetched from this API endpoint, resulting in an error when the instagram-shortcode is used.
-For more information please have a look at GitHub issue [#7879](https://github.com/gohugoio/hugo/issues/7879).
-{{< /admonition >}}
 
-## 5 param
+<!--## 5 param -->
 
-[Documentation of `param`](https://gohugo.io/content-management/shortcodes#param)
+<!--[Documentation of `param`](https://gohugo.io/content-management/shortcodes#param) -->
 
-Example `param` input:
+<!--Example `param` input: -->
 
-```markdown
-{{</* param description */>}}
-```
+<!--```markdown -->
+<!--{{</* param description */>}} -->
+<!--``` -->
 
-The rendered output looks like this:
+<!--The rendered output looks like this: -->
 
-{{< param description >}}
+<!--{{< param description >}} -->
 
-## 6 ref and relref {#ref-and-relref}
+<!--## 6 ref and relref {#ref-and-relref} -->
 
-[Documentation of `ref` and `relref`](https://gohugo.io/content-management/shortcodes#ref-and-relref)
+<!--[Documentation of `ref` and `relref`](https://gohugo.io/content-management/shortcodes#ref-and-relref) -->
 
-## 7 tweet
+<!--## 7 tweet -->
 
-[Documentation of `tweet`](https://gohugo.io/content-management/shortcodes#tweet)
+<!--[Documentation of `tweet`](https://gohugo.io/content-management/shortcodes#tweet) -->
 
-Example `tweet` input:
+<!--Example `tweet` input: -->
 
-```markdown
-{{</* tweet id="917359331535966209" user="Fastbyte01" */>}}
-```
+<!--```markdown -->
+<!--{{</* tweet id="917359331535966209" user="Fastbyte01" */>}} -->
+<!--``` -->
 
-The rendered output looks like this:
+<!--The rendered output looks like this: -->
 
-{{< tweet id="917359331535966209" user="Fastbyte01" >}}
+<!--{{< tweet id="917359331535966209" user="Fastbyte01" >}} -->
 
-## 8 vimeo
+<!--## 8 vimeo -->
 
-[Documentation of `vimeo`](https://gohugo.io/content-management/shortcodes#vimeo)
+<!--[Documentation of `vimeo`](https://gohugo.io/content-management/shortcodes#vimeo) -->
 
-Example `vimeo` input:
+<!--Example `vimeo` input: -->
 
-```markdown
-{{</* vimeo 146022717 */>}}
-```
+<!--```markdown -->
+<!--{{</* vimeo 146022717 */>}} -->
+<!--``` -->
 
-The rendered output looks like this:
+<!--The rendered output looks like this: -->
 
-{{< vimeo 146022717 >}}
+<!--{{< vimeo 146022717 >}} -->
 
-## 9 youtube
+<!--## 9 youtube -->
 
-[Documentation of `youtube`](https://gohugo.io/content-management/shortcodes#youtube)
+<!--[Documentation of `youtube`](https://gohugo.io/content-management/shortcodes#youtube) -->
 
-Example `youtube` input:
+<!--Example `youtube` input: -->
 
-```markdown
-{{</* youtube w7Ft2ymGmfc */>}}
-```
+<!--```markdown -->
+<!--{{</* youtube w7Ft2ymGmfc */>}} -->
+<!--``` -->
 
-The rendered output looks like this:
+<!--The rendered output looks like this: -->
 
-{{< youtube w7Ft2ymGmfc >}}
+<!--{{< youtube w7Ft2ymGmfc >}} -->
 
