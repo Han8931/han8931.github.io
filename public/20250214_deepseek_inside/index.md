@@ -67,10 +67,10 @@ DeepSeek addresses this memory-intensive KV caching problem by introducing an al
 - $W^{UK},W^{UV}\in \mathbb{R}^{d_hn_h\times d_c}$ are the up-projection matrices for keys and values, respectively. These operations help reconstruct the compressed information of $\mathbf{h}\_t$.
 - $W^{KR}\in \mathbb{R}^{d\_h^R\times d}$ is the matrix responsible for generating the positional embedding vector. I will explain it soon. 
 
-Unlike standard attention mechanisms like Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA only needs to cache the compressed vector $\mathbf{c}\_t^{KV}$ during inference. MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks. 
+Unlike standard attention mechanisms like Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA only needs to cache the compressed vector $\mathbf{c}\_t^{KV}$ during inference. MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks. The following figure provides an overview of KV-caching approaches in various attention mechanisms.
 
 <p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/attention_overview.png" alt="Attention mechanisms" height="400">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/attention_overview.png" alt="Attention mechanisms" height="330">
 </p> 
 
 #### Efficient Computation Without Explicit Key and Value Computation
@@ -147,9 +147,10 @@ This separation of responsibilities allows routed experts to focus more effectiv
 
 # Group Relative Policy Optimization
 
-DeepSeek introduces a reinforcement learning (RL) algorithm called *Group Relative Policy Optimization* (GRPO), which is a simple variant of *Proximal Policy Optimization* (PPO). If you have basic understanding of RL and PPO, GRPO is quite straightforward. Let's first go over the PPO. 
+DeepSeek introduces a reinforcement learning (RL) algorithm called *Group Relative Policy Optimization* (GRPO), a simple variant of *Proximal Policy Optimization* (PPO). If you have a basic understanding of RL and PPO, you'll find GRPO quite straightforward. Let's first review PPO.
 
 ## Proximal Policy Optimization
+
 PPO was proposed to address the instability of the vanilla *policy gradient algorithm* (i.e., REINFORCE algorithm). **The core idea of PPO is to stabilize the policy update process by restricting the amount of update.** The objective function of PPO is given by
 \begin{align*}
 	\theta\_{k+1} = \operatorname{argmax}\_{\theta} \mathbb{E}\_{s,a\sim \pi\_{\theta\_k}} [L(s, a, \theta\_k, \theta)],
@@ -175,12 +176,20 @@ There are two cases:
 \begin{align*}
 	L(s, a, \theta\_k, \theta) = \min \left(\frac{\pi\_{\theta}\left(a | s\right)}{\pi\_{\theta\_{\text{k}}}\left(a | s\right)}, 1+\varepsilon \right) A^{\pi\_{\theta\_k}}(s,a).
 \end{align*}
-As the advantage is positive, the objective will increase if the action becomes more likely that is, if $\pi\_{\theta}(a|s)$ increases. But the min in this term puts a limit to how much the objective can increase. Once $\pi\_{\theta}(a|s) > (1+\epsilon) \pi\_{\theta_k}(a|s)$, the min kicks in and this term hits a ceiling of $(1+\epsilon) A^{\pi\_{\theta\_k}}(s,a)$. Thus, the new policy does not benefit by going far away from the old policy.
-2. $A<0$: The advantage for that state-action pair is negative, in which case its contribution to the objective reduces to
+Since the advantage is positive, the objective function increases if the action $a$ becomes likely under the policy (i.e., $\pi\_{\theta}(a|s)$ increases). However, the $\min$ operator limits how much the objective can increase. Once 
+\begin{align*}
+    \pi\_{\theta}(a\|s) > (1+\epsilon) \pi\_{\theta_k}(a\|s), 
+\end{align*}
+the $\min$ ensures that the term is capped at $(1+\epsilon) A^{\pi\_{\theta\_k}}(s,a)$. This prevents the new policy from straying too far from the old policy.
+2. $A<0$: The advantage for that state-action pair is negative, its contribution is given by
 \begin{align*}
 	L(s, a, \theta\_k, \theta) = \max \left(\frac{\pi\_{\theta}\left(a | s\right)}{\pi\_{\theta\_{\text{k}}}\left(a | s\right)}, 1-\varepsilon \right) A^{\pi\_{\theta_k}}(s,a).
 \end{align*}
-Since the advantage is negative, the objective will increase if the action becomes less likely. In other words, if $\pi\_{\theta}(a|s)$ decreases. But the max in this term puts a limit to how much the objective can increase. Once $\pi\_{\theta}(a|s) < (1-\varepsilon) \pi\_{\theta\_k}(a|s)$, the max kicks in and this term hits a ceiling of $(1-\varepsilon) A^{\pi\_{\theta\_k}}(s,a)$. Thus, again, the new policy does not benefit by going far away from the old policy.
+Since the advantage is negative, the objective function increases if the action $a$ becomes less likely (i.e., $\pi\_{\theta}(a|s)$ decreases). The $\max$ operator limits this increase. Once 
+\begin{align*}
+    \pi\_{\theta}(a|s) < (1-\varepsilon) \pi\_{\theta\_k}(a|s), 
+\end{align*}
+the $\max$ caps the term at $(1-\varepsilon) A^{\pi\_{\theta\_k}}(s,a)$, again, ensuring that the new policy does not deviate too far from the old policy.
 
 In sum, **clipping serves as a regularizer** by restricting the rewards to the policy, which change it dramatically with the hyperparameter $\varepsilon$ corresponds to how far away the new policy can go from the old while still profiting the objective.
 
@@ -219,7 +228,7 @@ To train DeepSeek-R1-Zero, a rule-based reward signal was adopted. Two types of 
 Notably, DeepSeek-R1 does not rely on a neural reward model—likely because neural models may not consistently provide reliable rewards for training.
 
 <p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/aha_moment.png" alt="Aha moment" height="400">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/aha_moment.png" alt="Aha moment" height="350">
 </p> 
 
 The team also reported an intriguing "aha moment" with DeepSeek-R1-Zero:

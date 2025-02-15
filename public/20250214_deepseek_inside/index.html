@@ -34,7 +34,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20250214_deepseek_inside\/"
-        },"genre": "posts","keywords": "DeepSeek, LLM, Deep Learning","wordcount":  2041 ,
+        },"genre": "posts","keywords": "DeepSeek, LLM, Deep Learning","wordcount":  2025 ,
         "url": "http:\/\/localhost:1313\/20250214_deepseek_inside\/","datePublished": "2025-02-14T00:00:00+00:00","dateModified": "2025-02-15T18:03:38+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -110,7 +110,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Inside DeepSeek-R1</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/nlp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>NLP</a>&nbsp;<a href="/categories/llm/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>LLM</a>&nbsp;<a href="/categories/deep-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Deep Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-02-14">2025-02-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2041 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-02-14">2025-02-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2025 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;10 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -225,9 +225,9 @@
 <li>$W^{UK},W^{UV}\in \mathbb{R}^{d_hn_h\times d_c}$ are the up-projection matrices for keys and values, respectively. These operations help reconstruct the compressed information of $\mathbf{h}_t$.</li>
 <li>$W^{KR}\in \mathbb{R}^{d_h^R\times d}$ is the matrix responsible for generating the positional embedding vector. I will explain it soon.</li>
 </ul>
-<p>Unlike standard attention mechanisms like Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA only needs to cache the compressed vector $\mathbf{c}_t^{KV}$ during inference. MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks.</p>
+<p>Unlike standard attention mechanisms like Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA only needs to cache the compressed vector $\mathbf{c}_t^{KV}$ during inference. MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks. The following figure provides an overview of KV-caching approaches in various attention mechanisms.</p>
 <p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/attention_overview.png" alt="Attention mechanisms" height="400">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/attention_overview.png" alt="Attention mechanisms" height="330">
 </p> 
 <h4 id="efficient-computation-without-explicit-key-and-value-computation">Efficient Computation Without Explicit Key and Value Computation</h4>
 <p>A key advantage of MLA is that it avoids explicit computation of the full-sized key and value matrices. Instead, attention scores can be computed as follows:</p>
@@ -291,7 +291,7 @@ where $W^O\in \mathbb{R}^{d\times d_hn_h}$ is the output projection matrix.</p>
 <p>Unlike traditional MoE models, where all experts compete to process tokens, <strong>DeepSeek&rsquo;s shared experts are always active</strong>. These experts are responsible for <strong>capturing and consolidating common knowledge across different input contexts</strong>. By concentrating general knowledge within shared experts, DeepSeek reduces redundancy among routed experts.</p>
 <p>This separation of responsibilities allows routed experts to focus more effectively on specialized tasks, leading to better model efficiency and performance.</p>
 <h1 id="group-relative-policy-optimization">Group Relative Policy Optimization</h1>
-<p>DeepSeek introduces a reinforcement learning (RL) algorithm called <em>Group Relative Policy Optimization</em> (GRPO), which is a simple variant of <em>Proximal Policy Optimization</em> (PPO). If you have basic understanding of RL and PPO, GRPO is quite straightforward. Let&rsquo;s first go over the PPO.</p>
+<p>DeepSeek introduces a reinforcement learning (RL) algorithm called <em>Group Relative Policy Optimization</em> (GRPO), a simple variant of <em>Proximal Policy Optimization</em> (PPO). If you have a basic understanding of RL and PPO, you&rsquo;ll find GRPO quite straightforward. Let&rsquo;s first review PPO.</p>
 <h2 id="proximal-policy-optimization">Proximal Policy Optimization</h2>
 <p>PPO was proposed to address the instability of the vanilla <em>policy gradient algorithm</em> (i.e., REINFORCE algorithm). <strong>The core idea of PPO is to stabilize the policy update process by restricting the amount of update.</strong> The objective function of PPO is given by
 \begin{align*}
@@ -319,12 +319,20 @@ There are two cases:</p>
 \begin{align*}
 L(s, a, \theta_k, \theta) = \min \left(\frac{\pi_{\theta}\left(a | s\right)}{\pi_{\theta_{\text{k}}}\left(a | s\right)}, 1+\varepsilon \right) A^{\pi_{\theta_k}}(s,a).
 \end{align*}
-As the advantage is positive, the objective will increase if the action becomes more likely that is, if $\pi_{\theta}(a|s)$ increases. But the min in this term puts a limit to how much the objective can increase. Once $\pi_{\theta}(a|s) &gt; (1+\epsilon) \pi_{\theta_k}(a|s)$, the min kicks in and this term hits a ceiling of $(1+\epsilon) A^{\pi_{\theta_k}}(s,a)$. Thus, the new policy does not benefit by going far away from the old policy.</li>
-<li>$A&lt;0$: The advantage for that state-action pair is negative, in which case its contribution to the objective reduces to
+Since the advantage is positive, the objective function increases if the action $a$ becomes likely under the policy (i.e., $\pi_{\theta}(a|s)$ increases). However, the $\min$ operator limits how much the objective can increase. Once
+\begin{align*}
+\pi_{\theta}(a|s) &gt; (1+\epsilon) \pi_{\theta_k}(a|s),
+\end{align*}
+the $\min$ ensures that the term is capped at $(1+\epsilon) A^{\pi_{\theta_k}}(s,a)$. This prevents the new policy from straying too far from the old policy.</li>
+<li>$A&lt;0$: The advantage for that state-action pair is negative, its contribution is given by
 \begin{align*}
 L(s, a, \theta_k, \theta) = \max \left(\frac{\pi_{\theta}\left(a | s\right)}{\pi_{\theta_{\text{k}}}\left(a | s\right)}, 1-\varepsilon \right) A^{\pi_{\theta_k}}(s,a).
 \end{align*}
-Since the advantage is negative, the objective will increase if the action becomes less likely. In other words, if $\pi_{\theta}(a|s)$ decreases. But the max in this term puts a limit to how much the objective can increase. Once $\pi_{\theta}(a|s) &lt; (1-\varepsilon) \pi_{\theta_k}(a|s)$, the max kicks in and this term hits a ceiling of $(1-\varepsilon) A^{\pi_{\theta_k}}(s,a)$. Thus, again, the new policy does not benefit by going far away from the old policy.</li>
+Since the advantage is negative, the objective function increases if the action $a$ becomes less likely (i.e., $\pi_{\theta}(a|s)$ decreases). The $\max$ operator limits this increase. Once
+\begin{align*}
+\pi_{\theta}(a|s) &lt; (1-\varepsilon) \pi_{\theta_k}(a|s),
+\end{align*}
+the $\max$ caps the term at $(1-\varepsilon) A^{\pi_{\theta_k}}(s,a)$, again, ensuring that the new policy does not deviate too far from the old policy.</li>
 </ol>
 <p>In sum, <strong>clipping serves as a regularizer</strong> by restricting the rewards to the policy, which change it dramatically with the hyperparameter $\varepsilon$ corresponds to how far away the new policy can go from the old while still profiting the objective.</p>
 <h2 id="grpo-ppo-for-deepseek">GRPO: PPO for DeepSeek</h2>
@@ -355,7 +363,7 @@ Since the advantage is negative, the objective will increase if the action becom
 </ul>
 <p>Notably, DeepSeek-R1 does not rely on a neural reward model—likely because neural models may not consistently provide reliable rewards for training.</p>
 <p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/aha_moment.png" alt="Aha moment" height="400">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/aha_moment.png" alt="Aha moment" height="350">
 </p> 
 <p>The team also reported an intriguing &ldquo;aha moment&rdquo; with DeepSeek-R1-Zero:</p>
 <p>&ldquo;<em>DeepSeek-R1-Zero learns to allocate more thinking time to a problem by reevaluating its initial approach. This behavior is not only a testament to the model&rsquo;s growing reasoning abilities but also a captivating example of how reinforcement learning can lead to unexpected and sophisticated outcomes.</em>&rdquo;</p>
