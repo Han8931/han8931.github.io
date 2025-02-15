@@ -152,7 +152,7 @@
 <hr>
 <h1 id="multi-head-latent-attention">Multi-Head Latent Attention</h1>
 <p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/mla.pdf" alt="Multi-head latent attention" height="400">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/mla.png" alt="Multi-head latent attention" height="400">
 </p> 
 <h3 id="quick-review-of-multi-head-attention">Quick Review of Multi-Head Attention</h3>
 <p>The query, key, and value in a standard multi-head attention (MHA) mechanism can be expressed as follows:</p>
@@ -224,7 +224,7 @@ u_t &amp;= W^O[o_{t,1}, \dots, o_{t,n_h}]\\
 where $W^O\in \mathbb{R}^{d\times d_hn_h}$ is the output projection matrix.</p>
 <h1 id="mixture-of-experts-in-deepseek">Mixture-of-Experts in DeepSeek</h1>
 <p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/deepseek_moe.png" alt="Multi-head latent attention" height="400">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/deepseek_moe.png" alt="DeepSeek MoE" height="350">
 </p> 
 <p>Traditional Mixture-of-Experts (MoE) models often suffer from two key issues:</p>
 <ul>
@@ -285,7 +285,7 @@ Since the advantage is negative, the objective will increase if the action becom
 <p>In sum, <strong>clipping serves as a regularizer</strong> by restricting the rewards to the policy, which change it dramatically with the hyperparameter $\varepsilon$ corresponds to how far away the new policy can go from the old while still profiting the objective.</p>
 <h2 id="grpo-ppo-for-deepseek">GRPO: PPO for DeepSeek</h2>
 <p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/grpo.png" alt="Multi-head latent attention" height="400">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/grpo.png" alt="GRPO" height="350">
 </p> 
 <p>GRPO can be expressed as follows:
 \begin{align*}
@@ -311,7 +311,7 @@ Since the advantage is negative, the objective will increase if the action becom
 </ul>
 <p>Notably, DeepSeek-R1 does not rely on a neural reward model—likely because neural models may not consistently provide reliable rewards for training.</p>
 <p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/aha_moment.png" alt="Multi-head latent attention" height="400">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/aha_moment.png" alt="Aha moment" height="400">
 </p> 
 <p>The team also reported an intriguing &ldquo;aha moment&rdquo; with DeepSeek-R1-Zero:</p>
 <p>&ldquo;<em>DeepSeek-R1-Zero learns to allocate more thinking time to a problem by reevaluating its initial approach. This behavior is not only a testament to the model&rsquo;s growing reasoning abilities but also a captivating example of how reinforcement learning can lead to unexpected and sophisticated outcomes.</em>&rdquo;</p>

@@ -12,7 +12,7 @@ To help general readers navigate DeepSeek's innovations more easily, I decided t
 
 
 <p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/mla.pdf" alt="Multi-head latent attention" height="400">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/mla.png" alt="Multi-head latent attention" height="400">
 </p> 
 
 
@@ -98,7 +98,7 @@ where $W^O\in \mathbb{R}^{d\times d\_hn\_h}$ is the output projection matrix.
 # Mixture-of-Experts in DeepSeek
 
 <p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/deepseek_moe.png" alt="Multi-head latent attention" height="400">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/deepseek_moe.png" alt="DeepSeek MoE" height="350">
 </p> 
 
 
@@ -167,7 +167,7 @@ In sum, **clipping serves as a regularizer** by restricting the rewards to the p
 ## GRPO: PPO for DeepSeek
 
 <p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/grpo.png" alt="Multi-head latent attention" height="400">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/grpo.png" alt="GRPO" height="350">
 </p> 
 
 
@@ -199,7 +199,7 @@ To train DeepSeek-R1-Zero, a rule-based reward signal was adopted. Two types of 
 Notably, DeepSeek-R1 does not rely on a neural reward model—likely because neural models may not consistently provide reliable rewards for training.
 
 <p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/aha_moment.png" alt="Multi-head latent attention" height="400">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/deepseek/aha_moment.png" alt="Aha moment" height="400">
 </p> 
 
 The team also reported an intriguing "aha moment" with DeepSeek-R1-Zero:
