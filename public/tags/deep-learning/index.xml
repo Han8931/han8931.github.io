@@ -5,12 +5,14 @@
         <description>Deep Learning - Tag - Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
             <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 14 Feb 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/deep-learning/" rel="self" type="application/rss+xml" /><item>
-    <title>A Gentle Guide to DeepSeek</title>
+    <title>Understanding DeepSeek Part 1</title>
     <link>http://localhost:1313/20250214_deepseek_componenet/</link>
     <pubDate>Fri, 14 Feb 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/20250214_deepseek_componenet/</guid>
-    <description><![CDATA[<h2 id="multi-head-latent-attention">Multi-Head Latent Attention</h2>]]></description>
+    <description><![CDATA[<p>The recent developments surrounding DeepSeek have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their approaches and engineering techniques are impressive, and I really enjoyed reading their reports. However, I found that understanding their key ideas required a substantial amount of effort.</p>
+<p>The DeepSeek&rsquo;s</p>
+<p>To help general readers navigate DeepSeek’s innovations more easily, I decided to write this post as a gentle introduction to their key components. I hope that this will provide a clear and accessible explanation of their major contributions. I strongly encourage you to read their reports in detail!</p>]]></description>
 </item>
 </channel>
 </rss>

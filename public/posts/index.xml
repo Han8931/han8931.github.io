@@ -4,7 +4,17 @@
         <link>http://localhost:1313/posts/</link>
         <description>All Posts | Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 28 Jan 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 14 Feb 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Understanding DeepSeek Part 1</title>
+    <link>http://localhost:1313/20250214_deepseek_componenet/</link>
+    <pubDate>Fri, 14 Feb 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20250214_deepseek_componenet/</guid>
+    <description><![CDATA[<p>The recent developments surrounding DeepSeek have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their approaches and engineering techniques are impressive, and I really enjoyed reading their reports. However, I found that understanding their key ideas required a substantial amount of effort.</p>
+<p>The DeepSeek&rsquo;s</p>
+<p>To help general readers navigate DeepSeek’s innovations more easily, I decided to write this post as a gentle introduction to their key components. I hope that this will provide a clear and accessible explanation of their major contributions. I strongly encourage you to read their reports in detail!</p>]]></description>
+</item>
+<item>
     <title>Abstract Classes or Protocols</title>
     <link>http://localhost:1313/20250128_python_protocol_abstract_classes/</link>
     <pubDate>Tue, 28 Jan 2025 00:00:00 &#43;0000</pubDate>
@@ -117,17 +127,6 @@ where:</p>]]></description>
     <description><![CDATA[<h1 id="latent-variable-modeling">Latent Variable Modeling</h1>
 <h2 id="motivation-of-latent-variable-modeling">Motivation of Latent Variable Modeling</h2>
 <p>Let&rsquo;s say we want to classify some data. If we had access to a corresponding latent variable for each observation $ \mathbf{x}_i $, modeling would be more straightforward. To illustrate this, consider the challenge of finding the latent variable (i.e., the true class of $ \mathbf{x} $). It can be expressed like $ z^* = \argmax_{z} p(\mathbf{x} | z) $. It is hard to identify the true clusters without prior knowledge about them. For example, we can cluster like Fig. (b) or (c).</p>]]></description>
-</item>
-<item>
-    <title>Gentle Introduction to Singular Value Decomposition</title>
-    <link>http://localhost:1313/20240815_svd/</link>
-    <pubDate>Thu, 15 Aug 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/20240815_svd/</guid>
-    <description><![CDATA[<h1 id="singular-value-decomposition">Singular Value Decomposition</h1>
-<p>In linear algebra, the singular value decomposition (SVD) is a factorization of a real or complex matrix. It generalizes the eigendecomposition of a square matrix by extending the concept to asymmetric or rectangular matrices, which cannot be diagonalized directly using eigendecomposition. The SVD aims to find the following decomposition of a real-valued matrix $A$:
-$$A = U\Sigma V^T,$$
-where $U$ and $V$ are orthogonal (orthonormal) matrices, and $\Sigma$ is a diagonal matrix. The columns of $U$ are called the left singular vectors of $A$, the columns of $V$ are called the right singular vectors, and the diagonal elements of $\Sigma$ are called the singular values.</p>]]></description>
 </item>
 </channel>
 </rss>

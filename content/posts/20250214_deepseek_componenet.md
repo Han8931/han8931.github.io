@@ -7,22 +7,15 @@ author: Han
 description: "A Gentle Guide to DeepSeek"
 tags: ["DeepSeek", "LLM", "Deep Learning"]
 categories: ["NLP", "LLM", "Deep Learning"]
----
-The recent developments surrounding DeepSeek have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their approaches and engineering techniques are impressive, and I really enjoyed reading their reports. However, I found that understanding their key ideas required a substantial amount of effort.
-
-The DeepSeek's 
-
-To help general readers navigate DeepSeek’s innovations more easily, I decided to write this post as a gentle introduction to their key components. I hope that this will provide a clear and accessible explanation of their major contributions. I strongly encourage you to read their reports in detail!
 
 ---
+[DeepSeek](https://www.deepseek.com/)'s latest moves have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their engineering techniques behind DeepSeek are truly impressive, and their reports are quite enjoyable. However, understanding their core ideas can be challenging and demands a substantial amount of effort.
 
-<!-- ## Contents -->
+At the forefront of this innovation is DeepSeek-R1, a model that built upon the foundation established by preceding projects such as DeepSeek Coder, Math, MoE, and notably, the DeepSeek-V3 model. While DeepSeek-R1 is the center of the DeepSeek's frenzy, its success is rooted on these past works. 
 
-<!-- 1. [Multi-Head Latent Attention](#multi-head-latent-attention) -->
-<!--     <!-1- - [Quick Review of Multi-Head Attention](#quick-review-of-multi-head-attention) -1-> -->
-<!--     <!-1- - [Low-Rank Joint Compression](#low-rank-joint-compression) -1-> -->
-<!-- 2. [DeepSeek MoE](#deepseek-moe) -->
-<!-- --- -->
+To help general readers navigate DeepSeek's innovations more easily, I decided to write this post as a gentle introduction to their key components. I will begin by exploring the key ideas of V3 model, which serves as a cornerstone for DeepSeek-R1. I hope that this post will provide a clear and accessible explanation of their major contributions. Also, I strongly encourage you to read their reports :)
+
+---
 
 # Multi-Head Latent Attention
 
@@ -49,10 +42,10 @@ DeepSeek addresses this memory-intensive KV caching problem by introducing an al
 
 \begin{align*}
 	\mathbf{c}_t^{KV} &= W^{DKV}\mathbf{h}_t\\\\
-	[\mathbf{k}\_{t,1}^C; \mathbf{k}\_{t,2}^C\; \dots ;\mathbf{k}\_{t,n_h}^C;] = \mathbf{k}_t^{C} &= W^{UK}\mathbf{c}_t^\{KV}\\\\
+	[\mathbf{k}\_{t,1}^C; \mathbf{k}\_{t,2}^C\; \dots ;\mathbf{k}\_{t,n_h}^C] = \mathbf{k}_t^{C} &= W^{UK}\mathbf{c}_t^\{KV}\\\\
 	\mathbf{k}_t^{R} &= \text{RoPE}(W^{KR}\mathbf{h}_t)\\\\
 	\mathbf{k}\_{t,i} &= [\mathbf{k}\_{t,i}^C;\mathbf{k}_t^{R}]\\\\
-	[\mathbf{v}\_{t,1}^C; \mathbf{v}\_{t,2}^C; \dots ;\mathbf{v}\_{t,n_h}^C;] = \mathbf{v}_t^{C} &= W^{UV}\mathbf{c}_t^{KV}
+	[\mathbf{v}\_{t,1}^C; \mathbf{v}\_{t,2}^C; \dots ;\mathbf{v}\_{t,n_h}^C] = \mathbf{v}_t^{C} &= W^{UV}\mathbf{c}_t^{KV}
 \end{align*}
 - $D$ and $U$ superscripts denote the up- and down- projection, respectively.
 - $\mathbf{c}\_t^{KV}\in \mathbb{R}^{d_c}$ is the *compressed latent vector* for keys and values, where $d_c\ll d_hn_h$. Note that this is *not* a query vector.
@@ -64,7 +57,7 @@ Unlike traditional KV caching, MLA only stores the compressed vector ctKVctKV​
 
 Unlike standard KV-caching, MLA only needs to cache the compressed vector $\mathbf{c}\_t^{KV}$ during inference. unlike Grouped-Query Attention (GQA) or Multi-Query Attention (MQA), MLA does not reduce the number of keys and values, allowing it to maintain the full representational power of self-attention while alleviating memory bottlenecks. 
 
-#### Efficient Computation Without Explicit Key/Value Storage
+#### Efficient Computation Without Explicit Key & Value Computation
 
 A key advantage of MLA is that it avoids explicitly computing and storing full-sized key and value matrices. Instead, attention scores are computed directly in the compressed space:
 
@@ -92,8 +85,8 @@ DeepSeek circumvents this issue by introducing an explicit positional embedding 
 To further reduce activation memory during training, DeepSeek also compresses queries:
 \begin{align*}
 	\mathbf{c}\_t^{Q} &= W^{DQ}\mathbf{h}\_t\\\\
-	[\mathbf{q}\_{t,1}^C; \mathbf{q}\_{t,2}^C; \dots ;\mathbf{q}\_{t,n_h}^C;] = \mathbf{q}\_t^{C} &= W^{UQ}\mathbf{c}\_t^{Q}\\\\
-	[\mathbf{q}\_{t,1}^R; \mathbf{q}\_{t,2}^R; \dots ;\mathbf{q}\_{t,n_h}^R;] = \mathbf{q}\_t^{R} &= \text{RoPE}(W^{QR}\mathbf{c}\_t^Q)\\\\
+	[\mathbf{q}\_{t,1}^C; \mathbf{q}\_{t,2}^C; \dots ;\mathbf{q}\_{t,n_h}^C] = \mathbf{q}\_t^{C} &= W^{UQ}\mathbf{c}\_t^{Q}\\\\
+	[\mathbf{q}\_{t,1}^R; \mathbf{q}\_{t,2}^R; \dots ;\mathbf{q}\_{t,n_h}^R] = \mathbf{q}\_t^{R} &= \text{RoPE}(W^{QR}\mathbf{c}\_t^Q)\\\\
 	\mathbf{q}\_{t,i} &= [\mathbf{q}\_{t,i}^C;\mathbf{q}\_{t,i}^{R}]
 \end{align*}
 - $\mathbf{c}\_t^{Q}\in \mathbb{R}^{d\_c'}$ is the compressed latent vector for queries, where $d\_c'\ll d\_hn\_h$
@@ -188,41 +181,31 @@ GRPO can be expressed as follows:
 
 # DeepSeek-R1
 
-\begin{itemize}
-	\item DeepSeek-R1-Zero, which applies RL directly to the base model without any SFT data, 
-	\item DeepSeek-R1, which applies RL starting from a checkpoint fine-tuned with thousands of long Chain-of-Thought (CoT) examples. 
-	\item Distill the reasoning capability from DeepSeek-R1 to small dense models.
-\end{itemize}
+DeepSeek-R1 is essentially a large language model fine-tuned using reinforcement learning. The process begins with training the DeepSeek-V3 model using the GRPO technique described earlier. Before applying RL, the model is pre-tuned with a small, carefully curated set of warm-up data designed to encourage logical outputs in a Chain-of-Thought (CoT) format. This preliminary step significantly improves training stability.
 
-\subsection{DeepSeek-R1-Zero}
-The reward is the source of the training signal, which decides the optimization direction of RL. To train DeepSeek-R1-Zero, we adopt a rule-based reward system that mainly consists of two types of rewards:
+Interestingly, DeepSeek's researchers first experimented with pure RL training—without any supervised signals—which led to the creation of DeepSeek-R1-Zero. Here are some observations from that experiment and my opinions.
 
-\begin{itemize}
-	\item Accuracy rewards: The accuracy reward model evaluates whether the response is correct. For example, in the case of math problems with deterministic results, the model is required to provide the final answer in a specified format (\eg within a box), enabling reliable rule-based verification of correctness. Similarly, for LeetCode problems, a compiler can be used to generate feedback based on predefined test cases. 
-	\item Format rewards: In addition to the accuracy reward model, we employ a format reward model that enforces the model to put its thinking process between <think> and </think> tags.
-\end{itemize}
+## DeepSeek R1-Zero
 
-Note that \textit{R1 does not use a neural reward model.}
+To train DeepSeek-R1-Zero, a rule-based reward signal was adopted. Two types of rewards are used:
 
-Aha Moment of DeepSeek-R1-Zero A particularly intriguing phenomenon observed during the training of DeepSeek-R1-Zero is the occurrence of an aha moment. This moment, as illustrated in Table 3, occurs in an intermediate version of the model. During this phase, \textbf{DeepSeek-R1-Zero learns to allocate more thinking time to a problem by reevaluating its initial approach.} This behavior is not only a testament to the model's growing reasoning abilities but also a captivating example of how reinforcement learning can lead to unexpected and sophisticated outcomes.
+- **Accuracy rewards**: The reward model evaluates whether the response is correct. For example, in math problems with deterministic results, the model is required to provide the final answer in a specified format, enabling reliable rule-based verification of correctness. Similarly, for LeetCode problems, a compiler can be used to generate feedback based on predefined test cases. 
+- **Format rewards**: In addition to the accuracy reward model, they employed a format reward model that enforces the model to put its thinking process between `<think>` and `</think>` tags.
 
-This moment is not only an aha moment for the model but also for the researchers observing its behavior. It underscores the power and beauty of reinforcement learning: rather than explicitly teaching the model on how to solve a problem, we simply provide it with the right incentives, and it autonomously develops advanced problem-solving strategies. The aha moment serves as a powerful reminder of the potential of RL to unlock new levels of intelligence in artificial systems, paving the way for more autonomous and adaptive models in the future.
+Notably, DeepSeek-R1 does not rely on a neural reward model—likely because neural models may not consistently provide reliable rewards for training.
 
-\begin{figure}[t]
-	\centering
-	\includegraphics[scale=0.5]{./images/DeepSeek/aha_moment.png}
-\end{figure}
+The team also reported an intriguing "aha moment" with DeepSeek-R1-Zero:
 
-\subsection{DeepSeek-R1}
-We construct and collect a small amount of long CoT data (thousands) to fine-tune the model as the initial RL actor.
+"*DeepSeek-R1-Zero learns to allocate more thinking time to a problem by reevaluating its initial approach. This behavior is not only a testament to the model's growing reasoning abilities but also a captivating example of how reinforcement learning can lead to unexpected and sophisticated outcomes.*"
 
-\begin{itemize}
-	\item A key limitation of DeepSeek-R1-Zero is that its content is often not suitable for reading
-	\item In contrast, when creating cold-start data for DeepSeek-R1, we design a readable pattern that includes a summary at the end of each response and filters out responses that are not reader-friendly. Here, we define the output format as |special-token|<reasoning-process>|special-token|<summary>, where the reasoning process is the CoT for the query, and the summary is used to summarize the reasoning results.
-\end{itemize}
+However, such behavior appears infrequently. More often, DeepSeek-R1-Zero tends to generate gibberish outputs, which may be attributed to the inherently unstable nature of RL training.
 
-When reasoning-oriented RL converges, we utilize the resulting checkpoint to collect SFT (Supervised Fine-Tuning) data for the subsequent round. Unlike the initial cold-start data, which primarily focuses on reasoning, this stage incorporates data from other domains to enhance the model's capabilities in writing, role-playing, and other general-purpose tasks. Specifically, we generate the data and fine-tune the model as described below.
+# Conclusion
 
-We curate reasoning prompts and generate reasoning trajectories by performing rejection sampling from the checkpoint from the above RL training. In the previous stage, we only included data that could be evaluated using rule-based rewards. However, in this stage, we expand the dataset by incorporating additional data, some of which use a generative reward model by feeding the ground-truth and model predictions into DeepSeek-V3 for judgment. Additionally, because the model output is sometimes chaotic and difficult to read, we have filtered out chain-of-thought with mixed languages, long parapraphs, and code blocks. For each prompt, we sample multiple responses and retain only the correct ones. In total, we collect about 600k reasoning related training samples.
+In this post, I've introduced some of the core ideas behind the DeepSeek-v3 and R1 models. While their deep learning techniques are undoubtedly interesting, I find their hardware-level engineering particularly more impressive. In my opinion, their success lies in these engineering achievements, and I look forward to exploring this aspect in a forthcoming post.
 
-To equip more efficient smaller models with reasoning capabilities like DeepSeek-R1, we directly fine-tuned open-source models like Qwen (Qwen, 2024b) and Llama (AI@Meta, 2024) using the 800k samples curated with DeepSeek-R1.
+
+
+
+
+
