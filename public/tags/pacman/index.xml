@@ -1,22 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Pacman on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/pacman/</link>
-    <description>Recent content in Pacman on Han&#39;s XYZ</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 04 Aug 2024 10:40:37 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/pacman/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Handy Pacman Commands in Arch Linux</title>
-      <link>http://localhost:1313/20240501_pacman/</link>
-      <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20240501_pacman/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://archlinux.org/pacman/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;Pacman&lt;/a&gt;&#xA;, the package manager for Arch Linux, is known for its &lt;strong&gt;simple&lt;/strong&gt; binary package format and &lt;strong&gt;easy-to-use&lt;/strong&gt; &lt;a href=&#34;https://wiki.archlinux.org/title/Arch_build_system&#34; title=&#34;Arch build system&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;build system&lt;/a&gt;&#xA;. The primary aim of Pacman is to facilitate straightforward management of packages from both the &lt;a href=&#34;https://wiki.archlinux.org/title/Official_repositories&#34; title=&#34;Official repositories&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;official repositories&lt;/a&gt;&#xA; and user-generated builds.&lt;/p&gt;&#xA;&lt;p&gt;Pacman ensures your system remains updated by synchronizing the package lists with the master server. This client/server model simplifies the process of downloading and installing packages, along with all their dependencies, using basic commands.&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Pacman - Tag - Han&#39;s XYZ</title>
+        <link>http://localhost:1313/tags/pacman/</link>
+        <description>Pacman - Tag - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 01 May 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/pacman/" rel="self" type="application/rss+xml" /><item>
+    <title>Handy Pacman Commands in Arch Linux</title>
+    <link>http://localhost:1313/20240501_pacman/</link>
+    <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240501_pacman/</guid>
+    <description><![CDATA[<p><a href="https://archlinux.org/pacman/" target="_blank" rel="noopener noreffer">Pacman</a>
+, the package manager for Arch Linux, is known for its <strong>simple</strong> binary package format and <strong>easy-to-use</strong> <a href="https://wiki.archlinux.org/title/Arch_build_system" title="Arch build system" target="_blank" rel="noopener noreffer">build system</a>
+. The primary aim of Pacman is to facilitate straightforward management of packages from both the <a href="https://wiki.archlinux.org/title/Official_repositories" title="Official repositories" target="_blank" rel="noopener noreffer">official repositories</a>
+ and user-generated builds.</p>
+<p>Pacman ensures your system remains updated by synchronizing the package lists with the master server. This client/server model simplifies the process of downloading and installing packages, along with all their dependencies, using basic commands.</p>]]></description>
+</item>
+</channel>
 </rss>

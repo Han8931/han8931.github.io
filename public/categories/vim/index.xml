@@ -1,22 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Vim on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/categories/vim/</link>
-    <description>Recent content in Vim on Han&#39;s XYZ</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 31 Aug 2024 10:02:57 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/vim/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Vim, Type at the Speed of Thought!</title>
-      <link>http://localhost:1313/20240501_vim/</link>
-      <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20240501_vim/</guid>
-      <description>&lt;p&gt;While it may look somewhat obsolete in an era dominated by graphically rich IDEs, Vim remains not just a highly relevant and effective tool for today&amp;rsquo;s programmers but also a badge of coolness in the tech world. Those who master its commands are often seen as &lt;strong&gt;coding wizards&lt;/strong&gt;. With its unique advantages in speed, efficiency, and customizability, Vim is an invaluable asset in software development environments, proving that old-school can still be trendy.&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Vim - Category - Han&#39;s XYZ</title>
+        <link>http://localhost:1313/categories/vim/</link>
+        <description>Vim - Category - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 13 Apr 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/vim/" rel="self" type="application/rss+xml" /><item>
+    <title>Git with Vim Fugitive: A Streamlined Workflow</title>
+    <link>http://localhost:1313/20250413_vim_fugitive/</link>
+    <pubDate>Sun, 13 Apr 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20250413_vim_fugitive/</guid>
+    <description><![CDATA[<p>If you&rsquo;re working with Git and Vim, <a href="https://github.com/tpope/vim-fugitive" target="_blank" rel="noopener noreffer"><strong>vim-fugitive</strong></a>
+ is an essential plugin that transforms your editor into a full-fledged Git interface. Here&rsquo;s how I use Fugitive to review, stage, and commit changes—without ever leaving Vim.</p>
+<h2 id="1-browsing-git-history-and-logs-first">1. Browsing Git History and Logs First</h2>
+<p>Before jumping into edits, it’s often useful to understand the file’s history or recent project changes.</p>
+<ul>
+<li><code>:Git log</code> — shows the project’s commit history in reverse chronological order</li>
+<li><code>:0Gllog</code> — shows the history of the current file</li>
+</ul>
+<p>To explore who changed what in a file:</p>]]></description>
+</item>
+<item>
+    <title>Vim, Type at the Speed of Thought!</title>
+    <link>http://localhost:1313/20240501_vim/</link>
+    <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240501_vim/</guid>
+    <description><![CDATA[<p>While it may look somewhat obsolete in an era dominated by graphically rich IDEs, Vim remains not just a highly relevant and effective tool for today&rsquo;s programmers but also a badge of coolness in the tech world. Those who master its commands are often seen as <strong>coding wizards</strong>. With its unique advantages in speed, efficiency, and customizability, Vim is an invaluable asset in software development environments, proving that old-school can still be trendy.</p>]]></description>
+</item>
+</channel>
 </rss>

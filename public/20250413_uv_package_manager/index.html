@@ -26,7 +26,7 @@
 <meta name="application-name" content="KeepIt">
 <meta name="apple-mobile-web-app-title" content="KeepIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/20250413_uv_package_manager/" /><link rel="prev" href="http://localhost:1313/20250214_deepseek_inside/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/20250413_uv_package_manager/" /><link rel="prev" href="http://localhost:1313/20250413_vim_fugitive/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -35,7 +35,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20250413_uv_package_manager\/"
-        },"genre": "posts","keywords": "python, uv, package manager, Virtual Environment","wordcount":  895 ,
+        },"genre": "posts","keywords": "python, uv, package manager, Virtual Environment","wordcount":  873 ,
         "url": "http:\/\/localhost:1313\/20250413_uv_package_manager\/","datePublished": "2025-04-13T00:00:00+00:00","dateModified": "2025-04-13T11:37:22+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -111,7 +111,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">All‑in‑One Python Package Manager: UV!</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-04-13">2025-04-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;895 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-04-13">2025-04-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;873 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -170,11 +170,6 @@
           <td><strong>Reproducibility</strong></td>
           <td><code>requirements.txt</code> is order‑sensitive &amp; lacks metadata</td>
           <td>Deterministic <code>uv.lock</code> capturing hashes &amp; markers</td>
-      </tr>
-      <tr>
-          <td><strong>Multi‑language inspiration</strong></td>
-          <td>Cargo (Rust), npm (Node) show cohesive UX</td>
-          <td>Borrowing proven ideas, but tailored to Python</td>
       </tr>
   </tbody>
 </table>
@@ -251,7 +246,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv publish          <span class="c1"># ➏ build sdist &amp; wheel, upload to PyPI</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv publish          <span class="c1"># ➏ upload to PyPI</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Zero extra config; metadata comes from <code>pyproject.toml</code>.</p>
@@ -279,7 +274,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv add --dev pytest ruff      <span class="c1"># added under [tool.poetry.group.dev]</span>
-</span></span><span class="line"><span class="cl">uv sync --no-group dev        <span class="c1"># CI can skip dev deps</span>
+</span></span><span class="line"><span class="cl">uv sync --no-group dev        <span class="c1"># skip dev deps</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -407,7 +402,7 @@
   </tbody>
 </table>
 <hr>
-<p>I hope you enjoy my post!</p>
+<p>I hope you enjoyed my post!</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -432,11 +427,11 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/20250214_deepseek_inside/" class="prev" rel="prev" title="Inside DeepSeek-R1"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Inside DeepSeek-R1</a></div>
+    <div class="post-nav"><a href="/20250413_vim_fugitive/" class="prev" rel="prev" title="Git with Vim Fugitive: A Streamlined Workflow"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Git with Vim Fugitive: A Streamlined Workflow</a></div>
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.146.1">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

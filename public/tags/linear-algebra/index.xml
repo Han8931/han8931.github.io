@@ -1,22 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Linear Algebra on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/linear-algebra/</link>
-    <description>Recent content in Linear Algebra on Han&#39;s XYZ</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 15 Aug 2024 12:33:17 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Gentle Introduction to Singular Value Decomposition</title>
-      <link>http://localhost:1313/20240815_svd/</link>
-      <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20240815_svd/</guid>
-      <description>&lt;h1 id=&#34;singular-value-decomposition&#34;&gt;Singular Value Decomposition&lt;/h1&gt;&#xA;&lt;p&gt;In linear algebra, the singular value decomposition (SVD) is a factorization of a real or complex matrix. It generalizes the eigendecomposition of a square matrix by extending the concept to asymmetric or rectangular matrices, which cannot be diagonalized directly using eigendecomposition. The SVD aims to find the following decomposition of a real-valued matrix $A$:&#xA;$$A = U\Sigma V^T,$$&#xA;where $U$ and $V$ are orthogonal (orthonormal) matrices, and $\Sigma$ is a diagonal matrix. The columns of $U$ are called the left singular vectors of $A$, the columns of $V$ are called the right singular vectors, and the diagonal elements of $\Sigma$ are called the singular values.&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Linear Algebra - Tag - Han&#39;s XYZ</title>
+        <link>http://localhost:1313/tags/linear-algebra/</link>
+        <description>Linear Algebra - Tag - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 15 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linear-algebra/" rel="self" type="application/rss+xml" /><item>
+    <title>Gentle Introduction to Singular Value Decomposition</title>
+    <link>http://localhost:1313/20240815_svd/</link>
+    <pubDate>Thu, 15 Aug 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240815_svd/</guid>
+    <description><![CDATA[<h1 id="singular-value-decomposition">Singular Value Decomposition</h1>
+<p>In linear algebra, the singular value decomposition (SVD) is a factorization of a real or complex matrix. It generalizes the eigendecomposition of a square matrix by extending the concept to asymmetric or rectangular matrices, which cannot be diagonalized directly using eigendecomposition. The SVD aims to find the following decomposition of a real-valued matrix $A$:
+$$A = U\Sigma V^T,$$
+where $U$ and $V$ are orthogonal (orthonormal) matrices, and $\Sigma$ is a diagonal matrix. The columns of $U$ are called the left singular vectors of $A$, the columns of $V$ are called the right singular vectors, and the diagonal elements of $\Sigma$ are called the singular values.</p>]]></description>
+</item>
+</channel>
 </rss>

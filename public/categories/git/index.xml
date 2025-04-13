@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Git - Category - Han&#39;s XYZ</title>
+        <link>http://localhost:1313/categories/git/</link>
+        <description>Git - Category - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 13 Apr 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/git/" rel="self" type="application/rss+xml" /><item>
+    <title>Git with Vim Fugitive: A Streamlined Workflow</title>
+    <link>http://localhost:1313/20250413_vim_fugitive/</link>
+    <pubDate>Sun, 13 Apr 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20250413_vim_fugitive/</guid>
+    <description><![CDATA[<p>If you&rsquo;re working with Git and Vim, <a href="https://github.com/tpope/vim-fugitive" target="_blank" rel="noopener noreffer"><strong>vim-fugitive</strong></a>
+ is an essential plugin that transforms your editor into a full-fledged Git interface. Here&rsquo;s how I use Fugitive to review, stage, and commit changes—without ever leaving Vim.</p>
+<h2 id="1-browsing-git-history-and-logs-first">1. Browsing Git History and Logs First</h2>
+<p>Before jumping into edits, it’s often useful to understand the file’s history or recent project changes.</p>
+<ul>
+<li><code>:Git log</code> — shows the project’s commit history in reverse chronological order</li>
+<li><code>:0Gllog</code> — shows the history of the current file</li>
+</ul>
+<p>To explore who changed what in a file:</p>]]></description>
+</item>
+</channel>
+</rss>

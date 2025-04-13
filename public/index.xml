@@ -17,6 +17,22 @@
 </strong>, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for <strong>pip</strong> to install packages, <strong>virtualenv</strong> to isolate them, <strong>pyenv</strong> to juggle Python versions, and maybe <strong>Pipenv</strong> or <strong>pip‑tools</strong> for lock‑files. Each solves its own niche, yet hopping between them adds friction. <strong>uv</strong> removes that friction. This single, project manager—written in Rust and typically <strong>10-1000x</strong> faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, and even publishing to PyPI, all behind one concise CLI.</p>]]></description>
 </item>
 <item>
+    <title>Git with Vim Fugitive: A Streamlined Workflow</title>
+    <link>http://localhost:1313/20250413_vim_fugitive/</link>
+    <pubDate>Sun, 13 Apr 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20250413_vim_fugitive/</guid>
+    <description><![CDATA[<p>If you&rsquo;re working with Git and Vim, <a href="https://github.com/tpope/vim-fugitive" target="_blank" rel="noopener noreffer"><strong>vim-fugitive</strong></a>
+ is an essential plugin that transforms your editor into a full-fledged Git interface. Here&rsquo;s how I use Fugitive to review, stage, and commit changes—without ever leaving Vim.</p>
+<h2 id="browsing-git-history-and-logs-first">Browsing Git History and Logs First</h2>
+<p>Before jumping into edits, it’s often useful to understand the file’s history or recent project changes.</p>
+<ul>
+<li><code>:Git log</code> — shows the project’s commit history in reverse chronological order</li>
+<li><code>:0Gllog</code> — shows the history of the current file</li>
+</ul>
+<p>To explore who changed what in a file:</p>]]></description>
+</item>
+<item>
     <title>Inside DeepSeek-R1</title>
     <link>http://localhost:1313/20250214_deepseek_inside/</link>
     <pubDate>Fri, 14 Feb 2025 00:00:00 &#43;0000</pubDate>
@@ -120,15 +136,6 @@ where:</p>]]></description>
 <h2 id="introduction">Introduction</h2>
 <p>Support Vector Machines (SVMs) are among the most effective and versatile tools in machine learning, widely used for various tasks. SVMs work by finding the optimal boundary, or hyperplane, that separates different classes of data with the maximum margin, making them highly reliable for classification, especially with complex datasets.</p>
 <p>What truly sets SVMs apart is their ability to handle both linear and non-linear data through the <em>kernel trick</em>, allowing them to adapt to a wide range of problems with impressive accuracy. In this blog post, we&rsquo;ll delve into how SVMs work and gently explore the mathematical foundations behind their powerful performance.</p>]]></description>
-</item>
-<item>
-    <title>Direction of Gradient Descent Update</title>
-    <link>http://localhost:1313/20240819_gradient_descent/</link>
-    <pubDate>Mon, 19 Aug 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/20240819_gradient_descent/</guid>
-    <description><![CDATA[<h1 id="on-gradient-descent">On Gradient Descent</h1>
-<p>Gradient descent is an optimization algorithm used to minimize a function by iteratively moving towards the function&rsquo;s minimum value. It is a fundamental concept in machine learning, particularly in training models such as neural networks. The gradient is a vector that represents the direction of the steepest increase of the function at a given point. For example, for a convex function $z = ax^2 + by^2$, the gradient is $[2ax, 2by]$, which points in the direction of the steepest ascent.</p>]]></description>
 </item>
 </channel>
 </rss>

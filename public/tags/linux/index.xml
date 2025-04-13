@@ -1,43 +1,73 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Linux on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/linux/</link>
-    <description>Recent content in Linux on Han&#39;s XYZ</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 05 Jan 2025 18:54:40 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Install Arch Linux</title>
-      <link>http://localhost:1313/20250105_arch/</link>
-      <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20250105_arch/</guid>
-      <description>&lt;p&gt;I recently bought a mini PC because I wanted a lightweight machine that I can easily carry anywhere. Arch Linux&amp;rsquo;s minimalistic, rolling-release approach aligns perfectly with my love for a Vim-based workflow and a highly customizable setup. While the process can seem intimidating at first, it’s an incredibly rewarding experience that offers complete control over your system.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;installing-arch-linux-uefi-or-bios&#34;&gt;Installing Arch Linux (UEFI or BIOS)&lt;/h1&gt;&#xA;&lt;p&gt;Arch Linux is well-known for giving users full control over their system. This guide walks you through a fresh Arch Linux installation. While it is detailed, always refer to the &lt;a href=&#34;https://wiki.archlinux.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;official Arch Wiki&lt;/a&gt;&#xA; for up-to-date information.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Handy Pacman Commands in Arch Linux</title>
-      <link>http://localhost:1313/20240501_pacman/</link>
-      <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20240501_pacman/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://archlinux.org/pacman/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;Pacman&lt;/a&gt;&#xA;, the package manager for Arch Linux, is known for its &lt;strong&gt;simple&lt;/strong&gt; binary package format and &lt;strong&gt;easy-to-use&lt;/strong&gt; &lt;a href=&#34;https://wiki.archlinux.org/title/Arch_build_system&#34; title=&#34;Arch build system&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;build system&lt;/a&gt;&#xA;. The primary aim of Pacman is to facilitate straightforward management of packages from both the &lt;a href=&#34;https://wiki.archlinux.org/title/Official_repositories&#34; title=&#34;Official repositories&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;official repositories&lt;/a&gt;&#xA; and user-generated builds.&lt;/p&gt;&#xA;&lt;p&gt;Pacman ensures your system remains updated by synchronizing the package lists with the master server. This client/server model simplifies the process of downloading and installing packages, along with all their dependencies, using basic commands.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Bash script tutorial</title>
-      <link>http://localhost:1313/20240421_the-shell-script-tutorial/</link>
-      <pubDate>Sun, 21 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20240421_the-shell-script-tutorial/</guid>
-      <description>&lt;p&gt;Let&amp;rsquo;s create our first simple shell script&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2&#xA;&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/bin/sh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;# This is a comment!&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; Hello World        &lt;span class=&#34;c1&#34;&gt;# This is a comment, too!&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;ul&gt;&#xA;&lt;li&gt;The first line tells Unix that the file is to be executed by &lt;code&gt;/bin/sh&lt;/code&gt;. This is the standard location of the &lt;em&gt;Bourne shell&lt;/em&gt; on just about every Unix system. If you&amp;rsquo;re using GNU/Linux, /bin/sh is normally a symbolic link to bash (or, more recently, dash).&lt;/li&gt;&#xA;&lt;li&gt;The second line begins with a special symbol: &lt;code&gt;#&lt;/code&gt;. This marks the line as a comment, and it is ignored completely by the shell.&lt;/li&gt;&#xA;&lt;li&gt;The only exception is when the &lt;em&gt;very first&lt;/em&gt; line of the file starts with &lt;code&gt;#!&lt;/code&gt; (shebang) - as ours does. This is a special directive which Unix treats specially. It means that even if you are using csh, ksh, or anything else as your interactive shell, that what follows should be interpreted by the Bourne shell.&lt;/li&gt;&#xA;&lt;li&gt;Similarly, a Perl script may start with the line &lt;code&gt;#!/usr/bin/perl&lt;/code&gt; to tell your interactive shell that the program which follows should be executed by perl. For Bourne shell programming, we shall stick to &lt;code&gt;#!/bin/sh.&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;The third line runs a command: &lt;code&gt;echo&lt;/code&gt;, with two parameters, or arguments - the first is &lt;code&gt;&amp;quot;Hello&amp;quot;&lt;/code&gt;; the second is &lt;code&gt;&amp;quot;World&amp;quot;&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;Note that &lt;code&gt;echo&lt;/code&gt; will automatically put a single space between its parameters.&lt;/li&gt;&#xA;&lt;li&gt;To make it executable, run &lt;code&gt;chmod +rx &amp;lt;filename&amp;gt;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;variables&#34;&gt;Variables&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s look back at our first Hello World example. This could be done using variables. Note that &lt;em&gt;there must be no spaces around the &amp;ldquo;&lt;code&gt;=&lt;/code&gt;&amp;rdquo; sign&lt;/em&gt;: &lt;code&gt;VAR=value&lt;/code&gt; works; &lt;code&gt;VAR = value&lt;/code&gt; doesn&amp;rsquo;t work. In the first case, the shell sees the &amp;ldquo;&lt;code&gt;=&lt;/code&gt;&amp;rdquo; symbol and treats the command as a variable assignment. In the second case, the shell assumes that VAR must be the name of a command and tries to execute it.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Minimalism Through Linux</title>
-      <link>http://localhost:1313/20240421_why-linux/</link>
-      <pubDate>Sun, 21 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20240421_why-linux/</guid>
-      <description>&lt;h3 id=&#34;linux-a-path-to-digital-simplicity&#34;&gt;Linux, A Path to Digital Simplicity&lt;/h3&gt;&#xA;&lt;p&gt;In an age dominated by digital clutter and overwhelming software choices, the minimalist philosophy stands out as a beacon for those seeking simplicity and efficiency. This approach not only applies to physical possessions but extends into the digital realm, where Linux has become a preferred tool for minimalists.&lt;/p&gt;&#xA;&lt;p&gt;Linux, an open-source operating system, embodies the principles of minimalism by offering users control over their digital environments. Unlike mainstream operating systems that often come loaded with non-essential features and bloatware, Linux allows users to select only the components they need, creating a lean and efficient system.&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Linux - Tag - Han&#39;s XYZ</title>
+        <link>http://localhost:1313/tags/linux/</link>
+        <description>Linux - Tag - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 05 Jan 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Install Arch Linux</title>
+    <link>http://localhost:1313/20250105_arch/</link>
+    <pubDate>Sun, 05 Jan 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20250105_arch/</guid>
+    <description><![CDATA[<p>I recently bought a mini PC because I wanted a lightweight machine that I can easily carry anywhere. Arch Linux&rsquo;s minimalistic, rolling-release approach aligns perfectly with my love for a Vim-based workflow and a highly customizable setup. While the process can seem intimidating at first, it’s an incredibly rewarding experience that offers complete control over your system.</p>
+<hr>
+<h1 id="installing-arch-linux-uefi-or-bios">Installing Arch Linux (UEFI or BIOS)</h1>
+<p>Arch Linux is well-known for giving users full control over their system. This guide walks you through a fresh Arch Linux installation. While it is detailed, always refer to the <a href="https://wiki.archlinux.org/" target="_blank" rel="noopener noreffer">official Arch Wiki</a>
+ for up-to-date information.</p>]]></description>
+</item>
+<item>
+    <title>Handy Pacman Commands in Arch Linux</title>
+    <link>http://localhost:1313/20240501_pacman/</link>
+    <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240501_pacman/</guid>
+    <description><![CDATA[<p><a href="https://archlinux.org/pacman/" target="_blank" rel="noopener noreffer">Pacman</a>
+, the package manager for Arch Linux, is known for its <strong>simple</strong> binary package format and <strong>easy-to-use</strong> <a href="https://wiki.archlinux.org/title/Arch_build_system" title="Arch build system" target="_blank" rel="noopener noreffer">build system</a>
+. The primary aim of Pacman is to facilitate straightforward management of packages from both the <a href="https://wiki.archlinux.org/title/Official_repositories" title="Official repositories" target="_blank" rel="noopener noreffer">official repositories</a>
+ and user-generated builds.</p>
+<p>Pacman ensures your system remains updated by synchronizing the package lists with the master server. This client/server model simplifies the process of downloading and installing packages, along with all their dependencies, using basic commands.</p>]]></description>
+</item>
+<item>
+    <title>Bash script tutorial</title>
+    <link>http://localhost:1313/20240421_the-shell-script-tutorial/</link>
+    <pubDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240421_the-shell-script-tutorial/</guid>
+    <description><![CDATA[<p>Let&rsquo;s create our first simple shell script</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1"># This is a comment!</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> Hello World        <span class="c1"># This is a comment, too!</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>The first line tells Unix that the file is to be executed by <code>/bin/sh</code>. This is the standard location of the <em>Bourne shell</em> on just about every Unix system. If you&rsquo;re using GNU/Linux, /bin/sh is normally a symbolic link to bash (or, more recently, dash).</li>
+<li>The second line begins with a special symbol: <code>#</code>. This marks the line as a comment, and it is ignored completely by the shell.</li>
+<li>The only exception is when the <em>very first</em> line of the file starts with <code>#!</code> (shebang) - as ours does. This is a special directive which Unix treats specially. It means that even if you are using csh, ksh, or anything else as your interactive shell, that what follows should be interpreted by the Bourne shell.</li>
+<li>Similarly, a Perl script may start with the line <code>#!/usr/bin/perl</code> to tell your interactive shell that the program which follows should be executed by perl. For Bourne shell programming, we shall stick to <code>#!/bin/sh.</code></li>
+<li>The third line runs a command: <code>echo</code>, with two parameters, or arguments - the first is <code>&quot;Hello&quot;</code>; the second is <code>&quot;World&quot;</code>.</li>
+<li>Note that <code>echo</code> will automatically put a single space between its parameters.</li>
+<li>To make it executable, run <code>chmod +rx &lt;filename&gt;</code></li>
+</ul>
+<h2 id="variables">Variables</h2>
+<p>Let&rsquo;s look back at our first Hello World example. This could be done using variables. Note that <em>there must be no spaces around the &ldquo;<code>=</code>&rdquo; sign</em>: <code>VAR=value</code> works; <code>VAR = value</code> doesn&rsquo;t work. In the first case, the shell sees the &ldquo;<code>=</code>&rdquo; symbol and treats the command as a variable assignment. In the second case, the shell assumes that VAR must be the name of a command and tries to execute it.</p>]]></description>
+</item>
+<item>
+    <title>Minimalism Through Linux</title>
+    <link>http://localhost:1313/20240421_why-linux/</link>
+    <pubDate>Sun, 21 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240421_why-linux/</guid>
+    <description><![CDATA[<h3 id="linux-a-path-to-digital-simplicity">Linux, A Path to Digital Simplicity</h3>
+<p>In an age dominated by digital clutter and overwhelming software choices, the minimalist philosophy stands out as a beacon for those seeking simplicity and efficiency. This approach not only applies to physical possessions but extends into the digital realm, where Linux has become a preferred tool for minimalists.</p>
+<p>Linux, an open-source operating system, embodies the principles of minimalism by offering users control over their digital environments. Unlike mainstream operating systems that often come loaded with non-essential features and bloatware, Linux allows users to select only the components they need, creating a lean and efficient system.</p>]]></description>
+</item>
+</channel>
 </rss>

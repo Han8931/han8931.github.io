@@ -35,7 +35,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20250111_pytorch_container\/"
-        },"genre": "posts","keywords": "pytorch, arch, container, docker","wordcount":  775 ,
+        },"genre": "posts","keywords": "pytorch, arch, container, docker","wordcount":  706 ,
         "url": "http:\/\/localhost:1313\/20250111_pytorch_container\/","datePublished": "2025-01-11T00:00:00+00:00","dateModified": "2025-01-19T21:42:20+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -111,7 +111,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Run Pytorch Container in Arch Linux</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-01-11">2025-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;775 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-01-11">2025-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;706 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -137,125 +137,24 @@
 <p><strong>This is where Docker steps in to save the day.</strong> By using Docker containers, you can create isolated, portable environments that encapsulate all the dependencies you need, regardless of the host operating system. For PyTorch users who rely on a CPU-only setup for studying DL/ML and testing PyTorch code, Docker offers a streamlined solution to avoid the usual hassle of configuring local environments on Arch Linux.</p>
 <p>In this blog post, I will go over the process of setting up a PyTorch container using Docker, exploring how it simplifies the creation of a reproducible environment for your deep learning experiments.</p>
 <h2 id="install-docker-on-arch">Install Docker on Arch</h2>
-
-
-
-<div class="goat svg-container ">
-  
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      font-family="Menlo,Lucida Console,monospace"
-      
-        viewBox="0 0 408 25"
-      >
-      <g transform='translate(8,16)'>
-<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>s</text>
-<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>u</text>
-<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>d</text>
-<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>p</text>
-<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>a</text>
-<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>c</text>
-<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>m</text>
-<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>a</text>
-<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>n</text>
-<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>-</text>
-<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>S</text>
-<text text-anchor='middle' x='120' y='4' fill='currentColor' style='font-size:1em'>d</text>
-<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>c</text>
-<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>k</text>
-<text text-anchor='middle' x='152' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>d</text>
-<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='192' y='4' fill='currentColor' style='font-size:1em'>c</text>
-<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>k</text>
-<text text-anchor='middle' x='208' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='216' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='224' y='4' fill='currentColor' style='font-size:1em'>-</text>
-<text text-anchor='middle' x='232' y='4' fill='currentColor' style='font-size:1em'>c</text>
-<text text-anchor='middle' x='240' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='248' y='4' fill='currentColor' style='font-size:1em'>m</text>
-<text text-anchor='middle' x='256' y='4' fill='currentColor' style='font-size:1em'>p</text>
-<text text-anchor='middle' x='264' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='272' y='4' fill='currentColor' style='font-size:1em'>s</text>
-<text text-anchor='middle' x='280' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='296' y='4' fill='currentColor' style='font-size:1em'>d</text>
-<text text-anchor='middle' x='304' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='312' y='4' fill='currentColor' style='font-size:1em'>c</text>
-<text text-anchor='middle' x='320' y='4' fill='currentColor' style='font-size:1em'>k</text>
-<text text-anchor='middle' x='328' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='336' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='344' y='4' fill='currentColor' style='font-size:1em'>-</text>
-<text text-anchor='middle' x='352' y='4' fill='currentColor' style='font-size:1em'>b</text>
-<text text-anchor='middle' x='360' y='4' fill='currentColor' style='font-size:1em'>u</text>
-<text text-anchor='middle' x='368' y='4' fill='currentColor' style='font-size:1em'>i</text>
-<text text-anchor='middle' x='376' y='4' fill='currentColor' style='font-size:1em'>l</text>
-<text text-anchor='middle' x='384' y='4' fill='currentColor' style='font-size:1em'>d</text>
-<text text-anchor='middle' x='392' y='4' fill='currentColor' style='font-size:1em'>x</text>
-</g>
-
-    </svg>
-  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo pacman -S docker docker-compose docker-buildx
+</span></span></code></pre></td></tr></table>
 </div>
-<p>Then,</p>
-
-
-
-<div class="goat svg-container ">
-  
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      font-family="Menlo,Lucida Console,monospace"
-      
-        viewBox="0 0 344 25"
-      >
-      <g transform='translate(8,16)'>
-<path d='M 176,0 L 184,0' fill='none' stroke='currentColor'></path>
-<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>s</text>
-<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>u</text>
-<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>d</text>
-<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>s</text>
-<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>y</text>
-<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>s</text>
-<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>t</text>
-<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>m</text>
-<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>c</text>
-<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>t</text>
-<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>l</text>
-<text text-anchor='middle' x='120' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>n</text>
-<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>a</text>
-<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>b</text>
-<text text-anchor='middle' x='152' y='4' fill='currentColor' style='font-size:1em'>l</text>
-<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>-</text>
-<text text-anchor='middle' x='192' y='4' fill='currentColor' style='font-size:1em'>n</text>
-<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='208' y='4' fill='currentColor' style='font-size:1em'>w</text>
-<text text-anchor='middle' x='224' y='4' fill='currentColor' style='font-size:1em'>d</text>
-<text text-anchor='middle' x='232' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='240' y='4' fill='currentColor' style='font-size:1em'>c</text>
-<text text-anchor='middle' x='248' y='4' fill='currentColor' style='font-size:1em'>k</text>
-<text text-anchor='middle' x='256' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='264' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='272' y='4' fill='currentColor' style='font-size:1em'>.</text>
-<text text-anchor='middle' x='280' y='4' fill='currentColor' style='font-size:1em'>s</text>
-<text text-anchor='middle' x='288' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='296' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='304' y='4' fill='currentColor' style='font-size:1em'>v</text>
-<text text-anchor='middle' x='312' y='4' fill='currentColor' style='font-size:1em'>i</text>
-<text text-anchor='middle' x='320' y='4' fill='currentColor' style='font-size:1em'>c</text>
-<text text-anchor='middle' x='328' y='4' fill='currentColor' style='font-size:1em'>e</text>
-</g>
-
-    </svg>
-  
+</div><p>Then,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo systemctl enable --now docker.service
+</span></span></code></pre></td></tr></table>
 </div>
-<h2 id="pytorch-container">PyTorch Container</h2>
+</div><h2 id="pytorch-container">PyTorch Container</h2>
 <h3 id="steps-for-using-pytorch-with-cpu-only-docker-image"><strong>Steps for Using PyTorch with CPU-Only Docker Image</strong></h3>
 <ol>
 <li><strong>Pull the CPU-Only PyTorch Docker Image</strong><br>
@@ -420,7 +319,7 @@ To persist changes, save your code in the mounted directory (e.g., <code>/worksp
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.146.1">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

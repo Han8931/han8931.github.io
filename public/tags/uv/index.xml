@@ -1,22 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Uv on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/uv/</link>
-    <description>Recent content in Uv on Han&#39;s XYZ</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 13 Apr 2025 11:37:22 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/uv/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>All‑in‑One Python Package Manager: UV!</title>
-      <link>http://localhost:1313/20250413_uv_package_manager/</link>
-      <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20250413_uv_package_manager/</guid>
-      <description>&lt;h2 id=&#34;meet-uva-blazinglyfast-allinone-python-packagemanager&#34;&gt;Meet &lt;strong&gt;uv&lt;/strong&gt; – A Blazingly Fast, All‑in‑One Python Package Manager&lt;/h2&gt;&#xA;&lt;p&gt;In my last post I dove into &lt;strong&gt;&lt;a href=&#34;https://han8931.github.io/20240707_poetry/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;Poetry&lt;/a&gt;&#xA;&lt;/strong&gt;, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for &lt;strong&gt;pip&lt;/strong&gt; to install packages, &lt;strong&gt;virtualenv&lt;/strong&gt; to isolate them, &lt;strong&gt;pyenv&lt;/strong&gt; to juggle Python versions, and maybe &lt;strong&gt;Pipenv&lt;/strong&gt; or &lt;strong&gt;pip‑tools&lt;/strong&gt; for lock‑files. Each solves its own niche, yet hopping between them adds friction. &lt;strong&gt;uv&lt;/strong&gt; removes that friction. This single, project manager—written in Rust and typically &lt;strong&gt;10-1000x&lt;/strong&gt; faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, and even publishing to PyPI, all behind one concise CLI.&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Uv - Tag - Han&#39;s XYZ</title>
+        <link>http://localhost:1313/tags/uv/</link>
+        <description>Uv - Tag - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 13 Apr 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/uv/" rel="self" type="application/rss+xml" /><item>
+    <title>All‑in‑One Python Package Manager: UV!</title>
+    <link>http://localhost:1313/20250413_uv_package_manager/</link>
+    <pubDate>Sun, 13 Apr 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20250413_uv_package_manager/</guid>
+    <description><![CDATA[<h2 id="meet-uva-blazinglyfast-allinone-python-packagemanager">Meet <strong>uv</strong> – A Blazingly Fast, All‑in‑One Python Package Manager</h2>
+<p>In my last post I dove into <strong><a href="https://han8931.github.io/20240707_poetry/" target="_blank" rel="noopener noreffer">Poetry</a>
+</strong>, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for <strong>pip</strong> to install packages, <strong>virtualenv</strong> to isolate them, <strong>pyenv</strong> to juggle Python versions, and maybe <strong>Pipenv</strong> or <strong>pip‑tools</strong> for lock‑files. Each solves its own niche, yet hopping between them adds friction. <strong>uv</strong> removes that friction. This single, project manager—written in Rust and typically <strong>10-1000x</strong> faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, and even publishing to PyPI, all behind one concise CLI.</p>]]></description>
+</item>
+</channel>
 </rss>

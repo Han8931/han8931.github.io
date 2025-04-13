@@ -1,22 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Pytest on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/pytest/</link>
-    <description>Recent content in Pytest on Han&#39;s XYZ</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 04 Aug 2024 10:40:37 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/pytest/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Unit Test with Pytest</title>
-      <link>http://localhost:1313/20240426_unit-tests/</link>
-      <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20240426_unit-tests/</guid>
-      <description>&lt;p&gt;Unit testing involves testing individual components of software in &lt;strong&gt;isolation to ensure they function correctly&lt;/strong&gt;. Automated frameworks facilitate this process, which &lt;strong&gt;is integral to ensuring that new changes do not disrupt existing functionality&lt;/strong&gt;. Unit tests also serve as practical documentation and encourage better software design. This testing method boosts development speed and confidence by confirming component reliability before integration. Early bug detection through unit testing also helps minimize future repair costs and efforts.&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Pytest - Tag - Han&#39;s XYZ</title>
+        <link>http://localhost:1313/tags/pytest/</link>
+        <description>Pytest - Tag - Han&#39;s XYZ</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 26 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/pytest/" rel="self" type="application/rss+xml" /><item>
+    <title>Unit Test with Pytest</title>
+    <link>http://localhost:1313/20240426_unit-tests/</link>
+    <pubDate>Fri, 26 Apr 2024 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20240426_unit-tests/</guid>
+    <description><![CDATA[<p>Unit testing involves testing individual components of software in <strong>isolation to ensure they function correctly</strong>. Automated frameworks facilitate this process, which <strong>is integral to ensuring that new changes do not disrupt existing functionality</strong>. Unit tests also serve as practical documentation and encourage better software design. This testing method boosts development speed and confidence by confirming component reliability before integration. Early bug detection through unit testing also helps minimize future repair costs and efforts.</p>]]></description>
+</item>
+</channel>
 </rss>
