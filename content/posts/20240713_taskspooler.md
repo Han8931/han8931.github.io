@@ -137,4 +137,3 @@ Taskspooler offers a simple yet powerful solution for job scheduling and resourc
 
 If you want to know more visit its official [github repo](https://github.com/justanhduc/task-spooler?tab=readme-ov-file)
 
-Happy experimenting!

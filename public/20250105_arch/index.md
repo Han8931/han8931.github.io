@@ -470,5 +470,4 @@ Yay lets you install packages from both the official repositories and the AUR.
 
 Congratulations! Your Arch Linux system is now up and running. From here, you can customize it with whatever software and configurations you like. Remember, the [Arch Wiki](https://wiki.archlinux.org/) is your best friend for finding detailed guides and troubleshooting tips.
 
-Happy hacking!
 
