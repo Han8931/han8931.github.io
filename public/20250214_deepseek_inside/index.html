@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-02-14T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-02-15T18:03:38+09:00">
+    <meta property="article:modified_time" content="2025-02-15T22:06:21+09:00">
     <meta property="article:tag" content="DeepSeek">
     <meta property="article:tag" content="LLM">
     <meta property="article:tag" content="Deep Learning">
@@ -25,7 +25,7 @@
 <meta name="application-name" content="KeepIt">
 <meta name="apple-mobile-web-app-title" content="KeepIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/20250214_deepseek_inside/" /><link rel="prev" href="http://localhost:1313/20250128_python_protocol_abstract_classes/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/20250214_deepseek_inside/" /><link rel="prev" href="http://localhost:1313/20250128_python_protocol_abstract_classes/" /><link rel="next" href="http://localhost:1313/20250413_uv_package_manager/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -34,8 +34,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20250214_deepseek_inside\/"
-        },"genre": "posts","keywords": "DeepSeek, LLM, Deep Learning","wordcount":  2025 ,
-        "url": "http:\/\/localhost:1313\/20250214_deepseek_inside\/","datePublished": "2025-02-14T00:00:00+00:00","dateModified": "2025-02-15T18:03:38+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "DeepSeek, LLM, Deep Learning","wordcount":  2024 ,
+        "url": "http:\/\/localhost:1313\/20250214_deepseek_inside\/","datePublished": "2025-02-14T00:00:00+00:00","dateModified": "2025-02-15T22:06:21+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -110,7 +110,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Inside DeepSeek-R1</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/nlp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>NLP</a>&nbsp;<a href="/categories/llm/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>LLM</a>&nbsp;<a href="/categories/deep-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Deep Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-02-14">2025-02-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2025 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-02-14">2025-02-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2024 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;10 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -349,7 +349,10 @@ the $\max$ caps the term at $(1-\varepsilon) A^{\pi_{\theta_k}}(s,a)$, again, en
 <li>The KL-divergence is used to restrict the sudden change of policy.</li>
 <li>The advantage can be calculated by averaging and normalizing the rewards.</li>
 <li>Instead of using a value model explicitly, GRPO computes a value of the states (i.e., $o_i$) by averaging them.
-- Note that $A(s,a) = Q(s,a)-V(s)$</li>
+<ul>
+<li>Note that $A(s,a) = Q(s,a)-V(s)$</li>
+</ul>
+</li>
 <li>$\pi_{\text{ref}}$ is the reference model, which is an initial SFT model.</li>
 </ul>
 <h1 id="deepseek-r1">DeepSeek-R1</h1>
@@ -374,8 +377,8 @@ the $\max$ caps the term at $(1-\varepsilon) A^{\pi_{\theta_k}}(s,a)$, again, en
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2025-02-15&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/478b0edc5051c21fefacfc11ac6b4a7492f229bd" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 478b0edc5051c21fefacfc11ac6b4a7492f229bd: Add contents table">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>478b0ed</a></span>
+                <span>Updated on 2025-02-15&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/2e7d4febe82c6e39f39b1b77b7703b63ae0c0f4a" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 2e7d4febe82c6e39f39b1b77b7703b63ae0c0f4a: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>2e7d4fe</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
@@ -394,11 +397,12 @@ the $\max$ caps the term at $(1-\varepsilon) A^{\pi_{\theta_k}}(s,a)$, again, en
         </section>
     </div>
 
-    <div class="post-nav"><a href="/20250128_python_protocol_abstract_classes/" class="prev" rel="prev" title="Abstract Classes or Protocols"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Abstract Classes or Protocols</a></div>
+    <div class="post-nav"><a href="/20250128_python_protocol_abstract_classes/" class="prev" rel="prev" title="Abstract Classes or Protocols"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Abstract Classes or Protocols</a>
+            <a href="/20250413_uv_package_manager/" class="next" rel="next" title="All‑in‑One Python Package Manager: UV!">All‑in‑One Python Package Manager: UV!<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.142.0">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.146.1">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "style.min.css",
-	"sourceRoot": "/home/han/Portfolio/han8931.github.io",
+	"sourceRoot": "/home/han/Han/han8931.github.io",
 	"sources": [
 		"themes/KeepIt/assets/css/style.scss",
 		"themes/KeepIt/assets/css/_variables.scss",

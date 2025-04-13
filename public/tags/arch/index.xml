@@ -1,42 +1,36 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Arch - Tag - Han&#39;s XYZ</title>
-        <link>http://localhost:1313/tags/arch/</link>
-        <description>Arch - Tag - Han&#39;s XYZ</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 11 Jan 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/arch/" rel="self" type="application/rss+xml" /><item>
-    <title>Run Pytorch Container in Arch Linux</title>
-    <link>http://localhost:1313/20250111_pytorch_container/</link>
-    <pubDate>Sat, 11 Jan 2025 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/20250111_pytorch_container/</guid>
-    <description><![CDATA[<h1 id="setting-up-dl-experiment-environments">Setting Up DL Experiment Environments</h1>
-<h2 id="a-challenge-for-arch-linux-users">A Challenge for Arch Linux Users</h2>
-<p>If you&rsquo;ve ever tried to set up a new experiment environment for deep learning on Arch Linux, you&rsquo;re probably familiar with the challenges involved. Arch Linux, renowned for its rolling-release model and cutting-edge updates, provides unparalleled flexibility and control over your system. However, this same flexibility can often lead to headaches when setting up complex environments for machine learning or deep learning experiments. Dependency conflicts, missing libraries, and version mismatches are all too common.</p>]]></description>
-</item>
-<item>
-    <title>Install Arch Linux</title>
-    <link>http://localhost:1313/20250105_arch/</link>
-    <pubDate>Sun, 05 Jan 2025 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/20250105_arch/</guid>
-    <description><![CDATA[<p>I recently bought a mini PC because I wanted a lightweight machine that I can easily carry anywhere. Arch Linux&rsquo;s minimalistic, rolling-release approach aligns perfectly with my love for a Vim-based workflow and a highly customizable setup. While the process can seem intimidating at first, it’s an incredibly rewarding experience that offers complete control over your system.</p>
-<hr>
-<h1 id="installing-arch-linux-uefi-or-bios">Installing Arch Linux (UEFI or BIOS)</h1>
-<p>Arch Linux is well-known for giving users full control over their system. This guide walks you through a fresh Arch Linux installation. While it is detailed, always refer to the <a href="https://wiki.archlinux.org/" target="_blank" rel="noopener noreffer">official Arch Wiki</a>
- for up-to-date information.</p>]]></description>
-</item>
-<item>
-    <title>Handy Pacman Commands in Arch Linux</title>
-    <link>http://localhost:1313/20240501_pacman/</link>
-    <pubDate>Wed, 01 May 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/20240501_pacman/</guid>
-    <description><![CDATA[<p><a href="https://archlinux.org/pacman/" target="_blank" rel="noopener noreffer">Pacman</a>
-, the package manager for Arch Linux, is known for its <strong>simple</strong> binary package format and <strong>easy-to-use</strong> <a href="https://wiki.archlinux.org/title/Arch_build_system" title="Arch build system" target="_blank" rel="noopener noreffer">build system</a>
-. The primary aim of Pacman is to facilitate straightforward management of packages from both the <a href="https://wiki.archlinux.org/title/Official_repositories" title="Official repositories" target="_blank" rel="noopener noreffer">official repositories</a>
- and user-generated builds.</p>
-<p>Pacman ensures your system remains updated by synchronizing the package lists with the master server. This client/server model simplifies the process of downloading and installing packages, along with all their dependencies, using basic commands.</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Arch on Han&#39;s XYZ</title>
+    <link>http://localhost:1313/tags/arch/</link>
+    <description>Recent content in Arch on Han&#39;s XYZ</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 19 Jan 2025 21:42:20 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Run Pytorch Container in Arch Linux</title>
+      <link>http://localhost:1313/20250111_pytorch_container/</link>
+      <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/20250111_pytorch_container/</guid>
+      <description>&lt;h1 id=&#34;setting-up-dl-experiment-environments&#34;&gt;Setting Up DL Experiment Environments&lt;/h1&gt;&#xA;&lt;h2 id=&#34;a-challenge-for-arch-linux-users&#34;&gt;A Challenge for Arch Linux Users&lt;/h2&gt;&#xA;&lt;p&gt;If you&amp;rsquo;ve ever tried to set up a new experiment environment for deep learning on Arch Linux, you&amp;rsquo;re probably familiar with the challenges involved. Arch Linux, renowned for its rolling-release model and cutting-edge updates, provides unparalleled flexibility and control over your system. However, this same flexibility can often lead to headaches when setting up complex environments for machine learning or deep learning experiments. Dependency conflicts, missing libraries, and version mismatches are all too common.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install Arch Linux</title>
+      <link>http://localhost:1313/20250105_arch/</link>
+      <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/20250105_arch/</guid>
+      <description>&lt;p&gt;I recently bought a mini PC because I wanted a lightweight machine that I can easily carry anywhere. Arch Linux&amp;rsquo;s minimalistic, rolling-release approach aligns perfectly with my love for a Vim-based workflow and a highly customizable setup. While the process can seem intimidating at first, it’s an incredibly rewarding experience that offers complete control over your system.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;installing-arch-linux-uefi-or-bios&#34;&gt;Installing Arch Linux (UEFI or BIOS)&lt;/h1&gt;&#xA;&lt;p&gt;Arch Linux is well-known for giving users full control over their system. This guide walks you through a fresh Arch Linux installation. While it is detailed, always refer to the &lt;a href=&#34;https://wiki.archlinux.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;official Arch Wiki&lt;/a&gt;&#xA; for up-to-date information.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Handy Pacman Commands in Arch Linux</title>
+      <link>http://localhost:1313/20240501_pacman/</link>
+      <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/20240501_pacman/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://archlinux.org/pacman/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;Pacman&lt;/a&gt;&#xA;, the package manager for Arch Linux, is known for its &lt;strong&gt;simple&lt;/strong&gt; binary package format and &lt;strong&gt;easy-to-use&lt;/strong&gt; &lt;a href=&#34;https://wiki.archlinux.org/title/Arch_build_system&#34; title=&#34;Arch build system&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;build system&lt;/a&gt;&#xA;. The primary aim of Pacman is to facilitate straightforward management of packages from both the &lt;a href=&#34;https://wiki.archlinux.org/title/Official_repositories&#34; title=&#34;Official repositories&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer&#34;&gt;official repositories&lt;/a&gt;&#xA; and user-generated builds.&lt;/p&gt;&#xA;&lt;p&gt;Pacman ensures your system remains updated by synchronizing the package lists with the master server. This client/server model simplifies the process of downloading and installing packages, along with all their dependencies, using basic commands.&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

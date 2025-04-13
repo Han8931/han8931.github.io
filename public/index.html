@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta name="generator" content="Hugo 0.142.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.146.1"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -103,6 +103,14 @@
 <a href="mailto:tabularasa8931@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a>
 </div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/20250413_uv_package_manager/">All‑in‑One Python Package Manager: UV!</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
+</span>&nbsp;<span class="post-publish">published on <time datetime="2025-04-13">2025-04-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><h2 id="meet-uva-blazinglyfast-allinone-python-packagemanager">Meet <strong>uv</strong> – A Blazingly Fast, All‑in‑One Python Package Manager</h2>
+<p>In my last post I dove into <strong><a href="https://han8931.github.io/20240707_poetry/" target="_blank" rel="noopener noreffer">Poetry</a>
+</strong>, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for <strong>pip</strong> to install packages, <strong>virtualenv</strong> to isolate them, <strong>pyenv</strong> to juggle Python versions, and maybe <strong>Pipenv</strong> or <strong>pip‑tools</strong> for lock‑files. Each solves its own niche, yet hopping between them adds friction. <strong>uv</strong> removes that friction. This single, project manager—written in Rust and typically <strong>10-1000x</strong> faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, and even publishing to PyPI, all behind one concise CLI.</p></div><div class="post-footer">
+        <a href="/20250413_uv_package_manager/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/uv/">Uv</a>,&nbsp;<a href="/tags/package-manager/">Package Manager</a>,&nbsp;<a href="/tags/virtual-environment/">Virtual Environment</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/20250214_deepseek_inside/">Inside DeepSeek-R1</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-publish">published on <time datetime="2025-02-14">2025-02-14</time></span>&nbsp;<span class="post-category">included in <a href="/categories/nlp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>NLP</a>&nbsp;<a href="/categories/llm/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>LLM</a>&nbsp;<a href="/categories/deep-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Deep Learning</a></span></div><div class="content"><p><a href="https://www.deepseek.com/" target="_blank" rel="noopener noreffer">DeepSeek</a>
@@ -145,29 +153,6 @@
  for up-to-date information.</p></div><div class="post-footer">
         <a href="/20250105_arch/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/arch/">Arch</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/20240902_svm3/">Introduction to SVM Part 3. Asymmetric Kernels</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
-</span>&nbsp;<span class="post-publish">published on <time datetime="2024-09-01">2024-09-01</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content"><h1 id="introduction-to-asymmetric-kernels">Introduction to Asymmetric Kernels</h1>
-<p>Recall that the dual form of LS-SVM is given by
-\begin{align*}
-\begin{bmatrix}
-0 &amp; y^T \\
-y &amp; \Omega + \frac{1}{\gamma} I
-\end{bmatrix}
-\begin{bmatrix}
-b \\
-\alpha
-\end{bmatrix}
-=
-\begin{bmatrix}
-0 \\
-e
-\end{bmatrix}
-\end{align*}
-An interesting point here is that using an asymmetric kernel in LS-SVM will not reduce to its symmetrization and asymmetric information can be learned. Then we can develop asymmetric kernels in the LS-SVM framework in a straightforward way.</p></div><div class="post-footer">
-        <a href="/20240902_svm3/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/svm/">Svm</a>,&nbsp;<a href="/tags/support-vector-machines/">Support Vector Machines</a>,&nbsp;<a href="/tags/least-square-svm/">Least-Square SVM</a>,&nbsp;<a href="/tags/asymmetric-kernels/">Asymmetric Kernels</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -188,7 +173,7 @@ An interesting point here is that using an asymmetric kernel in LS-SVM will not 
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.142.0">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.146.1">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

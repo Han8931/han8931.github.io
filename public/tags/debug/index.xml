@@ -1,16 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Debug - Tag - Han&#39;s XYZ</title>
-        <link>http://localhost:1313/tags/debug/</link>
-        <description>Debug - Tag - Han&#39;s XYZ</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 27 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/debug/" rel="self" type="application/rss+xml" /><item>
-    <title>Why Use Python&#39;s `pdb` Debugger Over an IDE?</title>
-    <link>http://localhost:1313/20240426_pdb/</link>
-    <pubDate>Sat, 27 Apr 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/20240426_pdb/</guid>
-    <description><![CDATA[<p>When it comes to debugging Python code, most programmers reach for an Integrated Development Environment (IDE) because of its convenience and powerful features. However, there&rsquo;s a classic, built-in tool that shouldn&rsquo;t be overlooked: Python&rsquo;s own debugger, <code>pdb</code>. This tool might seem basic at first glance, but it offers some compelling advantages, especially in scenarios where an IDE might be less effective. Here&rsquo;s why you might consider using <code>pdb</code> for debugging your Python projects:</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debug on Han&#39;s XYZ</title>
+    <link>http://localhost:1313/tags/debug/</link>
+    <description>Recent content in Debug on Han&#39;s XYZ</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 04 Aug 2024 10:40:37 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/debug/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why Use Python&#39;s `pdb` Debugger Over an IDE?</title>
+      <link>http://localhost:1313/20240426_pdb/</link>
+      <pubDate>Sat, 27 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/20240426_pdb/</guid>
+      <description>&lt;p&gt;When it comes to debugging Python code, most programmers reach for an Integrated Development Environment (IDE) because of its convenience and powerful features. However, there&amp;rsquo;s a classic, built-in tool that shouldn&amp;rsquo;t be overlooked: Python&amp;rsquo;s own debugger, &lt;code&gt;pdb&lt;/code&gt;. This tool might seem basic at first glance, but it offers some compelling advantages, especially in scenarios where an IDE might be less effective. Here&amp;rsquo;s why you might consider using &lt;code&gt;pdb&lt;/code&gt; for debugging your Python projects:&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

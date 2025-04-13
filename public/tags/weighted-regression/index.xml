@@ -1,24 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Weighted Regression - Tag - Han&#39;s XYZ</title>
-        <link>http://localhost:1313/tags/weighted-regression/</link>
-        <description>Weighted Regression - Tag - Han&#39;s XYZ</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/weighted-regression/" rel="self" type="application/rss+xml" /><item>
-    <title>Getting Started with Regression Part 2. Ridge Regression</title>
-    <link>http://localhost:1313/20240811_regression2/</link>
-    <pubDate>Sun, 11 Aug 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/20240811_regression2/</guid>
-    <description><![CDATA[<h1 id="an-introductory-guide-part-2">An Introductory Guide (Part 2)</h1>
-<h2 id="understanding-ridge-regression">Understanding Ridge Regression</h2>
-<p>In machine learning, one of the key challenges is finding the right balance between underfitting and overfitting a model.</p>
-<ul>
-<li>
-<p><strong>Overfitting</strong> occurs when a model is too complex and captures not only the underlying patterns in the training data but also the noise. This results in a model that performs well on the training data but poorly on new, unseen data.</p>
-</li>
-<li>
-<p><strong>Underfitting</strong>, on the other hand, happens when a model is too simple to capture the underlying patterns in the data, leading to poor performance both on the training data and on new data.</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Weighted Regression on Han&#39;s XYZ</title>
+    <link>http://localhost:1313/tags/weighted-regression/</link>
+    <description>Recent content in Weighted Regression on Han&#39;s XYZ</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sat, 31 Aug 2024 10:02:57 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/weighted-regression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting Started with Regression Part 2. Ridge Regression</title>
+      <link>http://localhost:1313/20240811_regression2/</link>
+      <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/20240811_regression2/</guid>
+      <description>&lt;h1 id=&#34;an-introductory-guide-part-2&#34;&gt;An Introductory Guide (Part 2)&lt;/h1&gt;&#xA;&lt;h2 id=&#34;understanding-ridge-regression&#34;&gt;Understanding Ridge Regression&lt;/h2&gt;&#xA;&lt;p&gt;In machine learning, one of the key challenges is finding the right balance between underfitting and overfitting a model.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Overfitting&lt;/strong&gt; occurs when a model is too complex and captures not only the underlying patterns in the training data but also the noise. This results in a model that performs well on the training data but poorly on new, unseen data.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Underfitting&lt;/strong&gt;, on the other hand, happens when a model is too simple to capture the underlying patterns in the data, leading to poor performance both on the training data and on new data.&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

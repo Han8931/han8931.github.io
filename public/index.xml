@@ -4,9 +4,19 @@
         <link>http://localhost:1313/</link>
         <description>Han&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 14 Feb 2025 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 13 Apr 2025 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>All‑in‑One Python Package Manager: UV!</title>
+    <link>http://localhost:1313/20250413_uv_package_manager/</link>
+    <pubDate>Sun, 13 Apr 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/20250413_uv_package_manager/</guid>
+    <description><![CDATA[<h2 id="meet-uva-blazinglyfast-allinone-python-packagemanager">Meet <strong>uv</strong> – A Blazingly Fast, All‑in‑One Python Package Manager</h2>
+<p>In my last post I dove into <strong><a href="https://han8931.github.io/20240707_poetry/" target="_blank" rel="noopener noreffer">Poetry</a>
+</strong>, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for <strong>pip</strong> to install packages, <strong>virtualenv</strong> to isolate them, <strong>pyenv</strong> to juggle Python versions, and maybe <strong>Pipenv</strong> or <strong>pip‑tools</strong> for lock‑files. Each solves its own niche, yet hopping between them adds friction. <strong>uv</strong> removes that friction. This single, project manager—written in Rust and typically <strong>10-1000x</strong> faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, and even publishing to PyPI, all behind one concise CLI.</p>]]></description>
+</item>
+<item>
     <title>Inside DeepSeek-R1</title>
     <link>http://localhost:1313/20250214_deepseek_inside/</link>
     <pubDate>Fri, 14 Feb 2025 00:00:00 &#43;0000</pubDate>
@@ -119,16 +129,6 @@ where:</p>]]></description>
     <guid>http://localhost:1313/20240819_gradient_descent/</guid>
     <description><![CDATA[<h1 id="on-gradient-descent">On Gradient Descent</h1>
 <p>Gradient descent is an optimization algorithm used to minimize a function by iteratively moving towards the function&rsquo;s minimum value. It is a fundamental concept in machine learning, particularly in training models such as neural networks. The gradient is a vector that represents the direction of the steepest increase of the function at a given point. For example, for a convex function $z = ax^2 + by^2$, the gradient is $[2ax, 2by]$, which points in the direction of the steepest ascent.</p>]]></description>
-</item>
-<item>
-    <title>Introduction to Latent Variable Modeling (Part 1)</title>
-    <link>http://localhost:1313/20240818_latent_variable_part1/</link>
-    <pubDate>Sun, 18 Aug 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/20240818_latent_variable_part1/</guid>
-    <description><![CDATA[<h1 id="latent-variable-modeling">Latent Variable Modeling</h1>
-<h2 id="motivation-of-latent-variable-modeling">Motivation of Latent Variable Modeling</h2>
-<p>Let&rsquo;s say we want to classify some data. If we had access to a corresponding latent variable for each observation $ \mathbf{x}_i $, modeling would be more straightforward. To illustrate this, consider the challenge of finding the latent variable (i.e., the true class of $ \mathbf{x} $). It can be expressed like $ z^* = \argmax_{z} p(\mathbf{x} | z) $. It is hard to identify the true clusters without prior knowledge about them. For example, we can cluster like Fig. (b) or (c).</p>]]></description>
 </item>
 </channel>
 </rss>

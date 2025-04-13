@@ -209,7 +209,7 @@ GRPO can be expressed as follows:
 - The KL-divergence is used to restrict the sudden change of policy.
 - The advantage can be calculated by averaging and normalizing the rewards.
 - Instead of using a value model explicitly, GRPO computes a value of the states (i.e., $o\_i$) by averaging them. 
-        - Note that $A(s,a) = Q(s,a)-V(s)$
+    - Note that $A(s,a) = Q(s,a)-V(s)$
 - $\pi\_{\text{ref}}$ is the reference model, which is an initial SFT model. 
 
 # DeepSeek-R1
