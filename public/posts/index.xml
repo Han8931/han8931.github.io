@@ -10,9 +10,9 @@
     <pubDate>Sun, 13 Apr 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/20250413_uv_package_manager/</guid>
-    <description><![CDATA[<h1 id="meet-uva-blazinglyfast-allinone-python-packagemanager">Meet <strong>uv</strong> – A Blazingly Fast, All‑in‑One Python Package Manager</h1>
-<p>In my last post I dove into <strong><a href="https://github.com/Han8931/deep_statistical_learning" target="_blank" rel="noopener noreffer">Poetry</a>
-!)</strong>, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for <strong>pip</strong> to install packages, <strong>virtualenv</strong> to isolate them, <strong>pyenv</strong> to juggle Python versions, and maybe <strong>Pipenv</strong> or <strong>pip‑tools</strong> for lock‑files.  Each solves its own niche brilliantly, yet hopping between them adds friction.  <strong>uv</strong> removes that friction.  This single, static binary—written in Rust and typically <strong>10-1000x</strong> faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, building wheels, and even publishing to PyPI, all behind one concise CLI.</p>]]></description>
+    <description><![CDATA[<h2 id="meet-uva-blazinglyfast-allinone-python-packagemanager">Meet <strong>uv</strong> – A Blazingly Fast, All‑in‑One Python Package Manager</h2>
+<p>In my last post I dove into <strong><a href="https://han8931.github.io/20240707_poetry/" target="_blank" rel="noopener noreffer">Poetry</a>
+</strong>, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for <strong>pip</strong> to install packages, <strong>virtualenv</strong> to isolate them, <strong>pyenv</strong> to juggle Python versions, and maybe <strong>Pipenv</strong> or <strong>pip‑tools</strong> for lock‑files. Each solves its own niche, yet hopping between them adds friction. <strong>uv</strong> removes that friction. This single, project manager—written in Rust and typically <strong>10-1000x</strong> faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, and even publishing to PyPI, all behind one concise CLI.</p>]]></description>
 </item>
 <item>
     <title>Inside DeepSeek-R1</title>

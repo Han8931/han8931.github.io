@@ -1,7 +1,5 @@
-# Dependency Management in Python
+# Dependency Management in Python: Poetry
 
-n"]
----
 
 
 # Introduction
