@@ -22,7 +22,6 @@ In my last post I dove into **[Poetry](https://han8931.github.io/20240707_poetry
 | **Tool sprawl** | pip / virtualenv / pyenv / Poetry / pipx | Covers the full workflow |
 | **Performance** | Pure‑Python dependency resolution and single‑threaded downloads | Rust core, SAT‑based solver (PubGrub) |
 | **Reproducibility** | `requirements.txt` is order‑sensitive & lacks metadata | Deterministic `uv.lock` capturing hashes & markers |
-| **Multi‑language inspiration** | Cargo (Rust), npm (Node) show cohesive UX | Borrowing proven ideas, but tailored to Python |
 
 Since its public launch, **uv** already powers **>10 %** of all downloads on PyPI—evidence that developers crave a faster, simpler workflow.
 
@@ -85,7 +84,7 @@ No `sudo`, no global state—interpreters live under `~/.local/share/uv/python`.
 ### 5. Publish
 
 ```bash
-uv publish          # ➏ build sdist & wheel, upload to PyPI
+uv publish          # ➏ upload to PyPI
 ```
 Zero extra config; metadata comes from `pyproject.toml`.
 
@@ -109,7 +108,7 @@ Sometimes you want linting and testing tools _only_ in development.  **uv** foll
 
 ```bash
 uv add --dev pytest ruff      # added under [tool.poetry.group.dev]
-uv sync --no-group dev        # CI can skip dev deps
+uv sync --no-group dev        # skip dev deps
 ```
 
 ---
@@ -174,4 +173,4 @@ uv run pytest -q
 
 ---
 
-I hope you enjoy my post!
+I hope you enjoyed my post!

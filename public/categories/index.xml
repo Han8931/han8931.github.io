@@ -9,8 +9,15 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 13 Apr 2025 16:03:07 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 20 Apr 2025 15:35:39 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git</title>
+      <link>http://localhost:1313/categories/git/</link>
+      <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/categories/git/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Programming</title>
       <link>http://localhost:1313/categories/programming/</link>
@@ -23,6 +30,13 @@
       <link>http://localhost:1313/categories/python/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/categories/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vim</title>
+      <link>http://localhost:1313/categories/vim/</link>
+      <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/categories/vim/</guid>
       <description></description>
     </item>
     <item>
@@ -86,13 +100,6 @@
       <link>http://localhost:1313/categories/tools/</link>
       <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/categories/tools/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vim</title>
-      <link>http://localhost:1313/categories/vim/</link>
-      <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/vim/</guid>
       <description></description>
     </item>
   </channel>
