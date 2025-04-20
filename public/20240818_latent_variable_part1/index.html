@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-08-18T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-04-20T15:35:39+09:00">
+    <meta property="article:modified_time" content="2025-04-20T15:38:31+09:00">
     <meta property="article:tag" content="Machine Learning">
     <meta property="article:tag" content="Latent Variable">
     <meta property="article:tag" content="K-Means Clustering">
@@ -38,7 +38,7 @@
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240818_latent_variable_part1\/"
         },"genre": "posts","keywords": "machine learning, latent variable, k-means clustering, clustering, gmm, Gaussian mixture modeling","wordcount":  1821 ,
-        "url": "http:\/\/localhost:1313\/20240818_latent_variable_part1\/","datePublished": "2024-08-18T00:00:00+00:00","dateModified": "2025-04-20T15:35:39+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        "url": "http:\/\/localhost:1313\/20240818_latent_variable_part1\/","datePublished": "2024-08-18T00:00:00+00:00","dateModified": "2025-04-20T15:38:31+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -172,7 +172,7 @@ r_{nk}=\begin{cases}
 \end{cases}
 \end{align*}
 Our goal is to find values for the $\boldsymbol{\mu}_k$ and the $r_{nk}$ that minimize $J$.</p>
-<p>We can minimize $J$ through an iterative procedure in which each iteration involves two successive steps corresponding to successive optimizations with respect to the $\boldsymbol{\mu}_k$ and the $r_{nk}$ First we choose some initial values for the $\boldsymbol{\mu}_k$. Then in the first phase we minimize $J$ with respect to the $r_{nk}$, keeping the $\boldsymbol{\mu}_k$ fixed. In the second phase we minimize $J$ with respect to the $\boldsymbol{\mu}_k$, keeping $r_{nk}$ fixed. This two-stage optimization is then repeated until convergence.</p>
+<p>We can minimize $J$ through an iterative procedure in which each iteration involves two successive steps corresponding to successive optimizations with respect to the $\boldsymbol{\mu}_k$ and the $r_{nk}$. First we choose some initial values for the $\boldsymbol{\mu}_k$. Then, in the first phase, we minimize $J$ with respect to the $r_{nk}$, keeping the $\boldsymbol{\mu}_k$ fixed. In the second phase we minimize $J$ with respect to the $\boldsymbol{\mu}_k$, keeping $r_{nk}$ fixed. This two-stage optimization is then repeated until convergence.</p>
 <p>Now consider the optimization of the $\boldsymbol{\mu}_k$ with the $r_{nk}$ held fixed. The objective function $J$ is a quadratic function of $\boldsymbol{\mu}_k$, and it can be minimized by setting its derivative with respect to $\boldsymbol{\mu}_k$ to zero giving
 \begin{align*}
 2\sum_{n=1}^{N}r_{nk}(\boldsymbol{x}_n-\boldsymbol{\mu}_k) = 0.
@@ -203,7 +203,7 @@ p(\mathbf{x}) &amp;= \sum_\mathbf{z} p(\mathbf{z})p(\mathbf{x}|\mathbf{z}) \\
 &amp;= \sum_{k=1}^{K} \pi_k \mathcal{N}(\mathbf{x} | \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)
 \end{align*}
 Here, $ \mathbf{x} $ is a data point, $ \pi_k $ represents the mixing coefficients, $ \mathcal{N}(\mathbf{x} | \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k) $ is a Gaussian distribution with mean $ \boldsymbol{\mu}_k $ and covariance $ \boldsymbol{\Sigma}_k $, and $ K $ is the number of Gaussian components.</p>
-<p>A key quantity in GMMs is the conditional probability of $ \mathbf{z} $ given $ \mathbf{x} $, denoted as $ p(z_k = 1 | \mathbf{x}) $ or $ \gamma(z_k) $. This is also known as the responsibility or assignment probability, which represents the probability that a given data point $ \mathbf{x} $ belongs to component $ k $ of the mixture. Essentially, this can be thought of as the \textbf{classification result} for $ \mathbf{x} $.</p>
+<p>A key quantity in GMMs is the conditional probability of $ \mathbf{z} $ given $ \mathbf{x} $, denoted as $ p(z_k = 1 | \mathbf{x}) $ or $ \gamma(z_k) $. This is also known as the responsibility or assignment probability, which represents the probability that a given data point $ \mathbf{x} $ belongs to component $ k $ of the mixture. Essentially, this can be thought of as the <strong>classification result</strong> for $ \mathbf{x} $.</p>
 <p>This responsibility is updated using Bayes&rsquo; Theorem, and can be expressed as:
 \begin{align*}
 \gamma(z_k) \equiv p(z_k=1|\mathbf{x}) &amp; \equiv \frac{p(z_k=1)p(\mathbf{x}|z_k=1)}{\sum_{j=1}^{K}p(z_j=1)p(\mathbf{x}|z_j=1)} \\
@@ -262,8 +262,8 @@ We can interpret $N_k$ as the effective number of points assigned to cluster $k$
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2025-04-20&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/bad9e97295f425942633499fa0767a1df24b7e9e" target="_blank" title="commit by Han(tabularasa8931@gmail.com) bad9e97295f425942633499fa0767a1df24b7e9e: Update">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>bad9e97</a></span>
+                <span>Updated on 2025-04-20&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/7e197f1746415ba0392eff58e1207b37883fa78b" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 7e197f1746415ba0392eff58e1207b37883fa78b: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>7e197f1</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>

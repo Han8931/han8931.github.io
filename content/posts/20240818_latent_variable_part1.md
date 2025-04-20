@@ -57,7 +57,7 @@ $$J =  \sum\_{n=1}^{N}\sum\_{k=1}^{K}r\_{nk}\lVert\boldsymbol{x}\_n-\boldsymbol{
 \end{align*}
 Our goal is to find values for the $\boldsymbol{\mu}\_k$ and the $r\_{nk}$ that minimize $J$. 
 
-We can minimize $J$ through an iterative procedure in which each iteration involves two successive steps corresponding to successive optimizations with respect to the $\boldsymbol{\mu}\_k$ and the $r\_{nk}$ First we choose some initial values for the $\boldsymbol{\mu}\_k$. Then in the first phase we minimize $J$ with respect to the $r\_{nk}$, keeping the $\boldsymbol{\mu}\_k$ fixed. In the second phase we minimize $J$ with respect to the $\boldsymbol{\mu}\_k$, keeping $r\_{nk}$ fixed. This two-stage optimization is then repeated until convergence.
+We can minimize $J$ through an iterative procedure in which each iteration involves two successive steps corresponding to successive optimizations with respect to the $\boldsymbol{\mu}\_k$ and the $r\_{nk}$. First we choose some initial values for the $\boldsymbol{\mu}\_k$. Then, in the first phase, we minimize $J$ with respect to the $r\_{nk}$, keeping the $\boldsymbol{\mu}\_k$ fixed. In the second phase we minimize $J$ with respect to the $\boldsymbol{\mu}\_k$, keeping $r\_{nk}$ fixed. This two-stage optimization is then repeated until convergence.
 
 Now consider the optimization of the $\boldsymbol{\mu}\_k$ with the $r\_{nk}$ held fixed. The objective function $J$ is a quadratic function of $\boldsymbol{\mu}\_k$, and it can be minimized by setting its derivative with respect to $\boldsymbol{\mu}\_k$ to zero giving
 \begin{align*}
@@ -96,7 +96,7 @@ For a single sample, the Gaussian Mixture Model can be expressed as a weighted s
 \end{align*}
 Here, $ \mathbf{x} $ is a data point, $ \pi_k $ represents the mixing coefficients, $ \mathcal{N}(\mathbf{x} | \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k) $ is a Gaussian distribution with mean $ \boldsymbol{\mu}_k $ and covariance $ \boldsymbol{\Sigma}_k $, and $ K $ is the number of Gaussian components.
 
-A key quantity in GMMs is the conditional probability of $ \mathbf{z} $ given $ \mathbf{x} $, denoted as $ p(z_k = 1 | \mathbf{x}) $ or $ \gamma(z\_k) $. This is also known as the responsibility or assignment probability, which represents the probability that a given data point $ \mathbf{x} $ belongs to component $ k $ of the mixture. Essentially, this can be thought of as the \textbf{classification result} for $ \mathbf{x} $.
+A key quantity in GMMs is the conditional probability of $ \mathbf{z} $ given $ \mathbf{x} $, denoted as $ p(z_k = 1 | \mathbf{x}) $ or $ \gamma(z\_k) $. This is also known as the responsibility or assignment probability, which represents the probability that a given data point $ \mathbf{x} $ belongs to component $ k $ of the mixture. Essentially, this can be thought of as the **classification result** for $ \mathbf{x} $.
 
 This responsibility is updated using Bayes' Theorem, and can be expressed as:
 \begin{align*}
