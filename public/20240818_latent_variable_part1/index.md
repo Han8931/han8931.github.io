@@ -28,7 +28,7 @@ p(\mathbf{x}\_1, \mathbf{x}\_2, \dots, \mathbf{x}\_N, \mathbf{z}\_1, \mathbf{z}\
 \end{align*}
 
 
-Here, $ \pi_k = p(\mathcal{C}_k) $ represents the prior probability of the $ k $-th component, and $ p(\mathbf{x}_n | \mathcal{C}_k) = \mathcal{N}(\mathbf{x}_n | \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k) $ denotes the Gaussian distribution associated with component $ \mathcal{C}_k $.
+Here, $ \pi_k = p(\mathcal{C}_k) $ represents the prior probability of the $ k $-th component, and $ p(\mathbf{x}_n | \mathcal{C}_k) = \mathcal{N}(\mathbf{x}_n | \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k) $ denotes the Gaussian distribution associated with component $ \mathcal{C}_k $. Also, \(z\_{nk}\in\{0,1\}\) and \(\sum\_k z\_{nk}=1\).
 
 However, in practice, the latent variables $ \mathbf{z}_k $ are often not directly observable, which complicates the modeling process.
 

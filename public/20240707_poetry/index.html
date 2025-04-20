@@ -35,7 +35,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240707_poetry\/"
-        },"genre": "posts","keywords": "Python, Poetry, Virtual Environment, package manager","wordcount":  852 ,
+        },"genre": "posts","keywords": "Python, Poetry, Virtual Environment, package manager","wordcount":  732 ,
         "url": "http:\/\/localhost:1313\/20240707_poetry\/","datePublished": "2024-07-07T00:00:00+00:00","dateModified": "2025-04-13T11:41:24+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -111,7 +111,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Dependency Management in Python: Poetry</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-07-07">2024-07-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;852 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-07-07">2024-07-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;732 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -226,45 +226,15 @@
 <li>The <code>--dev</code> flag indicates that <code>pytest</code> is a development dependency, not required for production.</li>
 </ul>
 <p>To remove a package,</p>
-
-
-
-<div class="goat svg-container ">
-  
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      font-family="Menlo,Lucida Console,monospace"
-      
-        viewBox="0 0 192 25"
-      >
-      <g transform='translate(8,16)'>
-<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>p</text>
-<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>t</text>
-<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>y</text>
-<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>m</text>
-<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>v</text>
-<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>&lt;</text>
-<text text-anchor='middle' x='120' y='4' fill='currentColor' style='font-size:1em'>p</text>
-<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>a</text>
-<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>c</text>
-<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>k</text>
-<text text-anchor='middle' x='152' y='4' fill='currentColor' style='font-size:1em'>a</text>
-<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>g</text>
-<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>&gt;</text>
-</g>
-
-    </svg>
-  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">poetry remove &lt;package&gt;
+</span></span></code></pre></td></tr></table>
 </div>
-<p>Running the command below will install all dependencies listed in your <code>pyproject.toml</code>:</p>
+</div><p>Running the command below will install all dependencies listed in your <code>pyproject.toml</code>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -327,230 +297,61 @@
 </div><p>To exit this new shell type <code>exit</code>. To deactivate the virtual environment without leaving the shell use <code>deactivate</code>.</p>
 <h3 id="init-method">Init Method</h3>
 <p>Instead of creating a new project, Poetry can be used to &lsquo;initialise&rsquo; a pre-populated directory. To interactively create a <code>pyproject.toml</code> file in directory <code>pre-existing-project</code>:</p>
-
-
-
-<div class="goat svg-container ">
-  
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      font-family="Menlo,Lucida Console,monospace"
-      
-        viewBox="0 0 96 25"
-      >
-      <g transform='translate(8,16)'>
-<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>p</text>
-<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>t</text>
-<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>y</text>
-<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>i</text>
-<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>n</text>
-<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>i</text>
-<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>t</text>
-</g>
-
-    </svg>
-  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">poetry init
+</span></span></code></pre></td></tr></table>
 </div>
-<p>Then, install it by</p>
-
-
-
-<div class="goat svg-container ">
-  
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      font-family="Menlo,Lucida Console,monospace"
-      
-        viewBox="0 0 120 25"
-      >
-      <g transform='translate(8,16)'>
-<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>p</text>
-<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>t</text>
-<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>y</text>
-<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>i</text>
-<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>n</text>
-<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>s</text>
-<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>t</text>
-<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>a</text>
-<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>l</text>
-<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>l</text>
-</g>
-
-    </svg>
-  
+</div><p>Then, install it by</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">poetry install
+</span></span></code></pre></td></tr></table>
 </div>
-<p>To see the information about the project</p>
-
-
-
-<div class="goat svg-container ">
-  
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      font-family="Menlo,Lucida Console,monospace"
-      
-        viewBox="0 0 128 25"
-      >
-      <g transform='translate(8,16)'>
-<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>p</text>
-<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>t</text>
-<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>y</text>
-<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>n</text>
-<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>v</text>
-<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>i</text>
-<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>n</text>
-<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>f</text>
-<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>o</text>
-</g>
-
-    </svg>
-  
+</div><p>To see the information about the project</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">poetry env info
+</span></span></code></pre></td></tr></table>
 </div>
-<ul>
+</div><ul>
 <li><code>-p</code>: prints a path of the virtual environment</li>
 </ul>
 <p>By setting a config, you can generate a virtual environment in your projects:</p>
-
-
-
-<div class="goat svg-container ">
-  
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      font-family="Menlo,Lucida Console,monospace"
-      
-        viewBox="0 0 336 25"
-      >
-      <g transform='translate(8,16)'>
-<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>p</text>
-<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>t</text>
-<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>y</text>
-<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>c</text>
-<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>n</text>
-<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>f</text>
-<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>i</text>
-<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>g</text>
-<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>v</text>
-<text text-anchor='middle' x='120' y='4' fill='currentColor' style='font-size:1em'>i</text>
-<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>t</text>
-<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>u</text>
-<text text-anchor='middle' x='152' y='4' fill='currentColor' style='font-size:1em'>a</text>
-<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>l</text>
-<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>n</text>
-<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>v</text>
-<text text-anchor='middle' x='192' y='4' fill='currentColor' style='font-size:1em'>s</text>
-<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>.</text>
-<text text-anchor='middle' x='208' y='4' fill='currentColor' style='font-size:1em'>i</text>
-<text text-anchor='middle' x='216' y='4' fill='currentColor' style='font-size:1em'>n</text>
-<text text-anchor='middle' x='224' y='4' fill='currentColor' style='font-size:1em'>-</text>
-<text text-anchor='middle' x='232' y='4' fill='currentColor' style='font-size:1em'>p</text>
-<text text-anchor='middle' x='240' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='248' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='256' y='4' fill='currentColor' style='font-size:1em'>j</text>
-<text text-anchor='middle' x='264' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='272' y='4' fill='currentColor' style='font-size:1em'>c</text>
-<text text-anchor='middle' x='280' y='4' fill='currentColor' style='font-size:1em'>t</text>
-<text text-anchor='middle' x='296' y='4' fill='currentColor' style='font-size:1em'>t</text>
-<text text-anchor='middle' x='304' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='312' y='4' fill='currentColor' style='font-size:1em'>u</text>
-<text text-anchor='middle' x='320' y='4' fill='currentColor' style='font-size:1em'>e</text>
-</g>
-
-    </svg>
-  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">poetry config virtualenvs.in-project true
+</span></span></code></pre></td></tr></table>
 </div>
-<h2 id="use-with-git">Use with Git</h2>
+</div><h2 id="use-with-git">Use with Git</h2>
 <p>Poetry automatically creates a <code>.gitignore</code> file for you. It should include entries to ignore the virtual environment directory (<code>.venv</code> if you use Poetry&rsquo;s built-in virtual environment management).</p>
 <p>Whenever you add or update dependencies, make sure to commit the <code>pyproject.toml</code> and <code>poetry.lock</code> files:</p>
 <p>To clone your project:</p>
-
-
-
-<div class="goat svg-container ">
-  
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      font-family="Menlo,Lucida Console,monospace"
-      
-        viewBox="0 0 256 57"
-      >
-      <g transform='translate(8,16)'>
-<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>g</text>
-<text text-anchor='middle' x='0' y='20' fill='currentColor' style='font-size:1em'>c</text>
-<text text-anchor='middle' x='0' y='36' fill='currentColor' style='font-size:1em'>p</text>
-<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>i</text>
-<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>d</text>
-<text text-anchor='middle' x='8' y='36' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>t</text>
-<text text-anchor='middle' x='16' y='36' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>m</text>
-<text text-anchor='middle' x='24' y='36' fill='currentColor' style='font-size:1em'>t</text>
-<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>c</text>
-<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>y</text>
-<text text-anchor='middle' x='32' y='36' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>l</text>
-<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>-</text>
-<text text-anchor='middle' x='40' y='36' fill='currentColor' style='font-size:1em'>y</text>
-<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>p</text>
-<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>n</text>
-<text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='56' y='36' fill='currentColor' style='font-size:1em'>i</text>
-<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='64' y='20' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='64' y='36' fill='currentColor' style='font-size:1em'>n</text>
-<text text-anchor='middle' x='72' y='20' fill='currentColor' style='font-size:1em'>j</text>
-<text text-anchor='middle' x='72' y='36' fill='currentColor' style='font-size:1em'>s</text>
-<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>&lt;</text>
-<text text-anchor='middle' x='80' y='20' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='80' y='36' fill='currentColor' style='font-size:1em'>t</text>
-<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>y</text>
-<text text-anchor='middle' x='88' y='20' fill='currentColor' style='font-size:1em'>c</text>
-<text text-anchor='middle' x='88' y='36' fill='currentColor' style='font-size:1em'>a</text>
-<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='96' y='20' fill='currentColor' style='font-size:1em'>t</text>
-<text text-anchor='middle' x='96' y='36' fill='currentColor' style='font-size:1em'>l</text>
-<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>u</text>
-<text text-anchor='middle' x='104' y='36' fill='currentColor' style='font-size:1em'>l</text>
-<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='120' y='4' fill='currentColor' style='font-size:1em'>-</text>
-<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>e</text>
-<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>p</text>
-<text text-anchor='middle' x='152' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>s</text>
-<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>i</text>
-<text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>t</text>
-<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>o</text>
-<text text-anchor='middle' x='192' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>y</text>
-<text text-anchor='middle' x='208' y='4' fill='currentColor' style='font-size:1em'>-</text>
-<text text-anchor='middle' x='216' y='4' fill='currentColor' style='font-size:1em'>u</text>
-<text text-anchor='middle' x='224' y='4' fill='currentColor' style='font-size:1em'>r</text>
-<text text-anchor='middle' x='232' y='4' fill='currentColor' style='font-size:1em'>l</text>
-<text text-anchor='middle' x='240' y='4' fill='currentColor' style='font-size:1em'>&gt;</text>
-</g>
-
-    </svg>
-  
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git clone &lt;your-repository-url&gt;
+</span></span><span class="line"><span class="cl">cd my-project
+</span></span><span class="line"><span class="cl">poetry install
+</span></span></code></pre></td></tr></table>
 </div>
-</div><div class="post-footer" id="post-footer">
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -579,7 +380,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.146.1">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.146.5">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

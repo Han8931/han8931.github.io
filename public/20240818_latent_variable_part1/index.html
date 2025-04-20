@@ -37,7 +37,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240818_latent_variable_part1\/"
-        },"genre": "posts","keywords": "machine learning, latent variable, k-means clustering, clustering, gmm, Gaussian mixture modeling","wordcount":  1816 ,
+        },"genre": "posts","keywords": "machine learning, latent variable, k-means clustering, clustering, gmm, Gaussian mixture modeling","wordcount":  1821 ,
         "url": "http:\/\/localhost:1313\/20240818_latent_variable_part1\/","datePublished": "2024-08-18T00:00:00+00:00","dateModified": "2024-08-18T14:12:48+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -113,7 +113,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Introduction to Latent Variable Modeling (Part 1)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-18">2024-08-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1816 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-18">2024-08-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1821 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -156,7 +156,7 @@ Given $ N $ observations, the joint distribution for the entire dataset $ { \mat
 <p>\begin{align*}
 p(\mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_N, \mathbf{z}_1, \mathbf{z}_2, \dots, \mathbf{z}_N | \boldsymbol{\theta}) = \prod_{n=1}^{N} \prod_{k=1}^{K} \pi_k^{z_{nk}} \mathcal{N}(\mathbf{x}_n | \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)^{z_{nk}}
 \end{align*}</p>
-<p>Here, $ \pi_k = p(\mathcal{C}_k) $ represents the prior probability of the $ k $-th component, and $ p(\mathbf{x}_n | \mathcal{C}_k) = \mathcal{N}(\mathbf{x}_n | \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k) $ denotes the Gaussian distribution associated with component $ \mathcal{C}_k $.</p>
+<p>Here, $ \pi_k = p(\mathcal{C}_k) $ represents the prior probability of the $ k $-th component, and $ p(\mathbf{x}_n | \mathcal{C}_k) = \mathcal{N}(\mathbf{x}_n | \boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k) $ denotes the Gaussian distribution associated with component $ \mathcal{C}_k $. Also, (z_{nk}\in{0,1}) and (\sum_k z_{nk}=1).</p>
 <p>However, in practice, the latent variables $ \mathbf{z}_k $ are often not directly observable, which complicates the modeling process.</p>
 <p>In the following sections, we present various methods for identifying and handling these latent variables to improve the classification and modeling of data.</p>
 <h2 id="k-means-clustering">K-Means Clustering</h2>
@@ -287,7 +287,7 @@ We can interpret $N_k$ as the effective number of points assigned to cluster $k$
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.146.1">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.146.5">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
