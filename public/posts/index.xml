@@ -4,7 +4,31 @@
         <link>http://localhost:1313/posts/</link>
         <description>All Posts | Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 13 Apr 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 17 May 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Rediscovering Python&#39;s Pathlib</title>
+    <link>http://localhost:1313/pathlib/</link>
+    <pubDate>Sat, 17 May 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/pathlib/</guid>
+    <description><![CDATA[<h2 id="from-type-hint-to-power-tool-rediscovering-pythons-pathlib">From Type Hint to Power Tool: Rediscovering Python&rsquo;s <code>Pathlib</code></h2>
+<p>For a long time, I used <code>Path</code> from Python&rsquo;s <code>pathlib</code> module purely as a <strong>type hint</strong> - a way to make function signatures look more modern and semantically clear. Like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">process_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It changed when I started building an application that handled user-uploaded documents. I had to create temporary folders, write intermediate files, manage output paths, and ensure directories existed before saving results. That&rsquo;s when <code>Path</code> went from <em>just a type hint</em> to a core part of my file management logic.</p>]]></description>
+</item>
+<item>
     <title>All‑in‑One Python Package Manager: UV!</title>
     <link>http://localhost:1313/20250413_uv_package_manager/</link>
     <pubDate>Sun, 13 Apr 2025 00:00:00 &#43;0000</pubDate>
@@ -123,17 +147,6 @@ An interesting point here is that using an asymmetric kernel in LS-SVM will not 
 &amp;\text{subject to } y_i (w^T \phi(x_i) + b) = 1 - e_i, \ \forall i
 \end{align*}
 where:</p>]]></description>
-</item>
-<item>
-    <title>Introduction to SVM Part 1. Basics</title>
-    <link>http://localhost:1313/20240825_svm1/</link>
-    <pubDate>Sun, 25 Aug 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/20240825_svm1/</guid>
-    <description><![CDATA[<h1 id="support-vector-machine">Support Vector Machine</h1>
-<h2 id="introduction">Introduction</h2>
-<p>Support Vector Machines (SVMs) are among the most effective and versatile tools in machine learning, widely used for various tasks. SVMs work by finding the optimal boundary, or hyperplane, that separates different classes of data with the maximum margin, making them highly reliable for classification, especially with complex datasets.</p>
-<p>What truly sets SVMs apart is their ability to handle both linear and non-linear data through the <em>kernel trick</em>, allowing them to adapt to a wide range of problems with impressive accuracy. In this blog post, we&rsquo;ll delve into how SVMs work and gently explore the mathematical foundations behind their powerful performance.</p>]]></description>
 </item>
 </channel>
 </rss>

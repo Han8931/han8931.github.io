@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta name="generator" content="Hugo 0.146.5"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.147.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -103,6 +103,17 @@
 <a href="mailto:tabularasa8931@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a>
 </div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/20240713_taskspooler/">Manage your task with TaskSpooler!</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
+</span>&nbsp;<span class="post-publish">published on <time datetime="2024-07-13">2024-07-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tools</a></span></div><div class="content"><h1 id="what-is-taskspooler">What is <a href="https://github.com/justanhduc/task-spooler" target="_blank" rel="noopener noreffer">TaskSpooler</a>
+?</h1>
+<p><a href="https://github.com/justanhduc/task-spooler" target="_blank" rel="noopener noreffer">TaskSpooler</a>
+ (ts) is a lightweight job scheduler that allows you to queue up your tasks and execute them in order. It’s particularly useful for environments where tasks need to be managed sequentially or with a controlled degree of parallelism. Unlike more complex systems like SLURM, TaskSpooler is designed for simplicity and ease of use, making it accessible for individual researchers and small teams.</p>
+<h2 id="efficient-job-scheduling-for-mldl-researchers-with-taskspooler">Efficient Job Scheduling for ML/DL Researchers with Taskspooler</h2>
+<p>In the dynamic field of Machine Learning (ML) and Deep Learning (DL), managing and optimizing computational resources is crucial. For researchers frequently running numerous experiments, an efficient job scheduler can be a game-changer. Enter <strong>Taskspooler</strong>, a powerful yet user-friendly job scheduler for Linux, designed to help you manage and schedule your jobs in a queue. Taskspooler is a simpler alternative to SLURM, providing many benefits for ML/DL researchers, especially when it comes to utilizing GPUs efficiently.</p></div><div class="post-footer">
+        <a href="/20240713_taskspooler/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/taskspooler/">Taskspooler</a>,&nbsp;<a href="/tags/scheduler/">Scheduler</a>,&nbsp;<a href="/tags/task-management/">Task Management</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/20240707_poetry/">Dependency Management in Python: Poetry</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-publish">published on <time datetime="2024-07-07">2024-07-07</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content"><h1 id="introduction">Introduction</h1>
@@ -161,39 +172,6 @@
 <p>To address such issues, Pydantic offers a solution through data validation. Pydantic is a library specifically designed for this purpose, ensuring that the data conforms to pre-defined schemas.</p></div><div class="post-footer">
         <a href="/20240426_pydantic/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/pydantic/">Pydantic</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/20240426_enum/">Enumerate variables with Enum!</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
-</span>&nbsp;<span class="post-publish">published on <time datetime="2024-04-26">2024-04-26</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content"><p><code>Enum</code> is a way that Python enumerate variables. The <code>enum</code> module allows for the creation of enumerated constants—unique, immutable data types that are useful for representing a fixed set of values. These values, which are usually related by their context, are known as enumeration members.</p>
-<p>Enum provides&hellip;</p>
-<ol>
-<li><strong>Uniqueness</strong> - Each member of an <code>Enum</code> is unique within its definition, meaning no two members can have the same value. Attempting to define two members with the same value will result in an error unless you explicitly allow aliases.</li>
-<li><strong>Immutability</strong> - Enum members are immutable. Once the <code>Enum</code> class is defined, you cannot change the members or their values.</li>
-<li><strong>Iterability and Comparability</strong> - Enum classes support iteration over their members and can be compared using identity and equality checks.</li>
-<li><strong>Accessing Members</strong> - You can access enumeration members by their names or values:</li>
-<li><strong>Auto</strong> - If you want to automatically assign values to enum members, you can use the <code>auto()</code> function from the same module:</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">State</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">	<span class="n">PLAYING</span><span class="o">=</span><span class="mi">0</span>
-</span></span><span class="line"><span class="cl">	<span class="n">PAUSED</span><span class="o">=</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl">	<span class="n">GAME_OVER</span><span class="o">=</span><span class="mi">2</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>If we just want to make sure them to be unique and automatically assigned, then use <code>auto()</code></p></div><div class="post-footer">
-        <a href="/20240426_enum/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/enum/">Enum</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -216,7 +194,7 @@
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.146.5">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.0">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
