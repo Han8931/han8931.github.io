@@ -1,15 +1,7 @@
----
-weight: 1
-title: "Rediscovering Python's Pathlib"
-date: 2025-05-17
-draft: false
-author: Han
-description: "Pathlib tutorial"
-tags: ["python", "pathlib", "path"]
-categories: ["python", "programming"]
----
+# Rediscovering Python's Pathlib
 
-## From Type Hint to Power Tool: Rediscovering Python's `Pathlib`
+
+## From Type Hint to Power Tool:  Python's `Pathlib`
 
 
 For a long time, I used `Path` from Python's `pathlib` module purely as a **type hint** - a way to make function signatures look more modern and semantically clear. Like this:
@@ -134,4 +126,5 @@ p.suffix    # '.txt'
 p.parent    # PosixPath('/home/user/project')
 p.parts     # ('/', 'home', 'user', 'project', 'file.txt')
 ```
+
 

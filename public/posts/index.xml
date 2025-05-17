@@ -6,11 +6,11 @@
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
             <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 17 May 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Rediscovering Python&#39;s Pathlib</title>
-    <link>http://localhost:1313/pathlib/</link>
+    <link>http://localhost:1313/20250517_pathlib/</link>
     <pubDate>Sat, 17 May 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/pathlib/</guid>
-    <description><![CDATA[<h2 id="from-type-hint-to-power-tool-rediscovering-pythons-pathlib">From Type Hint to Power Tool: Rediscovering Python&rsquo;s <code>Pathlib</code></h2>
+    <guid>http://localhost:1313/20250517_pathlib/</guid>
+    <description><![CDATA[<h2 id="from-type-hint-to-power-tool--pythons-pathlib">From Type Hint to Power Tool:  Python&rsquo;s <code>Pathlib</code></h2>
 <p>For a long time, I used <code>Path</code> from Python&rsquo;s <code>pathlib</code> module purely as a <strong>type hint</strong> - a way to make function signatures look more modern and semantically clear. Like this:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
