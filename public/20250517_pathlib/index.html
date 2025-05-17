@@ -25,7 +25,7 @@
 <meta name="application-name" content="KeepIt">
 <meta name="apple-mobile-web-app-title" content="KeepIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/20250517_pathlib/" /><link rel="prev" href="http://localhost:1313/20250413_uv_package_manager/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/20250517_pathlib/" /><link rel="prev" href="http://localhost:1313/20250413_uv_package_manager/" /><link rel="next" href="http://localhost:1313/20250517_python_logging/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -34,7 +34,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20250517_pathlib\/"
-        },"genre": "posts","keywords": "python, pathlib, path","wordcount":  430 ,
+        },"genre": "posts","keywords": "python, pathlib, path","wordcount":  429 ,
         "url": "http:\/\/localhost:1313\/20250517_pathlib\/","datePublished": "2025-05-17T00:00:00+00:00","dateModified": "2025-05-17T10:08:04+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -110,7 +110,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Rediscovering Python&#39;s Pathlib</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-05-17">2025-05-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;430 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-05-17">2025-05-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;429 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -120,7 +120,7 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#from-type-hint-to-power-tool--pythons-pathlib">From Type Hint to Power Tool:  Python&rsquo;s <code>Pathlib</code></a></li>
-    <li><a href="#-why-pathlib-is-worth-more-than-a-hint">🔹 Why <code>pathlib</code> is Worth More than a Hint</a>
+    <li><a href="#why-pathlib-is-worth-more-than-a-hint">Why <code>pathlib</code> is Worth More than a Hint</a>
       <ul>
         <li><a href="#ensuring-directories-exist"><strong>Ensuring Directories Exist</strong></a></li>
         <li><a href="#managing-directories"><strong>Managing Directories</strong></a></li>
@@ -146,7 +146,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>It changed when I started building an application that handled user-uploaded documents. I had to create temporary folders, write intermediate files, manage output paths, and ensure directories existed before saving results. That&rsquo;s when <code>Path</code> went from <em>just a type hint</em> to a core part of my file management logic.</p>
-<h2 id="-why-pathlib-is-worth-more-than-a-hint">🔹 Why <code>pathlib</code> is Worth More than a Hint</h2>
+<h2 id="why-pathlib-is-worth-more-than-a-hint">Why <code>pathlib</code> is Worth More than a Hint</h2>
 <p>Here are the use cases where it transformed my workflow:</p>
 <h3 id="ensuring-directories-exist"><strong>Ensuring Directories Exist</strong></h3>
 <p>Before:</p>
@@ -340,7 +340,8 @@ This is equivalent to os.makedirs(), but more cleaner and readable!</li>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/20250413_uv_package_manager/" class="prev" rel="prev" title="All‑in‑One Python Package Manager: UV!"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>All‑in‑One Python Package Manager: UV!</a></div>
+    <div class="post-nav"><a href="/20250413_uv_package_manager/" class="prev" rel="prev" title="All‑in‑One Python Package Manager: UV!"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>All‑in‑One Python Package Manager: UV!</a>
+            <a href="/20250517_python_logging/" class="next" rel="next" title="Introduction to logging in Python">Introduction to logging in Python<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

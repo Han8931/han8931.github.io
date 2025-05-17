@@ -103,6 +103,77 @@
 <a href="mailto:tabularasa8931@gmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a>
 </div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/20250517_python_logging/">Introduction to logging in Python</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
+</span>&nbsp;<span class="post-publish">published on <time datetime="2025-05-17">2025-05-17</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><h2 id="a-gentle-practical-introduction-to-logging-in-python">A gentle, practical introduction to <code>logging</code> in Python</h2>
+<hr>
+<h3 id="why-bother-with-a-dedicated-logging-library">Why bother with a dedicated logging library?</h3>
+<ul>
+<li><strong>Prints don’t scale.</strong> <code>print()</code> is fine during quick experiments, but real programs need a record that can be filtered, rotated, or shipped elsewhere.</li>
+<li><strong>Separation of concerns.</strong> You decide <em>what</em> to log in your code; <code>logging</code> decides <em>where</em> and <em>how</em> to write it (console, file, etc.).</li>
+<li><strong>Built-in, no extra dependency.</strong> The standard library’s <code>logging</code> module is powerful enough for most applications.</li>
+</ul>
+<hr>
+<h3 id="core-concepts">Core concepts</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Concept</th>
+          <th>Role in the ecosystem</th>
+          <th>Typical examples</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Logger</strong></td>
+          <td>The entry point your code calls (<code>logger.info(...)</code>). You can have many, one per module.</td>
+          <td><code>&quot;__main__&quot;</code>, <code>&quot;my_package.worker&quot;</code></td>
+      </tr>
+      <tr>
+          <td><strong>Handler</strong></td>
+          <td>Decides <em>where</em> the record goes.</td>
+          <td><code>StreamHandler</code> (stdout), <code>FileHandler</code>, <code>TimedRotatingFileHandler</code>, <code>SMTPHandler</code></td>
+      </tr>
+      <tr>
+          <td><strong>Formatter</strong></td>
+          <td>Decides <em>how</em> the record looks.</td>
+          <td><code>'%(asctime)s - %(levelname)s - %(name)s - %(message)s'</code></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="a-minimal-logger">A minimal logger</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">logging</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">format</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">%(levelname)s</span><span class="s2"> | </span><span class="si">%(message)s</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Hello, world!&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>basicConfig</code> is a one-liner good for small scripts.</li>
+<li>In bigger projects, mixing multiple modules / log files, you&rsquo;ll want finer control.</li>
+</ul>
+<hr>
+<h3 id="rotating-files-at-midnight">Rotating files at midnight</h3>
+<p><strong>Rotating a log file means creating a new log file after a certain time or size limit is reached</strong>. In this case, a new file is created every night at midnight. Only the most recent two log files are kept—yesterday&rsquo;s and today’s—while older ones are deleted automatically.</p></div><div class="post-footer">
+        <a href="/20250517_python_logging/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/logging/">Logging</a>,&nbsp;<a href="/tags/logger/">Logger</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/20250517_pathlib/">Rediscovering Python&#39;s Pathlib</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-publish">published on <time datetime="2025-05-17">2025-05-17</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><h2 id="from-type-hint-to-power-tool--pythons-pathlib">From Type Hint to Power Tool:  Python&rsquo;s <code>Pathlib</code></h2>
@@ -164,14 +235,6 @@
 <p>Abstract classes act as <strong>blueprints for other classes, allowing you to define methods that must be implemented by any subclass</strong>. They&rsquo;re typically used for creating a shared foundation while enforcing a specific structure. Protocols, on the other hand, take a more flexible approach. Instead of relying on inheritance, they <strong>let you define interfaces based on behavior</strong>, making them ideal for <em>duck typing</em> (or <em>structural subtyping</em>) and runtime flexibility.</p></div><div class="post-footer">
         <a href="/20250128_python_protocol_abstract_classes/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/abcs/">ABCs</a>,&nbsp;<a href="/tags/protocols/">Protocols</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/20250111_pytorch_container/">Run Pytorch Container in Arch Linux</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
-</span>&nbsp;<span class="post-publish">published on <time datetime="2025-01-11">2025-01-11</time></span>&nbsp;<span class="post-category">included in <a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div><div class="content"><h1 id="setting-up-dl-experiment-environments">Setting Up DL Experiment Environments</h1>
-<h2 id="a-challenge-for-arch-linux-users">A Challenge for Arch Linux Users</h2>
-<p>If you&rsquo;ve ever tried to set up a new experiment environment for deep learning on Arch Linux, you&rsquo;re probably familiar with the challenges involved. Arch Linux, renowned for its rolling-release model and cutting-edge updates, provides unparalleled flexibility and control over your system. However, this same flexibility can often lead to headaches when setting up complex environments for machine learning or deep learning experiments. Dependency conflicts, missing libraries, and version mismatches are all too common.</p></div><div class="post-footer">
-        <a href="/20250111_pytorch_container/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/pytorch/">Pytorch</a>,&nbsp;<a href="/tags/arch/">Arch</a>,&nbsp;<a href="/tags/container/">Container</a>,&nbsp;<a href="/tags/docker/">Docker</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -188,7 +251,7 @@
                     <span class="page-link" aria-hidden="true">&hellip;</span>
                 </li><li class="page-item ">
                     <span class="page-link">
-                        <a href="/page/5/">5</a>
+                        <a href="/page/6/">6</a>
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">

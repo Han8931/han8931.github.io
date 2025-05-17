@@ -2,6 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>http://localhost:1313/20250517_python_logging/</loc><lastmod>2025-05-17T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20250517_pathlib/</loc><lastmod>2025-05-17T10:08:04&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20250413_uv_package_manager/</loc><lastmod>2025-04-13T22:24:50&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
             <loc>http://localhost:1313/20250413_vim_fugitive/</loc><lastmod>2025-04-13T22:24:50&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
@@ -34,6 +35,8 @@
             <loc>http://localhost:1313/20240421_type-hint/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/categories/</loc><lastmod>2025-05-17T10:08:04&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/</loc><lastmod>2025-05-17T10:08:04&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/logger/</loc><lastmod>2025-05-17T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/logging/</loc><lastmod>2025-05-17T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/tags/path/</loc><lastmod>2025-05-17T10:08:04&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/tags/pathlib/</loc><lastmod>2025-05-17T10:08:04&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/posts/</loc><lastmod>2025-05-17T10:08:04&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
