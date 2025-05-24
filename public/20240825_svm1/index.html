@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-08-25T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-08-31T10:02:57+09:00">
+    <meta property="article:modified_time" content="2025-05-24T17:10:11+09:00">
     <meta property="article:tag" content="Machine Learning">
     <meta property="article:tag" content="Svm">
     <meta property="article:tag" content="Support Vector Machines">
@@ -34,8 +34,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240825_svm1\/"
-        },"genre": "posts","keywords": "machine learning, svm, Support vector machines","wordcount":  2272 ,
-        "url": "http:\/\/localhost:1313\/20240825_svm1\/","datePublished": "2024-08-25T00:00:00+00:00","dateModified": "2024-08-31T10:02:57+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "machine learning, svm, Support vector machines","wordcount":  2400 ,
+        "url": "http:\/\/localhost:1313\/20240825_svm1\/","datePublished": "2024-08-25T00:00:00+00:00","dateModified": "2025-05-24T17:10:11+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -110,8 +110,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Introduction to SVM Part 1. Basics</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-25">2024-08-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2272 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;11 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-25">2024-08-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2400 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;12 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -139,7 +139,12 @@
     <li><a href="#the-wolfe-dual-problem">The Wolfe Dual Problem</a></li>
     <li><a href="#karush-kuhn-tucker-conditions">Karush-Kuhn-Tucker conditions</a>
       <ul>
-        <li><a href="#kkt-conditions-and-svm-optimization">KKT Conditions and SVM Optimization</a>
+        <li><a href="#kkt-conditions-and-svm-optimization">KKT Conditions and SVM Optimization</a></li>
+      </ul>
+    </li>
+    <li><a href="#prediction">Prediction</a>
+      <ul>
+        <li>
           <ul>
             <li><a href="#reference">Reference</a></li>
           </ul>
@@ -334,6 +339,29 @@ One important aspect of the dual problem is that it only involves the dot produc
 <p>The KKT conditions are a set of first-order necessary conditions that must be satisfied for a solution to be optimal. These conditions extend the method of Lagrange multipliers to handle inequality constraints and are particularly useful in non-linear programming. For the KKT conditions to apply, the problem must also satisfy certain regularity conditions. Fortunately, one of these regularity conditions is Slater’s condition, which we have already established holds true for SVMs.</p>
 <h3 id="kkt-conditions-and-svm-optimization">KKT Conditions and SVM Optimization</h3>
 <p>In the context of SVMs, the optimization problem is convex, meaning that the KKT conditions are not only necessary but also sufficient for optimality. This implies that if a solution satisfies the KKT conditions, it is guaranteed to be the optimal solution for both the primal and dual problems. Moreover, in this case, there is no duality gap, meaning the optimal values of the primal and dual problems are equal.</p>
+<h2 id="prediction">Prediction</h2>
+<p>Firstly, for a Linear SVM with no kernel, the primal weight vector is given by
+$$ w=\sum_{i\in \mathcal S}\alpha_i,y_i,x_i $$</p>
+<p>Then, the decision function is
+$$ f(x)=w^{!\top}x + b $$</p>
+<p>Since the feature map $\phi(,\cdot,)$ may live in a huge or even infinite-dimensional space, we never form $w$ explicitly. Instead we keep the <strong>kernel trick</strong> inside the decision function:
+$$ f(x)=\sum_{i\in\mathcal S}\alpha_i,y_i,K(x_i,,x)+b $$</p>
+<p>where $K(x_i,x)=\langle\phi(x_i),\phi(x)\rangle$.
+Typical kernels are the RBF $K(u,v)=\exp!\bigl(-\frac{|u-v|^2}{2\sigma^2}\bigr)$ or the polynomial $K(u,v)=(u^{!\top}v+c)^p$.</p>
+<p>Finally, we need to turn the decision value into a class label. For binary classification the prediction is simply the sign of the decision function:</p>
+<p>$$
+\hat y = \operatorname{sign}\bigl(f(x)\bigr) =
+\begin{cases}
++1 &amp;\text{if }f(x)\gt 0,\[4pt]
+-1 &amp;\text{if }f(x)\lt 0.
+\end{cases}
+$$</p>
+<p>In sum,
+$$
+\textbf{Predict}(x):
+\quad f(x)=\sum_{i\in\mathcal S}\alpha_i,y_i,K(x_i,x)+b,;
+\hat y=\text{sign}\bigl(f(x)\bigr)
+$$</p>
 <h4 id="reference">Reference</h4>
 <ul>
 <li>Alexandre Kowalczyk, Support Vector Machines Succinctly, 2017</li>
@@ -342,8 +370,8 @@ One important aspect of the dual problem is that it only involves the dot produc
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2024-08-31&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/53fba5abd4edf833142d4f4df69247e3966a5f47" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 53fba5abd4edf833142d4f4df69247e3966a5f47: Update">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>53fba5a</a></span>
+                <span>Updated on 2025-05-24&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/79292da00b1e7ec54eda1b33029e0406885f22f6" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 79292da00b1e7ec54eda1b33029e0406885f22f6: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>79292da</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
@@ -367,7 +395,7 @@ One important aspect of the dual problem is that it only involves the dot produc
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.0">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.5">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

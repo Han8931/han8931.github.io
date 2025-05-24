@@ -4,9 +4,27 @@
         <link>http://localhost:1313/</link>
         <description>Han&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 17 May 2025 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 24 May 2025 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Managing Password using Pass</title>
+    <link>http://localhost:1313/pass/</link>
+    <pubDate>Sat, 24 May 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/pass/</guid>
+    <description><![CDATA[<h1 id="a-minimalists-guide-to-pass-the-unix-password-manager">A Minimalist’s Guide to <strong>pass</strong>— the Unix Password Manager</h1>
+<p><em>Safely wrangle your secrets from the command-line using GPG encryption and a few intuitive commands.</em></p>
+<hr>
+<h2 id="1-why-pass">1. Why <em>pass</em>?</h2>
+<ul>
+<li><strong>Single-purpose &amp; transparent</strong> – every secret is just a GPG-encrypted file in <code>~/.password-store/</code>.</li>
+<li><strong>Leverages tools you already trust</strong> – GnuPG for encryption and standard Unix commands for everything else (grep, git, find, etc.).</li>
+<li><strong>Portable &amp; scriptable</strong> – works the same on any POSIX shell and is easy to automate.</li>
+</ul>
+<blockquote>
+<p><strong>Prerequisites</strong></p>]]></description>
+</item>
+<item>
     <title>Introduction to logging in Python</title>
     <link>http://localhost:1313/20250517_python_logging/</link>
     <pubDate>Sat, 17 May 2025 00:00:00 &#43;0000</pubDate>
@@ -181,31 +199,6 @@
 <h1 id="installing-arch-linux-uefi-or-bios">Installing Arch Linux (UEFI or BIOS)</h1>
 <p>Arch Linux is well-known for giving users full control over their system. This guide walks you through a fresh Arch Linux installation. While it is detailed, always refer to the <a href="https://wiki.archlinux.org/" target="_blank" rel="noopener noreffer">official Arch Wiki</a>
  for up-to-date information.</p>]]></description>
-</item>
-<item>
-    <title>Introduction to SVM Part 3. Asymmetric Kernels</title>
-    <link>http://localhost:1313/20240902_svm3/</link>
-    <pubDate>Sun, 01 Sep 2024 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/20240902_svm3/</guid>
-    <description><![CDATA[<h1 id="introduction-to-asymmetric-kernels">Introduction to Asymmetric Kernels</h1>
-<p>Recall that the dual form of LS-SVM is given by
-\begin{align*}
-\begin{bmatrix}
-0 &amp; y^T \\
-y &amp; \Omega + \frac{1}{\gamma} I
-\end{bmatrix}
-\begin{bmatrix}
-b \\
-\alpha
-\end{bmatrix}
-=
-\begin{bmatrix}
-0 \\
-e
-\end{bmatrix}
-\end{align*}
-An interesting point here is that using an asymmetric kernel in LS-SVM will not reduce to its symmetrization and asymmetric information can be learned. Then we can develop asymmetric kernels in the LS-SVM framework in a straightforward way.</p>]]></description>
 </item>
 </channel>
 </rss>
