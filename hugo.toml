@@ -1,7 +1,7 @@
 title = "Han's XYZ"
 baseURL = 'https://han8931.github.io/'
-# theme = "KeepIt"
-# themesDir = "./themes/"
+theme = "LoveIT"
+themesDir = "./themes"
 
 
 # determines default content language ["en", "zh-cn", "fr", "pl", ...]
@@ -203,7 +203,6 @@ enableEmoji = true
     GitHub = ""
     Linkedin = ""
     Twitter = ""
-    Instagram = ""
     Facebook = ""
     Telegram = ""
     Medium = ""

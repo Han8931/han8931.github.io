@@ -19,9 +19,12 @@
   <meta name="twitter:title" content="Han&#39;s XYZ">
   <meta name="twitter:description" content="--&gt;">
 <meta name="application-name" content="KeepIt">
-<meta name="apple-mobile-web-app-title" content="KeepIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="apple-mobile-web-app-title" content="KeepIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/drafts/how_to_hugo/" /><link rel="prev" href="http://localhost:1313/drafts/how_to_write_functions/" /><link rel="next" href="http://localhost:1313/drafts/github_actions/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/drafts/how_to_hugo/" /><link rel="prev" href="http://localhost:1313/drafts/how_to_write_functions/" /><link rel="next" href="http://localhost:1313/drafts/github_actions/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -39,7 +42,7 @@
             },"description": ""
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -60,8 +63,7 @@
                         </span>
                     </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a>
-            </div>
+                </a></div>
         </div>
     </div>
 </header><header class="mobile" id="header-mobile">
@@ -136,8 +138,7 @@
 <!--{{< gist spf13 7896402 >}} -->
 <!--``` -->
 <!--The rendered output looks like this: -->
-<!--<script src="https://gist.github.com/spf13/7896402.js"></script>
- -->
+<!--<script src="https://gist.github.com/spf13/7896402.js"></script> -->
 <!--The HTML looks like this: -->
 <!--```html -->
 <!--<script type="application/javascript" src="https://gist.github.com/spf13/7896402.js"></script> -->
@@ -158,21 +159,12 @@
 <!--{{< /highlight >}} -->
 <!--``` -->
 <!--The rendered output looks like this: -->
-<!--<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"> --&gt;
+<!--<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-html">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"> --&gt;
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!--&lt;section id=&#34;main&#34;&gt; --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!--    &lt;div&gt; --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!--        &lt;h1 id=&#34;title&#34;&gt;{{ .Title }}&lt;/h1&gt; --&gt;</span>
@@ -181,9 +173,8 @@
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!--        {{ end }} --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!--    &lt;/div&gt; --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!--&lt;/section&gt; --&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="c">&lt;!--</span></span></span></code></pre></td></tr></table>
-</div>
-</div> -->
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--</span></span></span></code></pre></div></div>
+ -->
 <!--## 4 instagram -->
 <!--[Documentation of `instagram`](https://gohugo.io/content-management/shortcodes#instagram) -->
 <!--## 5 param -->
@@ -203,7 +194,7 @@
 <!--{{< tweet id="917359331535966209" user="Fastbyte01" >}} -->
 <!--``` -->
 <!--The rendered output looks like this: -->
-<!--<blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">Reminder: This Twitter account is not actively maintained for questions. Please post all questions on <a href="https://t.co/yAzbBojxaU">https://t.co/yAzbBojxaU</a> <a href="https://twitter.com/hashtag/gohugo?src=hash&amp;ref_src=twsrc%5Etfw">#gohugo</a></p>&mdash; GoHugo.io (@GoHugoIO) <a href="https://twitter.com/GoHugoIO/status/917359331535966209?ref_src=twsrc%5Etfw">October 9, 2017</a></blockquote>
+<!--<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Reminder: This Twitter account is not actively maintained for questions. Please post all questions on <a href="https://t.co/yAzbBojxaU">https://t.co/yAzbBojxaU</a> <a href="https://twitter.com/hashtag/gohugo?src=hash&amp;ref_src=twsrc%5Etfw">#gohugo</a></p>&mdash; GoHugo.io (@GoHugoIO) <a href="https://twitter.com/GoHugoIO/status/917359331535966209?ref_src=twsrc%5Etfw">October 9, 2017</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
  -->
@@ -236,15 +227,18 @@
  -->
 </div></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.5">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.5">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
                 <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"A9NUSQZEO5","algoliaIndex":"github","algoliaSearchKey":"e255482bc340762a0da27f50eddd2765","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/algoliasearch/lite/browser.umd.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script>window.config={"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"A9NUSQZEO5","algoliaIndex":"github","algoliaSearchKey":"e255482bc340762a0da27f50eddd2765","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
 </html>

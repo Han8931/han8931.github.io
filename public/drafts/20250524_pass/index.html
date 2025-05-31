@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="drafts">
     <meta property="article:published_time" content="2025-05-24T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-05-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-05-31T09:20:05+09:00">
     <meta property="article:tag" content="Linux">
     <meta property="article:tag" content="Pass">
     <meta property="article:tag" content="Password Manager">
@@ -23,9 +23,12 @@
   <meta name="twitter:title" content="Managing Password using Pass">
   <meta name="twitter:description" content="Password management">
 <meta name="application-name" content="KeepIt">
-<meta name="apple-mobile-web-app-title" content="KeepIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="apple-mobile-web-app-title" content="KeepIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/drafts/20250524_pass/" /><link rel="prev" href="http://localhost:1313/drafts/github_actions/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/drafts/20250524_pass/" /><link rel="prev" href="http://localhost:1313/drafts/github_actions/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -34,8 +37,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/drafts\/20250524_pass\/"
-        },"genre": "drafts","keywords": "linux, pass, password manager","wordcount":  697 ,
-        "url": "http:\/\/localhost:1313\/drafts\/20250524_pass\/","datePublished": "2025-05-24T00:00:00+00:00","dateModified": "2025-05-24T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "drafts","keywords": "linux, pass, password manager","wordcount":  679 ,
+        "url": "http:\/\/localhost:1313\/drafts\/20250524_pass\/","datePublished": "2025-05-24T00:00:00+00:00","dateModified": "2025-05-31T09:20:05+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -43,7 +46,7 @@
             },"description": "Password management"
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -64,8 +67,7 @@
                         </span>
                     </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a>
-            </div>
+                </a></div>
         </div>
     </div>
 </header><header class="mobile" id="header-mobile">
@@ -122,15 +124,13 @@
 </ul></blockquote>
 <hr>
 <h2 id="2-generate-your-first-gpg-key">2. Generate your first GPG key</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gpg --full-generate-key
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gpg --full-generate-key</span></span></code></pre></div></div>
+<ol>
 <li><strong>Key Type</strong> – pick the default <strong>RSA &amp; RSA</strong> (or <em>ECC</em> if you prefer).</li>
 <li><strong>Key Size</strong> – 3072 or 4096 bits (stronger ⇒ larger).</li>
 <li><strong>Expiration</strong> – choose a sensible period (e.g., 2 years) so compromised keys self-retire.</li>
@@ -139,35 +139,29 @@
 </ol>
 <hr>
 <h2 id="3-find-your-key-id">3. Find your key ID</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gpg --list-secret-key --keyid-format LONG
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Look for the line that starts with <code>sec</code>:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sec   rsa3072/AB12CD34EF56GH78 2025-05-17 [SC]  
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>AB12CD34EF56GH78</code> (16 hexadecimal characters after the slash) is <strong>your key ID</strong> – copy it; we’ll use it to initialise <em>pass</em>.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gpg --list-secret-key --keyid-format LONG</span></span></code></pre></div></div>
+<p>Look for the line that starts with <code>sec</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sec   rsa3072/AB12CD34EF56GH78 2025-05-17 [SC]  </span></span></code></pre></div></div>
+<p><code>AB12CD34EF56GH78</code> (16 hexadecimal characters after the slash) is <strong>your key ID</strong> – copy it; we’ll use it to initialise <em>pass</em>.</p>
 <hr>
 <h2 id="4-initialise-pass">4. Initialise <em>pass</em></h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pass init AB12CD34EF56GH78
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>What happens?</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pass init AB12CD34EF56GH78</span></span></code></pre></div></div>
+<p>What happens?</p>
 <ul>
 <li><code>pass</code> creates <code>~/.password-store/</code></li>
 <li>Every file placed there will be encrypted <strong>for the listed key(s)</strong>.</li>
@@ -176,78 +170,64 @@
 <p><em>(If you ever rotate keys, run <code>pass init --path . newKEYID</code> to re-encrypt subsets of the store.)</em></p>
 <hr>
 <h2 id="5-add-your-first-secret">5. Add your first secret</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pass insert twitter.com
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pass insert twitter.com</span></span></code></pre></div></div>
+<ul>
 <li><code>pass</code> opens your <code>$EDITOR</code> (= <code>vi</code>, <code>nano</code>, etc.).</li>
 <li>Type your password on the <strong>first line</strong>; anything after that is free-form notes (e.g., username, 2FA scratch codes).</li>
 <li>Save &amp; quit – you’ll be prompted for your GPG passphrase and the file <code>twitter.com.gpg</code> is created inside the store.</li>
 </ul>
 <p>Directory layout after one entry:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">~/.password-store/
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-text">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">~/.password-store/
 </span></span><span class="line"><span class="cl">├── .gpg-id
-</span></span><span class="line"><span class="cl">└── twitter.com.gpg
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><em>(Feel free to nest categories like <code>Business/github.com</code>, they become sub-directories.)</em></p>
+</span></span><span class="line"><span class="cl">└── twitter.com.gpg</span></span></code></pre></div></div>
+<p><em>(Feel free to nest categories like <code>Business/github.com</code>, they become sub-directories.)</em></p>
 <hr>
 <h2 id="6-display-or-decrypt-secrets">6. Display or decrypt secrets</h2>
 <p>Plain display (prints to STDOUT):</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pass twitter.com          <span class="c1"># same as `pass twitter`</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>One-off manual decryption (rarely needed, but shows nothing up <em>pass</em>’s sleeve):</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gpg -d ~/.password-store/facebook.com.gpg
-</span></span></code></pre></td></tr></table>
-</div>
-</div><hr>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pass twitter.com          <span class="c1"># same as `pass twitter`</span></span></span></code></pre></div></div>
+<p>One-off manual decryption (rarely needed, but shows nothing up <em>pass</em>’s sleeve):</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gpg -d ~/.password-store/facebook.com.gpg</span></span></code></pre></div></div>
+<hr>
 <h2 id="7-copy-to-clipboard-auto-clear">7. Copy to clipboard (auto-clear!)</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pass -c git_token
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pass -c git_token</span></span></code></pre></div></div>
+<ul>
 <li>The password is pushed to your clipboard.</li>
 <li>After <strong>45 seconds</strong> (configurable via <code>PASSWORD_STORE_CLIP_TIME</code>), <code>pass</code> industriously scrubs it.</li>
 </ul>
 <hr>
 <h2 id="8-remove-an-entry">8. Remove an entry</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pass rm Business/cheese-whiz-factory
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Flags worth knowing:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pass rm Business/cheese-whiz-factory</span></span></code></pre></div></div>
+<p>Flags worth knowing:</p>
 <ul>
 <li><code>-r</code> → <em>recursive</em> (delete directories).</li>
 <li><code>-f</code> → <em>force</em> (skip confirmation).</li>
@@ -296,65 +276,58 @@
 <hr>
 <h2 id="10-backing-up--restoring">10. Backing up &amp; restoring</h2>
 <p>Because the store is plain GPG files:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar czf pass-backup-<span class="k">$(</span>date +%F<span class="k">)</span>.tar.gz ~/.password-store
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>To restore:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar xzf pass-backup-2025-05-17.tar.gz -C ~/
-</span></span><span class="line"><span class="cl">pass git checkout .
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><em>(If you kept the Git repo you can just <code>git pull</code> from your remote.)</em></p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar czf pass-backup-<span class="k">$(</span>date +%F<span class="k">)</span>.tar.gz ~/.password-store</span></span></code></pre></div></div>
+<p>To restore:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar xzf pass-backup-2025-05-17.tar.gz -C ~/
+</span></span><span class="line"><span class="cl">pass git checkout .</span></span></code></pre></div></div>
+<p><em>(If you kept the Git repo you can just <code>git pull</code> from your remote.)</em></p>
 <hr>
 <h2 id="11-revoking--rotating-your-key">11. Revoking / rotating your key</h2>
 <ol>
 <li>
 <p>Generate &amp; publish a <strong>revocation certificate</strong> right after key creation:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gpg --output ~/revocation.asc --gen-revoke AB12CD34EF56GH78
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gpg --output ~/revocation.asc --gen-revoke AB12CD34EF56GH78</span></span></code></pre></div></div>
+</li>
 <li>
 <p>If the key is ever compromised, import that file (<code>gpg --import revocation.asc</code>) and re-encrypt the store with a new key:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gpg --full-generate-key          <span class="c1"># new key</span>
-</span></span><span class="line"><span class="cl">pass init NEWKEYID               <span class="c1"># re-encrypt everything</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gpg --full-generate-key          <span class="c1"># new key</span>
+</span></span><span class="line"><span class="cl">pass init NEWKEYID               <span class="c1"># re-encrypt everything</span></span></span></code></pre></div></div>
+</li>
 </ol>
 </div></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.5">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.5">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
                 <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"A9NUSQZEO5","algoliaIndex":"github","algoliaSearchKey":"e255482bc340762a0da27f50eddd2765","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/algoliasearch/lite/browser.umd.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script>window.config={"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"A9NUSQZEO5","algoliaIndex":"github","algoliaSearchKey":"e255482bc340762a0da27f50eddd2765","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
 </html>

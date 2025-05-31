@@ -22,9 +22,12 @@
   <meta name="twitter:title" content="Asyncio in Python: A Deep Dive into Asynchronous I/O">
   <meta name="twitter:description" content="Introduction to asyncio library">
 <meta name="application-name" content="KeepIt">
-<meta name="apple-mobile-web-app-title" content="KeepIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="apple-mobile-web-app-title" content="KeepIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/20250105_asyncio/" /><link rel="prev" href="http://localhost:1313/20250105_arch/" /><link rel="next" href="http://localhost:1313/20250111_pytorch_container/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/20250105_asyncio/" /><link rel="prev" href="http://localhost:1313/20250105_arch/" /><link rel="next" href="http://localhost:1313/20250111_pytorch_container/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -33,7 +36,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20250105_asyncio\/"
-        },"genre": "posts","keywords": "python, asyncio","wordcount":  1961 ,
+        },"genre": "posts","keywords": "python, asyncio","wordcount":  1916 ,
         "url": "http:\/\/localhost:1313\/20250105_asyncio\/","datePublished": "2025-01-05T00:00:00+00:00","dateModified": "2025-01-05T20:23:29+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -42,7 +45,7 @@
             },"description": "Introduction to asyncio library"
     }
     </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
@@ -63,8 +66,7 @@
                         </span>
                     </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a>
-            </div>
+                </a></div>
         </div>
     </div>
 </header><header class="mobile" id="header-mobile">
@@ -107,10 +109,9 @@
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Asyncio in Python: A Deep Dive into Asynchronous I/O</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a>
-</span>&nbsp;<span class="post-category">included in <a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a>&nbsp;<a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-01-05">2025-01-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1961 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;10 minutes&nbsp;</div>
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-category">included in <a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a>&nbsp;<a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-01-05">2025-01-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1916 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -157,8 +158,7 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>For the past few months, I&rsquo;ve been working on an exciting internal project at my company: taking users&rsquo; documents and running them through LLM APIs to translate and summarize their content, somewhat similar to <a href="https://www.deepl.com/" target="_blank" rel="noopener noreffer">DeepL</a>
-. The output is a collection of translated documents, each overlaid with the newly translated text. Our goal is to provide a stable service that can handle large files efficiently for thousands of employees at Samsung—no small task! To achieve this, we needed a concurrency strategy that supports high throughput while remaining responsive. <strong>That&rsquo;s where Asyncio comes in.</strong></p>
+            </div><div class="content" id="content"><p>For the past few months, I&rsquo;ve been working on an exciting internal project at my company: taking users&rsquo; documents and running them through LLM APIs to translate and summarize their content, somewhat similar to <a href="https://www.deepl.com/" target="_blank" rel="noopener noreffer ">DeepL</a>. The output is a collection of translated documents, each overlaid with the newly translated text. Our goal is to provide a stable service that can handle large files efficiently for thousands of employees at Samsung—no small task! To achieve this, we needed a concurrency strategy that supports high throughput while remaining responsive. <strong>That&rsquo;s where Asyncio comes in.</strong></p>
 <p>In this post, we&rsquo;ll look at how Python tackles concurrency through <strong>Asyncio</strong>, a library designed to handle asynchronous I/O. We&rsquo;ll explore the concepts of concurrency, parallelism, multitasking, the difference between I/O-bound and CPU-bound tasks, and finally see how Asyncio harnesses cooperative multitasking to help your applications handle large-scale I/O more effectively. Whether you&rsquo;re building an internal service for employees or creating a high-performance web server, Asyncio&rsquo;s approach to concurrency might just be the key to unlocking the scalability you need.</p>
 <h1 id="a-deep-dive-into-asynchronous-io">A Deep Dive into Asynchronous I/O</h1>
 <p>Modern software frequently needs to handle large volumes of input/output (I/O) operations. For instance, you might be retrieving data from web services, communicating with microservices over a network, or running multiple database queries simultaneously. These tasks can often take hundreds of milliseconds—or even seconds—if the network is under heavy load or the database is busy.</p>
@@ -190,21 +190,12 @@
 <p>A <strong>process</strong> is a running instance of an application with its own memory space. An example of creating a Python process would be running a simple &ldquo;hello world&rdquo; application or typing python at the command line to start up the REPL (read eval print loop). Modern operating systems allow multiple processes to run at once. If your CPU has multiple cores, it can execute processes truly in parallel. Otherwise, the OS uses <em>time slicing</em> to rapidly switch among processes.</p>
 <h3 id="threads">Threads</h3>
 <p>A <strong>thread</strong> is a more lightweight form of concurrency that runs within a single process, sharing the parent process&rsquo;s memory space. Threads have no their own memory. <em>A process will always have at least one thread associated with it, usually known as the main thread.</em> A process can also create other threads, which are more commonly known as <em>worker</em> or <em>background</em> threads. These threads can perform other work concurrently alongside the main thread. Threads, much like processes, can run alongside one another on a multi-core CPU, and the operating system can also switch between them via time slicing. When we run a normal Python application, we create a process as well as a <strong>main thread</strong> that will be responsible for running our Python application.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import os
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import os
 </span></span><span class="line"><span class="cl">import threading
 </span></span><span class="line"><span class="cl">	 
 </span></span><span class="line"><span class="cl">print(f&#39;Python process with process id: {os.getpid()}&#39;)
@@ -213,10 +204,8 @@
 </span></span><span class="line"><span class="cl">thread_name = threading.current_thread().name
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">print(f&#39;{num_threads} thread(s) are running&#39;)
-</span></span><span class="line"><span class="cl">print(f&#39;The current thread is {thread_name}&#39;)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="multithreading-in-python">Multithreading in Python</h4>
+</span></span><span class="line"><span class="cl">print(f&#39;The current thread is {thread_name}&#39;)</span></span></code></pre></div></div>
+<h4 id="multithreading-in-python">Multithreading in Python</h4>
 <p>You might assume that starting multiple threads automatically takes advantage of multi-core systems. <strong>However, Python has a key constraint called the Global Interpreter Lock (GIL).</strong> The GIL ensures that only one thread can run one Python instruction at a time. This means that even on a multi-core machine, your Python code cannot run more than one CPU-bound thread simultaneously within the same process.</p>
 <p><strong>So, are threads useless in Python?</strong> Far from it. Threads <em>do</em> provide genuine concurrency for I/O-bound tasks because Python releases the GIL during I/O operations. This allows you to overlap network calls, file reads, etc., effectively improving throughput. Yet for CPU-bound tasks, you won’t get true parallelism using just threads.</p>
 <hr>
@@ -260,27 +249,12 @@
 <h2 id="putting-it-all-together-an-example">Putting It All Together: An Example</h2>
 <p>Below is a simplified comparison of synchronous, multithreaded, and Asyncio-based approaches to fetching two web pages:</p>
 <h3 id="synchronous-approach">Synchronous Approach</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-python">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">fetch_example</span><span class="p">():</span>
@@ -295,35 +269,16 @@
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Synchronous: </span><span class="si">{</span><span class="n">status_one</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">status_two</span><span class="si">}</span><span class="s2">, time=</span><span class="si">{</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">sync_fetch</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>Synchronous</strong> mode fetches one URL at a time. If each request blocks for one second, the total time is roughly two seconds.</p>
+</span></span><span class="line"><span class="cl">    <span class="n">sync_fetch</span><span class="p">()</span></span></span></code></pre></div></div>
+<p><strong>Synchronous</strong> mode fetches one URL at a time. If each request blocks for one second, the total time is roughly two seconds.</p>
 <p>Here, Python will release the GIL while waiting for the network, letting both threads run concurrently. The total time is potentially cut almost in half, assuming the responses come back quickly.</p>
 <h3 id="asyncio-approach">Asyncio Approach</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-python">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">asyncio</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">aiohttp</span>
 </span></span><span class="line"><span class="cl">
@@ -340,10 +295,8 @@
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Asyncio: time=</span><span class="si">{</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>With <strong>Asyncio</strong>, both fetch operations are initiated concurrently in the same thread, with the event loop switching between them whenever one is waiting for I/O. Like multithreading, you should see a meaningful speedup compared to the synchronous approach—but without the complexities of shared data across threads.</p>
+</span></span><span class="line"><span class="cl">    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span></span></span></code></pre></div></div>
+<p>With <strong>Asyncio</strong>, both fetch operations are initiated concurrently in the same thread, with the event loop switching between them whenever one is waiting for I/O. Like multithreading, you should see a meaningful speedup compared to the synchronous approach—but without the complexities of shared data across threads.</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -373,15 +326,18 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.5">Hugo</a> | Theme - <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="noopener noreffer" title="KeepIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> KeepIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.147.5">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
 
         <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
                 <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"A9NUSQZEO5","algoliaIndex":"github","algoliaSearchKey":"e255482bc340762a0da27f50eddd2765","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/algoliasearch/lite/browser.umd.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script>window.config={"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"A9NUSQZEO5","algoliaIndex":"github","algoliaSearchKey":"e255482bc340762a0da27f50eddd2765","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
 </html>
