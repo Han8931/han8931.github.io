@@ -347,21 +347,21 @@ $$ f(x)=w^{!\top}x + b $$</p>
 <p>Since the feature map $\phi(,\cdot,)$ may live in a huge or even infinite-dimensional space, we never form $w$ explicitly. Instead we keep the <strong>kernel trick</strong> inside the decision function:
 $$ f(x)=\sum_{i\in\mathcal S}\alpha_i,y_i,K(x_i,,x)+b $$</p>
 <p>where $K(x_i,x)=\langle\phi(x_i),\phi(x)\rangle$.
-Typical kernels are the RBF $K(u,v)=\exp!\bigl(-\frac{|u-v|^2}{2\sigma^2}\bigr)$ or the polynomial $K(u,v)=(u^{!\top}v+c)^p$.</p>
+Typical kernels are the RBF $K(u,v)=\exp\!\bigl(-\frac{|u-v|^2}{2\sigma^2}\bigr)$ or the polynomial $K(u,v)=(u^{\!\top}v+c)^p$.</p>
 <p>Finally, we need to turn the decision value into a class label. For binary classification the prediction is simply the sign of the decision function:</p>
-<p>$$
+<p>\begin{align*}
 \hat y = \operatorname{sign}\bigl(f(x)\bigr) =
 \begin{cases}
-+1 &amp;\text{if }f(x)\gt 0,\[4pt]
++1 &amp;\text{if }f(x)\gt 0,\\
 -1 &amp;\text{if }f(x)\lt 0.
 \end{cases}
-$$</p>
+\end{align*}</p>
 <p>In sum,
-$$
+\begin{align*}
 \textbf{Predict}(x):
 \quad f(x)=\sum_{i\in\mathcal S}\alpha_i,y_i,K(x_i,x)+b,;
 \hat y=\text{sign}\bigl(f(x)\bigr)
-$$</p>
+\end{align*}</p>
 <h4 id="reference">Reference</h4>
 <ul>
 <li>Alexandre Kowalczyk, Support Vector Machines Succinctly, 2017</li>

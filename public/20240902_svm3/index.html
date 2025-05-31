@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-09-01T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-09-02T04:04:27+09:00">
+    <meta property="article:modified_time" content="2025-05-26T16:20:32+09:00">
     <meta property="article:tag" content="Machine Learning">
     <meta property="article:tag" content="Svm">
     <meta property="article:tag" content="Support Vector Machines">
@@ -37,7 +37,7 @@
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/20240902_svm3\/"
         },"genre": "posts","keywords": "machine learning, svm, Support vector machines, Least-Square SVM, Asymmetric Kernels","wordcount":  713 ,
-        "url": "http:\/\/localhost:1313\/20240902_svm3\/","datePublished": "2024-09-01T00:00:00+00:00","dateModified": "2024-09-02T04:04:27+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        "url": "http:\/\/localhost:1313\/20240902_svm3\/","datePublished": "2024-09-01T00:00:00+00:00","dateModified": "2025-05-26T16:20:32+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -210,16 +210,16 @@ H_{ji} &amp;= y_j K(x_j, x_i) y_i
 <p>AsK-LS uses two different feature mappings $ \phi_s $ and $ \phi_t $ for the source and target features. This approach allows capturing more information compared to symmetric kernels. The dual solution provides weight vectors $ \omega $ and $ \nu $, which span the target and source feature spaces, respectively.</p>
 <p>The decision functions for classification from the source and target perspectives are given by
 \begin{align*}
-f_s(x) &amp;= \sum_{i=1}^m \beta_i y_i K(x, x_i) + b_1\\
-f_t(x) &amp;= \sum_{i=1}^m \alpha_i y_i K(x_i, x) + b_2
+f_t(x) &amp;= \sum_{i=1}^m \alpha_i y_i K(x_i, x) + b_1\\
+f_s(x) &amp;= \sum_{i=1}^m \beta_i y_i K(x, x_i) + b_2
 \end{align*}
 These decision functions leverage the learned asymmetric relationships in the data, providing a more nuanced classification model.</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2024-09-02&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/0b78f5b9555068a717bc472f458f904f152c82a0" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 0b78f5b9555068a717bc472f458f904f152c82a0: Asymmetric Kernels">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>0b78f5b</a></span>
+                <span>Updated on 2025-05-26&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/08bf4ebca14d90d1ea3a26ed1a6fd1427dd9d8ef" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 08bf4ebca14d90d1ea3a26ed1a6fd1427dd9d8ef: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>08bf4eb</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>

@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://localhost:1313/pass/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/drafts/20250524_pass/</loc><lastmod>2025-05-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20250517_python_logging/</loc><lastmod>2025-05-17T10:36:47&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>http://localhost:1313/20250517_pathlib/</loc><lastmod>2025-05-17T10:36:47&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>http://localhost:1313/20250413_uv_package_manager/</loc><lastmod>2025-04-13T22:24:50&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -12,11 +12,11 @@
             <loc>http://localhost:1313/20250111_pytorch_container/</loc><lastmod>2025-01-19T21:42:20&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/20250105_asyncio/</loc><lastmod>2025-01-05T20:23:29&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/20250105_arch/</loc><lastmod>2025-04-13T16:03:07&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://localhost:1313/20240902_svm3/</loc><lastmod>2024-09-02T04:04:27&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://localhost:1313/20240902_svm3/</loc><lastmod>2025-05-26T16:20:32&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20240825_svm2/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20240825_svm1/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/20240819_gradient_descent/</loc><lastmod>2024-08-25T10:54:40&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://localhost:1313/20240818_latent_variable_part1/</loc><lastmod>2025-04-20T16:00:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://localhost:1313/20240818_latent_variable_part1/</loc><lastmod>2025-04-20T16:00:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/20240815_svd/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/20240812_recursive_least_square/</loc><lastmod>2024-08-31T10:02:57&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/20240811_regression2/</loc><lastmod>2024-08-31T10:02:57&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -34,19 +34,20 @@
             <loc>http://localhost:1313/20240421_why-linux/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/20240421_hide-sensitive-data/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/20240421_type-hint/</loc><lastmod>2024-08-04T10:40:37&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://localhost:1313/categories/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/categories/linux/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/linux/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/categories/pass/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/pass/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/password-manager/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/posts/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/categories/</loc><lastmod>2025-05-26T16:20:32&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/drafts/</loc><lastmod>2025-05-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/</loc><lastmod>2025-05-26T16:20:32&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/categories/linux/</loc><lastmod>2025-05-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/linux/</loc><lastmod>2025-05-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/categories/pass/</loc><lastmod>2025-05-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/pass/</loc><lastmod>2025-05-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/password-manager/</loc><lastmod>2025-05-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/</loc><lastmod>2025-05-26T16:20:32&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/tags/logger/</loc><lastmod>2025-05-17T10:36:47&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>http://localhost:1313/tags/logging/</loc><lastmod>2025-05-17T10:36:47&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>http://localhost:1313/tags/path/</loc><lastmod>2025-05-17T10:36:47&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>http://localhost:1313/tags/pathlib/</loc><lastmod>2025-05-17T10:36:47&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://localhost:1313/posts/</loc><lastmod>2025-05-26T16:20:32&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/categories/programming/</loc><lastmod>2025-05-17T10:36:47&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>http://localhost:1313/categories/python/</loc><lastmod>2025-05-17T10:36:47&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>http://localhost:1313/tags/python/</loc><lastmod>2025-05-17T10:36:47&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
@@ -71,20 +72,20 @@
             <loc>http://localhost:1313/tags/docker/</loc><lastmod>2025-01-19T21:42:20&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/tags/pytorch/</loc><lastmod>2025-01-19T21:42:20&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/tags/asyncio/</loc><lastmod>2025-01-05T20:23:29&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://localhost:1313/tags/asymmetric-kernels/</loc><lastmod>2024-09-02T04:04:27&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://localhost:1313/tags/least-square-svm/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/categories/machine-learning/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/machine-learning/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/support-vector-machines/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://localhost:1313/tags/svm/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/asymmetric-kernels/</loc><lastmod>2025-05-26T16:20:32&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/least-square-svm/</loc><lastmod>2025-05-26T16:20:32&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/categories/machine-learning/</loc><lastmod>2025-05-26T16:20:32&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/machine-learning/</loc><lastmod>2025-05-26T16:20:32&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/support-vector-machines/</loc><lastmod>2025-05-26T16:20:32&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://localhost:1313/tags/svm/</loc><lastmod>2025-05-26T16:20:32&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/tags/ls-svm/</loc><lastmod>2025-05-24T17:10:11&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://localhost:1313/tags/gradient/</loc><lastmod>2024-08-25T10:54:40&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/tags/gradient-descent/</loc><lastmod>2024-08-25T10:54:40&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://localhost:1313/tags/clustering/</loc><lastmod>2025-04-20T16:00:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://localhost:1313/tags/gaussian-mixture-modeling/</loc><lastmod>2025-04-20T16:00:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://localhost:1313/tags/gmm/</loc><lastmod>2025-04-20T16:00:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://localhost:1313/tags/k-means-clustering/</loc><lastmod>2025-04-20T16:00:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://localhost:1313/tags/latent-variable/</loc><lastmod>2025-04-20T16:00:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://localhost:1313/tags/clustering/</loc><lastmod>2025-04-20T16:00:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://localhost:1313/tags/gaussian-mixture-modeling/</loc><lastmod>2025-04-20T16:00:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://localhost:1313/tags/gmm/</loc><lastmod>2025-04-20T16:00:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://localhost:1313/tags/k-means-clustering/</loc><lastmod>2025-04-20T16:00:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://localhost:1313/tags/latent-variable/</loc><lastmod>2025-04-20T16:00:56&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/categories/linear-algebra/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/tags/linear-algebra/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/categories/math/</loc><lastmod>2024-08-15T12:33:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -122,5 +123,4 @@
             <loc>http://localhost:1313/drafts/how_to_hugo/</loc><lastmod>2025-02-15T12:52:58&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/drafts/how_to_write_functions/</loc><lastmod>2025-01-25T11:03:25&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://localhost:1313/drafts/pep8/</loc><lastmod>2025-01-28T16:56:29&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://localhost:1313/drafts/reinforcement_learning_1/</loc><lastmod>2025-01-25T11:01:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://localhost:1313/drafts/</loc><lastmod>2025-02-15T12:52:58&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>
+            <loc>http://localhost:1313/drafts/reinforcement_learning_1/</loc><lastmod>2025-01-25T11:01:17&#43;09:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>
