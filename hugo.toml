@@ -1,8 +1,7 @@
 title = "Han's XYZ"
 baseURL = 'https://han8931.github.io/'
-theme = "LoveIT"
-themesDir
-
+# theme = "KeepIt"
+# themesDir = "./themes/"
 
 
 # determines default content language ["en", "zh-cn", "fr", "pl", ...]
