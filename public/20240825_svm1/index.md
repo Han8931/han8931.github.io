@@ -222,33 +222,34 @@ In the context of SVMs, the optimization problem is convex, meaning that the KKT
 ## Prediction
 
 Firstly, for a Linear SVM with no kernel, the primal weight vector is given by
-$$ w=\sum_{i\in \mathcal S}\alpha_i\,y_i\,x_i $$
+$$ w=\sum_{i\in \mathcal S}\alpha\_i\,y\_i\,x\_i $$
 
 Then, the decision function is
 $$ f(x)=w^{\!\top}x + b $$
 
 Since the feature map $\phi(\,\cdot\,)$ may live in a huge or even infinite-dimensional space, we never form $w$ explicitly. Instead we keep the **kernel trick** inside the decision function:
-$$ f(x)=\sum_{i\in\mathcal S}\alpha_i\,y_i\,K(x_i,\,x)+b $$
+$$ f(x)=\sum_{i\in\mathcal S}\alpha\_i\,y\_i\,K(x\_i,\,x)+b $$
 
-where $K(x_i,x)=\langle\phi(x_i),\phi(x)\rangle$.
-Typical kernels are the RBF $K(u,v)=\exp\!\bigl(-\frac{\|u-v\|^2}{2\sigma^2}\bigr)$ or the polynomial $K(u,v)=(u^{\!\top}v+c)^p$.
+where $K(x_i,x)=\langle\phi(x\_i),\phi(x)\rangle$.
+Typical kernels are the RBF $K(u,v)=\exp\\!\bigl(-\frac{\|u-v\|^2}{2\sigma^2}\bigr)$ or the polynomial $K(u,v)=(u^{\\!\top}v+c)^p$.
 
 Finally, we need to turn the decision value into a class label. For binary classification the prediction is simply the sign of the decision function:
 
-$$
-\hat y = \operatorname{sign}\bigl(f(x)\bigr) = 
-\begin{cases}
-+1 &\text{if }f(x)\gt 0,\\[4pt]
--1 &\text{if }f(x)\lt 0.
-\end{cases}
-$$
+\begin{align*}
+    \hat y = \operatorname{sign}\bigl(f(x)\bigr) = 
+    \begin{cases}
+        +1 &\text{if }f(x)\gt 0,\\\\
+        -1 &\text{if }f(x)\lt 0.
+    \end{cases}
+\end{align*}
 
 In sum,
-$$
-\textbf{Predict}(x):
-\quad f(x)=\sum_{i\in\mathcal S}\alpha_i\,y_i\,K(x_i,x)+b,\;
-\hat y=\text{sign}\bigl(f(x)\bigr)
-$$
+\begin{align*}
+    \textbf{Predict}(x):
+    \quad f(x)=\sum_{i\in\mathcal S}\alpha_i\,y_i\,K(x_i,x)+b,\;
+    \hat y=\text{sign}\bigl(f(x)\bigr)
+\end{align*}
+
 
 
 #### Reference
