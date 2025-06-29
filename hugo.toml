@@ -452,7 +452,7 @@ enableEmoji = true
 
   # Site verification code for Google/Bing/Yandex/Pinterest/Baidu
   [params.verification]
-    google = ""
+    google = "B7mVm-DfAgGVs4ghQkEqrmeZIv8D26A-1C7dx6Ajeh0"
     bing = ""
     yandex = ""
     pinterest = ""
