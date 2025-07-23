@@ -9,13 +9,13 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 31 Aug 2024 10:02:57 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/encryption/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Data Encryption using GPG!</title>
-      <link>http://localhost:1313/20240804_gpg_encryption/</link>
+      <link>http://localhost:1313/gpg-encryption/</link>
       <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20240804_gpg_encryption/</guid>
+      <guid>http://localhost:1313/gpg-encryption/</guid>
       <description>&lt;h1 id=&#34;securing-your-privacy&#34;&gt;Securing Your Privacy&lt;/h1&gt;&#xA;&lt;p&gt;The importance of securing your data has become critical in the modern digital era. This post explores a versatile tool called GnuPG, or GNU Privacy Guard, which allows you to encrypt your data and communications, ensuring that only the intended recipients can access them.&lt;/p&gt;&#xA;&lt;h2 id=&#34;asymmetric-encryption&#34;&gt;Asymmetric Encryption&lt;/h2&gt;&#xA;&lt;p&gt;Before looking at GPG, let’s first review some encryption approaches. A very naive approach to sharing encrypted files is to use the same secret key between a sender and a receiver. This approach is known as symmetric encryption. However, the symmetric approach has a limitation in that it requires a secure method for key exchange.&lt;/p&gt;</description>
     </item>
   </channel>

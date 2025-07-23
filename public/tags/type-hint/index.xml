@@ -9,13 +9,13 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 04 Aug 2024 10:40:37 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 20 Apr 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/type-hint/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Type hint in Python</title>
-      <link>http://localhost:1313/20240421_type-hint/</link>
+      <link>http://localhost:1313/type-hint/</link>
       <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20240421_type-hint/</guid>
+      <guid>http://localhost:1313/type-hint/</guid>
       <description>&lt;p&gt;Type hinting is &lt;em&gt;not mandatory&lt;/em&gt;, but it can make your code easier to understand and debug by&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Improved readability&lt;/li&gt;&#xA;&lt;li&gt;Better IDE support: IDEs and linters can use type hints to check your code for potential errors before runtime.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;While type hints can be simple classes like &lt;a href=&#34;https://docs.python.org/3/library/functions.html#float&#34; title=&#34;float&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;&lt;code&gt;float&lt;/code&gt;&lt;/a&gt; or &lt;a href=&#34;https://docs.python.org/3/library/stdtypes.html#str&#34; title=&#34;str&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;&lt;code&gt;str&lt;/code&gt;&lt;/a&gt;, they can also be more complex. The &lt;a href=&#34;https://docs.python.org/3/library/typing.html#module-typing&#34; title=&#34;typing: Support for type hints (see :pep:`484`).&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;&lt;code&gt;typing&lt;/code&gt;&lt;/a&gt; module provides a vocabulary of more advanced type hints.&lt;/p&gt;</description>
     </item>
   </channel>

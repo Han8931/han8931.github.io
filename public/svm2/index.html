@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Introduction to SVM Part 2. LS-SVM - Han&#39;s XYZ</title><meta name="Description" content="Introduction to Support Vector Machines Part 2."><meta property="og:url" content="http://localhost:1313/svm2/">
+  <meta property="og:site_name" content="Han&#39;s XYZ">
+  <meta property="og:title" content="Introduction to SVM Part 2. LS-SVM">
+  <meta property="og:description" content="Introduction to Support Vector Machines Part 2.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-31T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-08-31T00:00:00+00:00">
+    <meta property="article:tag" content="Machine Learning">
+    <meta property="article:tag" content="Svm">
+    <meta property="article:tag" content="Support Vector Machines">
+    <meta property="article:tag" content="Least-Square SVM">
+    <meta property="article:tag" content="LS-SVM">
+    <meta property="og:image" content="http://localhost:1313/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/logo.png">
+  <meta name="twitter:title" content="Introduction to SVM Part 2. LS-SVM">
+  <meta name="twitter:description" content="Introduction to Support Vector Machines Part 2.">
+<meta name="application-name" content="KeepIt">
+<meta name="apple-mobile-web-app-title" content="KeepIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/svm2/" /><link rel="prev" href="http://localhost:1313/svm1/" /><link rel="next" href="http://localhost:1313/svm3/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><meta name="google-site-verification" content="B7mVm-DfAgGVs4ghQkEqrmeZIv8D26A-1C7dx6Ajeh0" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Introduction to SVM Part 2. LS-SVM",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/svm2\/"
+        },"genre": "posts","keywords": "machine learning, svm, Support vector machines, Least-Square SVM, LS-SVM","wordcount":  770 ,
+        "url": "http:\/\/localhost:1313\/svm2\/","datePublished": "2024-08-31T00:00:00+00:00","dateModified": "2024-08-31T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Han"
+            },"description": "Introduction to Support Vector Machines Part 2."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Introduction to SVM Part 2. LS-SVM</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-08-31">2024-08-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;770 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a>
+      <ul>
+        <li><a href="#optimization-problem-primal-problem">Optimization Problem (Primal Problem)</a></li>
+        <li><a href="#lagrangian-function">Lagrangian Function</a>
+          <ul>
+            <li><a href="#example">Example</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="introduction-to-least-square-svm">Introduction to Least-Square SVM</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Least Squares Support Vector Machine (LS-SVM) is a modified version of the traditional Support Vector Machine (SVM) that simplifies the quadratic optimization problem by using a <em>least squares cost function</em>. LS-SVM transforms the quadratic programming problem in classical SVM into a set of linear equations, which are easier and faster to solve.</p>
+<h3 id="optimization-problem-primal-problem">Optimization Problem (Primal Problem)</h3>
+<p>\begin{align*}
+&amp;\min_{w, b, e} \frac{1}{2} \lVert w\rVert^2 + \frac{\gamma}{2} \sum_{i=1}^N e_i^2,\\
+&amp;\text{subject to } y_i (w^T \phi(x_i) + b) = 1 - e_i, \ \forall i
+\end{align*}
+where:</p>
+<ul>
+<li>$w$ is the weight vector.</li>
+<li>$b$ is the bias term.</li>
+<li>$e_i$ are the error variables.</li>
+<li>$\gamma$ is a regularization parameter.</li>
+<li>$\phi(x_i)$ is the feature mapping function.</li>
+<li>Note that $y_i^{-1} = y_i$, since $y_i = \pm 1$.</li>
+</ul>
+<h3 id="lagrangian-function">Lagrangian Function</h3>
+<p>To solve the constraint optimization problem, we define the Lagrangian function:
+\begin{align*}
+L(w, b, e, \alpha) = \min_{w, b, e} \frac{1}{2} \lVert w\rVert^2 + \frac{\gamma}{2} \sum_{i=1}^N e_i^2 - \sum_{i=1}^n \alpha_i \left[ y_i (w^T \phi(x_i) + b) - 1 + e_i \right],
+\end{align*}
+where $\alpha_i$ are Lagrange multipliers. Then, by setting the partial derivatives of the Lagrangian with respect to $w$, $b$, $e$, and $\alpha$ to zero, we get the KKT conditions.</p>
+<ul>
+<li>$w$:
+\begin{align*}
+\frac{\partial L}{\partial w} = w - \sum_{i=1}^n \alpha_i y_i \phi(x_i) = 0 \implies w = \sum_{i=1}^n \alpha_i y_i \phi(x_i)
+\end{align*}</li>
+<li>$b$:
+\begin{align*}
+\frac{\partial L}{\partial b} = -\sum_{i=1}^n \alpha_i y_i = 0
+\end{align*}</li>
+<li>$e_i$:
+\begin{align*}
+\frac{\partial L}{\partial e_i} = \gamma e_i - \alpha_i = 0 \implies \alpha_i = \gamma e_i
+\end{align*}
+Thus, $e_i = \frac{\alpha_i}{\gamma}$</li>
+<li>$\alpha_i$:
+\begin{align*}
+\frac{\partial L}{\partial \alpha_i} = - \left[ y_i (w^T \phi(x_i) + b) - 1 + e_i \right] = 0 \implies y_i (w^T \phi(x_i) + b) = 1 - e_i, i=1,\dots, N.
+\end{align*}</li>
+</ul>
+<p>Let&rsquo;s substitute $w$ and $e$:</p>
+<ul>
+<li>$K$: kernel matrix</li>
+<li>$\alpha = [\alpha_1, \alpha_2, \ldots, \alpha_n]^T$: $N\times 1$</li>
+<li>$y = [y_1, y_2, \ldots, y_n]^T$.</li>
+<li>$\Omega = YKY^T$, where $\Omega_{kl}= y_ky_l\phi(x_k)^T\phi(x_l)$</li>
+<li>$Y = \text{diag}(y)$.</li>
+<li>$b$: $1\times 1$</li>
+</ul>
+<p>Then, we can express it compactly
+\begin{align*}
+&amp; Y(KY^T\alpha+b\mathbf{1})-\mathbf{1}+\frac{\alpha}{2\gamma} = 0\\
+&amp; \mathbf{1}^TY\alpha = 0.
+\end{align*}
+\begin{align*}
+\end{align*}</p>
+<p>By using the expression of $\alpha$ and $b$, we get
+\begin{align*}
+\begin{bmatrix}
+0 &amp; y^T \\
+y &amp; \Omega + \frac{1}{\gamma} I
+\end{bmatrix}
+\begin{bmatrix}
+b \\
+\alpha
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+1_n
+\end{bmatrix}
+\end{align*}
+Note that the dimension of the matrix on the left-hand side is $(N+1)\times (N+1)$. Once we have $b$ and $\alpha$ by solving the linear system, the decision function for <strong>a new input</strong> $x$ can be obtained by:
+\begin{align*}
+f(x) = \sum_{i=1}^n \alpha_i y_i K(x_i, x) + b.
+\end{align*}</p>
+<h4 id="example">Example</h4>
+<p>Suppose we have three training examples with feature vectors $x_1, x_2$, and $x_3$, and corresponding labels $y_1, y_2$, and $y_3$. The kernel matrix $\Omega$ is defined as:</p>
+<p>\begin{align*}
+\Omega_{ij} = y_i y_j K(x_i, x_j)
+\end{align*}
+The dual form is:
+\begin{align*}
+\begin{bmatrix}
+0 &amp; y^T \\
+y &amp; \Omega + \frac{1}{\gamma} I
+\end{bmatrix}
+\begin{bmatrix}
+b \\
+\alpha
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+e
+\end{bmatrix}
+\end{align*}</p>
+<ul>
+<li>$y = \begin{bmatrix} y_1 \ y_2 \ y_3 \end{bmatrix}$</li>
+<li>$\alpha = \begin{bmatrix} \alpha_1\ \alpha_2 \ \alpha_3 \end{bmatrix} $</li>
+<li>$e = \begin{bmatrix} 1 \ 1 \ 1 \end{bmatrix}$</li>
+<li>$I$ is a $3 \times 3$ identity matrix</li>
+</ul>
+<p>Then, the $\Omega$ is given by
+\begin{align*}
+\Omega = \begin{bmatrix}
+y_1 y_1 K(x_1, x_1) &amp; y_1 y_2 K(x_1, x_2) &amp; y_1 y_3 K(x_1, x_3) \\
+y_2 y_1 K(x_2, x_1) &amp; y_2 y_2 K(x_2, x_2) &amp; y_2 y_3 K(x_2, x_3) \\
+y_3 y_1 K(x_3, x_1) &amp; y_3 y_2 K(x_3, x_2) &amp; y_3 y_3 K(x_3, x_3)
+\end{bmatrix}
+\end{align*}</p>
+<p>Now, the complete matrix equation is:</p>
+<p>\begin{align*}
+\begin{bmatrix}
+0 &amp; y_1 &amp; y_2 &amp; y_3 \\
+y_1 &amp; \Omega_{11} + \frac{1}{\gamma} &amp; \Omega_{12} &amp; \Omega_{13} \\
+y_2 &amp; \Omega_{21} &amp; \Omega_{22} + \frac{1}{\gamma} &amp; \Omega_{23} \\
+y_3 &amp; \Omega_{31} &amp; \Omega_{32} &amp; \Omega_{33} + \frac{1}{\gamma}
+\end{bmatrix}
+\begin{bmatrix}
+b \\
+\alpha_1 \\
+\alpha_2 \\
+\alpha_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+1 \\
+1 \\
+1
+\end{bmatrix}
+\end{align*}</p>
+<p>This can be written explicitly as:
+\begin{align*}
+\begin{bmatrix}
+0 &amp; y_1 &amp; y_2 &amp; y_3 \\
+y_1 &amp; y_1^2 K(x_1, x_1) + \frac{1}{\gamma} &amp; y_1 y_2 K(x_1, x_2) &amp; y_1 y_3 K(x_1, x_3) \\
+y_2 &amp; y_2 y_1 K(x_2, x_1) &amp; y_2^2 K(x_2, x_2) + \frac{1}{\gamma} &amp; y_2 y_3 K(x_2, x_3) \\
+y_3 &amp; y_3 y_1 K(x_3, x_1) &amp; y_3 y_2 K(x_3, x_2) &amp; y_3^2 K(x_3, x_3) + \frac{1}{\gamma}
+\end{bmatrix}
+\begin{bmatrix}
+b \\
+\alpha_1 \\
+\alpha_2 \\
+\alpha_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+1 \\
+1 \\
+1
+\end{bmatrix}
+\end{align*}
+The solution to this matrix equation provides the values of $b$ and $ \alpha_1, \alpha_2, \alpha_3$, which are then used to construct the decision function:
+\begin{align*}
+f(x) = \sum_{i=1}^3 \alpha_i y_i K(x, x_i) + b
+\end{align*}</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-08-31</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/svm2/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/svm/">Svm</a>,&nbsp;<a href="/tags/support-vector-machines/">Support Vector Machines</a>,&nbsp;<a href="/tags/least-square-svm/">Least-Square SVM</a>,&nbsp;<a href="/tags/ls-svm/">LS-SVM</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/svm1/" class="prev" rel="prev" title="Introduction to SVM Part 1. Basics"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Introduction to SVM Part 1. Basics</a>
+            <a href="/svm3/" class="next" rel="next" title="Introduction to SVM Part 3. Asymmetric Kernels">Introduction to SVM Part 3. Asymmetric Kernels<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.1">Hugo</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/algoliasearch/lite/browser.umd.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script>window.config={"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"A9NUSQZEO5","algoliaIndex":"github","algoliaSearchKey":"e255482bc340762a0da27f50eddd2765","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
+</html>

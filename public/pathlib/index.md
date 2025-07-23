@@ -1,7 +1,7 @@
 # Rediscovering Python's Pathlib
 
 
-## From Type Hint to Power Tool: Rediscovering Python's `Pathlib`
+## From Type Hint to Power Tool:  Python's `Pathlib`
 
 
 For a long time, I used `Path` from Python's `pathlib` module purely as a **type hint** - a way to make function signatures look more modern and semantically clear. Like this:
@@ -14,7 +14,7 @@ def process_file(file_path: Path):
 ```
 It changed when I started building an application that handled user-uploaded documents. I had to create temporary folders, write intermediate files, manage output paths, and ensure directories existed before saving results. That's when `Path` went from *just a type hint* to a core part of my file management logic.
 
-## 🔹 Why `pathlib` is Worth More than a Hint
+## Why `pathlib` is Worth More than a Hint
 
 Here are the use cases where it transformed my workflow:
 

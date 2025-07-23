@@ -9,13 +9,13 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 05 Jan 2025 20:23:29 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/asyncio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Asyncio in Python: A Deep Dive into Asynchronous I/O</title>
-      <link>http://localhost:1313/20250105_asyncio/</link>
+      <link>http://localhost:1313/asyncio/</link>
       <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/20250105_asyncio/</guid>
+      <guid>http://localhost:1313/asyncio/</guid>
       <description>&lt;p&gt;For the past few months, I&amp;rsquo;ve been working on an exciting internal project at my company: taking users&amp;rsquo; documents and running them through LLM APIs to translate and summarize their content, somewhat similar to &lt;a href=&#34;https://www.deepl.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;DeepL&lt;/a&gt;. The output is a collection of translated documents, each overlaid with the newly translated text. Our goal is to provide a stable service that can handle large files efficiently for thousands of employees at Samsung—no small task! To achieve this, we needed a concurrency strategy that supports high throughput while remaining responsive. &lt;strong&gt;That&amp;rsquo;s where Asyncio comes in.&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>

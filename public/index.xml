@@ -8,10 +8,10 @@
             <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>A Lesson from a Naive Binary Search</title>
-    <link>http://localhost:1313/20250630_binary_search/</link>
+    <link>http://localhost:1313/binary-search/</link>
     <pubDate>Mon, 30 Jun 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20250630_binary_search/</guid>
+    <guid>http://localhost:1313/binary-search/</guid>
     <description><![CDATA[<h2 id="a-lesson-from-a-naive-binary-search">A Lesson from a Naive Binary Search</h2>
 <p>I&rsquo;ve been grinding hard every day, solving coding problems to get better at algorithms. Recently, I came across something interesting—a naive implementation of binary search can actually cause a bug. It&rsquo;s a small detail, but it matters.</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
@@ -34,10 +34,10 @@
 </item>
 <item>
     <title>Managing Password using Pass</title>
-    <link>http://localhost:1313/20250524_pass/</link>
+    <link>http://localhost:1313/pass/</link>
     <pubDate>Sat, 24 May 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20250524_pass/</guid>
+    <guid>http://localhost:1313/pass/</guid>
     <description><![CDATA[<h1 id="a-minimalists-guide-to-pass-the-unix-password-manager">A Minimalist’s Guide to <strong>pass</strong>— the Unix Password Manager</h1>
 <p><em>Safely wrangle your secrets from the command-line using GPG encryption and a few intuitive commands.</em></p>
 <hr>
@@ -52,10 +52,10 @@
 </item>
 <item>
     <title>Introduction to logging in Python</title>
-    <link>http://localhost:1313/20250517_python_logging/</link>
+    <link>http://localhost:1313/python-logging/</link>
     <pubDate>Sat, 17 May 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20250517_python_logging/</guid>
+    <guid>http://localhost:1313/python-logging/</guid>
     <description><![CDATA[<h2 id="a-gentle-practical-introduction-to-logging-in-python">A gentle, practical introduction to <code>logging</code> in Python</h2>
 <hr>
 <h3 id="why-bother-with-a-dedicated-logging-library">Why bother with a dedicated logging library?</h3>
@@ -116,10 +116,10 @@
 </item>
 <item>
     <title>Rediscovering Python&#39;s Pathlib</title>
-    <link>http://localhost:1313/20250517_pathlib/</link>
+    <link>http://localhost:1313/pathlib/</link>
     <pubDate>Sat, 17 May 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20250517_pathlib/</guid>
+    <guid>http://localhost:1313/pathlib/</guid>
     <description><![CDATA[<h2 id="from-type-hint-to-power-tool--pythons-pathlib">From Type Hint to Power Tool:  Python&rsquo;s <code>Pathlib</code></h2>
 <p>For a long time, I used <code>Path</code> from Python&rsquo;s <code>pathlib</code> module purely as a <strong>type hint</strong> - a way to make function signatures look more modern and semantically clear. Like this:</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
@@ -135,19 +135,19 @@
 </item>
 <item>
     <title>All‑in‑One Python Package Manager: UV!</title>
-    <link>http://localhost:1313/20250413_uv_package_manager/</link>
+    <link>http://localhost:1313/uv-package-manager/</link>
     <pubDate>Sun, 13 Apr 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20250413_uv_package_manager/</guid>
+    <guid>http://localhost:1313/uv-package-manager/</guid>
     <description><![CDATA[<h2 id="meet-uva-blazinglyfast-allinone-python-packagemanager">Meet <strong>uv</strong> – A Blazingly Fast, All‑in‑One Python Package Manager</h2>
 <p>In my last post I dove into <strong><a href="https://han8931.github.io/20240707_poetry/" target="_blank" rel="noopener noreffer ">Poetry</a></strong>, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for <strong>pip</strong> to install packages, <strong>virtualenv</strong> to isolate them, <strong>pyenv</strong> to juggle Python versions, and maybe <strong>Pipenv</strong> or <strong>pip‑tools</strong> for lock‑files. Each solves its own niche, yet hopping between them adds friction. <strong>uv</strong> removes that friction. This single, project manager—written in Rust and typically <strong>10-1000x</strong> faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, and even publishing to PyPI, all behind one concise CLI.</p>]]></description>
 </item>
 <item>
     <title>Git with Vim Fugitive: A Streamlined Workflow</title>
-    <link>http://localhost:1313/20250413_vim_fugitive/</link>
+    <link>http://localhost:1313/vim-fugitive/</link>
     <pubDate>Sun, 13 Apr 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20250413_vim_fugitive/</guid>
+    <guid>http://localhost:1313/vim-fugitive/</guid>
     <description><![CDATA[<p>If you&rsquo;re working with Git and Vim, <a href="https://github.com/tpope/vim-fugitive" target="_blank" rel="noopener noreffer "><strong>vim-fugitive</strong></a> is an essential plugin that transforms your editor into a full-fledged Git interface. Here&rsquo;s how I use Fugitive to review, stage, and commit changes—without ever leaving Vim.</p>
 <h2 id="browsing-git-history-and-logs-first">Browsing Git History and Logs First</h2>
 <p>Before jumping into edits, it’s often useful to understand the file’s history or recent project changes.</p>
@@ -159,39 +159,39 @@
 </item>
 <item>
     <title>Inside DeepSeek-R1</title>
-    <link>http://localhost:1313/20250214_deepseek_inside/</link>
+    <link>http://localhost:1313/deepseek-inside/</link>
     <pubDate>Fri, 14 Feb 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20250214_deepseek_inside/</guid>
+    <guid>http://localhost:1313/deepseek-inside/</guid>
     <description><![CDATA[<p><a href="https://www.deepseek.com/" target="_blank" rel="noopener noreffer ">DeepSeek</a>&rsquo;s latest moves have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their engineering techniques behind DeepSeek are truly impressive, and their reports are quite enjoyable. However, understanding their core ideas can be challenging and demands a substantial amount of effort.</p>
 <p>At the forefront of this innovation is DeepSeek-R1, a model that built upon the foundation established by preceding projects such as DeepSeek Coder, Math, MoE, and notably, the DeepSeek-V3 model. While DeepSeek-R1 is the center of the DeepSeek&rsquo;s frenzy, its success is rooted on these past works.</p>]]></description>
 </item>
 <item>
     <title>Abstract Classes or Protocols</title>
-    <link>http://localhost:1313/20250128_python_protocol_abstract_classes/</link>
+    <link>http://localhost:1313/python-protocol-abstract-classes/</link>
     <pubDate>Tue, 28 Jan 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20250128_python_protocol_abstract_classes/</guid>
+    <guid>http://localhost:1313/python-protocol-abstract-classes/</guid>
     <description><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>When it comes to writing clean, maintainable, and scalable Python code, design matters. As your projects grow, you&rsquo;ll often find yourself needing to enforce structure, ensure consistency, and promote reusability. This is where Python&rsquo;s <a href="https://docs.python.org/3/library/abc.html" target="_blank" rel="noopener noreffer ">Abstract Base Classes (ABCs)</a> and <a href="https://www.python.org/dev/peps/pep-0544/" target="_blank" rel="noopener noreffer ">Protocols</a> come into play—two powerful features that help you design better software.</p>
 <p>Abstract classes act as <strong>blueprints for other classes, allowing you to define methods that must be implemented by any subclass</strong>. They&rsquo;re typically used for creating a shared foundation while enforcing a specific structure. Protocols, on the other hand, take a more flexible approach. Instead of relying on inheritance, they <strong>let you define interfaces based on behavior</strong>, making them ideal for <em>duck typing</em> (or <em>structural subtyping</em>) and runtime flexibility.</p>]]></description>
 </item>
 <item>
     <title>Run Pytorch Container in Arch Linux</title>
-    <link>http://localhost:1313/20250111_pytorch_container/</link>
+    <link>http://localhost:1313/pytorch-container/</link>
     <pubDate>Sat, 11 Jan 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20250111_pytorch_container/</guid>
+    <guid>http://localhost:1313/pytorch-container/</guid>
     <description><![CDATA[<h1 id="setting-up-dl-experiment-environments">Setting Up DL Experiment Environments</h1>
 <h2 id="a-challenge-for-arch-linux-users">A Challenge for Arch Linux Users</h2>
 <p>If you&rsquo;ve ever tried to set up a new experiment environment for deep learning on Arch Linux, you&rsquo;re probably familiar with the challenges involved. Arch Linux, renowned for its rolling-release model and cutting-edge updates, provides unparalleled flexibility and control over your system. However, this same flexibility can often lead to headaches when setting up complex environments for machine learning or deep learning experiments. Dependency conflicts, missing libraries, and version mismatches are all too common.</p>]]></description>
 </item>
 <item>
     <title>Asyncio in Python: A Deep Dive into Asynchronous I/O</title>
-    <link>http://localhost:1313/20250105_asyncio/</link>
+    <link>http://localhost:1313/asyncio/</link>
     <pubDate>Sun, 05 Jan 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/20250105_asyncio/</guid>
+    <guid>http://localhost:1313/asyncio/</guid>
     <description><![CDATA[<p>For the past few months, I&rsquo;ve been working on an exciting internal project at my company: taking users&rsquo; documents and running them through LLM APIs to translate and summarize their content, somewhat similar to <a href="https://www.deepl.com/" target="_blank" rel="noopener noreffer ">DeepL</a>. The output is a collection of translated documents, each overlaid with the newly translated text. Our goal is to provide a stable service that can handle large files efficiently for thousands of employees at Samsung—no small task! To achieve this, we needed a concurrency strategy that supports high throughput while remaining responsive. <strong>That&rsquo;s where Asyncio comes in.</strong></p>]]></description>
 </item>
 </channel>
