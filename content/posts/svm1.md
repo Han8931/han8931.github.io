@@ -16,44 +16,17 @@ Support Vector Machines (SVMs) are among the most effective and versatile tools 
 
 What truly sets SVMs apart is their ability to handle both linear and non-linear data through the _kernel trick_, allowing them to adapt to a wide range of problems with impressive accuracy. In this blog post, we'll delve into how SVMs work and gently explore the mathematical foundations behind their powerful performance.
 
-### Orthogonal Projection
-When working with vectors $x$ and $y$, finding the orthogonal projection of $x$ onto $y$ is a common task in linear algebra. The projection is a way to express how much of $x$ lies in the direction of $y$.
-
-By definition, the magnitude of the projection $z$ of $x$ onto $y$ is given by::
-$$\lVert z\rVert  = \lVert x\rVert cos(\theta).$$
-Here, $\theta$ is the angle between $x$ and $y$. To connect this with the dot product, recall that:
-$$x\cdot y = \lVert x\rVert \ \lVert y\rVert  cos(\theta).$$
-This formula allows us to replace the cosine term:
-$$\lVert z\rVert  = \lVert x\rVert \frac{x\cdot y}{\lVert x\rVert \cdot\lVert y\rVert }.$$
-Simplifying further, we express the magnitude of $z$ as:
-$$\lVert z\rVert = u\cdot x,$$
-where $u$ is an unit vector of $y$. Since $z$ is in the direction of $y$, we can write:
-$$z = \lVert z\rVert \cdot u,$$
-Then, 
-\begin{align*}
-	z &= (u\cdot x)\cdot u.
-\end{align*}
-This gives us the final expression for the orthogonal projection of $x$ onto $y$:
-\begin{align*}
-	\textrm{Proj}_yx &= (u\cdot x)\cdot u\\\\
-					 &= \Bigg(\frac{y\cdot x}{\lVert y\rVert ^2}\Bigg)y\\\\
-					 &= \Bigg(\frac{y\cdot x}{\lVert y\rVert }\Bigg)\frac{y}{\lVert y\rVert }
-\end{align*}
-In this formula, the projection $\textrm{Proj}_yx$ represents the component of $x$ that lies along the direction of $y$.
-
 ### Decision Boundary with Margin
 A hyperplane(or decision surface) is used to separate data points belonging to different classes. The goal of SVM is to find the optimal separating hyperplane. However, what is the optimal separating hyperplanes? **The optimal hyperplane is the one which maximizes the distance from the hyperplane to the nearest data point of any class. Support vectors are the data points that lie closest to the hyperplane**. The distance is referred to as the _margin_. SVMs maximize the margin around the separating hyperplane.
 
 The equation of a hyperplane in $\mathbb{R}^p$ can be expressed as:
 $$\mathbf{w}\cdot \mathbf{x}+b=0.$$
-Here, $\mathbf{w}$ is the normal vector to the hyperplane. It is clear by expressing it 
-$$\mathbf{w}(\mathbf{x}-\mathbf{x}_0)=0,$$
-where $b = \mathbf{w}\cdot\mathbf{x}_0$. 
-% The support vectors are directly related to the optimal hyperplane.  The decision function is fully specified by a subset of training samples, the support vectors. 
+Here, $\mathbf{w}$ is the normal vector to the hyperplane. It is clear if we set it $b = \mathbf{w}\cdot\mathbf{x}_0$ 
+$$\mathbf{w}(\mathbf{x}-\mathbf{x}_0)=0.$$
 
 Let's consider a simple scenario, where training data is linearly separable: 
 $$\mathcal{D} = \\{ (\mathbf{x}\_i, y_i) | \mathbf{x}\_i \in \mathbb{R}\^p,\ y\_i \in \{-1,1\}\\}\_{i=1}^N.$$
-Then, we can build two hyperplanes separating the data with no points between them:
+Then, we can build two supporting hyperplanes separating the data with no points between them:
 - $H_1:\mathbf{w}\cdot \mathbf{x}+b=1$
 - $H_2:\mathbf{w}\cdot \mathbf{x}+b=-1$
 
@@ -63,19 +36,19 @@ All samples have to satisfy one of two constraints:
 These constraints can be combined into a single expression:
 $$y(\mathbf{w}\cdot \mathbf{x}+b)\geq 1.$$
 
-To maximize the margin, we can consider a unit vector $\mathbf{u} = \frac{\mathbf{w}}{\lVert\mathbf{w}\rVert}$, which is perpendicular to the hyperplanes and a point $x_0$ on the hyperplane $H_2$. If we scale $u$ from $x_0$, we get $z = x_0+ru$. If we assume $z$ is on $H_1$, then $\mathbf{w}\cdot z +b=1$. This is equivalent to 
+To maximize the margin, we can consider a unit vector $\mathbf{u} = \frac{\mathbf{w}}{\lVert\mathbf{w}\rVert}$, which is perpendicular to the hyperplanes and a point $x\_0$ on the hyperplane $H\_2$. If we scale $\mathbf{u}$ from $\mathbf{x}\_0$, we get $z = \mathbf{x}\_0+\gamma\mathbf{u}$. If we assume $z$ is on $H_1$, then $\mathbf{w}\cdot z +b=1$. This is equivalent to 
 \begin{align*}
-	\mathbf{w}\cdot (x_0+ru)+b=1\\\\
-	\mathbf{w}x_0+\mathbf{w}r\frac{\mathbf{w}}{\lVert\mathbf{w}\rVert}+b=1\\\\
-	\mathbf{w}x_0+r\lVert \mathbf{w}\rVert +b=1\\\\
-	\mathbf{w}x_0+b=1-r\lVert \mathbf{w}\rVert 
+	\mathbf{w}\cdot (\mathbf{x}\_0+\gamma \mathbf{u})+b=1\\\\
+	\mathbf{w}x_0+\mathbf{w}\gamma\frac{\mathbf{w}}{\lVert\mathbf{w}\rVert}+b=1\\\\
+	\mathbf{w}x_0+\gamma\lVert \mathbf{w}\rVert +b=1\\\\
+	\mathbf{w}x_0+b=1-\gamma\lVert \mathbf{w}\rVert 
 \end{align*}
 As $x_0$ is on $H_2$, we get $\mathbf{w}x_0+b=-1$. Finally, we obtain
 \begin{align*}
-	-1=1-r\lVert \mathbf{w}\rVert \\\\
-	r=\frac{2}{\lVert \mathbf{w}\rVert }.
+	-1=1-\gamma\lVert \mathbf{w}\rVert \\\\
+	\gamma=\frac{2}{\lVert \mathbf{w}\rVert }.
 \end{align*}
-Note that the scaled unit vector $ru$'s magnitude is $r$. Thus, the maximization of margin is equivalent to maximize $r$. To maximize $r$, we have to minimize $\lVert \mathbf{w} \rVert$. Thus, finding the optimal hyperplane reduces to solving the following optimization problem:
+Note that the scaled unit vector $\gamma \mathbf{u}$'s magnitude is $\gamma$. Thus, the maximization of margin is equivalent to maximize $r$. To maximize $r$, we have to minimize $\lVert \mathbf{w} \rVert$. Thus, finding the optimal hyperplane reduces to solving the following optimization problem:
 \begin{align*}
 	&\min \lVert \mathbf{w}\rVert ,\quad \textrm{subject to } \\\\
 	&y_i(\mathbf{w}\cdot \mathbf{x}_i+b)\geq 1 \quad\forall i.
@@ -86,6 +59,34 @@ Equivalently,
 	&y_i(\mathbf{w}\cdot \mathbf{x}_i+b)\geq 1 \quad\forall i.
 \end{align*}
 Now, we have _convex quadratic optimization problem_. The solution of this problem gives us the optimal hyperplane that maximizes the margin (Details are in the following section). However, in practice, the data may not be perfectly separable. To account for this, we introduce a _soft margin_ that allows for some misclassification. This is done by admitting small errors in classification and potentially using a more complex, _nonlinear decision boundary_, improving the generalization of the model.
+
+### Alternative Derivation
+Consider a point $\mathbf{x}$. Let $\mathbf{d}$ be the vector from a hyperplane (i.e., $\mathbf{w}\mathbf{x}+b=0$) to $\mathbf{x}$ of minimum length. Let $\mathbf{x}\_0$ be the projection of $\mathbf{x}$ onto the hyperplane. Then, 
+\begin{align*}
+	\mathbf{x}\_0 = \mathbf{x} - \mathbf{d}.
+\end{align*}
+As $\mathbf{d}$ is parallel to $\mathbf{w}$, so $\mathbf{d} = \alpha \mathbf{w}$ for some $\alpha\in \mathbb{R}$. Since $\mathbb{x}\_0$ is on the hyperplane, $\mathbf{w}\mathbf{x}\_0 + b = 0$. Thus,
+
+\begin{align*}
+	\mathbf{w}\mathbf{x}\_0 + b = \mathbf{w}(\mathbf{x}-\mathbf{d}) + b = \mathbf{w}(\mathbf{x}-\alpha\mathbf{w}) + b = 0.
+\end{align*}
+
+Then, we get
+\begin{align*}
+	\alpha = \frac{\mathbf{w}\mathbf{x}+b}{\mathbf{w}^T\mathbf{w}}.
+\end{align*}
+The length of $\mathbf{d}$ is given by  
+\begin{align*}
+	\lVert \mathbf{d} \|\_2 = \sqrt{\alpha^2\mathbf{w}^T\mathbf{w}} = \frac{|\mathbf{w}\mathbf{x}+b|}{\sqrt{\mathbf{w}^T\mathbf{w}}} = \frac{|\mathbf{w}\mathbf{x}+b|}{\lVert\mathbf{w}\rVert\_2}.
+\end{align*}
+We can obtain the margin by choosing the support vector, which is the closest point to the hyperplane by
+\begin{align*}
+	\gamma(\mathbf{w}, b) = \min\_{\mathbf{x}\in \mathcal{D}}\frac{|\mathbf{w}\mathbf{x}+b|}{\lVert\mathbf{w}\rVert\_2}.
+\end{align*}
+Note that the margin and hyperplane are scale invarianct:
+\begin{align*}
+	\gamma(\beta\mathbf{w}, \beta b) = \gamma(\mathbf{w}, b).
+\end{align*}
 
 ## Error Handling in SVM
 In practice, it's unrealistic to expect a perfect separation of data, especially when the data is noisy or not linearly separable. To address this, we can allow for some prediction errors while still striving to find an optimal decision boundary.
@@ -172,7 +173,7 @@ Recall that we aim to solve the following optimization problem:
 \begin{align*}
 	\mathcal{L}(\mathbf{w}, b, \alpha) = \frac{1}{2}\lVert \mathbf{w}\rVert\^2 - \sum\_{i=1}^N \alpha\_i \left[y_i(\mathbf{w}\cdot \mathbf{x}\_i+b)-1\right]
 \end{align*}
-The minimization problem involves solving the partial derivatives of $\mathcal{L}$ with respect to $\rvw$ and $b$ and set them equal to zero:
+The minimization problem involves solving the partial derivatives of $\mathcal{L}$ with respect to $\mathbf{w}$ and $b$ and set them equal to zero:
 \begin{align*}
 	&\nabla\_\mathbf{w}\mathcal{L}(\mathbf{w}, b, \alpha) = \mathbf{w} - \sum\_i \alpha\_i y_i \mathbf{x}\_i\\\\
 	& \nabla_b\mathcal{L}(\mathbf{w}, b, \alpha) = -\sum\_i \alpha\_i y\_i
@@ -181,7 +182,7 @@ Form the first equation, we obtain:
 \begin{align*}
 	&\mathbf{w} = \sum\_{i=1}^m \alpha\_i y_i \mathbf{x}\_i\\
 \end{align*}
-Next, we substitute the objective function with $\rvw$:
+Next, we substitute the objective function with $\mathbf{w}$:
 \begin{align*}
 	\mathbf{W}(\alpha, b) &= \frac{1}{2}\left(\sum_i \alpha_i y_i \mathbf{x}_i\right)\cdot \left(\sum_j \alpha_j y_j \mathbf{x}_j\right)\\\\
                     &\quad - \sum_i \alpha_i \left[y_i\left(\left(\sum_j \alpha_j y_j \mathbf{x}_j\right)\cdot \mathbf{x}_i+b\right)-1\right]\\\\
