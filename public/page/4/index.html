@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta name="generator" content="Hugo 0.148.1"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.148.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -103,6 +103,13 @@
         alt="https://www.gravatar.com/avatar/485df9434f4908b5f6fab0750c113972?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/485df9434f4908b5f6fab0750c113972?s=240&amp;d=mp" /></a></div><h1 class="home-title">Han</h1><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"><a href="https://github.com/Han8931" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github fa-fw" aria-hidden="true"></i></a><a href="mailto:tabularasa8931@gmail.com" title="Email" rel="me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/recursive-least-square/">Getting Started with Regression Part 3. RLS</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-12">2024-08-12</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content"><h1 style="line-height: 1.3;">Deep Dive into Regression: Recursive Least Squares Explained (Part 3)</h1>
+<h2 id="introduction-to-recursive-least-squares">Introduction to Recursive Least Squares</h2>
+<p>Ordinary least squares assumes that all data is available at once, but in practice, this isn&rsquo;t always the case. <strong>Often, measurements are obtained sequentially</strong>, and we need to update our estimates as new data comes in. Simply augmenting the data matrix $\mathbf{X}$ each time a new measurement arrives can become computationally expensive, especially when dealing with a large number of measurements. This is where <strong><em>Recursive Least Squares</em></strong> (RLS) comes into play.</p></div><div class="post-footer">
+        <a href="/recursive-least-square/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/regression/">Regression</a>,&nbsp;<a href="/tags/least-square/">Least Square</a>,&nbsp;<a href="/tags/recursive-least-squares/">Recursive Least Squares</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/regression2/">Getting Started with Regression Part 2. Ridge Regression</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-11">2024-08-11</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content"><h1 id="an-introductory-guide-part-2">An Introductory Guide (Part 2)</h1>
 <h2 id="understanding-ridge-regression">Understanding Ridge Regression</h2>
@@ -152,12 +159,6 @@
 <p>To create a new project named <code>example_project</code> with Poetry and manage its dependencies:</p></div><div class="post-footer">
         <a href="/poetry/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/poetry/">Poetry</a>,&nbsp;<a href="/tags/virtual-environment/">Virtual Environment</a>,&nbsp;<a href="/tags/package-manager/">Package Manager</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/pacman/">Handy Pacman Commands in Arch Linux</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-05-01">2024-05-01</time></span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div><div class="content"><p><a href="https://archlinux.org/pacman/" target="_blank" rel="noopener noreffer ">Pacman</a>, the package manager for Arch Linux, is known for its <strong>simple</strong> binary package format and <strong>easy-to-use</strong> <a href="https://wiki.archlinux.org/title/Arch_build_system" title="Arch build system" target="_blank" rel="noopener noreffer ">build system</a>. The primary aim of Pacman is to facilitate straightforward management of packages from both the <a href="https://wiki.archlinux.org/title/Official_repositories" title="Official repositories" target="_blank" rel="noopener noreffer ">official repositories</a> and user-generated builds.</p>
-<p>Pacman ensures your system remains updated by synchronizing the package lists with the master server. This client/server model simplifies the process of downloading and installing packages, along with all their dependencies, using basic commands.</p></div><div class="post-footer">
-        <a href="/pacman/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/arch/">Arch</a>,&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/pacman/">Pacman</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -184,7 +185,7 @@
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.1">Hugo</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.2">Hugo</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

@@ -4,9 +4,19 @@
         <link>http://localhost:1313/</link>
         <description>Han&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 30 Jun 2025 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 30 Aug 2025 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Clean Validation with Pydantic v2</title>
+    <link>http://localhost:1313/pydantic/</link>
+    <pubDate>Sat, 30 Aug 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/pydantic/</guid>
+    <description><![CDATA[<blockquote>
+<p>📝 <strong>Update</strong> (2025-08): This post was originally published in <strong>April 2024</strong> and has been updated to reflect changes in <strong>Pydantic v2</strong>, including the new <em>field validator</em>, <em>model validator</em>, and <em>Annotated</em>-based validation patterns. Also, this post now includes a <strong>new section on using Pydantic with MongoDB</strong>.</p></blockquote>
+<p>Python&rsquo;s dynamic typing system is indeed convenient, allowing you to create variables without explicitly declaring their types. While this flexibility can streamline development, it can also introduce unexpected behavior, particularly when handling data from external sources like APIs or user input.</p>]]></description>
+</item>
+<item>
     <title>A Lesson from a Naive Binary Search</title>
     <link>http://localhost:1313/binary-search/</link>
     <pubDate>Mon, 30 Jun 2025 00:00:00 &#43;0000</pubDate>
@@ -185,14 +195,6 @@
     <description><![CDATA[<h1 id="setting-up-dl-experiment-environments">Setting Up DL Experiment Environments</h1>
 <h2 id="a-challenge-for-arch-linux-users">A Challenge for Arch Linux Users</h2>
 <p>If you&rsquo;ve ever tried to set up a new experiment environment for deep learning on Arch Linux, you&rsquo;re probably familiar with the challenges involved. Arch Linux, renowned for its rolling-release model and cutting-edge updates, provides unparalleled flexibility and control over your system. However, this same flexibility can often lead to headaches when setting up complex environments for machine learning or deep learning experiments. Dependency conflicts, missing libraries, and version mismatches are all too common.</p>]]></description>
-</item>
-<item>
-    <title>Asyncio in Python: A Deep Dive into Asynchronous I/O</title>
-    <link>http://localhost:1313/asyncio/</link>
-    <pubDate>Sun, 05 Jan 2025 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/asyncio/</guid>
-    <description><![CDATA[<p>For the past few months, I&rsquo;ve been working on an exciting internal project at my company: taking users&rsquo; documents and running them through LLM APIs to translate and summarize their content, somewhat similar to <a href="https://www.deepl.com/" target="_blank" rel="noopener noreffer ">DeepL</a>. The output is a collection of translated documents, each overlaid with the newly translated text. Our goal is to provide a stable service that can handle large files efficiently for thousands of employees at Samsung—no small task! To achieve this, we needed a concurrency strategy that supports high throughput while remaining responsive. <strong>That&rsquo;s where Asyncio comes in.</strong></p>]]></description>
 </item>
 </channel>
 </rss>

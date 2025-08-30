@@ -1,14 +1,18 @@
 
 ---
 weight: 1
-title: Data validation with Pydantic!
-date: 2024-04-26
+title: Clean Validation with Pydantic v2
+date: 2025-08-30
 draft: false
 author: Han
 description: A tutorial for Pydantic
-tags: ["Python", "Pydantic"]
-categories: ["Python"]
+tags: ["Python", "Pydantic", "config", "environment variables", "mongodb"]
+categories: ["Python", "Pydantic"]
 ---
+
+> 📝 **Update** (2025-08): This post was originally published in **April 2024** and has been updated to reflect changes in **Pydantic v2**, including the new *field validator*, *model validator*, and *Annotated*-based validation patterns. Also, this post now includes a **new section on using Pydantic with MongoDB**. 
+
+Python's dynamic typing system is indeed convenient, allowing you to create variables without explicitly declaring their types. While this flexibility can streamline development, it can also introduce unexpected behavior, particularly when handling data from external sources like APIs or user input.
 
 Python's dynamic typing system is indeed convenient, allowing you to create variables without explicitly declaring their types. While this flexibility can streamline development, it can also introduce unexpected behavior, particularly when handling data from external sources like APIs or user input.
 
@@ -38,6 +42,7 @@ class User(BaseModel):
 
 You can also define models that include other models, allowing for complex data structures:
 ```python
+from pydantic import BaseModel
 from typing import List  
 
 class Item(BaseModel):     
@@ -47,157 +52,207 @@ class Item(BaseModel):
 class Order(BaseModel):     
 	items: List[Item]     
 	total_price: float  
-	order = Order(items=[{"name": "Burger", "price": 5.99}, {"name": "Fries", "price": 2.99}], total_price=8.98)  
-	print(order)
+
+order = Order(
+        items=[{"name": "Burger", "price": 5.99}, {"name": "Fries", "price": 2.99}], 
+        total_price=8.98
+    )  
+print(order)
 ```
 
-## Validators
 
-Pydantic provides a versatile decorator called `validator`, which enables you to impose custom validation rules on model fields. These validators extend beyond simple type validation and allow you to enforce additional checks. Here's how you can define and utilize a custom validator:
-```python
-from pydantic import BaseModel, validator
+## Field
 
-class Person(BaseModel):
-    name: str
-    age: int
+In **Pydantic**, the `Field()` function is used to **provide extra metadata and control over how a field behaves** — beyond just its type. It is especially useful for:
 
-    @validator('age')
-    def check_age(cls, value):
-        if value < 18:
-            raise ValueError('Age must be at least 18')
-        return value
+* Setting **default values**
+* Adding **aliases** (e.g., mapping from external keys like `_id`)
+* Adding **validation constraints** (e.g., min/max length, regex)
+* Documenting fields (for use in OpenAPI docs, etc.)
 
-# This will raise an error because the age is below 18
-try:
-    Person(name="Charlie", age=17)
-except Exception as e:
-    print(e)
-```
-In this example, the custom validator ensures that the age provided is at least 18 years. Custom validators can target individual fields, multiple fields, or the entire model, making them invaluable for enforcing complex validation logic or cross-field constraints.
-
-### Built-in Validators
-
-Pydantic models leverage Python type annotations to enforce data types. Alongside the fundamental types like `str`, `int`, `float`, `bool`, Pydantic supports complex data types such as `List`, `Dict`, `Union`, and `Optional`, among others. These annotations are the first level of validation:
-```python
-from pydantic import BaseModel
-from typing import List, Optional
-
-class User(BaseModel):
-    name: str
-    age: int
-    tags: Optional[List[str]] = None
-```
-
-In this example, `name` must be a string, `age` an integer, and `tags` is an optional list of strings.
-
-### Field Validation
-
-For more detailed validation, Pydantic's `Field` function can be used to specify additional constraints:
+For example,
 ```python
 from pydantic import BaseModel, Field
 
 class User(BaseModel):
-    id: int
+    name: str = Field(..., description="The full name of the user")
+    age: int = Field(default=0, ge=0, lt=150) # Set a default value
+```
+
+You can test it 
+```python
+class Product(BaseModel):
+    name: str = Field(..., min_length=3, max_length=50)
+    price: float = Field(..., gt=0)
+
+prod = Product(name="test", price=-10)  
+
+# price
+#   Input should be greater than 0 [type=greater_than, input_value=-10, input_type=int]
+```
+
+Field with an Alias (e.g., for MongoDB `_id`):
+```python
+class User(BaseModel):
+    id: str = Field(..., alias="_id")
+```
+Now Pydantic will accept both:
+```python
+User(id="abc")             # native style
+User(**{"_id": "abc"})     # MongoDB style ✅
+```
+
+When you dump it back, you can choose which name to use:
+```python
+user = User(id="abc")
+print(user.model_dump())                 # {'id': 'abc'}
+print(user.model_dump(by_alias=True))    # {'_id': 'abc'}
+```
+
+Sometimes a field needs a dynamic value at runtime like:
+- UUID
+- Timestamp
+
+You can't use `default=...` because it would be evaluated once at class definition time, not per instance. So, we use `default_factory`. Now every time you create an instance:
+```python
+from datetime import datetime
+
+class Event(BaseModel):
+    id: str = Field(default_factory=lambda: "evt_" + datetime.utcnow().isoformat())
+
+event1 = Event()
+event2 = Event()
+```
+You'll get unique ids like:
+```python
+print(event1.id)  # evt-2025-08-30T11:28:01.123456
+print(event2.id)  # evt-2025-08-30T11:28:03.987654
+```
+
+## Validators
+
+Pydantic provides validators, which enables you to impose custom validation rules on model fields. These validators extend beyond simple type validation and allow you to enforce additional checks. 
+
+### Field validators
+a field validator is a callable taking the value to be validated as an argument and returning the validated value. Here's a simple example:
+
+```python
+from typing import Annotated
+from pydantic import BaseModel, AfterValidator, BaseModel, ValidationError
+
+def check_age(value):
+    if value < 18:
+        raise ValueError('Age must be at least 18')
+    return value
+
+class Person(BaseModel):
     name: str
-    email: str = Field(..., description="The email address of the user")
-    age: int = Field(..., gt=0, description="The age of the user")
+    age: Annotated[int, AfterValidator(check_age)]
 
-# Usage
-user_data = {"id": 1, "name": "John", "email": "john@example.com", "age": 30}
-user = User(**user_data)
+# This will raise an error because the age is below 18
+try:
+    Person(name="Charlie", age=17)
+except ValidationError as e:
+    print(e)
+```
+This uses Python’s typing.Annotated type to attach validation logic to a field in a declarative way.
+- `int`: The field type (`age` is an integer).
+- `AfterValidator(check_age)`: Runs `check_age(value)` after Pydantic has validated and parsed the raw value (e.g., converting string to int if needed).
+AfterValidator ensures your custom validator runs after type coercion and default validation.
 
+You can use a single validator function to apply the same logic (e.g., capitalization, stripping, type conversion, etc.) to multiple fields by using the decorator pattern.
+```
+from pydantic import BaseModel, field_validator
+
+class User(BaseModel):
+    first_name: str
+    last_name: str
+
+    @field_validator('first_name', 'last_name', mode='before')
+    @classmethod
+    def capitalize_names(cls, value: str) -> str:
+        return value.capitalize()
+
+user = User(first_name="alice", last_name="cooper")
+print(user.first_name)  # Alice
+print(user.last_name)   # Cooper
 ```
 
-In this example:
-- `id`, `name`, `email`, and `age` represents fields in the `User` model.
-- `id` and `name` are required fields because they don't have a default value.
-- `email` and `age` have default values specified using the `Field` class. For `email`, `...` indicates that it's required, and a description is provided. For `age`, `...` indicates that it's required, and it must be greater than zero (`gt=0`).
+### Model Validators
 
-By using `Field`, you can define additional constraints such as minimum and maximum values, regular expressions for string fields, custom validation functions, etc., to ensure that your data meets specific criteria.
-```python
-age: int = Field(..., gt=0, description="The age of the user")
-```
-For instance, you can specifies that the age must be greater than 0.
+The `@model_validator` is a new feature in Pydantic v2 that replaces the older `@root_validator` from v1.
 
-### Root Validators
-
-For validation that involves multiple fields, you can use root validators. These are applied to the whole model instead of individual fields:
+It lets you **validate the entire model at once** — useful when:
+- Fields depend on each other (e.g., confirm passwords match)
+- You want to enforce cross-field consistency
+- You want to do post-processing after all fields are parsed
 
 ```python
-from pydantic import BaseModel, root_validator
+from typing_extensions import Self
+from pydantic import BaseModel, model_validator
 
-class Account(BaseModel):
+class UserModel(BaseModel):
     username: str
-    password1: str
-    password2: str
+    password: str
+    password_repeat: str
 
-    @root_validator
-    def passwords_match(cls, values):
-        password1, password2 = values.get('password1'), values.get('password2')
-        if password1 and password2 and password1 != password2:
+    @model_validator(mode='after')
+    def check_passwords_match(self) -> Self:
+        if self.password != self.password_repeat:
             raise ValueError('Passwords do not match')
-        return values
+        return self
+
+try:
+    user = UserModel(username="alice", password="secret", password_repeat="notsecret")
+except ValueError as e:
+    print(f"Validation failed: {e}")
+
+
+# Validation failed: 1 validation error for UserModel
+#   Passwords do not match (type=value_error)
+```
+- `@model_validator(mode='after')` runs **after all field-level validation is complete**
+- Runs on the **model instance** (`self`, `UserModel` in this case) instead of just individual fields
+- You can access any field via `self.fieldname`
+- You must return `self`, or raise `ValueError` if validation fails
+
+## When to Use Each Type of Validator
+
+| Validator                   | Purpose                                                   | Scope       | Return Value      |
+| --------------------------- | --------------------------------------------------------- | ----------- | ----------------- |
+| `@field_validator`          | Validate one or more **individual fields**                | Field-level | Transformed value |
+| `@model_validator` (after)  | Validate the **entire model**                             | Model-level | Return `self`     |
+| `@model_validator` (before) | Preprocess the **input dict** before any field validation | Dict-level  | Return a dict     |
+
+---
+
+## Pydantic for Configuration Management
+
+Pydantic isn't just for validating user input — it's also an excellent tool for managing application settings through environment variables or `.env` files. This is especially useful for 12-factor apps that rely on external configuration across environments.
+
+To use this feature in **Pydantic v2**, install the standalone `pydantic-settings` package:
+```
+pip install pydantic-settings
 ```
 
-Root validators have access to all field values of the model, making them ideal for validations that depend on multiple fields.
-
-### Pre-Validators and Post-Validators
-
-#### Pre-validators:
-A pre-validator in Pydantic is used to preprocess or transform the data before it undergoes the main validation process. This is particularly useful when you need to adjust or prepare the incoming data so it can be successfully validated. For instance, you might want to strip whitespace from a string, convert data types, or decompose compound fields into simpler components before validation.
-
+Then, for example
 ```python
-from pydantic import BaseModel, validator
-
-class TrimmedStringModel(BaseModel):
-    text: str
-
-    @validator('text', pre=True)
-    def strip_whitespace(cls, value):
-        return value.strip()
-```
-
-#### Post-validator
-Post-validators are used to validate or transform data after the main validation process. They are useful when certain validations depend on multiple fields or when you need to enforce complex constraints that are not covered by basic type annotations. Post-validators are also defined using the `@validator` decorator but without specifying `pre=True`.
-
-## Json Serialization
-
-It is really simple to convert Pydantic models to or from JSON. For example, 
-```python
-user_json = user.json()
-```
-- You can convert your model instance to JSON file as above.
-- Or you can make a dictionary by `user.dict()`
-
-Conversely, 
-```python
-json_str = '{"name": "Han", "account": 1234}'
-User.parse_raw(json_str)
-```
-
-## Pydantic for Config
-
-Pydantic can also be used for settings management by loading configuration from environment variables:
-
-```python
-from pydantic_settings import BaseSettings
-from pydantic.types import SecretStr
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class DatabaseSettings(BaseSettings):
     api_key: str
     database_password: str
 
-my_database_settings = DatabaseSettings(_env_file=".env")
-print(my_database_settings.api_key)
+    model_config = SettingsConfigDict(env_file=".env")  # loads from .env by default
+
+settings = DatabaseSettings()
+print(settings.api_key)
+print(settings.database_password)
 ```
-
-This feature is particularly useful for 12-factor apps that require configuration through the environment for different deployment environments.
-
-Pydantic provides a powerful system for data validation, allowing you to enforce type constraints and custom validation rules on your data models. This capability ensures that the data your application works with is correct and consistent, reducing runtime errors and simplifying data handling. Let's explore more about validation in Pydantic, including built-in validators and how to write custom validation functions.
+This automatically reads values from environment variables or a `.env` file (if present), making it ideal for managing sensitive or environment-specific values.
 
 ### Pydantic SecretStr
-
-Pydantic's `SecretStr` is a special data type designed to handle sensitive information, such as passwords or secret tokens, in a more secure manner. This type is part of Pydantic's data types that provide tools for sensitive data, ensuring that such information isn't accidentally printed or logged, which could lead to security vulnerabilities.
+Pydantic provides special types like `SecretStr` to handle sensitive information, such as passwords or API keys. These ensure that secrets are not accidentally printed or logged:
 
 ```python
 from pydantic import BaseModel, SecretStr
@@ -206,35 +261,87 @@ class User(BaseModel):
     username: str
     password: SecretStr
 
-# Usage
-user_data = {"username": "john_doe", "password": "secretpassword"}
-user = User(**user_data)
+user = User(username="john_doe", password="supersecret")
+print(user)
+# Output: User username='john_doe' password=SecretStr('********')
 
-print(user)  # Output: User username='john_doe' password=SecretStr('********')
+# Access the raw secret value when needed
+print(user.password.get_secret_value())
 ```
 
+You can safely store secrets in environment variables and load them with `SecretStr`:
 ```python
-from pydantic import BaseModel, SecretBytes
+from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import SecretStr
 
-class EncryptedData(BaseModel):
-    data: SecretBytes
-
-# Usage
-encrypted_data = {"data": b"encrypted binary data"}
-data_object = EncryptedData(**encrypted_data)
-
-print(data_object)  # Output: EncryptedData data=SecretBytes('********')
-```
-
-```python
-from pydantic_settings import BaseSettings
-from pydantic.types import SecretStr
-
-class DatabaseSettings(BaseSettings):
+class SecureSettings(BaseSettings):
     api_key: SecretStr
     database_password: SecretStr
+    mongo_uri: str = "mongodb://localhost:27017"
 
-my_database_settings = DatabaseSettings(_env_file=".env")
-print(my_database_settings.api_key)
+    model_config = SettingsConfigDict(env_file=".env", env_prefix="APP_")
+
+settings = SecureSettings()
+print(settings.api_key)  # Output: SecretStr('********')
 ```
 
+## MongoDB example
+
+Here's a simple example of using Pydantic v2 models with MongoDB:
+```python
+from typing import Annotated
+from bson import ObjectId
+from datetime import datetime
+from pydantic import BaseModel, Field, EmailStr, AfterValidator
+
+# Validator for ObjectId
+def validate_object_id(value: str | ObjectId) -> ObjectId:
+    if not ObjectId.is_valid(value):
+        raise ValueError("Invalid ObjectId")
+    return ObjectId(value)
+
+# Annotated alias for validated ObjectId
+PyObjectId = Annotated[ObjectId, AfterValidator(validate_object_id)]
+
+# MongoDB document model
+class UserDocument(BaseModel):
+    id: PyObjectId = Field(default_factory=ObjectId, alias="_id")
+    name: Annotated[str, Field(min_length=1, max_length=50)]
+    email: EmailStr
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+
+    class Config:
+        populate_by_name = True  # Allow using "id" as input even though it's "_id" in Mongo
+        arbitrary_types_allowed = True  # Allow ObjectId type, since it is not a built-in Pydantic type
+
+
+user = UserDocument(name="Alice", email="alice@example.com")
+print(user.id)  # <ObjectId> like 68b2625b99495155b9498fe7
+print(user.created_at)  # UTC timestamp like 2025-08-30 02:30:51.347367
+
+# This ensures "_id" key is present (MongoDB-friendly)
+print(user.model_dump(by_alias=True))
+# Output:
+# {
+#     "_id": ObjectId("..."),
+#     "name": "Alice",
+#     "email": "alice@example.com",
+#     "created_at": datetime(...)
+# }
+```
+
+You can load a document like
+```python
+from bson import ObjectId
+
+mongo_data = {
+    "_id": ObjectId(),
+    "name": "Bob",
+    "email": "bob@example.com",
+    "created_at": datetime.utcnow()
+}
+
+user = UserDocument(**mongo_data)
+print(user.name)         # Bob
+print(user.id)           # Valid ObjectId
+```
