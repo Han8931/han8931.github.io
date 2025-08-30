@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-08-30T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-07-23T20:49:00+09:00">
+    <meta property="article:modified_time" content="2025-08-30T11:32:58+09:00">
     <meta property="article:tag" content="Python">
     <meta property="article:tag" content="Pydantic">
     <meta property="article:tag" content="Config">
@@ -40,7 +40,7 @@
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/pydantic\/"
         },"genre": "posts","keywords": "Python, Pydantic, config, environment variables, mongodb","wordcount":  1432 ,
-        "url": "http:\/\/localhost:1313\/pydantic\/","datePublished": "2025-08-30T00:00:00+00:00","dateModified": "2025-07-23T20:49:00+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        "url": "http:\/\/localhost:1313\/pydantic\/","datePublished": "2025-08-30T00:00:00+00:00","dateModified": "2025-08-30T11:32:58+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -311,24 +311,24 @@ AfterValidator ensures your custom validator runs after type coercion and defaul
 </ul>
 <p>You can use a single validator function to apply the same logic (e.g., capitalization, stripping, type conversion, etc.) to multiple fields by using the decorator pattern.</p>
 <div class="code-block code-line-numbers" style="counter-reset: code-block 0">
-    <div class="code-header language-">
+    <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">from pydantic import BaseModel, field_validator
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">field_validator</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">class User(BaseModel):
-</span></span><span class="line"><span class="cl">    first_name: str
-</span></span><span class="line"><span class="cl">    last_name: str
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="cl">    <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    @field_validator(&#39;first_name&#39;, &#39;last_name&#39;, mode=&#39;before&#39;)
-</span></span><span class="line"><span class="cl">    @classmethod
-</span></span><span class="line"><span class="cl">    def capitalize_names(cls, value: str) -&gt; str:
-</span></span><span class="line"><span class="cl">        return value.capitalize()
+</span></span><span class="line"><span class="cl">    <span class="nd">@field_validator</span><span class="p">(</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;before&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@classmethod</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">capitalize_names</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">user = User(first_name=&#34;alice&#34;, last_name=&#34;cooper&#34;)
-</span></span><span class="line"><span class="cl">print(user.first_name)  # Alice
-</span></span><span class="line"><span class="cl">print(user.last_name)   # Cooper</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl"><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s2">&#34;alice&#34;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s2">&#34;cooper&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">first_name</span><span class="p">)</span>  <span class="c1"># Alice</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">last_name</span><span class="p">)</span>   <span class="c1"># Cooper</span></span></span></code></pre></div></div>
 <h3 id="model-validators">Model Validators</h3>
 <p>The <code>@model_validator</code> is a new feature in Pydantic v2 that replaces the older <code>@root_validator</code> from v1.</p>
 <p>It lets you <strong>validate the entire model at once</strong> — useful when:</p>
@@ -534,8 +534,8 @@ AfterValidator ensures your custom validator runs after type coercion and defaul
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2025-07-23&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/44db515b14fb89d8815a141851ee87c66b09cb8f" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 44db515b14fb89d8815a141851ee87c66b09cb8f: Update">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>44db515</a></span>
+                <span>Updated on 2025-08-30&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/d7b9708523bb4332405fd6593925d2221dab158e" target="_blank" title="commit by Han(tabularasa8931@gmail.com) d7b9708523bb4332405fd6593925d2221dab158e: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>d7b9708</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>

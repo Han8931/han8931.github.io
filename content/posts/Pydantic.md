@@ -161,7 +161,7 @@ This uses Python’s typing.Annotated type to attach validation logic to a field
 AfterValidator ensures your custom validator runs after type coercion and default validation.
 
 You can use a single validator function to apply the same logic (e.g., capitalization, stripping, type conversion, etc.) to multiple fields by using the decorator pattern.
-```
+```python
 from pydantic import BaseModel, field_validator
 
 class User(BaseModel):
