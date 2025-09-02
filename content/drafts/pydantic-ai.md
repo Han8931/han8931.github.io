@@ -13,9 +13,13 @@ categories: ["Python", "Pydantic"]
 
 AI has already changed how we interact with technology. The real shift is happening now with **agents**: AI systems that can reason, make decisions, and take action.
 
-Unlike a chatbot that passively replies, **an agent can break down a complex task**, call APIs or databases, use tools, and deliver structured results. This is what makes the idea of *Agentic AI* so powerful.
+Unlike a chatbot that passively replies, an agent can **break down complex tasks**, call APIs or databases, use tools, and deliver structured results. This is what makes the idea of *Agentic AI* so powerful — it's not just about conversation, it's about **problem-solving with initiative**.
 
-So far, **LangGraph** has emerged as the *de-facto* approach for building complex, stateful agents. But there's also a growing need for something simpler — and that's where **Pydantic AI** comes in. Built on top of `Pydantic`, the widely adopted data-validation library in Python, it inherits a foundation of **simplicity and reliability**. It also encourages **cleaner code** and provides **better documentation** — important aspects when building production-ready systems. By combining the rise of agents with typed, schema-validated outputs, Pydantic AI makes it easier than ever to build robust and trustworthy AI applications.
+So far, **LangGraph** has emerged as the *de-facto* approach for building complex, stateful agents. But there's also a growing need for something simpler, more ergonomic — and that's where **[Pydantic AI](https://github.com/pydantic/pydantic-ai)** comes in.
+
+Pydantic AI is a **Python agent framework** designed to make it *less painful to build production-grade applications with Generative AI*. Just as **FastAPI** revolutionized web development with an ergonomic design built on **Pydantic validation**, Pydantic AI brings that same "FastAPI feeling" to GenAI app development.
+
+Developers can apply the same best type-safe and Python-centric practices they have used in any other project. Structured responses are validated through Pydantic, dependencies can be injected directly into prompts and tools and for complex scenarios, Pydantic Graph provides a clean way to define control flow without descending into spaghetti code.
 
 In this post — the first in a short series — we'll explore the **basics of Agentic AI and Pydantic AI**, why they matter, and how they're shaping the way we build intelligent systems.
 
@@ -60,22 +64,30 @@ from pydantic_ai.models.openai import OpenAIChatModel
 
 ### Step 1: Define the Schema
 
-Pydantic AI uses schemas to enforce **structured outputs**. Dependencies can be any Python type, but `BaseModel` is especially useful because it gives you validation for free:
+Pydantic AI uses a dependency injection system to provide data and services to your agent's system prompts, tools, and output validators. Dependencies can be any Python type, and dataclasses are often a convenient container when you need to include multiple objects.
+
+At the same time, by using a schema with Pydantic, we can enforce a variety of validators. This is important because we want the agent's output to always be a structured object. For example, here's a simple schema with two fields:
 
 ```python
+from pydantic import BaseModel
+
 class CityLocation(BaseModel):
     city: str
     country: str
-```
 
+# Alternatively, using a dataclass:
+# from dataclasses import dataclass
+# @dataclass
+# class CityLocation:
+#     city: str
+#     country: str
+```
 By defining this schema, we force the model to always return a structured object with two fields: `city` and `country`.
 
 Without this, the agent might return a sentence like:
-
 > *“The 2012 Summer Olympics were held in London, United Kingdom.”*
 
 With this schema, the output is always:
-
 ```python
 CityLocation(city="London", country="United Kingdom")
 ```
@@ -142,121 +154,441 @@ So far, our agent has taken in text and returned structured data. That's powerfu
 
 In Pydantic AI, this is where tools come in. Tools are simply Python functions you expose to the agent. The agent decides when and how to call them.
 
+Let's look at a simple example:
+```python
+import random
+
+from pydantic_ai import Agent, RunContext
+from dotenv import load_dotenv
+
+# Load environment variables from .env
+load_dotenv() # Load your API Key
+
+agent = Agent(
+    'google-gla:gemini-1.5-flash',  
+    deps_type=str,  
+    system_prompt=(
+        "You're a dice game, you should roll the die and see if the number "
+        "you get back matches the user's guess. If so, tell them they're a winner. "
+        "Use the player's name in the response."
+    ),
+)
+
+
+@agent.tool_plain  
+def roll_dice() -> str:
+    """Roll a six-sided die and return the result."""
+    return str(random.randint(1, 6))
+
+
+@agent.tool  
+def get_player_name(ctx: RunContext[str]) -> str:
+    """Get the player's name."""
+    return ctx.deps
+
+
+dice_result = agent.run_sync('My guess is 4', deps='Anne')  
+print(dice_result.output)
+#> Congratulations Anne, you guessed correctly! You're a winner!
+```
+---
+
+### Breaking It Down
+
+1. **System Prompt**
+   We set the rules of the game in the `system_prompt`: the agent must roll a die and check if the result matches the player's guess.
+
+2. **`roll_dice` Tool** (`@agent.tool_plain`)
+
+   * This is a simple tool which requires no extra context from the agent.
+   * It rolls a random number from 1 to 6 and returns it.
+   * The agent can call this function whenever it needs a die result.
+
+3. **`get_player_name` Tool** (`@agent.tool`)
+
+   * This tool shows how **dependencies** come into play.
+   * We pass the player's name as a dependency (`deps='Anne'`).
+   * The tool accesses it through the `RunContext`.
+   * This is powerful: you can inject things like database connections, API keys, or user profiles in exactly the same way.
+
+4. **Running the Agent**
+
+   * The user says: *“My guess is 4.”*
+   * The agent calls `roll_dice` to simulate the game.
+   * It calls `get_player_name` to personalize the response.
+   * Finally, it returns a natural sentence, *“Congratulations Anne…”*
+
+---
+
+### Why Tools Matter
+
+Tools are what make an agent **actionable**:
+
+* They let your LLM interact with the real world.
+* They allow personalization through dependency injection.
+* They keep logic in Python, not just in prompts.
+
+You can test your tools by 
+```python
+from pydantic_ai import Agent, RunContext
+
+agent = Agent('test', deps_type=int)
+
+@agent.tool
+def foobar(ctx: RunContext[int], x: int) -> int:
+    return ctx.deps + x
+
+@agent.tool(retries=2)
+async def spam(ctx: RunContext[str], y: float) -> float:
+    return ctx.deps + y
+
+result = agent.run_sync('foobar', deps=1)
+print(result.output)
+#> {"foobar":1,"spam":1.0}
+```
+- The number of retries to allow for this tool, defaults to the agent's default retries, which defaults to 1.
+
+With tools, your agent is no longer just a Q\&A bot — it becomes an **active participant** that can call functions, fetch data, and take action.
 
 ## Async 
 
-```python
-import asyncio
+So far we've built simple agents that return structured outputs and call a few tools. Let's put everything together in a more realistic scenario: an on-call SRE (Site Reliability Engineering) assistant that analyzes service health and suggests a remediation plan.
 
+Instead of “system administrators” doing manual firefighting, Google created a team of engineers who used automation, monitoring, and code to manage reliability at scale. That practice evolved into what we now call SRE.
+
+Imagine you're on call. Users report slow responses and 5xx errors. Instead of digging manually through dashboards and logs, you can ask an agent to do the initial triage for you.
+
+Below is a runnable example:
+
+```python
+import os
+import asyncio
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 from pydantic_ai import Agent, RunContext
 from pydantic_ai.models.openai import OpenAIChatModel
+from pydantic_ai.providers.openai import OpenAIProvider
 from pydantic_ai.providers.ollama import OllamaProvider
 
 from dotenv import load_dotenv
 
-
-# Load environment variables from .env
 load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
 
+# ───────────────────────────────
+# Mock infra backend
+# ───────────────────────────────
+class MetricsClient:
+    async def cpu_usage(self, service: str) -> float:
+        return {"api": 82.4, "worker": 64.1, "db": 29.8}.get(service, 0.0)
 
-# Mock database
+    async def error_rate(self, service: str) -> float:
+        # errors per minute
+        return {"api": 14.0, "worker": 1.2, "db": 0.4}.get(service, 0.0)
+
+    async def recent_logs(self, service: str, level: Literal["ERROR", "WARN"], limit: int = 20) -> list[str]:
+        logs = {
+            "api": [
+                "[ERROR] upstream timeout /v1/translate (llm gateway)",
+                "[ERROR] redis timeout queue=llm_jobs",
+                "[WARN]  slow request /v1/health 1200ms",
+            ],
+            "worker": [
+                "[WARN]  retry publish job_id=abc",
+                "[WARN]  prefetch backlog=40",
+            ],
+            "db": [
+                "[WARN] connection spike from api",
+            ],
+        }
+        out = [l for l in logs.get(service, []) if l.startswith(f"[{level}]")]
+        return out[:limit]
+
+# ───────────────────────────────
+# Dependencies & output schema
+# ───────────────────────────────
 @dataclass
-class Patient:
-    id: int
-    name: str
-    vitals: dict[str, Any]
+class OnCallDeps:
+    service: str
+    metrics: MetricsClient
 
-PATIENT_DB = {
-    42: Patient(id=42, name="John Doe", vitals={"heart_rate": 72, "blood_pressure": "120/80"}),
-    43: Patient(id=43, name="Jane Smith", vitals={"heart_rate": 65, "blood_pressure": "110/70"}),
-}
+class RemediationPlan(BaseModel):
+    message: str = Field(description="Human-readable summary for the on-call runbook.")
+    severity: Literal["SEV1", "SEV2", "SEV3", "INFO"] = Field(description="Incident severity.")
+    notify_oncall: bool = Field(description="Page the primary on-call?")
+    actions: list[str] = Field(description="Ordered steps to mitigate the issue.")
 
-class DatabaseConn:
-    async def patient_name(self, id: int) -> str:
-        patient = PATIENT_DB.get(id)
-        return patient.name if patient else "Unknown Patient"
+# ───────────────────────────────
+# Model & Agent
+# ───────────────────────────────
+# model = OpenAIChatModel("gpt-4o-mini")
+model = OpenAIChatModel('gpt-5-nano', provider=OpenAIProvider(api_key=api_key))
+# If using Ollama, pick a model that supports tools/function calling, e.g.
+# model = OpenAIChatModel(
+#     model_name="qwen3:8b",
+#     provider=OllamaProvider(base_url="http://localhost:11434/v1"),
+# )
 
-    async def latest_vitals(self, id: int) -> dict[str, Any]:
-        patient = PATIENT_DB.get(id)
-        return patient.vitals if patient else {"heart_rate": 0, "blood_pressure": "N/A"}
-
-
-@dataclass
-class TriageDependencies:
-    patient_id: int
-    db: DatabaseConn
-
-
-class TriageOutput(BaseModel):
-    response_text: str = Field(description="Message to the patient")
-    escalate: bool = Field(description="Should escalate to a human nurse")
-    urgency: int = Field(description="Urgency level from 0 to 10", ge=0, le=10)
-
-ollama_model = OpenAIChatModel(
-    model_name='llama3.1:8b', 
-    provider=OllamaProvider(base_url='http://localhost:11434/v1'),
-)
-
-
-triage_agent = Agent(
-    ollama_model, # or simply openai:gpt-4o
-    deps_type=TriageDependencies,
-    output_type=TriageOutput,
+oncall_agent = Agent(
+    model,
+    deps_type=OnCallDeps,
+    output_type=RemediationPlan,
     system_prompt=(
-        "You are a triage assistant helping patients. "
-        "Provide clear advice and assess urgency."
+        "You are an SRE assistant. Diagnose service incidents using tools before concluding. "
+        "Prefer concrete evidence (metrics/logs). Be concise and practical."
     ),
 )
 
-# Static system prompts: These are known when writing the code and can be defined via the system_prompt parameter of the Agent constructor.
-# Dynamic system prompts: These depend in some way on context that isn't known until runtime, and should be defined via functions decorated with @agent.system_prompt.
-@triage_agent.system_prompt
-async def add_patient_name(ctx: RunContext[TriageDependencies]) -> str:
-    patient_name = await ctx.deps.db.patient_name(id=ctx.deps.patient_id)
-    return f"The patient's name is {patient_name!r}."
+# Dynamic system prompt: injects service name at runtime
+# The !r in an f-string is a conversion flag that tells Python to use the repr() of the value instead of the default str() when formatting.
+@oncall_agent.system_prompt
+async def service_context(ctx: RunContext[OnCallDeps]) -> str:
+    return f"Target service: {ctx.deps.service!r}. Environment: production."
 
 
-# Defines a tool the agent can call.
-# Lets the agent fetch vitals dynamically if needed.
-@triage_agent.tool
-async def latest_vitals(ctx: RunContext[TriageDependencies]) -> dict[str, Any]:
-    """Returns the patient's latest vital signs."""
-    return await ctx.deps.db.latest_vitals(id=ctx.deps.patient_id)
+# ───────────────────────────────
+# Tools the agent can call
+# ───────────────────────────────
+@oncall_agent.tool
+async def get_cpu(ctx: RunContext[OnCallDeps]) -> float:
+    """Return current CPU utilization percentage for the target service."""
+    return await ctx.deps.metrics.cpu_usage(ctx.deps.service)
 
+@oncall_agent.tool
+async def get_error_rate(ctx: RunContext[OnCallDeps]) -> float:
+    """Return errors-per-minute for the target service."""
+    return await ctx.deps.metrics.error_rate(ctx.deps.service)
 
+@oncall_agent.tool
+async def get_recent_errors(ctx: RunContext[OnCallDeps]) -> list[str]:
+    """Return recent ERROR logs for the target service."""
+    return await ctx.deps.metrics.recent_logs(ctx.deps.service, level="ERROR", limit=20)
+
+@oncall_agent.tool
+async def get_recent_warns(ctx: RunContext[OnCallDeps]) -> list[str]:
+    """Return recent WARN logs for the target service."""
+    return await ctx.deps.metrics.recent_logs(ctx.deps.service, level="WARN", limit=20)
+
+# (Optional) A “simulated” action tool (no real side-effects here)
+@oncall_agent.tool
+async def suggest_restart_plan(ctx: RunContext[OnCallDeps]) -> list[str]:
+    """Return a safe, ordered restart plan for the service without executing it."""
+    svc = ctx.deps.service
+    return [
+        f"Drain traffic from {svc} (set canary to 0%)",
+        f"Restart {svc} with rolling window=10%, wait=60s",
+        f"Warm up cache and check error rate < 2/min",
+        "Restore canary to previous level and monitor 15m",
+    ]
+
+# ───────────────────────────────
+# Demo runs
+# ───────────────────────────────
 async def main() -> None:
-    deps = TriageDependencies(patient_id=43, db=DatabaseConn())
+    deps = OnCallDeps(service="api", metrics=MetricsClient())
 
-    result = await triage_agent.run(
-        "I have chest pain and trouble breathing.",
+    result = await oncall_agent.run(
+        "Users report 5xx spikes and slow responses. What's happening and what should I do?"
+        "\n- Please check metrics and logs first."
+        "\n- If CPU and error rate are high, propose a safe mitigation plan.",
         deps=deps,
     )
     print(result.output)
-    """
-    Example output:
-    response_text='Your symptoms are serious. Please call emergency services immediately. A nurse will contact you shortly.'
-    escalate=True
-    urgency=10
-    """
-
-    result = await triage_agent.run(
-        "I have a mild headache since yesterday.",
-        deps=deps,
-    )
-    print(result.output)
-    """
-    Example output:
-    response_text='It sounds like your headache is not severe, but monitor it closely. If it worsens or you develop new symptoms, contact your doctor.'
-    escalate=False
-    urgency=3
-    """
-
 
 if __name__ == "__main__":
     asyncio.run(main())
 ```
 
+
+#### Example output (will vary):
+message='High CPU (82%) and error rate (14/min) with upstream/redis timeouts in logs. Likely saturation.'
+severity='SEV2'
+notify_oncall=True
+actions=[
+  'Enable rate limiting at API gateway (200 RPS per key)',
+  'Scale worker pool +2 replicas; verify queue latency',
+  'Apply restart plan (drain -> rolling restart -> warmup -> monitor)',
+  'Open an incident channel and post status'
+]
+
+
+
+
+## 1) Env + provider setup
+
+```python
+from dotenv import load_dotenv
+load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
+```
+
+* Loads secrets from `.env` so you don’t hardcode keys.
+* You pass `api_key` into `OpenAIProvider`, which `OpenAIChatModel` uses.
+
+```python
+model = OpenAIChatModel('gpt-5-nano', provider=OpenAIProvider(api_key=api_key))
+# (or Ollama via OpenAIChatModel + OllamaProvider if your local model supports tools)
+```
+
+* `OpenAIChatModel` is a **model wrapper** with an OpenAI-compatible interface.
+* You can swap providers without changing the agent logic (e.g., Ollama for local).
+
+## 2) Mock infra backend (your “sources of truth”)
+
+```python
+class MetricsClient:
+    async def cpu_usage(self, service: str) -> float: ...
+    async def error_rate(self, service: str) -> float: ...
+    async def recent_logs(self, service: str, level: Literal["ERROR","WARN"], limit: int=20) -> list[str]: ...
+```
+
+* These async methods simulate your observability stack (Datadog/Prometheus/Elasticsearch/etc.).
+* You kept the return types **simple and typed**, which is perfect for tool I/O.
+
+## 3) Dependencies (DI) + structured output
+
+```python
+@dataclass
+class OnCallDeps:
+    service: str
+    metrics: MetricsClient
+```
+
+* **Dependency Injection**: everything the agent needs at runtime (target service + clients).
+* You pass this as `deps=` at call time, and the agent receives it via `RunContext`.
+
+```python
+class RemediationPlan(BaseModel):
+    message: str
+    severity: Literal["SEV1","SEV2","SEV3","INFO"]
+    notify_oncall: bool
+    actions: list[str]
+```
+
+* **Typed, validated output** using Pydantic.
+* If the LLM returns malformed output, Pydantic AI will **retry / coerce** to match this schema—this is what makes agent outputs safe to automate.
+
+## 4) Agent definition
+
+```python
+oncall_agent = Agent(
+    model,
+    deps_type=OnCallDeps,
+    output_type=RemediationPlan,
+    system_prompt=(
+        "You are an SRE assistant. Diagnose service incidents using tools before concluding. "
+        "Prefer concrete evidence (metrics/logs). Be concise and practical."
+    ),
+)
+```
+
+* `deps_type`: tells Pydantic AI what `ctx.deps` will look like (type-safe DI).
+* `output_type`: forces the **final answer** to be a `RemediationPlan`.
+* `system_prompt`: baseline behavior. You explicitly nudge it to **use tools first**.
+
+## 5) Dynamic system prompt injection
+
+```python
+@oncall_agent.system_prompt
+async def service_context(ctx: RunContext[OnCallDeps]) -> str:
+    return f"Target service: {ctx.deps.service!r}. Environment: production."
+```
+
+* Adds **runtime context** to the system prompt (target service/env).
+* `!r` formats with `repr()`—handy for quotes and unambiguous display.
+
+## 6) Tools (the agent’s “hands”)
+
+```python
+@oncall_agent.tool
+async def get_cpu(ctx: RunContext[OnCallDeps]) -> float: ...
+@oncall_agent.tool
+async def get_error_rate(ctx: RunContext[OnCallDeps]) -> float: ...
+@oncall_agent.tool
+async def get_recent_errors(ctx: RunContext[OnCallDeps]) -> list[str]: ...
+@oncall_agent.tool
+async def suggest_restart_plan(ctx: RunContext[OnCallDeps]) -> list[str]: ...
+```
+
+* Each tool is a **callable capability** exposed to the agent.
+* The model decides **when** to call them (tool-use planning) based on your prompt.
+* You’ve got:
+
+  * **Read tools**: CPU, error rate, recent error logs.
+  * **Advisory tool**: return a step-by-step restart plan (no side effects—great for tutorials).
+
+> Tip: If you later add a *real* action (e.g., scale/rollback), guard it with a `dry_run` flag in `deps` until you add approvals.
+
+## 7) Running the agent
+
+```python
+deps = OnCallDeps(service="api", metrics=MetricsClient())
+
+result = await oncall_agent.run(
+    "Users report 5xx spikes and slow responses. What’s happening and what should I do?\n"
+    "- Please check metrics and logs first.\n"
+    "- If CPU and error rate are high, propose a safe mitigation plan.",
+    deps=deps,
+)
+print(result.output)
+```
+
+* Execution flow:
+
+  1. Agent builds the **full system prompt** = base + `service_context(...)`.
+  2. Model **plans tool calls** (fetch CPU, error rate, logs).
+  3. Model **reasons** over tool results.
+  4. Pydantic AI **validates** the model’s draft into `RemediationPlan`. If invalid, it **retries**.
+  5. You get a **typed object** you can send to a runbook, Slack, PagerDuty, etc.
+
+---
+
+# Why this is “agentic”
+
+* **Planning**: The LLM chooses tools and order (check metrics → inspect logs → propose plan).
+* **Grounding**: Tools bring **real signals** (CPU, error rate, logs). Less hallucination.
+* **Structure**: You always get a `RemediationPlan` (message, severity, notify flag, actions).
+* **Portability**: Swap providers (OpenAI ↔ Ollama) without changing the agent logic.
+
+---
+
+# How to run it (and common tweaks)
+
+1. Install deps:
+
+```bash
+pip install pydantic-ai python-dotenv
+```
+
+2. Put your key in `.env`:
+
+```
+OPENAI_API_KEY=sk-...
+```
+
+3. Run:
+
+```bash
+python your_file.py
+```
+
+4. Try quick variations:
+
+* Change `service="worker"` to see lower CPU/error flows.
+* Tweak `MetricsClient` return values to test other severities.
+* Replace the model with Ollama (ensure the model supports **function calling/tools**).
+
+---
+
+# Small improvements you can add later
+
+* **Usage/cost**: print `result.usage()` to log input/output tokens & request count.
+* **Approvals**: add a `dry_run: bool` to `OnCallDeps` and gate any real action tools.
+* **Tests**: stub `MetricsClient` in unit tests to cover high/low/error scenarios.
+* **Observability**: integrate Pydantic Logfire to trace tool calls and latencies.
+
+
+## References
+- [Pydantic AI](https://ai.pydantic.dev/)
