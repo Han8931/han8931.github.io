@@ -8,10 +8,10 @@
             <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Agentic AI with Pydantic-AI Part 1.</title>
-    <link>http://localhost:1313/pydantic_ai/</link>
+    <link>http://localhost:1313/pydantic-ai/</link>
     <pubDate>Sun, 31 Aug 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/pydantic_ai/</guid>
+    <guid>http://localhost:1313/pydantic-ai/</guid>
     <description><![CDATA[<h2 id="introduction">Introduction</h2>
 <p>AI has already changed how we interact with technology. The real shift is happening now with <strong>agents</strong>: AI systems that can reason, make decisions, and take action.</p>
 <p>Unlike a chatbot that passively replies, an agent can <strong>break down complex tasks</strong>, call APIs or databases, use tools, and deliver structured results. This is what makes the idea of <em>Agentic AI</em> so powerful — it&rsquo;s not just about conversation, it&rsquo;s about <strong>problem-solving with initiative</strong>.</p>]]></description>
