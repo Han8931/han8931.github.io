@@ -73,11 +73,11 @@ enableEmoji = true
   fingerprint = ""
   # date format
   dateFormat = "2006-01-02"
-  # website title for Open Graph and Twitter Cards
+  # website title for Open Graph and x Cards
   title = "Han"
-  # website description for RSS, SEO, Open Graph and Twitter Cards
+  # website description for RSS, SEO, Open Graph and x Cards
   description = "Han's Blog"
-  # website images for Open Graph and Twitter Cards
+  # website images for Open Graph and x Cards
   images = ["/logo.png"]
 
   # Header config
@@ -202,7 +202,7 @@ enableEmoji = true
   [params.social]
     GitHub = ""
     Linkedin = ""
-    Twitter = ""
+    x = ""
     Facebook = ""
     Telegram = ""
     Medium = ""
@@ -330,7 +330,7 @@ enableEmoji = true
     # Social share links in post page
     [params.page.share]
       enable = false
-      Twitter = true
+      x = true
       Facebook = true
       Linkedin = false
       Whatsapp = false
@@ -540,7 +540,7 @@ enableEmoji = true
 # Permalinks config (https://gohugo.io/content-management/urls/#permalinks)
 [Permalinks]
   # posts = ":year/:month/:filename"
-  posts = ":filename"
+  posts = ":contentbasename"
 
 # Privacy config (https://gohugo.io/about/hugo-and-gdpr/)
 [privacy]
@@ -654,7 +654,7 @@ enableEmoji = true
           disclaimer = ""
       [languages.en.params.social]
         GitHub = "Han8931" # GitHub ID
-        # Twitter = "xxxx"
+        # x = "xxxx"
         # Instagram = "xxxx"
         # Facebook = "xxxx"
         # Telegram = "xxxx"

@@ -4,9 +4,19 @@
         <link>http://localhost:1313/</link>
         <description>Han&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 30 Aug 2025 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 31 Aug 2025 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Agentic AI with Pydantic-AI Part 1.</title>
+    <link>http://localhost:1313/pydantic_ai/</link>
+    <pubDate>Sun, 31 Aug 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/pydantic_ai/</guid>
+    <description><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>AI has already changed how we interact with technology. The real shift is happening now with <strong>agents</strong>: AI systems that can reason, make decisions, and take action.</p>
+<p>Unlike a chatbot that passively replies, an agent can <strong>break down complex tasks</strong>, call APIs or databases, use tools, and deliver structured results. This is what makes the idea of <em>Agentic AI</em> so powerful — it&rsquo;s not just about conversation, it&rsquo;s about <strong>problem-solving with initiative</strong>.</p>]]></description>
+</item>
+<item>
     <title>Clean Validation with Pydantic v2</title>
     <link>http://localhost:1313/pydantic/</link>
     <pubDate>Sat, 30 Aug 2025 00:00:00 &#43;0000</pubDate>
@@ -185,16 +195,6 @@
     <description><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>When it comes to writing clean, maintainable, and scalable Python code, design matters. As your projects grow, you&rsquo;ll often find yourself needing to enforce structure, ensure consistency, and promote reusability. This is where Python&rsquo;s <a href="https://docs.python.org/3/library/abc.html" target="_blank" rel="noopener noreffer ">Abstract Base Classes (ABCs)</a> and <a href="https://www.python.org/dev/peps/pep-0544/" target="_blank" rel="noopener noreffer ">Protocols</a> come into play—two powerful features that help you design better software.</p>
 <p>Abstract classes act as <strong>blueprints for other classes, allowing you to define methods that must be implemented by any subclass</strong>. They&rsquo;re typically used for creating a shared foundation while enforcing a specific structure. Protocols, on the other hand, take a more flexible approach. Instead of relying on inheritance, they <strong>let you define interfaces based on behavior</strong>, making them ideal for <em>duck typing</em> (or <em>structural subtyping</em>) and runtime flexibility.</p>]]></description>
-</item>
-<item>
-    <title>Run Pytorch Container in Arch Linux</title>
-    <link>http://localhost:1313/pytorch-container/</link>
-    <pubDate>Sat, 11 Jan 2025 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/pytorch-container/</guid>
-    <description><![CDATA[<h1 id="setting-up-dl-experiment-environments">Setting Up DL Experiment Environments</h1>
-<h2 id="a-challenge-for-arch-linux-users">A Challenge for Arch Linux Users</h2>
-<p>If you&rsquo;ve ever tried to set up a new experiment environment for deep learning on Arch Linux, you&rsquo;re probably familiar with the challenges involved. Arch Linux, renowned for its rolling-release model and cutting-edge updates, provides unparalleled flexibility and control over your system. However, this same flexibility can often lead to headaches when setting up complex environments for machine learning or deep learning experiments. Dependency conflicts, missing libraries, and version mismatches are all too common.</p>]]></description>
 </item>
 </channel>
 </rss>

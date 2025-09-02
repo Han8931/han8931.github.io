@@ -158,6 +158,5 @@ class = "MyClass"  # This will raise a SyntaxError
 4. **Avoid Ambiguity**: Use names that are unambiguous and easy to understand.
 
 
-Happy coding!
 
 

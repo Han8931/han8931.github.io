@@ -9,8 +9,15 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 30 Aug 2025 11:32:58 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 31 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agentic AI with Pydantic-AI Part 1.</title>
+      <link>http://localhost:1313/pydantic_ai/</link>
+      <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/pydantic_ai/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;AI has already changed how we interact with technology. The real shift is happening now with &lt;strong&gt;agents&lt;/strong&gt;: AI systems that can reason, make decisions, and take action.&lt;/p&gt;&#xA;&lt;p&gt;Unlike a chatbot that passively replies, an agent can &lt;strong&gt;break down complex tasks&lt;/strong&gt;, call APIs or databases, use tools, and deliver structured results. This is what makes the idea of &lt;em&gt;Agentic AI&lt;/em&gt; so powerful — it&amp;rsquo;s not just about conversation, it&amp;rsquo;s about &lt;strong&gt;problem-solving with initiative&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Clean Validation with Pydantic v2</title>
       <link>http://localhost:1313/pydantic/</link>
