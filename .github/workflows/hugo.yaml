@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - content/posts/nl2sql-p1.md
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
