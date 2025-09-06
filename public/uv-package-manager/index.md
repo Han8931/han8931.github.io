@@ -1,11 +1,11 @@
 # All‑in‑One Python Package Manager: UV!
 
 
+> 📝**Update** (2025-09-06): I've added a new section on using --native-tls with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.
+
 ## Meet **uv** – A Blazingly Fast, All‑in‑One Python Package Manager
 
 In my last post I dove into **[Poetry](https://han8931.github.io/20240707_poetry/)**, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for **pip** to install packages, **virtualenv** to isolate them, **pyenv** to juggle Python versions, and maybe **Pipenv** or **pip‑tools** for lock‑files. Each solves its own niche, yet hopping between them adds friction. **uv** removes that friction. This single, project manager—written in Rust and typically **10-1000x** faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, and even publishing to PyPI, all behind one concise CLI.
-
----
 
 ## Why Python Packaging Needed a Fresh Start
 
@@ -16,8 +16,6 @@ In my last post I dove into **[Poetry](https://han8931.github.io/20240707_poetry
 | **Reproducibility** | `requirements.txt` is order‑sensitive & lacks metadata | Deterministic `uv.lock` capturing hashes & markers |
 
 Since its public launch, **uv** already powers **>10 %** of all downloads on PyPI—evidence that developers crave a faster, simpler workflow.
-
----
 
 ## The Lock‑File Landscape at a Glance
 
@@ -141,9 +139,10 @@ uv run pytest -q
    ```bash
    pip freeze > requirements.txt
    ```
-2. Initialize uv in place:
+2. Initialize uv in place and create a virtual environment:
    ```bash
    uv init .
+   uv venv
    ```
 3. Import:
    ```bash
@@ -151,6 +150,92 @@ uv run pytest -q
    uv lock
    ```
 4. Delete the old `.venv` and enjoy the speed‑up.
+
+## Managing Private PyPI Repositories with `uv`
+
+If you're using `uv` as your Python package manager, you don't always need to pass `--index-url` when installing packages from a private or internal PyPI mirror (e.g, at your work).
+You can configure it globally with
+```toml
+# ~/.config/uv/uv.toml
+[[index]]
+url = "http://----" 
+default = true
+```
+Now, you can just run 
+```sh
+uv add <package-name>
+```
+
+## Using `uv` with Private Indexes and Corporate Proxies
+
+If you work in a corporate environment, chances are you're installing packages through an internal PyPI mirror and behind a company proxy. Here's how to make `uv` work smoothly in that setup.
+
+### Configuring a Private PyPI Index
+
+Instead of typing `--index-url` every time you add a package, you can configure your internal index globally:
+
+```toml
+# ~/.config/uv/uv.toml
+[[index]]
+url = "http://repo.mycompany.net/simple"
+default = true
+```
+
+Now you can simply run:
+```sh
+uv add numpy
+```
+
+and `uv` will fetch packages from your internal repository automatically.
+
+### Setting Proxy Variables
+
+If your network requires a proxy, set these environment variables:
+
+```sh
+export HTTP_PROXY="http://proxy.mycompany.net:3128"
+export HTTPS_PROXY="http://proxy.mycompany.net:3128"
+```
+
+If authentication is required:
+
+```sh
+export HTTPS_PROXY="http://username:password@proxy.mycompany.net:3128"
+```
+
+And to bypass the proxy for local services:
+```sh
+export NO_PROXY="localhost,127.0.0.1,.mycompany.net"
+```
+
+---
+
+### Why `--native-tls` Matters
+
+By default, `uv` uses **Rustls** for TLS/SSL. That's fine at home, but at work you'll often hit errors like:
+
+```
+certificate verify failed: unable to get local issuer certificate
+```
+
+This happens because Rustls doesn't automatically trust your company's custom root certificates.
+
+The fix: tell `uv` to use your operating system's certificate store:
+
+```sh
+uv add --native-tls requests
+```
+
+or make it permanent in your config:
+
+```toml
+# ~/.config/uv/uv.toml
+[install]
+native-tls = true
+```
+
+Now `uv` respects the certificates your IT team has already installed (OpenSSL on Linux, Schannel on Windows, SecureTransport on macOS).
+
 
 ### Cheat Sheet
 
@@ -162,8 +247,6 @@ uv run pytest -q
 | `pip uninstall pkg` | `uv remove pkg` |
 | `pip freeze` | `uv pip freeze` |
 | `pip list` | `uv pip list` |
-
----
 
 I hope you enjoyed my post!
 

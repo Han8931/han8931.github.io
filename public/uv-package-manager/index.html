@@ -38,7 +38,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/uv-package-manager\/"
-        },"genre": "posts","keywords": "python, uv, package manager, Virtual Environment","wordcount":  841 ,
+        },"genre": "posts","keywords": "python, uv, package manager, Virtual Environment","wordcount":  1156 ,
         "url": "http:\/\/localhost:1313\/uv-package-manager\/","datePublished": "2025-04-13T00:00:00+00:00","dateModified": "2025-07-23T20:49:00+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -112,8 +112,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">All‑in‑One Python Package Manager: UV!</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-04-13">2025-04-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;841 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-04-13">2025-04-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1156 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -136,16 +136,22 @@
     <li><a href="#workspaces-multiple-apps-one-cohesive-repo">Workspaces: Multiple Apps, One Cohesive Repo</a></li>
     <li><a href="#dependency-groups-for-dev--prod">Dependency Groups for Dev &amp; Prod</a></li>
     <li><a href="#testing-with-pytest-and-a-vscode-tip">Testing with Pytest (and a VS Code Tip)</a></li>
-    <li><a href="#migrating-an-existing-venv--pip-project">Migrating an Existing venv + pip Project</a>
+    <li><a href="#migrating-an-existing-venv--pip-project">Migrating an Existing venv + pip Project</a></li>
+    <li><a href="#managing-private-pypi-repositories-with-uv">Managing Private PyPI Repositories with <code>uv</code></a></li>
+    <li><a href="#using-uv-with-private-indexes-and-corporate-proxies">Using <code>uv</code> with Private Indexes and Corporate Proxies</a>
       <ul>
+        <li><a href="#configuring-a-private-pypi-index">Configuring a Private PyPI Index</a></li>
+        <li><a href="#setting-proxy-variables">Setting Proxy Variables</a></li>
+        <li><a href="#why---native-tls-matters">Why <code>--native-tls</code> Matters</a></li>
         <li><a href="#cheat-sheet">Cheat Sheet</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="meet-uva-blazinglyfast-allinone-python-packagemanager">Meet <strong>uv</strong> – A Blazingly Fast, All‑in‑One Python Package Manager</h2>
+            </div><div class="content" id="content"><blockquote>
+<p>📝<strong>Update</strong> (2025-09-06): I&rsquo;ve added a new section on using &ndash;native-tls with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.</p></blockquote>
+<h2 id="meet-uva-blazinglyfast-allinone-python-packagemanager">Meet <strong>uv</strong> – A Blazingly Fast, All‑in‑One Python Package Manager</h2>
 <p>In my last post I dove into <strong><a href="https://han8931.github.io/20240707_poetry/" target="_blank" rel="noopener noreffer ">Poetry</a></strong>, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for <strong>pip</strong> to install packages, <strong>virtualenv</strong> to isolate them, <strong>pyenv</strong> to juggle Python versions, and maybe <strong>Pipenv</strong> or <strong>pip‑tools</strong> for lock‑files. Each solves its own niche, yet hopping between them adds friction. <strong>uv</strong> removes that friction. This single, project manager—written in Rust and typically <strong>10-1000x</strong> faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, and even publishing to PyPI, all behind one concise CLI.</p>
-<hr>
 <h2 id="why-python-packaging-needed-a-fresh-start">Why Python Packaging Needed a Fresh Start</h2>
 <table>
   <thead>
@@ -174,7 +180,6 @@
   </tbody>
 </table>
 <p>Since its public launch, <strong>uv</strong> already powers <strong>&gt;10 %</strong> of all downloads on PyPI—evidence that developers crave a faster, simpler workflow.</p>
-<hr>
 <h2 id="the-lockfile-landscape-at-a-glance">The Lock‑File Landscape at a Glance</h2>
 <p>Before we dive into <strong>uv</strong>, it helps to remember what <em>&ldquo;locking&rdquo;</em> looks like in the existing ecosystem:</p>
 <ol>
@@ -303,13 +308,14 @@
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip freeze &gt; requirements.txt</span></span></code></pre></div></div>
 </li>
-<li>Initialize uv in place:
+<li>Initialize uv in place and create a virtual environment:
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv init .</span></span></code></pre></div></div>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv init .
+</span></span><span class="line"><span class="cl">uv venv</span></span></code></pre></div></div>
 </li>
 <li>Import:
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
@@ -322,6 +328,96 @@
 </li>
 <li>Delete the old <code>.venv</code> and enjoy the speed‑up.</li>
 </ol>
+<h2 id="managing-private-pypi-repositories-with-uv">Managing Private PyPI Repositories with <code>uv</code></h2>
+<p>If you&rsquo;re using <code>uv</code> as your Python package manager, you don&rsquo;t always need to pass <code>--index-url</code> when installing packages from a private or internal PyPI mirror (e.g, at your work).
+You can configure it globally with</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-toml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># ~/.config/uv/uv.toml</span>
+</span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">index</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">url</span> <span class="p">=</span> <span class="s2">&#34;http://----&#34;</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">default</span> <span class="p">=</span> <span class="kc">true</span></span></span></code></pre></div></div>
+<p>Now, you can just run</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">uv add &lt;package-name&gt;</span></span></code></pre></div></div>
+<h2 id="using-uv-with-private-indexes-and-corporate-proxies">Using <code>uv</code> with Private Indexes and Corporate Proxies</h2>
+<p>If you work in a corporate environment, chances are you&rsquo;re installing packages through an internal PyPI mirror and behind a company proxy. Here&rsquo;s how to make <code>uv</code> work smoothly in that setup.</p>
+<h3 id="configuring-a-private-pypi-index">Configuring a Private PyPI Index</h3>
+<p>Instead of typing <code>--index-url</code> every time you add a package, you can configure your internal index globally:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-toml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># ~/.config/uv/uv.toml</span>
+</span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">index</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">url</span> <span class="p">=</span> <span class="s2">&#34;http://repo.mycompany.net/simple&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">default</span> <span class="p">=</span> <span class="kc">true</span></span></span></code></pre></div></div>
+<p>Now you can simply run:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">uv add numpy</span></span></code></pre></div></div>
+<p>and <code>uv</code> will fetch packages from your internal repository automatically.</p>
+<h3 id="setting-proxy-variables">Setting Proxy Variables</h3>
+<p>If your network requires a proxy, set these environment variables:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HTTP_PROXY</span><span class="o">=</span><span class="s2">&#34;http://proxy.mycompany.net:3128&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HTTPS_PROXY</span><span class="o">=</span><span class="s2">&#34;http://proxy.mycompany.net:3128&#34;</span></span></span></code></pre></div></div>
+<p>If authentication is required:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HTTPS_PROXY</span><span class="o">=</span><span class="s2">&#34;http://username:password@proxy.mycompany.net:3128&#34;</span></span></span></code></pre></div></div>
+<p>And to bypass the proxy for local services:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">NO_PROXY</span><span class="o">=</span><span class="s2">&#34;localhost,127.0.0.1,.mycompany.net&#34;</span></span></span></code></pre></div></div>
+<hr>
+<h3 id="why---native-tls-matters">Why <code>--native-tls</code> Matters</h3>
+<p>By default, <code>uv</code> uses <strong>Rustls</strong> for TLS/SSL. That&rsquo;s fine at home, but at work you&rsquo;ll often hit errors like:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">certificate verify failed: unable to get local issuer certificate</span></span></code></pre></div></div>
+<p>This happens because Rustls doesn&rsquo;t automatically trust your company&rsquo;s custom root certificates.</p>
+<p>The fix: tell <code>uv</code> to use your operating system&rsquo;s certificate store:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">uv add --native-tls requests</span></span></code></pre></div></div>
+<p>or make it permanent in your config:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-toml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># ~/.config/uv/uv.toml</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">install</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">native-tls</span> <span class="p">=</span> <span class="kc">true</span></span></span></code></pre></div></div>
+<p>Now <code>uv</code> respects the certificates your IT team has already installed (OpenSSL on Linux, Schannel on Windows, SecureTransport on macOS).</p>
 <h3 id="cheat-sheet">Cheat Sheet</h3>
 <table>
   <thead>
@@ -357,7 +453,6 @@
       </tr>
   </tbody>
 </table>
-<hr>
 <p>I hope you enjoyed my post!</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -388,7 +483,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.2">Hugo</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.149.0">Hugo</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
