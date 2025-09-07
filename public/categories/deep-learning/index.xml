@@ -9,13 +9,27 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Wed, 23 Jul 2025 20:49:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Deep Statistical Learning</title>
+      <link>http://localhost:1313/studynotes/deep_statistical_learning/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/studynotes/deep_statistical_learning/</guid>
+      <description>&lt;h1 id=&#34;-deep-statistical-learning&#34;&gt;📖 Deep Statistical Learning&lt;/h1&gt;&#xA;&lt;p&gt;👉 Full repository: &lt;a href=&#34;https://github.com/Han8931/deep_statistical_learning&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;deep_statistical_learning&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;I started writing these notes during my &lt;strong&gt;master’s degree&lt;/strong&gt; as a way to organize and clarify my understanding of &lt;strong&gt;machine learning&lt;/strong&gt; and &lt;strong&gt;deep learning&lt;/strong&gt;. Over time, the notes have grown into a comprehensive study resource that combines theoretical foundations with practical insights.&lt;/p&gt;&#xA;&lt;p&gt;I enjoy organizing knowledge and writing things down, and these notes reflect that process — carefully breaking down concepts, connecting ideas, and recording them in a way that can be revisited and built upon.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>http://localhost:1313/studynotes/reinforcement_learning/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/studynotes/reinforcement_learning/</guid>
+      <description>&lt;h1 id=&#34;-reinforcement-learning-notes&#34;&gt;📘 Reinforcement Learning Notes&lt;/h1&gt;&#xA;&lt;p&gt;👉 You can check out the full notes here: &lt;a href=&#34;https://github.com/Han8931/reinforcement_learning_note&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;reinforcement_learning_note&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;There are already a number of excellent tutorials and lectures on &lt;strong&gt;Reinforcement Learning (RL)&lt;/strong&gt;, but I often find that many of them do not provide enough detail or explanation of the formulas behind the concepts. In many cases, key ideas are assumed to be &lt;em&gt;obvious&lt;/em&gt; or &lt;em&gt;straightforward&lt;/em&gt;—which can be a challenge for someone like me, who has a weaker background in mathematics but still wants a &lt;strong&gt;comprehensive understanding&lt;/strong&gt; of RL.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Inside DeepSeek-R1</title>
-      <link>http://localhost:1313/deepseek-inside/</link>
+      <link>http://localhost:1313/2025/02/deepseek-inside/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/deepseek-inside/</guid>
+      <guid>http://localhost:1313/2025/02/deepseek-inside/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.deepseek.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;DeepSeek&lt;/a&gt;&amp;rsquo;s latest moves have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their engineering techniques behind DeepSeek are truly impressive, and their reports are quite enjoyable. However, understanding their core ideas can be challenging and demands a substantial amount of effort.&lt;/p&gt;&#xA;&lt;p&gt;At the forefront of this innovation is DeepSeek-R1, a model that built upon the foundation established by preceding projects such as DeepSeek Coder, Math, MoE, and notably, the DeepSeek-V3 model. While DeepSeek-R1 is the center of the DeepSeek&amp;rsquo;s frenzy, its success is rooted on these past works.&lt;/p&gt;</description>
     </item>
   </channel>

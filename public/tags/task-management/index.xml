@@ -13,9 +13,9 @@
     <atom:link href="http://localhost:1313/tags/task-management/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Manage your task with TaskSpooler!</title>
-      <link>http://localhost:1313/taskspooler/</link>
+      <link>http://localhost:1313/2024/07/taskspooler/</link>
       <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/taskspooler/</guid>
+      <guid>http://localhost:1313/2024/07/taskspooler/</guid>
       <description>&lt;h1 id=&#34;what-is-taskspooler&#34;&gt;What is &lt;a href=&#34;https://github.com/justanhduc/task-spooler&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;TaskSpooler&lt;/a&gt;?&lt;/h1&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/justanhduc/task-spooler&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;TaskSpooler&lt;/a&gt; (ts) is a lightweight job scheduler that allows you to queue up your tasks and execute them in order. It’s particularly useful for environments where tasks need to be managed sequentially or with a controlled degree of parallelism. Unlike more complex systems like SLURM, TaskSpooler is designed for simplicity and ease of use, making it accessible for individual researchers and small teams.&lt;/p&gt;&#xA;&lt;h2 id=&#34;efficient-job-scheduling-for-mldl-researchers-with-taskspooler&#34;&gt;Efficient Job Scheduling for ML/DL Researchers with Taskspooler&lt;/h2&gt;&#xA;&lt;p&gt;In the dynamic field of Machine Learning (ML) and Deep Learning (DL), managing and optimizing computational resources is crucial. For researchers frequently running numerous experiments, an efficient job scheduler can be a game-changer. Enter &lt;strong&gt;Taskspooler&lt;/strong&gt;, a powerful yet user-friendly job scheduler for Linux, designed to help you manage and schedule your jobs in a queue. Taskspooler is a simpler alternative to SLURM, providing many benefits for ML/DL researchers, especially when it comes to utilizing GPUs efficiently.&lt;/p&gt;</description>
     </item>
   </channel>

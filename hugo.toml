@@ -48,6 +48,17 @@ enableEmoji = true
     title = ""
   [[menu.main]]
     weight = 2
+    identifier = "git_notes"
+    # you can add extra information before the name (HTML format is supported), such as icons
+    pre = ""
+    # you can add extra information after the name (HTML format is supported), such as icons
+    post = ""
+    name = "StudyNotes"
+    url = "/studynotes/"
+    # title will be shown when you hover on this menu link
+    title = ""
+  [[menu.main]]
+    weight = 3
     identifier = "tags"
     pre = ""
     post = ""
@@ -55,7 +66,7 @@ enableEmoji = true
     url = "/tags/"
     title = ""
   [[menu.main]]
-    weight = 3
+    weight = 4
     identifier = "categories"
     pre = ""
     post = ""
@@ -539,8 +550,8 @@ enableEmoji = true
 
 # Permalinks config (https://gohugo.io/content-management/urls/#permalinks)
 [Permalinks]
-  # posts = ":year/:month/:filename"
-  posts = ":filename"
+  # posts = ":filename"
+  posts = ":year/:month/:contentbasename/"
 
 # Privacy config (https://gohugo.io/about/hugo-and-gdpr/)
 [privacy]
@@ -589,6 +600,14 @@ enableEmoji = true
         title = ""
       [[languages.en.menu.main]]
         weight = 2
+        identifier = "git_notes"
+        pre = ""
+        post = ""
+        name = "StudyNotes"
+        url = "/studynotes/"
+        title = ""
+      [[languages.en.menu.main]]
+        weight = 3
         identifier = "tags"
         pre = ""
         post = ""
@@ -596,7 +615,7 @@ enableEmoji = true
         url = "/tags/"
         title = ""
       [[languages.en.menu.main]]
-        weight = 3
+        weight = 4
         identifier = "categories"
         pre = ""
         post = ""

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta name="generator" content="Hugo 0.148.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.149.1"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -42,7 +42,7 @@
             <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/studynotes/"> StudyNotes </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
@@ -84,7 +84,7 @@
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         Cancel
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/studynotes/" title="">StudyNotes</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a></div>
     </div>
@@ -103,29 +103,29 @@
         alt="https://www.gravatar.com/avatar/485df9434f4908b5f6fab0750c113972?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/485df9434f4908b5f6fab0750c113972?s=240&amp;d=mp" /></a></div><h1 class="home-title">Han</h1><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"><a href="https://github.com/Han8931" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github fa-fw" aria-hidden="true"></i></a><a href="mailto:tabularasa8931@gmail.com" title="Email" rel="me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/latent-variable-part1/">Introduction to Latent Variable Modeling (Part 1)</a>
+        <a href="/2024/08/latent-variable-part1/">Introduction to Latent Variable Modeling (Part 1)</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-18">2024-08-18</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content"><h1 id="latent-variable-modeling">Latent Variable Modeling</h1>
 <h2 id="motivation-of-latent-variable-modeling">Motivation of Latent Variable Modeling</h2>
 <p>Let&rsquo;s say we want to classify some data. If we had access to a corresponding latent variable for each observation $ \mathbf{x}_i $, modeling would be more straightforward. To illustrate this, consider the challenge of finding the latent variable (i.e., the true class of $ \mathbf{x} $). It can be expressed like $ z^* = \argmax_{z} p(\mathbf{x} | z) $. It is hard to identify the true clusters without prior knowledge about them. For example, we can cluster like Fig. (b) or (c).</p></div><div class="post-footer">
-        <a href="/latent-variable-part1/">Read More</a><div class="post-tags">
+        <a href="/2024/08/latent-variable-part1/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/latent-variable/">Latent Variable</a>,&nbsp;<a href="/tags/k-means-clustering/">K-Means Clustering</a>,&nbsp;<a href="/tags/clustering/">Clustering</a>,&nbsp;<a href="/tags/gmm/">Gmm</a>,&nbsp;<a href="/tags/gaussian-mixture-modeling/">Gaussian Mixture Modeling</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/svd/">Gentle Introduction to Singular Value Decomposition</a>
+        <a href="/2024/08/svd/">Gentle Introduction to Singular Value Decomposition</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-15">2024-08-15</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a>&nbsp;<a href="/categories/linear-algebra/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linear Algebra</a>&nbsp;<a href="/categories/math/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Math</a></span></div><div class="content"><h1 id="singular-value-decomposition">Singular Value Decomposition</h1>
 <p>In linear algebra, the singular value decomposition (SVD) is a factorization of a real or complex matrix. It generalizes the eigendecomposition of a square matrix by extending the concept to asymmetric or rectangular matrices, which cannot be diagonalized directly using eigendecomposition. The SVD aims to find the following decomposition of a real-valued matrix $A$:
 $$A = U\Sigma V^T,$$
 where $U$ and $V$ are orthogonal (orthonormal) matrices, and $\Sigma$ is a diagonal matrix. The columns of $U$ are called the left singular vectors of $A$, the columns of $V$ are called the right singular vectors, and the diagonal elements of $\Sigma$ are called the singular values.</p></div><div class="post-footer">
-        <a href="/svd/">Read More</a><div class="post-tags">
+        <a href="/2024/08/svd/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/svd/">Svd</a>,&nbsp;<a href="/tags/singular-value-decomposition/">Singular Value Decomposition</a>,&nbsp;<a href="/tags/linear-algebra/">Linear Algebra</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/recursive-least-square/">Getting Started with Regression Part 3. RLS</a>
+        <a href="/2024/08/recursive-least-square/">Getting Started with Regression Part 3. RLS</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-12">2024-08-12</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content"><h1 style="line-height: 1.3;">Deep Dive into Regression: Recursive Least Squares Explained (Part 3)</h1>
 <h2 id="introduction-to-recursive-least-squares">Introduction to Recursive Least Squares</h2>
 <p>Ordinary least squares assumes that all data is available at once, but in practice, this isn&rsquo;t always the case. <strong>Often, measurements are obtained sequentially</strong>, and we need to update our estimates as new data comes in. Simply augmenting the data matrix $\mathbf{X}$ each time a new measurement arrives can become computationally expensive, especially when dealing with a large number of measurements. This is where <strong><em>Recursive Least Squares</em></strong> (RLS) comes into play.</p></div><div class="post-footer">
-        <a href="/recursive-least-square/">Read More</a><div class="post-tags">
+        <a href="/2024/08/recursive-least-square/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/regression/">Regression</a>,&nbsp;<a href="/tags/least-square/">Least Square</a>,&nbsp;<a href="/tags/recursive-least-squares/">Recursive Least Squares</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/regression2/">Getting Started with Regression Part 2. Ridge Regression</a>
+        <a href="/2024/08/regression2/">Getting Started with Regression Part 2. Ridge Regression</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-11">2024-08-11</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content"><h1 id="an-introductory-guide-part-2">An Introductory Guide (Part 2)</h1>
 <h2 id="understanding-ridge-regression">Understanding Ridge Regression</h2>
 <p>In machine learning, one of the key challenges is finding the right balance between underfitting and overfitting a model.</p>
@@ -135,21 +135,21 @@ where $U$ and $V$ are orthogonal (orthonormal) matrices, and $\Sigma$ is a diago
 </li>
 <li>
 <p><strong>Underfitting</strong>, on the other hand, happens when a model is too simple to capture the underlying patterns in the data, leading to poor performance both on the training data and on new data.</p></div><div class="post-footer">
-        <a href="/regression2/">Read More</a><div class="post-tags">
+        <a href="/2024/08/regression2/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/regression/">Regression</a>,&nbsp;<a href="/tags/least-square/">Least Square</a>,&nbsp;<a href="/tags/ridge-regression/">Ridge Regression</a>,&nbsp;<a href="/tags/weighted-regression/">Weighted Regression</a>,&nbsp;<a href="/tags/dual-form/">Dual Form</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/regression1/">Getting Started with Regression Part 1. Basics</a>
+        <a href="/2024/08/regression1/">Getting Started with Regression Part 1. Basics</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-10">2024-08-10</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content"><h1 id="an-introductory-guide-part-1">An Introductory Guide (Part 1)</h1>
 <p>Even with the rapid advancements in deep learning, regression continues to be widely used across various fields (e.g., finance, data science, statistics, and so on), maintaining its importance as a fundamental algorithm. That&rsquo;s why I&rsquo;ve decided to share this post, which is the first article in a dedicated series on regression. This series is designed to provide a thorough review while offering a gentle and accessible introduction.</p></div><div class="post-footer">
-        <a href="/regression1/">Read More</a><div class="post-tags">
+        <a href="/2024/08/regression1/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/regression/">Regression</a>,&nbsp;<a href="/tags/least-square/">Least Square</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/gpg-encryption/">Data Encryption using GPG!</a>
+        <a href="/2024/08/gpg-encryption/">Data Encryption using GPG!</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-08-04">2024-08-04</time></span>&nbsp;<span class="post-category">included in <a href="/categories/gpg/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Gpg</a></span></div><div class="content"><h1 id="securing-your-privacy">Securing Your Privacy</h1>
 <p>The importance of securing your data has become critical in the modern digital era. This post explores a versatile tool called GnuPG, or GNU Privacy Guard, which allows you to encrypt your data and communications, ensuring that only the intended recipients can access them.</p>
 <h2 id="asymmetric-encryption">Asymmetric Encryption</h2>
 <p>Before looking at GPG, let’s first review some encryption approaches. A very naive approach to sharing encrypted files is to use the same secret key between a sender and a receiver. This approach is known as symmetric encryption. However, the symmetric approach has a limitation in that it requires a secure method for key exchange.</p></div><div class="post-footer">
-        <a href="/gpg-encryption/">Read More</a><div class="post-tags">
+        <a href="/2024/08/gpg-encryption/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/gpg/">Gpg</a>,&nbsp;<a href="/tags/encryption/">Encryption</a>,&nbsp;<a href="/tags/decryption/">Decryption</a>,&nbsp;<a href="/tags/privacy/">Privacy</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
@@ -177,7 +177,7 @@ where $U$ and $V$ are orthogonal (orthonormal) matrices, and $\Sigma$ is a diago
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.149.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

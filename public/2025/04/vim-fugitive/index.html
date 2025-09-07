@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Git with Vim Fugitive: A Streamlined Workflow - Han&#39;s XYZ</title><meta name="Description" content="Git with Vim Fugitive"><meta property="og:url" content="http://localhost:1313/2025/04/vim-fugitive/">
+  <meta property="og:site_name" content="Han&#39;s XYZ">
+  <meta property="og:title" content="Git with Vim Fugitive: A Streamlined Workflow">
+  <meta property="og:description" content="Git with Vim Fugitive">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-07-23T20:49:00+09:00">
+    <meta property="article:tag" content="Git">
+    <meta property="article:tag" content="Vim">
+    <meta property="article:tag" content="Fugitive">
+    <meta property="og:image" content="http://localhost:1313/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/logo.png">
+  <meta name="twitter:title" content="Git with Vim Fugitive: A Streamlined Workflow">
+  <meta name="twitter:description" content="Git with Vim Fugitive">
+<meta name="application-name" content="KeepIt">
+<meta name="apple-mobile-web-app-title" content="KeepIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/2025/04/vim-fugitive/" /><link rel="prev" href="http://localhost:1313/2025/02/deepseek-inside/" /><link rel="next" href="http://localhost:1313/2025/04/uv-package-manager/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><meta name="google-site-verification" content="B7mVm-DfAgGVs4ghQkEqrmeZIv8D26A-1C7dx6Ajeh0" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Git with Vim Fugitive: A Streamlined Workflow",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/2025\/04\/vim-fugitive\/"
+        },"genre": "posts","keywords": "git, vim, fugitive","wordcount":  611 ,
+        "url": "http:\/\/localhost:1313\/2025\/04\/vim-fugitive\/","datePublished": "2025-04-13T00:00:00+00:00","dateModified": "2025-07-23T20:49:00+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Han"
+            },"description": "Git with Vim Fugitive"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/studynotes/"> StudyNotes </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/studynotes/" title="">StudyNotes</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git with Vim Fugitive: A Streamlined Workflow</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-category">included in <a href="/categories/git/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Git</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a>&nbsp;<a href="/categories/vim/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Vim</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-04-13">2025-04-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;611 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#browsing-git-history-and-logs-first">Browsing Git History and Logs First</a></li>
+    <li><a href="#viewing-and-comparing-versions-of-a-file">Viewing and Comparing Versions of a File</a></li>
+    <li><a href="#making-and-reviewing-changes">Making and Reviewing Changes</a></li>
+    <li><a href="#staging-and-preparing-commits">Staging and Preparing Commits</a></li>
+    <li><a href="#managing-files-and-advanced-commands">Managing Files and Advanced Commands</a></li>
+    <li><a href="#fugitive-cheat-sheet">Fugitive Cheat Sheet</a>
+      <ul>
+        <li><a href="#file-management">File Management</a></li>
+        <li><a href="#web-integration">Web Integration</a></li>
+      </ul>
+    </li>
+    <li><a href="#-final-thoughts">🏁 Final Thoughts</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>If you&rsquo;re working with Git and Vim, <a href="https://github.com/tpope/vim-fugitive" target="_blank" rel="noopener noreffer "><strong>vim-fugitive</strong></a> is an essential plugin that transforms your editor into a full-fledged Git interface. Here&rsquo;s how I use Fugitive to review, stage, and commit changes—without ever leaving Vim.</p>
+<h2 id="browsing-git-history-and-logs-first">Browsing Git History and Logs First</h2>
+<p>Before jumping into edits, it’s often useful to understand the file’s history or recent project changes.</p>
+<ul>
+<li><code>:Git log</code> — shows the project’s commit history in reverse chronological order</li>
+<li><code>:0Gllog</code> — shows the history of the current file</li>
+</ul>
+<p>To explore who changed what in a file:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-vim">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="p">:</span><span class="nx">Git</span> <span class="nx">blame</span></span></span></code></pre></div></div>
+<p>Press <code>&lt;Enter&gt;</code> on a line to inspect its commit, or press <code>g?</code> to see other commands.</p>
+<hr>
+<h2 id="viewing-and-comparing-versions-of-a-file">Viewing and Comparing Versions of a File</h2>
+<p>You might want to compare your current changes with previous versions:</p>
+<ul>
+<li><code>:Gedit HEAD~2:%</code> — opens the file as it was 2 commits ago</li>
+<li><code>:Gdiffsplit</code> — shows the current file against the index (staged version)
+<ul>
+<li>Use <code>:Gvdiffsplit</code> for vertical splits or <code>:Ghdiffsplit</code> for horizontal</li>
+</ul>
+</li>
+</ul>
+<p>In diff mode, use:</p>
+<ul>
+<li><code>do</code> — to obtain changes from the other pane</li>
+<li><code>dp</code> — to put your changes into the other pane</li>
+</ul>
+<hr>
+<h2 id="making-and-reviewing-changes">Making and Reviewing Changes</h2>
+<p>After edits, you may want to review your local changes:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-vim">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="p">:</span><span class="nx">Gdiffsplit</span></span></span></code></pre></div></div>
+<p>This shows differences between the working copy and the staged version. Use this view to double-check before staging.</p>
+<p>If you decide to undo your changes:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-vim">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="p">:</span><span class="nx">Gread</span></span></span></code></pre></div></div>
+<p>This reverts the buffer to the version from the index or last commit.</p>
+<hr>
+<h2 id="staging-and-preparing-commits">Staging and Preparing Commits</h2>
+<p>Now you’re ready to prepare your changes for commit:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-vim">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="p">:</span><span class="nx">Git</span></span></span></code></pre></div></div>
+<p>This opens a status window with:</p>
+<ul>
+<li>Untracked files</li>
+<li>Modified (unstaged) files</li>
+<li>Staged files</li>
+</ul>
+<p>You can:</p>
+<ul>
+<li>Press <code>-</code> to toggle staged/unstaged</li>
+<li>Press <code>X</code> to discard changes</li>
+<li>Press <code>dv</code>, <code>dh</code>, or <code>dd</code> to open diff views for review</li>
+</ul>
+<p>When you’re satisfied, press:</p>
+<ul>
+<li><code>cc</code> to commit staged changes</li>
+<li><code>ca</code> to amend the previous commit</li>
+</ul>
+<p>You’ll get a buffer to write your commit message. Save and close it to finish.</p>
+<hr>
+<h2 id="managing-files-and-advanced-commands">Managing Files and Advanced Commands</h2>
+<p>Here are more powerful tools from Fugitive:</p>
+<ul>
+<li><code>:Gwrite</code> — stage the file (like <code>git add</code>)</li>
+<li><code>:GMove</code> / <code>:GRename</code> — move or rename a file with Git</li>
+<li><code>:GDelete</code> / <code>:GRemove</code> — remove a file and buffer</li>
+<li><code>:Ggrep</code>, <code>:Glgrep</code> — grep across the repository</li>
+<li><code>:GBrowse</code> — open the current file on GitHub or other providers</li>
+</ul>
+<p>You can extend <code>:GBrowse</code> with plugins for:</p>
+<ul>
+<li>GitHub: <a href="https://github.com/tpope/vim-rhubarb" target="_blank" rel="noopener noreffer ">vim-rhubarb</a></li>
+<li>GitLab: <a href="https://github.com/shumphrey/fugitive-gitlab.vim" target="_blank" rel="noopener noreffer ">fugitive-gitlab.vim</a></li>
+<li>Others like Bitbucket, Azure DevOps, and Sourcehut</li>
+</ul>
+<hr>
+<h2 id="fugitive-cheat-sheet">Fugitive Cheat Sheet</h2>
+<p>Here are some quick facts and commands that make <code>vim-fugitive</code> incredibly powerful:</p>
+<ul>
+<li><code>:Git</code> with no arguments opens a summary/status window for the current repo</li>
+<li><code>:Gdiffsplit</code> or <code>:Gvdiffsplit</code> opens staged vs working tree versions for side-by-side diff</li>
+<li><code>:Gread</code> reverts local changes (undo-able with <code>u</code>)</li>
+<li><code>:Gwrite</code> stages the file (or updates it from history, depending on context)</li>
+<li><code>:Git blame</code> opens interactive blame mode — press <code>&lt;Enter&gt;</code> on a line to view its commit, or <code>g?</code> to see available options</li>
+<li><code>:Gedit HEAD~3:%</code> opens the current file as it existed 3 commits ago</li>
+<li><code>:Ggrep</code> and <code>:Glgrep</code> perform Git-powered searches within the repository</li>
+</ul>
+<h3 id="file-management">File Management</h3>
+<ul>
+<li><code>:GMove</code> — Perform a <code>git mv</code> on the file and rename the buffer</li>
+<li><code>:GRename</code> — Like <code>:GMove</code>, but destination is relative to current file</li>
+<li><code>:GDelete</code> — <code>git rm</code> + close buffer</li>
+<li><code>:GRemove</code> — <code>git rm</code> + keep buffer open</li>
+</ul>
+<h3 id="web-integration">Web Integration</h3>
+<p>Use <code>:GBrowse</code> to open the current file on your Git hosting provider. It even supports line ranges and works well in visual mode.</p>
+<p>Plugins exist for:</p>
+<ul>
+<li>GitHub: <a href="https://github.com/tpope/vim-rhubarb" target="_blank" rel="noopener noreffer "><code>vim-rhubarb</code></a></li>
+<li>GitLab: <a href="https://github.com/shumphrey/fugitive-gitlab.vim" target="_blank" rel="noopener noreffer "><code>fugitive-gitlab.vim</code></a></li>
+<li>Bitbucket, Gitee, Azure DevOps, and others also supported.</li>
+</ul>
+<hr>
+<h2 id="-final-thoughts">🏁 Final Thoughts</h2>
+<p>Vim Fugitive brings Git right into your fingertips, allowing you to manage version control without ever leaving your editor. Whether you&rsquo;re staging, reviewing diffs, or digging into commit history, Fugitive streamlines your workflow and keeps your focus in code.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-07-23&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/44db515b14fb89d8815a141851ee87c66b09cb8f" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 44db515b14fb89d8815a141851ee87c66b09cb8f: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>44db515</a></span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2025/04/vim-fugitive/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/git/">Git</a>,&nbsp;<a href="/tags/vim/">Vim</a>,&nbsp;<a href="/tags/fugitive/">Fugitive</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2025/02/deepseek-inside/" class="prev" rel="prev" title="Inside DeepSeek-R1"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Inside DeepSeek-R1</a>
+            <a href="/2025/04/uv-package-manager/" class="next" rel="next" title="All‑in‑One Python Package Manager: UV!">All‑in‑One Python Package Manager: UV!<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.149.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/algoliasearch/lite/browser.umd.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script>window.config={"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"A9NUSQZEO5","algoliaIndex":"github","algoliaSearchKey":"e255482bc340762a0da27f50eddd2765","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
+</html>

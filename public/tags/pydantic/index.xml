@@ -13,16 +13,16 @@
     <atom:link href="http://localhost:1313/tags/pydantic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Agentic AI with Pydantic-AI Part 1.</title>
-      <link>http://localhost:1313/pydantic-ai/</link>
+      <link>http://localhost:1313/2025/08/pydantic-ai/</link>
       <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/pydantic-ai/</guid>
+      <guid>http://localhost:1313/2025/08/pydantic-ai/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;AI has already changed how we interact with technology. The real shift is happening now with &lt;strong&gt;agents&lt;/strong&gt;: AI systems that can reason, make decisions, and take action.&lt;/p&gt;&#xA;&lt;p&gt;Unlike a chatbot that passively replies, an agent can &lt;strong&gt;break down complex tasks&lt;/strong&gt;, call APIs or databases, use tools, and deliver structured results. This is what makes the idea of &lt;em&gt;Agentic AI&lt;/em&gt; so powerful — it&amp;rsquo;s not just about conversation, it&amp;rsquo;s about &lt;strong&gt;problem-solving with initiative&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Clean Validation with Pydantic v2</title>
-      <link>http://localhost:1313/pydantic/</link>
+      <link>http://localhost:1313/2025/08/pydantic/</link>
       <pubDate>Sat, 30 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/pydantic/</guid>
+      <guid>http://localhost:1313/2025/08/pydantic/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;📝 &lt;strong&gt;Update&lt;/strong&gt; (2025-08): This post was originally published in &lt;strong&gt;April 2024&lt;/strong&gt; and has been updated to reflect changes in &lt;strong&gt;Pydantic v2&lt;/strong&gt;, including the new &lt;em&gt;field validator&lt;/em&gt;, &lt;em&gt;model validator&lt;/em&gt;, and &lt;em&gt;Annotated&lt;/em&gt;-based validation patterns. Also, this post now includes a &lt;strong&gt;new section on using Pydantic with MongoDB&lt;/strong&gt;.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;Python&amp;rsquo;s dynamic typing system is indeed convenient, allowing you to create variables without explicitly declaring their types. While this flexibility can streamline development, it can also introduce unexpected behavior, particularly when handling data from external sources like APIs or user input.&lt;/p&gt;</description>
     </item>
   </channel>

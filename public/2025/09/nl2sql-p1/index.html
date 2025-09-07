@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>NL2SQL Part 1. - Han&#39;s XYZ</title><meta name="Description" content="A tutorial for Pydantic-AI"><meta property="og:url" content="http://localhost:1313/2025/09/nl2sql-p1/">
+  <meta property="og:site_name" content="Han&#39;s XYZ">
+  <meta property="og:title" content="NL2SQL Part 1.">
+  <meta property="og:description" content="A tutorial for Pydantic-AI">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-06T22:20:50+09:00">
+    <meta property="article:tag" content="NL2SQL">
+    <meta property="article:tag" content="Agent">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="LLM">
+    <meta property="article:tag" content="SQL">
+    <meta property="og:image" content="http://localhost:1313/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/logo.png">
+  <meta name="twitter:title" content="NL2SQL Part 1.">
+  <meta name="twitter:description" content="A tutorial for Pydantic-AI">
+<meta name="application-name" content="KeepIt">
+<meta name="apple-mobile-web-app-title" content="KeepIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/2025/09/nl2sql-p1/" /><link rel="prev" href="http://localhost:1313/2025/09/nl2sql/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><meta name="google-site-verification" content="B7mVm-DfAgGVs4ghQkEqrmeZIv8D26A-1C7dx6Ajeh0" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "NL2SQL Part 1.",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/2025\/09\/nl2sql-p1\/"
+        },"genre": "posts","keywords": "NL2SQL, Agent, AI, LLM, SQL","wordcount":  394 ,
+        "url": "http:\/\/localhost:1313\/2025\/09\/nl2sql-p1\/","datePublished": "2025-09-06T00:00:00+00:00","dateModified": "2025-09-06T22:20:50+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Han"
+            },"description": "A tutorial for Pydantic-AI"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">NL2SQL Part 1.</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-category">included in <a href="/categories/nl2sql/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>NL2SQL</a>&nbsp;<a href="/categories/ai/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>AI</a>&nbsp;<a href="/categories/llm/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>LLM</a>&nbsp;<a href="/categories/sql/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>SQL</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-06">2025-09-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;394 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#natural-language-to-sql-nl2sql-in-the-llm-era">💡Natural Language to SQL (NL2SQL) in the LLM Era</a></li>
+    <li><a href="#the-challenges-of-nl2sql">The Challenges of NL2SQL</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="natural-language-to-sql-nl2sql-in-the-llm-era">💡Natural Language to SQL (NL2SQL) in the LLM Era</h2>
+<p>Data has become one of the most valuable resources of our time. Companies in finance, healthcare, logistics, retail, and many other fields collect enormous amounts of information every day. Much of this information is stored in relational databases, which are typically accessed using SQL.</p>
+<p>While SQL provides the raw outputs of a query, the critical step lies in interpreting these results. Developing intuition from retrieved data is essential for identifying meaningful patterns, uncovering relationships, and supporting evidence-based decision-making.</p>
+<p>This is where <strong>Natural Language to SQL (NL2SQL)</strong> becomes valuable. Instead of writing SQL code, users can simply ask a question in plain language, such as:</p>
+<p align="center"><i>“What are the top five products sold in Asia this year?”</i></p>  
+<p>and automatically receive the result—without having to construct a query like:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sql">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">product</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">sales</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">transactions</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Asia&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">&#39;2024-01-01&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">product</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">sales</span><span class="p">)</span><span class="w"> </span><span class="k">DESC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span></span></span></code></pre></div></div>
+<p>The motivation is clear: <strong>make structured data accessible to everyone</strong>. In practice, this means:</p>
+<ul>
+<li>Reducing dependency on technical expertise.</li>
+<li>Enabling deeper understanding of data.</li>
+<li>Supporting more efficient research and analysis.</li>
+</ul>
+<p>However, achieving this vision introduces significant technical challenges.</p>
+<h2 id="the-challenges-of-nl2sql">The Challenges of NL2SQL</h2>
+<p>Developing systems that can reliably translate natural language into SQL queries is a long-standing research challenge that sits at the intersection of natural language processing, information retrieval, and database management. <strong>The difficulty lies not only in the inherent ambiguity and variability of human language, but also in the structural complexity and heterogeneity of real-world databases</strong>. While the vision of democratizing access to data through natural language interfaces is compelling, realizing it in practice requires addressing several deep challenges—ranging from robust language understanding and schema alignment, to handling noisy data, adapting to diverse SQL dialects, and ensuring secure and efficient deployment.</p>
+<p>Beyond these technical hurdles, <strong>organizational culture plays a decisive role</strong>. In many enterprises, data access is still mediated by technical gatekeepers, and decision-making cultures are shaped by long-standing workflows and hierarchies. For NL2SQL systems to be truly effective, companies must embrace a culture of data accessibility—empowering non-technical users, fostering trust in automated systems, and promoting responsible use of sensitive information. Without this cultural shift, even the most advanced systems risk being underutilized or confined to experimental settings.</p>
+<p>The next sections will explore the key challenges that stand in the way of realizing NL2SQL at scale.</p>
+<!-- ### 1. Ambiguity in Natural Language -->
+<!-- Human language is inherently imprecise, and resolving its ambiguity is one of the most difficult aspects of NL2SQL. -->
+<!-- * **Lexical ambiguity** -->
+<!--   Words often have multiple meanings. For example: -->
+<!--   *Query*: *“Show me all accounts at the bank.”* -->
+<!--   *Interpretation A*: financial institution (table `bank_accounts`) -->
+<!--   *Interpretation B*: riverbank survey data (table `riverbank_records`) -->
+<!--   A robust NL2SQL system must disambiguate based on schema context or user intent. -->
+<!-- * **Syntactic ambiguity** -->
+<!--   The same sentence structure can be parsed in more than one valid way. -->
+<!--   *Query*: *“List employees in sales with high performance reviews.”* -->
+<!--   * Interpretation A: employees who are in the sales department **and** have high reviews. -->
+<!--   * Interpretation B: sales records that have been associated with high-performing employees. -->
+<!--     Resolving this requires both syntactic parsing and semantic grounding in the database schema. -->
+<!-- * **Underspecification** -->
+<!--   Many natural queries leave out critical details. -->
+<!--   *Query*: *“How many users are in England?”* -->
+<!--   * Which dataset? (e.g., active users, registered users, trial users) -->
+<!--   * Which time frame? (e.g., this month, this year, all-time) -->
+<!--   * Which region definition? (e.g., England vs. UK vs. Great Britain) -->
+<!--     Possible mitigation: asking clarification questions, or leveraging metadata such as default filters. -->
+<!-- * **Semantic mismatch** -->
+<!--   Sometimes, the user’s request cannot be expressed in terms of the schema. -->
+<!--   *Query*: *“How many singers died of COVID in 2021?”* -->
+<!--   If the database only contains discography and release dates, the answer is impossible. -->
+<!--   Systems must detect such gaps and respond gracefully (e.g., “This information is not available in the current database”). -->
+<!-- --- -->
+<!-- ### 2. Complexity of Real-World Databases -->
+<!-- Academic benchmarks often rely on small, well-structured schemas. In contrast, enterprise databases are large, noisy, and domain-specific. -->
+<!-- * **Scale** -->
+<!--   Real systems may contain hundreds of tables and thousands of columns. For instance, a healthcare database might have tables for patients, visits, diagnoses, prescriptions, lab results, and billing records. Querying requires reasoning across long chains of joins. -->
+<!-- * **Schema opacity** -->
+<!--   Column names are often cryptic. -->
+<!--   Example: `amt_rec` (amount received), `c_id` (customer ID), `dx_code` (diagnosis code). -->
+<!--   Such names may be clear to developers but obscure to models. Schema linking techniques, such as embedding-based matching or using documentation, are needed to align natural words to column names. -->
+<!-- * **Domain-specific conventions** -->
+<!--   Each industry encodes knowledge differently. -->
+<!--   * Finance: abbreviations like P\&L, EBITDA. -->
+<!--   * Healthcare: ICD-10 codes for diseases. -->
+<!--   * Logistics: hub-and-spoke identifiers. -->
+<!--     Models must adapt to specialized vocabularies and structures. -->
+<!-- * **Data noise and inconsistency** -->
+<!--   Industrial data often contains duplicates, missing values, or legacy artifacts. -->
+<!--   Example: customer names appearing as *“John Doe,” “J. Doe,” “Doe, John”*. -->
+<!--   An NL2SQL system may miscount unless it can account for such inconsistencies. -->
+<!-- --- -->
+<!-- ### 3. Barriers to Practical Deployment -->
+<!-- Even when an NL2SQL model generates correct SQL, real-world deployment introduces operational and governance concerns. -->
+<!-- * **Heterogeneity of SQL dialects** -->
+<!--   SQL differs across engines. -->
+<!--   * PostgreSQL: `ILIKE` for case-insensitive search. -->
+<!--   * MySQL: `LOWER()` + `LIKE` combination. -->
+<!--   * Oracle: `ROWNUM` vs. `LIMIT`. -->
+<!--     A system must either normalize queries or adapt dynamically to the target dialect. -->
+<!-- * **Generalization gap** -->
+<!--   Models trained on benchmarks (e.g., Spider, WikiSQL) often achieve high accuracy but struggle on industrial databases. -->
+<!--   * Academic DB: 10 tables, clean schema, descriptive names. -->
+<!--   * Real DB: 500 tables, cryptic abbreviations, evolving schema. -->
+<!--     Closing this gap requires domain adaptation and continual learning. -->
+<!-- * **Dependence on external knowledge** -->
+<!--   Some queries cannot be answered from schema alone. -->
+<!--   *Query*: *“Show me Q4 revenue excluding one-time adjustments.”* -->
+<!--   Here, the concept of “adjustments” may only be defined in business documentation or policy manuals. Integrating external knowledge sources (ontologies, business rules) becomes essential. -->
+<!-- * **Security and governance** -->
+<!--   Allowing natural language access to sensitive databases introduces risks: -->
+<!--   * Malicious injection: a user typing *“Drop all tables”* disguised as a natural query. -->
+<!--   * Data leakage: exposing private information inadvertently. -->
+<!--     Mitigation requires safeguards such as query sanitization, access control, and audit logging. -->
+<!-- --- -->
+<!-- ✅ This framing not only **states the problems** but also **illustrates them with concrete examples** and hints at **possible strategies** (schema linking, clarification, dialect normalization, query sanitization). -->
+<!-- Would you like me to add a **“Research Directions / Mitigation Strategies”** subsection after each challenge (e.g., methods like semantic parsing, ontology grounding, query repair), so the section reads more like a roadmap? -->
+<!-- ## ⚙️ Approaches in the LLM Era -->
+<!-- The rise of **Large Language Models (LLMs)** has given NL2SQL a major boost. Instead of building models from scratch, researchers now adapt powerful general-purpose models (GPT, Llama, T5, etc.) to SQL generation. -->
+<!-- ### 🔹 In-Context Learning (ICL) -->
+<!-- In ICL, we use **prompt engineering** to guide LLMs at inference time without retraining. -->
+<!-- **Example prompt:** -->
+<!-- ``` -->
+<!-- You are a SQL expert. -->  
+<!-- Given the following table schema and a natural language question, -->  
+<!-- generate a syntactically correct SQL query. -->  
+<!-- Table: Customers (CName, Age, City) -->  
+<!-- Question: How many customers are older than 30? -->  
+<!-- Answer: SELECT COUNT(*) FROM Customers WHERE Age > 30; -->
+<!-- ``` -->
+<!-- * **Advantages**: No training required, flexible, dynamic. -->
+<!-- * **Disadvantages**: -->
+<!--   * Limited by context window size (large schemas can’t fit). -->
+<!--   * Performance depends heavily on how examples are chosen. -->
+<!-- 👉 Researchers experiment with **example selection strategies**: random sampling, similarity-based retrieval, masking sensitive tokens, and **self-correction loops** where the LLM critiques and revises its own SQL. -->
+<!-- --- -->
+<!-- ### 🔹 Fine-Tuning -->
+<!-- Another approach is to train or fine-tune models on **NL-SQL pairs**. -->
+<!-- * **Advantages**: More robust, domain-adapted, higher accuracy. -->
+<!-- * **Disadvantages**: Expensive, requires large high-quality datasets, and the model becomes static (can’t adapt to new schemas without retraining). -->
+<!-- Fine-tuning works best in stable domains — e.g., a financial institution repeatedly querying the same data warehouse. -->
+<!-- --- -->
+<!-- ### 🔹 Self-Correction and Agents -->
+<!-- A promising direction is treating NL2SQL as a **multi-step reasoning task** rather than a single shot. -->
+<!-- * **Self-correction**: The model drafts an initial SQL, then refines it by decomposing the task. -->
+<!-- * **Agentic frameworks**: LLMs act as agents that query schema metadata, clarify vague user intent, or iteratively improve SQL through feedback. -->
+<!-- For example, a user might ask: -->
+<!-- *“What is the most common component in the warehouse?”* -->
+<!-- Instead of hallucinating, the system could **ask clarifying questions**: -->
+<!-- 1. Which warehouse? -->
+<!-- 2. Which component category? -->
+<!-- This guided interaction dramatically improves SQL quality. -->
+<!-- --- -->
+<!-- ## 📊 Benchmarking Datasets & Performance -->
+<!-- | Dataset                            | Scale & Domain                                      | Example Characteristics                          | Reported LLM Performance                                        | -->
+<!-- | ---------------------------------- | --------------------------------------------------- | ------------------------------------------------ | --------------------------------------------------------------- | -->
+<!-- | **WikiSQL**                        | 80k queries, 24k tables (Wikipedia)                 | Single-table queries, relatively simple schemas  | Widely solved (>90% accuracy by many models)                    | -->
+<!-- | **Spider v1.0**                    | 200 DBs, 138 domains, \~10k queries                 | Cross-domain, multi-table joins                  | GPT-O1 preview: **91.2%** <br> GPT-4: \~55%                     | -->
+<!-- | **BIRD**                           | 13k pairs, 95 DBs, 37 domains                       | Includes DB descriptions, efficiency metric      | GPT-O1 preview: **73.0%** <br> GPT-4: 54.89% <br> Human: 92.96% | -->
+<!-- | **Spider v2.0**                    | Industrial DBs: 632 queries, avg. 812 columns/DB    | Long queries (>100 lines), industrial complexity | GPT-O1 preview: **17.0%** <br> Llama-3.1-405B: **2.21%**        | -->
+<!-- | **KaggleDBQA**                     | 272 queries, 8 DBs                                  | Annotator-built queries + docs                   | Smaller scale, niche use                                        | -->
+<!-- | **Korean NL2SQL (AI-Hub, Archer)** | AI-Hub: 6k pairs <br> Archer: 1,042 queries, 20 DBs | Natural language questions in Korean             | Still underexplored                                             | -->
+<!-- --- -->
+<!-- This table highlights the **performance gap**: -->
+<!-- * Models look strong on **Spider v1.0** (academic) but collapse on **Spider v2.0** (industrial). -->
+<!-- * Datasets like **BIRD** introduce new evaluation metrics (efficiency, not just correctness). -->
+<!-- * Language diversity (Korean NL2SQL) is still in early stages. -->
+<!-- ## 📉 Typical Failures of LLM-based NL2SQL -->
+<!-- Even strong models exhibit consistent failure modes: -->
+<!-- * **Hallucination**: Inventing non-existent columns or tables. -->
+<!-- * **Schema mismatch**: Misunderstanding abbreviations or cryptic names. -->
+<!-- * **Contextual errors**: Ignoring temporal context or business-specific rules. -->
+<!-- * **Performance degradation**: Especially severe when moving from Spider v1.0 to Spider v2.0. -->
+<!-- --- -->
+<!-- ## 🔮 The Road Ahead -->
+<!-- Where are we today? -->
+<!-- * LLMs are good at **academic benchmarks** but **struggle in enterprise environments**. -->
+<!-- * Schema size, ambiguity, and domain-specific quirks make deployment challenging. -->
+<!-- * Real progress requires **patient, long-term investment**. -->
+<!-- ### Promising directions: -->
+<!-- 1. **Schema-aware prompting** – selectively retrieving only the relevant schema pieces instead of dumping the entire DB schema into the prompt. -->
+<!-- 2. **Guided UIs** – involve users in query refinement (presenting options for warehouses, dates, categories). -->
+<!-- 3. **Hybrid systems** – combining symbolic reasoning with neural generation. -->
+<!-- 4. **LLM agents** – breaking down the task into steps: schema linking → SQL generation → validation → execution. -->
+<!-- 5. **Robust evaluation** – datasets like Spider v2.0 and BIRD push models closer to real-world conditions. -->
+<!-- --- -->
+<!-- ## ✨ Conclusion -->
+<!-- NL2SQL embodies a simple idea with transformative potential: letting people ask questions in natural language and get answers from structured data. -->
+<!-- But behind that simplicity lies a web of challenges — linguistic ambiguity, messy schemas, deployment hurdles. LLMs have injected new energy into this field, but their performance drops sharply outside academic benchmarks. -->
+<!-- The way forward isn’t just bigger models. It’s **better prompts, smarter agents, guided interfaces, and schema-aware techniques** — all built with realistic expectations. -->
+<!-- As the field matures, NL2SQL could truly democratize access to data, empowering anyone — not just SQL experts — to unlock insights from the world’s most valuable resource: information. -->
+<!-- --- -->
+<!-- Would you like me to **polish this into a professional blog post format with visuals in mind** (like code blocks, dataset comparison tables, diagrams you can later add), or keep it as a **technical long-form article** that reads like a survey paper summary? -->
+<!-- # Lessons Learned -->
+<!-- # References -->
+<!-- - --> 
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-09-06&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/5e07219c0a4df438489b5c9210705e42ead49089" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 5e07219c0a4df438489b5c9210705e42ead49089: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>5e07219</a></span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2025/09/nl2sql-p1/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/nl2sql/">NL2SQL</a>,&nbsp;<a href="/tags/agent/">Agent</a>,&nbsp;<a href="/tags/ai/">AI</a>,&nbsp;<a href="/tags/llm/">LLM</a>,&nbsp;<a href="/tags/sql/">SQL</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2025/09/nl2sql/" class="prev" rel="prev" title="NL2SQL Part 1."><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>NL2SQL Part 1.</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.149.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/algoliasearch/lite/browser.umd.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script>window.config={"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"A9NUSQZEO5","algoliaIndex":"github","algoliaSearchKey":"e255482bc340762a0da27f50eddd2765","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
+</html>

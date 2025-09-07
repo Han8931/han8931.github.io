@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Install Arch Linux - Han&#39;s XYZ</title><meta name="Description" content="How to install Arch Linux"><meta property="og:url" content="http://localhost:1313/2025/01/arch/">
+  <meta property="og:site_name" content="Han&#39;s XYZ">
+  <meta property="og:title" content="Install Arch Linux">
+  <meta property="og:description" content="How to install Arch Linux">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-07-23T20:49:00+09:00">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Arch">
+    <meta property="og:image" content="http://localhost:1313/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/logo.png">
+  <meta name="twitter:title" content="Install Arch Linux">
+  <meta name="twitter:description" content="How to install Arch Linux">
+<meta name="application-name" content="KeepIt">
+<meta name="apple-mobile-web-app-title" content="KeepIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/2025/01/arch/" /><link rel="prev" href="http://localhost:1313/2024/09/svm3/" /><link rel="next" href="http://localhost:1313/2025/01/asyncio/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><meta name="google-site-verification" content="B7mVm-DfAgGVs4ghQkEqrmeZIv8D26A-1C7dx6Ajeh0" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Install Arch Linux",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/2025\/01\/arch\/"
+        },"genre": "posts","keywords": "linux, arch","wordcount":  1007 ,
+        "url": "http:\/\/localhost:1313\/2025\/01\/arch\/","datePublished": "2025-01-05T00:00:00+00:00","dateModified": "2025-07-23T20:49:00+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Han"
+            },"description": "How to install Arch Linux"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/studynotes/"> StudyNotes </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/studynotes/" title="">StudyNotes</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Install Arch Linux</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-01-05">2025-01-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1007 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#contents">Contents</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#creating-a-bootable-usb">Creating a Bootable USB</a>
+      <ul>
+        <li><a href="#on-linux">On Linux</a></li>
+        <li><a href="#on-windows">On Windows</a></li>
+      </ul>
+    </li>
+    <li><a href="#initial-setup">Initial Setup</a>
+      <ul>
+        <li><a href="#check-uefi-or-bios">Check UEFI or BIOS</a></li>
+        <li><a href="#wi-fi-connection">Wi-Fi Connection</a></li>
+        <li><a href="#check-internet">Check Internet</a></li>
+        <li><a href="#time--ntp">Time &amp; NTP</a></li>
+      </ul>
+    </li>
+    <li><a href="#partitioning">Partitioning</a>
+      <ul>
+        <li><a href="#using-fdisk-or-cfdisk">Using <code>fdisk</code> or <code>cfdisk</code></a></li>
+        <li><a href="#bios-partition-scheme">BIOS Partition Scheme</a></li>
+        <li><a href="#uefi-partition-scheme">UEFI Partition Scheme</a></li>
+      </ul>
+    </li>
+    <li><a href="#formatting-and-mounting">Formatting and Mounting</a>
+      <ul>
+        <li><a href="#creating-file-systems">Creating File Systems</a></li>
+        <li><a href="#mounting-partitions">Mounting Partitions</a></li>
+      </ul>
+    </li>
+    <li><a href="#installing-the-base-system">Installing the Base System</a>
+      <ul>
+        <li><a href="#fast-mirror-selection">Fast Mirror Selection</a></li>
+        <li><a href="#pacstrap--basestrap"><code>pacstrap</code> / <code>basestrap</code></a>
+          <ul>
+            <li><a href="#for-arch-linux">For Arch Linux:</a></li>
+            <li><a href="#for-artix-linux-example">For Artix Linux (example):</a></li>
+          </ul>
+        </li>
+        <li><a href="#generating-fstab">Generating <code>fstab</code></a></li>
+        <li><a href="#chroot">Chroot</a></li>
+      </ul>
+    </li>
+    <li><a href="#configuration">Configuration</a>
+      <ul>
+        <li><a href="#setting-up-network-manager">Setting up Network Manager</a></li>
+        <li><a href="#installing-and-configuring-grub">Installing and Configuring GRUB</a>
+          <ul>
+            <li><a href="#for-bios">For BIOS</a></li>
+            <li><a href="#for-uefi">For UEFI</a></li>
+          </ul>
+        </li>
+        <li><a href="#root-password">Root Password</a></li>
+        <li><a href="#locale-and-timezone">Locale and Timezone</a></li>
+        <li><a href="#hostname">Hostname</a></li>
+        <li><a href="#final-steps">Final Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#post-installation">Post-Installation</a>
+      <ul>
+        <li><a href="#creating-a-new-user">Creating a New User</a></li>
+        <li><a href="#sudoers-configuration">Sudoers Configuration</a></li>
+      </ul>
+    </li>
+    <li><a href="#installing-xorg-and-a-window-manager">Installing X.org and a Window Manager</a></li>
+    <li><a href="#fonts">Fonts</a></li>
+    <li><a href="#enabling-a-display-manager-optional">Enabling a Display Manager (Optional)</a></li>
+    <li><a href="#sound-setup">Sound Setup</a>
+      <ul>
+        <li><a href="#alsa">Alsa</a></li>
+        <li><a href="#pulseaudio">PulseAudio</a></li>
+      </ul>
+    </li>
+    <li><a href="#installing-yay-aur-helper">Installing Yay (AUR Helper)</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>I recently bought a mini PC because I wanted a lightweight machine that I can easily carry anywhere. Arch Linux&rsquo;s minimalistic, rolling-release approach aligns perfectly with my love for a Vim-based workflow and a highly customizable setup. While the process can seem intimidating at first, it’s an incredibly rewarding experience that offers complete control over your system.</p>
+<hr>
+<h1 id="installing-arch-linux-uefi-or-bios">Installing Arch Linux (UEFI or BIOS)</h1>
+<p>Arch Linux is well-known for giving users full control over their system. This guide walks you through a fresh Arch Linux installation. While it is detailed, always refer to the <a href="https://wiki.archlinux.org/" target="_blank" rel="noopener noreffer ">official Arch Wiki</a> for up-to-date information.</p>
+<hr>
+<h2 id="contents">Contents</h2>
+<ol>
+<li><a href="#prerequisites" rel="">Prerequisites</a></li>
+<li><a href="#creating-a-bootable-usb" rel="">Creating a Bootable USB</a></li>
+<li><a href="#initial-setup" rel="">Initial Setup</a>
+<ul>
+<li><a href="#check-uefi-or-bios" rel="">Check UEFI or BIOS</a></li>
+<li><a href="#wi-fi-connection" rel="">Wi-Fi Connection</a></li>
+<li><a href="#check-internet" rel="">Check Internet</a></li>
+<li><a href="#time--ntp" rel="">Time &amp; NTP</a></li>
+</ul>
+</li>
+<li><a href="#partitioning" rel="">Partitioning</a>
+<ul>
+<li><a href="#using-fdisk-or-cfdisk" rel="">Using <code>fdisk</code> or <code>cfdisk</code></a></li>
+<li><a href="#bios-partition-scheme" rel="">BIOS Partition Scheme</a></li>
+<li><a href="#uefi-partition-scheme" rel="">UEFI Partition Scheme</a></li>
+</ul>
+</li>
+<li><a href="#formatting-and-mounting" rel="">Formatting and Mounting</a>
+<ul>
+<li><a href="#creating-file-systems" rel="">Creating File Systems</a></li>
+<li><a href="#mounting-partitions" rel="">Mounting Partitions</a></li>
+</ul>
+</li>
+<li><a href="#installing-the-base-system" rel="">Installing the Base System</a>
+<ul>
+<li><a href="#fast-mirror-selection" rel="">Fast Mirror Selection</a></li>
+<li><a href="#pacstrap--basestrap" rel=""><code>pacstrap</code> / <code>basestrap</code></a></li>
+<li><a href="#generating-fstab" rel="">Generating <code>fstab</code></a></li>
+<li><a href="#chroot" rel="">Chroot</a></li>
+</ul>
+</li>
+<li><a href="#configuration" rel="">Configuration</a>
+<ul>
+<li><a href="#setting-up-network-manager" rel="">Setting up Network Manager</a></li>
+<li><a href="#installing-and-configuring-grub" rel="">Installing and Configuring GRUB</a></li>
+<li><a href="#root-password" rel="">Root Password</a></li>
+<li><a href="#locale-and-timezone" rel="">Locale and Timezone</a></li>
+<li><a href="#hostname" rel="">Hostname</a></li>
+<li><a href="#final-steps" rel="">Final Steps</a></li>
+</ul>
+</li>
+<li><a href="#post-installation" rel="">Post-Installation</a>
+<ul>
+<li><a href="#creating-a-new-user" rel="">Creating a New User</a></li>
+<li><a href="#sudoers-configuration" rel="">Sudoers Configuration</a></li>
+<li><a href="#installing-xorg-and-a-window-manager" rel="">Installing X.org and a Window Manager</a></li>
+<li><a href="#fonts" rel="">Fonts</a></li>
+<li><a href="#enabling-a-display-manager-optional" rel="">Enabling a Display Manager (Optional)</a></li>
+<li><a href="#sound-setup" rel="">Sound Setup</a></li>
+<li><a href="#installing-yay-aur-helper" rel="">Installing Yay (AUR Helper)</a></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>A working internet connection on another device (in case you need help or to follow the Arch Wiki).</li>
+<li>A USB drive of at least 2 GB capacity.</li>
+<li>Familiarity with the command line.</li>
+</ul>
+<blockquote>
+<p><strong>Important</strong>: Installing Arch Linux involves formatting drives, which is destructive. Back up all important data before proceeding.</p></blockquote>
+<hr>
+<h2 id="creating-a-bootable-usb">Creating a Bootable USB</h2>
+<h3 id="on-linux">On Linux</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dd <span class="k">if</span><span class="o">=</span>&lt;path-to-arch-iso&gt; <span class="nv">of</span><span class="o">=</span>&lt;path-to-usb&gt; <span class="nv">status</span><span class="o">=</span>progress</span></span></code></pre></div></div>
+<ul>
+<li><code>if</code> = input file (the ISO file).</li>
+<li><code>of</code> = output file (usually something like <code>/dev/sdb</code>).</li>
+<li><strong>Be sure to confirm</strong> the correct USB path using <code>lsblk</code> or <code>fdisk -l</code> before running the command.</li>
+</ul>
+<h3 id="on-windows">On Windows</h3>
+<ul>
+<li>Use <a href="https://rufus.ie/" target="_blank" rel="noopener noreffer ">Rufus</a>. It’s a straightforward tool that avoids many potential pitfalls.</li>
+</ul>
+<hr>
+<h2 id="initial-setup">Initial Setup</h2>
+<ol>
+<li><strong>Boot from your USB</strong> and select the Arch Linux USB in your system’s boot menu.</li>
+<li>You should see a command-line shell once Arch boots.</li>
+</ol>
+<h3 id="check-uefi-or-bios">Check UEFI or BIOS</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls /sys/firmware/efi/efivars</span></span></code></pre></div></div>
+<ul>
+<li>If you get an error, you’re in BIOS (Legacy) mode.</li>
+<li>If you see contents, you’re in UEFI mode.</li>
+</ul>
+<h3 id="wi-fi-connection">Wi-Fi Connection</h3>
+<p>If you’re on Wi-Fi, use <code>iwctl</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">iwctl
+</span></span><span class="line"><span class="cl">device list
+</span></span><span class="line"><span class="cl">station &lt;wlan&gt; scan
+</span></span><span class="line"><span class="cl">station &lt;wlan&gt; get-networks
+</span></span><span class="line"><span class="cl">station &lt;wlan&gt; connect &lt;wifi-name&gt;
+</span></span><span class="line"><span class="cl">station &lt;wlan&gt; show
+</span></span><span class="line"><span class="cl">exit</span></span></code></pre></div></div>
+<h3 id="check-internet">Check Internet</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ping google.com</span></span></code></pre></div></div>
+<p>If you have no connection, re-check your Wi-Fi settings or use a wired connection.</p>
+<h3 id="time--ntp">Time &amp; NTP</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">timedatectl set-ntp true</span></span></code></pre></div></div>
+<p>This ensures your system clock stays synchronized.</p>
+<hr>
+<h2 id="partitioning">Partitioning</h2>
+<h3 id="using-fdisk-or-cfdisk">Using <code>fdisk</code> or <code>cfdisk</code></h3>
+<ol>
+<li>
+<p>Identify target disk: <code>lsblk</code></p>
+</li>
+<li>
+<p>Open the disk utility:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">fdisk /dev/sda</span></span></code></pre></div></div>
+<p>or</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cfdisk /dev/sda</span></span></code></pre></div></div>
+</li>
+</ol>
+<h3 id="bios-partition-scheme">BIOS Partition Scheme</h3>
+<p>A common layout might be:</p>
+<ul>
+<li><strong>Boot</strong>: <code>+200M</code></li>
+<li><strong>Swap</strong>: typically 50% of your RAM size (<code>+8G</code> for 16 GB RAM)</li>
+<li><strong>Root</strong>: at least <code>+25G</code></li>
+<li><strong>Home</strong>: rest of the disk space</li>
+</ul>
+<p>Press <code>w</code> to write changes and exit.</p>
+<h3 id="uefi-partition-scheme">UEFI Partition Scheme</h3>
+<ul>
+<li><strong>EFI</strong>: around <code>+550M</code> and formatted as FAT32.</li>
+<li><strong>Swap</strong>: 50% of RAM or as needed.</li>
+<li><strong>Root</strong>: Minimum <code>+25G</code> or more.</li>
+<li><strong>Home</strong>: Rest of the disk (if desired on a separate partition).</li>
+</ul>
+<hr>
+<h2 id="formatting-and-mounting">Formatting and Mounting</h2>
+<h3 id="creating-file-systems">Creating File Systems</h3>
+<p>Example commands (adjust partitions to suit your layout):</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkfs.ext4 /dev/sda1       <span class="c1"># For /boot or /root or /home</span>
+</span></span><span class="line"><span class="cl">mkfs.fat -F32 /dev/sda1   <span class="c1"># For UEFI partition if using UEFI</span>
+</span></span><span class="line"><span class="cl">mkswap /dev/sda2          <span class="c1"># Swap partition</span></span></span></code></pre></div></div>
+<h3 id="mounting-partitions">Mounting Partitions</h3>
+<ol>
+<li>
+<p><strong>Swap</strong>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">swapon /dev/sda2</span></span></code></pre></div></div>
+</li>
+<li>
+<p><strong>Root</strong>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mount /dev/sda3 /mnt</span></span></code></pre></div></div>
+</li>
+<li>
+<p><strong>Boot (UEFI)</strong>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir /mnt/boot
+</span></span><span class="line"><span class="cl">mount /dev/sda1 /mnt/boot</span></span></code></pre></div></div>
+</li>
+<li>
+<p><strong>Home</strong> (if separate):</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir /mnt/home
+</span></span><span class="line"><span class="cl">mount /dev/sda4 /mnt/home</span></span></code></pre></div></div>
+</li>
+</ol>
+<hr>
+<h2 id="installing-the-base-system">Installing the Base System</h2>
+<h3 id="fast-mirror-selection">Fast Mirror Selection</h3>
+<p>Choose the fastest mirrors by editing <code>/etc/pacman.d/mirrorlist</code>. Move the closest/fastest mirrors to the top. This significantly speeds up package downloads.</p>
+<h3 id="pacstrap--basestrap"><code>pacstrap</code> / <code>basestrap</code></h3>
+<h4 id="for-arch-linux">For Arch Linux:</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pacstrap /mnt base base-devel linux linux-firmware vim git</span></span></code></pre></div></div>
+<h4 id="for-artix-linux-example">For Artix Linux (example):</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">basestrap -i /mnt base base-devel runit elogind-runit linux linux-firmware <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  grub networkmanager networkmanager-runit cryptsetup lvm2 lvm2-runit neovim vim</span></span></code></pre></div></div>
+<h3 id="generating-fstab">Generating <code>fstab</code></h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span></span></code></pre></div></div>
+<p>Check the file to ensure correct entries:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim /mnt/etc/fstab</span></span></code></pre></div></div>
+<h3 id="chroot">Chroot</h3>
+<p>Now “enter” the new system:</p>
+<ul>
+<li>
+<p><strong>Arch</strong>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">arch-chroot /mnt</span></span></code></pre></div></div>
+</li>
+<li>
+<p><strong>Artix</strong>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">artix-chroot /mnt bash</span></span></code></pre></div></div>
+</li>
+</ul>
+<hr>
+<h2 id="configuration">Configuration</h2>
+<h3 id="setting-up-network-manager">Setting up Network Manager</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pacman -S networkmanager
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> NetworkManager</span></span></code></pre></div></div>
+<p><em>(In Artix, you would enable the corresponding runit service instead.)</em></p>
+<h3 id="installing-and-configuring-grub">Installing and Configuring GRUB</h3>
+<h4 id="for-bios">For BIOS</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pacman -S grub
+</span></span><span class="line"><span class="cl">grub-install --target<span class="o">=</span>i386-pc /dev/sda
+</span></span><span class="line"><span class="cl">grub-mkconfig -o /boot/grub/grub.cfg</span></span></code></pre></div></div>
+<h4 id="for-uefi">For UEFI</h4>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pacman -S grub efibootmgr
+</span></span><span class="line"><span class="cl">grub-install --target<span class="o">=</span>x86_64-efi --efi-directory<span class="o">=</span>/boot
+</span></span><span class="line"><span class="cl">grub-mkconfig -o /boot/grub/grub.cfg</span></span></code></pre></div></div>
+<h3 id="root-password">Root Password</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">passwd</span></span></code></pre></div></div>
+<p>Set a strong password for the root user.</p>
+<h3 id="locale-and-timezone">Locale and Timezone</h3>
+<ol>
+<li>
+<p>Edit <code>/etc/locale.gen</code> and uncomment your locale lines (e.g., <code>en_US.UTF-8</code>).</p>
+</li>
+<li>
+<p>Generate them:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">locale-gen</span></span></code></pre></div></div>
+</li>
+<li>
+<p>Create <code>/etc/locale.conf</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;LANG=en_US.UTF-8&#34;</span> &gt; /etc/locale.conf</span></span></code></pre></div></div>
+</li>
+<li>
+<p>Set your timezone:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+</span></span><span class="line"><span class="cl"><span class="c1"># or use tzselect</span></span></span></code></pre></div></div>
+</li>
+</ol>
+<h3 id="hostname">Hostname</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;myhostname&#34;</span> &gt; /etc/hostname</span></span></code></pre></div></div>
+<h3 id="final-steps">Final Steps</h3>
+<p>Exit the chroot environment:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">exit</span>
+</span></span><span class="line"><span class="cl">umount -R /mnt
+</span></span><span class="line"><span class="cl">reboot</span></span></code></pre></div></div>
+<p>Remove your USB before booting, and the system should start from the newly installed Arch Linux.</p>
+<hr>
+<h2 id="post-installation">Post-Installation</h2>
+<h3 id="creating-a-new-user">Creating a New User</h3>
+<ol>
+<li>
+<p>Log in as <code>root</code>.</p>
+</li>
+<li>
+<p>Create a user:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">useradd -m -g wheel &lt;username&gt;
+</span></span><span class="line"><span class="cl">passwd han</span></span></code></pre></div></div>
+</li>
+<li>
+<p>Add additional groups if needed:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usermod -aG audio,video,storage han</span></span></code></pre></div></div>
+</li>
+</ol>
+<h3 id="sudoers-configuration">Sudoers Configuration</h3>
+<p>Edit <code>/etc/sudoers</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">visudo</span></span></code></pre></div></div>
+<p>Add or uncomment a line to allow members of the wheel group to use <code>sudo</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-text">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">%wheel ALL=(ALL:ALL) ALL</span></span></code></pre></div></div>
+<hr>
+<h2 id="installing-xorg-and-a-window-manager">Installing X.org and a Window Manager</h2>
+<ol>
+<li>
+<p><strong>Install Xorg</strong>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pacman -S xorg-server xorg-xinit</span></span></code></pre></div></div>
+</li>
+<li>
+<p><strong>Minimal Window Manager</strong>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pacman -S i3 dmenu rxvt-unicode</span></span></code></pre></div></div>
+</li>
+<li>
+<p><strong>Start X</strong> (for testing):</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">startx</span></span></code></pre></div></div>
+</li>
+<li>
+<p>For an automated start, add <code>exec i3</code> in your <code>~/.xinitrc</code>.</p>
+</li>
+</ol>
+<hr>
+<h2 id="fonts">Fonts</h2>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra</span></span></code></pre></div></div>
+<p>Or any other font packages that suit your language preferences. For powerline or devicons, install Nerd Fonts:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yay -S nerd-fonts-hack</span></span></code></pre></div></div>
+<hr>
+<h2 id="enabling-a-display-manager-optional">Enabling a Display Manager (Optional)</h2>
+<p>If you prefer a graphical login screen:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pacman -S lightdm lightdm-gtk-greeter
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> lightdm.service</span></span></code></pre></div></div>
+<p><em>(Again, adapt for runit or other init systems.)</em></p>
+<hr>
+<h2 id="sound-setup">Sound Setup</h2>
+<h3 id="alsa">Alsa</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pacman -S alsa-utils alsa-plugins
+</span></span><span class="line"><span class="cl">amixer</span></span></code></pre></div></div>
+<ul>
+<li>Use <code>M</code> to unmute any channels.</li>
+</ul>
+<h3 id="pulseaudio">PulseAudio</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pacman -S pulseaudio pulsemixer
+</span></span><span class="line"><span class="cl">pulseaudio --start</span></span></code></pre></div></div>
+<hr>
+<h2 id="installing-yay-aur-helper">Installing Yay (AUR Helper)</h2>
+<ol>
+<li>
+<p>Clone the Yay repository:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://aur.archlinux.org/yay.git</span></span></code></pre></div></div>
+</li>
+<li>
+<p>Build and install:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> yay
+</span></span><span class="line"><span class="cl">makepkg -si</span></span></code></pre></div></div>
+</li>
+</ol>
+<p>Yay lets you install packages from both the official repositories and the AUR.</p>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations! Your Arch Linux system is now up and running. From here, you can customize it with whatever software and configurations you like. Remember, the <a href="https://wiki.archlinux.org/" target="_blank" rel="noopener noreffer ">Arch Wiki</a> is your best friend for finding detailed guides and troubleshooting tips.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-07-23&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/44db515b14fb89d8815a141851ee87c66b09cb8f" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 44db515b14fb89d8815a141851ee87c66b09cb8f: Update">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>44db515</a></span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2025/01/arch/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/arch/">Arch</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2024/09/svm3/" class="prev" rel="prev" title="Introduction to SVM Part 3. Asymmetric Kernels"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Introduction to SVM Part 3. Asymmetric Kernels</a>
+            <a href="/2025/01/asyncio/" class="next" rel="next" title="Asyncio in Python: A Deep Dive into Asynchronous I/O">Asyncio in Python: A Deep Dive into Asynchronous I/O<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.149.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/algoliasearch/lite/browser.umd.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script>window.config={"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"A9NUSQZEO5","algoliaIndex":"github","algoliaSearchKey":"e255482bc340762a0da27f50eddd2765","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
+</html>
