@@ -550,8 +550,8 @@ enableEmoji = true
 
 # Permalinks config (https://gohugo.io/content-management/urls/#permalinks)
 [Permalinks]
-  # posts = ":filename"
-  posts = ":year/:month/:contentbasename/"
+  posts = ":filename"
+  # posts = ":year/:month/:contentbasename/"
 
 # Privacy config (https://gohugo.io/about/hugo-and-gdpr/)
 [privacy]
