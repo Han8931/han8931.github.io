@@ -2,7 +2,8 @@
 weight: 1
 title: NL2SQL Part 1.
 date: 2025-09-06
-draft: true
+draft: false
+hiddenFromHomePage: true
 author: Han
 description: A tutorial for Pydantic-AI
 tags: ["NL2SQL", "Agent", "AI", "LLM", "SQL"]

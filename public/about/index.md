@@ -34,6 +34,16 @@
 - **Chung-Ang University, Korea** — B.S. in Electrical & Electronic Engineering (2009–2016)  
   - Completed mandatory **Military Service** (2009–2012) during studies  
 
+## Publications
+
+- **Han Cheol Moon** and Shafiq Joty. *Reinforced Momentum Update for Textual Adversarial Attack*, 2024. (In Progress)  
+- **Han Cheol Moon**. *Toward Robust Natural Language Systems*, Ph.D. Thesis, 2023. 
+- **Han Cheol Moon**, Shafiq Joty, Ruochen Zhao, Megh Thakkar, and Xu Chi. *Randomized Smoothing with Masked Inference for Adversarially Robust Text Classifications*. In *Proceedings of the Association for Computational Linguistics (ACL ’23)*, Toronto, Canada, 2023.  
+- **Han Cheol Moon**, Shafiq Joty, and Xu Chi. *GradMask: Gradient-Guided Token Masking for Textual Adversarial Example Detection*. In *Proceedings of the 28th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD ’22)*, Washington, DC, ACM, August 14–18, 2022.  
+- Junsik Jung, **Han-Cheol Moon**, Jooyoung Kim, Donghyun Kim, and Kar-Ann Toh. *Wi-Fi Based User Identification Using In-Air Handwritten Signature*. In *IEEE Access*, vol. 9, pp. 53548–53565, 2021.  
+- **Han Cheol Moon**, Tasnim Mohiuddin, Shafiq Joty, and Chi Xu. *A Unified Neural Coherence Model*. In *Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)*, pp. 2262–2272, Hong Kong, China, 2019.  
+- **Han-Cheol Moon**, Se-In Jang, Kangrok Oh, and Kar-Ann Toh. *An In-Air Signature Verification System Using Wi-Fi Signals*. In *Proceedings of the 2017 4th International Conference on Biomedical and Bioinformatics Engineering (ICBBE 2017)*, 2017.  
+
 ## Skills
 *Strong background in ML research and scalable LLM system development, with expertise in PyTorch, FastAPI, LangChain, Redis, RabbitMQ, and vector databases.*  
 
@@ -68,4 +78,12 @@
 - **Republic of Korea Army — Capital Defense Command "SHIELD", 1st Security Group** (2009–2012)  
   - Served as a **Sergeant**, guarding the presidential residence and performing security duties  
   - Developed discipline, responsibility, and leadership through service  
+
+## Technical Interests
+
+- **Technical Writing & Knowledge Sharing**  
+  Consistently producing study notes and articles since my master’s program, covering LLM system design, deep learning, mathematics, and programming. I maintain a curated collection on [GitHub](https://github.com/Han8931/studynotes) and regularly share articles on my [Blog](https://han8931.github.io), demonstrating my long-term commitment to continuous learning and knowledge sharing.  
+
+- **Linux Ricing**  
+  Passionate about customizing Linux environments for efficiency and aesthetics. Since 2016, I have explored Arch Linux, i3, and Vim-based setups, creating highly optimized workflows tailored to development and research. This long-term practice reflects both my technical curiosity and my persistence in mastering complex systems.  
 
