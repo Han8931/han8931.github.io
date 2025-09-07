@@ -1,9 +1,11 @@
-# Coding Note
+# Programming / Coding Note
 
 
 # 💻 Coding Note
 
-👉 Full repository: [Coding Note](https://github.com/Han8931/coding_notes/tree/master/CodingNotes)
+> ⚠️ This section is **temporarily closed** while I reorganize and refine the notes.  
+> It will be updated and re-opened later.  
+<!-- 👉 Full repository: [Coding Note](https://github.com/Han8931/coding_notes/tree/master/CodingNotes) -->
 
 
 This is a collection of tutorial-style study notes on programming. The aim is to make concepts clear, practical, and applicable, with examples that can be adapted to real coding tasks.

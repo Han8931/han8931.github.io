@@ -9,14 +9,14 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Sep 2025 15:20:42 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/system-design/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DL System Design</title>
       <link>http://localhost:1313/studynotes/dl-system-design/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/studynotes/dl-system-design/</guid>
-      <description></description>
+      <description>&lt;h1 id=&#34;-deep-learning-system-design&#34;&gt;🏗️ Deep Learning System Design&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/dl_system_design&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;DL System Design&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This note is about the &lt;strong&gt;practical design of deep learning and LLM-based systems&lt;/strong&gt;. It focuses on bridging research with production: covering concepts such as &lt;strong&gt;scalable architectures, model deployment, monitoring, and system reliability&lt;/strong&gt;. The aim is to capture design patterns and lessons that make ML/DL services both effective and maintainable.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

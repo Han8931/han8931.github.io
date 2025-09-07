@@ -9,15 +9,8 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Sep 2025 16:15:57 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/study-notes/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Coding Note</title>
-      <link>http://localhost:1313/studynotes/coding-note/</link>
-      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/studynotes/coding-note/</guid>
-      <description>&lt;h1 id=&#34;-coding-note&#34;&gt;💻 Coding Note&lt;/h1&gt;&#xA;&lt;p&gt;👉 Full repository: &lt;a href=&#34;https://github.com/Han8931/coding_note&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Coding Note&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This is a collection of tutorial-style study notes on programming. The aim is to make concepts clear, practical, and applicable, with examples that can be adapted to real coding tasks.&lt;/p&gt;&#xA;&lt;h3 id=&#34;-topics&#34;&gt;📚 Topics&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Agile &amp;amp; Software Development&lt;/strong&gt; — workflows, methodologies, and best practices&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Algorithms &amp;amp; Computer Science&lt;/strong&gt; — problem-solving patterns, data structures, and theory&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Programming Languages&lt;/strong&gt; — C, Go, Python, Rust, SQL&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Machine Learning &amp;amp; Deep Learning&lt;/strong&gt; — theory notes, implementations, and experiments&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Natural Language Processing (NLP)&lt;/strong&gt; — applied tutorials and coding exercises&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;DevOps &amp;amp; Linux&lt;/strong&gt; — shell scripts, automation, system tools, and environment setup&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Git &amp;amp; Vim&lt;/strong&gt; — version control workflows and editor productivity&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Regular Expressions (RegEx)&lt;/strong&gt; — pattern matching and cheat sheets&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Web Scraping&lt;/strong&gt; — techniques and scripts for data collection&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Reading Notes (ToReads, KS-Study)&lt;/strong&gt; — study references and knowledge summaries&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
     <item>
       <title>Deep Statistical Learning</title>
       <link>http://localhost:1313/studynotes/dsl-note/</link>
@@ -38,6 +31,13 @@
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/studynotes/rl-note/</guid>
       <description>&lt;h1 id=&#34;-reinforcement-learning-notes&#34;&gt;📘 Reinforcement Learning Notes&lt;/h1&gt;&#xA;&lt;p&gt;👉 You can check out the full notes here: &lt;a href=&#34;https://github.com/Han8931/reinforcement_learning_note&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;reinforcement_learning_note&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;There are already a number of excellent tutorials and lectures on &lt;strong&gt;Reinforcement Learning (RL)&lt;/strong&gt;, but I often find that many of them do not provide enough detail or explanation of the formulas behind the concepts. In many cases, key ideas are assumed to be &lt;em&gt;obvious&lt;/em&gt; or &lt;em&gt;straightforward&lt;/em&gt;—which can be a challenge for someone like me, who has a weaker background in mathematics but still wants a &lt;strong&gt;comprehensive understanding&lt;/strong&gt; of RL.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Coding Note</title>
+      <link>http://localhost:1313/studynotes/coding-note/</link>
+      <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/studynotes/coding-note/</guid>
+      <description>&lt;h1 id=&#34;-coding-note&#34;&gt;💻 Coding Note&lt;/h1&gt;&#xA;&lt;p&gt;👉 Full repository: &lt;a href=&#34;https://github.com/Han8931/coding_notes/tree/master/CodingNotes&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Coding Note&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This is a collection of tutorial-style study notes on programming. The aim is to make concepts clear, practical, and applicable, with examples that can be adapted to real coding tasks.&lt;/p&gt;&#xA;&lt;h3 id=&#34;-topics&#34;&gt;📚 Topics&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Agile &amp;amp; Software Development&lt;/strong&gt; — workflows, methodologies, and best practices&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Algorithms &amp;amp; Computer Science&lt;/strong&gt; — problem-solving patterns, data structures, and theory&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Programming Languages&lt;/strong&gt; — C, Go, Python, Rust, SQL&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Machine Learning &amp;amp; Deep Learning&lt;/strong&gt; — theory notes, implementations, and experiments&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Natural Language Processing (NLP)&lt;/strong&gt; — applied tutorials and coding exercises&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;DevOps &amp;amp; Linux&lt;/strong&gt; — shell scripts, automation, system tools, and environment setup&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Git &amp;amp; Vim&lt;/strong&gt; — version control workflows and editor productivity&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Regular Expressions (RegEx)&lt;/strong&gt; — pattern matching and cheat sheets&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Web Scraping&lt;/strong&gt; — techniques and scripts for data collection&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Reading Notes (ToReads, KS-Study)&lt;/strong&gt; — study references and knowledge summaries&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

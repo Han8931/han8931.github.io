@@ -9,7 +9,7 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Sep 2025 15:20:42 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deep Statistical Learning</title>
@@ -17,6 +17,13 @@
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/studynotes/dsl-note/</guid>
       <description>&lt;h1 id=&#34;-deep-statistical-learning&#34;&gt;📖 Deep Statistical Learning&lt;/h1&gt;&#xA;&lt;p&gt;👉 Full repository: &lt;a href=&#34;https://github.com/Han8931/deep_statistical_learning&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;deep_statistical_learning&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;I started writing these notes during my &lt;strong&gt;master’s degree&lt;/strong&gt; as a way to organize and clarify my understanding of &lt;strong&gt;machine learning&lt;/strong&gt; and &lt;strong&gt;deep learning&lt;/strong&gt;. Over time, the notes have grown into a comprehensive study resource that combines theoretical foundations with practical insights.&lt;/p&gt;&#xA;&lt;p&gt;I enjoy organizing knowledge and writing things down, and these notes reflect that process — carefully breaking down concepts, connecting ideas, and recording them in a way that can be revisited and built upon.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>DL System Design</title>
+      <link>http://localhost:1313/studynotes/dl-system-design/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/studynotes/dl-system-design/</guid>
+      <description>&lt;h1 id=&#34;-deep-learning-system-design&#34;&gt;🏗️ Deep Learning System Design&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/dl_system_design&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;DL System Design&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This note is about the &lt;strong&gt;practical design of deep learning and LLM-based systems&lt;/strong&gt;. It focuses on bridging research with production: covering concepts such as &lt;strong&gt;scalable architectures, model deployment, monitoring, and system reliability&lt;/strong&gt;. The aim is to capture design patterns and lessons that make ML/DL services both effective and maintainable.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Inside DeepSeek-R1</title>

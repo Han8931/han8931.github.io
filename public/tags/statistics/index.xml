@@ -9,14 +9,14 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Sep 2025 15:20:42 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Statistics</title>
       <link>http://localhost:1313/studynotes/statistics/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/studynotes/statistics/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/Han8931/statistics&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;https://github.com/Han8931/statistics&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;-statistics&#34;&gt;📊 Statistics&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/statistics&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Statistics&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This note collects my study materials on &lt;strong&gt;probability and statistics&lt;/strong&gt;, with a focus on the foundations needed for &lt;strong&gt;data science, machine learning, and deep learning&lt;/strong&gt;. It combines key definitions, derivations, and examples, aiming to make abstract ideas easier to understand and apply.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
