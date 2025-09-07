@@ -1,13 +1,5 @@
----
-weight: 1
-title: "Deep Statistical Learning"
-date: 2025-09-07
-draft: false
-author: Han
-description: "My ML/DL study notes"
-tags: ["machine learning", "deep learning", "study notes"]
-categories: ["study notes", "machine learning", "deep learning"]
----
+# Deep Statistical Learning
+
 
 # 📖 Deep Statistical Learning
 
@@ -23,5 +15,6 @@ The goal of this collection is to:
 * 📚 **Serve as a long-term reference** — a resource I can return to as my research and projects evolve.
 
 The notes cover a range of topics including **probability and statistics, optimization methods, neural networks, and modern deep learning architectures**, along with worked examples and derivations.
+
 
 

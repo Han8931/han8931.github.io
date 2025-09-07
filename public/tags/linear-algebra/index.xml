@@ -9,8 +9,15 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Wed, 23 Jul 2025 20:49:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Matrix Methods</title>
+      <link>http://localhost:1313/studynotes/matrix-methods/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/studynotes/matrix-methods/</guid>
+      <description>&lt;h1 id=&#34;-matrix-methods&#34;&gt;📐 Matrix Methods&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/matrix_methods&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Matrix Methods&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This note collects my study materials on &lt;strong&gt;linear algebra and matrix methods&lt;/strong&gt;, focusing on the concepts most relevant to &lt;strong&gt;machine learning&lt;/strong&gt; and &lt;strong&gt;deep learning&lt;/strong&gt;. It includes explanations, worked examples, and connections between theory and practical applications.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Gentle Introduction to Singular Value Decomposition</title>
       <link>http://localhost:1313/2024/08/svd/</link>

@@ -1,0 +1,28 @@
+{{/* If your theme's base uses block "content", use this. If it uses "main", change the first line to {{ define "main" }} */}}
+{{ define "content" }}
+  <div class="single">
+    <div class="content" id="content">
+      {{/* Optional: show the section intro from content/studynotes/_index.md */}}
+      {{ with .Content }}{{ . }}{{ end }}
+
+      {{/* List child notes: Title + short summary; no year grouping */}}
+      {{ range .Pages.ByTitle }}   {{/* or .ByDate.Reverse / .ByWeight if you prefer */}}
+        <article class="page summary">
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+
+          <div class="summary-text">
+            {{/* Prefer author-defined summary; else fall back to truncated plain text */}}
+            {{ with .Summary }}
+              {{ . | safeHTML }}
+            {{ else }}
+              {{ .Plain | truncate 240 }}
+            {{ end }}
+          </div>
+
+          <p><a href="{{ .RelPermalink }}">Read more →</a></p>
+        </article>
+        <hr />
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

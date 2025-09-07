@@ -12,18 +12,46 @@
     <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/studynotes/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Deep Statistical Learning</title>
-      <link>http://localhost:1313/studynotes/deep_statistical_learning/</link>
+      <title>Coding Note</title>
+      <link>http://localhost:1313/studynotes/coding-note/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/studynotes/deep_statistical_learning/</guid>
+      <guid>http://localhost:1313/studynotes/coding-note/</guid>
+      <description>&lt;h1 id=&#34;-coding-note&#34;&gt;💻 Coding Note&lt;/h1&gt;&#xA;&lt;p&gt;👉 Full repository: &lt;a href=&#34;https://github.com/Han8931/coding_note&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Coding Note&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This is a collection of tutorial-style study notes on programming. The aim is to make concepts clear, practical, and applicable, with examples that can be adapted to real coding tasks.&lt;/p&gt;&#xA;&lt;h3 id=&#34;-topics&#34;&gt;📚 Topics&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Agile &amp;amp; Software Development&lt;/strong&gt; — workflows, methodologies, and best practices&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Algorithms &amp;amp; Computer Science&lt;/strong&gt; — problem-solving patterns, data structures, and theory&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Programming Languages&lt;/strong&gt; — C, Go, Python, Rust, SQL&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Machine Learning &amp;amp; Deep Learning&lt;/strong&gt; — theory notes, implementations, and experiments&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Natural Language Processing (NLP)&lt;/strong&gt; — applied tutorials and coding exercises&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;DevOps &amp;amp; Linux&lt;/strong&gt; — shell scripts, automation, system tools, and environment setup&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Git &amp;amp; Vim&lt;/strong&gt; — version control workflows and editor productivity&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Regular Expressions (RegEx)&lt;/strong&gt; — pattern matching and cheat sheets&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Web Scraping&lt;/strong&gt; — techniques and scripts for data collection&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Reading Notes (ToReads, KS-Study)&lt;/strong&gt; — study references and knowledge summaries&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Deep Statistical Learning</title>
+      <link>http://localhost:1313/studynotes/dsl-note/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/studynotes/dsl-note/</guid>
       <description>&lt;h1 id=&#34;-deep-statistical-learning&#34;&gt;📖 Deep Statistical Learning&lt;/h1&gt;&#xA;&lt;p&gt;👉 Full repository: &lt;a href=&#34;https://github.com/Han8931/deep_statistical_learning&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;deep_statistical_learning&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;I started writing these notes during my &lt;strong&gt;master’s degree&lt;/strong&gt; as a way to organize and clarify my understanding of &lt;strong&gt;machine learning&lt;/strong&gt; and &lt;strong&gt;deep learning&lt;/strong&gt;. Over time, the notes have grown into a comprehensive study resource that combines theoretical foundations with practical insights.&lt;/p&gt;&#xA;&lt;p&gt;I enjoy organizing knowledge and writing things down, and these notes reflect that process — carefully breaking down concepts, connecting ideas, and recording them in a way that can be revisited and built upon.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Reinforcement Learning</title>
-      <link>http://localhost:1313/studynotes/reinforcement_learning/</link>
+      <title>DL System Design</title>
+      <link>http://localhost:1313/studynotes/dl-system-design/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/studynotes/reinforcement_learning/</guid>
+      <guid>http://localhost:1313/studynotes/dl-system-design/</guid>
+      <description>&lt;h1 id=&#34;-deep-learning-system-design&#34;&gt;🏗️ Deep Learning System Design&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/dl_system_design&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;DL System Design&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This note is about the &lt;strong&gt;practical design of deep learning and LLM-based systems&lt;/strong&gt;. It focuses on bridging research with production: covering concepts such as &lt;strong&gt;scalable architectures, model deployment, monitoring, and system reliability&lt;/strong&gt;. The aim is to capture design patterns and lessons that make ML/DL services both effective and maintainable.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Matrix Methods</title>
+      <link>http://localhost:1313/studynotes/matrix-methods/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/studynotes/matrix-methods/</guid>
+      <description>&lt;h1 id=&#34;-matrix-methods&#34;&gt;📐 Matrix Methods&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/matrix_methods&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Matrix Methods&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This note collects my study materials on &lt;strong&gt;linear algebra and matrix methods&lt;/strong&gt;, focusing on the concepts most relevant to &lt;strong&gt;machine learning&lt;/strong&gt; and &lt;strong&gt;deep learning&lt;/strong&gt;. It includes explanations, worked examples, and connections between theory and practical applications.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>http://localhost:1313/studynotes/rl-note/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/studynotes/rl-note/</guid>
       <description>&lt;h1 id=&#34;-reinforcement-learning-notes&#34;&gt;📘 Reinforcement Learning Notes&lt;/h1&gt;&#xA;&lt;p&gt;👉 You can check out the full notes here: &lt;a href=&#34;https://github.com/Han8931/reinforcement_learning_note&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;reinforcement_learning_note&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;There are already a number of excellent tutorials and lectures on &lt;strong&gt;Reinforcement Learning (RL)&lt;/strong&gt;, but I often find that many of them do not provide enough detail or explanation of the formulas behind the concepts. In many cases, key ideas are assumed to be &lt;em&gt;obvious&lt;/em&gt; or &lt;em&gt;straightforward&lt;/em&gt;—which can be a challenge for someone like me, who has a weaker background in mathematics but still wants a &lt;strong&gt;comprehensive understanding&lt;/strong&gt; of RL.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Statistics</title>
+      <link>http://localhost:1313/studynotes/statistics/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/studynotes/statistics/</guid>
+      <description>&lt;h1 id=&#34;-statistics&#34;&gt;📊 Statistics&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/statistics&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Statistics&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This note collects my study materials on &lt;strong&gt;probability and statistics&lt;/strong&gt;, with a focus on the foundations needed for &lt;strong&gt;data science, machine learning, and deep learning&lt;/strong&gt;. It combines key definitions, derivations, and examples, aiming to make abstract ideas easier to understand and apply.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

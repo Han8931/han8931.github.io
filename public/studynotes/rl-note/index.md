@@ -1,13 +1,5 @@
----
-weight: 1
-title: "Reinforcement Learning"
-date: 2025-09-07
-draft: false
-author: Han
-description: "My ML/DL study notes"
-tags: ["machine learning", "deep learning", "study notes"]
-categories: ["study notes", "machine learning", "deep learning"]
----
+# Reinforcement Learning
+
 
 
 # 📘 Reinforcement Learning Notes
@@ -36,6 +28,7 @@ This work builds on numerous outstanding sources, and I am forever indebted to t
 * *Introduction to Reinforcement Learning* — David Silver (lecture series)
 * *PyTorch 1.x Reinforcement Learning Cookbook*
 * *Deep Learning from Scratch 4*
+
 
 
 

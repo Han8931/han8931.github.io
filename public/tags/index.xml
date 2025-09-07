@@ -9,7 +9,7 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Sep 2025 10:21:03 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deep Learning</title>
@@ -19,10 +19,31 @@
       <description></description>
     </item>
     <item>
+      <title>Linear Algebra</title>
+      <link>http://localhost:1313/tags/linear-algebra/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/tags/linear-algebra/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Machine Learning</title>
       <link>http://localhost:1313/tags/machine-learning/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming</title>
+      <link>http://localhost:1313/tags/programming/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/tags/programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>http://localhost:1313/tags/reinforcement-learning/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/tags/reinforcement-learning/</guid>
       <description></description>
     </item>
     <item>
@@ -114,13 +135,6 @@
       <link>http://localhost:1313/tags/algorithm/</link>
       <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/tags/algorithm/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Programming</title>
-      <link>http://localhost:1313/tags/programming/</link>
-      <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/programming/</guid>
       <description></description>
     </item>
     <item>
@@ -352,13 +366,6 @@
       <link>http://localhost:1313/tags/latent-variable/</link>
       <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/tags/latent-variable/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Linear Algebra</title>
-      <link>http://localhost:1313/tags/linear-algebra/</link>
-      <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/linear-algebra/</guid>
       <description></description>
     </item>
     <item>

@@ -4,8 +4,12 @@
 # Han Cheol Moon 
 <br />
 
+<!-- <div align="right"> -->
+<!--   <a href="https://yourdomain.com/HanCheolMoon_CV.pdf">[ Download CV (PDF) ]</a> -->
+<!-- </div> -->
+
 <div align="right">
-  <a href="https://yourdomain.com/HanCheolMoon_CV.pdf">[ Download CV (PDF) ]</a>
+  <a href="https://yourdomain.com/HanCheolMoon_CV.pdf">📑 Download CV (PDF)</a>
 </div>
 
 <!-- See my full CV here: [Download CV (PDF)](https://yourdomain.com/HanCheolMoon_CV.pdf) -->
@@ -14,12 +18,12 @@
 
 ## Research & Engineering Interests
 - **Natural Language Processing**: Large Language Models (LLM), LLM Robustness, NL2SQL  
-- **Deep Learning**: Reinforcement Learning, Generative Models, Kernel Methods  
-- **Engineering & Systems**: LLM Ops, LLM-based Services, Scalable API Design for ML Services, System Design  
+- **Machine/Deep Learning**: Reinforcement Learning, Generative Models, Kernel Methods  
+- **Engineering & Systems**: LLM Ops, LLM-based Services, Scalable API Design for ML/DL Services
 
 ## Professional Employments
-- **Samsung Electronics AI Center — Staff ML/DL Engineer (Sept 2023 – Present)**  
-  - **Led** the design and deployment of NL2SQL systems converting natural language queries into SQL, with agentic workflows, schema linking, and fine-tuning on custom databases.  
+- **Samsung Electronics, AI Center — Staff ML/DL Engineer (Sept 2023 – Present)**  
+  - **Led** the design and deployment of NL2SQL systems converting natural language queries into SQL, with agentic workflows, schema linking, and fine-tuning on custom databases.
   - **Architected** scalable document-based question-answering and enterprise translation/summarization services using large language models, with pipelines for parsing, chunking, vector indexing, and API controls.  
   - **Designed** and implemented sensitive data leakage prevention systems, including prompt filtering, model output analysis, and red-teaming strategies, integrated into production AI pipelines.  
   - **Managed** academic collaborations with Seoul National University, supervising student researchers and organizing joint workshops.  
@@ -42,18 +46,18 @@
 - **Soft Skills**: Clear Documentation, Engaging Presentations, Team Collaboration, Time Management, Problem-Solving  
 
 ## Teaching
-- **Internal Lecturer — Samsung AI Center (ML / RL / LLM), 2023–Present**  
-  Led a study group and delivered in-depth lectures and workshops on Machine Learning, Reinforcement Learning, Large Language Models (LLMs), and LLM service design for Samsung engineers and researchers.  
-  Covered theory, applications, and advanced topics such as policy gradients, prompt engineering, and fine-tuning.  
-  See [lecture materials](http://localhost:1313/studynotes/).  
+- **Internal Lecturer — Samsung AI Center (2023–Present)**  
+  - Led a study group and delivered in-depth lectures and workshops on Machine Learning, Reinforcement Learning, Large Language Models (LLMs), and LLM service design for Samsung engineers and researchers.  
+  - Covered theory, applications, and advanced topics such as policy gradients, prompt engineering, and fine-tuning.  
+  (See [lecture materials](http://localhost:1313/studynotes/)).  
 
 - **Teaching Assistant — Nanyang Technological University, Singapore (2019–2020)**  
-  *DeepNLP* — Assisted in tutorials, grading, and mentoring students  
+  - *DeepNLP* — Assisted in tutorials, grading, and mentoring students  
 
 - **Teaching Assistant — Yonsei University, Korea**  
-  *Digital Logic Circuits* (Spring 2018) — Assisted in tutorials and grading  
-  *Multimedia Signal Processing* (Fall 2017) — Assisted in labs and coursework support  
-  *Signals and Systems* (Fall 2016) — Assisted in tutorials and exam preparation  
+  - *Digital Logic Circuits* (Spring 2018) — Assisted in tutorials and grading  
+  - *Multimedia Signal Processing* (Fall 2017) — Assisted in labs and coursework support  
+  - *Signals and Systems* (Fall 2016) — Assisted in tutorials and exam preparation  
 
 ## Honors & Awards
 - **Singapore International Graduate Award (SINGA)** — 2019–2023  
