@@ -1,10 +1,10 @@
 ---
 weight: 1
-title: Agentic AI with Pydantic-AI Part 1.
+title: "Agentic AI with Pydantic-AI Part 1."
 date: 2025-08-31
 draft: false
 author: Han
-description: A tutorial for Pydantic-AI
+description: "A tutorial for Pydantic-AI"
 tags: ["Python", "Pydantic", "Pydantic-AI", "Agent", "AI"]
 categories: ["Python", "Pydantic AI", "AI", "Pydantic"]
 ---

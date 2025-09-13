@@ -4,7 +4,7 @@ title: "Dependency Management in Python: Poetry"
 date: 2024-07-07
 draft: false
 author: Han
-description: Guide to keep manage dependencies in Python 
+description: "Guide to keep manage dependencies in Python "
 tags: ["Python", "Poetry", "Virtual Environment", "package manager"]
 categories: ["Python"]
 ---

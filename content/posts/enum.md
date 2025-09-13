@@ -1,10 +1,10 @@
 ---
 weight: 1
-title: Enumerate variables with Enum!
+title: "Enumerate variables with Enum!"
 date: 2024-04-26
 draft: false
 author: Han
-description: A tutorial for Enum 
+description: "A tutorial for Enum "
 tags: ["Python", "Enum"]
 categories: ["Python"]
 ---

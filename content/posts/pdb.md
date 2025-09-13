@@ -1,10 +1,10 @@
 ---
 weight: 1
-title: Why Use Python's `pdb` Debugger Over an IDE?
+title: "Why Use Python's `pdb` Debugger Over an IDE?"
 date: 2024-04-27
 draft: false
 author: Han
-description: Why Use Python's `pdb` Debugger Over an IDE?
+description: "Why Use Python's `pdb` Debugger Over an IDE?"
 tags: ["Python", "pdb", "debug"]
 categories: ["Python"]
 ---

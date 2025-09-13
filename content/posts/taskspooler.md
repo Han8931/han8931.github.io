@@ -1,10 +1,10 @@
 ---
 weight: 1
-title: Manage your task with TaskSpooler!
+title: "Manage your task with TaskSpooler!"
 date: 2024-07-13
 draft: false
 author: Han
-description: Guide to manage your tasks using TaskSpooler
+description: "Guide to manage your tasks using TaskSpooler"
 tags: ["taskspooler", "scheduler", "task management"]
 categories: ["Tools"]
 ---

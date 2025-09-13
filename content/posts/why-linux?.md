@@ -1,10 +1,10 @@
 ---
 weight: 1
-title: Minimalism Through Linux
+title: "Minimalism Through Linux"
 date: 2024-04-21
 draft: false
 author: Han
-description: You should use Linux!
+description: "You should use Linux!"
 tags: ["Linux", "Minimalism"]
 categories: ["Linux"]
 ---

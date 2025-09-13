@@ -4,8 +4,8 @@ title: "Docker Tutorial Part 2: Basic Commands"
 date: 2025-09-13
 draft: false
 author: Han
-description: "A Docker tutorial. " tags: ["Docker", "Containers", "Programming", "DevOps", "Tutorial"]
-keywords: ["docker tutorial", "docker commands", "docker basics", "docker run", "docker stop", "docker volume"]
+description: "A Docker tutorial. " 
+tags: ["Docker", "Containers", "Programming", "DevOps", "Tutorial"]
 categories: ["Docker", "DevOps", "Programming"]
 ---
 

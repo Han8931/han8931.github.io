@@ -63,7 +63,7 @@
     <pubDate>Sat, 13 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/docker-networks/</guid>
-    <description><![CDATA[A Docker tutorial.]]></description>
+    <description><![CDATA[<h1 id="intro">Intro</h1>]]></description>
 </item>
 <item>
     <title>NL2SQL Part 1.</title>

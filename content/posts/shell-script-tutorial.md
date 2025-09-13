@@ -1,10 +1,10 @@
 ---
 weight: 1
-title: Bash script tutorial
+title: "Bash script tutorial"
 date: 2024-04-21
 draft: false
 author: Han
-description: A gentle introduction to bash scripting
+description: "A gentle introduction to bash scripting"
 tags: ["Python", "bash", "shell script", "linux"]
 categories: ["Programming"]
 ---

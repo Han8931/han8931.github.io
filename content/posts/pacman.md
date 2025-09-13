@@ -1,10 +1,10 @@
 ---
 weight: 1
-title: Handy Pacman Commands in Arch Linux
+title: "Handy Pacman Commands in Arch Linux"
 date: 2024-05-01
 draft: false
 author: Han
-description: Pacman tutorial
+description: "Pacman tutorial"
 tags: ["Arch", "Linux", "Pacman"]
 categories: ["Linux"]
 ---

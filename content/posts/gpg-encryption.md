@@ -1,10 +1,10 @@
 ---
 weight: 1
-title: Data Encryption using GPG!
+title: "Data Encryption using GPG!"
 date: 2024-08-04
 draft: false
 author: Han
-description: Guide to encrypt/decrypt data using GPG
+description: "Guide to encrypt/decrypt data using GPG"
 tags: ["gpg", "encryption", "decryption", "privacy"]
 categories: ["gpg"]
 ---

@@ -1,11 +1,10 @@
-
 ---
 weight: 1
-title: Clean Validation with Pydantic v2
+title: "Clean Validation with Pydantic v2"
 date: 2025-08-30
 draft: false
 author: Han
-description: A tutorial for Pydantic
+description: "A tutorial for Pydantic"
 tags: ["Python", "Pydantic", "config", "environment variables", "mongodb"]
 categories: ["Python", "Pydantic"]
 ---

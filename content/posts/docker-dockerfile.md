@@ -6,7 +6,6 @@ draft: false
 author: Han
 description: "A Docker tutorial."
 tags: ["Docker", "Dockerfile", "Programming", "DevOps", "Tutorial"]
-keywords: ["docker tutorial", "dockerfile", "docker basics"]
 categories: ["Docker", "DevOps", "Programming"]
 ---
 

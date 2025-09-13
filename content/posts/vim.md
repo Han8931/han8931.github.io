@@ -1,10 +1,10 @@
 ---
 weight: 1
-title: Vim, Type at the Speed of Thought!
+title: "Vim, Type at the Speed of Thought!"
 date: 2024-05-01
 draft: false
 author: Han
-description: The Appeal of Vim in Modern Programming
+description: "The Appeal of Vim in Modern Programming"
 tags: ["vim"]
 categories: ["Vim"]
 ---
