@@ -9,8 +9,29 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 07 Sep 2025 16:18:23 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 13 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DevOps</title>
+      <link>http://localhost:1313/categories/devops/</link>
+      <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/categories/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>http://localhost:1313/categories/docker/</link>
+      <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/categories/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming</title>
+      <link>http://localhost:1313/categories/programming/</link>
+      <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/categories/programming/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Study Notes</title>
       <link>http://localhost:1313/categories/study-notes/</link>
@@ -47,6 +68,13 @@
       <description></description>
     </item>
     <item>
+      <title>Pydantic</title>
+      <link>http://localhost:1313/categories/pydantic/</link>
+      <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/categories/pydantic/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Pydantic AI</title>
       <link>http://localhost:1313/categories/pydantic-ai/</link>
       <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
@@ -61,24 +89,10 @@
       <description></description>
     </item>
     <item>
-      <title>Pydantic</title>
-      <link>http://localhost:1313/categories/pydantic/</link>
-      <pubDate>Sat, 30 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/pydantic/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Algorithm</title>
       <link>http://localhost:1313/categories/algorithm/</link>
       <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/categories/algorithm/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Programming</title>
-      <link>http://localhost:1313/categories/programming/</link>
-      <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/programming/</guid>
       <description></description>
     </item>
     <item>

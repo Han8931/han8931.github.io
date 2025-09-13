@@ -103,15 +103,130 @@
         alt="https://www.gravatar.com/avatar/485df9434f4908b5f6fab0750c113972?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/485df9434f4908b5f6fab0750c113972?s=240&amp;d=mp" /></a></div><h1 class="home-title">Han</h1><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"><a href="https://github.com/Han8931" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github fa-fw" aria-hidden="true"></i></a><a href="mailto:tabularasa8931@gmail.com" title="Email" rel="me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/2025/04/uv-package-manager/">All‑in‑One Python Package Manager: UV!</a>
+        <a href="/binary-search/">A Lesson from a Naive Binary Search</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-06-30">2025-06-30</time></span>&nbsp;<span class="post-category">included in <a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a>&nbsp;<a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a>&nbsp;<a href="/categories/algorithm/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Algorithm</a></span></div><div class="content"><h2 id="a-lesson-from-a-naive-binary-search">A Lesson from a Naive Binary Search</h2>
+<p>I&rsquo;ve been grinding hard every day, solving coding problems to get better at algorithms. Recently, I came across something interesting—a naive implementation of binary search can actually cause a bug. It&rsquo;s a small detail, but it matters.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-python">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">mid</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">nums</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></span></span></code></pre></div></div>
+<p>It works fine in Python—but I recently learned that the way I calculate <code>mid</code> can cause problems in some cases.</p></div><div class="post-footer">
+        <a href="/binary-search/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/algorithm/">Algorithm</a>,&nbsp;<a href="/tags/programming/">Programming</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/pass/">Managing Password using Pass</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-05-24">2025-05-24</time></span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a>&nbsp;<a href="/categories/pass/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Pass</a></span></div><div class="content"><h1 id="a-minimalists-guide-to-pass-the-unix-password-manager">A Minimalist’s Guide to <strong>pass</strong>— the Unix Password Manager</h1>
+<p><em>Safely wrangle your secrets from the command-line using GPG encryption and a few intuitive commands.</em></p>
+<hr>
+<h2 id="1-why-pass">1. Why <em>pass</em>?</h2>
+<ul>
+<li><strong>Single-purpose &amp; transparent</strong> – every secret is just a GPG-encrypted file in <code>~/.password-store/</code>.</li>
+<li><strong>Leverages tools you already trust</strong> – GnuPG for encryption and standard Unix commands for everything else (grep, git, find, etc.).</li>
+<li><strong>Portable &amp; scriptable</strong> – works the same on any POSIX shell and is easy to automate.</li>
+</ul>
+<blockquote>
+<p><strong>Prerequisites</strong></p></div><div class="post-footer">
+        <a href="/pass/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/pass/">Pass</a>,&nbsp;<a href="/tags/password-manager/">Password Manager</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/python-logging/">Introduction to logging in Python</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-05-17">2025-05-17</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><h2 id="a-gentle-practical-introduction-to-logging-in-python">A gentle, practical introduction to <code>logging</code> in Python</h2>
+<hr>
+<h3 id="why-bother-with-a-dedicated-logging-library">Why bother with a dedicated logging library?</h3>
+<ul>
+<li><strong>Prints don’t scale.</strong> <code>print()</code> is fine during quick experiments, but real programs need a record that can be filtered, rotated, or shipped elsewhere.</li>
+<li><strong>Separation of concerns.</strong> You decide <em>what</em> to log in your code; <code>logging</code> decides <em>where</em> and <em>how</em> to write it (console, file, etc.).</li>
+<li><strong>Built-in, no extra dependency.</strong> The standard library’s <code>logging</code> module is powerful enough for most applications.</li>
+</ul>
+<hr>
+<h3 id="core-concepts">Core concepts</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Concept</th>
+          <th>Role in the ecosystem</th>
+          <th>Typical examples</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Logger</strong></td>
+          <td>The entry point your code calls (<code>logger.info(...)</code>). You can have many, one per module.</td>
+          <td><code>&quot;__main__&quot;</code>, <code>&quot;my_package.worker&quot;</code></td>
+      </tr>
+      <tr>
+          <td><strong>Handler</strong></td>
+          <td>Decides <em>where</em> the record goes.</td>
+          <td><code>StreamHandler</code> (stdout), <code>FileHandler</code>, <code>TimedRotatingFileHandler</code>, <code>SMTPHandler</code></td>
+      </tr>
+      <tr>
+          <td><strong>Formatter</strong></td>
+          <td>Decides <em>how</em> the record looks.</td>
+          <td><code>'%(asctime)s - %(levelname)s - %(name)s - %(message)s'</code></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="a-minimal-logger">A minimal logger</h3>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-python">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">logging</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">format</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">%(levelname)s</span><span class="s2"> | </span><span class="si">%(message)s</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Hello, world!&#34;</span><span class="p">)</span></span></span></code></pre></div></div>
+<ul>
+<li><code>basicConfig</code> is a one-liner good for small scripts.</li>
+<li>In bigger projects, mixing multiple modules / log files, you&rsquo;ll want finer control.</li>
+</ul>
+<hr>
+<h3 id="rotating-files-at-midnight">Rotating files at midnight</h3>
+<p><strong>Rotating a log file means creating a new log file after a certain time or size limit is reached</strong>. In this case, a new file is created every night at midnight. Only the most recent two log files are kept—yesterday&rsquo;s and today’s—while older ones are deleted automatically.</p></div><div class="post-footer">
+        <a href="/python-logging/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/logging/">Logging</a>,&nbsp;<a href="/tags/logger/">Logger</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/pathlib/">Rediscovering Python's Pathlib</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-05-17">2025-05-17</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><h2 id="from-type-hint-to-power-tool--pythons-pathlib">From Type Hint to Power Tool:  Python&rsquo;s <code>Pathlib</code></h2>
+<p>For a long time, I used <code>Path</code> from Python&rsquo;s <code>pathlib</code> module purely as a <strong>type hint</strong> - a way to make function signatures look more modern and semantically clear. Like this:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-python">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">process_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span></span></span></code></pre></div></div>
+<p>It changed when I started building an application that handled user-uploaded documents. I had to create temporary folders, write intermediate files, manage output paths, and ensure directories existed before saving results. That&rsquo;s when <code>Path</code> went from <em>just a type hint</em> to a core part of my file management logic.</p></div><div class="post-footer">
+        <a href="/pathlib/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/pathlib/">Pathlib</a>,&nbsp;<a href="/tags/path/">Path</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/uv-package-manager/">All‑in‑One Python Package Manager: UV!</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-04-13">2025-04-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><blockquote>
 <p>📝<strong>Update</strong> (2025-09-06): I&rsquo;ve added a new section on using &ndash;native-tls with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.</p></blockquote>
 <h2 id="meet-uva-blazinglyfast-allinone-python-packagemanager">Meet <strong>uv</strong> – A Blazingly Fast, All‑in‑One Python Package Manager</h2>
 <p>In my last post I dove into <strong><a href="https://han8931.github.io/20240707_poetry/" target="_blank" rel="noopener noreffer ">Poetry</a></strong>, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for <strong>pip</strong> to install packages, <strong>virtualenv</strong> to isolate them, <strong>pyenv</strong> to juggle Python versions, and maybe <strong>Pipenv</strong> or <strong>pip‑tools</strong> for lock‑files. Each solves its own niche, yet hopping between them adds friction. <strong>uv</strong> removes that friction. This single, project manager—written in Rust and typically <strong>10-1000x</strong> faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, and even publishing to PyPI, all behind one concise CLI.</p></div><div class="post-footer">
-        <a href="/2025/04/uv-package-manager/">Read More</a><div class="post-tags">
+        <a href="/uv-package-manager/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/uv/">Uv</a>,&nbsp;<a href="/tags/package-manager/">Package Manager</a>,&nbsp;<a href="/tags/virtual-environment/">Virtual Environment</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/2025/04/vim-fugitive/">Git with Vim Fugitive: A Streamlined Workflow</a>
+        <a href="/vim-fugitive/">Git with Vim Fugitive: A Streamlined Workflow</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-04-13">2025-04-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/git/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Git</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a>&nbsp;<a href="/categories/vim/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Vim</a></span></div><div class="content"><p>If you&rsquo;re working with Git and Vim, <a href="https://github.com/tpope/vim-fugitive" target="_blank" rel="noopener noreffer "><strong>vim-fugitive</strong></a> is an essential plugin that transforms your editor into a full-fledged Git interface. Here&rsquo;s how I use Fugitive to review, stage, and commit changes—without ever leaving Vim.</p>
 <h2 id="browsing-git-history-and-logs-first">Browsing Git History and Logs First</h2>
 <p>Before jumping into edits, it’s often useful to understand the file’s history or recent project changes.</p>
@@ -120,33 +235,8 @@
 <li><code>:0Gllog</code> — shows the history of the current file</li>
 </ul>
 <p>To explore who changed what in a file:</p></div><div class="post-footer">
-        <a href="/2025/04/vim-fugitive/">Read More</a><div class="post-tags">
+        <a href="/vim-fugitive/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/git/">Git</a>,&nbsp;<a href="/tags/vim/">Vim</a>,&nbsp;<a href="/tags/fugitive/">Fugitive</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/2025/02/deepseek-inside/">Inside DeepSeek-R1</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-02-14">2025-02-14</time></span>&nbsp;<span class="post-category">included in <a href="/categories/nlp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>NLP</a>&nbsp;<a href="/categories/llm/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>LLM</a>&nbsp;<a href="/categories/deep-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Deep Learning</a></span></div><div class="content"><p><a href="https://www.deepseek.com/" target="_blank" rel="noopener noreffer ">DeepSeek</a>&rsquo;s latest moves have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their engineering techniques behind DeepSeek are truly impressive, and their reports are quite enjoyable. However, understanding their core ideas can be challenging and demands a substantial amount of effort.</p>
-<p>At the forefront of this innovation is DeepSeek-R1, a model that built upon the foundation established by preceding projects such as DeepSeek Coder, Math, MoE, and notably, the DeepSeek-V3 model. While DeepSeek-R1 is the center of the DeepSeek&rsquo;s frenzy, its success is rooted on these past works.</p></div><div class="post-footer">
-        <a href="/2025/02/deepseek-inside/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/deepseek/">DeepSeek</a>,&nbsp;<a href="/tags/llm/">LLM</a>,&nbsp;<a href="/tags/deep-learning/">Deep Learning</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/2025/01/python-protocol-abstract-classes/">Abstract Classes or Protocols</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-01-28">2025-01-28</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><h1 id="introduction">Introduction</h1>
-<p>When it comes to writing clean, maintainable, and scalable Python code, design matters. As your projects grow, you&rsquo;ll often find yourself needing to enforce structure, ensure consistency, and promote reusability. This is where Python&rsquo;s <a href="https://docs.python.org/3/library/abc.html" target="_blank" rel="noopener noreffer ">Abstract Base Classes (ABCs)</a> and <a href="https://www.python.org/dev/peps/pep-0544/" target="_blank" rel="noopener noreffer ">Protocols</a> come into play—two powerful features that help you design better software.</p>
-<p>Abstract classes act as <strong>blueprints for other classes, allowing you to define methods that must be implemented by any subclass</strong>. They&rsquo;re typically used for creating a shared foundation while enforcing a specific structure. Protocols, on the other hand, take a more flexible approach. Instead of relying on inheritance, they <strong>let you define interfaces based on behavior</strong>, making them ideal for <em>duck typing</em> (or <em>structural subtyping</em>) and runtime flexibility.</p></div><div class="post-footer">
-        <a href="/2025/01/python-protocol-abstract-classes/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/abcs/">ABCs</a>,&nbsp;<a href="/tags/protocols/">Protocols</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/2025/01/pytorch-container/">Run Pytorch Container in Arch Linux</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-01-11">2025-01-11</time></span>&nbsp;<span class="post-category">included in <a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a>&nbsp;<a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div><div class="content"><h1 id="setting-up-dl-experiment-environments">Setting Up DL Experiment Environments</h1>
-<h2 id="a-challenge-for-arch-linux-users">A Challenge for Arch Linux Users</h2>
-<p>If you&rsquo;ve ever tried to set up a new experiment environment for deep learning on Arch Linux, you&rsquo;re probably familiar with the challenges involved. Arch Linux, renowned for its rolling-release model and cutting-edge updates, provides unparalleled flexibility and control over your system. However, this same flexibility can often lead to headaches when setting up complex environments for machine learning or deep learning experiments. Dependency conflicts, missing libraries, and version mismatches are all too common.</p></div><div class="post-footer">
-        <a href="/2025/01/pytorch-container/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/pytorch/">Pytorch</a>,&nbsp;<a href="/tags/arch/">Arch</a>,&nbsp;<a href="/tags/container/">Container</a>,&nbsp;<a href="/tags/docker/">Docker</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/2025/01/asyncio/">Asyncio in Python: A Deep Dive into Asynchronous I/O</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-01-05">2025-01-05</time></span>&nbsp;<span class="post-category">included in <a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a>&nbsp;<a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content"><p>For the past few months, I&rsquo;ve been working on an exciting internal project at my company: taking users&rsquo; documents and running them through LLM APIs to translate and summarize their content, somewhat similar to <a href="https://www.deepl.com/" target="_blank" rel="noopener noreffer ">DeepL</a>. The output is a collection of translated documents, each overlaid with the newly translated text. Our goal is to provide a stable service that can handle large files efficiently for thousands of employees at Samsung—no small task! To achieve this, we needed a concurrency strategy that supports high throughput while remaining responsive. <strong>That&rsquo;s where Asyncio comes in.</strong></p></div><div class="post-footer">
-        <a href="/2025/01/asyncio/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/asyncio/">Asyncio</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -167,7 +257,7 @@
                     <span class="page-link" aria-hidden="true">&hellip;</span>
                 </li><li class="page-item ">
                     <span class="page-link">
-                        <a href="/page/6/">6</a>
+                        <a href="/page/7/">7</a>
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">

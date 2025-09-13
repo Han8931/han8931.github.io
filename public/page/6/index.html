@@ -103,7 +103,47 @@
         alt="https://www.gravatar.com/avatar/485df9434f4908b5f6fab0750c113972?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/485df9434f4908b5f6fab0750c113972?s=240&amp;d=mp" /></a></div><h1 class="home-title">Han</h1><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"><a href="https://github.com/Han8931" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github fa-fw" aria-hidden="true"></i></a><a href="mailto:tabularasa8931@gmail.com" title="Email" rel="me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/2024/04/the-shell-script-tutorial/">Bash script tutorial</a>
+        <a href="/vim/">Vim, Type at the Speed of Thought!</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-05-01">2024-05-01</time></span>&nbsp;<span class="post-category">included in <a href="/categories/vim/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Vim</a></span></div><div class="content"><p>While it may look somewhat obsolete in an era dominated by graphically rich IDEs, Vim remains not just a highly relevant and effective tool for today&rsquo;s programmers but also a badge of coolness in the tech world. Those who master its commands are often seen as <strong>coding wizards</strong>. With its unique advantages in speed, efficiency, and customizability, Vim is an invaluable asset in software development environments, proving that old-school can still be trendy.</p></div><div class="post-footer">
+        <a href="/vim/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/vim/">Vim</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/pdb/">Why Use Python's `pdb` Debugger Over an IDE?</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-04-27">2024-04-27</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content"><p>When it comes to debugging Python code, most programmers reach for an Integrated Development Environment (IDE) because of its convenience and powerful features. However, there&rsquo;s a classic, built-in tool that shouldn&rsquo;t be overlooked: Python&rsquo;s own debugger, <code>pdb</code>. This tool might seem basic at first glance, but it offers some compelling advantages, especially in scenarios where an IDE might be less effective. Here&rsquo;s why you might consider using <code>pdb</code> for debugging your Python projects:</p></div><div class="post-footer">
+        <a href="/pdb/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/pdb/">Pdb</a>,&nbsp;<a href="/tags/debug/">Debug</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/enum/">Enumerate variables with Enum!</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-04-26">2024-04-26</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content"><p><code>Enum</code> is a way that Python enumerate variables. The <code>enum</code> module allows for the creation of enumerated constants—unique, immutable data types that are useful for representing a fixed set of values. These values, which are usually related by their context, are known as enumeration members.</p>
+<p>Enum provides&hellip;</p>
+<ol>
+<li><strong>Uniqueness</strong> - Each member of an <code>Enum</code> is unique within its definition, meaning no two members can have the same value. Attempting to define two members with the same value will result in an error unless you explicitly allow aliases.</li>
+<li><strong>Immutability</strong> - Enum members are immutable. Once the <code>Enum</code> class is defined, you cannot change the members or their values.</li>
+<li><strong>Iterability and Comparability</strong> - Enum classes support iteration over their members and can be compared using identity and equality checks.</li>
+<li><strong>Accessing Members</strong> - You can access enumeration members by their names or values:</li>
+<li><strong>Auto</strong> - If you want to automatically assign values to enum members, you can use the <code>auto()</code> function from the same module:</li>
+</ol>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-python">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">State</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="n">PLAYING</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl">	<span class="n">PAUSED</span><span class="o">=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">	<span class="n">GAME_OVER</span><span class="o">=</span><span class="mi">2</span></span></span></code></pre></div></div>
+<p>If we just want to make sure them to be unique and automatically assigned, then use <code>auto()</code></p></div><div class="post-footer">
+        <a href="/enum/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/enum/">Enum</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/unit-tests/">Unit Test with Pytest</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-04-26">2024-04-26</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content"><p>Unit testing involves testing individual components of software in <strong>isolation to ensure they function correctly</strong>. Automated frameworks facilitate this process, which <strong>is integral to ensuring that new changes do not disrupt existing functionality</strong>. Unit tests also serve as practical documentation and encourage better software design. This testing method boosts development speed and confidence by confirming component reliability before integration. Early bug detection through unit testing also helps minimize future repair costs and efforts.</p></div><div class="post-footer">
+        <a href="/unit-tests/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/pytest/">Pytest</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/shell-script-tutorial/">Bash script tutorial</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-04-21">2024-04-21</time></span>&nbsp;<span class="post-category">included in <a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><p>Let&rsquo;s create our first simple shell script</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-sh">
@@ -124,36 +164,15 @@
 </ul>
 <h2 id="variables">Variables</h2>
 <p>Let&rsquo;s look back at our first Hello World example. This could be done using variables. Note that <em>there must be no spaces around the &ldquo;<code>=</code>&rdquo; sign</em>: <code>VAR=value</code> works; <code>VAR = value</code> doesn&rsquo;t work. In the first case, the shell sees the &ldquo;<code>=</code>&rdquo; symbol and treats the command as a variable assignment. In the second case, the shell assumes that VAR must be the name of a command and tries to execute it.</p></div><div class="post-footer">
-        <a href="/2024/04/the-shell-script-tutorial/">Read More</a><div class="post-tags">
+        <a href="/shell-script-tutorial/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/bash/">Bash</a>,&nbsp;<a href="/tags/shell-script/">Shell Script</a>,&nbsp;<a href="/tags/linux/">Linux</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/2024/04/why-linux/">Minimalism Through Linux</a>
+        <a href="/why-linux/">Minimalism Through Linux</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-04-21">2024-04-21</time></span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div><div class="content"><h3 id="linux-a-path-to-digital-simplicity">Linux, A Path to Digital Simplicity</h3>
 <p>In an age dominated by digital clutter and overwhelming software choices, the minimalist philosophy stands out as a beacon for those seeking simplicity and efficiency. This approach not only applies to physical possessions but extends into the digital realm, where Linux has become a preferred tool for minimalists.</p>
 <p>Linux, an open-source operating system, embodies the principles of minimalism by offering users control over their digital environments. Unlike mainstream operating systems that often come loaded with non-essential features and bloatware, Linux allows users to select only the components they need, creating a lean and efficient system.</p></div><div class="post-footer">
-        <a href="/2024/04/why-linux/">Read More</a><div class="post-tags">
+        <a href="/why-linux/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/minimalism/">Minimalism</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/2024/04/hide-sensitive-data/">How to keep sensitive data in Python?</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-04-20">2024-04-20</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content"><p>An app&rsquo;s <em>config</em> is everything that is likely to vary between <a href="https://12factor.net/codebase" target="_blank" rel="noopener noreffer ">deploys</a> (staging, production, developer environments, etc). This includes:</p>
-<ul>
-<li>Resource handles to the database, Memcached, and other <a href="https://12factor.net/backing-services" target="_blank" rel="noopener noreffer ">backing services</a></li>
-<li>Credentials to external services such as Amazon S3 or Twitter</li>
-<li>Per-deploy values such as the canonical hostname for the deploy</li>
-</ul>
-<p>Apps sometimes store config as constants in the code. This is a violation of twelve-factor, which requires <strong>strict separation of config from code</strong>. Config varies substantially across deploys, code does not.</p></div><div class="post-footer">
-        <a href="/2024/04/hide-sensitive-data/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/dotenv/">Dotenv</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/2024/04/type-hint/">Type hint in Python</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-04-20">2024-04-20</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div><div class="content"><p>Type hinting is <em>not mandatory</em>, but it can make your code easier to understand and debug by</p>
-<ol>
-<li>Improved readability</li>
-<li>Better IDE support: IDEs and linters can use type hints to check your code for potential errors before runtime.</li>
-</ol>
-<p>While type hints can be simple classes like <a href="https://docs.python.org/3/library/functions.html#float" title="float" target="_blank" rel="noopener noreffer "><code>float</code></a> or <a href="https://docs.python.org/3/library/stdtypes.html#str" title="str" target="_blank" rel="noopener noreffer "><code>str</code></a>, they can also be more complex. The <a href="https://docs.python.org/3/library/typing.html#module-typing" title="typing: Support for type hints (see :pep:`484`)." target="_blank" rel="noopener noreffer "><code>typing</code></a> module provides a vocabulary of more advanced type hints.</p></div><div class="post-footer">
-        <a href="/2024/04/type-hint/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/type-hint/">Type Hint</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -171,6 +190,10 @@
                 </li><li class="page-item active">
                     <span class="page-link">
                         <a href="/page/6/">6</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/7/">7</a>
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">

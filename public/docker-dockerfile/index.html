@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Docker Tutorial Part 3: Dockerfile - Han&#39;s XYZ</title><meta name="Description" content="A Docker tutorial."><meta property="og:url" content="http://localhost:1313/docker-dockerfile/">
+  <meta property="og:site_name" content="Han&#39;s XYZ">
+  <meta property="og:title" content="Docker Tutorial Part 3: Dockerfile">
+  <meta property="og:description" content="A Docker tutorial.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-13T00:00:00+00:00">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Dockerfile">
+    <meta property="article:tag" content="Programming">
+    <meta property="article:tag" content="DevOps">
+    <meta property="article:tag" content="Tutorial">
+    <meta property="og:image" content="http://localhost:1313/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/logo.png">
+  <meta name="twitter:title" content="Docker Tutorial Part 3: Dockerfile">
+  <meta name="twitter:description" content="A Docker tutorial.">
+<meta name="application-name" content="KeepIt">
+<meta name="apple-mobile-web-app-title" content="KeepIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/docker-dockerfile/" /><link rel="prev" href="http://localhost:1313/docker-networks/" /><link rel="next" href="http://localhost:1313/docker-commands/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><meta name="google-site-verification" content="B7mVm-DfAgGVs4ghQkEqrmeZIv8D26A-1C7dx6Ajeh0" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Docker Tutorial Part 3: Dockerfile",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/docker-dockerfile\/"
+        },"genre": "posts","keywords": "Docker, Dockerfile, Programming, DevOps, Tutorial","wordcount":  1555 ,
+        "url": "http:\/\/localhost:1313\/docker-dockerfile\/","datePublished": "2025-09-13T00:00:00+00:00","dateModified": "2025-09-13T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Han"
+            },"description": "A Docker tutorial."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/studynotes/"> StudyNotes </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/studynotes/" title="">StudyNotes</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker Tutorial Part 3: Dockerfile</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a>&nbsp;<a href="/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-13">2025-09-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1555 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#dockerfile">Dockerfile</a>
+      <ul>
+        <li><a href="#from">FROM</a></li>
+        <li><a href="#copy-and-add">COPY and ADD</a></li>
+        <li><a href="#expose">EXPOSE</a></li>
+        <li><a href="#entrypoint-and-cmd">ENTRYPOINT and CMD</a></li>
+        <li><a href="#run">RUN</a></li>
+        <li><a href="#label">LABEL</a></li>
+        <li><a href="#env-and-arg">ENV and ARG</a></li>
+        <li><a href="#volume">VOLUME</a></li>
+        <li><a href="#user">USER</a></li>
+        <li><a href="#workdir">WORKDIR</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="dockerfile">Dockerfile</h2>
+<p>A <code>Dockerfile</code> is essentially a text file with a predetermined structure that contains a set of instructions for building a Docker image. The instructions in the Dockerfile specify what base image to start with (for example, Ubuntu 20.04), what software to install, and how to configure the image. The purpose of a Dockerfile is to automate the process of building a Docker image so that the image can be easily reproduced and distributed.</p>
+<p>The structure of a Dockerfile is a list of commands (one per line) that Docker (containerd to be exact) uses to build an image. Each command creates a new layer in the image in UnionFS, and the resulting image is the union of all the layers. The fewer layers we manage to create, the smaller the resulting image.</p>
+<p>The most frequently used commands in a Dockerfile are the following:</p>
+<ul>
+<li><code>FROM</code></li>
+<li><code>COPY</code></li>
+<li><code>ADD</code></li>
+<li><code>EXPOSE</code></li>
+<li><code>CMD</code></li>
+<li><code>ENTRYPOINT</code></li>
+<li><code>RUN</code></li>
+<li><code>LABEL</code></li>
+<li><code>ENV</code></li>
+<li><code>ARG</code></li>
+<li><code>VOLUME</code></li>
+<li><code>USER</code></li>
+<li><code>WORKDIR</code></li>
+</ul>
+<h3 id="from">FROM</h3>
+<p>A Dockerfile starts with a FROM command, which specifies the base image to start with:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:20.04</span></span></span></code></pre></div></div>
+<p>You can also name this build using as keyword followed by a custom name:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:20.04</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s">builder1</span></span></span></code></pre></div></div>
+<p><code>docker build</code> will try to download Docker images from the public Docker Hub registry, but it&rsquo;s also possible to use other registries out there, or a private one.</p>
+<h3 id="copy-and-add">COPY and ADD</h3>
+<p>The <code>COPY</code> command is used to copy files or directories from the host machine to the container file system. Take the following example:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">COPY</span> . /var/www/html</span></span></code></pre></div></div>
+<p>You can also use the <code>ADD</code> command to add files or directories to your Docker image. <code>ADD</code> has additional functionality beyond <code>COPY</code>. It can extract a TAR archive file automatically and check for the presence of a URL in the source field, and if it finds one, it will download the file from the URL. Finally, the <code>ADD</code> command has a <code>--chown</code> option to set the ownership of the files in the destination.</p>
+<p><strong>In general, it is recommended to use <code>COPY</code> in most cases</strong>, and only use <code>ADD</code> when the additional functionality it provides is needed.</p>
+<h3 id="expose">EXPOSE</h3>
+<p>The <code>EXPOSE</code> command in a Dockerfile informs Docker that the container listens on the specified network ports at runtime. It does not actually publish the ports. It is used to provide information to the user about which ports are intended to be published by the container.</p>
+<p>For example, if a container runs a web server on port <code>80</code>, you would include the following line in your Dockerfile:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">EXPOSE</span><span class="w"> </span><span class="s">80</span></span></span></code></pre></div></div>
+<p>You can specify whether the port listens on TCP or UDP – after specifying the port number, add a slash and a TCP or UDP keyword (for example, <code>EXPOSE 80/udp</code>). The default is TCP if you specify only a port number.</p>
+<p>The <code>EXPOSE</code> command does not publish the ports. To make ports available, you will need to publish them with the use of the <code>-p</code> or <code>--publish</code> option when running the docker run command:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run -p 8080:80 thedockerimagename:tag</span></span></code></pre></div></div>
+<p>This will map port <code>8080</code> on the host machine to port <code>80</code> in the container so that any incoming traffic on port <code>8080</code> will be forwarded to the web server running in the container on port <code>80</code>.</p>
+<p>Regardless of the <code>EXPOSE</code> command, you can publish different ports when running a container. <code>EXPOSE</code> is used to inform the user about which ports are intended to be published by the container.</p>
+<h3 id="entrypoint-and-cmd">ENTRYPOINT and CMD</h3>
+<p>The <code>ENTRYPOINT</code> instruction defines the command that will always be executed when the container starts. It essentially turns the container into an executable that behaves like a binary or script. Unlike <code>CMD</code>, which can be fully replaced by arguments at runtime, <code>ENTRYPOINT</code> is fixed, and arguments you pass with docker run are simply appended to it.</p>
+<p>You usually use <code>ENTRYPOINT</code> when you want your container to act like a single-purpose tool.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;curl&#34;</span><span class="p">]</span></span></span></code></pre></div></div>
+<ul>
+<li>Running <code>docker run mycurl https://example.com</code> executes<code>curl https://example.com</code>
+<ul>
+<li><code>docker run</code>: start a new container.</li>
+<li><code>mycurl</code>: the image name.</li>
+<li><code>https://example.com</code>: arguments passed to the container.</li>
+</ul>
+</li>
+</ul>
+<p>Docker does the following internally:</p>
+<ol>
+<li>Looks at the image <code>mycurl</code>.</li>
+<li>Sees that the <code>ENTRYPOINT</code> is set to <code>[&quot;curl&quot;]</code>.</li>
+<li>Appends your command-line arguments (<code>https://example.com</code>) to the <code>ENTRYPOINT</code>.</li>
+<li>It become <code>curl https://example.com</code></li>
+</ol>
+<p>If you want to provide default arguments that can be overridden, you combine it with <code>CMD</code>.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;python&#34;</span><span class="p">]</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;app.py&#34;</span><span class="p">,</span> <span class="s2">&#34;--debug&#34;</span><span class="p">]</span></span></span></code></pre></div></div>
+<ul>
+<li>Running <code>docker run myapp</code>:<code>python app.py --debug</code></li>
+<li>Running <code>docker run myapp server.py</code>: <code>python server.py</code></li>
+</ul>
+<p>Meanwhile, if you only use <code>CMD</code>, it&rsquo;s fully replaceable at runtime.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;nginx&#34;</span><span class="p">,</span> <span class="s2">&#34;-g&#34;</span><span class="p">,</span> <span class="s2">&#34;daemon off;&#34;</span><span class="p">]</span></span></span></code></pre></div></div>
+<ul>
+<li>Running <code>docker run webserver</code>: runs nginx</li>
+<li>Running <code>docker run webserver bash</code>: runs bash instead (overrides <code>CMD</code>)</li>
+</ul>
+<p>Rule of thumb:</p>
+<ul>
+<li>Use <code>ENTRYPOINT</code> if the container should always execute a specific binary.</li>
+<li>Use <code>CMD</code> for providing defaults that the user might want to override.</li>
+<li>Combine both if you want an executable with flexible arguments.</li>
+</ul>
+<h3 id="run">RUN</h3>
+<p>The <code>RUN</code> instruction is executed at build time and creates a new layer in the image. It&rsquo;s used to install software, configure the environment, or set up files. Once executed, its results are part of the final image.</p>
+<p>For example, you can use the <code>RUN</code> command to install system dependencies and clean up:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    apt-get install -y git curl <span class="o">&amp;&amp;</span> <span class="se">\ </span><span class="c1"># install required tools</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    rm -rf /var/lib/apt/lists/* <span class="c1"># Cleanup reduces image size.</span></span></span></code></pre></div></div>
+<p>You can use the RUN command to create a directory:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">RUN</span> mkdir -p /data/logs</span></span></code></pre></div></div>
+<p>or prepare a non-root user:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">RUN</span> useradd -ms /bin/bash appuser</span></span></code></pre></div></div>
+<p>It&rsquo;s worth noting that the order of the <code>RUN</code> commands in the Dockerfile is important, as each command creates a new layer in the image, and the resulting image is the union of all the layers. So, if you&rsquo;re expecting some packages to be installed later in the process, you need to do it before using them.</p>
+<h3 id="label">LABEL</h3>
+<p>The <code>LABEL</code> instruction attaches metadata to an image in the form of key-value pairs. This can include maintainer info, version, licensing, or anything meaningful to your workflow.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">&#34;Alice Lee &lt;alice@example.com&gt;&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      <span class="nv">version</span><span class="o">=</span><span class="s2">&#34;1.4&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      <span class="nv">description</span><span class="o">=</span><span class="s2">&#34;Lightweight API server image&#34;</span></span></span></code></pre></div></div>
+<p>This metadata can later be queried:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl">docker inspect myimage <span class="p">|</span> grep version</span></span></code></pre></div></div>
+<p>Labeling images makes them easier to manage, track, and audit in CI/CD pipelines.</p>
+<h3 id="env-and-arg">ENV and ARG</h3>
+<p>Both define variables, but their lifetimes differ:</p>
+<ul>
+<li><code>ARG</code>: available only at build time. Used to pass values when running docker build.</li>
+<li><code>ENV</code>: It creates an environment variable that is accessible to all processes running inside the container.</li>
+</ul>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">ARG</span> <span class="nv">APP_VERSION</span><span class="o">=</span>latest
+</span></span><span class="line"><span class="cl"><span class="k">RUN</span> <span class="nb">echo</span> <span class="s2">&#34;Building version </span><span class="nv">$APP_VERSION</span><span class="s2">&#34;</span></span></span></code></pre></div></div>
+<p>You can override it at build:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl">docker build --build-arg <span class="nv">APP_VERSION</span><span class="o">=</span>2.0 .</span></span></code></pre></div></div>
+<p>The <code>ENV</code> command is used to set environment variables:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">ENV</span> <span class="nv">PORT</span><span class="o">=</span><span class="m">8080</span>
+</span></span><span class="line"><span class="cl"><span class="k">EXPOSE</span><span class="w"> </span><span class="s">$PORT</span></span></span></code></pre></div></div>
+<p>Now any process inside the container can access $PORT.</p>
+<p>Rule of thumb:</p>
+<ul>
+<li>Use <code>ARG</code> for build-time options (e.g., base image tag, dependency version).</li>
+<li>Use <code>ENV</code> for runtime configuration (e.g., service port, API key).</li>
+</ul>
+<h3 id="volume">VOLUME</h3>
+<p>The <code>VOLUME</code> instruction in a Dockerfile defines a mount point where data can be stored outside the container&rsquo;s writable layer.</p>
+<ul>
+<li>This means that the data will persist even if the container is removed or rebuilt.</li>
+<li>Volumes are managed by Docker, or you can bind them to host directories.</li>
+<li>They&rsquo;re especially important for databases, logs, or user-generated content.</li>
+</ul>
+<p>When you run a container without volumes, everything is stored in its writable layer.</p>
+<ul>
+<li>That writable layer is destroyed when you remove the container (<code>docker rm</code>).</li>
+<li>That&rsquo;s why data disappears.</li>
+</ul>
+<p>When you declare a <code>VOLUME</code> in the Dockerfile (or with <code>-v</code> at <code>docker run</code>), Docker does something special:</p>
+<ul>
+<li>It says: &ldquo;Don&rsquo;t keep this folder (/var/lib/mysql) inside the container&rsquo;s temporary writable layer.&rdquo;</li>
+<li>Instead, it mounts an external storage location (on the host) to that folder.</li>
+<li>The container sees <code>/var/lib/mysql</code> as normal, but under the hood, all files actually live in:</li>
+</ul>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">volumes</span><span class="o">/&lt;</span><span class="n">volume_id</span><span class="o">&gt;/</span><span class="n">_data</span>   <span class="p">(</span><span class="k">if</span> <span class="n">Docker</span><span class="o">-</span><span class="n">managed</span> <span class="n">volume</span><span class="p">)</span></span></span></code></pre></div></div>
+<p>or</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">/</span><span class="n">my</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">db</span>   <span class="p">(</span><span class="k">if</span> <span class="n">you</span> <span class="n">used</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">my</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">db</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">mysql</span><span class="p">)</span></span></span></code></pre></div></div>
+<p>Imagine you&rsquo;re building a Docker image for MySQL. You don&rsquo;t want your database data to disappear every time the container restarts.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">mysql:8.0</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c">## Define where MySQL stores its data</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">VOLUME</span> <span class="p">[</span><span class="s2">&#34;/var/lib/mysql&#34;</span><span class="p">]</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="w"> </span><span class="s">3306</span></span></span></code></pre></div></div>
+<ul>
+<li><code>VOLUME [&quot;/var/lib/mysql&quot;]</code> tells Docker that <code>/var/lib/mysql</code> should be stored outside the container layer system.
+You can see the volume with</li>
+</ul>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker volume ls
+</span></span><span class="line"><span class="cl">docker volume inspect &lt;volume_name&gt;</span></span></code></pre></div></div>
+<h3 id="user">USER</h3>
+<p>By default, containers run as <strong>root</strong>, which is risky. The <code>USER</code> instruction sets a non-root user for better security.</p>
+<ul>
+<li>If there&rsquo;s a Docker or kernel vulnerability, a process running as root inside the container could potentially escape and gain root access on the host.</li>
+<li>This is the main worry in multi-tenant environments (like shared servers or Kubernetes clusters).</li>
+</ul>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">RUN</span> useradd -ms /bin/bash appuser<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="w"> </span><span class="s">appuser</span></span></span></code></pre></div></div>
+<ul>
+<li>Now every process inside the container runs as <code>appuser</code>.</li>
+<li><code>-m</code>: create the user&rsquo;s home directory (e.g., <code>/home/appuser</code>).</li>
+<li><code>-s /bin/bash</code>: set the user&rsquo;s login shell to <code>/bin/bash</code>.</li>
+</ul>
+<p>You can still override:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run --user root myimage</span></span></code></pre></div></div>
+<h3 id="workdir">WORKDIR</h3>
+<p>The <code>WORKDIR</code> instruction sets the <strong>current working directory</strong> inside the container. Every subsequent <code>RUN, CMD, ENTRYPOINT, COPY</code>, or <code>ADD</code> will be executed relative to this directory.</p>
+<p>You can use the <code>WORKDIR</code> command to set the working directory to <code>/usr/local/app</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/usr/local/app</span></span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/usr/src/app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> pip install -r requirements.txt</span></span></code></pre></div></div>
+<ul>
+<li><code>COPY . .</code>: copies files into<code>/usr/src/app</code></li>
+<li><code>RUN pip install -r requirements.txt</code>: runs inside <code>/usr/src/app</code></li>
+</ul>
+<p>The <code>WORKDIR</code> can be changed multiple times during an image build.</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:22.04</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># First working directory</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="nb">echo</span> <span class="s2">&#34;Hello&#34;</span> &gt; hello.txt<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Change to another directory</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app/subdir</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="nb">echo</span> <span class="s2">&#34;World&#34;</span> &gt; world.txt<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy from build context relative to new WORKDIR</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> main.py .</span></span></code></pre></div></div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-09-13</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/docker-dockerfile/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/dockerfile/">Dockerfile</a>,&nbsp;<a href="/tags/programming/">Programming</a>,&nbsp;<a href="/tags/devops/">DevOps</a>,&nbsp;<a href="/tags/tutorial/">Tutorial</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/docker-networks/" class="prev" rel="prev" title="Docker Tutorial Part 3: Networks"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Docker Tutorial Part 3: Networks</a>
+            <a href="/docker-commands/" class="next" rel="next" title="Docker Tutorial Part 2: Basic Commands">Docker Tutorial Part 2: Basic Commands<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.149.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/algoliasearch/lite/browser.umd.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script>window.config={"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"A9NUSQZEO5","algoliaIndex":"github","algoliaSearchKey":"e255482bc340762a0da27f50eddd2765","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
+</html>

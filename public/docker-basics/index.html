@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Docker Tutorial Part 1: Basics - Han&#39;s XYZ</title><meta name="Description" content="A Docker tutorial."><meta property="og:url" content="http://localhost:1313/docker-basics/">
+  <meta property="og:site_name" content="Han&#39;s XYZ">
+  <meta property="og:title" content="Docker Tutorial Part 1: Basics">
+  <meta property="og:description" content="A Docker tutorial.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-13T00:00:00+00:00">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Programming">
+    <meta property="article:tag" content="DevOps">
+    <meta property="article:tag" content="Tutorial">
+    <meta property="og:image" content="http://localhost:1313/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/logo.png">
+  <meta name="twitter:title" content="Docker Tutorial Part 1: Basics">
+  <meta name="twitter:description" content="A Docker tutorial.">
+<meta name="application-name" content="KeepIt">
+<meta name="apple-mobile-web-app-title" content="KeepIt">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/docker-basics/" /><link rel="prev" href="http://localhost:1313/docker-commands/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><meta name="google-site-verification" content="B7mVm-DfAgGVs4ghQkEqrmeZIv8D26A-1C7dx6Ajeh0" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Docker Tutorial Part 1: Basics",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/docker-basics\/"
+        },"genre": "posts","keywords": "Docker, Programming, DevOps, Tutorial","wordcount":  1071 ,
+        "url": "http:\/\/localhost:1313\/docker-basics\/","datePublished": "2025-09-13T00:00:00+00:00","dateModified": "2025-09-13T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Han"
+            },"description": "A Docker tutorial."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/studynotes/"> StudyNotes </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Han&#39;s XYZ"><span class="header-title-pre"><i class='fa fa-home ' aria-hidden='true'></i></span>Han&#39;s XYZ</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/studynotes/" title="">StudyNotes</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/Han8931" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker Tutorial Part 1: Basics</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a>&nbsp;<a href="/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-13">2025-09-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1071 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#virtualization">Virtualization</a></li>
+    <li><a href="#containerization">Containerization</a>
+      <ul>
+        <li><a href="#containers">Containers</a></li>
+        <li><a href="#fast-startup--portability">Fast Startup &amp; Portability</a></li>
+        <li><a href="#deployment-model">Deployment Model</a></li>
+        <li><a href="#docker-and-its-ecosystem">Docker and its Ecosystem</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#docker-the-docker-cli-tool--docker">Docker The Docker CLI tool – <code>docker</code></a></li>
+    <li><a href="#docker-host--daemon-dockerd">Docker Host &amp; Daemon (<code>dockerd</code>)</a></li>
+    <li><a href="#overlayfs">OverlayFS</a></li>
+    <li><a href="#what-is-an-image">What is an image?</a></li>
+    <li><a href="#what-is-a-container-runtime">What is a container runtime?</a></li>
+    <li><a href="#cgroups">cgroups</a>
+      <ul>
+        <li><a href="#docker-and-cgroups">Docker and cgroups</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="introduction">Introduction</h1>
+<h2 id="virtualization">Virtualization</h2>
+<p><em>Virtualization is a technique of running a complete simulated computer within another computer.</em></p>
+<ul>
+<li><strong>Complete</strong>: It mimics everything a physical computer would have: CPU, memory, motherboard, BIOS, disks, USB ports, and so on.</li>
+<li><strong>Simulated</strong>: The machine exists entirely in software. It doesn&rsquo;t physically exist, which is why it&rsquo;s called virtual.</li>
+</ul>
+<p>The simulated computer is called a <strong>virtual machine (VM)</strong>, and it needs a real, physical computer to run on. This real machine is known as the <strong>host</strong>, while the software that manages VMs is the <strong>hypervisor</strong>.</p>
+<p>So, I have a physical computer. It is powerful. Why would I want to run a VM in it? Because VMs unlock powerful use cases:</p>
+<ul>
+<li>Running a full operating system that&rsquo;s different from your host (e.g., Windows VM on Linux).</li>
+<li>Testing software in a controlled, isolated environment.</li>
+<li>Running applications that are not available on your host OS.</li>
+<li>Recreating a production-like environment locally for development and debugging.</li>
+</ul>
+<h2 id="containerization">Containerization</h2>
+<h3 id="containers">Containers</h3>
+<ul>
+<li>Containers are lightweight, isolated environments designed to run a single process.</li>
+<li>Each container includes only the libraries and dependencies necessary for the application to function.</li>
+<li>The host operating system handles hardware access, memory, and peripheral management.</li>
+<li>Unlike virtual machines, containers don&rsquo;t pretend to be full operating systems. Processes inside can detect they are running in a container.</li>
+<li>Limitation: containers cannot emulate hardware (e.g., you can&rsquo;t test a new device driver).</li>
+<li>Advantage: containers can be extremely small (just a few MB) and consume only the memory needed by the running process.</li>
+</ul>
+<h3 id="fast-startup--portability">Fast Startup &amp; Portability</h3>
+<ul>
+<li>A container launches as quickly as the application itself, since it skips BIOS checks, hardware initialization, and OS booting.</li>
+<li>Container images remain compact by excluding unnecessary software.</li>
+<li>Small images bring multiple benefits:
+<ul>
+<li>Rapid download and distribution.</li>
+<li>Near-instant startup times.</li>
+<li>Faster build and deployment cycles.</li>
+</ul>
+</li>
+<li>As a result:
+<ul>
+<li>Development and test environments are easy to reproduce.</li>
+<li>New versions of software can be deployed frequently (even thousands of times per day).</li>
+<li>Applications can be scaled up or down quickly.</li>
+</ul>
+</li>
+</ul>
+<h3 id="deployment-model">Deployment Model</h3>
+<ul>
+<li>Containers are treated as disposable units rather than long-lived systems.</li>
+<li>Instead of patching or upgrading software inside a container, you simply build a new image and redeploy it.</li>
+<li>This design assumes that:
+<ul>
+<li>Application data is not stored inside containers.</li>
+<li>Persistent data should be managed through volumes or external storage attached at runtime.</li>
+</ul>
+</li>
+</ul>
+<h3 id="docker-and-its-ecosystem">Docker and its Ecosystem</h3>
+<ul>
+<li>Docker is the most popular container platform, largely because of the ecosystem it created.</li>
+<li>A Docker image is essentially:
+<ul>
+<li>A compact archive with all binaries, libraries, and minimal configuration needed to run an application.</li>
+<li>Stateless and easily shareable.</li>
+</ul>
+</li>
+<li>Docker Hub provides:
+<ul>
+<li>A public registry for storing and discovering images.</li>
+<li>Command-line and web tools for uploading, searching, rating, and giving feedback.</li>
+</ul>
+</li>
+<li>This ecosystem made it easy to share and reuse container images, accelerating container adoption across the industry.</li>
+</ul>
+<h1 id="anatomy-of-docker">Anatomy of Docker</h1>
+<p>Docker is made up of several core components:</p>
+<ul>
+<li>Command-line utility (docker)</li>
+<li>Host machine</li>
+<li>Objects (images, containers, volumes, networks)</li>
+<li>Registries (where images are stored and shared)</li>
+</ul>
+<h2 id="docker-the-docker-cli-tool--docker">Docker The Docker CLI tool – <code>docker</code></h2>
+<ul>
+<li>The <code>docker</code> command is the primary way to manage containers and images.</li>
+<li>With it, you can:
+<ul>
+<li>Build images.</li>
+<li>Pull images from registries.</li>
+<li>Push images to registries.</li>
+<li>Run and manage containers.</li>
+<li>Set runtime options.</li>
+<li>Remove containers and images.</li>
+</ul>
+</li>
+<li>The CLI communicates with the Docker host using an API.</li>
+<li>One CLI client can also manage multiple hosts, not just the local one.</li>
+</ul>
+<h2 id="docker-host--daemon-dockerd">Docker Host &amp; Daemon (<code>dockerd</code>)</h2>
+<ul>
+<li>The host machine runs the Docker daemon (<code>dockerd</code>).</li>
+<li>Responsibilities of dockerd:
+<ul>
+<li>Stores images locally.</li>
+<li>Creates and manages containers.</li>
+<li>Provides resources such as networking and volumes.</li>
+<li>Offers an API for interacting with containers and images.</li>
+<li>Maintains metadata (container state, logs, configs).</li>
+<li>Handles communication in Docker Swarm mode.</li>
+</ul>
+</li>
+<li>Think of <code>dockerd</code> (daemon) as the engine that powers all Docker operations.</li>
+</ul>
+<h2 id="overlayfs">OverlayFS</h2>
+<ul>
+<li><strong>OverlayFS</strong> is the modern storage driver Docker uses on Linux (default since v1.9.0).</li>
+<li>It replaced the older AUFS driver with a faster, more flexible approach.</li>
+<li>Works by layering directories:
+<ul>
+<li>Lower directory: base files (e.g., the image layers).</li>
+<li>Upper directory: changes made by the container (new or modified files).</li>
+</ul>
+</li>
+<li>File lookup process:
+<ul>
+<li>If a file exists in the upper layer, it&rsquo;s used.</li>
+<li>Otherwise, Docker falls back to the lower layer.</li>
+</ul>
+</li>
+<li>This model allows:
+<ul>
+<li>Containers to run on top of base images without modifying them.</li>
+<li>Efficient use of storage (only differences are stored).</li>
+<li>Fast image distribution and reuse in Kubernetes, OpenShift, etc.</li>
+</ul>
+</li>
+</ul>
+<h2 id="what-is-an-image">What is an image?</h2>
+<ul>
+<li>A <strong>Docker image</strong> is a packaged filesystem + configuration that contains everything needed to run an application:
+<ul>
+<li>App code or binaries.</li>
+<li>Required libraries and runtimes.</li>
+<li>System tools and minimal OS dependencies.</li>
+<li>Configurations (ports, environment defaults, entrypoint).</li>
+</ul>
+</li>
+<li>Characteristics:
+<ul>
+<li>Immutable: once built, it doesn&rsquo;t change.</li>
+<li>Reusable: can spawn multiple containers.</li>
+<li>Identified by a unique hash (SHA-256) and often tagged with human-readable labels.</li>
+</ul>
+</li>
+<li>Built using a Dockerfile, which specifies:
+<ul>
+<li>Base image.</li>
+<li>Packages to install.</li>
+<li>Files to copy.</li>
+<li>Commands to run.</li>
+</ul>
+</li>
+<li>Workflow:
+<ul>
+<li>docker build: reads instructions and creates image layers.</li>
+<li>docker run: starts a container from the image with a chosen process.</li>
+<li>If the primary process ends, the container stops.</li>
+</ul>
+</li>
+</ul>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker pull ubuntu
+</span></span><span class="line"><span class="cl">docker inspect ubuntu</span></span></code></pre></div></div>
+<h2 id="what-is-a-container-runtime">What is a container runtime?</h2>
+<ul>
+<li>The <strong>container runtime (engine)</strong> is what actually runs containers on a system.</li>
+<li>Tasks:
+<ul>
+<li>Load images from a registry.</li>
+<li>Allocate resources (CPU, RAM, storage).</li>
+<li>Start, monitor, and stop containers.</li>
+</ul>
+</li>
+<li>Popular runtimes:
+<ul>
+<li>containerd: high-performance, widely used (default for Kubernetes).</li>
+<li>LXC: older, very lightweight, but less user-friendly.</li>
+<li>CRI-O: Kubernetes-native runtime, fully OCI-compliant.</li>
+</ul>
+</li>
+</ul>
+<h2 id="cgroups">cgroups</h2>
+<ul>
+<li><code>cgroups</code> (control groups) are a Linux kernel feature that lets you manage and isolate system resources for groups of processes.</li>
+<li>With cgroups, an administrator can:
+<ul>
+<li>Allocate CPU, memory, and network bandwidth.</li>
+<li>Monitor resource usage.</li>
+<li>Enforce limits to prevent one workload from starving others.</li>
+</ul>
+</li>
+<li>This makes cgroups ideal for isolating different workloads on a shared system.</li>
+</ul>
+<h3 id="docker-and-cgroups">Docker and cgroups</h3>
+<ul>
+<li>By default, Docker does not restrict CPU or memory usage for containers — a process can consume as much as the host allows.</li>
+<li>However, Docker integrates directly with cgroups, making it easy to apply resource limits without manually configuring kernel settings.</li>
+<li>Limits can be applied at container startup with flags in docker run.</li>
+</ul>
+<p>You can limit the amount of memory a Docker container can use by using the <code>--memory</code> or <code>-m</code> option with the <code>docker run</code> command.</p>
+<p>For example, use the following to run the alpine image with a memory limit of 500 MB:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run --memory 500m alpine /bin/sh</span></span></code></pre></div></div>
+<p>You can specify the memory limit in bytes, kilobytes, megabytes, or gigabytes by using the appropriate suffix (b, k, m, or g).</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-09-13</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/docker-basics/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/programming/">Programming</a>,&nbsp;<a href="/tags/devops/">DevOps</a>,&nbsp;<a href="/tags/tutorial/">Tutorial</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/docker-commands/" class="prev" rel="prev" title="Docker Tutorial Part 2: Basic Commands"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Docker Tutorial Part 2: Basic Commands</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.149.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/algoliasearch/lite/browser.umd.js"></script><script src="/lib/lazysizes/lazysizes.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/contrib/auto-render.min.js"></script><script src="/lib/katex/contrib/copy-tex.min.js"></script><script src="/lib/katex/contrib/mhchem.min.js"></script><script>window.config={"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"A9NUSQZEO5","algoliaIndex":"github","algoliaSearchKey":"e255482bc340762a0da27f50eddd2765","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
+</html>

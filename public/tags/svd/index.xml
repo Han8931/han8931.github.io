@@ -13,9 +13,9 @@
     <atom:link href="http://localhost:1313/tags/svd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gentle Introduction to Singular Value Decomposition</title>
-      <link>http://localhost:1313/2024/08/svd/</link>
+      <link>http://localhost:1313/svd/</link>
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/2024/08/svd/</guid>
+      <guid>http://localhost:1313/svd/</guid>
       <description>&lt;h1 id=&#34;singular-value-decomposition&#34;&gt;Singular Value Decomposition&lt;/h1&gt;&#xA;&lt;p&gt;In linear algebra, the singular value decomposition (SVD) is a factorization of a real or complex matrix. It generalizes the eigendecomposition of a square matrix by extending the concept to asymmetric or rectangular matrices, which cannot be diagonalized directly using eigendecomposition. The SVD aims to find the following decomposition of a real-valued matrix $A$:&#xA;$$A = U\Sigma V^T,$$&#xA;where $U$ and $V$ are orthogonal (orthonormal) matrices, and $\Sigma$ is a diagonal matrix. The columns of $U$ are called the left singular vectors of $A$, the columns of $V$ are called the right singular vectors, and the diagonal elements of $\Sigma$ are called the singular values.&lt;/p&gt;</description>
     </item>
   </channel>

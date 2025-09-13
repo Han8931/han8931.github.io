@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DevOps on Han&#39;s XYZ</title>
+    <link>http://localhost:1313/tags/devops/</link>
+    <description>Recent content in DevOps on Han&#39;s XYZ</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sat, 13 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Tutorial Part 1: Basics</title>
+      <link>http://localhost:1313/docker-basics/</link>
+      <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/docker-basics/</guid>
+      <description>&lt;h2 id=&#34;virtualization&#34;&gt;Virtualization&lt;/h2&gt;&#xA;&lt;p&gt;&lt;em&gt;Virtualization is a technique of running a complete simulated computer within another computer.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Complete&lt;/strong&gt;: It mimics everything a physical computer would have: CPU, memory, motherboard, BIOS, disks, USB ports, and so on.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Simulated&lt;/strong&gt;: The machine exists entirely in software. It doesn&amp;rsquo;t physically exist, which is why it&amp;rsquo;s called virtual.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The simulated computer is called a &lt;strong&gt;virtual machine (VM)&lt;/strong&gt;, and it needs a real, physical computer to run on. This real machine is known as the &lt;strong&gt;host&lt;/strong&gt;, while the software that manages VMs is the &lt;strong&gt;hypervisor&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Docker Tutorial Part 2: Basic Commands</title>
+      <link>http://localhost:1313/docker-commands/</link>
+      <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/docker-commands/</guid>
+      <description>&lt;h2 id=&#34;common-commands&#34;&gt;Common Commands&lt;/h2&gt;&#xA;&lt;p&gt;This is a no-frills cheat sheet for the Docker commands you&amp;rsquo;ll reach for most of the time, with tiny runnable examples you can copy/paste.&lt;/p&gt;&#xA;&lt;p&gt;The most common commands you can use are the following:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;build&lt;/code&gt;: This allows you to build a new Docker image using a Dockerfile&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;run&lt;/code&gt;: This starts a new container&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;start&lt;/code&gt;: This restarts one or more stopped containers&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;stop&lt;/code&gt;: This will stop one or more running containers&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;login&lt;/code&gt;: This is used to gain access to private registries&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;pull&lt;/code&gt;: This downloads an image or a repository from a registry&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;push&lt;/code&gt;: This uploads an image or a repository to a registry&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;images&lt;/code&gt;: This lists all images on your machine&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;ps&lt;/code&gt;: This lists all running containers&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;exec&lt;/code&gt;: This executes a command in a running container&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;logs&lt;/code&gt;: This shows the logs of a container&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;network&lt;/code&gt;: This is used to manage Docker networks&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;volume&lt;/code&gt;: This is used to manage volumes&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;docker-build&#34;&gt;docker build&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;docker build&lt;/code&gt; turns a Dockerfile + build context into an image.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Docker Tutorial Part 3: Dockerfile</title>
+      <link>http://localhost:1313/docker-dockerfile/</link>
+      <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/docker-dockerfile/</guid>
+      <description>&lt;h2 id=&#34;dockerfile&#34;&gt;Dockerfile&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;code&gt;Dockerfile&lt;/code&gt; is essentially a text file with a predetermined structure that contains a set of instructions for building a Docker image. The instructions in the Dockerfile specify what base image to start with (for example, Ubuntu 20.04), what software to install, and how to configure the image. The purpose of a Dockerfile is to automate the process of building a Docker image so that the image can be easily reproduced and distributed.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Docker Tutorial Part 3: Networks</title>
+      <link>http://localhost:1313/docker-networks/</link>
+      <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/docker-networks/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

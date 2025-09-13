@@ -13,9 +13,9 @@
     <atom:link href="http://localhost:1313/tags/uv/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>All‑in‑One Python Package Manager: UV!</title>
-      <link>http://localhost:1313/2025/04/uv-package-manager/</link>
+      <link>http://localhost:1313/uv-package-manager/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/2025/04/uv-package-manager/</guid>
+      <guid>http://localhost:1313/uv-package-manager/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;📝&lt;strong&gt;Update&lt;/strong&gt; (2025-09-06): I&amp;rsquo;ve added a new section on using &amp;ndash;native-tls with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;meet-uva-blazinglyfast-allinone-python-packagemanager&#34;&gt;Meet &lt;strong&gt;uv&lt;/strong&gt; – A Blazingly Fast, All‑in‑One Python Package Manager&lt;/h2&gt;&#xA;&lt;p&gt;In my last post I dove into &lt;strong&gt;&lt;a href=&#34;https://han8931.github.io/20240707_poetry/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Poetry&lt;/a&gt;&lt;/strong&gt;, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for &lt;strong&gt;pip&lt;/strong&gt; to install packages, &lt;strong&gt;virtualenv&lt;/strong&gt; to isolate them, &lt;strong&gt;pyenv&lt;/strong&gt; to juggle Python versions, and maybe &lt;strong&gt;Pipenv&lt;/strong&gt; or &lt;strong&gt;pip‑tools&lt;/strong&gt; for lock‑files. Each solves its own niche, yet hopping between them adds friction. &lt;strong&gt;uv&lt;/strong&gt; removes that friction. This single, project manager—written in Rust and typically &lt;strong&gt;10-1000x&lt;/strong&gt; faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, and even publishing to PyPI, all behind one concise CLI.&lt;/p&gt;</description>
     </item>
   </channel>

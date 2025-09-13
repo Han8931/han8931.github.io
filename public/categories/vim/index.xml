@@ -13,16 +13,16 @@
     <atom:link href="http://localhost:1313/categories/vim/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git with Vim Fugitive: A Streamlined Workflow</title>
-      <link>http://localhost:1313/2025/04/vim-fugitive/</link>
+      <link>http://localhost:1313/vim-fugitive/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/2025/04/vim-fugitive/</guid>
+      <guid>http://localhost:1313/vim-fugitive/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;re working with Git and Vim, &lt;a href=&#34;https://github.com/tpope/vim-fugitive&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;&lt;strong&gt;vim-fugitive&lt;/strong&gt;&lt;/a&gt; is an essential plugin that transforms your editor into a full-fledged Git interface. Here&amp;rsquo;s how I use Fugitive to review, stage, and commit changes—without ever leaving Vim.&lt;/p&gt;&#xA;&lt;h2 id=&#34;browsing-git-history-and-logs-first&#34;&gt;Browsing Git History and Logs First&lt;/h2&gt;&#xA;&lt;p&gt;Before jumping into edits, it’s often useful to understand the file’s history or recent project changes.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;:Git log&lt;/code&gt; — shows the project’s commit history in reverse chronological order&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;:0Gllog&lt;/code&gt; — shows the history of the current file&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;To explore who changed what in a file:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Vim, Type at the Speed of Thought!</title>
-      <link>http://localhost:1313/2024/05/vim/</link>
+      <link>http://localhost:1313/vim/</link>
       <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/2024/05/vim/</guid>
+      <guid>http://localhost:1313/vim/</guid>
       <description>&lt;p&gt;While it may look somewhat obsolete in an era dominated by graphically rich IDEs, Vim remains not just a highly relevant and effective tool for today&amp;rsquo;s programmers but also a badge of coolness in the tech world. Those who master its commands are often seen as &lt;strong&gt;coding wizards&lt;/strong&gt;. With its unique advantages in speed, efficiency, and customizability, Vim is an invaluable asset in software development environments, proving that old-school can still be trendy.&lt;/p&gt;</description>
     </item>
   </channel>

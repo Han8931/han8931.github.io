@@ -6,7 +6,7 @@ draft: false
 author: Han
 description: A tutorial for Pydantic-AI
 tags: ["Python", "Pydantic", "Pydantic-AI", "Agent", "AI"]
-categories: ["Python", "Pydantic AI", "AI"]
+categories: ["Python", "Pydantic AI", "AI", "Pydantic"]
 ---
 
 ## Introduction

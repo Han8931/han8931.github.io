@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Network on Han&#39;s XYZ</title>
+    <link>http://localhost:1313/tags/network/</link>
+    <description>Recent content in Network on Han&#39;s XYZ</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sat, 13 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/network/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Tutorial Part 3: Networks</title>
+      <link>http://localhost:1313/docker-networks/</link>
+      <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/docker-networks/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
