@@ -12,14 +12,17 @@
     <pubDate>Sat, 13 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/docker-basics/</guid>
-    <description><![CDATA[<h1 id="introduction">Introduction</h1>
-<h2 id="virtualization">Virtualization</h2>
-<p><em>Virtualization is a technique of running a complete simulated computer within another computer.</em></p>
-<ul>
-<li><strong>Complete</strong>: It mimics everything a physical computer would have: CPU, memory, motherboard, BIOS, disks, USB ports, and so on.</li>
-<li><strong>Simulated</strong>: The machine exists entirely in software. It doesn&rsquo;t physically exist, which is why it&rsquo;s called virtual.</li>
-</ul>
-<p>The simulated computer is called a <strong>virtual machine (VM)</strong>, and it needs a real, physical computer to run on. This real machine is known as the <strong>host</strong>, while the software that manages VMs is the <strong>hypervisor</strong>.</p>]]></description>
+    <description><![CDATA[<h1 id="docker-fundamentals-part-1">Docker Fundamentals (Part 1)</h1>
+<p>Software systems frequently exhibit environment-dependent behavior: dependency versions drift, filesystem paths diverge, and minor operating-system differences produce major failures. <strong>Containerization</strong> addresses this by packaging an application together with its runtime dependencies so that a single artifact executes consistently across development laptops, continuous-integration pipelines, and production clusters. Formally: same package $\rightarrow$ same behavior across environments.</p>
+<h3 id="a-minimal-example">A Minimal Example:</h3>
+<p>To build intuition, consider the following command:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run hello-world</span></span></code></pre></div></div>
+<p>At high level, <code>docker run</code> performs the following steps:</p>]]></description>
 </item>
 <item>
     <title>Docker Tutorial Part 2: Basic Commands</title>
@@ -63,7 +66,15 @@
     <pubDate>Sat, 13 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/docker-networks/</guid>
-    <description><![CDATA[<h1 id="intro">Intro</h1>]]></description>
+    <description><![CDATA[<h1 id="docker-networking">Docker Networking</h1>
+<p>Docker offers four built-in network drivers: <strong>none, bridge, host,</strong> and <strong>overlay.</strong></p>
+<ul>
+<li><strong>Bridge (default)</strong>: Creates an isolated, software-defined network. Containers on the same bridge get private IPs and can communicate with each other, while anything outside can&rsquo;t reach them unless you explicitly publish ports.</li>
+<li><strong>Host</strong>: Removes the isolation layer and uses the host&rsquo;s network stack directly. The container shares the host&rsquo;s IP address and network interfaces.</li>
+<li><strong>Overlay</strong>: Builds a virtual network that spans multiple Docker hosts, so containers on different machines can talk as if they&rsquo;re on the same one—handy for Docker Swarm.</li>
+<li><strong>None</strong>: Disables networking (other than loopback) for the container.</li>
+</ul>
+<p>You can create and manage custom networks of any of these types with the Docker CLI.</p>]]></description>
 </item>
 <item>
     <title>NL2SQL Part 1.</title>

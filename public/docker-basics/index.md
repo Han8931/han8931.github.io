@@ -1,55 +1,66 @@
 # Docker Tutorial Part 1: Basics
 
 
-# Introduction
+# Docker Fundamentals (Part 1)
 
-## Virtualization
+Software systems frequently exhibit environment-dependent behavior: dependency versions drift, filesystem paths diverge, and minor operating-system differences produce major failures. **Containerization** addresses this by packaging an application together with its runtime dependencies so that a single artifact executes consistently across development laptops, continuous-integration pipelines, and production clusters. Formally: same package $\rightarrow$ same behavior across environments.
 
-*Virtualization is a technique of running a complete simulated computer within another computer.* 
+
+### A Minimal Example:
+
+To build intuition, consider the following command:
+```sh
+docker run hello-world
+```
+At high level, `docker run` performs the following steps:
+- **Pull the image**: If the specified image is not available locally, Docker pulls it from the configured container registry (e.g., Docker Hub).
+- **Create a container**: Docker creates a new container from the specified image.
+- **Allocate resources**: Docker allocates necessary resources for the container (e.g., network, storage).
+- **Start the container**: Docker starts the container, running the specified command within it.
+- **Attach the container**: If specified, Docker attaches your terminal to the container's input, output, and error streams.
+
+> **Key terms**: *Docker images are the blueprints, then containers are the actual buildings*
+
+## Virtualization (the classic approach)
+
+Before diving into Docker, let's first contrast it with the traditional isolation model: **virtual machines (VMs)**. *Virtualization is a technique of running a complete simulated computer within another computer.* The simulated computer—called a **virtual machine (VM)**—emulates the components of a physical system: CPU, memory, motherboard/firmware, disks, and peripheral buses. A **hypervisor** (the software) manages one or more VMs on a **host** (the real machine).
 - **Complete**: It mimics everything a physical computer would have: CPU, memory, motherboard, BIOS, disks, USB ports, and so on.
 - **Simulated**: The machine exists entirely in software. It doesn't physically exist, which is why it's called virtual.
 
-The simulated computer is called a **virtual machine (VM)**, and it needs a real, physical computer to run on. This real machine is known as the **host**, while the software that manages VMs is the **hypervisor**.
+Virtualization is a great fit when you need:
+- A full operating system distinct from the host (e.g., Windows on a Linux workstation);
+- Strong isolation for testing in a controlled environment;
+- Execution of applications unavailable on the host OS; or
+- Faithful reproduction of production-like environments for development and debugging.
 
-So, I have a physical computer. It is powerful. Why would I want to run a VM in it? Because VMs unlock powerful use cases:
-- Running a full operating system that's different from your host (e.g., Windows VM on Linux).
-- Testing software in a controlled, isolated environment.
-- Running applications that are not available on your host OS.
-- Recreating a production-like environment locally for development and debugging.
+## Containerization (the modern approach)
 
-## Containerization
+A **Docker container** is like a shipping container for software—a self-contained "*box*" that carries an application and just what it needs to run. From inside, the app feels as if it has a whole computer to itself: its own hostname/IP, its own filesystem "*drive*", and its own process space.
 
-### Containers
-- Containers are lightweight, isolated environments designed to run a single process.
-- Each container includes only the libraries and dependencies necessary for the application to function.
-- The host operating system handles hardware access, memory, and peripheral management.
-- Unlike virtual machines, containers don't pretend to be full operating systems. Processes inside can detect they are running in a container.
-- Limitation: containers cannot emulate hardware (e.g., you can't test a new device driver).
-- Advantage: containers can be extremely small (just a few MB) and consume only the memory needed by the running process.
+Those are virtual resources that Docker creates and manages. Processes inside the box can't see beyond it, while the box runs on a real machine that can host many boxes at once. Each container has its own isolated environment, yet all containers share the host's CPU, memory, and kernel (on macOS/Windows, Docker supplies a lightweight Linux VM).
 
-### Fast Startup & Portability
+A **container** isolates an application and its immediate runtime; it does not simulate a complete computer. Processes execute on the host kernel with restricted views of the filesystem, process table, and network, and the image includes only the user-space libraries the application requires.
 
-- A container launches as quickly as the application itself, since it skips BIOS checks, hardware initialization, and OS booting.
-- Container images remain compact by excluding unnecessary software.
-- Small images bring multiple benefits:
-    - Rapid download and distribution.
-    - Near-instant startup times.
-    - Faster build and deployment cycles.
-- As a result:
-    - Development and test environments are easy to reproduce.
-    - New versions of software can be deployed frequently (even thousands of times per day).
-    - Applications can be scaled up or down quickly.
+**Key properties:**
+- **Lightweight, single-process by design:** Containers start fast (no firmware checks or OS boot) and images stay compact by excluding extras.
+- **Minimal dependencies:** Each container bundles only the libraries it needs; treat containers as disposable—rebuild and redeploy instead of patching in place.
+- **Host-managed hardware:** The host OS handles CPU, memory, devices, and peripherals.
+- **Not a full OS:** Containers don't pretend to be virtual machines; processes can detect they're containerized.
 
-### Deployment Model
+**Limitations**
 
-- Containers are treated as disposable units rather than long-lived systems.
-- Instead of patching or upgrading software inside a container, you simply build a new image and redeploy it.
-- This design assumes that:
-    - Application data is not stored inside containers.
-    - Persistent data should be managed through volumes or external storage attached at runtime.
+- No hardware emulation (e.g., you can't test a device driver).
+- Container filesystems are ephemeral; persistent data should live in **volumes** or external storage attached at runtime.
+
+**Benefits**
+
+- Extremely small footprint (often just a few MB) and only the memory the process needs.
+- Reproducible environments, frequent safe releases, and rapid horizontal scaling.
 
 ### Docker and its Ecosystem
-- Docker is the most popular container platform, largely because of the ecosystem it created.
+Docker Hub is a cloud-based registry where you can find and share Docker images_. It contains a vast collection of images, ranging from official base images like Ubuntu and Node.js to custom images created by the community.
+
+Docker is the most popular container platform, largely because of the ecosystem it created.
 - A Docker image is essentially:
     - A compact archive with all binaries, libraries, and minimal configuration needed to run an application.
     - Stateless and easily shareable.
@@ -58,29 +69,29 @@ So, I have a physical computer. It is powerful. Why would I want to run a VM in 
     - Command-line and web tools for uploading, searching, rating, and giving feedback.
 - This ecosystem made it easy to share and reuse container images, accelerating container adoption across the industry.
  
-
 # Anatomy of Docker
 
-Docker is made up of several core components:
+Docker is a packaging and runtime system for applications. Docker is made up of several core components:
 - Command-line utility (docker)
 - Host machine
 - Objects (images, containers, volumes, networks)
 - Registries (where images are stored and shared)
 
+Let's take a look one by one
+
 ## Docker The Docker CLI tool – `docker`
 
-- The `docker` command is the primary way to manage containers and images.
-- With it, you can:
-    - Build images.
-    - Pull images from registries.
-    - Push images to registries.
-    - Run and manage containers.
-    - Set runtime options.
-    - Remove containers and images.
-- The CLI communicates with the Docker host using an API.
-- One CLI client can also manage multiple hosts, not just the local one.
-
+The Docker CLI is your front door to the platform. The CLI communicates with the Docker host through an API exposed by the daemon (`dockerd`) to manage containers and images. The `docker` command is the primary way to manage containers and images. With `docker`, you can
+- Build images.
+- Pull images from registries.
+- Push images to registries.
+- Run and manage containers.
+- Set runtime options.
+- Remove containers and images.
+- 
 ## Docker Host & Daemon (`dockerd`)
+
+`dockerd` is the long-running engine that does the real work: it stores images, creates and supervises containers, wires up networks and volumes, and serves the Docker API. Internally it leans on standards-based runtimes (`containerd/runc`) to execute containers reliably.
 
 - The host machine runs the Docker daemon (`dockerd`).
 - Responsibilities of dockerd:
@@ -92,73 +103,36 @@ Docker is made up of several core components:
     - Handles communication in Docker Swarm mode.
 - Think of `dockerd` (daemon) as the engine that powers all Docker operations.
 
-## OverlayFS
-
-- **OverlayFS** is the modern storage driver Docker uses on Linux (default since v1.9.0).
-- It replaced the older AUFS driver with a faster, more flexible approach.
-- Works by layering directories:
-    - Lower directory: base files (e.g., the image layers).
-    - Upper directory: changes made by the container (new or modified files).
-- File lookup process:
-    - If a file exists in the upper layer, it's used.
-    - Otherwise, Docker falls back to the lower layer.
-- This model allows:
-    - Containers to run on top of base images without modifying them.
-    - Efficient use of storage (only differences are stored).
-    - Fast image distribution and reuse in Kubernetes, OpenShift, etc.
-
-
 ## What is an image?
 
-- A **Docker image** is a packaged filesystem + configuration that contains everything needed to run an application:
-    - App code or binaries.
-    - Required libraries and runtimes.
-    - System tools and minimal OS dependencies.
-    - Configurations (ports, environment defaults, entrypoint).
-- Characteristics:
-    - Immutable: once built, it doesn't change.
-    - Reusable: can spawn multiple containers.
-    - Identified by a unique hash (SHA-256) and often tagged with human-readable labels.
-- Built using a Dockerfile, which specifies:
+An image is an immutable, layered snapshot of an app's user-space: binaries, libs, and config, plus metadata like entrypoint and exposed ports (everything needed to run an application). Built from a Dockerfile and identified by a content hash and tags, one image can spawn many identical containers.
+
+Characteristics:
+- Immutable: once built, it doesn't change.
+- Reusable: can spawn multiple containers.
+- Identified by a unique hash (SHA-256) and often tagged with human-readable labels.
+Built using a Dockerfile, which specifies:
     - Base image.
     - Packages to install.
     - Files to copy.
     - Commands to run.
-- Workflow:
-    - docker build: reads instructions and creates image layers.
-    - docker run: starts a container from the image with a chosen process.
-    - If the primary process ends, the container stops.
-```sh
-docker pull ubuntu
-docker inspect ubuntu
-```
+Workflow:
+- `docker build`: reads instructions and creates image layers.
+- `docker run`: starts a container from the image with a chosen process.
+- If the primary process ends, the container stops.
 
-## What is a container runtime?
-
-- The **container runtime (engine)** is what actually runs containers on a system.
-- Tasks:
-    - Load images from a registry.
-    - Allocate resources (CPU, RAM, storage).
-    - Start, monitor, and stop containers.
-- Popular runtimes:
-    - containerd: high-performance, widely used (default for Kubernetes).
-    - LXC: older, very lightweight, but less user-friendly.
-    - CRI-O: Kubernetes-native runtime, fully OCI-compliant.
 
 ## cgroups
 
-- `cgroups` (control groups) are a Linux kernel feature that lets you manage and isolate system resources for groups of processes.
-- With cgroups, an administrator can:
-    - Allocate CPU, memory, and network bandwidth.
-    - Monitor resource usage.
-    - Enforce limits to prevent one workload from starving others.
-- This makes cgroups ideal for isolating different workloads on a shared system.
+`cgroups` (control groups) are a Linux kernel feature that lets you manage and isolate system resources for groups of processes. With cgroups, an administrator can:
+- Allocate CPU, memory, and network bandwidth.
+- Monitor resource usage.
+- Enforce limits to prevent one workload from starving others.
+This makes `cgroups` ideal for isolating different workloads on a shared system.
 
 ### Docker and cgroups
 
-- By default, Docker does not restrict CPU or memory usage for containers — a process can consume as much as the host allows.
-- However, Docker integrates directly with cgroups, making it easy to apply resource limits without manually configuring kernel settings.
-- Limits can be applied at container startup with flags in docker run.
+By default, Docker does not restrict CPU or memory usage for containers — a process can consume as much as the host allows. However, Docker integrates directly with cgroups, making it easy to apply resource limits without manually configuring kernel settings. Limits can be applied at container startup with flags in docker run.
 
 You can limit the amount of memory a Docker container can use by using the `--memory` or `-m` option with the `docker run` command.
 

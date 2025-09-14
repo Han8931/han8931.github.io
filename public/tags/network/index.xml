@@ -9,14 +9,14 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 13 Sep 2025 16:58:39 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 13 Sep 2025 17:05:19 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/network/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker Tutorial Part 4: Networks</title>
       <link>http://localhost:1313/docker-networks/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/docker-networks/</guid>
-      <description>&lt;h1 id=&#34;intro&#34;&gt;Intro&lt;/h1&gt;</description>
+      <description>&lt;h1 id=&#34;docker-networking&#34;&gt;Docker Networking&lt;/h1&gt;&#xA;&lt;p&gt;Docker offers four built-in network drivers: &lt;strong&gt;none, bridge, host,&lt;/strong&gt; and &lt;strong&gt;overlay.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Bridge (default)&lt;/strong&gt;: Creates an isolated, software-defined network. Containers on the same bridge get private IPs and can communicate with each other, while anything outside can&amp;rsquo;t reach them unless you explicitly publish ports.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Host&lt;/strong&gt;: Removes the isolation layer and uses the host&amp;rsquo;s network stack directly. The container shares the host&amp;rsquo;s IP address and network interfaces.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Overlay&lt;/strong&gt;: Builds a virtual network that spans multiple Docker hosts, so containers on different machines can talk as if they&amp;rsquo;re on the same one—handy for Docker Swarm.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;None&lt;/strong&gt;: Disables networking (other than loopback) for the container.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;You can create and manage custom networks of any of these types with the Docker CLI.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
