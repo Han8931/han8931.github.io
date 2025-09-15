@@ -1,6 +1,13 @@
 # Docker Tutorial Part 3: Dockerfile
 
 
+This is part of my **Docker Basics** series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.
+
+* **Part 1: [Understanding Container](https://han8931.github.io/docker-basics/)**
+* **Part 2: [Basic Commands](https://han8931.github.io/docker-commands/)** 
+* **Part 3: [Dockerfile](https://han8931.github.io/docker-dockerfile/)**
+* **Part 4: [Networks](https://han8931.github.io/docker-networks/)**
+
 ## Dockerfile
 
 A `Dockerfile` is essentially a text file with a predetermined structure that contains a set of instructions for building a Docker image. The instructions in the Dockerfile specify what base image to start with (for example, Ubuntu 20.04), what software to install, and how to configure the image. The purpose of a Dockerfile is to automate the process of building a Docker image so that the image can be easily reproduced and distributed.

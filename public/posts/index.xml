@@ -28,26 +28,14 @@
     <pubDate>Sat, 13 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>http://localhost:1313/docker-commands/</guid>
-    <description><![CDATA[<h2 id="common-commands">Common Commands</h2>
-<p>This is a no-frills cheat sheet for the Docker commands you&rsquo;ll reach for most of the time, with tiny runnable examples you can copy/paste.</p>
-<p>The most common commands you can use are the following:</p>
+    <description><![CDATA[<p>This is part of my <strong>Docker Basics</strong> series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.</p>
 <ul>
-<li><code>build</code>: This allows you to build a new Docker image using a Dockerfile</li>
-<li><code>run</code>: This starts a new container</li>
-<li><code>start</code>: This restarts one or more stopped containers</li>
-<li><code>stop</code>: This will stop one or more running containers</li>
-<li><code>login</code>: This is used to gain access to private registries</li>
-<li><code>pull</code>: This downloads an image or a repository from a registry</li>
-<li><code>push</code>: This uploads an image or a repository to a registry</li>
-<li><code>images</code>: This lists all images on your machine</li>
-<li><code>ps</code>: This lists all running containers</li>
-<li><code>exec</code>: This executes a command in a running container</li>
-<li><code>logs</code>: This shows the logs of a container</li>
-<li><code>network</code>: This is used to manage Docker networks</li>
-<li><code>volume</code>: This is used to manage volumes</li>
+<li><strong>Part 1: <a href="https://han8931.github.io/docker-basics/" target="_blank" rel="noopener noreffer ">Understanding Container</a></strong></li>
+<li><strong>Part 2: [Basic Commands]</strong></li>
+<li><strong>Part 3: [Title of Part 3]</strong></li>
+<li><strong>Part 4: [Title of the latest Part]</strong></li>
 </ul>
-<h2 id="docker-build">docker build</h2>
-<p><code>docker build</code> turns a Dockerfile + build context into an image.</p>]]></description>
+<p>If you want, I can draft a full version listing all the parts you have so far, along with mini-summaries for each. Do you want me to build that out?</p>]]></description>
 </item>
 <item>
     <title>Docker Tutorial Part 3: Dockerfile</title>

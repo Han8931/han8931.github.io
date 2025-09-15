@@ -9,6 +9,13 @@ tags: ["Docker", "Containers", "Programming", "DevOps", "Tutorial"]
 categories: ["Docker", "DevOps", "Programming"]
 ---
 
+This is part of my **Docker Basics** series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.
+
+* **Part 1: [Understanding Container](https://han8931.github.io/docker-basics/)**
+* **Part 2: [Basic Commands](https://han8931.github.io/docker-commands/)** 
+* **Part 3: [Dockerfile](https://han8931.github.io/docker-dockerfile/)**
+* **Part 4: [Networks](https://han8931.github.io/docker-networks/)**
+
 ## Common Commands
 This is a no-frills cheat sheet for the Docker commands you'll reach for most of the time, with tiny runnable examples you can copy/paste.
 
@@ -82,7 +89,7 @@ docker exec -it mynginx bash  # Run a shell inside the container # Run a shell i
 ```
 
 <p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/content/post/images/container_network.png" alt="Container Example" height="400">
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/content/posts/docker/images/container_network.png" alt="Container Example" height="400">
 </p> 
 
 

@@ -104,52 +104,53 @@
         title="https://www.gravatar.com/avatar/485df9434f4908b5f6fab0750c113972?s=240&amp;d=mp" /></a></div><h1 class="home-title">Han</h1><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"><a href="https://github.com/Han8931" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github fa-fw" aria-hidden="true"></i></a><a href="mailto:tabularasa8931@gmail.com" title="Email" rel="me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/docker-basics/">Docker Tutorial Part 1: Basics</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-09-13">2025-09-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a>&nbsp;<a href="/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><h1 id="docker-fundamentals-part-1">Docker Fundamentals (Part 1)</h1>
-<p>Software systems frequently exhibit environment-dependent behavior: dependency versions drift, filesystem paths diverge, and minor operating-system differences produce major failures. <strong>Containerization</strong> addresses this by packaging an application together with its runtime dependencies so that a single artifact executes consistently across development laptops, continuous-integration pipelines, and production clusters. Formally: same package $\rightarrow$ same behavior across environments.</p>
-<h3 id="a-minimal-example">A Minimal Example:</h3>
-<p>To build intuition, consider the following command:</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-sh">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run hello-world</span></span></code></pre></div></div>
-<p>At high level, <code>docker run</code> performs the following steps:</p></div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-09-13">2025-09-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a>&nbsp;<a href="/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><p>This is part of my <strong>Docker Basics</strong> series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.</p>
+<ul>
+<li><strong>Part 1: <a href="https://han8931.github.io/docker-basics/" target="_blank" rel="noopener noreffer ">Understanding Container</a></strong></li>
+<li><strong>Part 2: <a href="https://han8931.github.io/docker-commands/" target="_blank" rel="noopener noreffer ">Basic Commands</a></strong></li>
+<li><strong>Part 3: <a href="https://han8931.github.io/docker-dockerfile/" target="_blank" rel="noopener noreffer ">Dockerfile</a></strong></li>
+<li><strong>Part 4: <a href="https://han8931.github.io/docker-networks/" target="_blank" rel="noopener noreffer ">Networks</a></strong></li>
+</ul>
+<h1 id="docker-fundamentals-part-1">Docker Fundamentals (Part 1)</h1>
+<p>Software systems frequently exhibit environment-dependent behavior: dependency versions drift, filesystem paths diverge, and minor operating-system differences produce major failures. <strong>Containerization</strong> addresses this by packaging an application together with its runtime dependencies so that a single artifact executes consistently across development laptops, continuous-integration pipelines, and production clusters. Formally: same package $\rightarrow$ same behavior across environments.</p></div><div class="post-footer">
         <a href="/docker-basics/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/programming/">Programming</a>,&nbsp;<a href="/tags/devops/">DevOps</a>,&nbsp;<a href="/tags/tutorial/">Tutorial</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/docker-commands/">Docker Tutorial Part 2: Basic Commands</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-09-13">2025-09-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a>&nbsp;<a href="/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><h2 id="common-commands">Common Commands</h2>
-<p>This is a no-frills cheat sheet for the Docker commands you&rsquo;ll reach for most of the time, with tiny runnable examples you can copy/paste.</p>
-<p>The most common commands you can use are the following:</p>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-09-13">2025-09-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a>&nbsp;<a href="/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><p>This is part of my <strong>Docker Basics</strong> series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.</p>
 <ul>
-<li><code>build</code>: This allows you to build a new Docker image using a Dockerfile</li>
-<li><code>run</code>: This starts a new container</li>
-<li><code>start</code>: This restarts one or more stopped containers</li>
-<li><code>stop</code>: This will stop one or more running containers</li>
-<li><code>login</code>: This is used to gain access to private registries</li>
-<li><code>pull</code>: This downloads an image or a repository from a registry</li>
-<li><code>push</code>: This uploads an image or a repository to a registry</li>
-<li><code>images</code>: This lists all images on your machine</li>
-<li><code>ps</code>: This lists all running containers</li>
-<li><code>exec</code>: This executes a command in a running container</li>
-<li><code>logs</code>: This shows the logs of a container</li>
-<li><code>network</code>: This is used to manage Docker networks</li>
-<li><code>volume</code>: This is used to manage volumes</li>
+<li><strong>Part 1: <a href="https://han8931.github.io/docker-basics/" target="_blank" rel="noopener noreffer ">Understanding Container</a></strong></li>
+<li><strong>Part 2: <a href="https://han8931.github.io/docker-commands/" target="_blank" rel="noopener noreffer ">Basic Commands</a></strong></li>
+<li><strong>Part 3: <a href="https://han8931.github.io/docker-dockerfile/" target="_blank" rel="noopener noreffer ">Dockerfile</a></strong></li>
+<li><strong>Part 4: <a href="https://han8931.github.io/docker-networks/" target="_blank" rel="noopener noreffer ">Networks</a></strong></li>
 </ul>
-<h2 id="docker-build">docker build</h2>
-<p><code>docker build</code> turns a Dockerfile + build context into an image.</p></div><div class="post-footer">
+<h2 id="common-commands">Common Commands</h2>
+<p>This is a no-frills cheat sheet for the Docker commands you&rsquo;ll reach for most of the time, with tiny runnable examples you can copy/paste.</p></div><div class="post-footer">
         <a href="/docker-commands/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/containers/">Containers</a>,&nbsp;<a href="/tags/programming/">Programming</a>,&nbsp;<a href="/tags/devops/">DevOps</a>,&nbsp;<a href="/tags/tutorial/">Tutorial</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/docker-dockerfile/">Docker Tutorial Part 3: Dockerfile</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-09-13">2025-09-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a>&nbsp;<a href="/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><h2 id="dockerfile">Dockerfile</h2>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-09-13">2025-09-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a>&nbsp;<a href="/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><p>This is part of my <strong>Docker Basics</strong> series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.</p>
+<ul>
+<li><strong>Part 1: <a href="https://han8931.github.io/docker-basics/" target="_blank" rel="noopener noreffer ">Understanding Container</a></strong></li>
+<li><strong>Part 2: <a href="https://han8931.github.io/docker-commands/" target="_blank" rel="noopener noreffer ">Basic Commands</a></strong></li>
+<li><strong>Part 3: <a href="https://han8931.github.io/docker-dockerfile/" target="_blank" rel="noopener noreffer ">Dockerfile</a></strong></li>
+<li><strong>Part 4: <a href="https://han8931.github.io/docker-networks/" target="_blank" rel="noopener noreffer ">Networks</a></strong></li>
+</ul>
+<h2 id="dockerfile">Dockerfile</h2>
 <p>A <code>Dockerfile</code> is essentially a text file with a predetermined structure that contains a set of instructions for building a Docker image. The instructions in the Dockerfile specify what base image to start with (for example, Ubuntu 20.04), what software to install, and how to configure the image. The purpose of a Dockerfile is to automate the process of building a Docker image so that the image can be easily reproduced and distributed.</p></div><div class="post-footer">
         <a href="/docker-dockerfile/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/dockerfile/">Dockerfile</a>,&nbsp;<a href="/tags/programming/">Programming</a>,&nbsp;<a href="/tags/devops/">DevOps</a>,&nbsp;<a href="/tags/tutorial/">Tutorial</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/docker-networks/">Docker Tutorial Part 4: Networks</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-09-13">2025-09-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a>&nbsp;<a href="/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><h1 id="docker-networking">Docker Networking</h1>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-09-13">2025-09-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a>&nbsp;<a href="/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><p>This is part of my <strong>Docker Basics</strong> series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.</p>
+<ul>
+<li><strong>Part 1: <a href="https://han8931.github.io/docker-basics/" target="_blank" rel="noopener noreffer ">Understanding Container</a></strong></li>
+<li><strong>Part 2: <a href="https://han8931.github.io/docker-commands/" target="_blank" rel="noopener noreffer ">Basic Commands</a></strong></li>
+<li><strong>Part 3: <a href="https://han8931.github.io/docker-dockerfile/" target="_blank" rel="noopener noreffer ">Dockerfile</a></strong></li>
+<li><strong>Part 4: <a href="https://han8931.github.io/docker-networks/" target="_blank" rel="noopener noreffer ">Networks</a></strong></li>
+</ul>
+<h1 id="docker-networking">Docker Networking</h1>
 <p>Docker offers four built-in network drivers: <strong>none, bridge, host,</strong> and <strong>overlay.</strong></p>
 <ul>
 <li><strong>Bridge (default)</strong>: Creates an isolated, software-defined network. Containers on the same bridge get private IPs and can communicate with each other, while anything outside can&rsquo;t reach them unless you explicitly publish ports.</li>
