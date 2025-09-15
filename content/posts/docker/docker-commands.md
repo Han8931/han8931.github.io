@@ -81,6 +81,11 @@ docker start mynginx  # start it again
 docker exec -it mynginx bash  # Run a shell inside the container # Run a shell inside the container
 ```
 
+<p style="text-align:center;"> 
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/content/post/images/container_network.png" alt="Container Example" height="400">
+</p> 
+
+
 ### environment variables
 You can also pass environment variables to the container:
 ```sh
@@ -289,6 +294,18 @@ docker image tag <image> <new_img_name>
 To remove,
 ```sh
 docker image rm <image>
+```
+
+### Save Docker Image as a File
+
+To save,
+```sh
+docker save -o <file-name>.tar <docker-image>
+```
+
+To load,
+```sh
+docker load -i <file-name>.tar
 ```
 
 ### Dangling images

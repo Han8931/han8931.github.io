@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-09-13T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-09-13T17:05:19+09:00">
+    <meta property="article:modified_time" content="2025-09-13T00:00:00+00:00">
     <meta property="article:tag" content="Docker">
     <meta property="article:tag" content="Containers">
     <meta property="article:tag" content="Programming">
@@ -39,8 +39,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/docker-commands\/"
-        },"genre": "posts","keywords": "Docker, Containers, Programming, DevOps, Tutorial","wordcount":  1697 ,
-        "url": "http:\/\/localhost:1313\/docker-commands\/","datePublished": "2025-09-13T00:00:00+00:00","dateModified": "2025-09-13T17:05:19+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "Docker, Containers, Programming, DevOps, Tutorial","wordcount":  1716 ,
+        "url": "http:\/\/localhost:1313\/docker-commands\/","datePublished": "2025-09-13T00:00:00+00:00","dateModified": "2025-09-13T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -113,8 +113,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker Tutorial Part 2: Basic Commands</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a>&nbsp;<a href="/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-13">2025-09-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1697 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-13">2025-09-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1716 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -144,6 +144,7 @@
     <li><a href="#docker-push">docker push</a></li>
     <li><a href="#docker-image">docker image</a>
       <ul>
+        <li><a href="#save-docker-image-as-a-file">Save Docker Image as a File</a></li>
         <li><a href="#dangling-images">Dangling images</a></li>
       </ul>
     </li>
@@ -246,6 +247,9 @@
 </span></span><span class="line"><span class="cl">docker stop mynginx   <span class="c1"># stop it</span>
 </span></span><span class="line"><span class="cl">docker start mynginx  <span class="c1"># start it again</span>
 </span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> -it mynginx bash  <span class="c1"># Run a shell inside the container # Run a shell inside the container</span></span></span></code></pre></div></div>
+<p style="text-align:center;"> 
+<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/content/post/images/container_network.png" alt="Container Example" height="400">
+</p> 
 <h3 id="environment-variables">environment variables</h3>
 <p>You can also pass environment variables to the container:</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
@@ -547,6 +551,21 @@ Anything written to <code>/app/data</code> inside the container appears in <code
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker image rm &lt;image&gt;</span></span></code></pre></div></div>
+<h3 id="save-docker-image-as-a-file">Save Docker Image as a File</h3>
+<p>To save,</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker save -o &lt;file-name&gt;.tar &lt;docker-image&gt;</span></span></code></pre></div></div>
+<p>To load,</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-sh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker load -i &lt;file-name&gt;.tar</span></span></code></pre></div></div>
 <h3 id="dangling-images">Dangling images</h3>
 <p>A dangling image is an image that:</p>
 <ul>
@@ -651,8 +670,7 @@ Anything written to <code>/app/data</code> inside the container appears in <code
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2025-09-13&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/0e20c9294e0f9c5c7602f5e3cd028137fe47df31" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 0e20c9294e0f9c5c7602f5e3cd028137fe47df31: Update and fix some issues">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>0e20c92</a></span>
+                <span>Updated on 2025-09-13</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
