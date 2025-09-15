@@ -9,14 +9,14 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 15 Sep 2025 19:39:28 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 15 Sep 2025 19:46:20 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/containers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker Tutorial Part 2: Basic Commands</title>
       <link>http://localhost:1313/docker-commands/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/docker-commands/</guid>
-      <description>&lt;p&gt;This is part of my &lt;strong&gt;Docker Basics&lt;/strong&gt; series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 1: &lt;a href=&#34;https://han8931.github.io/docker-basics/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Understanding Container&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 2: [Basic Commands]&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 3: [Title of Part 3]&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 4: [Title of the latest Part]&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;If you want, I can draft a full version listing all the parts you have so far, along with mini-summaries for each. Do you want me to build that out?&lt;/p&gt;</description>
+      <description>&lt;p&gt;This is part of my &lt;strong&gt;Docker Basics&lt;/strong&gt; series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 1: &lt;a href=&#34;https://han8931.github.io/docker-basics/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Understanding Container&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 2: &lt;a href=&#34;https://han8931.github.io/docker-commands/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Basic Commands&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 3: &lt;a href=&#34;https://han8931.github.io/docker-dockerfile/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Dockerfile&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 4: &lt;a href=&#34;https://han8931.github.io/docker-networks/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Networks&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;common-commands&#34;&gt;Common Commands&lt;/h2&gt;&#xA;&lt;p&gt;This is a no-frills cheat sheet for the Docker commands you&amp;rsquo;ll reach for most of the time, with tiny runnable examples you can copy/paste.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

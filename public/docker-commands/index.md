@@ -81,8 +81,8 @@ docker exec -it mynginx bash  # Run a shell inside the container # Run a shell i
 ```
 
 <p style="text-align:center;"> 
-<img src="https://raw.githubusercontent.com/Han8931/han8931.github.io/content/posts/docker/images/container_network.png" alt="Container Example" height="400">
-</p> 
+  <img src="/posts/docker/images/container_network.png" alt="Container Example" height="400">
+</p>
 
 
 ### environment variables

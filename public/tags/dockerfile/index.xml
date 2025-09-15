@@ -9,14 +9,14 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 15 Sep 2025 19:39:28 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 15 Sep 2025 19:46:20 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/dockerfile/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker Tutorial Part 3: Dockerfile</title>
       <link>http://localhost:1313/docker-dockerfile/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/docker-dockerfile/</guid>
-      <description>&lt;h2 id=&#34;dockerfile&#34;&gt;Dockerfile&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;code&gt;Dockerfile&lt;/code&gt; is essentially a text file with a predetermined structure that contains a set of instructions for building a Docker image. The instructions in the Dockerfile specify what base image to start with (for example, Ubuntu 20.04), what software to install, and how to configure the image. The purpose of a Dockerfile is to automate the process of building a Docker image so that the image can be easily reproduced and distributed.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This is part of my &lt;strong&gt;Docker Basics&lt;/strong&gt; series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 1: &lt;a href=&#34;https://han8931.github.io/docker-basics/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Understanding Container&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 2: &lt;a href=&#34;https://han8931.github.io/docker-commands/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Basic Commands&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 3: &lt;a href=&#34;https://han8931.github.io/docker-dockerfile/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Dockerfile&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 4: &lt;a href=&#34;https://han8931.github.io/docker-networks/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Networks&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;dockerfile&#34;&gt;Dockerfile&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;code&gt;Dockerfile&lt;/code&gt; is essentially a text file with a predetermined structure that contains a set of instructions for building a Docker image. The instructions in the Dockerfile specify what base image to start with (for example, Ubuntu 20.04), what software to install, and how to configure the image. The purpose of a Dockerfile is to automate the process of building a Docker image so that the image can be easily reproduced and distributed.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
