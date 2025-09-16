@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Git on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/categories/git/</link>
+    <link>https://han8931.github.io/categories/git/</link>
     <description>Recent content in Git on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 15 Sep 2025 19:39:28 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://han8931.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git with Vim Fugitive: A Streamlined Workflow</title>
-      <link>http://localhost:1313/vim-fugitive/</link>
+      <link>https://han8931.github.io/vim-fugitive/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/vim-fugitive/</guid>
+      <guid>https://han8931.github.io/vim-fugitive/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;re working with Git and Vim, &lt;a href=&#34;https://github.com/tpope/vim-fugitive&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;&lt;strong&gt;vim-fugitive&lt;/strong&gt;&lt;/a&gt; is an essential plugin that transforms your editor into a full-fledged Git interface. Here&amp;rsquo;s how I use Fugitive to review, stage, and commit changes—without ever leaving Vim.&lt;/p&gt;&#xA;&lt;h2 id=&#34;browsing-git-history-and-logs-first&#34;&gt;Browsing Git History and Logs First&lt;/h2&gt;&#xA;&lt;p&gt;Before jumping into edits, it’s often useful to understand the file’s history or recent project changes.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;:Git log&lt;/code&gt; — shows the project’s commit history in reverse chronological order&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;:0Gllog&lt;/code&gt; — shows the history of the current file&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;To explore who changed what in a file:&lt;/p&gt;</description>
     </item>
   </channel>

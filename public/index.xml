@@ -1,17 +1,17 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Han&#39;s XYZ</title>
-        <link>http://localhost:1313/</link>
+        <link>https://han8931.github.io/</link>
         <description>Han&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
             <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 13 Sep 2025 00:00:00 &#43;0000</lastBuildDate>
-            <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+            <atom:link href="https://han8931.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Docker Tutorial Part 1: Basics</title>
-    <link>http://localhost:1313/docker-basics/</link>
+    <link>https://han8931.github.io/docker-basics/</link>
     <pubDate>Sat, 13 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/docker-basics/</guid>
+    <guid>https://han8931.github.io/docker-basics/</guid>
     <description><![CDATA[<p>This is part of my <strong>Docker Basics</strong> series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.</p>
 <ul>
 <li><strong>Part 1: <a href="https://han8931.github.io/docker-basics/" target="_blank" rel="noopener noreffer ">Understanding Container</a></strong></li>
@@ -24,10 +24,10 @@
 </item>
 <item>
     <title>Docker Tutorial Part 2: Basic Commands</title>
-    <link>http://localhost:1313/docker-commands/</link>
+    <link>https://han8931.github.io/docker-commands/</link>
     <pubDate>Sat, 13 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/docker-commands/</guid>
+    <guid>https://han8931.github.io/docker-commands/</guid>
     <description><![CDATA[<p>This is part of my <strong>Docker Basics</strong> series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.</p>
 <ul>
 <li><strong>Part 1: <a href="https://han8931.github.io/docker-basics/" target="_blank" rel="noopener noreffer ">Understanding Container</a></strong></li>
@@ -40,10 +40,10 @@
 </item>
 <item>
     <title>Docker Tutorial Part 3: Dockerfile</title>
-    <link>http://localhost:1313/docker-dockerfile/</link>
+    <link>https://han8931.github.io/docker-dockerfile/</link>
     <pubDate>Sat, 13 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/docker-dockerfile/</guid>
+    <guid>https://han8931.github.io/docker-dockerfile/</guid>
     <description><![CDATA[<p>This is part of my <strong>Docker Basics</strong> series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.</p>
 <ul>
 <li><strong>Part 1: <a href="https://han8931.github.io/docker-basics/" target="_blank" rel="noopener noreffer ">Understanding Container</a></strong></li>
@@ -56,10 +56,10 @@
 </item>
 <item>
     <title>Docker Tutorial Part 4: Networks</title>
-    <link>http://localhost:1313/docker-networks/</link>
+    <link>https://han8931.github.io/docker-networks/</link>
     <pubDate>Sat, 13 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/docker-networks/</guid>
+    <guid>https://han8931.github.io/docker-networks/</guid>
     <description><![CDATA[<p>This is part of my <strong>Docker Basics</strong> series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.</p>
 <ul>
 <li><strong>Part 1: <a href="https://han8931.github.io/docker-basics/" target="_blank" rel="noopener noreffer ">Understanding Container</a></strong></li>
@@ -79,40 +79,40 @@
 </item>
 <item>
     <title>NL2SQL Part 1.</title>
-    <link>http://localhost:1313/nl2sql/</link>
+    <link>https://han8931.github.io/nl2sql/</link>
     <pubDate>Sat, 06 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/nl2sql/</guid>
+    <guid>https://han8931.github.io/nl2sql/</guid>
     <description><![CDATA[<h2 id="natural-language-to-sql-nl2sql-in-the-llm-era">💡Natural Language to SQL (NL2SQL) in the LLM Era</h2>
 <p>Data has become one of the most valuable resources of our time. Companies in finance, healthcare, logistics, retail, and many other fields collect enormous amounts of information every day. Much of this information is stored in relational databases, which are typically accessed using SQL.</p>
 <p>While SQL provides the raw outputs of a query, the critical step lies in interpreting these results. Developing intuition from retrieved data is essential for identifying meaningful patterns, uncovering relationships, and supporting evidence-based decision-making.</p>]]></description>
 </item>
 <item>
     <title>Agentic AI with Pydantic-AI Part 1.</title>
-    <link>http://localhost:1313/pydantic-ai/</link>
+    <link>https://han8931.github.io/pydantic-ai/</link>
     <pubDate>Sun, 31 Aug 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/pydantic-ai/</guid>
+    <guid>https://han8931.github.io/pydantic-ai/</guid>
     <description><![CDATA[<h2 id="introduction">Introduction</h2>
 <p>AI has already changed how we interact with technology. The real shift is happening now with <strong>agents</strong>: AI systems that can reason, make decisions, and take action.</p>
 <p>Unlike a chatbot that passively replies, an agent can <strong>break down complex tasks</strong>, call APIs or databases, use tools, and deliver structured results. This is what makes the idea of <em>Agentic AI</em> so powerful — it&rsquo;s not just about conversation, it&rsquo;s about <strong>problem-solving with initiative</strong>.</p>]]></description>
 </item>
 <item>
     <title>Clean Validation with Pydantic v2</title>
-    <link>http://localhost:1313/pydantic/</link>
+    <link>https://han8931.github.io/pydantic/</link>
     <pubDate>Sat, 30 Aug 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/pydantic/</guid>
+    <guid>https://han8931.github.io/pydantic/</guid>
     <description><![CDATA[<blockquote>
 <p>📝 <strong>Update</strong> (2025-08): This post was originally published in <strong>April 2024</strong> and has been updated to reflect changes in <strong>Pydantic v2</strong>, including the new <em>field validator</em>, <em>model validator</em>, and <em>Annotated</em>-based validation patterns. Also, this post now includes a <strong>new section on using Pydantic with MongoDB</strong>.</p></blockquote>
 <p>Python&rsquo;s dynamic typing system is indeed convenient, allowing you to create variables without explicitly declaring their types. While this flexibility can streamline development, it can also introduce unexpected behavior, particularly when handling data from external sources like APIs or user input.</p>]]></description>
 </item>
 <item>
     <title>A Lesson from a Naive Binary Search</title>
-    <link>http://localhost:1313/binary-search/</link>
+    <link>https://han8931.github.io/binary-search/</link>
     <pubDate>Mon, 30 Jun 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/binary-search/</guid>
+    <guid>https://han8931.github.io/binary-search/</guid>
     <description><![CDATA[<h2 id="a-lesson-from-a-naive-binary-search">A Lesson from a Naive Binary Search</h2>
 <p>I&rsquo;ve been grinding hard every day, solving coding problems to get better at algorithms. Recently, I came across something interesting—a naive implementation of binary search can actually cause a bug. It&rsquo;s a small detail, but it matters.</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
@@ -135,10 +135,10 @@
 </item>
 <item>
     <title>Managing Password using Pass</title>
-    <link>http://localhost:1313/pass/</link>
+    <link>https://han8931.github.io/pass/</link>
     <pubDate>Sat, 24 May 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/pass/</guid>
+    <guid>https://han8931.github.io/pass/</guid>
     <description><![CDATA[<h1 id="a-minimalists-guide-to-pass-the-unix-password-manager">A Minimalist’s Guide to <strong>pass</strong>— the Unix Password Manager</h1>
 <p><em>Safely wrangle your secrets from the command-line using GPG encryption and a few intuitive commands.</em></p>
 <hr>
@@ -153,10 +153,10 @@
 </item>
 <item>
     <title>Introduction to logging in Python</title>
-    <link>http://localhost:1313/python-logging/</link>
+    <link>https://han8931.github.io/python-logging/</link>
     <pubDate>Sat, 17 May 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:1313/python-logging/</guid>
+    <guid>https://han8931.github.io/python-logging/</guid>
     <description><![CDATA[<h2 id="a-gentle-practical-introduction-to-logging-in-python">A gentle, practical introduction to <code>logging</code> in Python</h2>
 <hr>
 <h3 id="why-bother-with-a-dedicated-logging-library">Why bother with a dedicated logging library?</h3>

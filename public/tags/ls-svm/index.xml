@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LS-SVM on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/ls-svm/</link>
+    <link>https://han8931.github.io/tags/ls-svm/</link>
     <description>Recent content in LS-SVM on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 15 Sep 2025 19:39:28 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/ls-svm/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://han8931.github.io/tags/ls-svm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction to SVM Part 2. LS-SVM</title>
-      <link>http://localhost:1313/svm2/</link>
+      <link>https://han8931.github.io/svm2/</link>
       <pubDate>Sat, 31 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/svm2/</guid>
+      <guid>https://han8931.github.io/svm2/</guid>
       <description>&lt;h1 id=&#34;introduction-to-least-square-svm&#34;&gt;Introduction to Least-Square SVM&lt;/h1&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Least Squares Support Vector Machine (LS-SVM) is a modified version of the traditional Support Vector Machine (SVM) that simplifies the quadratic optimization problem by using a &lt;em&gt;least squares cost function&lt;/em&gt;. LS-SVM transforms the quadratic programming problem in classical SVM into a set of linear equations, which are easier and faster to solve.&lt;/p&gt;&#xA;&lt;h3 id=&#34;optimization-problem-primal-problem&#34;&gt;Optimization Problem (Primal Problem)&lt;/h3&gt;&#xA;&lt;p&gt;\begin{align*}&#xA;&amp;amp;\min_{w, b, e} \frac{1}{2} \lVert w\rVert^2 + \frac{\gamma}{2} \sum_{i=1}^N e_i^2,\\&#xA;&amp;amp;\text{subject to } y_i (w^T \phi(x_i) + b) = 1 - e_i, \ \forall i&#xA;\end{align*}&#xA;where:&lt;/p&gt;</description>
     </item>
   </channel>

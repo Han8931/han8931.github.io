@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LLM on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/llm/</link>
+    <link>https://han8931.github.io/tags/llm/</link>
     <description>Recent content in LLM on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,26 +10,26 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 15 Sep 2025 19:39:28 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://han8931.github.io/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DL System Design</title>
-      <link>http://localhost:1313/studynotes/dl-system-design/</link>
+      <link>https://han8931.github.io/studynotes/dl-system-design/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/studynotes/dl-system-design/</guid>
+      <guid>https://han8931.github.io/studynotes/dl-system-design/</guid>
       <description>&lt;h1 id=&#34;-deep-learning-system-design&#34;&gt;🏗️ Deep Learning System Design&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/dl_system_design&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;DL System Design&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This note is about the &lt;strong&gt;practical design of deep learning and LLM-based systems&lt;/strong&gt;. It focuses on bridging research with production: covering concepts such as &lt;strong&gt;scalable architectures, model deployment, monitoring, and system reliability&lt;/strong&gt;. The aim is to capture design patterns and lessons that make ML/DL services both effective and maintainable.&lt;/p&gt;</description>
     </item>
     <item>
       <title>NL2SQL Part 1.</title>
-      <link>http://localhost:1313/nl2sql/</link>
+      <link>https://han8931.github.io/nl2sql/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/nl2sql/</guid>
+      <guid>https://han8931.github.io/nl2sql/</guid>
       <description>&lt;h2 id=&#34;natural-language-to-sql-nl2sql-in-the-llm-era&#34;&gt;💡Natural Language to SQL (NL2SQL) in the LLM Era&lt;/h2&gt;&#xA;&lt;p&gt;Data has become one of the most valuable resources of our time. Companies in finance, healthcare, logistics, retail, and many other fields collect enormous amounts of information every day. Much of this information is stored in relational databases, which are typically accessed using SQL.&lt;/p&gt;&#xA;&lt;p&gt;While SQL provides the raw outputs of a query, the critical step lies in interpreting these results. Developing intuition from retrieved data is essential for identifying meaningful patterns, uncovering relationships, and supporting evidence-based decision-making.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Inside DeepSeek-R1</title>
-      <link>http://localhost:1313/deepseek-inside/</link>
+      <link>https://han8931.github.io/deepseek-inside/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/deepseek-inside/</guid>
+      <guid>https://han8931.github.io/deepseek-inside/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.deepseek.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;DeepSeek&lt;/a&gt;&amp;rsquo;s latest moves have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their engineering techniques behind DeepSeek are truly impressive, and their reports are quite enjoyable. However, understanding their core ideas can be challenging and demands a substantial amount of effort.&lt;/p&gt;&#xA;&lt;p&gt;At the forefront of this innovation is DeepSeek-R1, a model that built upon the foundation established by preceding projects such as DeepSeek Coder, Math, MoE, and notably, the DeepSeek-V3 model. While DeepSeek-R1 is the center of the DeepSeek&amp;rsquo;s frenzy, its success is rooted on these past works.&lt;/p&gt;</description>
     </item>
   </channel>

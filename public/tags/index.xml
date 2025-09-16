@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://han8931.github.io/tags/</link>
     <description>Recent content in Tags on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,593 +10,593 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 15 Sep 2025 19:49:12 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://han8931.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Containers</title>
-      <link>http://localhost:1313/tags/containers/</link>
+      <link>https://han8931.github.io/tags/containers/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/containers/</guid>
+      <guid>https://han8931.github.io/tags/containers/</guid>
       <description></description>
     </item>
     <item>
       <title>DevOps</title>
-      <link>http://localhost:1313/tags/devops/</link>
+      <link>https://han8931.github.io/tags/devops/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/devops/</guid>
+      <guid>https://han8931.github.io/tags/devops/</guid>
       <description></description>
     </item>
     <item>
       <title>Docker</title>
-      <link>http://localhost:1313/tags/docker/</link>
+      <link>https://han8931.github.io/tags/docker/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/docker/</guid>
+      <guid>https://han8931.github.io/tags/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Dockerfile</title>
-      <link>http://localhost:1313/tags/dockerfile/</link>
+      <link>https://han8931.github.io/tags/dockerfile/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/dockerfile/</guid>
+      <guid>https://han8931.github.io/tags/dockerfile/</guid>
       <description></description>
     </item>
     <item>
       <title>Network</title>
-      <link>http://localhost:1313/tags/network/</link>
+      <link>https://han8931.github.io/tags/network/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/network/</guid>
+      <guid>https://han8931.github.io/tags/network/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>http://localhost:1313/tags/programming/</link>
+      <link>https://han8931.github.io/tags/programming/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/programming/</guid>
+      <guid>https://han8931.github.io/tags/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Tutorial</title>
-      <link>http://localhost:1313/tags/tutorial/</link>
+      <link>https://han8931.github.io/tags/tutorial/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/tutorial/</guid>
+      <guid>https://han8931.github.io/tags/tutorial/</guid>
       <description></description>
     </item>
     <item>
       <title>Deep Learning</title>
-      <link>http://localhost:1313/tags/deep-learning/</link>
+      <link>https://han8931.github.io/tags/deep-learning/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/deep-learning/</guid>
+      <guid>https://han8931.github.io/tags/deep-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>Linear Algebra</title>
-      <link>http://localhost:1313/tags/linear-algebra/</link>
+      <link>https://han8931.github.io/tags/linear-algebra/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/linear-algebra/</guid>
+      <guid>https://han8931.github.io/tags/linear-algebra/</guid>
       <description></description>
     </item>
     <item>
       <title>LLM</title>
-      <link>http://localhost:1313/tags/llm/</link>
+      <link>https://han8931.github.io/tags/llm/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/llm/</guid>
+      <guid>https://han8931.github.io/tags/llm/</guid>
       <description></description>
     </item>
     <item>
       <title>Machine Learning</title>
-      <link>http://localhost:1313/tags/machine-learning/</link>
+      <link>https://han8931.github.io/tags/machine-learning/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/machine-learning/</guid>
+      <guid>https://han8931.github.io/tags/machine-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>Reinforcement Learning</title>
-      <link>http://localhost:1313/tags/reinforcement-learning/</link>
+      <link>https://han8931.github.io/tags/reinforcement-learning/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/reinforcement-learning/</guid>
+      <guid>https://han8931.github.io/tags/reinforcement-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>Statistics</title>
-      <link>http://localhost:1313/tags/statistics/</link>
+      <link>https://han8931.github.io/tags/statistics/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/statistics/</guid>
+      <guid>https://han8931.github.io/tags/statistics/</guid>
       <description></description>
     </item>
     <item>
       <title>Study Notes</title>
-      <link>http://localhost:1313/tags/study-notes/</link>
+      <link>https://han8931.github.io/tags/study-notes/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/study-notes/</guid>
+      <guid>https://han8931.github.io/tags/study-notes/</guid>
       <description></description>
     </item>
     <item>
       <title>System Design</title>
-      <link>http://localhost:1313/tags/system-design/</link>
+      <link>https://han8931.github.io/tags/system-design/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/system-design/</guid>
+      <guid>https://han8931.github.io/tags/system-design/</guid>
       <description></description>
     </item>
     <item>
       <title>Agent</title>
-      <link>http://localhost:1313/tags/agent/</link>
+      <link>https://han8931.github.io/tags/agent/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/agent/</guid>
+      <guid>https://han8931.github.io/tags/agent/</guid>
       <description></description>
     </item>
     <item>
       <title>AI</title>
-      <link>http://localhost:1313/tags/ai/</link>
+      <link>https://han8931.github.io/tags/ai/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/ai/</guid>
+      <guid>https://han8931.github.io/tags/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>NL2SQL</title>
-      <link>http://localhost:1313/tags/nl2sql/</link>
+      <link>https://han8931.github.io/tags/nl2sql/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/nl2sql/</guid>
+      <guid>https://han8931.github.io/tags/nl2sql/</guid>
       <description></description>
     </item>
     <item>
       <title>SQL</title>
-      <link>http://localhost:1313/tags/sql/</link>
+      <link>https://han8931.github.io/tags/sql/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/sql/</guid>
+      <guid>https://han8931.github.io/tags/sql/</guid>
       <description></description>
     </item>
     <item>
       <title>Pydantic</title>
-      <link>http://localhost:1313/tags/pydantic/</link>
+      <link>https://han8931.github.io/tags/pydantic/</link>
       <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/pydantic/</guid>
+      <guid>https://han8931.github.io/tags/pydantic/</guid>
       <description></description>
     </item>
     <item>
       <title>Pydantic-AI</title>
-      <link>http://localhost:1313/tags/pydantic-ai/</link>
+      <link>https://han8931.github.io/tags/pydantic-ai/</link>
       <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/pydantic-ai/</guid>
+      <guid>https://han8931.github.io/tags/pydantic-ai/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>http://localhost:1313/tags/python/</link>
+      <link>https://han8931.github.io/tags/python/</link>
       <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/python/</guid>
+      <guid>https://han8931.github.io/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Config</title>
-      <link>http://localhost:1313/tags/config/</link>
+      <link>https://han8931.github.io/tags/config/</link>
       <pubDate>Sat, 30 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/config/</guid>
+      <guid>https://han8931.github.io/tags/config/</guid>
       <description></description>
     </item>
     <item>
       <title>Environment Variables</title>
-      <link>http://localhost:1313/tags/environment-variables/</link>
+      <link>https://han8931.github.io/tags/environment-variables/</link>
       <pubDate>Sat, 30 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/environment-variables/</guid>
+      <guid>https://han8931.github.io/tags/environment-variables/</guid>
       <description></description>
     </item>
     <item>
       <title>Mongodb</title>
-      <link>http://localhost:1313/tags/mongodb/</link>
+      <link>https://han8931.github.io/tags/mongodb/</link>
       <pubDate>Sat, 30 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/mongodb/</guid>
+      <guid>https://han8931.github.io/tags/mongodb/</guid>
       <description></description>
     </item>
     <item>
       <title>Algorithm</title>
-      <link>http://localhost:1313/tags/algorithm/</link>
+      <link>https://han8931.github.io/tags/algorithm/</link>
       <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/algorithm/</guid>
+      <guid>https://han8931.github.io/tags/algorithm/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>http://localhost:1313/tags/linux/</link>
+      <link>https://han8931.github.io/tags/linux/</link>
       <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/linux/</guid>
+      <guid>https://han8931.github.io/tags/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Pass</title>
-      <link>http://localhost:1313/tags/pass/</link>
+      <link>https://han8931.github.io/tags/pass/</link>
       <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/pass/</guid>
+      <guid>https://han8931.github.io/tags/pass/</guid>
       <description></description>
     </item>
     <item>
       <title>Password Manager</title>
-      <link>http://localhost:1313/tags/password-manager/</link>
+      <link>https://han8931.github.io/tags/password-manager/</link>
       <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/password-manager/</guid>
+      <guid>https://han8931.github.io/tags/password-manager/</guid>
       <description></description>
     </item>
     <item>
       <title>Logger</title>
-      <link>http://localhost:1313/tags/logger/</link>
+      <link>https://han8931.github.io/tags/logger/</link>
       <pubDate>Sat, 17 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/logger/</guid>
+      <guid>https://han8931.github.io/tags/logger/</guid>
       <description></description>
     </item>
     <item>
       <title>Logging</title>
-      <link>http://localhost:1313/tags/logging/</link>
+      <link>https://han8931.github.io/tags/logging/</link>
       <pubDate>Sat, 17 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/logging/</guid>
+      <guid>https://han8931.github.io/tags/logging/</guid>
       <description></description>
     </item>
     <item>
       <title>Path</title>
-      <link>http://localhost:1313/tags/path/</link>
+      <link>https://han8931.github.io/tags/path/</link>
       <pubDate>Sat, 17 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/path/</guid>
+      <guid>https://han8931.github.io/tags/path/</guid>
       <description></description>
     </item>
     <item>
       <title>Pathlib</title>
-      <link>http://localhost:1313/tags/pathlib/</link>
+      <link>https://han8931.github.io/tags/pathlib/</link>
       <pubDate>Sat, 17 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/pathlib/</guid>
+      <guid>https://han8931.github.io/tags/pathlib/</guid>
       <description></description>
     </item>
     <item>
       <title>Fugitive</title>
-      <link>http://localhost:1313/tags/fugitive/</link>
+      <link>https://han8931.github.io/tags/fugitive/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/fugitive/</guid>
+      <guid>https://han8931.github.io/tags/fugitive/</guid>
       <description></description>
     </item>
     <item>
       <title>Git</title>
-      <link>http://localhost:1313/tags/git/</link>
+      <link>https://han8931.github.io/tags/git/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/git/</guid>
+      <guid>https://han8931.github.io/tags/git/</guid>
       <description></description>
     </item>
     <item>
       <title>Package Manager</title>
-      <link>http://localhost:1313/tags/package-manager/</link>
+      <link>https://han8931.github.io/tags/package-manager/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/package-manager/</guid>
+      <guid>https://han8931.github.io/tags/package-manager/</guid>
       <description></description>
     </item>
     <item>
       <title>Uv</title>
-      <link>http://localhost:1313/tags/uv/</link>
+      <link>https://han8931.github.io/tags/uv/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/uv/</guid>
+      <guid>https://han8931.github.io/tags/uv/</guid>
       <description></description>
     </item>
     <item>
       <title>Vim</title>
-      <link>http://localhost:1313/tags/vim/</link>
+      <link>https://han8931.github.io/tags/vim/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/vim/</guid>
+      <guid>https://han8931.github.io/tags/vim/</guid>
       <description></description>
     </item>
     <item>
       <title>Virtual Environment</title>
-      <link>http://localhost:1313/tags/virtual-environment/</link>
+      <link>https://han8931.github.io/tags/virtual-environment/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/virtual-environment/</guid>
+      <guid>https://han8931.github.io/tags/virtual-environment/</guid>
       <description></description>
     </item>
     <item>
       <title>DeepSeek</title>
-      <link>http://localhost:1313/tags/deepseek/</link>
+      <link>https://han8931.github.io/tags/deepseek/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/deepseek/</guid>
+      <guid>https://han8931.github.io/tags/deepseek/</guid>
       <description></description>
     </item>
     <item>
       <title>ABCs</title>
-      <link>http://localhost:1313/tags/abcs/</link>
+      <link>https://han8931.github.io/tags/abcs/</link>
       <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/abcs/</guid>
+      <guid>https://han8931.github.io/tags/abcs/</guid>
       <description></description>
     </item>
     <item>
       <title>Protocols</title>
-      <link>http://localhost:1313/tags/protocols/</link>
+      <link>https://han8931.github.io/tags/protocols/</link>
       <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/protocols/</guid>
+      <guid>https://han8931.github.io/tags/protocols/</guid>
       <description></description>
     </item>
     <item>
       <title>Arch</title>
-      <link>http://localhost:1313/tags/arch/</link>
+      <link>https://han8931.github.io/tags/arch/</link>
       <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/arch/</guid>
+      <guid>https://han8931.github.io/tags/arch/</guid>
       <description></description>
     </item>
     <item>
       <title>Container</title>
-      <link>http://localhost:1313/tags/container/</link>
+      <link>https://han8931.github.io/tags/container/</link>
       <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/container/</guid>
+      <guid>https://han8931.github.io/tags/container/</guid>
       <description></description>
     </item>
     <item>
       <title>Pytorch</title>
-      <link>http://localhost:1313/tags/pytorch/</link>
+      <link>https://han8931.github.io/tags/pytorch/</link>
       <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/pytorch/</guid>
+      <guid>https://han8931.github.io/tags/pytorch/</guid>
       <description></description>
     </item>
     <item>
       <title>Asyncio</title>
-      <link>http://localhost:1313/tags/asyncio/</link>
+      <link>https://han8931.github.io/tags/asyncio/</link>
       <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/asyncio/</guid>
+      <guid>https://han8931.github.io/tags/asyncio/</guid>
       <description></description>
     </item>
     <item>
       <title>Asymmetric Kernels</title>
-      <link>http://localhost:1313/tags/asymmetric-kernels/</link>
+      <link>https://han8931.github.io/tags/asymmetric-kernels/</link>
       <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/asymmetric-kernels/</guid>
+      <guid>https://han8931.github.io/tags/asymmetric-kernels/</guid>
       <description></description>
     </item>
     <item>
       <title>Least-Square SVM</title>
-      <link>http://localhost:1313/tags/least-square-svm/</link>
+      <link>https://han8931.github.io/tags/least-square-svm/</link>
       <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/least-square-svm/</guid>
+      <guid>https://han8931.github.io/tags/least-square-svm/</guid>
       <description></description>
     </item>
     <item>
       <title>Support Vector Machines</title>
-      <link>http://localhost:1313/tags/support-vector-machines/</link>
+      <link>https://han8931.github.io/tags/support-vector-machines/</link>
       <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/support-vector-machines/</guid>
+      <guid>https://han8931.github.io/tags/support-vector-machines/</guid>
       <description></description>
     </item>
     <item>
       <title>Svm</title>
-      <link>http://localhost:1313/tags/svm/</link>
+      <link>https://han8931.github.io/tags/svm/</link>
       <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/svm/</guid>
+      <guid>https://han8931.github.io/tags/svm/</guid>
       <description></description>
     </item>
     <item>
       <title>LS-SVM</title>
-      <link>http://localhost:1313/tags/ls-svm/</link>
+      <link>https://han8931.github.io/tags/ls-svm/</link>
       <pubDate>Sat, 31 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/ls-svm/</guid>
+      <guid>https://han8931.github.io/tags/ls-svm/</guid>
       <description></description>
     </item>
     <item>
       <title>Gradient</title>
-      <link>http://localhost:1313/tags/gradient/</link>
+      <link>https://han8931.github.io/tags/gradient/</link>
       <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/gradient/</guid>
+      <guid>https://han8931.github.io/tags/gradient/</guid>
       <description></description>
     </item>
     <item>
       <title>Gradient Descent</title>
-      <link>http://localhost:1313/tags/gradient-descent/</link>
+      <link>https://han8931.github.io/tags/gradient-descent/</link>
       <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/gradient-descent/</guid>
+      <guid>https://han8931.github.io/tags/gradient-descent/</guid>
       <description></description>
     </item>
     <item>
       <title>Clustering</title>
-      <link>http://localhost:1313/tags/clustering/</link>
+      <link>https://han8931.github.io/tags/clustering/</link>
       <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/clustering/</guid>
+      <guid>https://han8931.github.io/tags/clustering/</guid>
       <description></description>
     </item>
     <item>
       <title>Gaussian Mixture Modeling</title>
-      <link>http://localhost:1313/tags/gaussian-mixture-modeling/</link>
+      <link>https://han8931.github.io/tags/gaussian-mixture-modeling/</link>
       <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/gaussian-mixture-modeling/</guid>
+      <guid>https://han8931.github.io/tags/gaussian-mixture-modeling/</guid>
       <description></description>
     </item>
     <item>
       <title>Gmm</title>
-      <link>http://localhost:1313/tags/gmm/</link>
+      <link>https://han8931.github.io/tags/gmm/</link>
       <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/gmm/</guid>
+      <guid>https://han8931.github.io/tags/gmm/</guid>
       <description></description>
     </item>
     <item>
       <title>K-Means Clustering</title>
-      <link>http://localhost:1313/tags/k-means-clustering/</link>
+      <link>https://han8931.github.io/tags/k-means-clustering/</link>
       <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/k-means-clustering/</guid>
+      <guid>https://han8931.github.io/tags/k-means-clustering/</guid>
       <description></description>
     </item>
     <item>
       <title>Latent Variable</title>
-      <link>http://localhost:1313/tags/latent-variable/</link>
+      <link>https://han8931.github.io/tags/latent-variable/</link>
       <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/latent-variable/</guid>
+      <guid>https://han8931.github.io/tags/latent-variable/</guid>
       <description></description>
     </item>
     <item>
       <title>Singular Value Decomposition</title>
-      <link>http://localhost:1313/tags/singular-value-decomposition/</link>
+      <link>https://han8931.github.io/tags/singular-value-decomposition/</link>
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/singular-value-decomposition/</guid>
+      <guid>https://han8931.github.io/tags/singular-value-decomposition/</guid>
       <description></description>
     </item>
     <item>
       <title>Svd</title>
-      <link>http://localhost:1313/tags/svd/</link>
+      <link>https://han8931.github.io/tags/svd/</link>
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/svd/</guid>
+      <guid>https://han8931.github.io/tags/svd/</guid>
       <description></description>
     </item>
     <item>
       <title>Least Square</title>
-      <link>http://localhost:1313/tags/least-square/</link>
+      <link>https://han8931.github.io/tags/least-square/</link>
       <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/least-square/</guid>
+      <guid>https://han8931.github.io/tags/least-square/</guid>
       <description></description>
     </item>
     <item>
       <title>Recursive Least Squares</title>
-      <link>http://localhost:1313/tags/recursive-least-squares/</link>
+      <link>https://han8931.github.io/tags/recursive-least-squares/</link>
       <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/recursive-least-squares/</guid>
+      <guid>https://han8931.github.io/tags/recursive-least-squares/</guid>
       <description></description>
     </item>
     <item>
       <title>Regression</title>
-      <link>http://localhost:1313/tags/regression/</link>
+      <link>https://han8931.github.io/tags/regression/</link>
       <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/regression/</guid>
+      <guid>https://han8931.github.io/tags/regression/</guid>
       <description></description>
     </item>
     <item>
       <title>Dual Form</title>
-      <link>http://localhost:1313/tags/dual-form/</link>
+      <link>https://han8931.github.io/tags/dual-form/</link>
       <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/dual-form/</guid>
+      <guid>https://han8931.github.io/tags/dual-form/</guid>
       <description></description>
     </item>
     <item>
       <title>Ridge Regression</title>
-      <link>http://localhost:1313/tags/ridge-regression/</link>
+      <link>https://han8931.github.io/tags/ridge-regression/</link>
       <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/ridge-regression/</guid>
+      <guid>https://han8931.github.io/tags/ridge-regression/</guid>
       <description></description>
     </item>
     <item>
       <title>Weighted Regression</title>
-      <link>http://localhost:1313/tags/weighted-regression/</link>
+      <link>https://han8931.github.io/tags/weighted-regression/</link>
       <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/weighted-regression/</guid>
+      <guid>https://han8931.github.io/tags/weighted-regression/</guid>
       <description></description>
     </item>
     <item>
       <title>Decryption</title>
-      <link>http://localhost:1313/tags/decryption/</link>
+      <link>https://han8931.github.io/tags/decryption/</link>
       <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/decryption/</guid>
+      <guid>https://han8931.github.io/tags/decryption/</guid>
       <description></description>
     </item>
     <item>
       <title>Encryption</title>
-      <link>http://localhost:1313/tags/encryption/</link>
+      <link>https://han8931.github.io/tags/encryption/</link>
       <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/encryption/</guid>
+      <guid>https://han8931.github.io/tags/encryption/</guid>
       <description></description>
     </item>
     <item>
       <title>Gpg</title>
-      <link>http://localhost:1313/tags/gpg/</link>
+      <link>https://han8931.github.io/tags/gpg/</link>
       <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/gpg/</guid>
+      <guid>https://han8931.github.io/tags/gpg/</guid>
       <description></description>
     </item>
     <item>
       <title>Privacy</title>
-      <link>http://localhost:1313/tags/privacy/</link>
+      <link>https://han8931.github.io/tags/privacy/</link>
       <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/privacy/</guid>
+      <guid>https://han8931.github.io/tags/privacy/</guid>
       <description></description>
     </item>
     <item>
       <title>Scheduler</title>
-      <link>http://localhost:1313/tags/scheduler/</link>
+      <link>https://han8931.github.io/tags/scheduler/</link>
       <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/scheduler/</guid>
+      <guid>https://han8931.github.io/tags/scheduler/</guid>
       <description></description>
     </item>
     <item>
       <title>Task Management</title>
-      <link>http://localhost:1313/tags/task-management/</link>
+      <link>https://han8931.github.io/tags/task-management/</link>
       <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/task-management/</guid>
+      <guid>https://han8931.github.io/tags/task-management/</guid>
       <description></description>
     </item>
     <item>
       <title>Taskspooler</title>
-      <link>http://localhost:1313/tags/taskspooler/</link>
+      <link>https://han8931.github.io/tags/taskspooler/</link>
       <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/taskspooler/</guid>
+      <guid>https://han8931.github.io/tags/taskspooler/</guid>
       <description></description>
     </item>
     <item>
       <title>Poetry</title>
-      <link>http://localhost:1313/tags/poetry/</link>
+      <link>https://han8931.github.io/tags/poetry/</link>
       <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/poetry/</guid>
+      <guid>https://han8931.github.io/tags/poetry/</guid>
       <description></description>
     </item>
     <item>
       <title>Pacman</title>
-      <link>http://localhost:1313/tags/pacman/</link>
+      <link>https://han8931.github.io/tags/pacman/</link>
       <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/pacman/</guid>
+      <guid>https://han8931.github.io/tags/pacman/</guid>
       <description></description>
     </item>
     <item>
       <title>Debug</title>
-      <link>http://localhost:1313/tags/debug/</link>
+      <link>https://han8931.github.io/tags/debug/</link>
       <pubDate>Sat, 27 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/debug/</guid>
+      <guid>https://han8931.github.io/tags/debug/</guid>
       <description></description>
     </item>
     <item>
       <title>Pdb</title>
-      <link>http://localhost:1313/tags/pdb/</link>
+      <link>https://han8931.github.io/tags/pdb/</link>
       <pubDate>Sat, 27 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/pdb/</guid>
+      <guid>https://han8931.github.io/tags/pdb/</guid>
       <description></description>
     </item>
     <item>
       <title>Enum</title>
-      <link>http://localhost:1313/tags/enum/</link>
+      <link>https://han8931.github.io/tags/enum/</link>
       <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/enum/</guid>
+      <guid>https://han8931.github.io/tags/enum/</guid>
       <description></description>
     </item>
     <item>
       <title>Pytest</title>
-      <link>http://localhost:1313/tags/pytest/</link>
+      <link>https://han8931.github.io/tags/pytest/</link>
       <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/pytest/</guid>
+      <guid>https://han8931.github.io/tags/pytest/</guid>
       <description></description>
     </item>
     <item>
       <title>Bash</title>
-      <link>http://localhost:1313/tags/bash/</link>
+      <link>https://han8931.github.io/tags/bash/</link>
       <pubDate>Sun, 21 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/bash/</guid>
+      <guid>https://han8931.github.io/tags/bash/</guid>
       <description></description>
     </item>
     <item>
       <title>Minimalism</title>
-      <link>http://localhost:1313/tags/minimalism/</link>
+      <link>https://han8931.github.io/tags/minimalism/</link>
       <pubDate>Sun, 21 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/minimalism/</guid>
+      <guid>https://han8931.github.io/tags/minimalism/</guid>
       <description></description>
     </item>
     <item>
       <title>Shell Script</title>
-      <link>http://localhost:1313/tags/shell-script/</link>
+      <link>https://han8931.github.io/tags/shell-script/</link>
       <pubDate>Sun, 21 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/shell-script/</guid>
+      <guid>https://han8931.github.io/tags/shell-script/</guid>
       <description></description>
     </item>
     <item>
       <title>Dotenv</title>
-      <link>http://localhost:1313/tags/dotenv/</link>
+      <link>https://han8931.github.io/tags/dotenv/</link>
       <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/dotenv/</guid>
+      <guid>https://han8931.github.io/tags/dotenv/</guid>
       <description></description>
     </item>
     <item>
       <title>Type Hint</title>
-      <link>http://localhost:1313/tags/type-hint/</link>
+      <link>https://han8931.github.io/tags/type-hint/</link>
       <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/type-hint/</guid>
+      <guid>https://han8931.github.io/tags/type-hint/</guid>
       <description></description>
     </item>
   </channel>

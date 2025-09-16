@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://han8931.github.io/categories/</link>
     <description>Recent content in Categories on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,166 +10,166 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 15 Sep 2025 19:49:12 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://han8931.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DevOps</title>
-      <link>http://localhost:1313/categories/devops/</link>
+      <link>https://han8931.github.io/categories/devops/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/devops/</guid>
+      <guid>https://han8931.github.io/categories/devops/</guid>
       <description></description>
     </item>
     <item>
       <title>Docker</title>
-      <link>http://localhost:1313/categories/docker/</link>
+      <link>https://han8931.github.io/categories/docker/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/docker/</guid>
+      <guid>https://han8931.github.io/categories/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>http://localhost:1313/categories/programming/</link>
+      <link>https://han8931.github.io/categories/programming/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/programming/</guid>
+      <guid>https://han8931.github.io/categories/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Study Notes</title>
-      <link>http://localhost:1313/categories/study-notes/</link>
+      <link>https://han8931.github.io/categories/study-notes/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/study-notes/</guid>
+      <guid>https://han8931.github.io/categories/study-notes/</guid>
       <description></description>
     </item>
     <item>
       <title>AI</title>
-      <link>http://localhost:1313/categories/ai/</link>
+      <link>https://han8931.github.io/categories/ai/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/ai/</guid>
+      <guid>https://han8931.github.io/categories/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>LLM</title>
-      <link>http://localhost:1313/categories/llm/</link>
+      <link>https://han8931.github.io/categories/llm/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/llm/</guid>
+      <guid>https://han8931.github.io/categories/llm/</guid>
       <description></description>
     </item>
     <item>
       <title>NL2SQL</title>
-      <link>http://localhost:1313/categories/nl2sql/</link>
+      <link>https://han8931.github.io/categories/nl2sql/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/nl2sql/</guid>
+      <guid>https://han8931.github.io/categories/nl2sql/</guid>
       <description></description>
     </item>
     <item>
       <title>SQL</title>
-      <link>http://localhost:1313/categories/sql/</link>
+      <link>https://han8931.github.io/categories/sql/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/sql/</guid>
+      <guid>https://han8931.github.io/categories/sql/</guid>
       <description></description>
     </item>
     <item>
       <title>Pydantic</title>
-      <link>http://localhost:1313/categories/pydantic/</link>
+      <link>https://han8931.github.io/categories/pydantic/</link>
       <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/pydantic/</guid>
+      <guid>https://han8931.github.io/categories/pydantic/</guid>
       <description></description>
     </item>
     <item>
       <title>Pydantic AI</title>
-      <link>http://localhost:1313/categories/pydantic-ai/</link>
+      <link>https://han8931.github.io/categories/pydantic-ai/</link>
       <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/pydantic-ai/</guid>
+      <guid>https://han8931.github.io/categories/pydantic-ai/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>http://localhost:1313/categories/python/</link>
+      <link>https://han8931.github.io/categories/python/</link>
       <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/python/</guid>
+      <guid>https://han8931.github.io/categories/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Algorithm</title>
-      <link>http://localhost:1313/categories/algorithm/</link>
+      <link>https://han8931.github.io/categories/algorithm/</link>
       <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/algorithm/</guid>
+      <guid>https://han8931.github.io/categories/algorithm/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>http://localhost:1313/categories/linux/</link>
+      <link>https://han8931.github.io/categories/linux/</link>
       <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/linux/</guid>
+      <guid>https://han8931.github.io/categories/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Pass</title>
-      <link>http://localhost:1313/categories/pass/</link>
+      <link>https://han8931.github.io/categories/pass/</link>
       <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/pass/</guid>
+      <guid>https://han8931.github.io/categories/pass/</guid>
       <description></description>
     </item>
     <item>
       <title>Git</title>
-      <link>http://localhost:1313/categories/git/</link>
+      <link>https://han8931.github.io/categories/git/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/git/</guid>
+      <guid>https://han8931.github.io/categories/git/</guid>
       <description></description>
     </item>
     <item>
       <title>Vim</title>
-      <link>http://localhost:1313/categories/vim/</link>
+      <link>https://han8931.github.io/categories/vim/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/vim/</guid>
+      <guid>https://han8931.github.io/categories/vim/</guid>
       <description></description>
     </item>
     <item>
       <title>Deep Learning</title>
-      <link>http://localhost:1313/categories/deep-learning/</link>
+      <link>https://han8931.github.io/categories/deep-learning/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/deep-learning/</guid>
+      <guid>https://han8931.github.io/categories/deep-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>NLP</title>
-      <link>http://localhost:1313/categories/nlp/</link>
+      <link>https://han8931.github.io/categories/nlp/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/nlp/</guid>
+      <guid>https://han8931.github.io/categories/nlp/</guid>
       <description></description>
     </item>
     <item>
       <title>Machine Learning</title>
-      <link>http://localhost:1313/categories/machine-learning/</link>
+      <link>https://han8931.github.io/categories/machine-learning/</link>
       <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/machine-learning/</guid>
+      <guid>https://han8931.github.io/categories/machine-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>Linear Algebra</title>
-      <link>http://localhost:1313/categories/linear-algebra/</link>
+      <link>https://han8931.github.io/categories/linear-algebra/</link>
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/linear-algebra/</guid>
+      <guid>https://han8931.github.io/categories/linear-algebra/</guid>
       <description></description>
     </item>
     <item>
       <title>Math</title>
-      <link>http://localhost:1313/categories/math/</link>
+      <link>https://han8931.github.io/categories/math/</link>
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/math/</guid>
+      <guid>https://han8931.github.io/categories/math/</guid>
       <description></description>
     </item>
     <item>
       <title>Gpg</title>
-      <link>http://localhost:1313/categories/gpg/</link>
+      <link>https://han8931.github.io/categories/gpg/</link>
       <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/gpg/</guid>
+      <guid>https://han8931.github.io/categories/gpg/</guid>
       <description></description>
     </item>
     <item>
       <title>Tools</title>
-      <link>http://localhost:1313/categories/tools/</link>
+      <link>https://han8931.github.io/categories/tools/</link>
       <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/categories/tools/</guid>
+      <guid>https://han8931.github.io/categories/tools/</guid>
       <description></description>
     </item>
   </channel>

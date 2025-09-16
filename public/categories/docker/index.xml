@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/categories/docker/</link>
+    <link>https://han8931.github.io/categories/docker/</link>
     <description>Recent content in Docker on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,33 +10,33 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 15 Sep 2025 19:49:12 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://han8931.github.io/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker Tutorial Part 1: Basics</title>
-      <link>http://localhost:1313/docker-basics/</link>
+      <link>https://han8931.github.io/docker-basics/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/docker-basics/</guid>
+      <guid>https://han8931.github.io/docker-basics/</guid>
       <description>&lt;p&gt;This is part of my &lt;strong&gt;Docker Basics&lt;/strong&gt; series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 1: &lt;a href=&#34;https://han8931.github.io/docker-basics/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Understanding Container&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 2: &lt;a href=&#34;https://han8931.github.io/docker-commands/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Basic Commands&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 3: &lt;a href=&#34;https://han8931.github.io/docker-dockerfile/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Dockerfile&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 4: &lt;a href=&#34;https://han8931.github.io/docker-networks/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Networks&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;docker-fundamentals-part-1&#34;&gt;Docker Fundamentals (Part 1)&lt;/h1&gt;&#xA;&lt;p&gt;Software systems frequently exhibit environment-dependent behavior: dependency versions drift, filesystem paths diverge, and minor operating-system differences produce major failures. &lt;strong&gt;Containerization&lt;/strong&gt; addresses this by packaging an application together with its runtime dependencies so that a single artifact executes consistently across development laptops, continuous-integration pipelines, and production clusters. Formally: same package $\rightarrow$ same behavior across environments.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Docker Tutorial Part 2: Basic Commands</title>
-      <link>http://localhost:1313/docker-commands/</link>
+      <link>https://han8931.github.io/docker-commands/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/docker-commands/</guid>
+      <guid>https://han8931.github.io/docker-commands/</guid>
       <description>&lt;p&gt;This is part of my &lt;strong&gt;Docker Basics&lt;/strong&gt; series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 1: &lt;a href=&#34;https://han8931.github.io/docker-basics/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Understanding Container&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 2: &lt;a href=&#34;https://han8931.github.io/docker-commands/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Basic Commands&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 3: &lt;a href=&#34;https://han8931.github.io/docker-dockerfile/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Dockerfile&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 4: &lt;a href=&#34;https://han8931.github.io/docker-networks/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Networks&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;common-commands&#34;&gt;Common Commands&lt;/h2&gt;&#xA;&lt;p&gt;This is a no-frills cheat sheet for the Docker commands you&amp;rsquo;ll reach for most of the time, with tiny runnable examples you can copy/paste.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Docker Tutorial Part 3: Dockerfile</title>
-      <link>http://localhost:1313/docker-dockerfile/</link>
+      <link>https://han8931.github.io/docker-dockerfile/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/docker-dockerfile/</guid>
+      <guid>https://han8931.github.io/docker-dockerfile/</guid>
       <description>&lt;p&gt;This is part of my &lt;strong&gt;Docker Basics&lt;/strong&gt; series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 1: &lt;a href=&#34;https://han8931.github.io/docker-basics/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Understanding Container&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 2: &lt;a href=&#34;https://han8931.github.io/docker-commands/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Basic Commands&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 3: &lt;a href=&#34;https://han8931.github.io/docker-dockerfile/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Dockerfile&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 4: &lt;a href=&#34;https://han8931.github.io/docker-networks/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Networks&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;dockerfile&#34;&gt;Dockerfile&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;code&gt;Dockerfile&lt;/code&gt; is essentially a text file with a predetermined structure that contains a set of instructions for building a Docker image. The instructions in the Dockerfile specify what base image to start with (for example, Ubuntu 20.04), what software to install, and how to configure the image. The purpose of a Dockerfile is to automate the process of building a Docker image so that the image can be easily reproduced and distributed.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Docker Tutorial Part 4: Networks</title>
-      <link>http://localhost:1313/docker-networks/</link>
+      <link>https://han8931.github.io/docker-networks/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/docker-networks/</guid>
+      <guid>https://han8931.github.io/docker-networks/</guid>
       <description>&lt;p&gt;This is part of my &lt;strong&gt;Docker Basics&lt;/strong&gt; series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 1: &lt;a href=&#34;https://han8931.github.io/docker-basics/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Understanding Container&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 2: &lt;a href=&#34;https://han8931.github.io/docker-commands/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Basic Commands&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 3: &lt;a href=&#34;https://han8931.github.io/docker-dockerfile/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Dockerfile&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Part 4: &lt;a href=&#34;https://han8931.github.io/docker-networks/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Networks&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;docker-networking&#34;&gt;Docker Networking&lt;/h1&gt;&#xA;&lt;p&gt;Docker offers four built-in network drivers: &lt;strong&gt;none, bridge, host,&lt;/strong&gt; and &lt;strong&gt;overlay.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Bridge (default)&lt;/strong&gt;: Creates an isolated, software-defined network. Containers on the same bridge get private IPs and can communicate with each other, while anything outside can&amp;rsquo;t reach them unless you explicitly publish ports.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Host&lt;/strong&gt;: Removes the isolation layer and uses the host&amp;rsquo;s network stack directly. The container shares the host&amp;rsquo;s IP address and network interfaces.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Overlay&lt;/strong&gt;: Builds a virtual network that spans multiple Docker hosts, so containers on different machines can talk as if they&amp;rsquo;re on the same one—handy for Docker Swarm.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;None&lt;/strong&gt;: Disables networking (other than loopback) for the container.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;You can create and manage custom networks of any of these types with the Docker CLI.&lt;/p&gt;</description>
     </item>
   </channel>

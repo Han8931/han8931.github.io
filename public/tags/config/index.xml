@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Config on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/config/</link>
+    <link>https://han8931.github.io/tags/config/</link>
     <description>Recent content in Config on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 15 Sep 2025 19:39:28 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/config/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://han8931.github.io/tags/config/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Clean Validation with Pydantic v2</title>
-      <link>http://localhost:1313/pydantic/</link>
+      <link>https://han8931.github.io/pydantic/</link>
       <pubDate>Sat, 30 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/pydantic/</guid>
+      <guid>https://han8931.github.io/pydantic/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;📝 &lt;strong&gt;Update&lt;/strong&gt; (2025-08): This post was originally published in &lt;strong&gt;April 2024&lt;/strong&gt; and has been updated to reflect changes in &lt;strong&gt;Pydantic v2&lt;/strong&gt;, including the new &lt;em&gt;field validator&lt;/em&gt;, &lt;em&gt;model validator&lt;/em&gt;, and &lt;em&gt;Annotated&lt;/em&gt;-based validation patterns. Also, this post now includes a &lt;strong&gt;new section on using Pydantic with MongoDB&lt;/strong&gt;.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;Python&amp;rsquo;s dynamic typing system is indeed convenient, allowing you to create variables without explicitly declaring their types. While this flexibility can streamline development, it can also introduce unexpected behavior, particularly when handling data from external sources like APIs or user input.&lt;/p&gt;</description>
     </item>
   </channel>
