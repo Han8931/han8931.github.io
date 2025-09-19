@@ -174,7 +174,7 @@
 <li>You can create an instance, <code>user = User(id=&quot;123&quot;)</code></li>
 </ul>
 <p>You can also define models that include other models, allowing for complex data structures:</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -283,7 +283,7 @@
 <p>Pydantic provides validators, which enables you to impose custom validation rules on model fields. These validators extend beyond simple type validation and allow you to enforce additional checks.</p>
 <h3 id="field-validators">Field validators</h3>
 <p>a field validator is a callable taking the value to be validated as an argument and returning the validated value. Here&rsquo;s a simple example:</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -312,7 +312,7 @@
 AfterValidator ensures your custom validator runs after type coercion and default validation.</li>
 </ul>
 <p>You can use a single validator function to apply the same logic (e.g., capitalization, stripping, type conversion, etc.) to multiple fields by using the decorator pattern.</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -339,7 +339,7 @@ AfterValidator ensures your custom validator runs after type coercion and defaul
 <li>You want to enforce cross-field consistency</li>
 <li>You want to do post-processing after all fields are parsed</li>
 </ul>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -414,7 +414,7 @@ AfterValidator ensures your custom validator runs after type coercion and defaul
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pip install pydantic-settings</span></span></code></pre></div></div>
 <p>Then, for example</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -433,7 +433,7 @@ AfterValidator ensures your custom validator runs after type coercion and defaul
 <p>This automatically reads values from environment variables or a <code>.env</code> file (if present), making it ideal for managing sensitive or environment-specific values.</p>
 <h3 id="pydantic-secretstr">Pydantic SecretStr</h3>
 <p>Pydantic provides special types like <code>SecretStr</code> to handle sensitive information, such as passwords or API keys. These ensure that secrets are not accidentally printed or logged:</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -451,7 +451,7 @@ AfterValidator ensures your custom validator runs after type coercion and defaul
 </span></span><span class="line"><span class="cl"><span class="c1"># Access the raw secret value when needed</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">password</span><span class="o">.</span><span class="n">get_secret_value</span><span class="p">())</span></span></span></code></pre></div></div>
 <p>You can safely store secrets in environment variables and load them with <code>SecretStr</code>:</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -470,7 +470,7 @@ AfterValidator ensures your custom validator runs after type coercion and defaul
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">api_key</span><span class="p">)</span>  <span class="c1"># Output: SecretStr(&#39;********&#39;)</span></span></span></code></pre></div></div>
 <h2 id="mongodb-example">MongoDB example</h2>
 <p>Here&rsquo;s a simple example of using Pydantic v2 models with MongoDB:</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -515,7 +515,7 @@ AfterValidator ensures your custom validator runs after type coercion and defaul
 </span></span><span class="line"><span class="cl"><span class="c1">#     &#34;created_at&#34;: datetime(...)</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># }</span></span></span></code></pre></div></div>
 <p>You can load a document like</p>
-<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -565,7 +565,7 @@ AfterValidator ensures your custom validator runs after type coercion and defaul
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.150.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

@@ -173,14 +173,14 @@
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:20.04</span></span></span></code></pre></div></div>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> ubuntu:20.04</span></span></span></code></pre></div></div>
 <p>You can also name this build using as keyword followed by a custom name:</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-Dockerfile">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:20.04</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s">builder1</span></span></span></code></pre></div></div>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> ubuntu:20.04 as builder1</span></span></span></code></pre></div></div>
 <p><code>docker build</code> will try to download Docker images from the public Docker Hub registry, but it&rsquo;s also possible to use other registries out there, or a private one.</p>
 <h3 id="copy-and-add">COPY and ADD</h3>
 <p>The <code>COPY</code> command is used to copy files or directories from the host machine to the container file system. Take the following example:</p>
@@ -200,7 +200,7 @@
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">EXPOSE</span><span class="w"> </span><span class="s">80</span></span></span></code></pre></div></div>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">EXPOSE</span><span class="s"> 80</span></span></span></code></pre></div></div>
 <p>You can specify whether the port listens on TCP or UDP – after specifying the port number, add a slash and a TCP or UDP keyword (for example, <code>EXPOSE 80/udp</code>). The default is TCP if you specify only a port number.</p>
 <p>The <code>EXPOSE</code> command does not publish the ports. To make ports available, you will need to publish them with the use of the <code>-p</code> or <code>--publish</code> option when running the docker run command:</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
@@ -336,7 +336,7 @@
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">ENV</span> <span class="nv">PORT</span><span class="o">=</span><span class="m">8080</span>
-</span></span><span class="line"><span class="cl"><span class="k">EXPOSE</span><span class="w"> </span><span class="s">$PORT</span></span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl"><span class="k">EXPOSE</span><span class="s"> $PORT</span></span></span></code></pre></div></div>
 <p>Now any process inside the container can access $PORT.</p>
 <p>Rule of thumb:</p>
 <ul>
@@ -380,12 +380,12 @@
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">mysql:8.0</span><span class="err">
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> mysql:8.0</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c">## Define where MySQL stores its data</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">VOLUME</span> <span class="p">[</span><span class="s2">&#34;/var/lib/mysql&#34;</span><span class="p">]</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="w"> </span><span class="s">3306</span></span></span></code></pre></div></div>
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 3306</span></span></span></code></pre></div></div>
 <ul>
 <li><code>VOLUME [&quot;/var/lib/mysql&quot;]</code> tells Docker that <code>/var/lib/mysql</code> should be stored outside the container layer system.
 You can see the volume with</li>
@@ -409,7 +409,7 @@ You can see the volume with</li>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">RUN</span> useradd -ms /bin/bash appuser<span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="w"> </span><span class="s">appuser</span></span></span></code></pre></div></div>
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="s"> appuser</span></span></span></code></pre></div></div>
 <ul>
 <li>Now every process inside the container runs as <code>appuser</code>.</li>
 <li><code>-m</code>: create the user&rsquo;s home directory (e.g., <code>/home/appuser</code>).</li>
@@ -430,13 +430,13 @@ You can see the volume with</li>
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/usr/local/app</span></span></span></code></pre></div></div>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">WORKDIR</span><span class="s"> /usr/local/app</span></span></span></code></pre></div></div>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-Dockerfile">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/usr/src/app</span><span class="err">
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">WORKDIR</span><span class="s"> /usr/src/app</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . .<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> pip install -r requirements.txt</span></span></code></pre></div></div>
 <ul>
@@ -449,14 +449,14 @@ You can see the volume with</li>
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:22.04</span><span class="err">
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> ubuntu:22.04</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># First working directory</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="nb">echo</span> <span class="s2">&#34;Hello&#34;</span> &gt; hello.txt<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Change to another directory</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app/subdir</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app/subdir</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="nb">echo</span> <span class="s2">&#34;World&#34;</span> &gt; world.txt<span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy from build context relative to new WORKDIR</span><span class="err">
@@ -494,7 +494,7 @@ You can see the volume with</li>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.150.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.148.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

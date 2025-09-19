@@ -238,7 +238,6 @@ or make it permanent in your config:
 
 ```toml
 # ~/.config/uv/uv.toml
-[install]
 native-tls = true
 ```
 
