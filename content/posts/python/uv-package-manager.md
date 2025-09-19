@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: "All‑in‑One Python Package Manager: UV!"
+title: "UV Tutorial: All‑in‑One Python Package Manager"
 date: 2025-04-13
 draft: false
 author: Han
