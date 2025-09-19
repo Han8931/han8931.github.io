@@ -9,8 +9,15 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 15 Sep 2025 19:39:28 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 20 Sep 2025 07:40:49 +0900</lastBuildDate>
     <atom:link href="https://han8931.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LiteLLM: LLM Proxy Server</title>
+      <link>https://han8931.github.io/litellm/</link>
+      <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>https://han8931.github.io/litellm/</guid>
+      <description>&lt;p&gt;LLM Proxy server is a way that adds much functionality like caching, rate limiting, and routing to making LLM requests. This blog post will explain what a proxy is and LiteLLM.&lt;/p&gt;&#xA;&lt;p&gt;An LLM Proxy is a service that sits between your application and the LLM provider&amp;rsquo;s API.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>NL2SQL Part 1.</title>
       <link>https://han8931.github.io/nl2sql/</link>

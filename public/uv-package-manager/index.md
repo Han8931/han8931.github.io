@@ -1,11 +1,11 @@
-# All‑in‑One Python Package Manager: UV!
+# UV Tutorial: All‑in‑One Python Package Manager!
 
 
-> 📝**Update** (2025-09-06): I've added a new section on using --native-tls with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.
+> 📝**Update** (2025-09-06): I've added a new section on using `--native-tls` with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.
 
 ## Meet **uv** – A Blazingly Fast, All‑in‑One Python Package Manager
 
-In my last post I dove into **[Poetry](https://han8931.github.io/20240707_poetry/)**, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for **pip** to install packages, **virtualenv** to isolate them, **pyenv** to juggle Python versions, and maybe **Pipenv** or **pip‑tools** for lock‑files. Each solves its own niche, yet hopping between them adds friction. **uv** removes that friction. This single, project manager—written in Rust and typically **10-1000x** faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, and even publishing to PyPI, all behind one concise CLI.
+In my last post I dove into **[Poetry](https://han8931.github.io/poetry/)**, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for **pip** to install packages, **virtualenv** to isolate them, **pyenv** to juggle Python versions, and maybe **Pipenv** or **pip‑tools** for lock‑files. Each solves its own niche, yet hopping between them adds friction. **uv** removes that friction. This single, project manager—written in Rust and typically **10-1000x** faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, and even publishing to PyPI, all behind one concise CLI.
 
 ## Why Python Packaging Needed a Fresh Start
 
@@ -230,7 +230,6 @@ or make it permanent in your config:
 
 ```toml
 # ~/.config/uv/uv.toml
-[install]
 native-tls = true
 ```
 
