@@ -1,4 +1,4 @@
-# All‑in‑One Python Package Manager: UV!
+# UV Tutorial: All‑in‑One Python Package Manager: !
 
 
 > 📝**Update** (2025-09-06): I've added a new section on using --native-tls with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.
