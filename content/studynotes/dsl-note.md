@@ -24,4 +24,5 @@ The goal of this collection is to:
 
 The notes cover a range of topics including **probability and statistics, optimization methods, neural networks, and modern deep learning architectures**, along with worked examples and derivations.
 
+> I welcome all comments and suggestions—and I'd be happy to improve and grow this note together with you.
 

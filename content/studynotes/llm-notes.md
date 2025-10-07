@@ -16,3 +16,4 @@ categories: ["study notes"]
 These are my working notes on *NLP and large language models*: intuitive math, minimal proofs, and practical recipes. 
 
 
+> I welcome all comments and suggestions—and I'd be happy to improve and grow this note together with you.
