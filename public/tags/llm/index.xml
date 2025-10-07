@@ -9,8 +9,15 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 07 Oct 2025 10:40:39 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 07 Oct 2025 10:42:45 +0900</lastBuildDate>
     <atom:link href="https://han8931.github.io/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NLP and LLM Study Note</title>
+      <link>https://han8931.github.io/studynotes/llm-notes/</link>
+      <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>https://han8931.github.io/studynotes/llm-notes/</guid>
+      <description>&lt;h1 id=&#34;nlp-and-llm&#34;&gt;NLP and LLM&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/nlp_note&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;NLP Note&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;These are my working notes on &lt;em&gt;NLP and large language models&lt;/em&gt;: intuitive math, minimal proofs, and practical recipes.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I welcome all comments and suggestions—and I&amp;rsquo;d be happy to improve and grow this note together with you.&lt;/p&gt;&lt;/blockquote&gt;</description>
+    </item>
     <item>
       <title>LiteLLM: LLM Proxy Server</title>
       <link>https://han8931.github.io/litellm/</link>
@@ -24,13 +31,6 @@
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>https://han8931.github.io/studynotes/dl-system-design/</guid>
       <description>&lt;h1 id=&#34;-deep-learning-system-design&#34;&gt;🏗️ Deep Learning System Design&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/dl_system_design&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;DL System Design&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This note is about the &lt;strong&gt;practical design of deep learning and LLM-based systems&lt;/strong&gt;. It focuses on bridging research with production: covering concepts such as &lt;strong&gt;scalable architectures, model deployment, monitoring, and system reliability&lt;/strong&gt;. The aim is to capture design patterns and lessons that make ML/DL services both effective and maintainable.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I welcome all comments and suggestions—and I&amp;rsquo;d be happy to improve and grow this note together with you.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>NLP and LLM Study Note</title>
-      <link>https://han8931.github.io/studynotes/llm-notes/</link>
-      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/studynotes/llm-notes/</guid>
-      <description>&lt;h1 id=&#34;nlp-and-llm&#34;&gt;NLP and LLM&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/nlp_note&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;NLP Note&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;These are my working notes on &lt;em&gt;NLP and large language models&lt;/em&gt;: intuitive math, minimal proofs, and practical recipes.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I welcome all comments and suggestions—and I&amp;rsquo;d be happy to improve and grow this note together with you.&lt;/p&gt;&lt;/blockquote&gt;</description>
     </item>
     <item>
       <title>NL2SQL Part 1.</title>

@@ -1,7 +1,7 @@
 ---
 weight: 1
 title: "NLP and LLM Study Note"
-date: 2025-09-07
+date: 2025-10-07
 draft: false
 author: Han
 description: "My NLP and LLM study note"
