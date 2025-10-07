@@ -150,4 +150,7 @@ docker run --memory 500m alpine /bin/sh
 ```
 You can specify the memory limit in bytes, kilobytes, megabytes, or gigabytes by using the appropriate suffix (b, k, m, or g).
 
+## References
+
+- The Linux DevOps Handbook, Damian Wojsław and Grzegorz Adamowicz
 

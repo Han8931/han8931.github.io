@@ -8,7 +8,7 @@ This is part of my **Docker Basics** series — introductory guides to help you 
 * **Part 3: [Dockerfile](https://han8931.github.io/docker-dockerfile/)**
 * **Part 4: [Networks](https://han8931.github.io/docker-networks/)**
 
-## Dockerfile
+## Basic Commands
 
 A `Dockerfile` is essentially a text file with a predetermined structure that contains a set of instructions for building a Docker image. The instructions in the Dockerfile specify what base image to start with (for example, Ubuntu 20.04), what software to install, and how to configure the image. The purpose of a Dockerfile is to automate the process of building a Docker image so that the image can be easily reproduced and distributed.
 
@@ -264,4 +264,163 @@ RUN echo "World" > world.txt
 # Copy from build context relative to new WORKDIR
 COPY main.py .
 ```
+
+## Writing Efficient Dockerfiles
+
+### Small base images
+
+The full `python` image ships lots of build tools you usually don't need in production. Using a smaller base cuts image size.
+
+* **Recommended for most apps** (good balance of size & compatibility):
+
+  ```Dockerfile
+  FROM python:3.11-slim    # Debian (Bookworm) base
+  ```
+* **Smallest footprint, but riskier** (musl libc; manylinux wheels may not work and native builds can be painful):
+
+  ```Dockerfile
+  FROM python:3.11-alpine
+  ```
+
+> Tip: Alpine is great for *pure-Python* deps. If you need C extensions (NumPy, psycopg2, etc.), stick with a Debian-based slim image for painless wheel installs.
+
+### Run as a non-root user (security best practice)
+
+Don't run your app as root. Running your application as a non-root user reduces the potential impact if the container is ever compromised. Create a dedicated user and run the app under it.
+
+**Debian/Ubuntu (slim) variant:**
+
+```Dockerfile
+FROM python:3.11-slim
+
+# Create non-root user
+RUN useradd -m appuser
+
+WORKDIR /app
+
+# 1) Copy only dependency file first (cache-friendly)
+COPY requirements.txt .
+
+# 2) Install deps (small image; faster rebuilds)
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 3) Copy the rest of the app with correct ownership
+COPY --chown=appuser:appuser . .
+
+# Run as non-root
+USER appuser
+
+CMD ["python3", "app.py"]
+```
+
+* `useradd` creates a system user with no login shell or home directory.
+* `COPY --chown=...` sets ownership as files are copied, avoiding an extra `chown` layer.
+* `USER appuser` ensures your process runs without root privileges.
+
+### Reuses the cached layer
+
+Docker builds **image layers** from each instruction in your Dockerfile. If the input to a layer hasn't changed, Docker **reuses the cached layer** instead of re-running it. Your application code changes often, but your dependencies (requirements) change rarely. So if you install deps in an earlier layer and copy your code later, most builds can reuse the heavy "install deps" layer and only re-run the quick "copy code" step.
+
+Bad Example:
+```Dockerfile
+FROM python:3.11-slim
+WORKDIR /app
+
+# ❌ Copies everything (your changing code!) first
+COPY . .
+
+# ❌ Now this runs every time your code changed above
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["python3", "app.py"]
+```
+- Any code change triggers the cache before pip install, so dependencies reinstall every time.
+
+Good Example:
+```Dockerfile
+FROM python:3.11-slim
+WORKDIR /app
+
+# ✅ Copy only the dependency file first (rarely changes)
+COPY requirements.txt .
+
+# ✅ Install deps now; this layer is cached until requirements.txt changes
+RUN pip install --no-cache-dir -r requirements.txt
+
+# ✅ Copy your frequently changing app code last
+COPY . .
+
+CMD ["python3", "app.py"]
+```
+- Dependency install is isolated in its own layer and only re-runs when requirements change.
+- `--no-cache-dir` is a `pip` option that tells `pip` not to write a local download/cache when installing packages. When you run `pip install -r requirements.txt`, pip:
+    - downloads wheels/source archives to a local cache (usually `~/.cache/pip`),
+    - installs the packages from that cache.
+    - That cache can speed up the next install because files are already downloaded.
+
+### Multi-Stage Builds
+
+Some Python packages need extra tools to compile, but your app won't use those tools after it's built. With multi-stage builds, you compile everything in a builder image, then move just the finished packages into a light "runtime" image. That keeps the final image small, quick to start, and easier to secure.
+
+```Dockerfile
+# Build stage
+FROM python:3.11 AS builder
+
+WORKDIR /build
+COPY requirements.txt .
+
+# Install build dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gcc libpq-dev && \
+    pip wheel --no-cache-dir --wheel-dir /wheels -r requirements.txt
+
+# Final stage
+FROM python:3.11-slim
+
+WORKDIR /app
+# Copy only wheels from builder
+COPY --from=builder /wheels /wheels
+RUN pip install --no-cache-dir --no-index --find-links=/wheels /wheels/*
+
+COPY . .
+
+CMD ["python3", "app.py"]
+```
+
+### Use `.dockerignore` file
+
+Before building, Docker sends your project folder to the engine (i.e., **build context**, the set of files/folders Docker sends to the Docker engine at the start of `docker build.`). Use `.dockerignore` to exclude junk (git files, venvs, caches) so builds are faster and caching works.
+
+```dockerignore
+# Version control
+.git/
+.gitignore
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+
+# Environments & secrets
+.env
+.venv
+
+# Build outputs
+build/
+dist/
+*.egg-info/
+
+# Optional: tests and local tooling not needed in the image
+tests/
+.idea/
+.vscode/
+```
+
+## References
+
+- The Linux DevOps Handbook, Damian Wojsław and Grzegorz Adamowicz
+- [How to Write Efficient Dockerfiles for Your Python Applications](https://www.kdnuggets.com/how-to-write-efficient-dockerfiles-for-your-python-applications)
+
 
