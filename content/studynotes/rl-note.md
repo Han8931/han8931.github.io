@@ -9,6 +9,7 @@ tags: ["reinforcement learning", "study notes"]
 categories: ["study notes"]
 ---
 
+> I welcome all comments and suggestions—and I'd be happy to improve and grow this note together with you.
 
 # 📘 Reinforcement Learning Notes
 

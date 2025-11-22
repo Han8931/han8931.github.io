@@ -9,7 +9,7 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 22 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Nov 2025 20:30:54 +0900</lastBuildDate>
     <atom:link href="https://han8931.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Causal Inference</title>
@@ -33,6 +33,27 @@
       <description></description>
     </item>
     <item>
+      <title>Deep Learning</title>
+      <link>https://han8931.github.io/tags/deep-learning/</link>
+      <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>https://han8931.github.io/tags/deep-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LLM</title>
+      <link>https://han8931.github.io/tags/llm/</link>
+      <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>https://han8931.github.io/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NLP</title>
+      <link>https://han8931.github.io/tags/nlp/</link>
+      <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>https://han8931.github.io/tags/nlp/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>AI</title>
       <link>https://han8931.github.io/tags/ai/</link>
       <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
@@ -44,13 +65,6 @@
       <link>https://han8931.github.io/tags/litellm/</link>
       <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>https://han8931.github.io/tags/litellm/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>LLM</title>
-      <link>https://han8931.github.io/tags/llm/</link>
-      <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/tags/llm/</guid>
       <description></description>
     </item>
     <item>
@@ -107,13 +121,6 @@
       <link>https://han8931.github.io/tags/tutorial/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>https://han8931.github.io/tags/tutorial/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Deep Learning</title>
-      <link>https://han8931.github.io/tags/deep-learning/</link>
-      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/tags/deep-learning/</guid>
       <description></description>
     </item>
     <item>
