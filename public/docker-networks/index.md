@@ -127,4 +127,8 @@ docker network connect mynetwork CONTAINER_NAME_OR_ID
 docker network disconnect mynetwork CONTAINER_NAME_OR_ID
 ```
 
+## References
+
+- The Linux DevOps Handbook, Damian Wojsław and Grzegorz Adamowicz
+
 

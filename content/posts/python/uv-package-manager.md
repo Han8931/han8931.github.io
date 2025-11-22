@@ -13,7 +13,7 @@ categories: ["python", "programming"]
 
 ## Meet **uv** – A Blazingly Fast, All‑in‑One Python Package Manager
 
-In my last post I dove into **[Poetry](https://han8931.github.io/poetry/)**, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for **pip** to install packages, **virtualenv** to isolate them, **pyenv** to juggle Python versions, and maybe **Pipenv** or **pip‑tools** for lock‑files. Each solves its own niche, yet hopping between them adds friction. **uv** removes that friction. This single, project manager—written in Rust and typically **10-1000x** faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, and even publishing to PyPI, all behind one concise CLI.
+In my last post, I covered **[Poetry](https://han8931.github.io/poetry/)**. It's a solid dependency manager—but it still leaves you juggling other tools: pip for installs, virtualenv for isolation, pyenv for Python versions, and pip-tools or Pipenv for locks. That bounce between tools adds friction. **uv** removes it. This single, Rust-built project manager—now one of the most popular tools in the Python ecosystem—installs Python, creates virtual environments, resolves and locks dependencies, and even publishes to PyPI, all from one blazing-fast CLI (often 10–1000× faster).
 
 ## Why Python Packaging Needed a Fresh Start
 
@@ -51,7 +51,7 @@ uv init myapp        # ➊ scaffold project & git repo
 ```bash
 uv add ruff pytest   # ➋ add linting & tests
 ```
-* **Environment bootstrap** – if `.venv` doesn’t exist, it’s created.
+* **Environment bootstrap** – if `.venv` doesn't exist, it's created.
 * **Dependency resolution** – the PubGrub SAT solver computes a compatible graph (an NP‑hard problem) in milliseconds.
 * **Lockfile update** – `uv.lock` is regenerated atomically so that users can reproduce the exact set.
 * **Installation** 
@@ -102,7 +102,7 @@ Switching between shared and isolated workflows is a flag away.
 
 ## Dependency Groups for Dev & Prod
 
-Sometimes you want linting and testing tools _only_ in development.  **uv** follows Poetry’s group syntax:
+Sometimes you want linting and testing tools _only_ in development.  **uv** follows Poetry's group syntax:
 
 ```bash
 uv add --dev pytest ruff      # added under [tool.poetry.group.dev]

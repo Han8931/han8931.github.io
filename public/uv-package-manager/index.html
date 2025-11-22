@@ -38,7 +38,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/han8931.github.io\/uv-package-manager\/"
-        },"genre": "posts","keywords": "python, uv, package manager, Virtual Environment","wordcount":  1155 ,
+        },"genre": "posts","keywords": "python, uv, package manager, Virtual Environment","wordcount":  1139 ,
         "url": "https:\/\/han8931.github.io\/uv-package-manager\/","datePublished": "2025-04-13T00:00:00+00:00","dateModified": "2025-09-20T07:40:49+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -112,7 +112,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">UV Tutorial: All‑in‑One Python Package Manager!</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-04-13">2025-04-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1155 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-04-13">2025-04-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1139 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;<span id="/uv-package-manager/" class="leancloud_visitors" data-flag-title="UV Tutorial: All‑in‑One Python Package Manager!">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
                     </span>&nbsp;</div>
@@ -151,9 +151,10 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><blockquote>
-<p>📝<strong>Update</strong> (2025-09-06): I&rsquo;ve added a new section on using <code>--native-tls</code> with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.</p></blockquote>
+<p>📝<strong>Update</strong> (2025-09-06): I&rsquo;ve added a new section on using <code>--native-tls</code> with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.</p>
+</blockquote>
 <h2 id="meet-uva-blazinglyfast-allinone-python-packagemanager">Meet <strong>uv</strong> – A Blazingly Fast, All‑in‑One Python Package Manager</h2>
-<p>In my last post I dove into <strong><a href="https://han8931.github.io/poetry/" target="_blank" rel="noopener noreffer ">Poetry</a></strong>, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for <strong>pip</strong> to install packages, <strong>virtualenv</strong> to isolate them, <strong>pyenv</strong> to juggle Python versions, and maybe <strong>Pipenv</strong> or <strong>pip‑tools</strong> for lock‑files. Each solves its own niche, yet hopping between them adds friction. <strong>uv</strong> removes that friction. This single, project manager—written in Rust and typically <strong>10-1000x</strong> faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, and even publishing to PyPI, all behind one concise CLI.</p>
+<p>In my last post, I covered <strong><a href="https://han8931.github.io/poetry/" target="_blank" rel="noopener noreffer ">Poetry</a></strong>. It&rsquo;s a solid dependency manager—but it still leaves you juggling other tools: pip for installs, virtualenv for isolation, pyenv for Python versions, and pip-tools or Pipenv for locks. That bounce between tools adds friction. <strong>uv</strong> removes it. This single, Rust-built project manager—now one of the most popular tools in the Python ecosystem—installs Python, creates virtual environments, resolves and locks dependencies, and even publishes to PyPI, all from one blazing-fast CLI (often 10–1000× faster).</p>
 <h2 id="why-python-packaging-needed-a-fresh-start">Why Python Packaging Needed a Fresh Start</h2>
 <table>
   <thead>
@@ -208,7 +209,7 @@
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv add ruff pytest   <span class="c1"># ➋ add linting &amp; tests</span></span></span></code></pre></div></div>
 <ul>
-<li><strong>Environment bootstrap</strong> – if <code>.venv</code> doesn’t exist, it’s created.</li>
+<li><strong>Environment bootstrap</strong> – if <code>.venv</code> doesn&rsquo;t exist, it&rsquo;s created.</li>
 <li><strong>Dependency resolution</strong> – the PubGrub SAT solver computes a compatible graph (an NP‑hard problem) in milliseconds.</li>
 <li><strong>Lockfile update</strong> – <code>uv.lock</code> is regenerated atomically so that users can reproduce the exact set.</li>
 <li><strong>Installation</strong></li>
@@ -256,7 +257,7 @@
 <p>Switching between shared and isolated workflows is a flag away.</p>
 <hr>
 <h2 id="dependency-groups-for-dev--prod">Dependency Groups for Dev &amp; Prod</h2>
-<p>Sometimes you want linting and testing tools <em>only</em> in development.  <strong>uv</strong> follows Poetry’s group syntax:</p>
+<p>Sometimes you want linting and testing tools <em>only</em> in development.  <strong>uv</strong> follows Poetry&rsquo;s group syntax:</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-bash">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
@@ -488,7 +489,7 @@ You can configure it globally with</p>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.150.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.152.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

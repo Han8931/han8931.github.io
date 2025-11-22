@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-09-13T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-09-15T19:46:20+09:00">
+    <meta property="article:modified_time" content="2025-09-20T09:08:54+09:00">
     <meta property="article:tag" content="Docker">
     <meta property="article:tag" content="Dockerfile">
     <meta property="article:tag" content="Programming">
@@ -39,8 +39,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/han8931.github.io\/docker-dockerfile\/"
-        },"genre": "posts","keywords": "Docker, Dockerfile, Programming, DevOps, Tutorial","wordcount":  1597 ,
-        "url": "https:\/\/han8931.github.io\/docker-dockerfile\/","datePublished": "2025-09-13T00:00:00+00:00","dateModified": "2025-09-15T19:46:20+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "Docker, Dockerfile, Programming, DevOps, Tutorial","wordcount":  2294 ,
+        "url": "https:\/\/han8931.github.io\/docker-dockerfile\/","datePublished": "2025-09-13T00:00:00+00:00","dateModified": "2025-09-20T09:08:54+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -113,8 +113,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker Tutorial Part 3: Dockerfile</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a>&nbsp;<a href="/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-13">2025-09-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1597 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;<span id="/docker-dockerfile/" class="leancloud_visitors" data-flag-title="Docker Tutorial Part 3: Dockerfile">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-13">2025-09-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2294 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;11 minutes&nbsp;<span id="/docker-dockerfile/" class="leancloud_visitors" data-flag-title="Docker Tutorial Part 3: Dockerfile">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -124,7 +124,7 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#dockerfile">Dockerfile</a>
+    <li><a href="#basic-commands">Basic Commands</a>
       <ul>
         <li><a href="#from">FROM</a></li>
         <li><a href="#copy-and-add">COPY and ADD</a></li>
@@ -138,6 +138,16 @@
         <li><a href="#workdir">WORKDIR</a></li>
       </ul>
     </li>
+    <li><a href="#writing-efficient-dockerfiles">Writing Efficient Dockerfiles</a>
+      <ul>
+        <li><a href="#small-base-images">Small base images</a></li>
+        <li><a href="#run-as-a-non-root-user-security-best-practice">Run as a non-root user (security best practice)</a></li>
+        <li><a href="#reuses-the-cached-layer">Reuses the cached layer</a></li>
+        <li><a href="#multi-stage-builds">Multi-Stage Builds</a></li>
+        <li><a href="#use-dockerignore-file">Use <code>.dockerignore</code> file</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>This is part of my <strong>Docker Basics</strong> series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.</p>
@@ -147,7 +157,7 @@
 <li><strong>Part 3: <a href="https://han8931.github.io/docker-dockerfile/" target="_blank" rel="noopener noreffer ">Dockerfile</a></strong></li>
 <li><strong>Part 4: <a href="https://han8931.github.io/docker-networks/" target="_blank" rel="noopener noreffer ">Networks</a></strong></li>
 </ul>
-<h2 id="dockerfile">Dockerfile</h2>
+<h2 id="basic-commands">Basic Commands</h2>
 <p>A <code>Dockerfile</code> is essentially a text file with a predetermined structure that contains a set of instructions for building a Docker image. The instructions in the Dockerfile specify what base image to start with (for example, Ubuntu 20.04), what software to install, and how to configure the image. The purpose of a Dockerfile is to automate the process of building a Docker image so that the image can be easily reproduced and distributed.</p>
 <p>The structure of a Dockerfile is a list of commands (one per line) that Docker (containerd to be exact) uses to build an image. Each command creates a new layer in the image in UnionFS, and the resulting image is the union of all the layers. The fewer layers we manage to create, the smaller the resulting image.</p>
 <p>The most frequently used commands in a Dockerfile are the following:</p>
@@ -461,12 +471,186 @@ You can see the volume with</li>
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy from build context relative to new WORKDIR</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> main.py .</span></span></code></pre></div></div>
+<h2 id="writing-efficient-dockerfiles">Writing Efficient Dockerfiles</h2>
+<h3 id="small-base-images">Small base images</h3>
+<p>The full <code>python</code> image ships lots of build tools you usually don&rsquo;t need in production. Using a smaller base cuts image size.</p>
+<ul>
+<li>
+<p><strong>Recommended for most apps</strong> (good balance of size &amp; compatibility):</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span>    <span class="c1"># Debian (Bookworm) base</span></span></span></code></pre></div></div>
+</li>
+<li>
+<p><strong>Smallest footprint, but riskier</strong> (musl libc; manylinux wheels may not work and native builds can be painful):</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-alpine</span></span></span></code></pre></div></div>
+</li>
+</ul>
+<blockquote>
+<p>Tip: Alpine is great for <em>pure-Python</em> deps. If you need C extensions (NumPy, psycopg2, etc.), stick with a Debian-based slim image for painless wheel installs.</p>
+</blockquote>
+<h3 id="run-as-a-non-root-user-security-best-practice">Run as a non-root user (security best practice)</h3>
+<p>Don&rsquo;t run your app as root. Running your application as a non-root user reduces the potential impact if the container is ever compromised. Create a dedicated user and run the app under it.</p>
+<p><strong>Debian/Ubuntu (slim) variant:</strong></p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Create non-root user</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> useradd -m appuser<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 1) Copy only dependency file first (cache-friendly)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> requirements.txt .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 2) Install deps (small image; faster rebuilds)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> pip install --no-cache-dir -r requirements.txt<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 3) Copy the rest of the app with correct ownership</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --chown<span class="o">=</span>appuser:appuser . .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Run as non-root</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="w"> </span><span class="s">appuser</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;python3&#34;</span><span class="p">,</span> <span class="s2">&#34;app.py&#34;</span><span class="p">]</span></span></span></code></pre></div></div>
+<ul>
+<li><code>useradd</code> creates a system user with no login shell or home directory.</li>
+<li><code>COPY --chown=...</code> sets ownership as files are copied, avoiding an extra <code>chown</code> layer.</li>
+<li><code>USER appuser</code> ensures your process runs without root privileges.</li>
+</ul>
+<h3 id="reuses-the-cached-layer">Reuses the cached layer</h3>
+<p>Docker builds <strong>image layers</strong> from each instruction in your Dockerfile. If the input to a layer hasn&rsquo;t changed, Docker <strong>reuses the cached layer</strong> instead of re-running it. Your application code changes often, but your dependencies (requirements) change rarely. So if you install deps in an earlier layer and copy your code later, most builds can reuse the heavy &ldquo;install deps&rdquo; layer and only re-run the quick &ldquo;copy code&rdquo; step.</p>
+<p>Bad Example:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># ❌ Copies everything (your changing code!) first</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># ❌ Now this runs every time your code changed above</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> pip install --no-cache-dir -r requirements.txt<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;python3&#34;</span><span class="p">,</span> <span class="s2">&#34;app.py&#34;</span><span class="p">]</span></span></span></code></pre></div></div>
+<ul>
+<li>Any code change triggers the cache before pip install, so dependencies reinstall every time.</li>
+</ul>
+<p>Good Example:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># ✅ Copy only the dependency file first (rarely changes)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> requirements.txt .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># ✅ Install deps now; this layer is cached until requirements.txt changes</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> pip install --no-cache-dir -r requirements.txt<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># ✅ Copy your frequently changing app code last</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;python3&#34;</span><span class="p">,</span> <span class="s2">&#34;app.py&#34;</span><span class="p">]</span></span></span></code></pre></div></div>
+<ul>
+<li>Dependency install is isolated in its own layer and only re-runs when requirements change.</li>
+<li><code>--no-cache-dir</code> is a <code>pip</code> option that tells <code>pip</code> not to write a local download/cache when installing packages. When you run <code>pip install -r requirements.txt</code>, pip:
+<ul>
+<li>downloads wheels/source archives to a local cache (usually <code>~/.cache/pip</code>),</li>
+<li>installs the packages from that cache.</li>
+<li>That cache can speed up the next install because files are already downloaded.</li>
+</ul>
+</li>
+</ul>
+<h3 id="multi-stage-builds">Multi-Stage Builds</h3>
+<p>Some Python packages need extra tools to compile, but your app won&rsquo;t use those tools after it&rsquo;s built. With multi-stage builds, you compile everything in a builder image, then move just the finished packages into a light &ldquo;runtime&rdquo; image. That keeps the final image small, quick to start, and easier to secure.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-Dockerfile">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="c"># Build stage</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">builder</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/build</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> requirements.txt .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Install build dependencies</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    apt-get install -y --no-install-recommends gcc libpq-dev <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    pip wheel --no-cache-dir --wheel-dir /wheels -r requirements.txt<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Final stage</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy only wheels from builder</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder /wheels /wheels<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> pip install --no-cache-dir --no-index --find-links<span class="o">=</span>/wheels /wheels/*<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;python3&#34;</span><span class="p">,</span> <span class="s2">&#34;app.py&#34;</span><span class="p">]</span></span></span></code></pre></div></div>
+<h3 id="use-dockerignore-file">Use <code>.dockerignore</code> file</h3>
+<p>Before building, Docker sends your project folder to the engine (i.e., <strong>build context</strong>, the set of files/folders Docker sends to the Docker engine at the start of <code>docker build.</code>). Use <code>.dockerignore</code> to exclude junk (git files, venvs, caches) so builds are faster and caching works.</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-dockerignore">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="c1"># Version control</span>
+</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">git</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">gitignore</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Python artifacts</span>
+</span></span><span class="line"><span class="cl"><span class="n">__pycache__</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl"><span class="o">*.</span><span class="n">py</span><span class="p">[</span><span class="n">cod</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">*$</span><span class="n">py</span><span class="o">.</span><span class="k">class</span>
+</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">pytest_cache</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">coverage</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Environments &amp; secrets</span>
+</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">env</span>
+</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">venv</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Build outputs</span>
+</span></span><span class="line"><span class="cl"><span class="n">build</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl"><span class="n">dist</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl"><span class="o">*.</span><span class="n">egg</span><span class="o">-</span><span class="n">info</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Optional: tests and local tooling not needed in the image</span>
+</span></span><span class="line"><span class="cl"><span class="n">tests</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">idea</span><span class="o">/</span>
+</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">vscode</span><span class="o">/</span></span></span></code></pre></div></div>
+<h2 id="references">References</h2>
+<ul>
+<li>The Linux DevOps Handbook, Damian Wojsław and Grzegorz Adamowicz</li>
+<li><a href="https://www.kdnuggets.com/how-to-write-efficient-dockerfiles-for-your-python-applications" target="_blank" rel="noopener noreffer ">How to Write Efficient Dockerfiles for Your Python Applications</a></li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2025-09-15&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/5fdb4299cf403107d6016d7694b452c0654dc3dd" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 5fdb4299cf403107d6016d7694b452c0654dc3dd: Update">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>5fdb429</a></span>
+                <span>Updated on 2025-09-20&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/c2e226a895d597b98934a9c98451aa07e4713e7b" target="_blank" title="commit by Han(tabularasa8931@gmail.com) c2e226a895d597b98934a9c98451aa07e4713e7b: Polish docker writing">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>c2e226a</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
@@ -494,7 +678,7 @@ You can see the volume with</li>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.150.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.152.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

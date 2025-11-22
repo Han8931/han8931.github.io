@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta name="generator" content="Hugo 0.150.0">
+	<meta name="generator" content="Hugo 0.152.2">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -103,6 +103,14 @@
         alt="https://www.gravatar.com/avatar/485df9434f4908b5f6fab0750c113972?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/485df9434f4908b5f6fab0750c113972?s=240&amp;d=mp" /></a></div><h1 class="home-title">Han</h1><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"><a href="https://github.com/Han8931" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github fa-fw" aria-hidden="true"></i></a><a href="mailto:tabularasa8931@gmail.com" title="Email" rel="me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/pydantic/">Clean Validation with Pydantic v2</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-08-30">2025-08-30</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a>&nbsp;<a href="/categories/pydantic/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Pydantic</a></span></div><div class="content"><blockquote>
+<p>📝 <strong>Update</strong> (2025-08): This post was originally published in <strong>April 2024</strong> and has been updated to reflect changes in <strong>Pydantic v2</strong>, including the new <em>field validator</em>, <em>model validator</em>, and <em>Annotated</em>-based validation patterns. Also, this post now includes a <strong>new section on using Pydantic with MongoDB</strong>.</p>
+</blockquote>
+<p>Python&rsquo;s dynamic typing system is indeed convenient, allowing you to create variables without explicitly declaring their types. While this flexibility can streamline development, it can also introduce unexpected behavior, particularly when handling data from external sources like APIs or user input.</p></div><div class="post-footer">
+        <a href="/pydantic/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/pydantic/">Pydantic</a>,&nbsp;<a href="/tags/config/">Config</a>,&nbsp;<a href="/tags/environment-variables/">Environment Variables</a>,&nbsp;<a href="/tags/mongodb/">Mongodb</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/binary-search/">A Lesson from a Naive Binary Search</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-06-30">2025-06-30</time></span>&nbsp;<span class="post-category">included in <a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a>&nbsp;<a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a>&nbsp;<a href="/categories/algorithm/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Algorithm</a></span></div><div class="content"><h2 id="a-lesson-from-a-naive-binary-search">A Lesson from a Naive Binary Search</h2>
 <p>I&rsquo;ve been grinding hard every day, solving coding problems to get better at algorithms. Recently, I came across something interesting—a naive implementation of binary search can actually cause a bug. It&rsquo;s a small detail, but it matters.</p>
@@ -229,14 +237,6 @@
 <p>To explore who changed what in a file:</p></div><div class="post-footer">
         <a href="/vim-fugitive/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/git/">Git</a>,&nbsp;<a href="/tags/vim/">Vim</a>,&nbsp;<a href="/tags/fugitive/">Fugitive</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/uv-package-manager/">UV Tutorial: All‑in‑One Python Package Manager!</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-04-13">2025-04-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><blockquote>
-<p>📝<strong>Update</strong> (2025-09-06): I&rsquo;ve added a new section on using <code>--native-tls</code> with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.</p></blockquote>
-<h2 id="meet-uva-blazinglyfast-allinone-python-packagemanager">Meet <strong>uv</strong> – A Blazingly Fast, All‑in‑One Python Package Manager</h2>
-<p>In my last post I dove into <strong><a href="https://han8931.github.io/poetry/" target="_blank" rel="noopener noreffer ">Poetry</a></strong>, one of the best‑loved modern packaging tools. However, Poetry is just one piece of an toolkit: we still reach for <strong>pip</strong> to install packages, <strong>virtualenv</strong> to isolate them, <strong>pyenv</strong> to juggle Python versions, and maybe <strong>Pipenv</strong> or <strong>pip‑tools</strong> for lock‑files. Each solves its own niche, yet hopping between them adds friction. <strong>uv</strong> removes that friction. This single, project manager—written in Rust and typically <strong>10-1000x</strong> faster-replaces the whole stack: installing Python itself, creating virtual environments, resolving and locking dependencies, and even publishing to PyPI, all behind one concise CLI.</p></div><div class="post-footer">
-        <a href="/uv-package-manager/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/uv/">Uv</a>,&nbsp;<a href="/tags/package-manager/">Package Manager</a>,&nbsp;<a href="/tags/virtual-environment/">Virtual Environment</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -261,7 +261,7 @@
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.150.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.152.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

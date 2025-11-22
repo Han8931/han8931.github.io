@@ -9,8 +9,22 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 20 Sep 2025 07:40:49 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 22 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://han8931.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Causality</title>
+      <link>https://han8931.github.io/categories/causality/</link>
+      <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>https://han8931.github.io/categories/causality/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>https://han8931.github.io/categories/machine-learning/</link>
+      <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>https://han8931.github.io/categories/machine-learning/</guid>
+      <description></description>
+    </item>
     <item>
       <title>LiteLLM</title>
       <link>https://han8931.github.io/categories/litellm/</link>
@@ -149,13 +163,6 @@
       <link>https://han8931.github.io/categories/nlp/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>https://han8931.github.io/categories/nlp/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Machine Learning</title>
-      <link>https://han8931.github.io/categories/machine-learning/</link>
-      <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/categories/machine-learning/</guid>
       <description></description>
     </item>
     <item>

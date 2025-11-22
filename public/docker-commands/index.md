@@ -383,3 +383,7 @@ For example,
 docker logs -f --tail 50 mycontainer
 ```
 
+## References
+
+- The Linux DevOps Handbook, Damian Wojsław and Grzegorz Adamowicz
+

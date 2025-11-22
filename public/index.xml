@@ -4,16 +4,27 @@
         <link>https://han8931.github.io/</link>
         <description>Han&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 18 Sep 2025 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 22 Nov 2025 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://han8931.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Causal Inference Part 1: Causation and Correlation</title>
+    <link>https://han8931.github.io/causality-1/</link>
+    <pubDate>Sat, 22 Nov 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>https://han8931.github.io/causality-1/</guid>
+    <description><![CDATA[<p>Most of the time when we say &ldquo;my model learned something,&rdquo; what it actually learned is a bunch of very smart correlations. If users who click A also tend to click B, or if certain pixels tend to appear together in cat photos, our models will happily latch onto those patterns and exploit them. That&rsquo;s powerful—and often enough for prediction—but it&rsquo;s not the same as understanding what would <em>happen</em> if we actually changed something in the world: raised a price, changed a policy, or shipped a new feature.</p>]]></description>
+</item>
+<item>
     <title>LiteLLM: LLM Proxy Server</title>
     <link>https://han8931.github.io/litellm/</link>
     <pubDate>Thu, 18 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
     <guid>https://han8931.github.io/litellm/</guid>
-    <description><![CDATA[<p>LLM Proxy server is a way that adds much functionality like caching, rate limiting, and routing to making LLM requests. This blog post will explain what a proxy is and LiteLLM.</p>
-<p>An LLM Proxy is a service that sits between your application and the LLM provider&rsquo;s API.</p>]]></description>
+    <description><![CDATA[<h2 id="why-an-llm-proxy-at-all">Why an LLM proxy at all?</h2>
+<p>An LLM proxy sits between your app and model providers (OpenAI, Anthropic, Google, Ollama, etc.). It gives you a unified API (usually OpenAI-compatible), centralized auth, usage controls (budgets / rate-limits), routing and fallbacks, and caching—without changing your application code for each vendor.</p>
+<!-- There is a trade-off: adding a proxy introduces another moving piece (and potential single point of failure). For pure observability When you do want a proxy, Langfuse recommends LiteLLM, which is open source, self-hostable, and has first-class integration with Langfuse. -->
+<h2 id="what-is-litellm">What is LiteLLM?</h2>
+<p>LiteLLM is an OpenAI-compatible LLM Gateway that lets you call 100+ providers behind one API, plus adds budgets/rate-limits, model access control, caching, routing, admin UI, and more. You can run it as a single Docker container with a YAML config.</p>]]></description>
 </item>
 <item>
     <title>Docker Tutorial Part 1: Basics</title>
@@ -60,7 +71,7 @@
 <li><strong>Part 3: <a href="https://han8931.github.io/docker-dockerfile/" target="_blank" rel="noopener noreffer ">Dockerfile</a></strong></li>
 <li><strong>Part 4: <a href="https://han8931.github.io/docker-networks/" target="_blank" rel="noopener noreffer ">Networks</a></strong></li>
 </ul>
-<h2 id="dockerfile">Dockerfile</h2>
+<h2 id="basic-commands">Basic Commands</h2>
 <p>A <code>Dockerfile</code> is essentially a text file with a predetermined structure that contains a set of instructions for building a Docker image. The instructions in the Dockerfile specify what base image to start with (for example, Ubuntu 20.04), what software to install, and how to configure the image. The purpose of a Dockerfile is to automate the process of building a Docker image so that the image can be easily reproduced and distributed.</p>]]></description>
 </item>
 <item>
@@ -113,7 +124,8 @@
     <author>Han</author>
     <guid>https://han8931.github.io/pydantic/</guid>
     <description><![CDATA[<blockquote>
-<p>📝 <strong>Update</strong> (2025-08): This post was originally published in <strong>April 2024</strong> and has been updated to reflect changes in <strong>Pydantic v2</strong>, including the new <em>field validator</em>, <em>model validator</em>, and <em>Annotated</em>-based validation patterns. Also, this post now includes a <strong>new section on using Pydantic with MongoDB</strong>.</p></blockquote>
+<p>📝 <strong>Update</strong> (2025-08): This post was originally published in <strong>April 2024</strong> and has been updated to reflect changes in <strong>Pydantic v2</strong>, including the new <em>field validator</em>, <em>model validator</em>, and <em>Annotated</em>-based validation patterns. Also, this post now includes a <strong>new section on using Pydantic with MongoDB</strong>.</p>
+</blockquote>
 <p>Python&rsquo;s dynamic typing system is indeed convenient, allowing you to create variables without explicitly declaring their types. While this flexibility can streamline development, it can also introduce unexpected behavior, particularly when handling data from external sources like APIs or user input.</p>]]></description>
 </item>
 <item>
@@ -141,24 +153,6 @@
 </span></span><span class="line"><span class="cl">            <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></span></span></code></pre></div></div>
 <p>It works fine in Python—but I recently learned that the way I calculate <code>mid</code> can cause problems in some cases.</p>]]></description>
-</item>
-<item>
-    <title>Managing Password using Pass</title>
-    <link>https://han8931.github.io/pass/</link>
-    <pubDate>Sat, 24 May 2025 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>https://han8931.github.io/pass/</guid>
-    <description><![CDATA[<h1 id="a-minimalists-guide-to-pass-the-unix-password-manager">A Minimalist’s Guide to <strong>pass</strong>— the Unix Password Manager</h1>
-<p><em>Safely wrangle your secrets from the command-line using GPG encryption and a few intuitive commands.</em></p>
-<hr>
-<h2 id="1-why-pass">1. Why <em>pass</em>?</h2>
-<ul>
-<li><strong>Single-purpose &amp; transparent</strong> – every secret is just a GPG-encrypted file in <code>~/.password-store/</code>.</li>
-<li><strong>Leverages tools you already trust</strong> – GnuPG for encryption and standard Unix commands for everything else (grep, git, find, etc.).</li>
-<li><strong>Portable &amp; scriptable</strong> – works the same on any POSIX shell and is easy to automate.</li>
-</ul>
-<blockquote>
-<p><strong>Prerequisites</strong></p>]]></description>
 </item>
 </channel>
 </rss>

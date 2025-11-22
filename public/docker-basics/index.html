@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-09-13T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-09-15T19:46:20+09:00">
+    <meta property="article:modified_time" content="2025-09-20T09:08:54+09:00">
     <meta property="article:tag" content="Docker">
     <meta property="article:tag" content="Programming">
     <meta property="article:tag" content="DevOps">
@@ -38,8 +38,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/han8931.github.io\/docker-basics\/"
-        },"genre": "posts","keywords": "Docker, Programming, DevOps, Tutorial","wordcount":  1277 ,
-        "url": "https:\/\/han8931.github.io\/docker-basics\/","datePublished": "2025-09-13T00:00:00+00:00","dateModified": "2025-09-15T19:46:20+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "Docker, Programming, DevOps, Tutorial","wordcount":  1287 ,
+        "url": "https:\/\/han8931.github.io\/docker-basics\/","datePublished": "2025-09-13T00:00:00+00:00","dateModified": "2025-09-20T09:08:54+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -112,8 +112,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker Tutorial Part 1: Basics</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a>&nbsp;<a href="/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-13">2025-09-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1277 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;<span id="/docker-basics/" class="leancloud_visitors" data-flag-title="Docker Tutorial Part 1: Basics">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-09-13">2025-09-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1287 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;<span id="/docker-basics/" class="leancloud_visitors" data-flag-title="Docker Tutorial Part 1: Basics">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -145,6 +145,7 @@
         <li><a href="#docker-and-cgroups">Docker and cgroups</a></li>
       </ul>
     </li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>This is part of my <strong>Docker Basics</strong> series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.</p>
@@ -173,7 +174,8 @@
 <li><strong>Attach the container</strong>: If specified, Docker attaches your terminal to the container&rsquo;s input, output, and error streams.</li>
 </ul>
 <blockquote>
-<p><strong>Key terms</strong>: <em>Docker images are the blueprints, then containers are the actual buildings</em></p></blockquote>
+<p><strong>Key terms</strong>: <em>Docker images are the blueprints, then containers are the actual buildings</em></p>
+</blockquote>
 <h2 id="virtualization-the-classic-approach">Virtualization (the classic approach)</h2>
 <p>Before diving into Docker, let&rsquo;s first contrast it with the traditional isolation model: <strong>virtual machines (VMs)</strong>. <em>Virtualization is a technique of running a complete simulated computer within another computer.</em> The simulated computer—called a <strong>virtual machine (VM)</strong>—emulates the components of a physical system: CPU, memory, motherboard/firmware, disks, and peripheral buses. A <strong>hypervisor</strong> (the software) manages one or more VMs on a <strong>host</strong> (the real machine).</p>
 <ul>
@@ -301,12 +303,16 @@ This makes <code>cgroups</code> ideal for isolating different workloads on a sha
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run --memory 500m alpine /bin/sh</span></span></code></pre></div></div>
 <p>You can specify the memory limit in bytes, kilobytes, megabytes, or gigabytes by using the appropriate suffix (b, k, m, or g).</p>
+<h2 id="references">References</h2>
+<ul>
+<li>The Linux DevOps Handbook, Damian Wojsław and Grzegorz Adamowicz</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2025-09-15&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/5fdb4299cf403107d6016d7694b452c0654dc3dd" target="_blank" title="commit by Han(tabularasa8931@gmail.com) 5fdb4299cf403107d6016d7694b452c0654dc3dd: Update">
-                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>5fdb429</a></span>
+                <span>Updated on 2025-09-20&nbsp;<a class="git-hash" href="https://github.com/Han8931/commit/c2e226a895d597b98934a9c98451aa07e4713e7b" target="_blank" title="commit by Han(tabularasa8931@gmail.com) c2e226a895d597b98934a9c98451aa07e4713e7b: Polish docker writing">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>c2e226a</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
@@ -334,7 +340,7 @@ This makes <code>cgroups</code> ideal for isolating different workloads on a sha
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.150.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.152.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

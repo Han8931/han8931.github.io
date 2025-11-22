@@ -9,8 +9,15 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 15 Sep 2025 19:39:28 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 22 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://han8931.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Causal Inference Part 1: Causation and Correlation</title>
+      <link>https://han8931.github.io/causality-1/</link>
+      <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>https://han8931.github.io/causality-1/</guid>
+      <description>&lt;p&gt;Most of the time when we say &amp;ldquo;my model learned something,&amp;rdquo; what it actually learned is a bunch of very smart correlations. If users who click A also tend to click B, or if certain pixels tend to appear together in cat photos, our models will happily latch onto those patterns and exploit them. That&amp;rsquo;s powerful—and often enough for prediction—but it&amp;rsquo;s not the same as understanding what would &lt;em&gt;happen&lt;/em&gt; if we actually changed something in the world: raised a price, changed a policy, or shipped a new feature.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Deep Statistical Learning</title>
       <link>https://han8931.github.io/studynotes/dsl-note/</link>

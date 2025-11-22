@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta name="generator" content="Hugo 0.150.0">
+	<meta name="generator" content="Hugo 0.152.2">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -103,6 +103,15 @@
         alt="https://www.gravatar.com/avatar/485df9434f4908b5f6fab0750c113972?s=240&amp;d=mp"
         title="https://www.gravatar.com/avatar/485df9434f4908b5f6fab0750c113972?s=240&amp;d=mp" /></a></div><h1 class="home-title">Han</h1><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"><a href="https://github.com/Han8931" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github fa-fw" aria-hidden="true"></i></a><a href="mailto:tabularasa8931@gmail.com" title="Email" rel="me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/uv-package-manager/">UV Tutorial: All‑in‑One Python Package Manager!</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-04-13">2025-04-13</time></span>&nbsp;<span class="post-category">included in <a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a>&nbsp;<a href="/categories/programming/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Programming</a></span></div><div class="content"><blockquote>
+<p>📝<strong>Update</strong> (2025-09-06): I&rsquo;ve added a new section on using <code>--native-tls</code> with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.</p>
+</blockquote>
+<h2 id="meet-uva-blazinglyfast-allinone-python-packagemanager">Meet <strong>uv</strong> – A Blazingly Fast, All‑in‑One Python Package Manager</h2>
+<p>In my last post, I covered <strong><a href="https://han8931.github.io/poetry/" target="_blank" rel="noopener noreffer ">Poetry</a></strong>. It&rsquo;s a solid dependency manager—but it still leaves you juggling other tools: pip for installs, virtualenv for isolation, pyenv for Python versions, and pip-tools or Pipenv for locks. That bounce between tools adds friction. <strong>uv</strong> removes it. This single, Rust-built project manager—now one of the most popular tools in the Python ecosystem—installs Python, creates virtual environments, resolves and locks dependencies, and even publishes to PyPI, all from one blazing-fast CLI (often 10–1000× faster).</p></div><div class="post-footer">
+        <a href="/uv-package-manager/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/uv/">Uv</a>,&nbsp;<a href="/tags/package-manager/">Package Manager</a>,&nbsp;<a href="/tags/virtual-environment/">Virtual Environment</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/deepseek-inside/">Inside DeepSeek-R1</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2025-02-14">2025-02-14</time></span>&nbsp;<span class="post-category">included in <a href="/categories/nlp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>NLP</a>&nbsp;<a href="/categories/llm/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>LLM</a>&nbsp;<a href="/categories/deep-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Deep Learning</a></span></div><div class="content"><p><a href="https://www.deepseek.com/" target="_blank" rel="noopener noreffer ">DeepSeek</a>&rsquo;s latest moves have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their engineering techniques behind DeepSeek are truly impressive, and their reports are quite enjoyable. However, understanding their core ideas can be challenging and demands a substantial amount of effort.</p>
 <p>At the forefront of this innovation is DeepSeek-R1, a model that built upon the foundation established by preceding projects such as DeepSeek Coder, Math, MoE, and notably, the DeepSeek-V3 model. While DeepSeek-R1 is the center of the DeepSeek&rsquo;s frenzy, its success is rooted on these past works.</p></div><div class="post-footer">
@@ -135,28 +144,6 @@
 <p>Arch Linux is well-known for giving users full control over their system. This guide walks you through a fresh Arch Linux installation. While it is detailed, always refer to the <a href="https://wiki.archlinux.org/" target="_blank" rel="noopener noreffer ">official Arch Wiki</a> for up-to-date information.</p></div><div class="post-footer">
         <a href="/arch/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/arch/">Arch</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/svm3/">Introduction to SVM Part 3. Asymmetric Kernels</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-publish">published on <time datetime="2024-09-01">2024-09-01</time></span>&nbsp;<span class="post-category">included in <a href="/categories/machine-learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Machine Learning</a></span></div><div class="content"><h1 id="introduction-to-asymmetric-kernels">Introduction to Asymmetric Kernels</h1>
-<p>Recall that the dual form of <a href="https://han8931.github.io/20240825_svm2/" target="_blank" rel="noopener noreffer ">LS-SVM</a> is given by
-\begin{align*}
-\begin{bmatrix}
-0 &amp; y^T \\
-y &amp; \Omega + \frac{1}{\gamma} I
-\end{bmatrix}
-\begin{bmatrix}
-b \\
-\alpha
-\end{bmatrix}
-=
-\begin{bmatrix}
-0 \\
-e
-\end{bmatrix}
-\end{align*}
-An interesting point here is that using an asymmetric kernel in LS-SVM will not reduce to its symmetrization and asymmetric information can be learned. Then we can develop asymmetric kernels in the LS-SVM framework in a straightforward way.</p></div><div class="post-footer">
-        <a href="/svm3/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/machine-learning/">Machine Learning</a>,&nbsp;<a href="/tags/svm/">Svm</a>,&nbsp;<a href="/tags/support-vector-machines/">Support Vector Machines</a>,&nbsp;<a href="/tags/least-square-svm/">Least-Square SVM</a>,&nbsp;<a href="/tags/asymmetric-kernels/">Asymmetric Kernels</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -185,7 +172,7 @@ An interesting point here is that using an asymmetric kernel in LS-SVM will not 
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.150.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.152.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
