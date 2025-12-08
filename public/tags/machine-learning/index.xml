@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning on Han&#39;s XYZ</title>
-    <link>https://han8931.github.io/tags/machine-learning/</link>
+    <link>http://localhost:1313/tags/machine-learning/</link>
     <description>Recent content in Machine Learning on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,89 +10,89 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sat, 22 Nov 2025 20:30:54 +0900</lastBuildDate>
-    <atom:link href="https://han8931.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Causal Inference Part 1: Causation and Correlation</title>
-      <link>https://han8931.github.io/causality-1/</link>
+      <link>http://localhost:1313/causality-1/</link>
       <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/causality-1/</guid>
+      <guid>http://localhost:1313/causality-1/</guid>
       <description>&lt;p&gt;Most of the time when we say &amp;ldquo;my model learned something,&amp;rdquo; what it actually learned is a bunch of very smart correlations. If users who click A also tend to click B, or if certain pixels tend to appear together in cat photos, our models will happily latch onto those patterns and exploit them. That&amp;rsquo;s powerful—and often enough for prediction—but it&amp;rsquo;s not the same as understanding what would &lt;em&gt;happen&lt;/em&gt; if we actually changed something in the world: raised a price, changed a policy, or shipped a new feature.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Deep Statistical Learning</title>
-      <link>https://han8931.github.io/studynotes/dsl-note/</link>
+      <link>http://localhost:1313/studynotes/dsl-note/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/studynotes/dsl-note/</guid>
+      <guid>http://localhost:1313/studynotes/dsl-note/</guid>
       <description>&lt;h1 id=&#34;-deep-statistical-learning&#34;&gt;📖 Deep Statistical Learning&lt;/h1&gt;&#xA;&lt;p&gt;👉 Full repository: &lt;a href=&#34;https://github.com/Han8931/deep_statistical_learning&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;deep_statistical_learning&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;I started writing these notes during my &lt;strong&gt;master’s degree&lt;/strong&gt; as a way to organize and clarify my understanding of &lt;strong&gt;machine learning&lt;/strong&gt; and &lt;strong&gt;deep learning&lt;/strong&gt;. Over time, the notes have grown into a comprehensive study resource that combines theoretical foundations with practical insights.&lt;/p&gt;&#xA;&lt;p&gt;I enjoy organizing knowledge and writing things down, and these notes reflect that process — carefully breaking down concepts, connecting ideas, and recording them in a way that can be revisited and built upon.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Matrix Methods</title>
-      <link>https://han8931.github.io/studynotes/matrix-methods/</link>
+      <link>http://localhost:1313/studynotes/matrix-methods/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/studynotes/matrix-methods/</guid>
-      <description>&lt;h1 id=&#34;-matrix-methods&#34;&gt;📐 Matrix Methods&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/matrix_methods&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Matrix Methods&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This note collects my study materials on &lt;strong&gt;linear algebra and matrix methods&lt;/strong&gt;, focusing on the concepts most relevant to &lt;strong&gt;machine learning&lt;/strong&gt; and &lt;strong&gt;deep learning&lt;/strong&gt;. It includes explanations, worked examples, and connections between theory and practical applications.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I welcome all comments and suggestions—and I&amp;rsquo;d be happy to improve and grow this note together with you.&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+      <guid>http://localhost:1313/studynotes/matrix-methods/</guid>
+      <description>&lt;h1 id=&#34;-matrix-methods&#34;&gt;📐 Matrix Methods&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/matrix_methods&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Matrix Methods&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This note collects my study materials on &lt;strong&gt;linear algebra and matrix methods&lt;/strong&gt;, focusing on the concepts most relevant to &lt;strong&gt;machine learning&lt;/strong&gt; and &lt;strong&gt;deep learning&lt;/strong&gt;. It includes explanations, worked examples, and connections between theory and practical applications.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I welcome all comments and suggestions—and I&amp;rsquo;d be happy to improve and grow this note together with you.&lt;/p&gt;&lt;/blockquote&gt;</description>
     </item>
     <item>
       <title>Introduction to SVM Part 3. Asymmetric Kernels</title>
-      <link>https://han8931.github.io/svm3/</link>
+      <link>http://localhost:1313/svm3/</link>
       <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/svm3/</guid>
+      <guid>http://localhost:1313/svm3/</guid>
       <description>&lt;h1 id=&#34;introduction-to-asymmetric-kernels&#34;&gt;Introduction to Asymmetric Kernels&lt;/h1&gt;&#xA;&lt;p&gt;Recall that the dual form of &lt;a href=&#34;https://han8931.github.io/20240825_svm2/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;LS-SVM&lt;/a&gt; is given by&#xA;\begin{align*}&#xA;\begin{bmatrix}&#xA;0 &amp;amp; y^T \\&#xA;y &amp;amp; \Omega + \frac{1}{\gamma} I&#xA;\end{bmatrix}&#xA;\begin{bmatrix}&#xA;b \\&#xA;\alpha&#xA;\end{bmatrix}&#xA;=&#xA;\begin{bmatrix}&#xA;0 \\&#xA;e&#xA;\end{bmatrix}&#xA;\end{align*}&#xA;An interesting point here is that using an asymmetric kernel in LS-SVM will not reduce to its symmetrization and asymmetric information can be learned. Then we can develop asymmetric kernels in the LS-SVM framework in a straightforward way.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Introduction to SVM Part 2. LS-SVM</title>
-      <link>https://han8931.github.io/svm2/</link>
+      <link>http://localhost:1313/svm2/</link>
       <pubDate>Sat, 31 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/svm2/</guid>
+      <guid>http://localhost:1313/svm2/</guid>
       <description>&lt;h1 id=&#34;introduction-to-least-square-svm&#34;&gt;Introduction to Least-Square SVM&lt;/h1&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Least Squares Support Vector Machine (LS-SVM) is a modified version of the traditional Support Vector Machine (SVM) that simplifies the quadratic optimization problem by using a &lt;em&gt;least squares cost function&lt;/em&gt;. LS-SVM transforms the quadratic programming problem in classical SVM into a set of linear equations, which are easier and faster to solve.&lt;/p&gt;&#xA;&lt;h3 id=&#34;optimization-problem-primal-problem&#34;&gt;Optimization Problem (Primal Problem)&lt;/h3&gt;&#xA;&lt;p&gt;\begin{align*}&#xA;&amp;amp;\min_{w, b, e} \frac{1}{2} \lVert w\rVert^2 + \frac{\gamma}{2} \sum_{i=1}^N e_i^2,\\&#xA;&amp;amp;\text{subject to } y_i (w^T \phi(x_i) + b) = 1 - e_i, \ \forall i&#xA;\end{align*}&#xA;where:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Introduction to SVM Part 1. Basics</title>
-      <link>https://han8931.github.io/svm1/</link>
+      <link>http://localhost:1313/svm1/</link>
       <pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/svm1/</guid>
+      <guid>http://localhost:1313/svm1/</guid>
       <description>&lt;h1 id=&#34;support-vector-machine&#34;&gt;Support Vector Machine&lt;/h1&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Support Vector Machines (SVMs) are among the most effective and versatile tools in machine learning, widely used for various tasks. SVMs work by finding the optimal boundary, or hyperplane, that separates different classes of data with the maximum margin, making them highly reliable for classification, especially with complex datasets.&lt;/p&gt;&#xA;&lt;p&gt;What truly sets SVMs apart is their ability to handle both linear and non-linear data through the &lt;em&gt;kernel trick&lt;/em&gt;, allowing them to adapt to a wide range of problems with impressive accuracy. In this blog post, we&amp;rsquo;ll delve into how SVMs work and gently explore the mathematical foundations behind their powerful performance.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Direction of Gradient Descent Update</title>
-      <link>https://han8931.github.io/gradient-descent/</link>
+      <link>http://localhost:1313/gradient-descent/</link>
       <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/gradient-descent/</guid>
+      <guid>http://localhost:1313/gradient-descent/</guid>
       <description>&lt;h1 id=&#34;on-gradient-descent&#34;&gt;On Gradient Descent&lt;/h1&gt;&#xA;&lt;p&gt;Gradient descent is an optimization algorithm used to minimize a function by iteratively moving towards the function&amp;rsquo;s minimum value. It is a fundamental concept in machine learning, particularly in training models such as neural networks. The gradient is a vector that represents the direction of the steepest increase of the function at a given point. For example, for a convex function $z = ax^2 + by^2$, the gradient is $[2ax, 2by]$, which points in the direction of the steepest ascent.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Introduction to Latent Variable Modeling (Part 1)</title>
-      <link>https://han8931.github.io/latent-variable-part1/</link>
+      <link>http://localhost:1313/latent-variable-part1/</link>
       <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/latent-variable-part1/</guid>
+      <guid>http://localhost:1313/latent-variable-part1/</guid>
       <description>&lt;h1 id=&#34;latent-variable-modeling&#34;&gt;Latent Variable Modeling&lt;/h1&gt;&#xA;&lt;h2 id=&#34;motivation-of-latent-variable-modeling&#34;&gt;Motivation of Latent Variable Modeling&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s say we want to classify some data. If we had access to a corresponding latent variable for each observation $ \mathbf{x}_i $, modeling would be more straightforward. To illustrate this, consider the challenge of finding the latent variable (i.e., the true class of $ \mathbf{x} $). It can be expressed like $ z^* = \argmax_{z} p(\mathbf{x} | z) $. It is hard to identify the true clusters without prior knowledge about them. For example, we can cluster like Fig. (b) or (c).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Gentle Introduction to Singular Value Decomposition</title>
-      <link>https://han8931.github.io/svd/</link>
+      <link>http://localhost:1313/svd/</link>
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/svd/</guid>
+      <guid>http://localhost:1313/svd/</guid>
       <description>&lt;h1 id=&#34;singular-value-decomposition&#34;&gt;Singular Value Decomposition&lt;/h1&gt;&#xA;&lt;p&gt;In linear algebra, the singular value decomposition (SVD) is a factorization of a real or complex matrix. It generalizes the eigendecomposition of a square matrix by extending the concept to asymmetric or rectangular matrices, which cannot be diagonalized directly using eigendecomposition. The SVD aims to find the following decomposition of a real-valued matrix $A$:&#xA;$$A = U\Sigma V^T,$$&#xA;where $U$ and $V$ are orthogonal (orthonormal) matrices, and $\Sigma$ is a diagonal matrix. The columns of $U$ are called the left singular vectors of $A$, the columns of $V$ are called the right singular vectors, and the diagonal elements of $\Sigma$ are called the singular values.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Getting Started with Regression Part 3. RLS</title>
-      <link>https://han8931.github.io/recursive-least-square/</link>
+      <link>http://localhost:1313/recursive-least-square/</link>
       <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/recursive-least-square/</guid>
+      <guid>http://localhost:1313/recursive-least-square/</guid>
       <description>&lt;h1 style=&#34;line-height: 1.3;&#34;&gt;Deep Dive into Regression: Recursive Least Squares Explained (Part 3)&lt;/h1&gt;&#xA;&lt;h2 id=&#34;introduction-to-recursive-least-squares&#34;&gt;Introduction to Recursive Least Squares&lt;/h2&gt;&#xA;&lt;p&gt;Ordinary least squares assumes that all data is available at once, but in practice, this isn&amp;rsquo;t always the case. &lt;strong&gt;Often, measurements are obtained sequentially&lt;/strong&gt;, and we need to update our estimates as new data comes in. Simply augmenting the data matrix $\mathbf{X}$ each time a new measurement arrives can become computationally expensive, especially when dealing with a large number of measurements. This is where &lt;strong&gt;&lt;em&gt;Recursive Least Squares&lt;/em&gt;&lt;/strong&gt; (RLS) comes into play.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Getting Started with Regression Part 2. Ridge Regression</title>
-      <link>https://han8931.github.io/regression2/</link>
+      <link>http://localhost:1313/regression2/</link>
       <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/regression2/</guid>
+      <guid>http://localhost:1313/regression2/</guid>
       <description>&lt;h1 id=&#34;an-introductory-guide-part-2&#34;&gt;An Introductory Guide (Part 2)&lt;/h1&gt;&#xA;&lt;h2 id=&#34;understanding-ridge-regression&#34;&gt;Understanding Ridge Regression&lt;/h2&gt;&#xA;&lt;p&gt;In machine learning, one of the key challenges is finding the right balance between underfitting and overfitting a model.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Overfitting&lt;/strong&gt; occurs when a model is too complex and captures not only the underlying patterns in the training data but also the noise. This results in a model that performs well on the training data but poorly on new, unseen data.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Underfitting&lt;/strong&gt;, on the other hand, happens when a model is too simple to capture the underlying patterns in the data, leading to poor performance both on the training data and on new data.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Getting Started with Regression Part 1. Basics</title>
-      <link>https://han8931.github.io/regression1/</link>
+      <link>http://localhost:1313/regression1/</link>
       <pubDate>Sat, 10 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/regression1/</guid>
+      <guid>http://localhost:1313/regression1/</guid>
       <description>&lt;h1 id=&#34;an-introductory-guide-part-1&#34;&gt;An Introductory Guide (Part 1)&lt;/h1&gt;&#xA;&lt;p&gt;Even with the rapid advancements in deep learning, regression continues to be widely used across various fields (e.g., finance, data science, statistics, and so on), maintaining its importance as a fundamental algorithm. That&amp;rsquo;s why I&amp;rsquo;ve decided to share this post, which is the first article in a dedicated series on regression. This series is designed to provide a thorough review while offering a gentle and accessible introduction.&lt;/p&gt;</description>
     </item>
   </channel>

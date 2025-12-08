@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gradient Descent on Han&#39;s XYZ</title>
-    <link>https://han8931.github.io/tags/gradient-descent/</link>
+    <link>http://localhost:1313/tags/gradient-descent/</link>
     <description>Recent content in Gradient Descent on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 15 Sep 2025 19:39:28 +0900</lastBuildDate>
-    <atom:link href="https://han8931.github.io/tags/gradient-descent/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/gradient-descent/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Direction of Gradient Descent Update</title>
-      <link>https://han8931.github.io/gradient-descent/</link>
+      <link>http://localhost:1313/gradient-descent/</link>
       <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/gradient-descent/</guid>
+      <guid>http://localhost:1313/gradient-descent/</guid>
       <description>&lt;h1 id=&#34;on-gradient-descent&#34;&gt;On Gradient Descent&lt;/h1&gt;&#xA;&lt;p&gt;Gradient descent is an optimization algorithm used to minimize a function by iteratively moving towards the function&amp;rsquo;s minimum value. It is a fundamental concept in machine learning, particularly in training models such as neural networks. The gradient is a vector that represents the direction of the steepest increase of the function at a given point. For example, for a convex function $z = ax^2 + by^2$, the gradient is $[2ax, 2by]$, which points in the direction of the steepest ascent.&lt;/p&gt;</description>
     </item>
   </channel>

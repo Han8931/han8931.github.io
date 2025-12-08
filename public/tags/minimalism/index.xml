@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Minimalism on Han&#39;s XYZ</title>
-    <link>https://han8931.github.io/tags/minimalism/</link>
+    <link>http://localhost:1313/tags/minimalism/</link>
     <description>Recent content in Minimalism on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 15 Sep 2025 19:39:28 +0900</lastBuildDate>
-    <atom:link href="https://han8931.github.io/tags/minimalism/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/minimalism/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Minimalism Through Linux</title>
-      <link>https://han8931.github.io/why-linux/</link>
+      <link>http://localhost:1313/why-linux/</link>
       <pubDate>Sun, 21 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/why-linux/</guid>
+      <guid>http://localhost:1313/why-linux/</guid>
       <description>&lt;h3 id=&#34;linux-a-path-to-digital-simplicity&#34;&gt;Linux, A Path to Digital Simplicity&lt;/h3&gt;&#xA;&lt;p&gt;In an age dominated by digital clutter and overwhelming software choices, the minimalist philosophy stands out as a beacon for those seeking simplicity and efficiency. This approach not only applies to physical possessions but extends into the digital realm, where Linux has become a preferred tool for minimalists.&lt;/p&gt;&#xA;&lt;p&gt;Linux, an open-source operating system, embodies the principles of minimalism by offering users control over their digital environments. Unlike mainstream operating systems that often come loaded with non-essential features and bloatware, Linux allows users to select only the components they need, creating a lean and efficient system.&lt;/p&gt;</description>
     </item>
   </channel>

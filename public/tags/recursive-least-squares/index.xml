@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Recursive Least Squares on Han&#39;s XYZ</title>
-    <link>https://han8931.github.io/tags/recursive-least-squares/</link>
+    <link>http://localhost:1313/tags/recursive-least-squares/</link>
     <description>Recent content in Recursive Least Squares on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 15 Sep 2025 19:39:28 +0900</lastBuildDate>
-    <atom:link href="https://han8931.github.io/tags/recursive-least-squares/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/recursive-least-squares/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting Started with Regression Part 3. RLS</title>
-      <link>https://han8931.github.io/recursive-least-square/</link>
+      <link>http://localhost:1313/recursive-least-square/</link>
       <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/recursive-least-square/</guid>
+      <guid>http://localhost:1313/recursive-least-square/</guid>
       <description>&lt;h1 style=&#34;line-height: 1.3;&#34;&gt;Deep Dive into Regression: Recursive Least Squares Explained (Part 3)&lt;/h1&gt;&#xA;&lt;h2 id=&#34;introduction-to-recursive-least-squares&#34;&gt;Introduction to Recursive Least Squares&lt;/h2&gt;&#xA;&lt;p&gt;Ordinary least squares assumes that all data is available at once, but in practice, this isn&amp;rsquo;t always the case. &lt;strong&gt;Often, measurements are obtained sequentially&lt;/strong&gt;, and we need to update our estimates as new data comes in. Simply augmenting the data matrix $\mathbf{X}$ each time a new measurement arrives can become computationally expensive, especially when dealing with a large number of measurements. This is where &lt;strong&gt;&lt;em&gt;Recursive Least Squares&lt;/em&gt;&lt;/strong&gt; (RLS) comes into play.&lt;/p&gt;</description>
     </item>
   </channel>

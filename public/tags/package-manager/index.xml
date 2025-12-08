@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Package Manager on Han&#39;s XYZ</title>
-    <link>https://han8931.github.io/tags/package-manager/</link>
+    <link>http://localhost:1313/tags/package-manager/</link>
     <description>Recent content in Package Manager on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,19 +10,19 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sat, 22 Nov 2025 20:30:54 +0900</lastBuildDate>
-    <atom:link href="https://han8931.github.io/tags/package-manager/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/package-manager/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>UV Tutorial: All‑in‑One Python Package Manager!</title>
-      <link>https://han8931.github.io/uv-package-manager/</link>
+      <link>http://localhost:1313/uv-package-manager/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/uv-package-manager/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;📝&lt;strong&gt;Update&lt;/strong&gt; (2025-09-06): I&amp;rsquo;ve added a new section on using &lt;code&gt;--native-tls&lt;/code&gt; with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;meet-uva-blazinglyfast-allinone-python-packagemanager&#34;&gt;Meet &lt;strong&gt;uv&lt;/strong&gt; – A Blazingly Fast, All‑in‑One Python Package Manager&lt;/h2&gt;&#xA;&lt;p&gt;In my last post, I covered &lt;strong&gt;&lt;a href=&#34;https://han8931.github.io/poetry/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Poetry&lt;/a&gt;&lt;/strong&gt;. It&amp;rsquo;s a solid dependency manager—but it still leaves you juggling other tools: pip for installs, virtualenv for isolation, pyenv for Python versions, and pip-tools or Pipenv for locks. That bounce between tools adds friction. &lt;strong&gt;uv&lt;/strong&gt; removes it. This single, Rust-built project manager—now one of the most popular tools in the Python ecosystem—installs Python, creates virtual environments, resolves and locks dependencies, and even publishes to PyPI, all from one blazing-fast CLI (often 10–1000× faster).&lt;/p&gt;</description>
+      <guid>http://localhost:1313/uv-package-manager/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;📝&lt;strong&gt;Update&lt;/strong&gt; (2025-09-06): I&amp;rsquo;ve added a new section on using &lt;code&gt;--native-tls&lt;/code&gt; with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;meet-uva-blazinglyfast-allinone-python-packagemanager&#34;&gt;Meet &lt;strong&gt;uv&lt;/strong&gt; – A Blazingly Fast, All‑in‑One Python Package Manager&lt;/h2&gt;&#xA;&lt;p&gt;In my last post, I covered &lt;strong&gt;&lt;a href=&#34;https://han8931.github.io/poetry/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Poetry&lt;/a&gt;&lt;/strong&gt;. It&amp;rsquo;s a solid dependency manager—but it still leaves you juggling other tools: pip for installs, virtualenv for isolation, pyenv for Python versions, and pip-tools or Pipenv for locks. That bounce between tools adds friction. &lt;strong&gt;uv&lt;/strong&gt; removes it. This single, Rust-built project manager—now one of the most popular tools in the Python ecosystem—installs Python, creates virtual environments, resolves and locks dependencies, and even publishes to PyPI, all from one blazing-fast CLI (often 10–1000× faster).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Dependency Management in Python: Poetry</title>
-      <link>https://han8931.github.io/poetry/</link>
+      <link>http://localhost:1313/poetry/</link>
       <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/poetry/</guid>
+      <guid>http://localhost:1313/poetry/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Poetry&lt;/strong&gt; is a dependency management and packaging tool in Python, aiming to improve how you define, install, and manage project dependencies.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Installation: You can install Poetry through its custom installer script or using package managers. The recommended way is to use their installer script to ensure you get the latest version.&lt;/li&gt;&#xA;&lt;li&gt;Creating a New Project: Use &lt;code&gt;poetry new &amp;lt;project-name&amp;gt;&lt;/code&gt; to create a new project with a standard layout.&lt;/li&gt;&#xA;&lt;li&gt;Adding Dependencies: Add new dependencies directly to your project using &lt;code&gt;poetry add &amp;lt;package&amp;gt;&lt;/code&gt;. Poetry will resolve the dependencies and update the &lt;code&gt;pyproject.toml&lt;/code&gt; and &lt;code&gt;poetry.lock&lt;/code&gt; files.&lt;/li&gt;&#xA;&lt;li&gt;Installing Dependencies: Running &lt;code&gt;poetry install&lt;/code&gt; in your project directory will install all dependencies defined in your &lt;code&gt;pyproject.toml&lt;/code&gt; file.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;poetry-example&#34;&gt;Poetry Example&lt;/h2&gt;&#xA;&lt;h3 id=&#34;setting-up-a-new-project&#34;&gt;Setting Up a New Project&lt;/h3&gt;&#xA;&lt;p&gt;To create a new project named &lt;code&gt;example_project&lt;/code&gt; with Poetry and manage its dependencies:&lt;/p&gt;</description>
     </item>
   </channel>

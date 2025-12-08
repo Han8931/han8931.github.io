@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LLM on Han&#39;s XYZ</title>
-    <link>https://han8931.github.io/tags/llm/</link>
+    <link>http://localhost:1313/tags/llm/</link>
     <description>Recent content in LLM on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,40 +10,40 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sat, 22 Nov 2025 20:30:54 +0900</lastBuildDate>
-    <atom:link href="https://han8931.github.io/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NLP and LLM Study Note</title>
-      <link>https://han8931.github.io/studynotes/llm-notes/</link>
+      <link>http://localhost:1313/studynotes/llm-notes/</link>
       <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/studynotes/llm-notes/</guid>
-      <description>&lt;h1 id=&#34;nlp-and-llm&#34;&gt;NLP and LLM&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/nlp_note&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;NLP Note&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;These are my working notes on &lt;em&gt;NLP and large language models&lt;/em&gt;: intuitive math, minimal proofs, and practical recipes.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I welcome all comments and suggestions—and I&amp;rsquo;d be happy to improve and grow this note together with you.&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+      <guid>http://localhost:1313/studynotes/llm-notes/</guid>
+      <description>&lt;h1 id=&#34;nlp-and-llm&#34;&gt;NLP and LLM&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/nlp_note&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;NLP Note&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;These are my working notes on &lt;em&gt;NLP and large language models&lt;/em&gt;: intuitive math, minimal proofs, and practical recipes.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I welcome all comments and suggestions—and I&amp;rsquo;d be happy to improve and grow this note together with you.&lt;/p&gt;&lt;/blockquote&gt;</description>
     </item>
     <item>
       <title>LiteLLM: LLM Proxy Server</title>
-      <link>https://han8931.github.io/litellm/</link>
+      <link>http://localhost:1313/litellm/</link>
       <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/litellm/</guid>
+      <guid>http://localhost:1313/litellm/</guid>
       <description>&lt;h2 id=&#34;why-an-llm-proxy-at-all&#34;&gt;Why an LLM proxy at all?&lt;/h2&gt;&#xA;&lt;p&gt;An LLM proxy sits between your app and model providers (OpenAI, Anthropic, Google, Ollama, etc.). It gives you a unified API (usually OpenAI-compatible), centralized auth, usage controls (budgets / rate-limits), routing and fallbacks, and caching—without changing your application code for each vendor.&lt;/p&gt;&#xA;&lt;!-- There is a trade-off: adding a proxy introduces another moving piece (and potential single point of failure). For pure observability When you do want a proxy, Langfuse recommends LiteLLM, which is open source, self-hostable, and has first-class integration with Langfuse. --&gt;&#xA;&lt;h2 id=&#34;what-is-litellm&#34;&gt;What is LiteLLM?&lt;/h2&gt;&#xA;&lt;p&gt;LiteLLM is an OpenAI-compatible LLM Gateway that lets you call 100+ providers behind one API, plus adds budgets/rate-limits, model access control, caching, routing, admin UI, and more. You can run it as a single Docker container with a YAML config.&lt;/p&gt;</description>
     </item>
     <item>
       <title>DL System Design</title>
-      <link>https://han8931.github.io/studynotes/dl-system-design/</link>
+      <link>http://localhost:1313/studynotes/dl-system-design/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/studynotes/dl-system-design/</guid>
+      <guid>http://localhost:1313/studynotes/dl-system-design/</guid>
       <description>&lt;h1 id=&#34;-deep-learning-system-design&#34;&gt;🏗️ Deep Learning System Design&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/dl_system_design&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;DL System Design&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This note is about the &lt;strong&gt;practical design of deep learning and LLM-based systems&lt;/strong&gt;. It focuses on bridging research with production: covering concepts such as &lt;strong&gt;scalable architectures, model deployment, monitoring, and system reliability&lt;/strong&gt;. The aim is to capture design patterns and lessons that make ML/DL services both effective and maintainable.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I welcome all comments and suggestions—and I&amp;rsquo;d be happy to improve and grow this note together with you.&lt;/p&gt;</description>
     </item>
     <item>
       <title>NL2SQL Part 1.</title>
-      <link>https://han8931.github.io/nl2sql/</link>
+      <link>http://localhost:1313/nl2sql/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/nl2sql/</guid>
+      <guid>http://localhost:1313/nl2sql/</guid>
       <description>&lt;h2 id=&#34;natural-language-to-sql-nl2sql-in-the-llm-era&#34;&gt;💡Natural Language to SQL (NL2SQL) in the LLM Era&lt;/h2&gt;&#xA;&lt;p&gt;Data has become one of the most valuable resources of our time. Companies in finance, healthcare, logistics, retail, and many other fields collect enormous amounts of information every day. Much of this information is stored in relational databases, which are typically accessed using SQL.&lt;/p&gt;&#xA;&lt;p&gt;While SQL provides the raw outputs of a query, the critical step lies in interpreting these results. Developing intuition from retrieved data is essential for identifying meaningful patterns, uncovering relationships, and supporting evidence-based decision-making.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Inside DeepSeek-R1</title>
-      <link>https://han8931.github.io/deepseek-inside/</link>
+      <link>http://localhost:1313/deepseek-inside/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>https://han8931.github.io/deepseek-inside/</guid>
+      <guid>http://localhost:1313/deepseek-inside/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.deepseek.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;DeepSeek&lt;/a&gt;&amp;rsquo;s latest moves have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their engineering techniques behind DeepSeek are truly impressive, and their reports are quite enjoyable. However, understanding their core ideas can be challenging and demands a substantial amount of effort.&lt;/p&gt;&#xA;&lt;p&gt;At the forefront of this innovation is DeepSeek-R1, a model that built upon the foundation established by preceding projects such as DeepSeek Coder, Math, MoE, and notably, the DeepSeek-V3 model. While DeepSeek-R1 is the center of the DeepSeek&amp;rsquo;s frenzy, its success is rooted on these past works.&lt;/p&gt;</description>
     </item>
   </channel>
