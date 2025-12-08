@@ -9,7 +9,7 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 22 Nov 2025 20:30:54 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 20 Sep 2025 09:08:54 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker Tutorial Part 1: Basics</title>
@@ -66,13 +66,6 @@
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/vim-fugitive/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;re working with Git and Vim, &lt;a href=&#34;https://github.com/tpope/vim-fugitive&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;&lt;strong&gt;vim-fugitive&lt;/strong&gt;&lt;/a&gt; is an essential plugin that transforms your editor into a full-fledged Git interface. Here&amp;rsquo;s how I use Fugitive to review, stage, and commit changes—without ever leaving Vim.&lt;/p&gt;&#xA;&lt;h2 id=&#34;browsing-git-history-and-logs-first&#34;&gt;Browsing Git History and Logs First&lt;/h2&gt;&#xA;&lt;p&gt;Before jumping into edits, it’s often useful to understand the file’s history or recent project changes.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;:Git log&lt;/code&gt; — shows the project’s commit history in reverse chronological order&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;:0Gllog&lt;/code&gt; — shows the history of the current file&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;To explore who changed what in a file:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>UV Tutorial: All‑in‑One Python Package Manager!</title>
-      <link>http://localhost:1313/uv-package-manager/</link>
-      <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/uv-package-manager/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;📝&lt;strong&gt;Update&lt;/strong&gt; (2025-09-06): I&amp;rsquo;ve added a new section on using &lt;code&gt;--native-tls&lt;/code&gt; with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;meet-uva-blazinglyfast-allinone-python-packagemanager&#34;&gt;Meet &lt;strong&gt;uv&lt;/strong&gt; – A Blazingly Fast, All‑in‑One Python Package Manager&lt;/h2&gt;&#xA;&lt;p&gt;In my last post, I covered &lt;strong&gt;&lt;a href=&#34;https://han8931.github.io/poetry/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Poetry&lt;/a&gt;&lt;/strong&gt;. It&amp;rsquo;s a solid dependency manager—but it still leaves you juggling other tools: pip for installs, virtualenv for isolation, pyenv for Python versions, and pip-tools or Pipenv for locks. That bounce between tools adds friction. &lt;strong&gt;uv&lt;/strong&gt; removes it. This single, Rust-built project manager—now one of the most popular tools in the Python ecosystem—installs Python, creates virtual environments, resolves and locks dependencies, and even publishes to PyPI, all from one blazing-fast CLI (often 10–1000× faster).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Abstract Classes or Protocols</title>

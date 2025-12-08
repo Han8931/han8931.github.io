@@ -5,8 +5,8 @@ date: 2025-04-13
 draft: false
 author: Han
 description: "Tutorial for UV python package manager"
-tags: ["python", "uv", "package manager", "Virtual Environment"]
-categories: ["python", "programming"]
+tags: ["python", "uv", "package manager", "virtual environment"]
+categories: ["python", "uv"]
 ---
 
 > 📝**Update** (2025-09-06): I've added a new section on using `--native-tls` with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.
