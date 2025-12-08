@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Password Manager on Han&#39;s XYZ</title>
-    <link>http://localhost:40233/tags/password-manager/</link>
+    <link>http://localhost:1313/tags/password-manager/</link>
     <description>Recent content in Password Manager on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 15 Sep 2025 19:39:28 +0900</lastBuildDate>
-    <atom:link href="http://localhost:40233/tags/password-manager/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/password-manager/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Managing Password using Pass</title>
-      <link>http://localhost:40233/pass/</link>
+      <link>http://localhost:1313/pass/</link>
       <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/pass/</guid>
+      <guid>http://localhost:1313/pass/</guid>
       <description>&lt;h1 id=&#34;a-minimalists-guide-to-pass-the-unix-password-manager&#34;&gt;A Minimalist’s Guide to &lt;strong&gt;pass&lt;/strong&gt;— the Unix Password Manager&lt;/h1&gt;&#xA;&lt;p&gt;&lt;em&gt;Safely wrangle your secrets from the command-line using GPG encryption and a few intuitive commands.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-why-pass&#34;&gt;1. Why &lt;em&gt;pass&lt;/em&gt;?&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Single-purpose &amp;amp; transparent&lt;/strong&gt; – every secret is just a GPG-encrypted file in &lt;code&gt;~/.password-store/&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Leverages tools you already trust&lt;/strong&gt; – GnuPG for encryption and standard Unix commands for everything else (grep, git, find, etc.).&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Portable &amp;amp; scriptable&lt;/strong&gt; – works the same on any POSIX shell and is easy to automate.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Prerequisites&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>

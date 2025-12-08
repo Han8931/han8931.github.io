@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AI on Han&#39;s XYZ</title>
-    <link>http://localhost:40233/tags/ai/</link>
+    <link>http://localhost:1313/tags/ai/</link>
     <description>Recent content in AI on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,26 +10,26 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sat, 22 Nov 2025 20:30:54 +0900</lastBuildDate>
-    <atom:link href="http://localhost:40233/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LiteLLM: LLM Proxy Server</title>
-      <link>http://localhost:40233/litellm/</link>
+      <link>http://localhost:1313/litellm/</link>
       <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/litellm/</guid>
+      <guid>http://localhost:1313/litellm/</guid>
       <description>&lt;h2 id=&#34;why-an-llm-proxy-at-all&#34;&gt;Why an LLM proxy at all?&lt;/h2&gt;&#xA;&lt;p&gt;An LLM proxy sits between your app and model providers (OpenAI, Anthropic, Google, Ollama, etc.). It gives you a unified API (usually OpenAI-compatible), centralized auth, usage controls (budgets / rate-limits), routing and fallbacks, and caching—without changing your application code for each vendor.&lt;/p&gt;&#xA;&lt;!-- There is a trade-off: adding a proxy introduces another moving piece (and potential single point of failure). For pure observability When you do want a proxy, Langfuse recommends LiteLLM, which is open source, self-hostable, and has first-class integration with Langfuse. --&gt;&#xA;&lt;h2 id=&#34;what-is-litellm&#34;&gt;What is LiteLLM?&lt;/h2&gt;&#xA;&lt;p&gt;LiteLLM is an OpenAI-compatible LLM Gateway that lets you call 100+ providers behind one API, plus adds budgets/rate-limits, model access control, caching, routing, admin UI, and more. You can run it as a single Docker container with a YAML config.&lt;/p&gt;</description>
     </item>
     <item>
       <title>NL2SQL Part 1.</title>
-      <link>http://localhost:40233/nl2sql/</link>
+      <link>http://localhost:1313/nl2sql/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/nl2sql/</guid>
+      <guid>http://localhost:1313/nl2sql/</guid>
       <description>&lt;h2 id=&#34;natural-language-to-sql-nl2sql-in-the-llm-era&#34;&gt;💡Natural Language to SQL (NL2SQL) in the LLM Era&lt;/h2&gt;&#xA;&lt;p&gt;Data has become one of the most valuable resources of our time. Companies in finance, healthcare, logistics, retail, and many other fields collect enormous amounts of information every day. Much of this information is stored in relational databases, which are typically accessed using SQL.&lt;/p&gt;&#xA;&lt;p&gt;While SQL provides the raw outputs of a query, the critical step lies in interpreting these results. Developing intuition from retrieved data is essential for identifying meaningful patterns, uncovering relationships, and supporting evidence-based decision-making.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Agentic AI with Pydantic-AI Part 1.</title>
-      <link>http://localhost:40233/pydantic-ai/</link>
+      <link>http://localhost:1313/pydantic-ai/</link>
       <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/pydantic-ai/</guid>
+      <guid>http://localhost:1313/pydantic-ai/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;AI has already changed how we interact with technology. The real shift is happening now with &lt;strong&gt;agents&lt;/strong&gt;: AI systems that can reason, make decisions, and take action.&lt;/p&gt;&#xA;&lt;p&gt;Unlike a chatbot that passively replies, an agent can &lt;strong&gt;break down complex tasks&lt;/strong&gt;, call APIs or databases, use tools, and deliver structured results. This is what makes the idea of &lt;em&gt;Agentic AI&lt;/em&gt; so powerful — it&amp;rsquo;s not just about conversation, it&amp;rsquo;s about &lt;strong&gt;problem-solving with initiative&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
   </channel>

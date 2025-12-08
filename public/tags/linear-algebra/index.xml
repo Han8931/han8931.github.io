@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linear Algebra on Han&#39;s XYZ</title>
-    <link>http://localhost:40233/tags/linear-algebra/</link>
+    <link>http://localhost:1313/tags/linear-algebra/</link>
     <description>Recent content in Linear Algebra on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,19 +10,19 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Tue, 07 Oct 2025 10:42:45 +0900</lastBuildDate>
-    <atom:link href="http://localhost:40233/tags/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Matrix Methods</title>
-      <link>http://localhost:40233/studynotes/matrix-methods/</link>
+      <link>http://localhost:1313/studynotes/matrix-methods/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/studynotes/matrix-methods/</guid>
+      <guid>http://localhost:1313/studynotes/matrix-methods/</guid>
       <description>&lt;h1 id=&#34;-matrix-methods&#34;&gt;📐 Matrix Methods&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/matrix_methods&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Matrix Methods&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This note collects my study materials on &lt;strong&gt;linear algebra and matrix methods&lt;/strong&gt;, focusing on the concepts most relevant to &lt;strong&gt;machine learning&lt;/strong&gt; and &lt;strong&gt;deep learning&lt;/strong&gt;. It includes explanations, worked examples, and connections between theory and practical applications.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I welcome all comments and suggestions—and I&amp;rsquo;d be happy to improve and grow this note together with you.&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
     </item>
     <item>
       <title>Gentle Introduction to Singular Value Decomposition</title>
-      <link>http://localhost:40233/svd/</link>
+      <link>http://localhost:1313/svd/</link>
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/svd/</guid>
+      <guid>http://localhost:1313/svd/</guid>
       <description>&lt;h1 id=&#34;singular-value-decomposition&#34;&gt;Singular Value Decomposition&lt;/h1&gt;&#xA;&lt;p&gt;In linear algebra, the singular value decomposition (SVD) is a factorization of a real or complex matrix. It generalizes the eigendecomposition of a square matrix by extending the concept to asymmetric or rectangular matrices, which cannot be diagonalized directly using eigendecomposition. The SVD aims to find the following decomposition of a real-valued matrix $A$:&#xA;$$A = U\Sigma V^T,$$&#xA;where $U$ and $V$ are orthogonal (orthonormal) matrices, and $\Sigma$ is a diagonal matrix. The columns of $U$ are called the left singular vectors of $A$, the columns of $V$ are called the right singular vectors, and the diagonal elements of $\Sigma$ are called the singular values.&lt;/p&gt;</description>
     </item>
   </channel>

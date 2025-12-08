@@ -13,7 +13,9 @@ Workspaces are especially useful when:
 - You maintain one or more **internal libraries** used across those apps
 - You want shared dependencies and a single lockfile for consistent environments
 
-For example, you can have:
+> I've previously written a general introduction to uv as a Python package manager, which you can read here: [uv package manager tutorial](https://han8931.github.io/uv-package-manager/).
+
+A typical real-world setup might look like this:
 ```txt
 llm-platform/
   pyproject.toml          # workspace root
@@ -24,8 +26,7 @@ llm-platform/
   common/
     pyproject.toml        # shared utilities, models
 ```
-And uv understands that my-workspace is a workspace root and each project is a member.
-
+Here, `llm-platform/` is the workspace root, and api, worker, and common are individual workspace members. The root workspace configuration and lockfile ensure that all of these projects share a consistent set of dependencies.
 
 ## Basic structures:
 

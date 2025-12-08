@@ -2,202 +2,202 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Han&#39;s XYZ</title>
-    <link>http://localhost:40233/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 08 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:40233/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Dec 2025 19:36:56 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python</title>
-      <link>http://localhost:40233/categories/python/</link>
+      <link>http://localhost:1313/categories/python/</link>
       <pubDate>Mon, 08 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/python/</guid>
+      <guid>http://localhost:1313/categories/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Uv</title>
-      <link>http://localhost:40233/categories/uv/</link>
+      <link>http://localhost:1313/categories/uv/</link>
       <pubDate>Mon, 08 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/uv/</guid>
+      <guid>http://localhost:1313/categories/uv/</guid>
       <description></description>
     </item>
     <item>
       <title>Causality</title>
-      <link>http://localhost:40233/categories/causality/</link>
+      <link>http://localhost:1313/categories/causality/</link>
       <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/causality/</guid>
+      <guid>http://localhost:1313/categories/causality/</guid>
       <description></description>
     </item>
     <item>
       <title>Machine Learning</title>
-      <link>http://localhost:40233/categories/machine-learning/</link>
+      <link>http://localhost:1313/categories/machine-learning/</link>
       <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/machine-learning/</guid>
+      <guid>http://localhost:1313/categories/machine-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>Study Notes</title>
-      <link>http://localhost:40233/categories/study-notes/</link>
+      <link>http://localhost:1313/categories/study-notes/</link>
       <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/study-notes/</guid>
+      <guid>http://localhost:1313/categories/study-notes/</guid>
       <description></description>
     </item>
     <item>
       <title>LiteLLM</title>
-      <link>http://localhost:40233/categories/litellm/</link>
+      <link>http://localhost:1313/categories/litellm/</link>
       <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/litellm/</guid>
+      <guid>http://localhost:1313/categories/litellm/</guid>
       <description></description>
     </item>
     <item>
       <title>LLM</title>
-      <link>http://localhost:40233/categories/llm/</link>
+      <link>http://localhost:1313/categories/llm/</link>
       <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/llm/</guid>
+      <guid>http://localhost:1313/categories/llm/</guid>
       <description></description>
     </item>
     <item>
       <title>LLM Proxy Server</title>
-      <link>http://localhost:40233/categories/llm-proxy-server/</link>
+      <link>http://localhost:1313/categories/llm-proxy-server/</link>
       <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/llm-proxy-server/</guid>
+      <guid>http://localhost:1313/categories/llm-proxy-server/</guid>
       <description></description>
     </item>
     <item>
       <title>DevOps</title>
-      <link>http://localhost:40233/categories/devops/</link>
+      <link>http://localhost:1313/categories/devops/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/devops/</guid>
+      <guid>http://localhost:1313/categories/devops/</guid>
       <description></description>
     </item>
     <item>
       <title>Docker</title>
-      <link>http://localhost:40233/categories/docker/</link>
+      <link>http://localhost:1313/categories/docker/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/docker/</guid>
+      <guid>http://localhost:1313/categories/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>http://localhost:40233/categories/programming/</link>
+      <link>http://localhost:1313/categories/programming/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/programming/</guid>
+      <guid>http://localhost:1313/categories/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>AI</title>
-      <link>http://localhost:40233/categories/ai/</link>
+      <link>http://localhost:1313/categories/ai/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/ai/</guid>
+      <guid>http://localhost:1313/categories/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>NL2SQL</title>
-      <link>http://localhost:40233/categories/nl2sql/</link>
+      <link>http://localhost:1313/categories/nl2sql/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/nl2sql/</guid>
+      <guid>http://localhost:1313/categories/nl2sql/</guid>
       <description></description>
     </item>
     <item>
       <title>SQL</title>
-      <link>http://localhost:40233/categories/sql/</link>
+      <link>http://localhost:1313/categories/sql/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/sql/</guid>
+      <guid>http://localhost:1313/categories/sql/</guid>
       <description></description>
     </item>
     <item>
       <title>Pydantic</title>
-      <link>http://localhost:40233/categories/pydantic/</link>
+      <link>http://localhost:1313/categories/pydantic/</link>
       <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/pydantic/</guid>
+      <guid>http://localhost:1313/categories/pydantic/</guid>
       <description></description>
     </item>
     <item>
       <title>Pydantic AI</title>
-      <link>http://localhost:40233/categories/pydantic-ai/</link>
+      <link>http://localhost:1313/categories/pydantic-ai/</link>
       <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/pydantic-ai/</guid>
+      <guid>http://localhost:1313/categories/pydantic-ai/</guid>
       <description></description>
     </item>
     <item>
       <title>Algorithm</title>
-      <link>http://localhost:40233/categories/algorithm/</link>
+      <link>http://localhost:1313/categories/algorithm/</link>
       <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/algorithm/</guid>
+      <guid>http://localhost:1313/categories/algorithm/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>http://localhost:40233/categories/linux/</link>
+      <link>http://localhost:1313/categories/linux/</link>
       <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/linux/</guid>
+      <guid>http://localhost:1313/categories/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Pass</title>
-      <link>http://localhost:40233/categories/pass/</link>
+      <link>http://localhost:1313/categories/pass/</link>
       <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/pass/</guid>
+      <guid>http://localhost:1313/categories/pass/</guid>
       <description></description>
     </item>
     <item>
       <title>Git</title>
-      <link>http://localhost:40233/categories/git/</link>
+      <link>http://localhost:1313/categories/git/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/git/</guid>
+      <guid>http://localhost:1313/categories/git/</guid>
       <description></description>
     </item>
     <item>
       <title>Vim</title>
-      <link>http://localhost:40233/categories/vim/</link>
+      <link>http://localhost:1313/categories/vim/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/vim/</guid>
+      <guid>http://localhost:1313/categories/vim/</guid>
       <description></description>
     </item>
     <item>
       <title>Deep Learning</title>
-      <link>http://localhost:40233/categories/deep-learning/</link>
+      <link>http://localhost:1313/categories/deep-learning/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/deep-learning/</guid>
+      <guid>http://localhost:1313/categories/deep-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>NLP</title>
-      <link>http://localhost:40233/categories/nlp/</link>
+      <link>http://localhost:1313/categories/nlp/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/nlp/</guid>
+      <guid>http://localhost:1313/categories/nlp/</guid>
       <description></description>
     </item>
     <item>
       <title>Linear Algebra</title>
-      <link>http://localhost:40233/categories/linear-algebra/</link>
+      <link>http://localhost:1313/categories/linear-algebra/</link>
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/linear-algebra/</guid>
+      <guid>http://localhost:1313/categories/linear-algebra/</guid>
       <description></description>
     </item>
     <item>
       <title>Math</title>
-      <link>http://localhost:40233/categories/math/</link>
+      <link>http://localhost:1313/categories/math/</link>
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/math/</guid>
+      <guid>http://localhost:1313/categories/math/</guid>
       <description></description>
     </item>
     <item>
       <title>Gpg</title>
-      <link>http://localhost:40233/categories/gpg/</link>
+      <link>http://localhost:1313/categories/gpg/</link>
       <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/gpg/</guid>
+      <guid>http://localhost:1313/categories/gpg/</guid>
       <description></description>
     </item>
     <item>
       <title>Tools</title>
-      <link>http://localhost:40233/categories/tools/</link>
+      <link>http://localhost:1313/categories/tools/</link>
       <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/categories/tools/</guid>
+      <guid>http://localhost:1313/categories/tools/</guid>
       <description></description>
     </item>
   </channel>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Deep Learning on Han&#39;s XYZ</title>
-    <link>http://localhost:40233/categories/deep-learning/</link>
+    <link>http://localhost:1313/categories/deep-learning/</link>
     <description>Recent content in Deep Learning on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 15 Sep 2025 19:39:28 +0900</lastBuildDate>
-    <atom:link href="http://localhost:40233/categories/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Inside DeepSeek-R1</title>
-      <link>http://localhost:40233/deepseek-inside/</link>
+      <link>http://localhost:1313/deepseek-inside/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/deepseek-inside/</guid>
+      <guid>http://localhost:1313/deepseek-inside/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.deepseek.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;DeepSeek&lt;/a&gt;&amp;rsquo;s latest moves have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their engineering techniques behind DeepSeek are truly impressive, and their reports are quite enjoyable. However, understanding their core ideas can be challenging and demands a substantial amount of effort.&lt;/p&gt;&#xA;&lt;p&gt;At the forefront of this innovation is DeepSeek-R1, a model that built upon the foundation established by preceding projects such as DeepSeek Coder, Math, MoE, and notably, the DeepSeek-V3 model. While DeepSeek-R1 is the center of the DeepSeek&amp;rsquo;s frenzy, its success is rooted on these past works.&lt;/p&gt;</description>
     </item>
   </channel>

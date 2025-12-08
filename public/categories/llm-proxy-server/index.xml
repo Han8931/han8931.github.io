@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LLM Proxy Server on Han&#39;s XYZ</title>
-    <link>http://localhost:40233/categories/llm-proxy-server/</link>
+    <link>http://localhost:1313/categories/llm-proxy-server/</link>
     <description>Recent content in LLM Proxy Server on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sat, 22 Nov 2025 20:30:54 +0900</lastBuildDate>
-    <atom:link href="http://localhost:40233/categories/llm-proxy-server/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/llm-proxy-server/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LiteLLM: LLM Proxy Server</title>
-      <link>http://localhost:40233/litellm/</link>
+      <link>http://localhost:1313/litellm/</link>
       <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/litellm/</guid>
+      <guid>http://localhost:1313/litellm/</guid>
       <description>&lt;h2 id=&#34;why-an-llm-proxy-at-all&#34;&gt;Why an LLM proxy at all?&lt;/h2&gt;&#xA;&lt;p&gt;An LLM proxy sits between your app and model providers (OpenAI, Anthropic, Google, Ollama, etc.). It gives you a unified API (usually OpenAI-compatible), centralized auth, usage controls (budgets / rate-limits), routing and fallbacks, and caching—without changing your application code for each vendor.&lt;/p&gt;&#xA;&lt;!-- There is a trade-off: adding a proxy introduces another moving piece (and potential single point of failure). For pure observability When you do want a proxy, Langfuse recommends LiteLLM, which is open source, self-hostable, and has first-class integration with Langfuse. --&gt;&#xA;&lt;h2 id=&#34;what-is-litellm&#34;&gt;What is LiteLLM?&lt;/h2&gt;&#xA;&lt;p&gt;LiteLLM is an OpenAI-compatible LLM Gateway that lets you call 100+ providers behind one API, plus adds budgets/rate-limits, model access control, caching, routing, admin UI, and more. You can run it as a single Docker container with a YAML config.&lt;/p&gt;</description>
     </item>
   </channel>

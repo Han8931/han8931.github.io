@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>All Posts - Han&#39;s XYZ</title>
-        <link>http://localhost:40233/posts/</link>
+        <link>http://localhost:1313/posts/</link>
         <description>All Posts | Han&#39;s XYZ</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 08 Dec 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:40233/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 08 Dec 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
     <title>uv workspace: effective management of Python apps</title>
-    <link>http://localhost:40233/uv-packages/</link>
+    <link>http://localhost:1313/uv-packages/</link>
     <pubDate>Mon, 08 Dec 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:40233/uv-packages/</guid>
+    <guid>http://localhost:1313/uv-packages/</guid>
     <description><![CDATA[<h2 id="understanding-uv-workspaces">Understanding uv Workspaces</h2>
 <p>The official uv website explains workspaces very clearly:</p>
 <blockquote>
@@ -17,18 +17,18 @@
 </item>
 <item>
     <title>Causal Inference Part 1: Causation and Correlation</title>
-    <link>http://localhost:40233/causality-1/</link>
+    <link>http://localhost:1313/causality-1/</link>
     <pubDate>Sat, 22 Nov 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:40233/causality-1/</guid>
+    <guid>http://localhost:1313/causality-1/</guid>
     <description><![CDATA[<p>Most of the time when we say &ldquo;my model learned something,&rdquo; what it actually learned is a bunch of very smart correlations. If users who click A also tend to click B, or if certain pixels tend to appear together in cat photos, our models will happily latch onto those patterns and exploit them. That&rsquo;s powerful—and often enough for prediction—but it&rsquo;s not the same as understanding what would <em>happen</em> if we actually changed something in the world: raised a price, changed a policy, or shipped a new feature.</p>]]></description>
 </item>
 <item>
     <title>LiteLLM: LLM Proxy Server</title>
-    <link>http://localhost:40233/litellm/</link>
+    <link>http://localhost:1313/litellm/</link>
     <pubDate>Thu, 18 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:40233/litellm/</guid>
+    <guid>http://localhost:1313/litellm/</guid>
     <description><![CDATA[<h2 id="why-an-llm-proxy-at-all">Why an LLM proxy at all?</h2>
 <p>An LLM proxy sits between your app and model providers (OpenAI, Anthropic, Google, Ollama, etc.). It gives you a unified API (usually OpenAI-compatible), centralized auth, usage controls (budgets / rate-limits), routing and fallbacks, and caching—without changing your application code for each vendor.</p>
 <!-- There is a trade-off: adding a proxy introduces another moving piece (and potential single point of failure). For pure observability When you do want a proxy, Langfuse recommends LiteLLM, which is open source, self-hostable, and has first-class integration with Langfuse. -->
@@ -37,10 +37,10 @@
 </item>
 <item>
     <title>Docker Tutorial Part 1: Basics</title>
-    <link>http://localhost:40233/docker-basics/</link>
+    <link>http://localhost:1313/docker-basics/</link>
     <pubDate>Sat, 13 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:40233/docker-basics/</guid>
+    <guid>http://localhost:1313/docker-basics/</guid>
     <description><![CDATA[<p>This is part of my <strong>Docker Basics</strong> series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.</p>
 <ul>
 <li><strong>Part 1: <a href="https://han8931.github.io/docker-basics/" target="_blank" rel="noopener noreffer ">Understanding Container</a></strong></li>
@@ -53,10 +53,10 @@
 </item>
 <item>
     <title>Docker Tutorial Part 2: Basic Commands</title>
-    <link>http://localhost:40233/docker-commands/</link>
+    <link>http://localhost:1313/docker-commands/</link>
     <pubDate>Sat, 13 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:40233/docker-commands/</guid>
+    <guid>http://localhost:1313/docker-commands/</guid>
     <description><![CDATA[<p>This is part of my <strong>Docker Basics</strong> series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.</p>
 <ul>
 <li><strong>Part 1: <a href="https://han8931.github.io/docker-basics/" target="_blank" rel="noopener noreffer ">Understanding Container</a></strong></li>
@@ -69,10 +69,10 @@
 </item>
 <item>
     <title>Docker Tutorial Part 3: Dockerfile</title>
-    <link>http://localhost:40233/docker-dockerfile/</link>
+    <link>http://localhost:1313/docker-dockerfile/</link>
     <pubDate>Sat, 13 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:40233/docker-dockerfile/</guid>
+    <guid>http://localhost:1313/docker-dockerfile/</guid>
     <description><![CDATA[<p>This is part of my <strong>Docker Basics</strong> series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.</p>
 <ul>
 <li><strong>Part 1: <a href="https://han8931.github.io/docker-basics/" target="_blank" rel="noopener noreffer ">Understanding Container</a></strong></li>
@@ -85,10 +85,10 @@
 </item>
 <item>
     <title>Docker Tutorial Part 4: Networks</title>
-    <link>http://localhost:40233/docker-networks/</link>
+    <link>http://localhost:1313/docker-networks/</link>
     <pubDate>Sat, 13 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:40233/docker-networks/</guid>
+    <guid>http://localhost:1313/docker-networks/</guid>
     <description><![CDATA[<p>This is part of my <strong>Docker Basics</strong> series — introductory guides to help you get started with Docker, learn key concepts, and build your skills step by step.</p>
 <ul>
 <li><strong>Part 1: <a href="https://han8931.github.io/docker-basics/" target="_blank" rel="noopener noreffer ">Understanding Container</a></strong></li>
@@ -108,30 +108,30 @@
 </item>
 <item>
     <title>NL2SQL Part 1.</title>
-    <link>http://localhost:40233/nl2sql/</link>
+    <link>http://localhost:1313/nl2sql/</link>
     <pubDate>Sat, 06 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:40233/nl2sql/</guid>
+    <guid>http://localhost:1313/nl2sql/</guid>
     <description><![CDATA[<h2 id="natural-language-to-sql-nl2sql-in-the-llm-era">💡Natural Language to SQL (NL2SQL) in the LLM Era</h2>
 <p>Data has become one of the most valuable resources of our time. Companies in finance, healthcare, logistics, retail, and many other fields collect enormous amounts of information every day. Much of this information is stored in relational databases, which are typically accessed using SQL.</p>
 <p>While SQL provides the raw outputs of a query, the critical step lies in interpreting these results. Developing intuition from retrieved data is essential for identifying meaningful patterns, uncovering relationships, and supporting evidence-based decision-making.</p>]]></description>
 </item>
 <item>
     <title>Agentic AI with Pydantic-AI Part 1.</title>
-    <link>http://localhost:40233/pydantic-ai/</link>
+    <link>http://localhost:1313/pydantic-ai/</link>
     <pubDate>Sun, 31 Aug 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:40233/pydantic-ai/</guid>
+    <guid>http://localhost:1313/pydantic-ai/</guid>
     <description><![CDATA[<h2 id="introduction">Introduction</h2>
 <p>AI has already changed how we interact with technology. The real shift is happening now with <strong>agents</strong>: AI systems that can reason, make decisions, and take action.</p>
 <p>Unlike a chatbot that passively replies, an agent can <strong>break down complex tasks</strong>, call APIs or databases, use tools, and deliver structured results. This is what makes the idea of <em>Agentic AI</em> so powerful — it&rsquo;s not just about conversation, it&rsquo;s about <strong>problem-solving with initiative</strong>.</p>]]></description>
 </item>
 <item>
     <title>Clean Validation with Pydantic v2</title>
-    <link>http://localhost:40233/pydantic/</link>
+    <link>http://localhost:1313/pydantic/</link>
     <pubDate>Sat, 30 Aug 2025 00:00:00 &#43;0000</pubDate>
     <author>Han</author>
-    <guid>http://localhost:40233/pydantic/</guid>
+    <guid>http://localhost:1313/pydantic/</guid>
     <description><![CDATA[<blockquote>
 <p>📝 <strong>Update</strong> (2025-08): This post was originally published in <strong>April 2024</strong> and has been updated to reflect changes in <strong>Pydantic v2</strong>, including the new <em>field validator</em>, <em>model validator</em>, and <em>Annotated</em>-based validation patterns. Also, this post now includes a <strong>new section on using Pydantic with MongoDB</strong>.</p>
 </blockquote>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AI on Han&#39;s XYZ</title>
-    <link>http://localhost:40233/categories/ai/</link>
+    <link>http://localhost:1313/categories/ai/</link>
     <description>Recent content in AI on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,19 +10,19 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 15 Sep 2025 19:39:28 +0900</lastBuildDate>
-    <atom:link href="http://localhost:40233/categories/ai/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NL2SQL Part 1.</title>
-      <link>http://localhost:40233/nl2sql/</link>
+      <link>http://localhost:1313/nl2sql/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/nl2sql/</guid>
+      <guid>http://localhost:1313/nl2sql/</guid>
       <description>&lt;h2 id=&#34;natural-language-to-sql-nl2sql-in-the-llm-era&#34;&gt;💡Natural Language to SQL (NL2SQL) in the LLM Era&lt;/h2&gt;&#xA;&lt;p&gt;Data has become one of the most valuable resources of our time. Companies in finance, healthcare, logistics, retail, and many other fields collect enormous amounts of information every day. Much of this information is stored in relational databases, which are typically accessed using SQL.&lt;/p&gt;&#xA;&lt;p&gt;While SQL provides the raw outputs of a query, the critical step lies in interpreting these results. Developing intuition from retrieved data is essential for identifying meaningful patterns, uncovering relationships, and supporting evidence-based decision-making.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Agentic AI with Pydantic-AI Part 1.</title>
-      <link>http://localhost:40233/pydantic-ai/</link>
+      <link>http://localhost:1313/pydantic-ai/</link>
       <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/pydantic-ai/</guid>
+      <guid>http://localhost:1313/pydantic-ai/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;AI has already changed how we interact with technology. The real shift is happening now with &lt;strong&gt;agents&lt;/strong&gt;: AI systems that can reason, make decisions, and take action.&lt;/p&gt;&#xA;&lt;p&gt;Unlike a chatbot that passively replies, an agent can &lt;strong&gt;break down complex tasks&lt;/strong&gt;, call APIs or databases, use tools, and deliver structured results. This is what makes the idea of &lt;em&gt;Agentic AI&lt;/em&gt; so powerful — it&amp;rsquo;s not just about conversation, it&amp;rsquo;s about &lt;strong&gt;problem-solving with initiative&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
   </channel>

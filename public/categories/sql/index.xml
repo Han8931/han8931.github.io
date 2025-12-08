@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SQL on Han&#39;s XYZ</title>
-    <link>http://localhost:40233/categories/sql/</link>
+    <link>http://localhost:1313/categories/sql/</link>
     <description>Recent content in SQL on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 15 Sep 2025 19:39:28 +0900</lastBuildDate>
-    <atom:link href="http://localhost:40233/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/sql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NL2SQL Part 1.</title>
-      <link>http://localhost:40233/nl2sql/</link>
+      <link>http://localhost:1313/nl2sql/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:40233/nl2sql/</guid>
+      <guid>http://localhost:1313/nl2sql/</guid>
       <description>&lt;h2 id=&#34;natural-language-to-sql-nl2sql-in-the-llm-era&#34;&gt;💡Natural Language to SQL (NL2SQL) in the LLM Era&lt;/h2&gt;&#xA;&lt;p&gt;Data has become one of the most valuable resources of our time. Companies in finance, healthcare, logistics, retail, and many other fields collect enormous amounts of information every day. Much of this information is stored in relational databases, which are typically accessed using SQL.&lt;/p&gt;&#xA;&lt;p&gt;While SQL provides the raw outputs of a query, the critical step lies in interpreting these results. Developing intuition from retrieved data is essential for identifying meaningful patterns, uncovering relationships, and supporting evidence-based decision-making.&lt;/p&gt;</description>
     </item>
   </channel>
