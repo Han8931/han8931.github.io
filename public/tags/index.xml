@@ -2,664 +2,664 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>http://localhost:40233/tags/</link>
     <description>Recent content in Tags on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 07 Dec 2025 16:15:21 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:40233/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Project Management</title>
-      <link>http://localhost:1313/tags/project-management/</link>
-      <pubDate>Sun, 07 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/project-management/</guid>
+      <link>http://localhost:40233/tags/project-management/</link>
+      <pubDate>Mon, 08 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:40233/tags/project-management/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>http://localhost:1313/tags/python/</link>
-      <pubDate>Sun, 07 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/python/</guid>
+      <link>http://localhost:40233/tags/python/</link>
+      <pubDate>Mon, 08 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:40233/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Uv</title>
-      <link>http://localhost:1313/tags/uv/</link>
-      <pubDate>Sun, 07 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/uv/</guid>
+      <link>http://localhost:40233/tags/uv/</link>
+      <pubDate>Mon, 08 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:40233/tags/uv/</guid>
       <description></description>
     </item>
     <item>
       <title>Uv Tutorial</title>
-      <link>http://localhost:1313/tags/uv-tutorial/</link>
-      <pubDate>Sun, 07 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/uv-tutorial/</guid>
+      <link>http://localhost:40233/tags/uv-tutorial/</link>
+      <pubDate>Mon, 08 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:40233/tags/uv-tutorial/</guid>
       <description></description>
     </item>
     <item>
       <title>Uv Workspace</title>
-      <link>http://localhost:1313/tags/uv-workspace/</link>
-      <pubDate>Sun, 07 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/uv-workspace/</guid>
+      <link>http://localhost:40233/tags/uv-workspace/</link>
+      <pubDate>Mon, 08 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:40233/tags/uv-workspace/</guid>
       <description></description>
     </item>
     <item>
       <title>Workspace</title>
-      <link>http://localhost:1313/tags/workspace/</link>
-      <pubDate>Sun, 07 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/workspace/</guid>
+      <link>http://localhost:40233/tags/workspace/</link>
+      <pubDate>Mon, 08 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:40233/tags/workspace/</guid>
       <description></description>
     </item>
     <item>
       <title>Causal Inference</title>
-      <link>http://localhost:1313/tags/causal-inference/</link>
+      <link>http://localhost:40233/tags/causal-inference/</link>
       <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/causal-inference/</guid>
+      <guid>http://localhost:40233/tags/causal-inference/</guid>
       <description></description>
     </item>
     <item>
       <title>Causality</title>
-      <link>http://localhost:1313/tags/causality/</link>
+      <link>http://localhost:40233/tags/causality/</link>
       <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/causality/</guid>
+      <guid>http://localhost:40233/tags/causality/</guid>
       <description></description>
     </item>
     <item>
       <title>Machine Learning</title>
-      <link>http://localhost:1313/tags/machine-learning/</link>
+      <link>http://localhost:40233/tags/machine-learning/</link>
       <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/machine-learning/</guid>
+      <guid>http://localhost:40233/tags/machine-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>Deep Learning</title>
-      <link>http://localhost:1313/tags/deep-learning/</link>
+      <link>http://localhost:40233/tags/deep-learning/</link>
       <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/deep-learning/</guid>
+      <guid>http://localhost:40233/tags/deep-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>LLM</title>
-      <link>http://localhost:1313/tags/llm/</link>
+      <link>http://localhost:40233/tags/llm/</link>
       <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/llm/</guid>
+      <guid>http://localhost:40233/tags/llm/</guid>
       <description></description>
     </item>
     <item>
       <title>NLP</title>
-      <link>http://localhost:1313/tags/nlp/</link>
+      <link>http://localhost:40233/tags/nlp/</link>
       <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/nlp/</guid>
+      <guid>http://localhost:40233/tags/nlp/</guid>
       <description></description>
     </item>
     <item>
       <title>AI</title>
-      <link>http://localhost:1313/tags/ai/</link>
+      <link>http://localhost:40233/tags/ai/</link>
       <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/ai/</guid>
+      <guid>http://localhost:40233/tags/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>LiteLLM</title>
-      <link>http://localhost:1313/tags/litellm/</link>
+      <link>http://localhost:40233/tags/litellm/</link>
       <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/litellm/</guid>
+      <guid>http://localhost:40233/tags/litellm/</guid>
       <description></description>
     </item>
     <item>
       <title>LLM Proxy Server</title>
-      <link>http://localhost:1313/tags/llm-proxy-server/</link>
+      <link>http://localhost:40233/tags/llm-proxy-server/</link>
       <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/llm-proxy-server/</guid>
+      <guid>http://localhost:40233/tags/llm-proxy-server/</guid>
       <description></description>
     </item>
     <item>
       <title>Containers</title>
-      <link>http://localhost:1313/tags/containers/</link>
+      <link>http://localhost:40233/tags/containers/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/containers/</guid>
+      <guid>http://localhost:40233/tags/containers/</guid>
       <description></description>
     </item>
     <item>
       <title>DevOps</title>
-      <link>http://localhost:1313/tags/devops/</link>
+      <link>http://localhost:40233/tags/devops/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/devops/</guid>
+      <guid>http://localhost:40233/tags/devops/</guid>
       <description></description>
     </item>
     <item>
       <title>Docker</title>
-      <link>http://localhost:1313/tags/docker/</link>
+      <link>http://localhost:40233/tags/docker/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/docker/</guid>
+      <guid>http://localhost:40233/tags/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Dockerfile</title>
-      <link>http://localhost:1313/tags/dockerfile/</link>
+      <link>http://localhost:40233/tags/dockerfile/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/dockerfile/</guid>
+      <guid>http://localhost:40233/tags/dockerfile/</guid>
       <description></description>
     </item>
     <item>
       <title>Network</title>
-      <link>http://localhost:1313/tags/network/</link>
+      <link>http://localhost:40233/tags/network/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/network/</guid>
+      <guid>http://localhost:40233/tags/network/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>http://localhost:1313/tags/programming/</link>
+      <link>http://localhost:40233/tags/programming/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/programming/</guid>
+      <guid>http://localhost:40233/tags/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Tutorial</title>
-      <link>http://localhost:1313/tags/tutorial/</link>
+      <link>http://localhost:40233/tags/tutorial/</link>
       <pubDate>Sat, 13 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/tutorial/</guid>
+      <guid>http://localhost:40233/tags/tutorial/</guid>
       <description></description>
     </item>
     <item>
       <title>Linear Algebra</title>
-      <link>http://localhost:1313/tags/linear-algebra/</link>
+      <link>http://localhost:40233/tags/linear-algebra/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/linear-algebra/</guid>
+      <guid>http://localhost:40233/tags/linear-algebra/</guid>
       <description></description>
     </item>
     <item>
       <title>Reinforcement Learning</title>
-      <link>http://localhost:1313/tags/reinforcement-learning/</link>
+      <link>http://localhost:40233/tags/reinforcement-learning/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/reinforcement-learning/</guid>
+      <guid>http://localhost:40233/tags/reinforcement-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>Statistics</title>
-      <link>http://localhost:1313/tags/statistics/</link>
+      <link>http://localhost:40233/tags/statistics/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/statistics/</guid>
+      <guid>http://localhost:40233/tags/statistics/</guid>
       <description></description>
     </item>
     <item>
       <title>Study Notes</title>
-      <link>http://localhost:1313/tags/study-notes/</link>
+      <link>http://localhost:40233/tags/study-notes/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/study-notes/</guid>
+      <guid>http://localhost:40233/tags/study-notes/</guid>
       <description></description>
     </item>
     <item>
       <title>System Design</title>
-      <link>http://localhost:1313/tags/system-design/</link>
+      <link>http://localhost:40233/tags/system-design/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/system-design/</guid>
+      <guid>http://localhost:40233/tags/system-design/</guid>
       <description></description>
     </item>
     <item>
       <title>Agent</title>
-      <link>http://localhost:1313/tags/agent/</link>
+      <link>http://localhost:40233/tags/agent/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/agent/</guid>
+      <guid>http://localhost:40233/tags/agent/</guid>
       <description></description>
     </item>
     <item>
       <title>NL2SQL</title>
-      <link>http://localhost:1313/tags/nl2sql/</link>
+      <link>http://localhost:40233/tags/nl2sql/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/nl2sql/</guid>
+      <guid>http://localhost:40233/tags/nl2sql/</guid>
       <description></description>
     </item>
     <item>
       <title>SQL</title>
-      <link>http://localhost:1313/tags/sql/</link>
+      <link>http://localhost:40233/tags/sql/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/sql/</guid>
+      <guid>http://localhost:40233/tags/sql/</guid>
       <description></description>
     </item>
     <item>
       <title>Pydantic</title>
-      <link>http://localhost:1313/tags/pydantic/</link>
+      <link>http://localhost:40233/tags/pydantic/</link>
       <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/pydantic/</guid>
+      <guid>http://localhost:40233/tags/pydantic/</guid>
       <description></description>
     </item>
     <item>
       <title>Pydantic-AI</title>
-      <link>http://localhost:1313/tags/pydantic-ai/</link>
+      <link>http://localhost:40233/tags/pydantic-ai/</link>
       <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/pydantic-ai/</guid>
+      <guid>http://localhost:40233/tags/pydantic-ai/</guid>
       <description></description>
     </item>
     <item>
       <title>Config</title>
-      <link>http://localhost:1313/tags/config/</link>
+      <link>http://localhost:40233/tags/config/</link>
       <pubDate>Sat, 30 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/config/</guid>
+      <guid>http://localhost:40233/tags/config/</guid>
       <description></description>
     </item>
     <item>
       <title>Environment Variables</title>
-      <link>http://localhost:1313/tags/environment-variables/</link>
+      <link>http://localhost:40233/tags/environment-variables/</link>
       <pubDate>Sat, 30 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/environment-variables/</guid>
+      <guid>http://localhost:40233/tags/environment-variables/</guid>
       <description></description>
     </item>
     <item>
       <title>Mongodb</title>
-      <link>http://localhost:1313/tags/mongodb/</link>
+      <link>http://localhost:40233/tags/mongodb/</link>
       <pubDate>Sat, 30 Aug 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/mongodb/</guid>
+      <guid>http://localhost:40233/tags/mongodb/</guid>
       <description></description>
     </item>
     <item>
       <title>Algorithm</title>
-      <link>http://localhost:1313/tags/algorithm/</link>
+      <link>http://localhost:40233/tags/algorithm/</link>
       <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/algorithm/</guid>
+      <guid>http://localhost:40233/tags/algorithm/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>http://localhost:1313/tags/linux/</link>
+      <link>http://localhost:40233/tags/linux/</link>
       <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/linux/</guid>
+      <guid>http://localhost:40233/tags/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Pass</title>
-      <link>http://localhost:1313/tags/pass/</link>
+      <link>http://localhost:40233/tags/pass/</link>
       <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/pass/</guid>
+      <guid>http://localhost:40233/tags/pass/</guid>
       <description></description>
     </item>
     <item>
       <title>Password Manager</title>
-      <link>http://localhost:1313/tags/password-manager/</link>
+      <link>http://localhost:40233/tags/password-manager/</link>
       <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/password-manager/</guid>
+      <guid>http://localhost:40233/tags/password-manager/</guid>
       <description></description>
     </item>
     <item>
       <title>Logger</title>
-      <link>http://localhost:1313/tags/logger/</link>
+      <link>http://localhost:40233/tags/logger/</link>
       <pubDate>Sat, 17 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/logger/</guid>
+      <guid>http://localhost:40233/tags/logger/</guid>
       <description></description>
     </item>
     <item>
       <title>Logging</title>
-      <link>http://localhost:1313/tags/logging/</link>
+      <link>http://localhost:40233/tags/logging/</link>
       <pubDate>Sat, 17 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/logging/</guid>
+      <guid>http://localhost:40233/tags/logging/</guid>
       <description></description>
     </item>
     <item>
       <title>Path</title>
-      <link>http://localhost:1313/tags/path/</link>
+      <link>http://localhost:40233/tags/path/</link>
       <pubDate>Sat, 17 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/path/</guid>
+      <guid>http://localhost:40233/tags/path/</guid>
       <description></description>
     </item>
     <item>
       <title>Pathlib</title>
-      <link>http://localhost:1313/tags/pathlib/</link>
+      <link>http://localhost:40233/tags/pathlib/</link>
       <pubDate>Sat, 17 May 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/pathlib/</guid>
+      <guid>http://localhost:40233/tags/pathlib/</guid>
       <description></description>
     </item>
     <item>
       <title>Fugitive</title>
-      <link>http://localhost:1313/tags/fugitive/</link>
+      <link>http://localhost:40233/tags/fugitive/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/fugitive/</guid>
+      <guid>http://localhost:40233/tags/fugitive/</guid>
       <description></description>
     </item>
     <item>
       <title>Git</title>
-      <link>http://localhost:1313/tags/git/</link>
+      <link>http://localhost:40233/tags/git/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/git/</guid>
+      <guid>http://localhost:40233/tags/git/</guid>
       <description></description>
     </item>
     <item>
       <title>Package Manager</title>
-      <link>http://localhost:1313/tags/package-manager/</link>
+      <link>http://localhost:40233/tags/package-manager/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/package-manager/</guid>
+      <guid>http://localhost:40233/tags/package-manager/</guid>
       <description></description>
     </item>
     <item>
       <title>Vim</title>
-      <link>http://localhost:1313/tags/vim/</link>
+      <link>http://localhost:40233/tags/vim/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/vim/</guid>
+      <guid>http://localhost:40233/tags/vim/</guid>
       <description></description>
     </item>
     <item>
       <title>Virtual Environment</title>
-      <link>http://localhost:1313/tags/virtual-environment/</link>
+      <link>http://localhost:40233/tags/virtual-environment/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/virtual-environment/</guid>
+      <guid>http://localhost:40233/tags/virtual-environment/</guid>
       <description></description>
     </item>
     <item>
       <title>DeepSeek</title>
-      <link>http://localhost:1313/tags/deepseek/</link>
+      <link>http://localhost:40233/tags/deepseek/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/deepseek/</guid>
+      <guid>http://localhost:40233/tags/deepseek/</guid>
       <description></description>
     </item>
     <item>
       <title>ABCs</title>
-      <link>http://localhost:1313/tags/abcs/</link>
+      <link>http://localhost:40233/tags/abcs/</link>
       <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/abcs/</guid>
+      <guid>http://localhost:40233/tags/abcs/</guid>
       <description></description>
     </item>
     <item>
       <title>Protocols</title>
-      <link>http://localhost:1313/tags/protocols/</link>
+      <link>http://localhost:40233/tags/protocols/</link>
       <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/protocols/</guid>
+      <guid>http://localhost:40233/tags/protocols/</guid>
       <description></description>
     </item>
     <item>
       <title>Arch</title>
-      <link>http://localhost:1313/tags/arch/</link>
+      <link>http://localhost:40233/tags/arch/</link>
       <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/arch/</guid>
+      <guid>http://localhost:40233/tags/arch/</guid>
       <description></description>
     </item>
     <item>
       <title>Container</title>
-      <link>http://localhost:1313/tags/container/</link>
+      <link>http://localhost:40233/tags/container/</link>
       <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/container/</guid>
+      <guid>http://localhost:40233/tags/container/</guid>
       <description></description>
     </item>
     <item>
       <title>Pytorch</title>
-      <link>http://localhost:1313/tags/pytorch/</link>
+      <link>http://localhost:40233/tags/pytorch/</link>
       <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/pytorch/</guid>
+      <guid>http://localhost:40233/tags/pytorch/</guid>
       <description></description>
     </item>
     <item>
       <title>Asyncio</title>
-      <link>http://localhost:1313/tags/asyncio/</link>
+      <link>http://localhost:40233/tags/asyncio/</link>
       <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/asyncio/</guid>
+      <guid>http://localhost:40233/tags/asyncio/</guid>
       <description></description>
     </item>
     <item>
       <title>Asymmetric Kernels</title>
-      <link>http://localhost:1313/tags/asymmetric-kernels/</link>
+      <link>http://localhost:40233/tags/asymmetric-kernels/</link>
       <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/asymmetric-kernels/</guid>
+      <guid>http://localhost:40233/tags/asymmetric-kernels/</guid>
       <description></description>
     </item>
     <item>
       <title>Least-Square SVM</title>
-      <link>http://localhost:1313/tags/least-square-svm/</link>
+      <link>http://localhost:40233/tags/least-square-svm/</link>
       <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/least-square-svm/</guid>
+      <guid>http://localhost:40233/tags/least-square-svm/</guid>
       <description></description>
     </item>
     <item>
       <title>Support Vector Machines</title>
-      <link>http://localhost:1313/tags/support-vector-machines/</link>
+      <link>http://localhost:40233/tags/support-vector-machines/</link>
       <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/support-vector-machines/</guid>
+      <guid>http://localhost:40233/tags/support-vector-machines/</guid>
       <description></description>
     </item>
     <item>
       <title>Svm</title>
-      <link>http://localhost:1313/tags/svm/</link>
+      <link>http://localhost:40233/tags/svm/</link>
       <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/svm/</guid>
+      <guid>http://localhost:40233/tags/svm/</guid>
       <description></description>
     </item>
     <item>
       <title>LS-SVM</title>
-      <link>http://localhost:1313/tags/ls-svm/</link>
+      <link>http://localhost:40233/tags/ls-svm/</link>
       <pubDate>Sat, 31 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/ls-svm/</guid>
+      <guid>http://localhost:40233/tags/ls-svm/</guid>
       <description></description>
     </item>
     <item>
       <title>Gradient</title>
-      <link>http://localhost:1313/tags/gradient/</link>
+      <link>http://localhost:40233/tags/gradient/</link>
       <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/gradient/</guid>
+      <guid>http://localhost:40233/tags/gradient/</guid>
       <description></description>
     </item>
     <item>
       <title>Gradient Descent</title>
-      <link>http://localhost:1313/tags/gradient-descent/</link>
+      <link>http://localhost:40233/tags/gradient-descent/</link>
       <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/gradient-descent/</guid>
+      <guid>http://localhost:40233/tags/gradient-descent/</guid>
       <description></description>
     </item>
     <item>
       <title>Clustering</title>
-      <link>http://localhost:1313/tags/clustering/</link>
+      <link>http://localhost:40233/tags/clustering/</link>
       <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/clustering/</guid>
+      <guid>http://localhost:40233/tags/clustering/</guid>
       <description></description>
     </item>
     <item>
       <title>Gaussian Mixture Modeling</title>
-      <link>http://localhost:1313/tags/gaussian-mixture-modeling/</link>
+      <link>http://localhost:40233/tags/gaussian-mixture-modeling/</link>
       <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/gaussian-mixture-modeling/</guid>
+      <guid>http://localhost:40233/tags/gaussian-mixture-modeling/</guid>
       <description></description>
     </item>
     <item>
       <title>Gmm</title>
-      <link>http://localhost:1313/tags/gmm/</link>
+      <link>http://localhost:40233/tags/gmm/</link>
       <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/gmm/</guid>
+      <guid>http://localhost:40233/tags/gmm/</guid>
       <description></description>
     </item>
     <item>
       <title>K-Means Clustering</title>
-      <link>http://localhost:1313/tags/k-means-clustering/</link>
+      <link>http://localhost:40233/tags/k-means-clustering/</link>
       <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/k-means-clustering/</guid>
+      <guid>http://localhost:40233/tags/k-means-clustering/</guid>
       <description></description>
     </item>
     <item>
       <title>Latent Variable</title>
-      <link>http://localhost:1313/tags/latent-variable/</link>
+      <link>http://localhost:40233/tags/latent-variable/</link>
       <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/latent-variable/</guid>
+      <guid>http://localhost:40233/tags/latent-variable/</guid>
       <description></description>
     </item>
     <item>
       <title>Singular Value Decomposition</title>
-      <link>http://localhost:1313/tags/singular-value-decomposition/</link>
+      <link>http://localhost:40233/tags/singular-value-decomposition/</link>
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/singular-value-decomposition/</guid>
+      <guid>http://localhost:40233/tags/singular-value-decomposition/</guid>
       <description></description>
     </item>
     <item>
       <title>Svd</title>
-      <link>http://localhost:1313/tags/svd/</link>
+      <link>http://localhost:40233/tags/svd/</link>
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/svd/</guid>
+      <guid>http://localhost:40233/tags/svd/</guid>
       <description></description>
     </item>
     <item>
       <title>Least Square</title>
-      <link>http://localhost:1313/tags/least-square/</link>
+      <link>http://localhost:40233/tags/least-square/</link>
       <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/least-square/</guid>
+      <guid>http://localhost:40233/tags/least-square/</guid>
       <description></description>
     </item>
     <item>
       <title>Recursive Least Squares</title>
-      <link>http://localhost:1313/tags/recursive-least-squares/</link>
+      <link>http://localhost:40233/tags/recursive-least-squares/</link>
       <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/recursive-least-squares/</guid>
+      <guid>http://localhost:40233/tags/recursive-least-squares/</guid>
       <description></description>
     </item>
     <item>
       <title>Regression</title>
-      <link>http://localhost:1313/tags/regression/</link>
+      <link>http://localhost:40233/tags/regression/</link>
       <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/regression/</guid>
+      <guid>http://localhost:40233/tags/regression/</guid>
       <description></description>
     </item>
     <item>
       <title>Dual Form</title>
-      <link>http://localhost:1313/tags/dual-form/</link>
+      <link>http://localhost:40233/tags/dual-form/</link>
       <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/dual-form/</guid>
+      <guid>http://localhost:40233/tags/dual-form/</guid>
       <description></description>
     </item>
     <item>
       <title>Ridge Regression</title>
-      <link>http://localhost:1313/tags/ridge-regression/</link>
+      <link>http://localhost:40233/tags/ridge-regression/</link>
       <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/ridge-regression/</guid>
+      <guid>http://localhost:40233/tags/ridge-regression/</guid>
       <description></description>
     </item>
     <item>
       <title>Weighted Regression</title>
-      <link>http://localhost:1313/tags/weighted-regression/</link>
+      <link>http://localhost:40233/tags/weighted-regression/</link>
       <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/weighted-regression/</guid>
+      <guid>http://localhost:40233/tags/weighted-regression/</guid>
       <description></description>
     </item>
     <item>
       <title>Decryption</title>
-      <link>http://localhost:1313/tags/decryption/</link>
+      <link>http://localhost:40233/tags/decryption/</link>
       <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/decryption/</guid>
+      <guid>http://localhost:40233/tags/decryption/</guid>
       <description></description>
     </item>
     <item>
       <title>Encryption</title>
-      <link>http://localhost:1313/tags/encryption/</link>
+      <link>http://localhost:40233/tags/encryption/</link>
       <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/encryption/</guid>
+      <guid>http://localhost:40233/tags/encryption/</guid>
       <description></description>
     </item>
     <item>
       <title>Gpg</title>
-      <link>http://localhost:1313/tags/gpg/</link>
+      <link>http://localhost:40233/tags/gpg/</link>
       <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/gpg/</guid>
+      <guid>http://localhost:40233/tags/gpg/</guid>
       <description></description>
     </item>
     <item>
       <title>Privacy</title>
-      <link>http://localhost:1313/tags/privacy/</link>
+      <link>http://localhost:40233/tags/privacy/</link>
       <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/privacy/</guid>
+      <guid>http://localhost:40233/tags/privacy/</guid>
       <description></description>
     </item>
     <item>
       <title>Scheduler</title>
-      <link>http://localhost:1313/tags/scheduler/</link>
+      <link>http://localhost:40233/tags/scheduler/</link>
       <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/scheduler/</guid>
+      <guid>http://localhost:40233/tags/scheduler/</guid>
       <description></description>
     </item>
     <item>
       <title>Task Management</title>
-      <link>http://localhost:1313/tags/task-management/</link>
+      <link>http://localhost:40233/tags/task-management/</link>
       <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/task-management/</guid>
+      <guid>http://localhost:40233/tags/task-management/</guid>
       <description></description>
     </item>
     <item>
       <title>Taskspooler</title>
-      <link>http://localhost:1313/tags/taskspooler/</link>
+      <link>http://localhost:40233/tags/taskspooler/</link>
       <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/taskspooler/</guid>
+      <guid>http://localhost:40233/tags/taskspooler/</guid>
       <description></description>
     </item>
     <item>
       <title>Poetry</title>
-      <link>http://localhost:1313/tags/poetry/</link>
+      <link>http://localhost:40233/tags/poetry/</link>
       <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/poetry/</guid>
+      <guid>http://localhost:40233/tags/poetry/</guid>
       <description></description>
     </item>
     <item>
       <title>Pacman</title>
-      <link>http://localhost:1313/tags/pacman/</link>
+      <link>http://localhost:40233/tags/pacman/</link>
       <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/pacman/</guid>
+      <guid>http://localhost:40233/tags/pacman/</guid>
       <description></description>
     </item>
     <item>
       <title>Debug</title>
-      <link>http://localhost:1313/tags/debug/</link>
+      <link>http://localhost:40233/tags/debug/</link>
       <pubDate>Sat, 27 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/debug/</guid>
+      <guid>http://localhost:40233/tags/debug/</guid>
       <description></description>
     </item>
     <item>
       <title>Pdb</title>
-      <link>http://localhost:1313/tags/pdb/</link>
+      <link>http://localhost:40233/tags/pdb/</link>
       <pubDate>Sat, 27 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/pdb/</guid>
+      <guid>http://localhost:40233/tags/pdb/</guid>
       <description></description>
     </item>
     <item>
       <title>Enum</title>
-      <link>http://localhost:1313/tags/enum/</link>
+      <link>http://localhost:40233/tags/enum/</link>
       <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/enum/</guid>
+      <guid>http://localhost:40233/tags/enum/</guid>
       <description></description>
     </item>
     <item>
       <title>Pytest</title>
-      <link>http://localhost:1313/tags/pytest/</link>
+      <link>http://localhost:40233/tags/pytest/</link>
       <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/pytest/</guid>
+      <guid>http://localhost:40233/tags/pytest/</guid>
       <description></description>
     </item>
     <item>
       <title>Bash</title>
-      <link>http://localhost:1313/tags/bash/</link>
+      <link>http://localhost:40233/tags/bash/</link>
       <pubDate>Sun, 21 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/bash/</guid>
+      <guid>http://localhost:40233/tags/bash/</guid>
       <description></description>
     </item>
     <item>
       <title>Minimalism</title>
-      <link>http://localhost:1313/tags/minimalism/</link>
+      <link>http://localhost:40233/tags/minimalism/</link>
       <pubDate>Sun, 21 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/minimalism/</guid>
+      <guid>http://localhost:40233/tags/minimalism/</guid>
       <description></description>
     </item>
     <item>
       <title>Shell Script</title>
-      <link>http://localhost:1313/tags/shell-script/</link>
+      <link>http://localhost:40233/tags/shell-script/</link>
       <pubDate>Sun, 21 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/shell-script/</guid>
+      <guid>http://localhost:40233/tags/shell-script/</guid>
       <description></description>
     </item>
     <item>
       <title>Dotenv</title>
-      <link>http://localhost:1313/tags/dotenv/</link>
+      <link>http://localhost:40233/tags/dotenv/</link>
       <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/dotenv/</guid>
+      <guid>http://localhost:40233/tags/dotenv/</guid>
       <description></description>
     </item>
     <item>
       <title>Type Hint</title>
-      <link>http://localhost:1313/tags/type-hint/</link>
+      <link>http://localhost:40233/tags/type-hint/</link>
       <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/type-hint/</guid>
+      <guid>http://localhost:40233/tags/type-hint/</guid>
       <description></description>
     </item>
   </channel>

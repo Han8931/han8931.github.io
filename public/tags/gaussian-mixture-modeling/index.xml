@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gaussian Mixture Modeling on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/gaussian-mixture-modeling/</link>
+    <link>http://localhost:40233/tags/gaussian-mixture-modeling/</link>
     <description>Recent content in Gaussian Mixture Modeling on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 15 Sep 2025 19:39:28 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/gaussian-mixture-modeling/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:40233/tags/gaussian-mixture-modeling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction to Latent Variable Modeling (Part 1)</title>
-      <link>http://localhost:1313/latent-variable-part1/</link>
+      <link>http://localhost:40233/latent-variable-part1/</link>
       <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/latent-variable-part1/</guid>
+      <guid>http://localhost:40233/latent-variable-part1/</guid>
       <description>&lt;h1 id=&#34;latent-variable-modeling&#34;&gt;Latent Variable Modeling&lt;/h1&gt;&#xA;&lt;h2 id=&#34;motivation-of-latent-variable-modeling&#34;&gt;Motivation of Latent Variable Modeling&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s say we want to classify some data. If we had access to a corresponding latent variable for each observation $ \mathbf{x}_i $, modeling would be more straightforward. To illustrate this, consider the challenge of finding the latent variable (i.e., the true class of $ \mathbf{x} $). It can be expressed like $ z^* = \argmax_{z} p(\mathbf{x} | z) $. It is hard to identify the true clusters without prior knowledge about them. For example, we can cluster like Fig. (b) or (c).&lt;/p&gt;</description>
     </item>
   </channel>

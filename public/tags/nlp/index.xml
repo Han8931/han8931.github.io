@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NLP on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/nlp/</link>
+    <link>http://localhost:40233/tags/nlp/</link>
     <description>Recent content in NLP on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,13 +10,13 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Tue, 07 Oct 2025 10:43:30 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:40233/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NLP and LLM Study Note</title>
-      <link>http://localhost:1313/studynotes/llm-notes/</link>
+      <link>http://localhost:40233/studynotes/llm-notes/</link>
       <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/studynotes/llm-notes/</guid>
-      <description>&lt;h1 id=&#34;nlp-and-llm&#34;&gt;NLP and LLM&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/nlp_note&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;NLP Note&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;These are my working notes on &lt;em&gt;NLP and large language models&lt;/em&gt;: intuitive math, minimal proofs, and practical recipes.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I welcome all comments and suggestions—and I&amp;rsquo;d be happy to improve and grow this note together with you.&lt;/p&gt;&lt;/blockquote&gt;</description>
+      <guid>http://localhost:40233/studynotes/llm-notes/</guid>
+      <description>&lt;h1 id=&#34;nlp-and-llm&#34;&gt;NLP and LLM&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/nlp_note&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;NLP Note&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;These are my working notes on &lt;em&gt;NLP and large language models&lt;/em&gt;: intuitive math, minimal proofs, and practical recipes.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I welcome all comments and suggestions—and I&amp;rsquo;d be happy to improve and grow this note together with you.&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
     </item>
   </channel>
 </rss>

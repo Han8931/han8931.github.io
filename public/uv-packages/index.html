@@ -4,15 +4,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>uv workspace: effective management of Python apps - Han&#39;s XYZ</title><meta name="Description" content="uv workspace tutorial"><meta property="og:url" content="http://localhost:40233/drafts/uv-packages/">
+        <title>uv workspace: effective management of Python apps - Han&#39;s XYZ</title><meta name="Description" content="uv workspace tutorial"><meta property="og:url" content="http://localhost:40233/uv-packages/">
   <meta property="og:site_name" content="Han&#39;s XYZ">
   <meta property="og:title" content="uv workspace: effective management of Python apps">
   <meta property="og:description" content="uv workspace tutorial">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
-    <meta property="article:section" content="drafts">
-    <meta property="article:published_time" content="2025-12-07T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-12-07T16:15:21+09:00">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-08T00:00:00+00:00">
     <meta property="article:tag" content="Python">
     <meta property="article:tag" content="Workspace">
     <meta property="article:tag" content="Uv">
@@ -29,7 +29,7 @@
 <meta name="apple-mobile-web-app-title" content="KeepIt">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:40233/drafts/uv-packages/" /><link rel="prev" href="http://localhost:40233/drafts/github_actions/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:40233/uv-packages/" /><link rel="prev" href="http://localhost:40233/causality-1/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><meta name="google-site-verification" content="B7mVm-DfAgGVs4ghQkEqrmeZIv8D26A-1C7dx6Ajeh0" /><script type="application/ld+json">
     {
@@ -39,9 +39,9 @@
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http:\/\/localhost:40233\/drafts\/uv-packages\/"
-        },"genre": "drafts","keywords": "python, workspace, uv, project management, uv workspace, uv tutorial","wordcount":  643 ,
-        "url": "http:\/\/localhost:40233\/drafts\/uv-packages\/","datePublished": "2025-12-07T00:00:00+00:00","dateModified": "2025-12-07T16:15:21+09:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "http:\/\/localhost:40233\/uv-packages\/"
+        },"genre": "posts","keywords": "python, workspace, uv, project management, uv workspace, uv tutorial","wordcount":  1130 ,
+        "url": "http:\/\/localhost:40233\/uv-packages\/","datePublished": "2025-12-08T00:00:00+00:00","dateModified": "2025-12-08T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -109,13 +109,52 @@
     <div class="search-dropdown mobile">
         <div id="search-dropdown-mobile"></div>
     </div><main class="main">
-                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">uv workspace: effective management of Python apps</h1><div class="content" id="content"><h2 id="uv-workspace">uv workspace</h2>
-<p>A uv workspace is a folder that contains multiple Python projects (packages/apps) that are managed together with one top-level configuration.</p>
-<p>Workspaces are useful when you have:</p>
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">uv workspace: effective management of Python apps</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Han</a></span>&nbsp;<span class="post-category">included in <a href="/categories/uv/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Uv</a>&nbsp;<a href="/categories/python/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Python</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-12-08">2025-12-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1130 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;<span id="/uv-packages/" class="leancloud_visitors" data-flag-title="uv workspace: effective management of Python apps">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#understanding-uv-workspaces">Understanding uv Workspaces</a></li>
+    <li><a href="#basic-structures">Basic structures:</a>
+      <ul>
+        <li><a href="#root-pyprojecttoml">Root <code>pyproject.toml</code></a></li>
+        <li><a href="#members">Members</a></li>
+        <li><a href="#typical-commands">Typical commands:</a></li>
+      </ul>
+    </li>
+    <li><a href="#uv-sources">uv sources</a></li>
+    <li><a href="#hands-on-example">Hands-on Example</a>
+      <ul>
+        <li><a href="#starting-point">Starting point</a></li>
+        <li><a href="#create-the-library-project">Create the library project</a></li>
+        <li><a href="#turn-the-root-into-a-workspace-and-declare-the-dependency">Turn the root into a workspace and declare the dependency</a></li>
+        <li><a href="#use-the-library-in-mainpy">Use the library in <code>main.py</code></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="understanding-uv-workspaces">Understanding uv Workspaces</h2>
+<p>The official uv website explains workspaces very clearly:</p>
+<blockquote>
+<p>Inspired by Cargo, a <em>uv workspace</em> is a collection of one or more Python packages (workspace members) managed together in a single repo. Each package has its own <code>pyproject.toml</code>, but the workspace shares one <code>lockfile</code>, keeping dependencies consistent across apps and libraries. Commands like <code>uv lock</code> operate on the whole workspace, while <code>uv run</code> and <code>uv sync</code> default to the workspace root but can target a specific member via <code>--package</code> <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+</blockquote>
+<p>In practice, a <strong>uv workspace</strong> is just a directory that contains multiple Python projects (apps and/or libraries) that are managed together with one top-level configuration.</p>
+<p>Workspaces are especially useful when:</p>
 <ul>
-<li>Several related services/packages (e.g. API, worker, common-lib)</li>
-<li>Shared dependencies / shared internal libraries</li>
-<li>Want to develop and test them together</li>
+<li>You have multiple related apps or services (e.g. API, worker, CLI)</li>
+<li>You maintain one or more <strong>internal libraries</strong> used across those apps</li>
+<li>You want shared dependencies and a single lockfile for consistent environments</li>
 </ul>
 <p>For example, you can have:</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
@@ -132,8 +171,8 @@
 </span></span><span class="line"><span class="cl">  common/
 </span></span><span class="line"><span class="cl">    pyproject.toml        # shared utilities, models</span></span></code></pre></div></div>
 <p>And uv understands that my-workspace is a workspace root and each project is a member.</p>
-<h3 id="basic-structures">Basic structures:</h3>
-<h4 id="root-pyprojecttoml">Root <code>pyproject.toml</code></h4>
+<h2 id="basic-structures">Basic structures:</h2>
+<h3 id="root-pyprojecttoml">Root <code>pyproject.toml</code></h3>
 <p>At the root, you don&rsquo;t define a Python package (you can, but usually it&rsquo;s just a config container). Most important is the <code>[tool.uv.workspace]</code> section:</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-toml">
@@ -149,9 +188,9 @@
 <ul>
 <li>This tells uv: &ldquo;these subdirs are workspace members&rdquo;.</li>
 </ul>
-<h4 id="members">Members</h4>
+<h3 id="members">Members</h3>
 <p>Inside <code>apl/pyproject.toml</code>:</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-toml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
@@ -199,7 +238,7 @@
 </span></span><span class="line"><span class="cl">  <span class="s2">&#34;llm-common&#34;</span><span class="p">,</span>          <span class="c"># just use the name</span>
 </span></span><span class="line"><span class="cl"><span class="p">]</span></span></span></code></pre></div></div>
 <ul>
-<li>uv will notice that llm-common is another workspace member.</li>
+<li>uv will notice that <code>llm-common</code> is another workspace member.</li>
 </ul>
 <h3 id="typical-commands">Typical commands:</h3>
 <p>To run a command inside a specific member:</p>
@@ -210,14 +249,14 @@
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Run a FastAPI server defined in api/</span>
 </span></span><span class="line"><span class="cl">uv run --package api uvicorn llm_api.main:app --reload</span></span></code></pre></div></div>
-<p>To add a dependency:</p>
+<p>To add a dependency to a member, <code>cd</code> into the member package, then:</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-sh">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Add &#39;redis&#39; to worker/ only</span>
-</span></span><span class="line"><span class="cl">uv add -p worker redis</span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl">uv add redis</span></span></code></pre></div></div>
 <p>You can lock dependencies for whole workspace by</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-sh">
@@ -238,22 +277,65 @@
 </span></span><span class="line"><span class="cl">uv init --package llm_common
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> ..</span></span></code></pre></div></div>
 <h2 id="uv-sources">uv sources</h2>
-<p>You&rsquo;ll mainly see them in <code>pyproject.toml</code> under:</p>
+<p>A workspace is about project structure:</p>
+<ul>
+<li>It says: &ldquo;These directories are all part of one big project/monorepo.&rdquo;</li>
+<li>Defined in <code>[tool.uv.workspace]</code> in the root <code>pyproject.toml</code>.</li>
+<li>All members share:
+<ul>
+<li>One <code>uv.lock</code></li>
+<li>One virtualenv (by default)</li>
+<li>Shared <code>tool.uv</code> config</li>
+</ul>
+</li>
+</ul>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
     <div class="code-header language-toml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">sources</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="p">...</span></span></span></code></pre></div></div>
-<p>That section lets you say:</p>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">project</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;my-app&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">version</span> <span class="p">=</span> <span class="s2">&#34;0.1.0&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">dependencies</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;hello-common&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">workspace</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">members</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;libs/*&#34;</span><span class="p">]</span></span></span></code></pre></div></div>
 <ul>
-<li>&ldquo;For this package, install it from here, not from public PyPI.&rdquo;</li>
-<li>Or &ldquo;Use this private index URL instead of PyPI.&rdquo;</li>
+<li><code>my-app</code> is the workspace root.</li>
+<li>Everything under <code>libs/</code> (like <code>libs/hello_common</code>) is a workspace member.</li>
+<li>uv will install all members as editable when you sync the workspace.</li>
+</ul>
+<p>On the other hand, <code>[tool.uv.sources]</code> is about where a dependency comes from:</p>
+<ul>
+<li>It enriches <code>project.dependencies</code> with alternative sources:</li>
+</ul>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-toml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">project</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;my-app&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">version</span> <span class="p">=</span> <span class="s2">&#34;0.1.0&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">dependencies</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;hello-common&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">workspace</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">members</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;libs/*&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">sources</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">hello-common</span> <span class="p">=</span> <span class="p">{</span> <span class="nx">workspace</span> <span class="p">=</span> <span class="kc">true</span> <span class="p">}</span></span></span></code></pre></div></div>
+<ul>
+<li>It says <em>When you see dependency <code>hello-common</code>, don&rsquo;t fetch from PyPI — resolve it from my workspace member instead.</em></li>
+<li>You can think of sources as:
+<ul>
+<li>Given a dependency name, where do we install it from?</li>
+</ul>
+</li>
 </ul>
 <p>This is especially useful in:</p>
 <ul>
-<li>Company environments with internal PyPI mirrors</li>
+<li>Company environments with <strong>internal PyPI mirrors</strong></li>
 <li>Air-gapped / proxy-heavy setups</li>
 <li>When you want a local wheel dir for speed</li>
 </ul>
@@ -285,113 +367,276 @@
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[package-index]
 </span></span><span class="line"><span class="cl">default = &#34;https://pypi.mycompany.com/simple&#34;</span></span></code></pre></div></div>
-<h3 id="with-workspace">with workspace</h3>
-<p>Inside a workspace:</p>
-<ul>
-<li><code>[tool.uv.workspace]</code>
-<ul>
-<li>defines which sub-projects belong to the workspace.</li>
-</ul>
-</li>
-<li><code>[tool.uv.sources]</code> at the root
-<ul>
-<li>defines how all members should resolve certain dependencies</li>
-<li>(PyPI vs git vs local path vs another workspace member).</li>
-</ul>
-</li>
-<li><code>[tool.uv.sources]</code> inside a member
-<ul>
-<li>can override the root rules for that member only.</li>
-</ul>
-</li>
-</ul>
-<p>In a workspace you typically have internal packages that you want to import by name, but you do not want to fetch them from PyPI.</p>
+<h2 id="hands-on-example">Hands-on Example</h2>
+<p>Let&rsquo;s use a minimal setup, starting from what <code>uv init</code> gives you.</p>
+<h3 id="starting-point">Starting point</h3>
+<p>You run:</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv init uv-ws-practice
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> uv-ws-practice</span></span></code></pre></div></div>
+<p>You get:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-text">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">uv-ws-practice/
+</span></span><span class="line"><span class="cl">├── README.md
+</span></span><span class="line"><span class="cl">├── main.py
+</span></span><span class="line"><span class="cl">└── pyproject.toml</span></span></code></pre></div></div>
+<ul>
+<li><code>main.py</code> is a simple script.</li>
+</ul>
+<p>Now let&rsquo;s add a library project <code>hello_common</code> under <code>libs/</code>.</p>
+<h3 id="create-the-library-project">Create the library project</h3>
+<p>From <code>uv-ws-practice</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p libs/hello_common
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> libs/hello_common
+</span></span><span class="line"><span class="cl">uv init --package .</span></span></code></pre></div></div>
+<p>or identically</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir libs
+</span></span><span class="line"><span class="cl">uv init --package hello_common</span></span></code></pre></div></div>
+<p>Now, the project directory looks like this</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-text">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">uv-ws-practice/
+</span></span><span class="line"><span class="cl">├── README.md
+</span></span><span class="line"><span class="cl">├── main.py
+</span></span><span class="line"><span class="cl">├── pyproject.toml          # root
+</span></span><span class="line"><span class="cl">└── libs/
+</span></span><span class="line"><span class="cl">    └── hello_common/       # library project
+</span></span><span class="line"><span class="cl">        ├── README.md
+</span></span><span class="line"><span class="cl">        ├── pyproject.toml
+</span></span><span class="line"><span class="cl">        └── src/
+</span></span><span class="line"><span class="cl">            └── hello_common/
+</span></span><span class="line"><span class="cl">                └── __init__.py</span></span></code></pre></div></div>
+<p>Edit <code>libs/hello_common/src/hello_common/__init__.py</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-python">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> from hello_common!&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># For a console script</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">greet</span><span class="p">(</span><span class="s2">&#34;world&#34;</span><span class="p">))</span></span></span></code></pre></div></div>
+<p>Edit <code>libs/hello_common/pyproject.toml</code> so it would look like:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-toml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">project</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;albatross&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;hello-common&#34;</span>  <span class="c"># distribution name</span>
 </span></span><span class="line"><span class="cl"><span class="nx">version</span> <span class="p">=</span> <span class="s2">&#34;0.1.0&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">requires-python</span> <span class="p">=</span> <span class="s2">&#34;&gt;=3.12&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">dependencies</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;bird-feeder&#34;</span><span class="p">,</span> <span class="s2">&#34;tqdm&gt;=4,&lt;5&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">description</span> <span class="p">=</span> <span class="s2">&#34;A small shared library for uv workspace practice.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">readme</span> <span class="p">=</span> <span class="s2">&#34;README.md&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">requires-python</span> <span class="p">=</span> <span class="s2">&#34;&gt;=3.10&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">dependencies</span> <span class="p">=</span> <span class="p">[]</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">sources</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="nx">bird-feeder</span> <span class="p">=</span> <span class="p">{</span> <span class="nx">workspace</span> <span class="p">=</span> <span class="kc">true</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">project</span><span class="p">.</span><span class="nx">scripts</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">hello-common</span> <span class="p">=</span> <span class="s2">&#34;hello_common:main&#34;</span>  <span class="c"># console script name</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">workspace</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="nx">members</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;packages/*&#34;</span><span class="p">]</span></span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">build-system</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">...</span></span></span></code></pre></div></div>
+<p>Now we have:</p>
 <ul>
-<li>albatross depends on a package called bird-feeder.</li>
-<li>bird-feeder is another workspace member.</li>
-<li>bird-feeder = { workspace = true } tells uv:</li>
+<li>Project/distribution: <code>hello-common</code></li>
+<li>Python package: <code>hello_common</code> (under <code>src/hello_common</code>)</li>
+<li>Script: <code>hello-common</code> running <code>hello_common.main()</code>.</li>
 </ul>
-<blockquote>
-<p>&ldquo;Satisfy this dependency from the workspace, not from PyPI.&rdquo;</p>
-</blockquote>
-<p>For example:</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-txt">
-        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
-        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
-        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">file-translate/
-</span></span><span class="line"><span class="cl">  pyproject.toml          # workspace root
-</span></span><span class="line"><span class="cl">  libs/
-</span></span><span class="line"><span class="cl">    translate_common/
-</span></span><span class="line"><span class="cl">      pyproject.toml
-</span></span><span class="line"><span class="cl">  services/
-</span></span><span class="line"><span class="cl">    api/
-</span></span><span class="line"><span class="cl">      pyproject.toml
-</span></span><span class="line"><span class="cl">    worker/
-</span></span><span class="line"><span class="cl">      pyproject.toml</span></span></code></pre></div></div>
-<p>We can set <code>pyproject.toml</code>:</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<h3 id="turn-the-root-into-a-workspace-and-declare-the-dependency">Turn the root into a workspace and declare the dependency</h3>
+<p>Open the <strong>root</strong> <code>pyproject.toml</code> and make it:</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-toml">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># file-translate/pyproject.toml (root)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">project</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;file-translate&#34;</span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">project</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;uv-ws-practice&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">version</span> <span class="p">=</span> <span class="s2">&#34;0.1.0&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">description</span> <span class="p">=</span> <span class="s2">&#34;Root of a uv workspace to practice workspace and sources.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">readme</span> <span class="p">=</span> <span class="s2">&#34;README.md&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">requires-python</span> <span class="p">=</span> <span class="s2">&#34;&gt;=3.10&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">dependencies</span> <span class="p">=</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;translate-common&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;hello-common&#34;</span><span class="p">,</span>  <span class="c"># ✅ root project depends on the library</span>
 </span></span><span class="line"><span class="cl"><span class="p">]</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">workspace</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="nx">members</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;libs/*&#34;</span><span class="p">,</span> <span class="s2">&#34;services/*&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">build-system</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">...</span>
 </span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 1) Workspace members</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">workspace</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">members</span> <span class="p">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;libs/hello_common&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 2) Source override: &#34;hello-common&#34; comes from *this* workspace</span>
 </span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">sources</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="nx">translate-common</span> <span class="p">=</span> <span class="p">{</span> <span class="nx">workspace</span> <span class="p">=</span> <span class="kc">true</span> <span class="p">}</span></span></span></code></pre></div></div>
+</span></span><span class="line"><span class="cl"><span class="nx">hello-common</span> <span class="p">=</span> <span class="p">{</span> <span class="nx">workspace</span> <span class="p">=</span> <span class="kc">true</span> <span class="p">}</span></span></span></code></pre></div></div>
 <ul>
-<li><code>members = [&quot;libs/*&quot;, &quot;services/*&quot;]</code>:</li>
-<li>This just tells uv: &ldquo;there are other projects inside <code>libs/</code> and <code>services/</code> — manage them together with me as one workspace&rdquo;.</li>
+<li>Under <code>[project]</code> we say:
+<ul>
+<li>&ldquo;This root project <em>needs</em> <code>hello-common</code> to run.&rdquo;</li>
 </ul>
-<p>In <code>services/api/pyproject.toml</code>:</p>
+</li>
+<li>Under <code>[tool.uv.workspace]</code> we say:
+<ul>
+<li>&ldquo;The project at <code>libs/hello_common</code> is part of this workspace.&rdquo;</li>
+</ul>
+</li>
+<li>Under <code>[tool.uv.sources]</code> we say:
+<ul>
+<li>&ldquo;When resolving the dependency <code>hello-common</code>, use the workspace project instead of PyPI.&rdquo;</li>
+</ul>
+</li>
+</ul>
+<h3 id="use-the-library-in-mainpy">Use the library in <code>main.py</code></h3>
+<p>In the root <code>main.py</code>:</p>
 <div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
-    <div class="code-header language-toml">
+    <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
-    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">project</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;file-translate-api&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">version</span> <span class="p">=</span> <span class="s2">&#34;0.1.0&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">requires-python</span> <span class="p">=</span> <span class="s2">&#34;&gt;=3.10&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">dependencies</span> <span class="p">=</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;fastapi&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;uvicorn[standard]&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;translate-common&#34;</span><span class="p">,</span>   <span class="c"># just normal dependency name</span>
-</span></span><span class="line"><span class="cl"><span class="p">]</span></span></span></code></pre></div></div>
-<h2 id="hands-on-example">Hands-on Example</h2>
-</div><div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">hello_common</span> <span class="kn">import</span> <span class="n">greet</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">greet</span><span class="p">(</span><span class="s2">&#34;Workspace&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span></span></span></code></pre></div></div>
+<p>Now <code>main.py</code> imports the <code>hello_common</code> package.</p>
+<p>From <code>uv-ws-practice</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv sync</span></span></code></pre></div></div>
+<p>This command</p>
+<ol>
+<li>Reads the root <code>pyproject.toml</code></li>
+<li>Sees <code>dependencies = [&quot;hello-common&quot;]</code></li>
+<li>Sees in <code>[tool.uv.sources]</code> that <code>hello-common</code> is from the workspace</li>
+<li>Looks in <code>[tool.uv.workspace].members</code> for a matching project (<code>libs/hello_common</code>)</li>
+<li>Resolves dependencies and sets up an environment containing:
+<ul>
+<li>the root project</li>
+<li>the <code>hello-common</code> library</li>
+</ul>
+</li>
+</ol>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv run python main.py</span></span></code></pre></div></div>
+<p>You see:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-text">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Hello, Workspace from hello_common!</span></span></code></pre></div></div>
+<p>If you had <strong>forgotten</strong> to add <code>&quot;hello-common&quot;</code> to <code>dependencies</code>, you&rsquo;d get:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-text">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ModuleNotFoundError: No module named &#39;hello_common&#39;</span></span></code></pre></div></div>
+<p>Even though the library <em>exists</em> in <code>libs/hello_common</code>.
+That&rsquo;s the important lesson: <strong>workspace + sources does not automatically make everything importable; you still must depend on it.</strong></p>
+<p>Now try:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv run hello-common</span></span></code></pre></div></div>
+<p>Because:</p>
+<ul>
+<li>The root env was synced</li>
+<li>Root depends on <code>hello-common</code></li>
+<li><code>hello-common</code> exposes a script called <code>hello-common</code></li>
+</ul>
+<p>…<code>uv</code> will run the console script from the root project&rsquo;s environment:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-text">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Hello, world from hello_common!</span></span></code></pre></div></div>
+<p>Alternatively, inside <code>libs/hello_common</code>:</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> libs/hello_common
+</span></span><span class="line"><span class="cl">uv run hello-common</span></span></code></pre></div></div>
+<p>Now <code>uv</code> uses the library project itself as the current project and still runs the same script.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://docs.astral.sh/uv/concepts/projects/workspaces/" target="_blank" rel="noopener noreffer ">https://docs.astral.sh/uv/concepts/projects/workspaces/</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-12-08</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/uv-packages/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/python/">Python</a>,&nbsp;<a href="/tags/workspace/">Workspace</a>,&nbsp;<a href="/tags/uv/">Uv</a>,&nbsp;<a href="/tags/project-management/">Project Management</a>,&nbsp;<a href="/tags/uv-workspace/">Uv Workspace</a>,&nbsp;<a href="/tags/uv-tutorial/">Uv Tutorial</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/causality-1/" class="prev" rel="prev" title="Causal Inference Part 1: Causation and Correlation"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Causal Inference Part 1: Causation and Correlation</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
-            </noscript></div></div></div>
+            </noscript></div></article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.152.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Han</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>

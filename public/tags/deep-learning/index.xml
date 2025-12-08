@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Deep Learning on Han&#39;s XYZ</title>
-    <link>http://localhost:1313/tags/deep-learning/</link>
+    <link>http://localhost:40233/tags/deep-learning/</link>
     <description>Recent content in Deep Learning on Han&#39;s XYZ</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,33 +10,33 @@
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Tue, 07 Oct 2025 10:43:30 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:40233/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NLP and LLM Study Note</title>
-      <link>http://localhost:1313/studynotes/llm-notes/</link>
+      <link>http://localhost:40233/studynotes/llm-notes/</link>
       <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/studynotes/llm-notes/</guid>
-      <description>&lt;h1 id=&#34;nlp-and-llm&#34;&gt;NLP and LLM&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/nlp_note&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;NLP Note&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;These are my working notes on &lt;em&gt;NLP and large language models&lt;/em&gt;: intuitive math, minimal proofs, and practical recipes.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I welcome all comments and suggestions—and I&amp;rsquo;d be happy to improve and grow this note together with you.&lt;/p&gt;&lt;/blockquote&gt;</description>
+      <guid>http://localhost:40233/studynotes/llm-notes/</guid>
+      <description>&lt;h1 id=&#34;nlp-and-llm&#34;&gt;NLP and LLM&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/nlp_note&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;NLP Note&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;These are my working notes on &lt;em&gt;NLP and large language models&lt;/em&gt;: intuitive math, minimal proofs, and practical recipes.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I welcome all comments and suggestions—and I&amp;rsquo;d be happy to improve and grow this note together with you.&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
     </item>
     <item>
       <title>Deep Statistical Learning</title>
-      <link>http://localhost:1313/studynotes/dsl-note/</link>
+      <link>http://localhost:40233/studynotes/dsl-note/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/studynotes/dsl-note/</guid>
+      <guid>http://localhost:40233/studynotes/dsl-note/</guid>
       <description>&lt;h1 id=&#34;-deep-statistical-learning&#34;&gt;📖 Deep Statistical Learning&lt;/h1&gt;&#xA;&lt;p&gt;👉 Full repository: &lt;a href=&#34;https://github.com/Han8931/deep_statistical_learning&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;deep_statistical_learning&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;I started writing these notes during my &lt;strong&gt;master’s degree&lt;/strong&gt; as a way to organize and clarify my understanding of &lt;strong&gt;machine learning&lt;/strong&gt; and &lt;strong&gt;deep learning&lt;/strong&gt;. Over time, the notes have grown into a comprehensive study resource that combines theoretical foundations with practical insights.&lt;/p&gt;&#xA;&lt;p&gt;I enjoy organizing knowledge and writing things down, and these notes reflect that process — carefully breaking down concepts, connecting ideas, and recording them in a way that can be revisited and built upon.&lt;/p&gt;</description>
     </item>
     <item>
       <title>DL System Design</title>
-      <link>http://localhost:1313/studynotes/dl-system-design/</link>
+      <link>http://localhost:40233/studynotes/dl-system-design/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/studynotes/dl-system-design/</guid>
+      <guid>http://localhost:40233/studynotes/dl-system-design/</guid>
       <description>&lt;h1 id=&#34;-deep-learning-system-design&#34;&gt;🏗️ Deep Learning System Design&lt;/h1&gt;&#xA;&lt;p&gt;👉 Repository: &lt;a href=&#34;https://github.com/Han8931/dl_system_design&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;DL System Design&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This note is about the &lt;strong&gt;practical design of deep learning and LLM-based systems&lt;/strong&gt;. It focuses on bridging research with production: covering concepts such as &lt;strong&gt;scalable architectures, model deployment, monitoring, and system reliability&lt;/strong&gt;. The aim is to capture design patterns and lessons that make ML/DL services both effective and maintainable.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I welcome all comments and suggestions—and I&amp;rsquo;d be happy to improve and grow this note together with you.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Inside DeepSeek-R1</title>
-      <link>http://localhost:1313/deepseek-inside/</link>
+      <link>http://localhost:40233/deepseek-inside/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/deepseek-inside/</guid>
+      <guid>http://localhost:40233/deepseek-inside/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.deepseek.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;DeepSeek&lt;/a&gt;&amp;rsquo;s latest moves have sent ripples through the AI community. Not only has it marked the beginning of a new era in artificial intelligence, but it has also made significant contributions to the open-source AI landscape. Their engineering techniques behind DeepSeek are truly impressive, and their reports are quite enjoyable. However, understanding their core ideas can be challenging and demands a substantial amount of effort.&lt;/p&gt;&#xA;&lt;p&gt;At the forefront of this innovation is DeepSeek-R1, a model that built upon the foundation established by preceding projects such as DeepSeek Coder, Math, MoE, and notably, the DeepSeek-V3 model. While DeepSeek-R1 is the center of the DeepSeek&amp;rsquo;s frenzy, its success is rooted on these past works.&lt;/p&gt;</description>
     </item>
   </channel>
