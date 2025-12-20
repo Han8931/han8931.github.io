@@ -4,9 +4,31 @@
         <link>http://localhost:1313/</link>
         <description>Han&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 08 Dec 2025 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 20 Dec 2025 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>App Demo GIFs on Linux</title>
+    <link>http://localhost:1313/gif_linux/</link>
+    <pubDate>Sat, 20 Dec 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/gif_linux/</guid>
+    <description><![CDATA[<h1 id="creating-high-quality-app-demo-gifs-on-linux-the-professional-workflow">Creating High-Quality App Demo GIFs on Linux: The Professional Workflow</h1>
+<h2 id="motivation">Motivation</h2>
+<p>I recently built a TUI-based librarian app, namely <strong><a href="https://github.com/Han8931/gorae" target="_blank" rel="noopener noreffer ">Gorae</a></strong>, for managing research papers, designed specifically for Vim and terminal lovers. I needed a polished demo for the README, but simple tools like <strong>Peek</strong> fell short—they lack the editing capabilities and text overlays needed for a professional presentation.</p>
+<p>To do the project justice, I established a robust workflow on Arch Linux using <strong>OBS Studio</strong> for capture, <strong>Kdenlive</strong> for editing, and <strong>Gifski</strong> for high-fidelity compression.</p>]]></description>
+</item>
+<item>
+    <title>Gorae: Your TUI Librarian</title>
+    <link>http://localhost:1313/gorae/</link>
+    <pubDate>Sat, 20 Dec 2025 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/gorae/</guid>
+    <description><![CDATA[<h1 id="is-your-pdf-library-a-mess-its-time-to-dive-into-gorae">Is Your PDF Library a Mess? It&rsquo;s Time to Dive into Gorae.</h1>
+<p><strong>Meet the terminal-first librarian built for speed, minimalism, and flow.</strong></p>
+<p>Let&rsquo;s be honest: if you are a researcher, developer, or student, your &ldquo;Downloads&rdquo; folder is probably a graveyard of dozens of files named <code>1905.1234.pdf</code> or <code>final_draft_v3_REAL_FINAL.pdf</code>.</p>
+<p>We hoard knowledge. We download papers, save technical manuals, and collect dozens of EPUBs we swear we&rsquo;ll read &ldquo;someday.&rdquo; But actually managing that library? That&rsquo;s usually a painful choice between chaos (files scattered everywhere) or bloat (slow, heavy GUI applications that feel like overkill).</p>]]></description>
+</item>
+<item>
     <title>uv workspace: effective management of Python apps</title>
     <link>http://localhost:1313/uv-packages/</link>
     <pubDate>Mon, 08 Dec 2025 00:00:00 &#43;0000</pubDate>
@@ -117,27 +139,6 @@
     <description><![CDATA[<h2 id="natural-language-to-sql-nl2sql-in-the-llm-era">💡Natural Language to SQL (NL2SQL) in the LLM Era</h2>
 <p>Data has become one of the most valuable resources of our time. Companies in finance, healthcare, logistics, retail, and many other fields collect enormous amounts of information every day. Much of this information is stored in relational databases, which are typically accessed using SQL.</p>
 <p>While SQL provides the raw outputs of a query, the critical step lies in interpreting these results. Developing intuition from retrieved data is essential for identifying meaningful patterns, uncovering relationships, and supporting evidence-based decision-making.</p>]]></description>
-</item>
-<item>
-    <title>Agentic AI with Pydantic-AI Part 1.</title>
-    <link>http://localhost:1313/pydantic-ai/</link>
-    <pubDate>Sun, 31 Aug 2025 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/pydantic-ai/</guid>
-    <description><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>AI has already changed how we interact with technology. The real shift is happening now with <strong>agents</strong>: AI systems that can reason, make decisions, and take action.</p>
-<p>Unlike a chatbot that passively replies, an agent can <strong>break down complex tasks</strong>, call APIs or databases, use tools, and deliver structured results. This is what makes the idea of <em>Agentic AI</em> so powerful — it&rsquo;s not just about conversation, it&rsquo;s about <strong>problem-solving with initiative</strong>.</p>]]></description>
-</item>
-<item>
-    <title>Clean Validation with Pydantic v2</title>
-    <link>http://localhost:1313/pydantic/</link>
-    <pubDate>Sat, 30 Aug 2025 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/pydantic/</guid>
-    <description><![CDATA[<blockquote>
-<p>📝 <strong>Update</strong> (2025-08): This post was originally published in <strong>April 2024</strong> and has been updated to reflect changes in <strong>Pydantic v2</strong>, including the new <em>field validator</em>, <em>model validator</em>, and <em>Annotated</em>-based validation patterns. Also, this post now includes a <strong>new section on using Pydantic with MongoDB</strong>.</p>
-</blockquote>
-<p>Python&rsquo;s dynamic typing system is indeed convenient, allowing you to create variables without explicitly declaring their types. While this flexibility can streamline development, it can also introduce unexpected behavior, particularly when handling data from external sources like APIs or user input.</p>]]></description>
 </item>
 </channel>
 </rss>
