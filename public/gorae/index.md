@@ -54,7 +54,7 @@ Gorae helps you tackle your reading list without complicated folder structures.
 
 The Gorae logo is inspired by the **Bangudae Petroglyphs** in South Korea—ancient carvings that are among the earliest known depictions of whales.
 
-We wanted Gorae to feel like those engravings: minimal, timeless, and built to last. It doesn't rely on flashy graphics or web engines; it's a solid, handmade tool crafted for a specific purpose. And, just like your favorite terminal setup, it's fully themeable to match your aesthetic.
+I wanted Gorae to feel like those engravings: minimal, timeless, and built to last. It doesn't rely on flashy graphics or web engines; it's a solid, handmade tool crafted for a specific purpose. And, just like your favorite terminal setup, it's fully themeable to match your aesthetic.
 
 ### Ready to Dive In?
 
