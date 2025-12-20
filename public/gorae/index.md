@@ -4,15 +4,13 @@
 
 # Is Your PDF Library a Mess? It's Time to Dive into Gorae.
 
-**Meet the terminal-first librarian built for speed, minimalism, and flow.**
+**[Gorae](https://github.com/Han8931/gorae): Meet the terminal-first librarian built for speed, minimalism, and flow.**
 
 Let's be honest: if you are a researcher, developer, or student, your "Downloads" folder is probably a graveyard of dozens of files named `1905.1234.pdf` or `final_draft_v3_REAL_FINAL.pdf`.
 
 We hoard knowledge. We download papers, save technical manuals, and collect dozens of EPUBs we swear we'll read "someday." But actually managing that library? That's usually a painful choice between chaos (files scattered everywhere) or bloat (slow, heavy GUI applications that feel like overkill).
 
 If you live in the terminal, you appreciate tools that do one thing well, fast, and without touching the mouse. Why should managing your research library be any different?
-
-Introducing **[Gorae](https://github.com/Han8931/gorae)**.
 
 <p align="center">
   <img 

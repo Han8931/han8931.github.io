@@ -24,7 +24,7 @@
     <author>Han</author>
     <guid>http://localhost:1313/gorae/</guid>
     <description><![CDATA[<h1 id="is-your-pdf-library-a-mess-its-time-to-dive-into-gorae">Is Your PDF Library a Mess? It&rsquo;s Time to Dive into Gorae.</h1>
-<p><strong>Meet the terminal-first librarian built for speed, minimalism, and flow.</strong></p>
+<p><strong><a href="https://github.com/Han8931/gorae" target="_blank" rel="noopener noreffer ">Gorae</a>: Meet the terminal-first librarian built for speed, minimalism, and flow.</strong></p>
 <p>Let&rsquo;s be honest: if you are a researcher, developer, or student, your &ldquo;Downloads&rdquo; folder is probably a graveyard of dozens of files named <code>1905.1234.pdf</code> or <code>final_draft_v3_REAL_FINAL.pdf</code>.</p>
 <p>We hoard knowledge. We download papers, save technical manuals, and collect dozens of EPUBs we swear we&rsquo;ll read &ldquo;someday.&rdquo; But actually managing that library? That&rsquo;s usually a painful choice between chaos (files scattered everywhere) or bloat (slow, heavy GUI applications that feel like overkill).</p>]]></description>
 </item>
