@@ -64,12 +64,7 @@ If you are tired of bloated software and messy folders, it's time to streamline 
 
 Gorae is open-source and ready for you to try.
 
-👉 **[Check out Gorae on GitHub to get started](https://www.google.com/search?q=https://github.com/Han8931/gorae)**
+👉 **[Check out Gorae on GitHub to get started](https://github.com/Han8931/gorae)**
 
 Stop drowning in PDFs. Get organized, stay in the terminal, and keep learning.
-
----
-
-**💡 Publishing Tip:**
-When you post this on platforms like Medium, Dev.to, or a personal blog, make sure you use the **absolute URL** for the GIF (e.g., `https://raw.githubusercontent.com/Han8931/gorae/main/assets/gorae_final_demo.gif`) rather than a relative path, so it renders correctly for everyone!
 
