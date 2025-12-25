@@ -9,8 +9,22 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 20 Dec 2025 10:12:06 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 20 Dec 2025 10:19:23 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Endnote</title>
+      <link>http://localhost:1313/tags/endnote/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/tags/endnote/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Epub</title>
+      <link>http://localhost:1313/tags/epub/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/tags/epub/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Gif</title>
       <link>http://localhost:1313/tags/gif/</link>
@@ -19,10 +33,73 @@
       <description></description>
     </item>
     <item>
+      <title>Gorae</title>
+      <link>http://localhost:1313/tags/gorae/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/tags/gorae/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pdf</title>
+      <link>http://localhost:1313/tags/pdf/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/tags/pdf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pdf Search</title>
+      <link>http://localhost:1313/tags/pdf-search/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/tags/pdf-search/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reference</title>
+      <link>http://localhost:1313/tags/reference/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/tags/reference/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reference Manager</title>
+      <link>http://localhost:1313/tags/reference-manager/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/tags/reference-manager/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terminal</title>
+      <link>http://localhost:1313/tags/terminal/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/tags/terminal/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Tips</title>
       <link>http://localhost:1313/tags/tips/</link>
       <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/tags/tips/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tui</title>
+      <link>http://localhost:1313/tags/tui/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/tags/tui/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vim</title>
+      <link>http://localhost:1313/tags/vim/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/tags/vim/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Zotero</title>
+      <link>http://localhost:1313/tags/zotero/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/tags/zotero/</guid>
       <description></description>
     </item>
     <item>
@@ -345,13 +422,6 @@
       <link>http://localhost:1313/tags/package-manager/</link>
       <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/tags/package-manager/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vim</title>
-      <link>http://localhost:1313/tags/vim/</link>
-      <pubDate>Sun, 13 Apr 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
-      <guid>http://localhost:1313/tags/vim/</guid>
       <description></description>
     </item>
     <item>

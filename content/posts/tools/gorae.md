@@ -4,9 +4,9 @@ title: "Gorae: Your TUI Librarian"
 date: 2025-12-20
 draft: false
 author: Han
-description: "App Demo GIFs on Linux"
-tags: ["gif", "tips"]
-categories: ["tips"]
+description: "Terminal-first librarian"
+tags: ["terminal", "reference", "reference manager", "tui", "gorae", "pdf", "epub", "pdf search", "zotero", "endnote", "vim"]
+categories: ["tools", "gorae", "reference manager"]
 ---
 
 # Is Your PDF Library a Mess? It's Time to Dive into Gorae.
@@ -31,7 +31,7 @@ If you live in the terminal, you appreciate tools that do one thing well, fast, 
 
 **Gorae** (고래, meaning *whale*) is a terminal-first librarian for your PDFs and EPUBs.
 
-It is designed as a fast, Vim-friendly alternative to heavy citation managers like Zotero or Mendeley. Gorae isn't trying to do everything; it's trying to help you organize, find, and read your documents with maximum efficiency and minimum friction.
+It is designed as a **fast, Vim-friendly alternative to heavy citation managers like Zotero or Mendeley**. Gorae isn't trying to do everything; it's trying to help you organize, find, and read your documents with maximum efficiency and minimum friction.
 
 ### Why You'll Love Swimming with Gorae
 

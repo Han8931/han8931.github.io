@@ -23,7 +23,7 @@ If you live in the terminal, you appreciate tools that do one thing well, fast, 
 
 **Gorae** (고래, meaning *whale*) is a terminal-first librarian for your PDFs and EPUBs.
 
-It is designed as a fast, Vim-friendly alternative to heavy citation managers like Zotero or Mendeley. Gorae isn't trying to do everything; it's trying to help you organize, find, and read your documents with maximum efficiency and minimum friction.
+It is designed as a **fast, Vim-friendly alternative to heavy citation managers like Zotero or Mendeley**. Gorae isn't trying to do everything; it's trying to help you organize, find, and read your documents with maximum efficiency and minimum friction.
 
 ### Why You'll Love Swimming with Gorae
 

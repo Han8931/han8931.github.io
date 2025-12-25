@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Terminal on Han&#39;s XYZ</title>
+    <link>http://localhost:1313/tags/terminal/</link>
+    <description>Recent content in Terminal on Han&#39;s XYZ</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
+    <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sat, 20 Dec 2025 10:19:23 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gorae: Your TUI Librarian</title>
+      <link>http://localhost:1313/gorae/</link>
+      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <guid>http://localhost:1313/gorae/</guid>
+      <description>&lt;h1 id=&#34;is-your-pdf-library-a-mess-its-time-to-dive-into-gorae&#34;&gt;Is Your PDF Library a Mess? It&amp;rsquo;s Time to Dive into Gorae.&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/Han8931/gorae&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Gorae&lt;/a&gt;: Meet the terminal-first librarian built for speed, minimalism, and flow.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s be honest: if you are a researcher, developer, or student, your &amp;ldquo;Downloads&amp;rdquo; folder is probably a graveyard of dozens of files named &lt;code&gt;1905.1234.pdf&lt;/code&gt; or &lt;code&gt;final_draft_v3_REAL_FINAL.pdf&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;We hoard knowledge. We download papers, save technical manuals, and collect dozens of EPUBs we swear we&amp;rsquo;ll read &amp;ldquo;someday.&amp;rdquo; But actually managing that library? That&amp;rsquo;s usually a painful choice between chaos (files scattered everywhere) or bloat (slow, heavy GUI applications that feel like overkill).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
