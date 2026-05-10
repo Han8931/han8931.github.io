@@ -23,7 +23,7 @@ So a modern library tool shouldn't just *organize* files. It should help you *ta
 
 <p align="center">
   <img 
-    src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/gorae_final_demo.gif" 
+    src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/gorae_final_demo.gif" 
     alt="Gorae App Demo" 
     style="max-width: 100%; height: auto; border-radius: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
   >
