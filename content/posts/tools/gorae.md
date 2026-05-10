@@ -9,9 +9,6 @@ tags: ["terminal", "reference", "reference manager", "tui", "gorae", "pdf", "epu
 categories: ["tools", "gorae", "reference manager"]
 ---
 
-# Gorae: Your TUI Librarian, Now with a Built-in AI Co-Reader
-# Beyond Reading: Your Library Should Answer You Back
-
 **[Gorae](https://github.com/Han8931/gorae): A terminal-first librarian built for speed, minimalism, and flow—now with a conversational AI assistant baked right in.**
 
 > **📣 What's New:** Gorae now ships with a built-in **AI co-reader**. You can chat with your PDFs, auto-summarize papers, and run semantic search across your entire library—all from the terminal. Bring your own model via **OpenAI** or run everything locally with **Ollama**. Existing users: pull the latest release to try it out. Jump to [🤖 Talk to Your Library](#-talk-to-your-library--a-document-ai-in-your-terminal) for details.
@@ -26,7 +23,7 @@ So a modern library tool shouldn't just *organize* files. It should help you *ta
 
 <p align="center">
   <img 
-    src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/images/gorae_final_demo.gif" 
+    src="https://raw.githubusercontent.com/Han8931/han8931.github.io/main/assets/gorae_final_demo.gif" 
     alt="Gorae App Demo" 
     style="max-width: 100%; height: auto; border-radius: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
   >
