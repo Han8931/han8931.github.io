@@ -25,7 +25,7 @@ So a modern library tool shouldn't just *organize* files. It should help you *ta
   <img 
     src="https://github.com/Han8931/gorae/blob/main/assets/gorae_final_demo.gif?raw=true" 
     alt="Gorae App Demo" 
-    style="max-width: 100%; height: auto; border-radius: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
+    style="max-width: 120%; height: auto; border-radius: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
   >
 </p>
 
