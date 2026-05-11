@@ -325,7 +325,7 @@ enableEmoji = true
     # Mapbox GL JS config (Mapbox GL JS https://docs.mapbox.com/mapbox-gl-js)
     [params.page.mapbox]
       # access token of Mapbox GL JS
-      accessToken = "pk.eyJ1IjoiZGlsbG9uenEiLCJhIjoiY2s2czd2M2x3MDA0NjNmcGxmcjVrZmc2cyJ9.aSjv2BNuZUfARvxRYjSVZQ"
+      accessToken = ""
       # style for the light theme
       lightStyle = "mapbox://styles/mapbox/light-v10?optimize=true"
       # style for the dark theme
@@ -550,7 +550,7 @@ enableEmoji = true
 
 # Permalinks config (https://gohugo.io/content-management/urls/#permalinks)
 [Permalinks]
-  posts = ":filename"
+  posts = ":contentbasename"
   # posts = ":year/:month/:contentbasename/"
 
 # Privacy config (https://gohugo.io/about/hugo-and-gdpr/)

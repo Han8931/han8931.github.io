@@ -9,14 +9,14 @@
     <managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
     <webMaster>tabularasa8931@gmail.com (Han)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 20 Dec 2025 10:19:23 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2026 23:22:24 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/gorae/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Gorae: Your TUI Librarian</title>
+      <title>Gorae: Your AI-Powered TUI Librarian</title>
       <link>http://localhost:1313/gorae/</link>
-      <pubDate>Sat, 20 Dec 2025 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
+      <pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate><author>tabularasa8931@gmail.com (Han)</author>
       <guid>http://localhost:1313/gorae/</guid>
-      <description>&lt;h1 id=&#34;is-your-pdf-library-a-mess-its-time-to-dive-into-gorae&#34;&gt;Is Your PDF Library a Mess? It&amp;rsquo;s Time to Dive into Gorae.&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/Han8931/gorae&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Gorae&lt;/a&gt;: Meet the terminal-first librarian built for speed, minimalism, and flow.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s be honest: if you are a researcher, developer, or student, your &amp;ldquo;Downloads&amp;rdquo; folder is probably a graveyard of dozens of files named &lt;code&gt;1905.1234.pdf&lt;/code&gt; or &lt;code&gt;final_draft_v3_REAL_FINAL.pdf&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;We hoard knowledge. We download papers, save technical manuals, and collect dozens of EPUBs we swear we&amp;rsquo;ll read &amp;ldquo;someday.&amp;rdquo; But actually managing that library? That&amp;rsquo;s usually a painful choice between chaos (files scattered everywhere) or bloat (slow, heavy GUI applications that feel like overkill).&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/Han8931/gorae&#34; target=&#34;_blank&#34; rel=&#34;noopener noreffer &#34;&gt;Gorae&lt;/a&gt;: A terminal-first librarian built for speed, minimalism, and flow—now with a conversational AI assistant baked right in.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;📣 What&amp;rsquo;s New:&lt;/strong&gt; Gorae now ships with a built-in &lt;strong&gt;AI co-reader&lt;/strong&gt;. You can chat with your PDFs, auto-summarize papers, and run semantic search across your entire library—all from the terminal. Bring your own model via &lt;strong&gt;OpenAI&lt;/strong&gt; or run everything locally with &lt;strong&gt;Ollama&lt;/strong&gt;. Existing users: pull the latest release to try it out. Jump to &lt;a href=&#34;#-talk-to-your-library--a-document-ai-in-your-terminal&#34; rel=&#34;&#34;&gt;🤖 Talk to Your Library&lt;/a&gt; for details.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

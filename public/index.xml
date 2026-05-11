@@ -4,9 +4,19 @@
         <link>http://localhost:1313/</link>
         <description>Han&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>tabularasa8931@gmail.com (Han)</managingEditor>
-            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 20 Dec 2025 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>tabularasa8931@gmail.com (Han)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 10 May 2026 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Gorae: Your AI-Powered TUI Librarian</title>
+    <link>http://localhost:1313/gorae/</link>
+    <pubDate>Sun, 10 May 2026 00:00:00 &#43;0000</pubDate>
+    <author>Han</author>
+    <guid>http://localhost:1313/gorae/</guid>
+    <description><![CDATA[<p><strong><a href="https://github.com/Han8931/gorae" target="_blank" rel="noopener noreffer ">Gorae</a>: A terminal-first librarian built for speed, minimalism, and flow—now with a conversational AI assistant baked right in.</strong></p>
+<blockquote>
+<p><strong>📣 What&rsquo;s New:</strong> Gorae now ships with a built-in <strong>AI co-reader</strong>. You can chat with your PDFs, auto-summarize papers, and run semantic search across your entire library—all from the terminal. Bring your own model via <strong>OpenAI</strong> or run everything locally with <strong>Ollama</strong>. Existing users: pull the latest release to try it out. Jump to <a href="#-talk-to-your-library--a-document-ai-in-your-terminal" rel="">🤖 Talk to Your Library</a> for details.</p>]]></description>
+</item>
+<item>
     <title>App Demo GIFs on Linux</title>
     <link>http://localhost:1313/gif_linux/</link>
     <pubDate>Sat, 20 Dec 2025 00:00:00 &#43;0000</pubDate>
@@ -16,17 +26,6 @@
 <h2 id="motivation">Motivation</h2>
 <p>I recently built a TUI-based librarian app, namely <strong><a href="https://github.com/Han8931/gorae" target="_blank" rel="noopener noreffer ">Gorae</a></strong>, for managing research papers, designed specifically for Vim and terminal lovers. I needed a polished demo for the README, but simple tools like <strong>Peek</strong> fell short—they lack the editing capabilities and text overlays needed for a professional presentation.</p>
 <p>To do the project justice, I established a robust workflow on Arch Linux using <strong>OBS Studio</strong> for capture, <strong>Kdenlive</strong> for editing, and <strong>Gifski</strong> for high-fidelity compression.</p>]]></description>
-</item>
-<item>
-    <title>Gorae: Your TUI Librarian</title>
-    <link>http://localhost:1313/gorae/</link>
-    <pubDate>Sat, 20 Dec 2025 00:00:00 &#43;0000</pubDate>
-    <author>Han</author>
-    <guid>http://localhost:1313/gorae/</guid>
-    <description><![CDATA[<h1 id="is-your-pdf-library-a-mess-its-time-to-dive-into-gorae">Is Your PDF Library a Mess? It&rsquo;s Time to Dive into Gorae.</h1>
-<p><strong><a href="https://github.com/Han8931/gorae" target="_blank" rel="noopener noreffer ">Gorae</a>: Meet the terminal-first librarian built for speed, minimalism, and flow.</strong></p>
-<p>Let&rsquo;s be honest: if you are a researcher, developer, or student, your &ldquo;Downloads&rdquo; folder is probably a graveyard of dozens of files named <code>1905.1234.pdf</code> or <code>final_draft_v3_REAL_FINAL.pdf</code>.</p>
-<p>We hoard knowledge. We download papers, save technical manuals, and collect dozens of EPUBs we swear we&rsquo;ll read &ldquo;someday.&rdquo; But actually managing that library? That&rsquo;s usually a painful choice between chaos (files scattered everywhere) or bloat (slow, heavy GUI applications that feel like overkill).</p>]]></description>
 </item>
 <item>
     <title>uv workspace: effective management of Python apps</title>
