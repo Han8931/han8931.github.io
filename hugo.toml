@@ -149,7 +149,7 @@ enableEmoji = true
   # App icon config
   [params.app]
     # optional site title override for the app when added to an iOS home screen or Android launcher
-    title = "KeepIt"
+    title = "Han's XYZ"
     # whether to omit favicon resource links
     noFavicon = false
     # modern SVG favicon to use in place of older style .png and .ico files
@@ -161,27 +161,7 @@ enableEmoji = true
     # Windows v8-11 tile color
     tileColor = "#da532c"
 
-  # Search config
-  [params.search]
-    enable = true
-    # type of search engine ["lunr", "algolia"]
-    type = "algolia"
-    # max index length of the chunked content
-    contentLength = 4000
-    # placeholder of the search bar
-    placeholder = ""
-    # max number of results length
-    maxResultLength = 10
-    # snippet length of the result
-    snippetLength = 30
-    # HTML tag name of the highlight part in results
-    highlightTag = "em"
-    # whether to use the absolute URL based on the baseURL in search index
-    absoluteURL = false
-    [params.search.algolia]
-      index = "github"
-      appID = "A9NUSQZEO5"
-      searchKey = "e255482bc340762a0da27f50eddd2765"
+  # NOTE: search is configured per-language under [languages.en.params.search] below.
 
   # Home page config
   [params.home]
@@ -193,7 +173,8 @@ enableEmoji = true
       # Gravatar Email for preferred avatar in home page
       gravatarEmail = ""
       # URL of avatar shown in home page
-      avatarURL = "/images/my_pic.jpg"
+      # NOTE: the active English profile below overrides this; leave empty to use the Gravatar fallback
+      avatarURL = ""
       # title shown in home page (HTML format is supported)
       title = ""
       # subtitle shown in home page
@@ -209,71 +190,8 @@ enableEmoji = true
       enable = true
       # special amount of posts in each home posts page
       pagination.pagerSize = 6
-  # Social config in home page
-  [params.social]
-    GitHub = ""
-    Linkedin = ""
-    x = ""
-    Facebook = ""
-    Telegram = ""
-    Medium = ""
-    Gitlab = ""
-    Youtubelegacy = ""
-    Youtubecustom = ""
-    Youtubechannel = ""
-    Tumblr = ""
-    Quora = ""
-    Keybase = ""
-    Pinterest = ""
-    Reddit = ""
-    Codepen = ""
-    FreeCodeCamp = ""
-    Bitbucket = ""
-    Stackoverflow = ""
-    Weibo = ""
-    Odnoklassniki = ""
-    VK = ""
-    Flickr = ""
-    Xing = ""
-    Snapchat = ""
-    Soundcloud = ""
-    Spotify = ""
-    Bandcamp = ""
-    Paypal = ""
-    Fivehundredpx = ""
-    Mix = ""
-    Goodreads = ""
-    Lastfm = ""
-    Foursquare = ""
-    Hackernews = ""
-    Kickstarter = ""
-    Patreon = ""
-    Steam = ""
-    Twitch = ""
-    Strava = ""
-    Skype = ""
-    Whatsapp = ""
-    Zhihu = ""
-    Douban = ""
-    Angellist = ""
-    Slidershare = ""
-    Jsfiddle = ""
-    Deviantart = ""
-    Behance = ""
-    Dribbble = ""
-    Wordpress = ""
-    Vine = ""
-    Googlescholar = ""
-    Researchgate = ""
-    Mastodon = ""
-    Thingiverse = ""
-    Devto = ""
-    Gitea = ""
-    XMPP = ""
-    Matrix = ""
-    Bilibili = ""
-    Email = ""
-    RSS = ""
+  # NOTE: social links and search are configured per-language under
+  # [languages.en.params.social] and [languages.en.params.search] below.
 
   # Page global config
   [params.page]
@@ -381,7 +299,7 @@ enableEmoji = true
         clientSecret = ""
       # Valine comment config (https://github.com/xCss/Valine)
       [params.page.comment.valine]
-        enable = true
+        enable = false
         appId = "QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI"
         appKey = "WBmoGyJtbqUswvfLh6L8iEBr"
         placeholder = ""
@@ -396,7 +314,7 @@ enableEmoji = true
         serverURLs = "https://leancloud.xxxxx.com"
         # emoji data file name, default is "google.yml"
         # ["apple.yml", "google.yml", "facebook.yml", "twitter.yml"]
-        # located in "themes/KeepIt/assets/data/emoji/" directory
+        # located in "themes/LoveIt/assets/data/emoji/" directory
         # you can store your own data files in the same path under your project:
         # "assets/data/emoji/"
         emoji = ""
@@ -503,7 +421,7 @@ enableEmoji = true
   # [params.cdn]
   #   # CDN data file name, disabled by default
   #   # ["jsdelivr.yml"]
-  #   # located in "themes/KeepIt/assets/data/cdn/" directory
+  #   # located in "themes/LoveIt/assets/data/cdn/" directory
   #   # you can store your own data files in the same path under your project:
   #   # "assets/data/cdn/"
   #   data = "jsdelivr.yml"
@@ -549,7 +467,7 @@ enableEmoji = true
   priority = 0.5
 
 # Permalinks config (https://gohugo.io/content-management/urls/#permalinks)
-[Permalinks]
+[permalinks]
   posts = ":contentbasename"
   # posts = ":year/:month/:contentbasename/"
 
@@ -665,7 +583,8 @@ enableEmoji = true
         [languages.en.params.home.profile]
           enable = true
           gravatarEmail = "tabularasa8931@gmail.com"
-          avatarURL = "gravatar.com/tabularasa8931"
+          # leave avatarURL empty to fall back to the Gravatar computed from gravatarEmail
+          avatarURL = ""
           title = "Han"
           subtitle = "Welcome to Han's XYZ, your gateway to ideas in every dimension."
           typeit = true
