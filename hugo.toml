@@ -6,10 +6,10 @@ theme = "LoveIt"
 
 # determines default content language ["en", "zh-cn", "fr", "pl", ...]
 defaultContentLanguage = "en"
-# language code ["en", "zh-CN", "fr", "pl", ...]
-languageCode = "en"
-# language name ["English", "简体中文", "Français", "Polski", ...]
-languageName = "English"
+# locale (replaces the deprecated languageCode) ["en", "zh-CN", "fr", "pl", ...]
+locale = "en"
+# language label (replaces the deprecated languageName) ["English", "简体中文", ...]
+label = "English"
 # whether to include Chinese/Japanese/Korean
 hasCJKLanguage = false
 
@@ -503,8 +503,8 @@ enableEmoji = true
 [languages]
   [languages.en]
     weight = 1
-    languageCode = "en"
-    languageName = "English"
+    locale = "en"
+    label = "English"
     hasCJKLanguage = false
     copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
     [languages.en.menu]
