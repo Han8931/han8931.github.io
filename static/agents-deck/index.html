@@ -1,0 +1,1200 @@
+<meta charset="utf-8">
+<title>Agents in the Terminal</title>
+<link rel="stylesheet" href="deck.css">
+
+<div class="progress" id="progress"></div>
+
+<div class="deck" id="deck">
+
+  <!-- 1 &#183; Title -->
+  <section class="slide active">
+    <p class="prompt">cat agent | less<span class="cursor"></span></p>
+    <h1 data-ko="Agent 심층 분석">Deep Dive into Agents</h1>
+    <p class="lede" style="margin-top:1.3em" data-ko="&lt;span class=&quot;t&quot;&gt;Agent&lt;/span&gt;가 어떻게 동작하고 어떻게 만들어지는지.">How <span class="t">agents</span> work and how they're built.</p>
+    <!-- <p class="footnote">Han Cheol Moon &#183; August 2026</p> -->
+		<p class="footnote" style="font-size:1.2em" data-ko="Han Cheol Moon · 2026년 8월">Han Cheol Moon &#183; August 2026</p>
+  </section>
+
+  <!-- 1a &#183; Focus and goals -->
+  <section class="slide">
+    <p class="eyebrow" data-ko="이 발표를 하는 이유">why we're here</p>
+    <h2 data-ko="이 발표의 목표">What this talk is for</h2>
+    <div class="cols" style="margin-top:1em">
+      <div>
+        <ul>
+          <li data-ko="&lt;b&gt;Agent는 어떻게 동작하는가?&lt;/b&gt; "><b>How does an agent work?</b> </li>
+          <li data-ko="&lt;b&gt;왜 agent마다 다르게 느껴지는가?&lt;/b&gt; "><b>Why do agents feel different?</b> </li>
+          <li data-ko="&lt;b&gt;내 작업에는 어떤 방식이 맞는가?&lt;/b&gt; "><b>Which approach fits my work?</b> </li>
+        </ul>
+      </div>
+      <div class="narrow">
+        <div class="card">
+          <span class="who" data-ko="범위">SCOPE</span>
+          <h3 style="margin-top:0.25em" data-ko="다루지 않는 것">What it is not</h3>
+          <p data-ko="Prompt Tip, model rank, Hands-on tutorial.">Prompt tips, a model leaderboard, a hands-on tutorial.</p>
+        </div>
+      </div>
+    </div>
+    <p style="max-width:none;margin-top:1.1em;text-align:center;font-size:1.05em;font-style:italic" data-ko="목표: 각 harness가 무엇을 고정하고 무엇을 교체할 수 있게 두는지, 그리고 어떤 방식이 내 작업에 맞는지 이해하는 것.">The goal: understand what each harness keeps fixed, what it makes replaceable, and which approach fits your work.</p>
+  </section>
+
+  <!-- 1b &#183; Disclaimer -->
+  <section class="slide">
+    <p class="eyebrow" data-ko="시작하기 전에">before we start</p>
+    <h2 data-ko="염두에 둘 세 가지">Three things to hold loosely</h2>
+    <p class="lede" data-ko="빠르게 변하는 분야를 한 시점에 담은 기록.">A snapshot of a fast-moving field.</p>
+    <div class="card-grid" style="margin-top:1.2em">
+      <div class="card">
+        <span class="who" data-ko="움직이는 표적">MOVING TARGET</span>
+        <h3 style="margin-top:0.25em" data-ko="2026년 8월 기준">Dated August 2026</h3>
+        <p data-ko="이 harness들은 매주 새로 배포된다. flag와 기본값은 물론, 기능 자체가 바뀌기도 한다.">These harnesses ship weekly. Flags, defaults, and whole features change.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="출처">SOURCING</span>
+        <h3 style="margin-top:0.25em" data-ko="Claude Code 내부: 유출된 build 기반">Claude Code internals: a leaked build</h3>
+        <p data-ko="Core는 비공개다. Anthropic이 확인해 준 내용이 아니다.">Its core is closed. Anthropic has not confirmed it.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="수치">NUMBERS</span>
+        <h3 style="margin-top:0.25em" data-ko="순위표가 아닌 단일 평가">One eval, not a leaderboard</h3>
+        <p data-ko="30개 task, 하나의 model, pass/fail — 게다가 &lt;b&gt;모든 harness가 동일한 설정을 쓴 것도 아니다&lt;/b&gt;. star 수는 관심도를 보여 줄 뿐, 품질을 증명하지 않는다.">30 tasks, one model, pass/fail &#8212; and <b>not every harness on the same settings</b>. Stars measure attention, not quality.</p>
+      </div>
+    </div>
+    <!-- <p style="max-width:none;margin-top:1.1em;text-align:center;font-size:1.02em;font-style:italic">Sources are on the slides. Follow them.</p> -->
+  </section>
+
+  <!-- 2 &#183; Table of contents -->
+  <section class="slide">
+    <p class="eyebrow" data-ko="목차">table of contents</p>
+    <h2 data-ko="오늘의 진행 순서">Where we're going</h2>
+    <div class="toc-grid" id="toc"></div>
+  </section>
+
+  <!-- 3 &#183; What is an agent -->
+  <section class="slide" data-section="First principles" data-section-ko="Intro">
+    <p class="eyebrow" data-ko="제1원리 · 1/2">first principles &#183; 1/2</p>
+    <h2 data-ko="Agent란 정확히 무엇인가?">What is an agent, exactly?</h2>
+    <p class="lede" data-ko="Chatbot도 아니고, 고정된 script도 아니다. 목표를 향해 tool을 쓰면서 다음 단계를 스스로 결정하고, 끝날 때까지 이어가는 model이다.">Not a chatbot. Not a fixed script. A model that decides its own next steps toward a goal, using tools, until it's done.</p>
+    <div class="card-grid" style="margin-top:1.3em">
+      <div class="card"><h3 data-ko="Chatbot">Chatbot</h3><p data-ko="사용자 turn 하나에 응답 하나. 중간에 tool을 부를 수는 있지만, &lt;b&gt;목표를 향한 자율적인 loop가 없다&lt;/b&gt;.">One user turn produces one response. It may call a tool along the way, but there is <b>no autonomous loop toward a goal</b>.</p></div>
+			<div class="card"><h3 data-ko="Script">Script</h3><p data-ko="정해진 순서로 실행되는 정해진 단계. 빠르고 예측 가능하지만 — <b>계획이 달라지면 적응하지 못한다.</b>">Fixed steps in a fixed order. Fast and predictable &#8212; but can't adapt when the world doesn't match the plan.</p></div>
+			<div class="card"><h3 data-ko="Agent">Agent</h3><p data-ko="같은 model이지만 — 어떤 tool을 부를지, 언제 멈출지, 어떻게 복구할지를 &lt;b&gt;스스로 고른다 (자율성)&lt;/b&gt;">Same model &#8212; but it <b>chooses</b> which tool to call, when to stop, and how to recover. That choice is the whole difference.</p></div>
+    </div>
+  </section>
+
+  <!-- 3 &#183; The loop -->
+  <section class="slide">
+    <p class="eyebrow" data-ko="제1원리 · 2/2">first principles &#183; 2/2</p>
+    <h2 data-ko="Agent는 tool과 함께 loop를 도는 model이다">An agent is a model in a loop with tools</h2>
+    <div class="cols">
+      <div>
+        <p data-ko="여기 나오는 모든 agent는 같은 loop를 돈다:">Every agent here runs the same loop:</p>
+        <ol>
+          <li data-ko="&lt;b&gt;Model을 호출한다.&lt;/b&gt;"><b>Call the model.</b></li>
+          <li data-ko="&lt;b&gt;Tool 호출을 실행한다&lt;/b&gt; — agent가 세상에 닿는 방식."><b>Execute its tool calls</b> &#8212; how it touches the world.</li>
+          <li data-ko="&lt;b&gt;결과를 message history에 덧붙인다&lt;/b&gt; — 이 작업을 위한 작업 기록."><b>Append the results</b> to the message history &#8212; its working history for this task.</li>
+          <li data-ko="Tool 호출을 멈출 때까지 &lt;b&gt;반복한다&lt;/b&gt;."><b>Repeat</b> until it stops calling tools.</li>
+        </ol>
+      </div>
+      <div class="loop">
+<span class="cm">// the whole trick</span><br>
+<span class="kw">while</span> (<span class="kw">true</span>) {<br>
+&nbsp;&nbsp;reply = <span class="fn">llm</span>(messages, tools)<br>
+&nbsp;&nbsp;<span class="kw">if</span> (!reply.toolCalls) <span class="kw">break</span><br>
+&nbsp;&nbsp;<span class="kw">for</span> (call <span class="kw">of</span> reply.toolCalls)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;messages.<span class="fn">push</span>(<span class="fn">execute</span>(call))<br>
+}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 &#183; Anatomy of a harness -->
+  <section class="slide">
+    <p class="eyebrow" data-ko="나머지 99%">the other 99%</p>
+    <h2 data-ko="Beyond the agent loop, Harness">Beyond the agent loop, Harness</h2>
+    <p class="lede" data-ko="Loop를 감싼 모든 것을 &lt;em&gt;harness&lt;/em&gt;라고 부른다.">Everything wrapped around that loop is called <em>the harness</em>.</p>
+    <div class="card-grid" style="margin-top:1em">
+      <div class="card"><h3 data-ko="Tool">Tools</h3><p data-ko="어떤 tool이 있고, 어떻게 설명되며, 어느 추상화 수준에 놓이는가 — 소수의 primitive인가, 풍부한 toolbox인가.">Which tools exist, how they're described, at what "altitude" &#8212; a few primitives vs. a rich toolbox.</p></div>
+      <div class="card"><h3 data-ko="Context 관리">Context management</h3><p data-ko="무엇이 언제 window에 들어오는가: memory file, compaction, caching, subagent 격리.">What enters the window and when: memory files, compaction, caching, subagent isolation.</p></div>
+      <div class="card"><h3 data-ko="신뢰와 안전">Trust &amp; safety</h3><p data-ko="Permission prompt, approval mode, sandbox — model에게 명령 실행을 맡길 때의 UX.">Permission prompts, approval modes, sandboxes &#8212; the UX of letting a model run commands.</p></div>
+      <div class="card"><h3 data-ko="Extensibility">Extensibility</h3><p data-ko="Hook, skill, plugin, &lt;b&gt;MCP&lt;/b&gt; (Model Context Protocol), 또는 의도적으로 MCP를 두지 않는 선택 — 사용자가 agent를 자신의 workflow에 맞추는 방법.">Hooks, skills, plugins, <b>MCP</b> (Model Context Protocol), or deliberately no MCP at all &#8212; how users bend the agent to their workflow.</p></div>
+      <div class="card"><h3 data-ko="상태와 session">State &amp; sessions</h3><p data-ko="Transcript, resume/fork, replay — agent가 무엇을 했는지 보고 재구성할 수 있는가.">Transcripts, resume/fork, replay &#8212; whether you can see and reconstruct what the agent did.</p></div>
+      <div class="card"><h3 data-ko="Interface">Interface</h3><p data-ko="TUI, GUI, headless, SDK — 사람이 조종하고, 중단하고, 검토하는 방식.">TUI, GUI, headless, SDK &#8212; how humans steer, interrupt, and review.</p></div>
+    </div>
+    <p style="max-width:none;margin-top:2.6em;text-align:center;font-size:1.2em;font-style:italic;color:var(--text)" data-ko="&lt;span style=&quot;font-size:1.8em;font-style:normal;vertical-align:-0.15em;line-height:0;margin-right:0.15em&quot;&gt;“&lt;/span&gt;model이 아닌 모든 것이 harness다 — &lt;b&gt;사용자까지 포함해서.&lt;/b&gt;"><span style="font-size:1.8em;font-style:normal;vertical-align:-0.15em;line-height:0;margin-right:0.15em">&#8220;</span>Everything that isn't the model is the harness &#8212; <b>including the user.</b></p>
+  </section>
+
+  <!-- 4 &#183; Harness engineering 1 -->
+  <section class="slide" data-section="Harness engineering" data-section-ko="harness engineering">
+    <p class="eyebrow" data-ko="설계 원칙 · harness engineering · 1/2">the discipline &#183; harness engineering &#183; 1/2</p>
+    <h2 data-ko="Model을 둘러싼 system을 설계하라">Engineer the system around the model</h2>
+    <!-- <p class="lede" data-ko="Agent가 실패하면, 같은 실패가 덜 일어나도록 harness를 개선하라.">When an agent fails, improve the harness so the same failure is less likely next time.</p> -->
+    <div class="cols" style="margin-top:1.1em">
+      <div>
+        <div class="quote" style="margin-top:0">
+          <p data-ko="&quot;Agent가 실수하는 것을 발견할 때마다, 그 agent가 다시는 그 실수를 하지 않도록 해결책을 설계하라.&quot;">"Anytime you find an agent makes a mistake, you engineer a solution such that the agent never makes that mistake again."</p>
+          <div class="by">&#8212; MITCHELL HASHIMOTO, "MY AI ADOPTION JOURNEY" (FEB 2026)</div>
+        </div>
+      </div>
+      <div>
+        <ul style="margin-top:0">
+          <li data-ko="Architecture, linter, 품질 gate로 &lt;b&gt;제약하라&lt;/b&gt;."><b>Constrain</b> with architecture, linters, and quality gates.</li>
+          <li data-ko="Tool과 쓸모 있는 error message로 &lt;b&gt;가르쳐라&lt;/b&gt;."><b>Teach</b> through tools and useful error messages.</li>
+          <li data-ko="오래 갈 지침은 저장소 문서에 &lt;b&gt;기록하라&lt;/b&gt;."><b>Record</b> durable guidance in repository instructions.</li>
+        </ul>
+      </div>
+    </div>
+    <p style="max-width:none;margin-top:1.2em;text-align:center;font-size:1.18em;font-style:italic;color:var(--text)" data-ko="&lt;span style=&quot;font-size:1.3em;font-style:normal;vertical-align:-0.1em;line-height:0;margin-right:0.15em&quot;&gt;“&lt;/span&gt;도움이 될 때 scaffolding을 더하라. model이 더 이상 필요로 하지 않으면 걷어내라.&lt;span style=&quot;font-size:1.3em;font-style:normal;vertical-align:-0.1em;line-height:0;margin-left:0.1em&quot;&gt;”&lt;/span&gt;"><span style="font-size:1.3em;font-style:normal;vertical-align:-0.1em;line-height:0;margin-right:0.15em">&#8220;</span>Add scaffolding when it helps. Remove it when the model no longer needs it.<span style="font-size:1.3em;font-style:normal;vertical-align:-0.1em;line-height:0;margin-left:0.1em">&#8221;</span></p>
+    <p class="src">src: mitchellh.com/writing/my-ai-adoption-journey &#183; anthropic.com/engineering/harness-design-long-running-apps</p>
+  </section>
+
+  <!-- 5 &#183; Harness engineering 2: numbers -->
+  <section class="slide">
+    <p class="eyebrow" data-ko="설계 원칙 · harness engineering · 2/2">the discipline &#183; harness engineering &#183; 2/2</p>
+    <h2 data-ko="harness만으로 benchmark가 7–10점 달라진다">The harness is worth 7&#8211;10 benchmark points</h2>
+    <p class="lede" data-ko="Model 가중치는 같고 harness만 달라도 점수가 크게 움직인다. ">Same model weights, different harness. The scores move dramatically. </p>
+    <div class="stat-row" style="margin-top:1.2em">
+      <div class="stat"><div class="n">45.9 &#8594; 55.4</div><div class="l" data-ko="SWE-bench Pro의 Claude Opus 4.5: 표준 SEAL scaffold vs. 자체 Claude Code harness">Claude Opus 4.5 on SWE-bench Pro: standardized SEAL scaffold vs. its own Claude Code harness</div></div>
+      <div class="stat"><div class="n">69.7 &#8594; 77.0</div><div class="l" data-ko="Terminal-Bench 2 pass@1, model은 고정하고 harness만 교체">Terminal-Bench 2 pass@1, model fixed, harness changed</div></div>
+      <div class="stat"><div class="n">10&#8211;20 pts</div><div class="l" data-ko="scaffold 비교 전반에서 보고된 더 넓은 범위 — 위의 두 측정값은 이 범위보다도 작다">wider range reported across scaffold comparisons &#8212; the two measured swings above sit below it</div></div>
+    </div>
+    <p style="margin-top:1.4em" data-ko="<em>Stop Comparing LLM Agents Without Disclosing the Harness, 2026</em>">2026, <em>"Stop Comparing LLM Agents Without Disclosing the Harness."</em> Benchmark leaderboards are increasingly harness leaderboards.</p>
+    <p class="src">src: arxiv.org/abs/2605.23950 &#183; futureagi.com coding-agent harness benchmark</p>
+  </section>
+
+  <!-- 4a &#183; Harness anatomy 1: Tools -->
+  <section class="slide dense" data-section="Harness anatomy" data-section-ko="harness 해부">
+    <p class="eyebrow" data-ko="harness 해부 · 1/7">harness anatomy &#183; 1/7</p>
+    <h2 data-ko="하나로 모든 일을, 아니면 일마다 하나씩?">One tool for everything, or one tool per job</h2>
+    <p class="lede" data-ko="누가 가능한 동작을 정하는가: model인가, harness인가?">Who defines what the agent can do: the model or the harness?</p>
+    <div class="card-grid two" style="margin-top:1em">
+      <div class="card">
+        <span class="who" data-ko="넓은 접근 · BASH">BROAD ACCESS &#183; BASH</span>
+        <h3 style="margin-top:0.25em" data-ko="Model이 명령을 고른다">The model chooses the command</h3>
+        <p><code>rg 'API_KEY' src/</code><br><code>npm test</code><br><code>rm -rf build/</code></p>
+        <p data-ko="&lt;code&gt;npm test&lt;/code&gt;는 단순해 보이지만, 실제 동작은 &lt;code&gt;package.json&lt;/code&gt;이 정한다."><code>npm test</code> looks simple, but <code>package.json</code> decides what actually runs.</p>
+        <p data-ko="&lt;strong&gt;유연하지만 예측하기 어렵다.&lt;/strong&gt;"><strong>Flexible, but harder to predict.</strong></p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="제한된 접근 · GREP">RESTRICTED ACCESS &#183; GREP</span>
+        <h3 style="margin-top:0.25em" data-ko="Harness가 동작을 제한한다">The harness limits the action</h3>
+        <p><code>Grep("API_KEY", path="src/")</code></p>
+        <p data-ko="이 tool은 search만 할 수 있다. 설치나 삭제는 요청할 수 없다.">This tool can only search. It cannot install or delete anything.</p>
+        <p data-ko="&lt;strong&gt;제한적이지만 통제하기 쉽다.&lt;/strong&gt;"><strong>Limited, but easier to control.</strong></p>
+      </div>
+    </div>
+    <p style="max-width:none;margin-top:1em;text-align:center;font-size:1.05em;font-style:italic" data-ko="전용 tool은 model이 요청할 수 있는 동작 자체를 줄인다.">A dedicated tool reduces what the model can ask to do.</p>
+  </section>
+
+  <!-- 4a.2 &#183; Tool surface trade-offs -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="harness 해부 · 2/7">harness anatomy &#183; 2/7</p>
+    <h2 data-ko="각 접근 방식이 치르는 비용">What each access model costs</h2>
+    <p class="lede" data-ko="접근을 제한하면 통제력을 얻지만 다른 곳에서 대가를 치른다. 항목별로 살펴보자:">Restricting access buys control and pays for it elsewhere. Itemized:</p>
+    <div class="table-wrap" style="margin-top:1em">
+      <table>
+        <thead>
+          <tr><th></th><th data-ko="넓은 접근 · &lt;code&gt;Bash&lt;/code&gt;">Broad access &#183; <code>Bash</code></th><th data-ko="제한된 접근 · &lt;code&gt;Grep&lt;/code&gt;">Restricted access &#183; <code>Grep</code></th></tr>
+        </thead>
+        <tbody>
+          <tr><td data-ko="통제">Control</td><td data-ko="거칠다 — 같은 tool로 download나 삭제도 할 수 있다">Coarse &#8212; the same tool can also download or delete</td><td data-ko="&lt;b&gt;정밀하다&lt;/b&gt; — 이 tool은 검색 전용으로 둘 수 있다"><b>Precise</b> &#8212; this tool can be search-only</td></tr>
+          <tr><td data-ko="신뢰성">Reliability</td><td data-ko="Model이 platform에 맞는 올바른 문법을 써야 한다">Model must write valid, platform-specific syntax</td><td data-ko="harness가 입력을 검증하고 동작을 일관되게 만들 수 있다">Harness validates inputs and can normalize behavior</td></tr>
+          <tr><td data-ko="Context 임대료">Context rent</td><td data-ko="범용 tool 설명 하나를 모든 일에 재사용한다">One general tool description, reused for everything</td><td data-ko="&lt;b&gt;매&lt;/b&gt; 요청마다 schema가 하나 더 실린다">Another schema loaded on <b>every</b> request</td></tr>
+          <tr><td data-ko="구축 비용">Build cost</td><td data-ko="없음 — shell은 이미 존재한다">None &#8212; the shell already exists</td><td data-ko="Platform마다 작성·test·유지해야 할 code">Code to write, test, and maintain per platform</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="max-width:none;margin-top:0.8em;text-align:center;font-size:1em;font-style:italic" data-ko="그래서 어떤 harness도 한쪽만 고르지 않는다: 어떤 동작이 충분히 잦거나 위험해서 임대료를 낼 만할 때 전용 tool로 승격시킨다.">This is why no harness picks one: you promote an operation to a dedicated tool when it is frequent or dangerous enough to be worth the rent.</p>
+  </section>
+
+  <!-- 4b &#183; Harness anatomy 2: Context management -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="harness 해부 · 3/7">harness anatomy &#183; 3/7</p>
+    <h2 data-ko="Context window, Agent's Memory">The window is the agent's working memory</h2>
+    <p class="lede" data-ko="Model이 지금 어떤 정보를 사용해야 한다면, 그 정보는 context 안에 있어야 한다. window는 유한하므로 harness가 무엇을 언제, 어느 정도의 세부 수준으로 넣을지 결정한다.">If the model needs to use something now, it must be in context. The window is finite, so the harness decides what enters, when, and at what detail.</p>
+    <div class="card-grid two" style="margin-top:1em">
+      <div class="card">
+        <span class="who" data-ko="Cache · 같은 비용을 두 번 내지 마라">CACHE &#183; DON'T REPAY</span>
+        <h3 style="margin-top:0.25em" data-ko="안정적인 prefix를 재사용하라">Reuse the stable prefix</h3>
+        <p data-ko="System prompt, tool, 앞선 turn은 그대로 유지된다 — 한 번 처리한 뒤 cache된 결과를 재사용한다.">System prompt, tools, and earlier turns stay identical &#8212; process them once, then reuse the cached work.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="COMPACTION · 요지만 남겨라">COMPACTION &#183; KEEP THE GIST</span>
+        <h3 style="margin-top:0.25em" data-ko="오래된 turn을 요약하라">Summarize old turns</h3>
+        <p data-ko="긴 history를 짧은 메모로 바꾼다. 공간을 벌지만, 압축은 손실을 낳는다.">Replace a long history with shorter notes. It buys space, but compression is lossy.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="Subagent · 다른 window를 써라">SUBAGENTS &#183; USE ANOTHER WINDOW</span>
+        <h3 style="margin-top:0.25em" data-ko="작업을 subagent에게 보내라">Send work to a subagent</h3>
+        <p data-ko="자식 agent가 수천 줄을 뒤지게 하고, 결론만 main 대화로 돌려받는다.">Let a child search thousands of lines; return only its conclusion to the main conversation.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="Memory file · 나중에 다시 불러오기">MEMORY FILES &#183; RELOAD LATER</span>
+        <h3 style="margin-top:0.25em" data-ko="오래 가야 할 사실은 file에 둬라">Put durable facts in files</h3>
+        <p data-ko="&lt;code&gt;CLAUDE.md&lt;/code&gt;나 &lt;code&gt;AGENTS.md&lt;/code&gt;는 이후 요청에서 다시 load되므로, 대화가 compaction된 뒤에도 남는다."><code>CLAUDE.md</code> or <code>AGENTS.md</code> is loaded again on later requests, surviving conversation compaction.</p>
+      </div>
+    </div>
+    <p style="max-width:none;margin-top:0.85em;text-align:center;font-size:1.02em;font-style:italic" data-ko="반복되는 것은 cache하라. 오래된 것은 압축하라. 번지는 것은 위임하라. 살아남아야 할 것은 저장하라.">Cache what repeats. Compress what ages. Delegate what sprawls. Persist what must survive.</p>
+  </section>
+
+  <!-- 4c &#183; Harness anatomy 3: Trust & safety -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="harness 해부 · 4/7">harness anatomy &#183; 4/7</p>
+    <h2 data-ko="Permission은 묻고, sandbox는 가둔다">Permission asks. A sandbox constrains.</h2>
+    <p class="lede" data-ko="하나는 행동 &lt;em&gt;이전&lt;/em&gt;의 판단에 기댄다. 다른 하나는 실행 &lt;em&gt;중&lt;/em&gt;의 process를 제한한다.">One depends on judgment <em>before</em> the action. The other limits the process <em>while</em> it runs.</p>
+    <div class="card-grid two" style="margin-top:1em">
+      <div class="card">
+        <span class="who" data-ko="Permission · 검문소">PERMISSION &#183; CHECKPOINT</span>
+        <h3 style="margin-top:0.25em" data-ko="“이거 해도 될까요?”">“Can I do this?”</h3>
+        <p data-ko="사람이나 분류기가 매번 판단한다. 반복되는 prompt는 &lt;b&gt;permission fatigue&lt;/b&gt;를 낳는다: 결국 모든 대답이 yes가 된다.">A human or classifier decides each time. Repeated prompts create <b>permission fatigue</b>: eventually, every answer becomes yes.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="Sandbox · 잠긴 문">SANDBOX &#183; LOCKED DOOR</span>
+        <h3 style="margin-top:0.25em" data-ko="“당신이 건드릴 수 있는 건 여기까지.”">“This is all you can touch.”</h3>
+        <p data-ko="경계 안의 동작 → 묻지 않고 실행&lt;br&gt;경계를 넘는 동작 → 차단하거나 permission 요청">Inside the boundary &#8594; run without asking<br>Cross the boundary &#8594; block or request permission</p>
+        <p data-ko="OS가 file, network, process에 이 경계를 강제한다.">The OS enforces this boundary over files, network, and processes.</p>
+      </div>
+    </div>
+    <div class="stat-row" style="flex-wrap:nowrap;margin-top:0.9em">
+      <div class="stat" style="flex:0 0 12em">
+        <div class="n">84% fewer</div>
+        <div class="l" data-ko="Anthropic test에서 sandboxing 적용 후 줄어든 permission prompt 수">permission prompts with sandboxing in Anthropic's testing</div>
+      </div>
+      <div class="stat" style="flex:1">
+        <div class="l" style="font-family:var(--mono);color:var(--amber);letter-spacing:0.08em;text-transform:uppercase" data-ko="Prompt injection 이후">After prompt injection</div>
+        <div style="font-size:0.82em;margin-top:0.25em" data-ko="숨겨진 지시 → agent가 속는다 → 위험한 명령 시도 → &lt;strong&gt;kernel이 여전히 거부한다.&lt;/strong&gt;">Hidden instruction &#8594; agent is fooled &#8594; harmful command attempted &#8594; <strong>kernel still says no.</strong></div>
+      </div>
+    </div>
+    <p style="max-width:none;margin-top:0.85em;text-align:center;font-size:1.08em;font-style:italic;color:var(--text)" data-ko="Sandbox는 잘못된 판단에도 살아남는 안전 계층이다.">The sandbox is the safety layer that survives bad judgment.</p>
+    <!-- <p class="src" style="margin-top:0.7em">src: code.claude.com/docs/en/sandboxing</p> -->
+  </section>
+
+  <!-- 4d &#183; Harness anatomy 4: Extensibility -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="harness 해부 · 5/7">harness anatomy &#183; 5/7</p>
+    <h2 data-ko="네 가지 확장 방식, 네 가지 역할">Four extension mechanisms, four different jobs</h2>
+    <p class="lede" data-ko="각 mechanism은 agent를 서로 다른 방식으로 확장한다.&lt;br&gt;&lt;b&gt;Example — staging 배포&lt;/b&gt;">Each mechanism extends the agent in a different way.<br><b>Example &#8212; staging deployment</b></p>
+    <div class="card-grid two" style="margin-top:1em">
+      <div class="card">
+        <span class="who" data-ko="Hook · 강제">HOOK &#183; ENFORCE</span>
+        <h3 style="margin-top:0.25em" data-ko="배포 전에 rule을 검사한다">Checks a rule before deployment</h3>
+        <p data-ko="Agent가 배포를 요청하면 hook이 먼저 branch를 확인한다.&lt;br&gt;승인됨 → 계속 · 승인 안 됨 → 차단">When the agent requests deployment, the hook checks the branch first.<br>Approved &#8594; continue &#183; Not approved &#8594; block</p>
+        <p data-ko="Model이 rule을 잊어도 hook은 그대로 적용된다.">It still works if the model forgets the rule.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="Skill · 교육">SKILL &#183; TEACH</span>
+        <h3 style="margin-top:0.25em" data-ko="전문 지식을 추가한다">Adds specialized instructions</h3>
+        <p data-ko="Agent에게 특정 작업 방법을 가르친다. 예: 회사의 staging 배포 절차를 설명한다.">Teaches the agent how to perform a task. Example: explain your company's staging procedure.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="MCP · 연결">MCP &#183; CONNECT</span>
+        <h3 style="margin-top:0.25em" data-ko="외부 system에 연결한다">Connects an external system</h3>
+        <p data-ko="외부 capability를 tool로 제공한다. 예: 배포 platform의 &lt;code&gt;deploy_to_staging&lt;/code&gt;을 노출한다.">Exposes an external capability as a tool. Example: provide <code>deploy_to_staging</code> from a deployment platform.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="Plugin · packaging">PLUGIN &#183; PACKAGE</span>
+        <h3 style="margin-top:0.25em" data-ko="Extension을 하나로 묶는다">Bundles extensions together</h3>
+        <p data-ko="Skill, MCP 설정, hook, command를 설치 가능한 하나의 package로 배포한다.">Distributes skills, MCP configuration, hooks, and commands as one installable package.</p>
+      </div>
+    </div>
+    <div class="quote" style="max-width:none;margin-top:0.9em;padding:0.65em 1em">
+      <p style="font-size:0.88em;font-style:normal" data-ko="&lt;strong&gt;이 mechanism들은 서로 바꿔 쓸 수 없다:&lt;/strong&gt; skill은 가르치고, MCP는 연결하고, hook은 강제하고, plugin은 묶는다."><strong>They are not interchangeable:</strong> skills teach, MCP connects, hooks enforce, and plugins package.</p>
+    </div>
+  </section>
+
+  <!-- 4e &#183; Harness anatomy 5: State & sessions -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="harness 해부 · 6/7">harness anatomy &#183; 6/7</p>
+    <h2 data-ko="Session: 저장, 이어가기, branch, replay">Sessions: save, continue, branch, replay</h2>
+    <p class="lede" data-ko="Session은 message, tool 호출, 결과로 이루어진 하나의 작업 단위다. harness가 무엇을 저장하느냐에 따라 이후에 할 수 있는 일이 달라진다.">A session is one episode of work: messages, tool calls, and results. What the harness saves determines what you can do afterward.</p>
+    <div class="card-grid two" style="margin-top:1em">
+      <div class="card">
+        <span class="who" data-ko="Transcript · 감사">TRANSCRIPT &#183; AUDIT</span>
+        <h3 style="margin-top:0.25em" data-ko="정확히 무슨 일이 있었나?">What exactly happened?</h3>
+        <p data-ko="Prompt, 응답, 명령, 결과를 저장한다. 사람이 읽는 text는 검토에 좋고, &lt;b&gt;JSONL&lt;/b&gt;(한 줄에 JSON 객체 하나)은 검색·분석·replay까지 가능하게 한다.">Save prompts, replies, commands, and results. Human-readable text helps review; <b>JSONL</b> (one JSON object per line) also enables search, analysis, and replay.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="RESUME · 이어가기">RESUME &#183; CONTINUE</span>
+        <h3 style="margin-top:0.25em" data-ko="내일 이어서">Pick up tomorrow</h3>
+        <p data-ko="이전 history를 다시 불러와 같은 context에서 이어간다. 작업을 처음부터 다시 설명할 필요가 없다.">Reload the previous history and continue with its context instead of explaining the task again from scratch.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="FORK · branch">FORK &#183; BRANCH</span>
+        <h3 style="margin-top:0.25em" data-ko="다른 길 시도하기">Try another path</h3>
+        <p data-ko="이전 지점에서 대화를 복사한 뒤 다른 해법을 탐색한다. session이 branch되는 것이지, Git 저장소가 branch되는 것은 아니다.">Copy the conversation at an earlier point, then explore a different solution. It branches the session, not necessarily the Git repository.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="REPLAY · 되짚기">REPLAY &#183; REVISIT</span>
+        <h3 style="margin-top:0.25em" data-ko="검토하거나 재현하기">Review or reproduce it</h3>
+        <p data-ko="저장된 message와 결과를 따라가거나, 같은 입력을 다시 loop에 흘려보낸다. 동작을 재실행할 때는 주의가 필요하다: 부작용이 두 번 일어날 수 있다.">Walk through saved messages and results, or feed the same inputs back through the loop. Re-running actions needs care: side effects may happen twice.</p>
+      </div>
+    </div>
+    <p style="max-width:none;margin-top:0.85em;text-align:center;font-size:1.02em;font-style:italic" data-ko="저장하라 → 들여다보고, 이어가고, branch하고, replay하라.">Save it &#8594; inspect it, continue it, branch it, or replay it.</p>
+  </section>
+
+  <!-- 4f &#183; Harness anatomy 6: Interface -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="harness 해부 · 7/7">harness anatomy &#183; 7/7</p>
+    <h2 data-ko="Interface: loop는 어디서 도는가?">Interface: where does the loop run?</h2>
+    <p class="lede" data-ko="Agent loop 자체는 같다. 달라지는 것은 누가 시작하고, 누가 지켜보며, 다른 system이 어떻게 제어하는가다.">The agent loop stays the same. What changes is who starts it, who watches it, and how another system controls it.</p>
+    <div class="card-grid" style="margin-top:1.2em">
+      <div class="card">
+        <span class="who" data-ko="Interactive · 사람이 주도">INTERACTIVE &#183; HUMAN DRIVEN</span>
+        <h3 style="margin-top:0.25em" data-ko="TUI 또는 GUI">TUI or GUI</h3>
+        <p data-ko="사람이 요청을 입력하고, 각 단계를 지켜보고, 동작을 승인하고, turn 중간에 끼어들 수 있다.">A person types requests, watches each step, approves actions, and can interrupt mid-turn.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="HEADLESS · 자동화">HEADLESS &#183; AUTOMATED</span>
+        <h3 style="margin-top:0.25em" data-ko="Script 또는 CI job">Script or CI job</h3>
+        <p data-ko="대화형 화면도 없고 지켜보는 사람도 없는 경우가 많다. 입력은 flag나 표준 입력으로 들어오고, 결과는 log나 file로 나간다.">No interactive screen and often no person watching. Inputs arrive through flags or standard input; results go to logs or files.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="SDK · embedded">SDK &#183; EMBEDDED</span>
+        <h3 style="margin-top:0.25em" data-ko="다른 app에 내장">Inside another app</h3>
+        <p data-ko="Program code가 session을 시작하고, prompt를 보내고, event를 받아, 자체 제품 interface로 agent를 보여준다.">Program code starts sessions, sends prompts, receives events, and presents the agent through its own product interface.</p>
+      </div>
+    </div>
+    <p style="max-width:none;margin-top:1em;text-align:center;font-size:1.02em;font-style:italic" data-ko="같은 loop. 세 가지 제어 표면.">Same loop. Three control surfaces.</p>
+  </section>
+
+  <!-- 6 &#183; Claude Code 1: what & philosophy -->
+  <section class="slide" data-section="Claude Code" data-section-ko="Claude Code">
+    <p class="eyebrow" data-ko="심층 분석 · Claude Code · 1/6">deep dive &#183; claude code &#183; 1/6</p>
+    <h2 data-ko="Claude Code — model에 베팅한다">Claude Code &#8212; bet on the model</h2>
+    <div class="cols">
+      <div>
+        <!-- <p class="lede" data-ko="Anthropic은 의도적으로 단순한 agent loop를 풍부한 제품 표면으로 감싼다: tool, permission, context 관리, 그리고 여러 interface.">Anthropic wraps a deliberately simple agent loop in a rich product surface: tools, permissions, context management, and multiple interfaces.</p> -->
+        <ul>
+          <li data-ko="&lt;b&gt;Core를 model에 가깝게 유지한다&lt;/b&gt; — 저수준이고, 유연하며, 비교적 방식을 강요하지 않는다."><b>Keep the core close to the model</b> &#8212; low-level, flexible, and relatively unopinionated.</li>
+          <li data-ko="&lt;b&gt;Model이 좋아지면 scaffolding을 걷어낸다&lt;/b&gt; — Anthropic은 세대를 거치며 system prompt를 약 절반으로 줄이고 tool도 쳐냈다고 밝혔다."><b>Remove scaffolding as models improve</b> &#8212; Anthropic reports cutting the system prompt by roughly half and pruning tools across generations.</li>
+          <li data-ko="&lt;b&gt;제품으로 자기 자신을 만든다&lt;/b&gt; — 개발자 Boris Cherny는 Claude Code가 자체 code의 약 90%를 작성했다고 전했다."><b>Build with the product itself</b> &#8212; creator Boris Cherny reported that Claude Code wrote about 90% of its own code.</li>
+        </ul>
+      </div>
+      <div class="narrow">
+        <div class="fact-col">
+          <div class="fact"><div class="k" data-ko="개발사">vendor</div><div class="v">Anthropic &#183; Feb 2025</div></div>
+          <div class="fact"><div class="k" data-ko="stack">stack</div><div class="v" data-ko="TypeScript · terminal UI">TypeScript &#183; terminal UI</div></div>
+          <div class="fact"><div class="k" data-ko="소스">source</div><div class="v" data-ko="비공개 core (SDK·sandbox는 공개)">closed core (SDK, sandbox open)</div></div>
+          <div class="fact"><div class="k" data-ko="베팅">bet</div><div class="v t" data-ko="강한 model, 얇은 core">strong model, thin core</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="src">src: anthropic.com/engineering/claude-code-best-practices &#183; Pragmatic Engineer "How Claude Code is built"</p>
+  </section>
+
+  <!-- 5 &#183; Claude Code 2: how it works -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="심층 분석 · Claude Code · 2/6">deep dive &#183; claude code &#183; 2/6</p>
+    <h2 data-ko="동작 방식: turn 사이클과 그 history">How it works: the turn cycle and its history</h2>
+    <p class="lede" style="margin-top:0" data-ko="모든 turn이 같은 세 단계를 돌고, agent가 알게 된 모든 것은 하나의 선형 history로 돌아온다 — loop는 거기서 읽고 거기에 덧붙이며 turn을 이어간다.">Every turn runs the same three steps, and everything the agent learns lands back in one linear active history &#8212; the loop reads from it and appends to it, turn after turn.</p>
+    <svg class="diagram" style="max-width:46em;margin-inline:auto" viewBox="0 0 660 150" role="img" aria-label="The turn cycle: the loop reads from one linear message history, then runs gather context, take action, and verify work in sequence, appending the results back into the same history.">
+      <path class="wire wire--cool" d="M200,33 L238,33"/>
+      <polygon class="tip tip--cool" points="245,33 238,29.5 238,36.5"/>
+      <path class="wire wire--cool" d="M415,33 L453,33"/>
+      <polygon class="tip tip--cool" points="460,33 453,29.5 453,36.5"/>
+      <path class="wire wire--cool" d="M70,106 L70,62"/>
+      <polygon class="tip tip--cool" points="70,54 66.5,62 73.5,62"/>
+      <path class="wire wire--cool" d="M590,54 L590,98"/>
+      <polygon class="tip tip--cool" points="590,106 586.5,98 593.5,98"/>
+      <rect class="node" x="30" y="12" width="170" height="42" rx="6"/>
+      <circle class="node" cx="52" cy="33" r="9"/>
+      <text class="lbl--num" x="52" y="33" text-anchor="middle" dominant-baseline="middle">1</text>
+      <text class="lbl--step" x="70" y="33" dominant-baseline="middle" data-ko="context 수집">gather context</text>
+      <rect class="node node--hot" x="245" y="12" width="170" height="42" rx="6"/>
+      <circle class="node" cx="267" cy="33" r="9"/>
+      <text class="lbl--num" x="267" y="33" text-anchor="middle" dominant-baseline="middle">2</text>
+      <text class="lbl--step" x="285" y="33" dominant-baseline="middle" data-ko="행동 실행">take action</text>
+      <rect class="node" x="460" y="12" width="170" height="42" rx="6"/>
+      <circle class="node" cx="482" cy="33" r="9"/>
+      <text class="lbl--num" x="482" y="33" text-anchor="middle" dominant-baseline="middle">3</text>
+      <text class="lbl--step" x="500" y="33" dominant-baseline="middle" data-ko="작업 검증">verify work</text>
+      <text class="lbl--dim lbl--cool" x="80" y="86" data-ko="읽기">read</text>
+      <text class="lbl--dim lbl--cool" x="580" y="86" text-anchor="end" data-ko="덧붙이기">append</text>
+      <rect class="node node--cool" x="30" y="106" width="600" height="34" rx="6"/>
+      <text class="lbl" x="330" y="123" text-anchor="middle" dominant-baseline="middle" data-ko="하나로 이어진 message history">one linear message history</text>
+    </svg>
+    <div class="cols" style="margin-top:1em">
+      <div>
+        <ul>
+          <li data-ko="&lt;b&gt;단일 thread master loop&lt;/b&gt; — multi-agent가 아니다. debugging 용이성을 우선한다."><b>Single-threaded master loop</b> &#8212; explicitly <em>not</em> a multi-agent swarm; debuggability wins.</li>
+          <li data-ko="&lt;b&gt;RAG 대신 LLM 검색&lt;/b&gt;: vector index가 없다 — agent가 사람처럼 저장소를 grep하므로, 결과는 지금 이 순간의 file을 반영한다."><b>LLM search over RAG</b>: no vector index &#8212; the agent greps the repo like a human, so results reflect the files as they are right now.</li>
+          <li data-ko="계획은 model이 관리한다: agent가 자기 task 목록을 직접 쓰고, tool 호출 뒤 다시 주입해 context drift에 맞선다.">Planning is model-maintained: the agent writes its own task list, re-injected after tool calls to fight context drift.</li>
+        </ul>
+      </div>
+      <div class="narrow">
+        <div class="fact-col">
+          <div class="fact"><div class="k" data-ko="핵심 tool">core tools</div><div class="v">Read &#183; Edit &#183; Write &#183; Bash &#183; Grep &#183; Glob &#183; Agent &#183; Skill &#183; Web</div></div>
+          <div class="fact"><div class="k" data-ko="비용 절감">cost trick</div><div class="v" data-ko="LLM 호출의 50% 이상이 Haiku로 (요약, parsing)*">&gt;50% of LLM calls went to Haiku (summaries, parsing)*</div></div>
+          <div class="fact"><div class="k" data-ko="streaming">streaming</div><div class="v" data-ko="tool 입력을 streaming되는 대로 parsing">tool input parsed as it streams</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="src">src: code.claude.com/docs (agent loop) &#183; minusx.ai/blog/decoding-claude-code &#183; *mid-2025 measurement</p>
+  </section>
+
+  <!-- Claude Code 2b: single-threaded vs. parallel, disambiguated -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="심층 분석 · Claude Code · 3/6">deep dive &#183; claude code &#183; 3/6</p>
+    <h2 data-ko="하나의 loop, 병렬 tool">One loop, parallel tools </h2>
+    <p class="lede" data-ko="&quot;단일 thread&quot;는 누가 결정하는지를 말한다. &quot;병렬&quot;은 결정이 내려진 뒤 무엇이 실행되는지를 말한다.">"Single-threaded" describes who decides. "Parallel" describes what runs once a decision is already made.</p>
+    <div class="card-grid two" style="margin-top:1em">
+      <div class="card">
+        <span class="who" data-ko="결정자는 하나 · Claude Code가 하는 방식">ONE DECISION-MAKER &#183; WHAT CLAUDE CODE DOES</span>
+        <h3 style="margin-top:0.25em" data-ko="Tool 실행은 갈라질 수 있다">Tool execution can fan out</h3>
+        <svg class="diagram" viewBox="0 0 364 162" role="img" aria-label="One model reply fans out to Read, Grep and Glob running in parallel, then converges back into one shared history, which loops around to the next turn.">
+          <path class="wire wire--cool" d="M70,74 C102,74 102,22 134,22"/>
+          <path class="wire wire--cool" d="M70,74 L134,74"/>
+          <path class="wire wire--cool" d="M70,74 C102,74 102,126 134,126"/>
+          <polygon class="tip tip--cool" points="134,22 127,18.5 127,25.5"/>
+          <polygon class="tip tip--cool" points="134,74 127,70.5 127,77.5"/>
+          <polygon class="tip tip--cool" points="134,126 127,122.5 127,129.5"/>
+          <path class="wire wire--cool" d="M232,22 C264,22 264,74 288,74"/>
+          <path class="wire wire--cool" d="M232,74 L288,74"/>
+          <path class="wire wire--cool" d="M232,126 C264,126 264,74 288,74"/>
+          <polygon class="tip tip--cool" points="294,74 287,70.5 287,77.5"/>
+          <rect class="node node--hot" x="2" y="56" width="68" height="36" rx="6"/>
+          <text class="lbl" x="36" y="74" text-anchor="middle" dominant-baseline="middle">model</text>
+          <rect class="node node--cool" x="134" y="8" width="98" height="28" rx="5"/>
+          <text class="lbl" x="183" y="22" text-anchor="middle" dominant-baseline="middle">Read</text>
+          <rect class="node node--cool" x="134" y="60" width="98" height="28" rx="5"/>
+          <text class="lbl" x="183" y="74" text-anchor="middle" dominant-baseline="middle">Grep</text>
+          <rect class="node node--cool" x="134" y="112" width="98" height="28" rx="5"/>
+          <text class="lbl" x="183" y="126" text-anchor="middle" dominant-baseline="middle">Glob</text>
+          <text class="lbl--dim lbl--cool" x="183" y="49" text-anchor="middle" data-ko="모두 하나의 응답에서">all from one reply</text>
+          <rect class="node node--hot" x="294" y="56" width="68" height="36" rx="6"/>
+          <text class="lbl" x="328" y="74" text-anchor="middle" dominant-baseline="middle">history</text>
+          <path class="wire wire--loop" d="M328,92 C328,146 36,146 36,92"/>
+          <polygon class="tip tip--loop" points="36,92 32.5,98 39.5,98"/>
+          <text class="lbl--dim" x="183" y="158" text-anchor="middle" data-ko="다음 turn · 같은 history">next turn &#183; same history</text>
+        </svg>
+        <p data-ko="그 fan-out의 모든 호출은 같은 하나의 응답이 요청한 것이다. 결과는 다음 model 호출 전에 하나의 history로 다시 모인다.">Every call in that fan-out was requested by the same single reply. Results converge back into the one history before the next model call.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="결정자가 여럿 · 이건 아니다">SEPARATE DECISION-MAKERS &#183; NOT THIS</span>
+        <h3 style="margin-top:0.25em" data-ko="결정 자체는 갈라지지 않는다">The decision itself never forks</h3>
+        <svg class="diagram" viewBox="0 0 364 162" role="img" aria-label="Three independent agents, each with its own separate context, running in parallel lanes that never converge into a shared history.">
+          <path class="wire" d="M92,22 L128,22"/>
+          <polygon class="tip" points="134,22 127,18.5 127,25.5"/>
+          <path class="wire" d="M92,74 L128,74"/>
+          <polygon class="tip" points="134,74 127,70.5 127,77.5"/>
+          <path class="wire" d="M92,126 L128,126"/>
+          <polygon class="tip" points="134,126 127,122.5 127,129.5"/>
+          <rect class="node" x="2" y="8" width="90" height="28" rx="5"/>
+          <text class="lbl" x="47" y="22" text-anchor="middle" dominant-baseline="middle">agent A</text>
+          <rect class="node" x="2" y="60" width="90" height="28" rx="5"/>
+          <text class="lbl" x="47" y="74" text-anchor="middle" dominant-baseline="middle">agent B</text>
+          <rect class="node" x="2" y="112" width="90" height="28" rx="5"/>
+          <text class="lbl" x="47" y="126" text-anchor="middle" dominant-baseline="middle">agent C</text>
+          <rect class="node" x="134" y="8" width="124" height="28" rx="5"/>
+          <text class="lbl--dim" x="196" y="22" text-anchor="middle" dominant-baseline="middle" data-ko="각자의 context">own context</text>
+          <rect class="node" x="134" y="60" width="124" height="28" rx="5"/>
+          <text class="lbl--dim" x="196" y="74" text-anchor="middle" dominant-baseline="middle" data-ko="각자의 context">own context</text>
+          <rect class="node" x="134" y="112" width="124" height="28" rx="5"/>
+          <text class="lbl--dim" x="196" y="126" text-anchor="middle" dominant-baseline="middle" data-ko="각자의 context">own context</text>
+          <path class="wire wire--dead" d="M258,22 L292,22"/>
+          <path class="wire wire--dead" d="M258,74 L292,74"/>
+          <path class="wire wire--dead" d="M258,126 L292,126"/>
+          <path class="wire wire--dead" d="M300,14 L312,30 M312,14 L300,30"/>
+          <path class="wire wire--dead" d="M300,66 L312,82 M312,66 L300,82"/>
+          <path class="wire wire--dead" d="M300,118 L312,134 M312,118 L300,134"/>
+          <text class="lbl--dim" transform="rotate(-90 340 74)" x="340" y="74" text-anchor="middle" data-ko="공유 history 없음">no shared history</text>
+        </svg>
+        <p data-ko="Multi-agent 군집은 각자의 context와 판단으로 독립된 loop를 돈다 — 하나로 모일 공유 history가 없다.">A multi-agent swarm runs independent loops, each with its own context and its own judgment call &#8212; no shared history to converge into.</p>
+      </div>
+    </div>
+    <p style="max-width:none;margin-top:1em;text-align:center;font-size:1.05em;font-style:italic;color:var(--text)" data-ko="병렬 I/O, 단일한 판단.">Parallel I/O, singular judgment.</p>
+  </section>
+
+  <!-- Claude Code 3: the toolbox -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="심층 분석 · Claude Code · 4/6">deep dive &#183; claude code &#183; 4/6</p>
+    <h2 data-ko="엄격한 규칙을 가진 toolbox">A toolbox with strict rules</h2>
+    <p class="lede" data-ko="규칙이 핵심이다: 각 tool은 약속한 것을 정확히 하거나, 거절하고 무엇을 고쳐야 하는지 설명한다.">The rules are the point: each tool either does exactly what it promises, or refuses and explains what to fix.</p>
+    <div class="cols" style="margin-top:1em">
+      <div>
+        <ul style="margin-top:0">
+          <li data-ko="&lt;b&gt;Edit는 정확한 text를 치환한다.&lt;/b&gt; file을 읽지 않았거나, 대상 text가 없거나, 그 text가 두 번 이상 나오면 실행을 거부한다."><b>Edit replaces exact text.</b> It refuses to run when the file has not been read, the target text is missing, or that text appears more than once.</li>
+          <li data-ko="&lt;b&gt;Read는 줄 번호를 붙인다&lt;/b&gt;. 그래서 model이 고치기 전에 특정 code를 짚을 수 있고, &lt;code&gt;Edit&lt;/code&gt;가 명확하게 매칭할 대상을 갖게 된다."><b>Read adds line numbers</b>, so the model can point at specific code before changing it &#8212; and so <code>Edit</code> has something unambiguous to match.</li>
+          <li data-ko="&lt;b&gt;거절에는 해결책이 담긴다.&lt;/b&gt; 단순히 &quot;invalid input&quot;이라고 하지 않고, 어떤 전제가 깨졌으며 무엇을 해야 하는지 알려준다 — error가 곧 다음 prompt다."><b>A refusal carries the fix.</b> Not "invalid input" but which precondition failed and what to do about it &#8212; the error is the next prompt.</li>
+        </ul>
+      </div>
+      <div class="narrow">
+        <div class="loop" style="font-size:0.76em;line-height:1.7">
+<span class="cm">// Example: change one timeout</span><br>
+<br>
+Model: replace <span class="fn">3000</span> with <span class="fn">5000</span><br>
+<br>
+<span class="kw">Edit stops</span>: Found 4 matches.<br>
+I will not guess which one.<br>
+<br>
+Model: read the file, include the<br>
+surrounding function, and retry.<br>
+<br>
+<span class="fn">Success</span>: Changed the right line.<br>
+        </div>
+        <p class="footnote" style="margin-top:0.9em" data-ko="수정 대상이 모호하면 tool은 멈추고 model이 더 정확한 정보를 제시하도록 요구한다.">When an edit is ambiguous, the tool stops and makes the model be more precise.</p>
+      </div>
+    </div>
+    <p class="src">src: code.claude.com/docs (tools reference)</p>
+  </section>
+
+  <!-- Claude Code 4: context -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="심층 분석 · Claude Code · 5/6">deep dive &#183; claude code &#183; 5/6</p>
+    <h2 data-ko="Context 관리가 harness의 대부분이다">Context management is most of the harness</h2>
+    <p class="lede" data-ko="harness는 오래 갈 규칙을 scope별 file에 두고, 유한한 window가 무엇을 남기고 cache하고 위임할지를 통제한다.">The harness keeps durable rules in scoped files, then controls what the finite window retains, caches, or delegates.</p>
+    <div class="cols">
+      <div>
+        <ul>
+          <li data-ko="&lt;b&gt;Memory 규칙은 scope에 따라 계층적으로 쌓인다.&lt;/b&gt; 회사 전체 정책, 개인 설정, 저장소 관례, 그리고 하위 directory의 local 규칙 — 해당되는 계층들이 요청마다 합쳐진다."><b>Memory rules cascade by scope.</b> Company-wide policy, then personal preferences, then repo conventions, then rules local to a subdirectory &#8212; the applicable layers are combined for each request.</li>
+          <li data-ko="&lt;b&gt;&lt;code&gt;CLAUDE.md&lt;/code&gt;는 안정적인 prefix에 실린다&lt;/b&gt;. 대화보다 앞에 놓이므로 cache hit를 유지하고, compaction이 뒤쪽 turn들을 걷어내도 규칙까지는 닿지 않는다."><b><code>CLAUDE.md</code> rides in the stable prefix</b>, ahead of the conversation &#8212; so it keeps its cache hit, and compaction ages out the turns behind it without ever reaching the rules.</li>
+          <li data-ko="&lt;b&gt;System reminder&lt;/b&gt;는 session 도중 그 규칙을 다시 상기시킨다. 사용자 turn이 아니라 숨겨진 harness 메모로."><b>System reminders</b> re-assert those rules mid-session as hidden harness notes, not user turns.</li>
+          <li data-ko="&lt;b&gt;compaction은 자동이다&lt;/b&gt;. 사용자가 직접 실행해야 하는 명령이 아니라, window가 차면 오래된 turn이 자동으로 요약된다."><b>Compaction is automatic</b>, not a command you remember to run: old turns are summarized as the window fills.</li>
+        </ul>
+      </div>
+      <div class="narrow">
+        <div class="scope-stack" aria-label="Memory scopes from broadest to most specific">
+          <div class="scope-head" data-ko="적용 범위 순">by breadth of applicability</div>
+          <div class="scope"><span>1</span><b>Enterprise</b><small data-ko="보안 및 회사 정책">security &amp; company policy</small></div>
+          <div class="scope"><span>2</span><b>User</b><small data-ko="&lt;code&gt;~/.claude&lt;/code&gt; 개인 설정"><code>~/.claude</code> preferences</small></div>
+          <div class="scope"><span>3</span><b>Project</b><small data-ko="저장소 관례 및 command">repo conventions &amp; commands</small></div>
+          <div class="scope scope-local"><span>4</span><b>Subdirectory</b><small data-ko="local &lt;code&gt;CLAUDE.md&lt;/code&gt; 규칙">local <code>CLAUDE.md</code> rules</small></div>
+          <div class="scope-foot" data-ko="넓은 기본값 &lt;b&gt;→&lt;/b&gt; 구체적인 local 지침">broad defaults <b>&#8594;</b> specific local guidance</div>
+        </div>
+        <div class="fact-head" data-ko="window를 떠나는 것">what leaves the window</div>
+        <div class="fact-col compact">
+          <div class="fact"><div class="k" data-ko="요약되어 사라짐">summarized away</div><div class="v" data-ko="오래된 대화 turn">old conversation turns</div></div>
+          <div class="fact"><div class="k" data-ko="다른 곳에 격리됨">isolated elsewhere</div><div class="v t" data-ko="subagent가 읽은 모든 것">whatever a subagent read</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="footnote" data-ko="&lt;b&gt;System prompt&lt;/b&gt; = 시작할 때 주는 숨겨진 지침 · &lt;b&gt;system reminder&lt;/b&gt; = rule이나 state를 다시 강조하기 위해 나중에 주입하는 숨겨진 지침"><b>System prompt</b> = hidden instructions given at the start &#183; <b>system reminder</b> = hidden instructions injected later to re-emphasize a rule or state</p>
+    <p class="src">src: code.claude.com/docs (memory &#183; costs) &#183; anthropic engineering, context engineering</p>
+  </section>
+
+  <!-- Claude Code 6: permissions and sandbox -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="심층 분석 · Claude Code · 6/6">deep dive &#183; claude code &#183; 6/6</p>
+    <h2 data-ko="Permission, 그리고 그 아래의 sandbox">Permissions, and the sandbox underneath</h2>
+    <p class="lede" data-ko="Mode → rule → sandbox. 각 단계가 서로 다른 질문에 답한다.">Mode &#8594; rules &#8594; sandbox. Each layer answers a different question.</p>
+    <div class="card-grid" style="margin-top:1em">
+      <div class="card">
+        <span class="who" data-ko="1 · 기본 동작">1 &#183; DEFAULT</span>
+        <h3 style="margin-top:0.25em" data-ko="Mode가 기본값을 정한다">Mode sets the default</h3>
+        <ul>
+          <li data-ko="&lt;code&gt;plan&lt;/code&gt; · 살펴보기만"><code>plan</code> &#183; inspect only</li>
+          <li data-ko="&lt;code&gt;default&lt;/code&gt; · 승인되지 않은 변경 전에 묻기"><code>default</code> &#183; ask before unapproved changes</li>
+          <li data-ko="&lt;code&gt;acceptEdits&lt;/code&gt; · 수정은 허용, 명령은 묻기"><code>acceptEdits</code> &#183; edit freely, ask about commands</li>
+          <li data-ko="&lt;code&gt;bypassPermissions&lt;/code&gt; · 묻지 않기"><code>bypassPermissions</code> &#183; do not ask</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="2 · 개별 동작">2 &#183; SPECIFIC ACTIONS</span>
+        <h3 style="margin-top:0.25em" data-ko="Rule이 기본값을 다듬는다">Rules refine the default</h3>
+        <p data-ko="각 action을 allow, deny, ask로 지정한다.">Choose <b>allow</b>, <b>deny</b>, or <b>ask</b> for individual actions.</p>
+        <ul>
+          <li data-ko="허용 · &lt;code&gt;npm test&lt;/code&gt;">Allow <code>npm test</code></li>
+          <li data-ko="거부 · &lt;code&gt;./secrets/**&lt;/code&gt; 접근">Deny access to <code>./secrets/**</code></li>
+          <li data-ko="묻기 · 그 밖의 Bash 명령">Ask about other Bash commands</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="3 · 피해 제한">3 &#183; CONTAINMENT</span>
+        <h3 style="margin-top:0.25em" data-ko="Sandbox가 접근 범위를 제한한다">Sandbox limits reach</h3>
+        <p data-ko="Permission을 받은 뒤에도 OS가 command를 workspace 안에 가두고 network 접근을 통제할 수 있다.">Even after permission is granted, the OS can confine the command to the workspace and control network access.</p>
+        <p data-ko="경계 안 → 실행&lt;br&gt;경계 밖 → 차단하거나 permission 요청">Inside the boundary &#8594; run<br>Outside the boundary &#8594; block or ask</p>
+      </div>
+    </div>
+    <p style="max-width:none;margin-top:0.9em;text-align:center;font-size:1.02em;font-style:italic" data-ko="Mode는 일반 동작을, rule은 개별 action을, sandbox는 실제 피해 범위를 제한한다.">Mode sets general behavior &#8594; rules handle specific actions &#8594; sandbox limits the actual damage.</p>
+    <p class="src">src: code.claude.com/docs (iam &#183; sandboxing) &#183; github.com/anthropics/sandbox-runtime</p>
+  </section>
+
+  <!-- 7 &#183; pi 1: what & philosophy -->
+  <section class="slide dense" data-section="pi" data-section-ko="pi">
+    <p class="eyebrow" data-ko="심층 분석 · pi · 1/5">deep dive &#183; pi &#183; 1/5</p>
+    <h2 data-ko="pi — 작게 시작하고, 필요한 것을 더한다">pi &#8212; start small, add what you need</h2>
+    <p class="lede" data-ko="&lt;b&gt;강한 model은 이미 기본적인 coding loop를 안다&lt;/b&gt;. 그러니 harness가 모든 workflow를 대신 정해 줄 필요가 없다."><b>Strong models already know the basic coding loop</b>, so the harness need not decide every workflow for you.</p>
+    <div class="cols" style="margin-top:0.9em">
+      <div>
+        <div class="card-grid two">
+          <div class="card">
+            <span class="who" data-ko="모두 내장">BATTERIES INCLUDED</span>
+            <h3 style="margin-top:0.25em" data-ko="Claude Code">Claude Code</h3>
+            <p data-ko="Subagent, permission, plan mode, MCP, task 추적이 제품에 내장되어 있다.">Subagents, permissions, plan mode, MCP and task tracking are built into the product.</p>
+          </div>
+          <div class="card">
+            <span class="who" data-ko="작은 core">SMALL CORE</span>
+            <h3 style="margin-top:0.25em">pi</h3>
+            <p data-ko="필수 tool만으로 시작한다. 원하는 workflow는 extension과 package로 더한다.">Begin with essential tools. Add the workflows you want through extensions and packages.</p>
+          </div>
+        </div>
+        <img class="shot" src="assets/composio-tasks-passed.png" alt="Bar chart of tasks passed out of 30 by eight agent harnesses on DeepSeek V4 Flash: pi 20, Oh My Pi 17, Claude Code 16, Codex 16, Deep Agents 16, Prime Agent 15 plus 6 ungraded, Hermes Agent 15, opencode 14.">
+        <p class="shot-cap" data-ko="&lt;b&gt;Composio Golden Eval&lt;/b&gt; · 30개 multi-app SaaS workflow에 모든 harness가 같은 model을 사용했다. pi는 성공당 비용도 가장 낮았지만($0.028 vs Claude Code $0.195), 다른 추론 설정과 두 개의 provider를 썼다 — 깔끔한 일대일 비교는 아니다."><b>Composio Golden Eval</b> &#183; 30 multi-app SaaS workflows, same model for every harness. pi also posted the lowest cost per success ($0.028 vs Claude Code's $0.195), but it ran a different reasoning setting and two providers &#8212; not a clean head-to-head.</p>
+      </div>
+      <div class="narrow">
+        <div class="fact-col compact">
+          <div class="fact"><div class="k" data-ko="제작자">created by</div><div class="v">Mario Zechner</div></div>
+          <div class="fact"><div class="k" data-ko="현재 개발사">now built at</div><div class="v">Earendil Inc. &#183; Apr 2026</div></div>
+          <div class="fact"><div class="k" data-ko="core">core</div><div class="v" data-ko="TypeScript · MIT license">TypeScript &#183; MIT licensed</div></div>
+          <div class="fact"><div class="k" data-ko="model">models</div><div class="v" data-ko="다양한 provider, 교체 가능">many providers, switchable</div></div>
+          <div class="fact"><div class="k" data-ko="확산">traction</div><div class="v" data-ko="star 95k+ · earendil-works/pi">95k+ stars &#183; earendil-works/pi</div></div>
+          <div class="fact"><div class="k" data-ko="설계 베팅">design bet</div><div class="v t" data-ko="작고, 보이고, extensible하게">small, visible, extensible</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="src">src: mariozechner.at/posts/2025-11-30-pi-coding-agent &#183; pi.dev &#183; composio.dev/content/best-agent-harness-deepseek-v4-flash (Aug 2026)</p>
+  </section>
+
+  <!-- 10 &#183; CC vs pi: philosophy -->
+  <section class="slide dense" data-section="Claude Code vs. pi" data-section-ko="Claude Code vs. pi">
+    <p class="eyebrow" data-ko="맞대결 · Claude Code vs pi">head to head &#183; claude code vs pi</p>
+    <h2 data-ko="Claude Code는 제공하고, pi는 고르게 한다">Claude Code provides; pi lets you choose</h2>
+    <p class="lede" data-ko="둘 다 model을 중심에 둔다. 차이는 보조 장치를 기본으로 얼마나 포함하느냐다.">Both keep the model at the center. They differ in how much supporting machinery is included by default.</p>
+    <div class="cols" style="margin-top:1em">
+      <div class="card">
+        <span class="who" data-ko="관리형 platform">MANAGED PLATFORM</span>
+        <h3 style="font-size:1.05em;margin-top:0.25em" data-ko="Claude Code · 상자를 열면 바로">Claude Code &#183; ready out of the box</h3>
+        <p style="font-size:0.88em" data-ko="Subagent, context 관리, permission, sandboxing, extension 지점이 이미 내장되어 있다.">Subagents, context management, permissions, sandboxing, and extension points are already built in.</p>
+        <p style="font-size:0.88em" data-ko="&lt;b&gt;장점:&lt;/b&gt; 팀, CI, 긴 자율 작업에 드는 설정 부담이 적다."><b>Benefit:</b> less setup for teams, CI, and long autonomous tasks.</p>
+        <p style="font-size:0.88em" data-ko="&lt;b&gt;대가:&lt;/b&gt; 닫힌 core가 당신 대신 더 많은 결정을 내린다."><b>Trade-off:</b> the closed core makes more decisions for you.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="직접 짜는 토대">CUSTOMIZABLE FOUNDATION</span>
+        <h3 style="font-size:1.05em;margin-top:0.25em" data-ko="pi · 작게 시작">pi &#183; start small</h3>
+        <p style="font-size:0.88em" data-ko="기본은 main agent loop 하나다. subagent, permission gate, sandboxing, custom UI는 extension으로 더한다.">One main agent loop runs by default. Subagents, permission gates, sandboxing, and custom UI can be added through extensions.</p>
+        <p style="font-size:0.88em" data-ko="&lt;b&gt;장점:&lt;/b&gt; 열린 core가 계속 보이고 당신의 통제 아래 있다."><b>Benefit:</b> the open core stays visible and under your control.</p>
+        <p style="font-size:0.88em" data-ko="&lt;b&gt;대가:&lt;/b&gt; 더 많은 설정을 직접 고르고 유지해야 한다."><b>Trade-off:</b> you choose and maintain more of the setup.</p>
+      </div>
+    </div>
+    <img class="shot" style="margin:1em auto 0;max-height:36vh" src="assets/composio-tokens-per-task.png" alt="Bar chart of average runtime tokens per task across eight agent harnesses on DeepSeek V4 Flash: Hermes Agent 192k, pi 559k, Codex 665k, Deep Agents 678k, opencode 692k, Claude Code 742k, Oh My Pi 742k, Prime Agent 1.401M.">
+    <p class="shot-cap" style="text-align:center" data-ko="두 철학이 실제로 치르는 비용 — &lt;b&gt;pi는 task당 559k token, Claude Code는 742k&lt;/b&gt;. 얇은 harness일수록 덜 쓰는 경향이 있지만, 192k의 Hermes는 얇음만이 유일한 변수가 아님을 보여준다.">What the two philosophies cost in practice &#8212; <b>pi 559k tokens per task, Claude Code 742k</b>. Thinner spends less, though Hermes at 192k shows thinness is not the only lever.</p>
+  </section>
+
+  <!-- 7b &#183; pi 1b: capability versus legibility -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="심층 분석 · pi · 2/5">deep dive &#183; pi &#183; 2/5</p>
+    <h2 data-ko="같은 능력, 다른 투명성">Same capability, different visibility</h2>
+    <p class="lede" data-ko="pi는 범용 tool을 조합해 대부분의 일을 해낼 수 있다. 전용 tool은 보통 model에게 새 능력을 주기보다 harness에게 구조를 준다.">Pi can compose general tools to do most jobs. Dedicated tools usually add structure for the harness, not new ability for the model.</p>
+    <div class="card-grid two" style="margin-top:1em">
+      <div class="card">
+        <span class="who" data-ko="Model이 할 수 있는 것">WHAT THE MODEL CAN DO</span>
+        <h3 style="margin-top:0.25em" data-ko="범용 tool은 닿는 범위가 넓다">General tools have broad reach</h3>
+        <p data-ko="&lt;code&gt;curl&lt;/code&gt;은 웹에 닿는다. Markdown은 할 일을 저장한다. subprocess는 다른 agent를 돌린다. &lt;code&gt;grep&lt;/code&gt;과 &lt;code&gt;find&lt;/code&gt;는 저장소를 뒤진다."><code>curl</code> reaches the web. Markdown stores todos. A subprocess can run another agent. <code>grep</code> and <code>find</code> search the repository.</p>
+        <p data-ko="&lt;b&gt;작은 toolbox로도 작업을 끝낼 수 있다.&lt;/b&gt;"><b>A small toolbox can still solve the task.</b></p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="harness가 볼 수 있는 것">WHAT THE HARNESS CAN SEE</span>
+        <h3 style="margin-top:0.25em" data-ko="전용 tool은 의도를 드러낸다">Dedicated tools reveal intent</h3>
+        <p data-ko="&lt;code&gt;Grep(pattern=&quot;API_KEY&quot;)&lt;/code&gt;&lt;br&gt;&lt;span class=&quot;t&quot;&gt;확실함:&lt;/span&gt; 검색만, 읽기만"><code>Grep(pattern="API_KEY")</code><br><span class="t">known:</span> search only, read only</p>
+        <p data-ko="&lt;code&gt;Bash(&quot;grep -R API_KEY src&quot;)&lt;/code&gt;&lt;br&gt;&lt;span class=&quot;t&quot;&gt;확실함:&lt;/span&gt; 뜯어봐야 아는 범용 명령"><code>Bash("grep -R API_KEY src")</code><br><span class="t">known:</span> a general command that must be inspected</p>
+      </div>
+    </div>
+    <div class="fact-head" style="margin-top:0.9em" data-ko="어떤 harness든 특정 동작이 전용 tool이 될 때 얻는 것">What any harness gains when an operation becomes a dedicated tool</div>
+    <div class="card-grid" style="margin-top:0.4em">
+      <div class="card"><h3 data-ko="안전하게 병렬로 실행">Run safely in parallel</h3><p data-ko="harness는 읽기 전용 호출이 file을 바꿀 수 없다는 것을 알기에, 여러 개를 한 번에 실행할 수 있다.">The harness knows read-only calls cannot change files, so it can execute several at once.</p></div>
+      <div class="card"><h3 data-ko="정밀한 permission 적용">Apply precise permissions</h3><p data-ko="수정이나 삭제 permission까지 주지 않고도 검색 전용 tool만 허용할 수 있다.">It can allow a search-only tool without also granting the power to modify or delete.</p></div>
+      <div class="card"><h3 data-ko="구조화된 interface 표시">Render structured interfaces</h3><p data-ko="계획, 할 일, 질문, 수정 내용을 검증해 목적에 맞는 UI로 보여줄 수 있다.">It can validate and display plans, todos, questions, and edits as purpose-built UI.</p></div>
+    </div>
+    <p class="footnote" style="margin-top:0.8em" data-ko="&lt;b&gt;Safety trade-off:&lt;/b&gt; pi의 기본 Bash는 더 넓은 action space를 주고, core에는 tool별 permission gate가 없다. pi가 본질적으로 unsafe하다는 뜻은 아니지만, trust가 낮다면 permission extension을 추가하거나 sandbox·container 안에서 실행해야 한다."><b>Safety trade-off:</b> pi's default Bash exposes a wider action space, and its core has no per-tool permission gate. That does not make pi inherently unsafe, but lower-trust work should use a permission extension or run inside a sandbox or container.</p>
+    <p style="max-width:none;margin-top:0.8em;text-align:center;font-size:1.02em;font-style:italic" data-ko="Claude Code는 더 많은 구조를 기본으로 준다. pi는 필요할 때 당신이 더하게 한다.">Claude Code ships more structure by default. Pi lets you add it when you need it.</p>
+    <p class="src">src: github.com/earendil-works/pi (core/tools/index.ts &#183; core/sdk.ts) &#183; pi README</p>
+  </section>
+
+  <!-- 8 &#183; pi 2: how it's built -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="심층 분석 · pi · 3/5">deep dive &#183; pi &#183; 3/5</p>
+    <h2 data-ko="기본은 4개, 필요하면 7개">Four active by default; seven available</h2>
+    <div class="cols">
+      <div>
+        <ul>
+          <li data-ko="&lt;b&gt;Tool 7개가 제공되고, 기본 활성은 4개다&lt;/b&gt;: &lt;code&gt;read&lt;/code&gt; · &lt;code&gt;write&lt;/code&gt; · &lt;code&gt;edit&lt;/code&gt; · &lt;code&gt;bash&lt;/code&gt;. &lt;code&gt;grep&lt;/code&gt;, &lt;code&gt;find&lt;/code&gt;, &lt;code&gt;ls&lt;/code&gt;도 구현되어 있지만 켜지 않으면 꺼져 있다 — bash가 이미 다 커버하기 때문이다."><b>Seven tools ship; four are active by default</b>: <code>read</code> &#183; <code>write</code> &#183; <code>edit</code> &#183; <code>bash</code>. <code>grep</code>, <code>find</code> and <code>ls</code> are implemented but stay off unless you enable them &#8212; bash already covers them.</li>
+          <li data-ko="&lt;b&gt;System prompt + tool 정의가 1,000token 미만&lt;/b&gt;(큰 harness들은 수천 token). 보이지 않게 주입되는 내용이 없다 — 다만 이는 &lt;b&gt;고정&lt;/b&gt; 비용일 뿐이다. core에 subagent가 없으므로 model이 읽은 것은 모두 하나의 history에 남는다."><b>System prompt + tool definitions &lt; 1,000 tokens</b> (vs. multi-thousand for the big harnesses). Nothing injected behind your back &#8212; but that is the <b>fixed</b> cost only: with no subagent in core, whatever the model reads stays in the one history.</li>
+          <li data-ko="loop는 streaming async generator다; 부분 JSON parsing으로 tool 호출이 흘러 들어오는 동안 diff를 실시간으로 그린다.">Loop is a streaming async generator; partial-JSON parsing paints live diffs as tool calls stream in.</li>
+          <li data-ko="&lt;b&gt;Session은 JSONL tree다&lt;/b&gt; — 문서화된 공개 format: branch, fork, replay, 후처리. session 도중 model/provider를 context째 넘겨 바꿀 수 있다."><b>Sessions are JSONL trees</b> &#8212; a documented public format: branch, fork, replay, post-process. Switch model/provider mid-session with full context handoff.</li>
+          <li data-ko="내장 permission도 sandbox도 &lt;em&gt;의도적으로&lt;/em&gt; 없다 — &lt;b&gt;Docker/Podman container&lt;/b&gt;나 &lt;b&gt;bubblewrap 같은 OS sandbox&lt;/b&gt;로 격리한다. 유일한 gate는 &lt;b&gt;project trust&lt;/b&gt;다. pi가 설정을 읽고 package를 설치하며 extension을 실행하기 전에 폴더마다 한 번 묻는다.">No built-in permissions or sandbox <em>by design</em> &#8212; isolate it with a <b>Docker/Podman container</b> or an <b>OS sandbox such as bubblewrap</b>. The one gate is <b>project trust</b>: a single prompt per folder, before pi loads its settings, installs its packages, or runs its extensions.</li>
+        </ul>
+      </div>
+      <div class="narrow">
+        <div class="fact-col">
+          <div class="fact"><div class="k">pi-ai</div><div class="v" data-ko="통합 LLM API: API 형식 4종 → 15+ provider">unified LLM API: 4 dialects &#8594; 15+ providers</div></div>
+          <div class="fact"><div class="k">pi-agent-core</div><div class="v" data-ko="loop 그 자체: tool, event, 상태">the loop: tools, events, state</div></div>
+          <div class="fact"><div class="k">pi-tui</div><div class="v" data-ko="diff를 그리는 TUI, native scrollback 유지">diff-render TUI, keeps native scrollback</div></div>
+          <div class="fact"><div class="k">pi-coding-agent</div><div class="v" data-ko="CLI: session, AGENTS.md, theme">the CLI: sessions, AGENTS.md, themes</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="src">src: github.com/earendil-works/pi (core/tools/index.ts &#183; core/sdk.ts) &#183; pi README &#183; mariozechner.at/posts/2025-11-30-pi-coding-agent</p>
+  </section>
+
+  <!-- 9 &#183; pi 3: extensions & the MCP heresy -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="심층 분석 · pi · 4/5">deep dive &#183; pi &#183; 4/5</p>
+    <h2 data-ko="Core는 작게, 나머지는 extension으로">The core stays small; extensions add the rest</h2>
+    <p class="lede" data-ko="MCP는 선택 사항.">That includes MCP: not rejected, simply added only when needed.</p>
+    <div class="card-grid two" style="margin-top:1em">
+      <div class="card">
+        <span class="who" data-ko="필요한 기능만 추가">ADD ONLY WHAT YOU NEED</span>
+        <h3 style="margin-top:0.25em" data-ko="Extension이 기능을 더한다">Extensions add capabilities</h3>
+        <p data-ko="pi는 시작할 때 TypeScript extension을 load한다. Extension은 tool, command, permission gate, UI를 추가하며 &lt;b&gt;pi package&lt;/b&gt;로 공유할 수 있다.">Pi loads TypeScript extensions at startup. They can add tools, commands, permission gates, and UI, and can be shared as <b>pi packages</b>.</p>
+        <p data-ko="&lt;b&gt;Extension은 당신과 같은 권한으로 실행되는 일반 code다.&lt;/b&gt; file을 읽고, network를 사용하고, command를 실행할 수 있으므로 신뢰하는 source만 설치해야 한다."><b>An extension is ordinary code running as you.</b> It can read files, use the network, and execute commands, so install only sources you trust.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="MCP는 선택 사항">MCP IS OPTIONAL</span>
+        <h3 style="margin-top:0.25em" data-ko="내장하지 않아도 사용할 수 있다">Not built in does not mean unavailable</h3>
+        <p data-ko="기본적으로 pi는 Bash를 통해 기존 CLI tool을 사용한다. pipe, file, script로 이미 조합할 수 있다.">By default, pi reaches existing CLI tools through Bash. They already compose through pipes, files, and scripts.</p>
+        <p data-ko="MCP는 외부 tool 연결을 표준화하지만 schema가 context를 사용한다. 필요한 사용자는 extension으로 MCP를 추가한다.">MCP standardizes external tool connections, but its schemas consume context. Users who need it add MCP through an extension.</p>
+      </div>
+    </div>
+    <div class="stat-row" style="margin-top:1em">
+      <div class="stat"><div class="n">13.7k</div><div class="l" data-ko="Playwright MCP tool 정의 21개에 드는 token">tokens for 21 Playwright MCP tool definitions</div></div>
+      <div class="stat"><div class="n">225</div><div class="l" data-ko="같은 일을 하는 CLI script + README에 드는 token">tokens for equivalent CLI scripts + a README</div></div>
+    </div>
+    <p class="footnote" style="margin-top:0.7em" data-ko="보편적인 비율이 아니라 하나의 사례이며, 요즘 client는 schema를 lazy load한다.">One example, not a universal ratio; modern clients defer schemas.</p>
+    <p style="max-width:none;margin-top:0.8em;text-align:center;font-size:1.02em;font-style:italic" data-ko="MCP를 거부하는 것이 아니라, context 비용을 필요한 사용자만 내게 한다.">Pi does not reject MCP; it makes the context cost opt-in.</p>
+    <p class="src">src: pi README &#183; docs/extensions.md &#183; mariozechner.at/posts/2025-11-02-what-if-you-dont-need-mcp</p>
+  </section>
+
+  <!-- 9b &#183; pi 5: small and local models -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="심층 분석 · pi · 5/5">deep dive &#183; pi &#183; 5/5</p>
+    <h2 data-ko="작은 local model이 pi와 잘 맞는 이유">Why a small local model gets on with pi</h2>
+    <p class="lede" data-ko="내 GPU에서 돌리는 model은 context window가 짧고 token 생성 속도도 느리다. 입력을 시작하기도 전에 수천 token을 써 버리는 harness는 어울리지 않는 세입자다.">A model on your own GPU arrives with a short context window and slow tokens. A harness that spends thousands of both before you type is the wrong tenant.</p>
+    <div class="cols" style="margin-top:0.9em">
+      <div>
+        <ul>
+          <li data-ko="&lt;b&gt;기본 부담이 작다.&lt;/b&gt; system prompt와 tool 정의를 합쳐 &lt;b&gt;1,000token 미만&lt;/b&gt; — 32k local window의 약 3%다. tool schema 스무 개가 붙은 긴 서문은 첫 file을 읽기도 전에 window의 5분의 1을 차지할 수 있다."><b>The floor is low.</b> System prompt plus tool definitions stay <b>under 1,000 tokens</b> &#8212; roughly 3% of a 32k local window. A multi-thousand-token preamble with twenty tool schemas can claim a fifth of it before the first file is read.</li>
+          <li data-ko="&lt;b&gt;작고 익숙한 tool 표면.&lt;/b&gt; &lt;code&gt;read&lt;/code&gt; &lt;code&gt;write&lt;/code&gt; &lt;code&gt;edit&lt;/code&gt; &lt;code&gt;bash&lt;/code&gt;, 그리고 그 옆의 &lt;code&gt;grep&lt;/code&gt; &lt;code&gt;find&lt;/code&gt; &lt;code&gt;ls&lt;/code&gt;. 약한 model은 처음 보는 schema 스무 개보다, 백만 번은 봤을 짧은 목록에서 훨씬 자주 올바르게 고른다."><b>A small, familiar tool surface.</b> <code>read</code> <code>write</code> <code>edit</code> <code>bash</code>, with <code>grep</code> <code>find</code> <code>ls</code> alongside. A weaker model picks correctly far more often from a short list it has seen a million times than from twenty bespoke schemas.</li>
+          <li data-ko="&lt;b&gt;결과에 도달하는 데 드는 token이 적다.&lt;/b&gt; Composio 측정에서 pi는 task당 평균 runtime token &lt;b&gt;559k&lt;/b&gt;, Claude Code는 742k였다. local GPU에서 그 격차는 비용이 아니라 실제 시간의 차이다."><b>Fewer tokens spent getting there.</b> Composio measured pi at <b>559k</b> average runtime tokens per task against Claude Code's 742k. On a local GPU that gap is wall-clock, not cents.</li>
+          <li data-ko="&lt;b&gt;작은 model이 막혔을 때의 탈출구.&lt;/b&gt; &lt;code&gt;/model&lt;/code&gt;이 session 도중 설정을 다시 읽으므로, local model이 어려운 turn 하나를 history째 frontier model에 넘길 수 있다."><b>An escape hatch when the small model stalls.</b> <code>/model</code> re-reads the config mid-session, so a local model can hand one hard turn to a frontier one with the history intact.</li>
+        </ul>
+      </div>
+      <div class="narrow">
+        <div class="loop" style="font-size:0.68em;line-height:1.55;padding:0.9em 1.1em">
+          <span class="cm"># ~/.pi/agent/models.json</span><br>
+          {<br>
+          &nbsp;&nbsp;<span class="fn">"providers"</span>: {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">"ollama"</span>: {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"baseUrl"</span>: "http://localhost:11434/v1",<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"api"</span>: "openai-completions",<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"models"</span>: [{ "id": "qwen3-coder:30b" }]<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+          &nbsp;&nbsp;}<br>
+          }
+        </div>
+        <p class="footnote" style="margin-top:0.7em" data-ko="LM Studio와 vLLM도 형태는 같다 — OpenAI 호환 base URL이면 된다. dialect 4종을 인식하므로 Anthropic과 Google endpoint도 같은 file에 들어간다.">LM Studio and vLLM are the same shape &#8212; any OpenAI-compatible base URL. Four dialects are recognised, so Anthropic and Google endpoints sit in the same file.</p>
+      </div>
+    </div>
+    <p class="footnote" style="margin-top:0.8em" data-ko="&lt;b&gt;짝을 이루는 단서:&lt;/b&gt; pi에는 permission gate가 없어서 bash가 묻지 않고 실행된다. frontier model과는 공정한 거래지만, 경로를 지어내는 7B와는 나쁜 거래다 — permission extension을 더하거나 container 안에 두자."><b>The matching caveat:</b> pi ships no permission gate, so bash runs unprompted. That is a fair trade with a frontier model and a poor one with a 7B that hallucinates a path &#8212; add the permission extension, or keep it in a container.</p>
+    <p class="src">src: pi.dev/docs (models) &#183; composio.dev agentic eval (Aug 2026) &#183; patloeber.com/gemma-4-pi-agent</p>
+  </section>
+
+  <!-- 11 &#183; CC vs pi: spec table -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="맞대결 · Claude Code vs pi">head to head &#183; claude code vs pi</p>
+    <h2 data-ko="항목별 비교">Spec by spec</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th></th><th>Claude Code</th><th>pi</th></tr>
+        </thead>
+        <tbody>
+          <tr><td data-ko="핵심 tool">Core tools</td><td data-ko="내장 tool ~15개 (Read, Edit, Bash, Grep, Glob, Agent, Skill, Web…)">~15 built-ins (Read, Edit, Bash, Grep, Glob, Agent, Skill, Web&#8230;)</td><td data-ko="&lt;b&gt;활성 4개&lt;/b&gt; — read, write, edit, bash (구현은 7개; grep/find/ls는 기본 꺼짐)"><b>4 active</b> &#8212; read, write, edit, bash (7 implemented; grep/find/ls off by default)</td></tr>
+          <tr><td data-ko="Prompt overhead &lt;span style=&quot;color:var(--muted)&quot;&gt;(고정)&lt;/span&gt;">Prompt overhead <span style="color:var(--muted)">(fixed)</span></td><td data-ko="수천 token (system prompt + tool schema)">multi-thousand tokens (system prompt + tool schemas)</td><td data-ko="총 &lt;b&gt;&amp;lt; 1,000 token&lt;/b&gt;"><b>&lt; 1,000 tokens</b> total</td></tr>
+          <tr><td data-ko="Context 관리 &lt;span style=&quot;color:var(--muted)&quot;&gt;(가변)&lt;/span&gt;">Context management <span style="color:var(--muted)">(variable)</span></td><td data-ko="자동 compaction, 숨은 reminder, &lt;b&gt;subagent 격리&lt;/b&gt;">auto-compaction, hidden reminders, <b>subagent isolation</b></td><td data-ko="보이지 않게 주입되는 것은 없다 — 대신 탐색 결과가 하나의 history에 쌓인다">nothing injected invisibly &#8212; but exploration lands in the one history</td></tr>
+          <tr><td data-ko="Subagent">Subagents</td><td data-ko="내장 Agent tool, subagent마다 새 context">built-in Agent tool, fresh context per subagent</td><td data-ko="core에는 없음 — 예제 extension으로 제공">not in core &#8212; shipped as an example extension</td></tr>
+          <tr><td>MCP</td><td data-ko="지원, context 절약을 위해 schema lazy load">yes, schemas deferred to save context</td><td data-ko="&lt;b&gt;설계상 core에 없음&lt;/b&gt; — 대신 CLI tool + bash; extension으로 추가"><b>not in core by design</b> &#8212; CLI tools + bash instead; an extension adds it</td></tr>
+          <tr><td data-ko="Extensibility">Extensibility</td><td data-ko="hook · skill · plugin · marketplace">hooks &#183; skills &#183; plugins &#183; marketplaces</td><td data-ko="hot load TypeScript extension · skill · package">hot-loaded TypeScript extensions &#183; skills &#183; packages</td></tr>
+          <tr><td data-ko="Session">Sessions</td><td data-ko="resume/fork; 내부 format">resume/fork; internal format</td><td data-ko="문서화된 &lt;b&gt;JSONL tree&lt;/b&gt; — branch, replay, 후처리">documented <b>JSONL trees</b> &#8212; branch, replay, post-process</td></tr>
+          <tr><td data-ko="안전">Safety</td><td data-ko="permission engine + bash AST 검사 + &lt;b&gt;OS sandbox&lt;/b&gt;">permission engine + bash AST screening + <b>OS sandbox</b></td><td data-ko="tool 단위 gate 없음 — 폴더당 한 번의 &lt;b&gt;project trust&lt;/b&gt;; sandboxing은 container의 몫">no per-tool gate &#8212; <b>project trust</b> once per folder; sandboxing is your container's job</td></tr>
+          <tr><td data-ko="Model">Models</td><td data-ko="Claude 전용 (Bedrock/Vertex routing)">Claude only (Bedrock/Vertex routing)</td><td data-ko="무엇이든 — 15+ provider, session 도중 교체 가능">any &#8212; 15+ providers, switchable mid-session</td></tr>
+          <tr><td data-ko="소스">Source</td><td data-ko="비공개, 압축된 bundle (SDK + sandbox는 공개)">closed, minified bundle (SDK + sandbox open)</td><td data-ko="MIT core, 반나절이면 다 읽을 수 있다">MIT core, readable in an afternoon</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="footnote" data-ko="경험칙: 상자를 열자마자 최대 성능을 원하면 Claude Code, 모든 token을 보고 — 또 소유하고 — 싶으면 pi.">Rule of thumb: Claude Code when you want maximum capability out of the box; pi when you want to see &#8212; and own &#8212; every token.</p>
+  </section>
+
+  <!-- 14 &#183; opencode 1: what it is -->
+  <section class="slide dense" data-section="opencode" data-section-ko="opencode">
+    <p class="eyebrow" data-ko="심층 분석 · opencode · 1/3">deep dive &#183; opencode &#183; 1/3</p>
+    <h2 data-ko="opencode — 익숙한 UX, 열린 architecture">opencode &#8212; familiar UX, open architecture</h2>
+    <p class="lede" data-ko="Claude Code와 비슷한 사용감을 가진 open source coding agent — 그리고 &lt;b&gt;GitHub star 200k+&lt;/b&gt;.">An open-source coding agent with Claude Code-like ergonomics &#8212; and <b>200k+ GitHub stars</b>.</p>
+    <div class="cols" style="margin-top:0.8em">
+      <div>
+        <div class="card-grid two">
+          <div class="card">
+            <span class="who" data-ko="익숙한 점">FAMILIAR</span>
+            <h3 style="margin-top:0.25em" data-ko="같은 작업 리듬">The same working rhythm</h3>
+            <p data-ko="&lt;code&gt;plan&lt;/code&gt; / &lt;code&gt;build&lt;/code&gt;, 탐색용 subagent, &lt;code&gt;AGENTS.md&lt;/code&gt;, &lt;code&gt;/init&lt;/code&gt;, skill, MCP, hook, permission prompt."><code>plan</code> / <code>build</code>, discovery subagents, <code>AGENTS.md</code>, <code>/init</code>, skills, MCP, hooks and permission prompts.</p>
+          </div>
+          <div class="card">
+            <span class="who" data-ko="다른 점">DIFFERENT</span>
+            <h3 style="margin-top:0.25em" data-ko="세 가지 구조적 베팅">Three structural bets</h3>
+            <p data-ko="&lt;b&gt;어떤 model이든&lt;/b&gt; — 75+ provider."><b>Any model</b> &#8212; 75+ providers.</p>
+            <p data-ko="&lt;b&gt;Server 우선&lt;/b&gt; — 여러 client."><b>Server-first</b> &#8212; many clients.</p>
+            <p data-ko="&lt;b&gt;설정 우선&lt;/b&gt; — agent와 정책이 file이다."><b>Config-first</b> &#8212; agents and policy are files.</p>
+          </div>
+        </div>
+      </div>
+      <div class="narrow">
+        <div class="fact-col compact">
+          <div class="fact"><div class="k" data-ko="개발사">vendor</div><div class="v">SST / Anomaly Innovations</div></div>
+          <div class="fact"><div class="k" data-ko="stack">stack</div><div class="v">TypeScript &#183; Bun</div></div>
+          <div class="fact"><div class="k" data-ko="license">license</div><div class="v" data-ko="MIT · 기여자 ~1,000명">MIT &#183; ~1,000 contributors</div></div>
+          <div class="fact"><div class="k" data-ko="확산">traction</div><div class="v" data-ko="star 200k+">200k+ stars</div></div>
+          <div class="fact"><div class="k" data-ko="핵심 베팅">core bet</div><div class="v t" data-ko="agent는 곧 server다">the agent is a server</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="src">src: github.com/anomalyco/opencode (200,363&#9733;, Aug 23 2026) &#183; opencode.ai/docs &#183; counts change weekly</p>
+  </section>
+
+  <!-- 15 &#183; opencode 2: what the open bet buys -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="심층 분석 · opencode · 2/3">deep dive &#183; opencode &#183; 2/3</p>
+    <h2 data-ko="하나의 server, 여러 client와 model">One server, many clients and models</h2>
+    <div class="loop" style="margin-top:0.4em;padding:0.7em 1.1em;line-height:1.8;font-size:0.82em;text-align:center">
+      <span class="fn">TUI</span> &#183; <span class="fn">Desktop</span> &#183; <span class="fn">IDE</span> &#183; <span class="fn">SDK</span>
+      &nbsp;&#8594;&nbsp; <span class="kw">opencode server</span>
+      &nbsp;&#8594;&nbsp; model &#183; tools &#183; files
+    </div>
+    <div class="card-grid" style="margin-top:0.9em">
+      <div class="card"><h3 data-ko="Client는 붙었다 떨어진다">Clients come and go</h3><p data-ko="&lt;code&gt;opencode&lt;/code&gt;는 TUI와 server를 함께 띄운다. &lt;code&gt;opencode serve&lt;/code&gt;를 따로 돌리면 &lt;b&gt;TUI가 끊겨도 server는 살아 있고&lt;/b&gt;, client는 OpenAPI로 다시 붙는다."><code>opencode</code> starts the TUI and server together. Run <code>opencode serve</code> standalone and it <b>stays alive when a TUI disconnects</b>; clients reconnect through OpenAPI.</p></div>
+      <div class="card"><h3 data-ko="Model도 교체 가능하다">Models are replaceable too</h3><p data-ko="&lt;code&gt;models.dev&lt;/code&gt;를 통해 &lt;b&gt;75+ provider&lt;/b&gt;, local model 포함. 선택적 &lt;b&gt;LSP&lt;/b&gt;(Language Server Protocol) feedback이 code intelligence를 더해 주지만 &lt;b&gt;기본은 꺼짐&lt;/b&gt;이다."><b>75+ providers</b> via <code>models.dev</code>, including local models. Optional <b>LSP</b> (Language Server Protocol) feedback adds code intelligence; it is <b>off by default</b>.</p></div>
+      <div class="card"><h3 data-ko="같은 core가 CI에서도 돈다">The same core runs in CI</h3><p data-ko="&lt;code&gt;opencode run --format json&lt;/code&gt;으로 script화한다. GitHub 연동은 vendor cloud가 아니라 &lt;b&gt;당신의 Actions runner&lt;/b&gt;에서 실행된다."><code>opencode run --format json</code> scripts it. GitHub integration executes in <b>your Actions runner</b>, not a vendor cloud.</p></div>
+    </div>
+    <p style="max-width:none;margin-top:1em;text-align:center;font-size:1.02em;font-style:italic" data-ko="Zen은 선택형 model 접근 서비스를 판매하지만, MIT harness는 그 서비스 없이도 온전히 사용할 수 있다.">Zen sells optional model access; the MIT harness remains complete without it.</p>
+    <p class="src">src: opencode.ai/docs/server &#183; /providers &#183; /lsp &#183; /cli &#183; /github &#183; /zen</p>
+  </section>
+
+  <!-- 16 &#183; opencode 3: configuration is the product -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="심층 분석 · opencode · 3/3">deep dive &#183; opencode &#183; 3/3</p>
+    <h2 data-ko="설정이 곧 제품이다">Configuration is the product</h2>
+    <div class="cols">
+      <div>
+        <p data-ko="&lt;b&gt;주 agent:&lt;/b&gt; &lt;code&gt;build&lt;/code&gt;는 전체 permission, &lt;code&gt;plan&lt;/code&gt;은 수정이나 bash 전에 묻는다. &lt;code&gt;Tab&lt;/code&gt;으로 전환."><b>Primary agents:</b> <code>build</code> has full access; <code>plan</code> asks before edits or bash. Switch with <code>Tab</code>.</p>
+        <p style="margin-top:0.8em" data-ko="&lt;b&gt;Subagent:&lt;/b&gt; &lt;code&gt;explore&lt;/code&gt;는 당신의 code를, &lt;code&gt;scout&lt;/code&gt;은 의존성을 읽는다. &lt;code&gt;@&lt;/code&gt;로 부르고, 탐색은 자식 session에 남는다."><b>Subagents:</b> <code>explore</code> reads your code; <code>scout</code> reads dependencies. Call them with <code>@</code>; discovery stays in a child session.</p>
+        <p style="margin-top:0.8em" data-ko="모든 agent가 자기 &lt;b&gt;model, prompt, step 제한, permission&lt;/b&gt;을 설정할 수 있다. 각 permission은 &lt;code&gt;allow&lt;/code&gt;, &lt;code&gt;ask&lt;/code&gt;, &lt;code&gt;deny&lt;/code&gt; 중 하나다.">Every agent can set its own <b>model, prompt, step limit and permissions</b>. Each permission is <code>allow</code>, <code>ask</code> or <code>deny</code>.</p>
+        <p class="footnote" style="margin-top:0.9em" data-ko="&lt;b&gt;민감한 저장소인가?&lt;/b&gt; 공유를 끄고 강한 격리는 container로 하자; 내장 OS sandbox는 없다."><b>Sensitive repo?</b> Disable sharing and use a container for hard isolation; there is no built-in OS sandbox.</p>
+      </div>
+      <div>
+        <div class="card"><h3 data-ko="필요한 곳에만 tool을 드러내라">Reveal tools only where needed</h3>
+        <div class="loop" style="margin-top:0.6em;font-size:0.8em;line-height:1.7;padding:0.8em 1em">
+<span class="cm">// opencode.json</span><br>
+"permission": { "playwright_*": <span class="fn">"deny"</span> },<br>
+"agent": {<br>
+&nbsp;&nbsp;"e2e": { "permission": { "playwright_*": <span class="fn">"allow"</span> } }<br>
+}
+        </div>
+        <p style="margin-top:0.6em" data-ko="&lt;code&gt;e2e&lt;/code&gt;만 Playwright의 schema를 본다: &lt;b&gt;context도 tool 소음도 줄어든다&lt;/b&gt;.">Only <code>e2e</code> sees Playwright's schemas: <b>less context, less tool noise</b>.</p></div>
+        <div class="card" style="margin-top:0.7em"><h3 data-ko="쉬운 이전">Easy migration</h3><p data-ko="&lt;code&gt;AGENTS.md&lt;/code&gt;가 기본이지만, OpenCode는 기존 &lt;b&gt;&lt;code&gt;CLAUDE.md&lt;/code&gt;&lt;/b&gt; 규칙도 읽는다."><code>AGENTS.md</code> is native, but OpenCode also reads existing <b><code>CLAUDE.md</code></b> rules.</p></div>
+      </div>
+    </div>
+    <p class="src">src: opencode.ai/docs/agents &#183; /permissions &#183; /tools &#183; /rules &#183; /share &#183; source: session/llm/request.ts</p>
+  </section>
+
+
+  <!-- 12 &#183; Goose 1 &#8212; commented out; drop the wrapper to bring it back -->
+  <!--
+  <section class="slide" data-section="Goose" data-section-ko="Goose">
+    <p class="eyebrow">deep dive &#183; goose &#183; 1/2</p>
+    <h2>Goose &#8212; the open platform play</h2>
+    <div class="cols">
+      <div>
+        <p class="lede">Block's general-purpose local agent, now foundation-governed: donated to the Linux Foundation's Agentic AI Foundation in Dec 2025, alongside MCP and AGENTS.md.</p>
+        <ul>
+          <li><b>Rust core</b>, Apache-2.0; three surfaces &#8212; CLI, Electron desktop app, SDK &#8212; all speaking to one core over the <b>Agent Client Protocol</b>.</li>
+          <li>Radically <b>provider-agnostic</b>: 50+ providers, plus a <b>lead/worker</b> split &#8212; frontier model plans the first turns, a cheaper model executes, with fallback.</li>
+          <li>Not just coding: recipes, schedulers, and memory aim it at general automation.</li>
+        </ul>
+      </div>
+      <div class="narrow">
+        <div class="fact-col">
+          <div class="fact"><div class="k">vendor</div><div class="v">Block &#8594; AAIF / Linux Foundation</div></div>
+          <div class="fact"><div class="k">stack</div><div class="v">Rust core &#183; Electron GUI</div></div>
+          <div class="fact"><div class="k">license</div><div class="v">Apache-2.0 &#183; ~53k stars</div></div>
+          <div class="fact"><div class="k">bet</div><div class="v t">open standards + governance</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="src">src: github.com/aaif-goose/goose &#183; goose-docs.ai &#183; linuxfoundation.org (AAIF announcement)</p>
+  </section>
+  -->
+
+  <!-- 11 &#183; Goose 2 &#8212; commented out; drop the wrapper to bring it back -->
+  <!--
+  <section class="slide dense">
+    <p class="eyebrow">deep dive &#183; goose &#183; 2/2</p>
+    <h2>Everything is an MCP server</h2>
+    <div class="card-grid two">
+      <div class="card"><h3>MCP-first extensions</h3><p>Goose's plugin system <b>is</b> MCP &#8212; even the built-in tools (Developer's shell + editor, Memory, Computer Controller) are MCP servers. Any of the 3,000+ public servers plugs in; an <code>available_tools</code> filter trims token overhead.</p></div>
+      <div class="card"><h3>Recipes &amp; scheduling</h3><p>Declarative YAML workflows: instructions, parameters, structured-output schema, <b>retry logic with shell-command checks</b>, sub-recipes. Cron-scheduled runs and headless <code>goose run</code> for CI.</p></div>
+      <div class="card"><h3>Context &amp; sessions</h3><p>Auto-compaction at <b>80% of the window</b>; older tool outputs summarized in the background. Sessions in SQLite; subagents get isolated contexts, capped at 10 parallel workers.</p></div>
+      <div class="card"><h3>Trust model</h3><p>Modes: <code>auto</code> / <code>approve</code> / <code>smart_approve</code> (risk-judged) / <code>chat</code>; enterprise extension allowlists. <b>No OS sandbox</b> &#8212; and Block's own red-team showed a calendar-invite prompt injection driving the shell tool. Mitigations shipped; a good cautionary tale for the talk.</p></div>
+    </div>
+    <p class="src">src: goose-docs.ai &#183; engineering.block.xyz "How we red-teamed our own AI agent"</p>
+  </section>
+  -->
+
+
+  <!-- 16 &#183; dsh 1: what it is -->
+  <section class="slide" data-section="DeepSeek Harness" data-section-ko="DeepSeek Harness">
+    <p class="eyebrow" data-ko="떠오르는 별 · DeepSeek Harness · 1/4">rising star &#183; deepseek harness &#183; 1/4</p>
+    <h2>DeepSeek Harness (dsh)</h2>
+    <div class="cols">
+      <div>
+        <p class="lede" data-ko="V4-Pro와 함께 &lt;b&gt;2026년 8월 13일&lt;/b&gt;에 공개된 open agent runtime. 그 명제: &lt;strong&gt;Model + Harness = Agent.&lt;/strong&gt;">An open agent runtime released with V4-Pro on <b>August 13, 2026</b>. Its thesis: <strong>Model + Harness = Agent.</strong></p>
+        <ul>
+          <li data-ko="&lt;b&gt;모든 것이 교체 가능하다&lt;/b&gt; — agent loop까지도."><b>Everything is replaceable</b> &#8212; even the agent loop.</li>
+          <li data-ko="&lt;b&gt;Model 비종속&lt;/b&gt; — 40+ provider adapter, 여기에 Claude Code나 Codex CLI로의 위임까지."><b>Model-agnostic</b> &#8212; 40+ provider adapters, plus delegation to Claude Code or Codex CLI.</li>
+          <li data-ko="&lt;b&gt;실험을 위해 만들어졌다&lt;/b&gt; — TypeScript/Node core 위에 Web UI, CLI, Python SDK."><b>Built for experimentation</b> &#8212; Web UI, CLI and Python SDK over a TypeScript/Node core.</li>
+        </ul>
+        <p style="margin-top:0.9em;font-style:italic" data-ko="열흘 만에 star 185k+; 인상적인 관심이지, 성숙도의 증거는 아니다.">185k+ stars in ten days; impressive attention, not proof of maturity.</p>
+      </div>
+      <div class="narrow">
+        <div class="fact-col">
+          <div class="fact"><div class="k" data-ko="개발사">vendor</div><div class="v">DeepSeek &#183; Aug 2026</div></div>
+          <div class="fact"><div class="k" data-ko="stack">stack</div><div class="v">TypeScript / Node</div></div>
+          <div class="fact"><div class="k" data-ko="상태">status</div><div class="v" data-ko="v0.1 개발자 preview">v0.1 developer preview</div></div>
+          <div class="fact"><div class="k" data-ko="license">license</div><div class="v">MIT</div></div>
+          <div class="fact"><div class="k" data-ko="핵심 베팅">core bet</div><div class="v t" data-ko="모든 것이 plugin">everything is a plugin</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="src">src: github.com/deepseek-ai/deepseek-harness (185,162&#9733;, Aug 23 2026) &#183; thenewstack.io &#183; counts change quickly</p>
+  </section>
+
+  <!-- 15 &#183; dsh 2: architecture -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="떠오르는 별 · DeepSeek Harness · 2/4">rising star &#183; deepseek harness &#183; 2/4</p>
+    <h2 data-ko="loop마저 plugin이다">Even the loop is a plugin</h2>
+    <div class="card-grid two">
+      <div class="card"><h3 data-ko="고정된 loop vs. 교체 가능한 loop">Fixed loop vs. replaceable loop</h3><p data-ko="대부분의 coding agent는 &lt;code&gt;model → tool → result → repeat&lt;/code&gt;을 core에 박아 둔다. DSH는 그 orchestration을 model·tool·storage·sandbox와 나란히 &lt;b&gt;교체 가능한 component&lt;/b&gt;로 만든다.">Most coding agents bake in <code>model &#8594; tool &#8594; result &#8594; repeat</code>. DSH makes that orchestration a <b>replaceable component</b>, alongside models, tools, storage and sandboxes.</p></div>
+      <div class="card"><h3 data-ko="Event 기반 실행">Event-driven execution</h3><p data-ko="&lt;code&gt;turn/start → step → tools/execute → turn/end&lt;/code&gt;. 각 경계에서 plugin이 작업을 &lt;b&gt;관찰·수정·거부·대체&lt;/b&gt;할 수 있다 — 승인, 검증, tracing, 혹은 다른 다음 단계 정책을 붙인다."><code>turn/start &#8594; step &#8594; tools/execute &#8594; turn/end</code>. At each boundary a plugin can <b>observe, modify, reject or replace</b> work &#8212; add approval, verification, tracing, or a different next-step policy.</p></div>
+      <div class="card"><h3 data-ko="Replay 가능한 session">Replayable sessions</h3><p data-ko="Append-only event log가 model이 무엇을 보고 무엇을 했는지 보존한다. resume, fork, replay가 같은 history를 쓰며, compaction은 증거를 잃는 대신 교체 가능한 view가 된다.">An append-only event log preserves what the model saw and did. Resume, fork and replay use the same history; compaction becomes a replaceable view, not lost evidence.</p></div>
+      <div class="card"><h3 data-ko="네 가지 실행 mode">Four run modes</h3><p data-ko="&lt;b&gt;Standard&lt;/b&gt;: 전체 runtime · &lt;b&gt;Minimal&lt;/b&gt;: bash + editor, 낮은 overhead · &lt;b&gt;PTC&lt;/b&gt;(programmatic tool calling): 생성된 TypeScript가 tool 호출을 묶어 왕복을 줄인다 · &lt;b&gt;Creation&lt;/b&gt;: agent component를 만든다."><b>Standard</b>: full runtime &#183; <b>Minimal</b>: bash + editor, lower overhead &#183; <b>PTC</b> (programmatic tool calling): generated TypeScript batches tool calls, fewer round trips &#183; <b>Creation</b>: builds agent components.</p></div>
+    </div>
+    <p style="max-width:none;margin-top:0.8em;text-align:center;font-size:1.02em;font-style:italic" data-ko="loop는 더 이상 숨겨진 상수가 아니다; 실험의 일부다.">The loop is no longer a hidden constant; it is part of the experiment.</p>
+    <p class="src">src: thenewstack.io "DeepSeek Harness open source plugins" &#183; justin3go.com review (Aug 15)</p>
+  </section>
+
+  <!-- dsh 3: comparison -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="떠오르는 별 · DeepSeek Harness · 3/4">rising star &#183; deepseek harness &#183; 3/4</p>
+    <h2 data-ko="다른 harness는 철학을 고른다. dsh는 철학을 mode로 만든다.">Other harnesses choose a philosophy. dsh makes it a mode.</h2>
+    <p class="lede" data-ko="동등하다는 뜻이 아니라 대략의 비유다: DSH는 익숙한 tool 철학들을 재현한 뒤 그 너머로 갈 수 있다.">A rough analogy, not equivalence: DSH can reproduce familiar tool philosophies, then go beyond them.</p>
+    <div class="card-grid two" style="margin-top:0.9em">
+      <div class="card"><span class="who">CLAUDE CODE</span><h3 style="margin-top:0.25em" data-ko="풍부하고 고정된 제품">Rich, fixed product</h3><p data-ko="DSH &lt;b&gt;Standard&lt;/b&gt;에 가장 가깝다: 넓은 tool 표면을 갖춘 완결된 runtime. Claude Code도 extension을 열어 두지만, core loop는 Anthropic이 쥐고 있다.">Closest to DSH <b>Standard</b>: a complete runtime with a broad tool surface. Claude Code exposes extensions, but Anthropic owns the core loop.</p></div>
+      <div class="card"><span class="who">PI</span><h3 style="margin-top:0.25em" data-ko="작고 고정된 core">Small, fixed core</h3><p data-ko="DSH &lt;b&gt;Minimal&lt;/b&gt;에 가장 가깝다: overhead가 적은 bash와 편집. pi에서는 minimalism이 제품 철학이지만, DSH에서는 고를 수 있는 하나의 mode다.">Closest to DSH <b>Minimal</b>: bash and editing with little overhead. In pi, minimalism is the product philosophy; in DSH, it is one selectable mode.</p></div>
+      <div class="card"><span class="who">OPENCODE</span><h3 style="margin-top:0.25em" data-ko="설정 가능한 표면">Configurable surface</h3><p data-ko="Agent, model, tool, permission을 server loop 주위에서 설정할 수 있다. DSH는 더 깊이 간다: plugin이 loop를 대체하고 모든 단계에 끼어들 수 있다.">Agents, models, tools and permissions are configurable around a server loop. DSH goes deeper: plugins can replace the loop and intercept every stage.</p></div>
+      <div class="card"><span class="who">DSH</span><h3 style="margin-top:0.25em" data-ko="harness가 곧 변수다">The harness is the variable</h3><p data-ko="익숙한 workflow에는 &lt;b&gt;Standard&lt;/b&gt;나 &lt;b&gt;Minimal&lt;/b&gt;; 작업을 프로그래밍하려면 &lt;b&gt;PTC&lt;/b&gt;; agent를 프로그래밍하려면 &lt;b&gt;Creation&lt;/b&gt;. 모든 실행은 replay 가능하다."><b>Standard</b> or <b>Minimal</b> for familiar workflows; <b>PTC</b> to program the work; <b>Creation</b> to program the agent. Every run remains replayable.</p></div>
+    </div>
+    <p style="max-width:none;margin-top:0.8em;text-align:center;font-size:1.02em;font-style:italic" data-ko="다른 곳은 묻는다: &lt;b&gt;어떤 harness?&lt;/b&gt; &amp;nbsp;·&amp;nbsp; DSH는 묻는다: &lt;b&gt;이번 실행에는 어떤 harness 동작?&lt;/b&gt;">Others ask: <b>which harness?</b> &nbsp;&#183;&nbsp; DSH asks: <b>which harness behavior for this run?</b></p>
+    <p class="src">comparison synthesized from each project's docs &#183; mode analogy is explanatory, not a compatibility claim</p>
+  </section>
+
+  <!-- dsh 4: reality check -->
+  <section class="slide">
+    <p class="eyebrow" data-ko="떠오르는 별 · DeepSeek Harness · 4/4">rising star &#183; deepseek harness &#183; 4/4</p>
+    <h2 data-ko="가능성은 있지만, 아직 주력으로 쓸 단계는 아니다">Promising, not yet a daily driver</h2>
+    <div class="cols">
+      <div>
+        <p data-ko="&lt;b&gt;왜 중요한가:&lt;/b&gt;"><b>Why it matters:</b></p>
+        <ul style="margin-top:0.2em">
+          <li data-ko="MIT로 열려 있고 들여다볼 수 있다.">MIT-open and inspectable.</li>
+          <li data-ko="Model 이식성이 있고 완전히 replay 가능하다.">Model-portable and fully replayable.</li>
+          <li data-ko="harness engineering을 위한 연구 platform.">A research platform for harness engineering.</li>
+        </ul>
+      </div>
+      <div>
+        <p data-ko="&lt;b&gt;아직 기다려야 하는 이유:&lt;/b&gt;"><b>Why wait:</b></p>
+        <ul style="margin-top:0.2em">
+          <li data-ko="v0.1 preview가 &lt;b&gt;호환성 깨짐&lt;/b&gt;을 예고한다.">Its v0.1 preview warns of <b>breaking changes</b>.</li>
+          <li data-ko="초기 review 하나는 context overhead &lt;b&gt;~47.6k token&lt;/b&gt;을 측정했고, 일부는 bug 탓이었다.">One early review measured <b>~47.6k tokens</b> of context overhead, partly from bugs.</li>
+          <li data-ko="통합 지원 범위와 vendor benchmark는 아직 독립적인 검증이 필요하다.">Integration coverage and vendor benchmarks still need independent verification.</li>
+        </ul>
+      </div>
+    </div>
+    <p style="max-width:none;margin-top:1.1em;text-align:center;font-size:1.08em;font-style:italic" data-ko="오늘 기준으로는 완성된 coding 제품이 아니라, 열린 harness 실험실로 보는 게 맞다.">Best viewed today as an open harness laboratory, not a finished coding product.</p>
+    <p class="src">src: github.com/deepseek-ai/deepseek-harness &#183; justin3go.com review (Aug 15) &#183; docs.bswen.com "DeepSeek Harness vs Pi"</p>
+  </section>
+
+  <!-- 14 &#183; Hermes 1: what it is -->
+  <section class="slide" data-section="Hermes" data-section-ko="Hermes">
+    <p class="eyebrow" data-ko="심층 분석 · Hermes · 1/4">deep dive &#183; hermes &#183; 1/4</p>
+    <h2 data-ko="Hermes — 기억하는 agent">Hermes &#8212; the agent that remembers</h2>
+    <div class="cols">
+      <div>
+        <p class="lede" data-ko="여기까지는 모두 code를 중심으로 짜여 있었다. Nous Research의 개인 agent는 중심을 &lt;b&gt;기억과 자기 개선&lt;/b&gt;으로 옮긴다.">Everything so far was organized around code. Nous Research's personal agent shifts the center to <b>memory and self-improvement</b>.</p>
+        <ul>
+          <li data-ko="&lt;b&gt;지속적:&lt;/b&gt; 정리된 기억, 사용자 선호, 재사용 가능한 skill을 session이 끝난 뒤에도 유지한다."><b>Persistent:</b> it carries curated memory, user preferences and reusable skills across sessions.</li>
+          <li data-ko="&lt;b&gt;어디서든 실행:&lt;/b&gt; local, Docker, SSH, 그리고 네 종류의 cloud/HPC backend. Daytona와 Modal은 유휴 시 절전한다."><b>Runs anywhere:</b> local, Docker, SSH or four cloud/HPC backends. Daytona and Modal hibernate when idle.</li>
+          <li data-ko="&lt;b&gt;Model 비종속:&lt;/b&gt; 주요 provider, 호환 endpoint, 또는 선택적 Nous Portal bundle을 쓴다."><b>Model-agnostic:</b> use major providers, compatible endpoints or the optional Nous Portal bundle.</li>
+        </ul>
+        <p style="margin-top:0.9em;font-style:italic" data-ko="베팅: agent는 오래 쓸수록 더 유용해져야 한다.">The bet: an agent should become more useful the longer you use it.</p>
+      </div>
+      <div class="narrow">
+        <div class="fact-col">
+          <div class="fact"><div class="k" data-ko="개발사">vendor</div><div class="v">Nous Research &#183; Jul 2025</div></div>
+          <div class="fact"><div class="k" data-ko="stack">stack</div><div class="v" data-ko="Python · tool 70+">Python &#183; 70+ tools</div></div>
+          <div class="fact"><div class="k" data-ko="license">license</div><div class="v">MIT</div></div>
+          <div class="fact"><div class="k" data-ko="도달 범위">reach</div><div class="v" data-ko="실행 backend 7종">7 execution backends</div></div>
+          <div class="fact"><div class="k" data-ko="핵심 베팅">core bet</div><div class="v t" data-ko="scaffold보다 기억">memory over scaffold</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="src">src: github.com/NousResearch/hermes-agent &#183; hermes-agent.nousresearch.com/docs (architecture, providers)</p>
+  </section>
+
+  <!-- Hermes 2: category framing -->
+  <section class="slide">
+    <p class="eyebrow" data-ko="심층 분석 · Hermes · 2/4">deep dive &#183; hermes &#183; 2/4</p>
+    <h2 data-ko="Open source Claude Code가 아니다">Not an open Claude Code</h2>
+    <p class="lede" data-ko="Hermes도 code를 쓸 수 있지만, 저장소 우선 coding assistant보다는 &lt;b&gt;OpenClaw&lt;/b&gt; — 늘 대기하는 messaging 우선 개인 agent — 에 가깝다.">Hermes can write code, but it sits closer to <b>OpenClaw</b> &#8212; a messaging-first personal agent that stays available &#8212; than to a repository-first coding assistant.</p>
+    <div class="cols" style="margin-top:1em">
+      <div class="card">
+        <span class="who">CLAUDE CODE</span>
+        <h3 style="margin-top:0.25em" data-ko="저장소를 중심으로 구성">Organized around a repository</h3>
+        <p data-ko="Terminal과 IDE · 작업 단위 session · 살펴보고, 고치고, test한다.">Terminal and IDE &#183; task-oriented sessions &#183; inspect, edit, test.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="HERMES / OPENCLAW 계열">HERMES / OPENCLAW CATEGORY</span>
+        <h3 style="margin-top:0.25em" data-ko="사람을 중심으로 구성">Organized around a person</h3>
+        <p data-ko="Messaging gateway · 지속되는 기억 · 예약 작업 · 원격 실행.">Messaging gateway &#183; persistent memory &#183; scheduled work &#183; remote execution.</p>
+      </div>
+    </div>
+    <p style="max-width:none;margin-top:1.2em;text-align:center;font-size:1.08em;font-style:italic" data-ko="Claude Code: &lt;b&gt;살펴보기 → 고치기 → test&lt;/b&gt; &amp;nbsp;·&amp;nbsp; Hermes: &lt;b&gt;기억하기 → 자동화 → 소통&lt;/b&gt;">Claude Code: <b>inspect &#8594; edit &#8594; test</b> &nbsp;&#183;&nbsp; Hermes: <b>remember &#8594; automate &#8594; communicate</b></p>
+    <p class="footnote" style="margin-top:0.9em" data-ko="&lt;code&gt;hermes claw migrate&lt;/code&gt;는 의도된 이전 경로를 분명히 보여준다: OpenClaw의 persona, 기억, skill, messaging 설정, allowlist를 가져온다."><code>hermes claw migrate</code> makes the intended migration path explicit: it imports OpenClaw personas, memories, skills, messaging settings and allowlists.</p>
+    <p class="src">src: Hermes README &#183; README "Migrating from OpenClaw" &#183; <code>hermes claw migrate</code></p>
+  </section>
+
+  <!-- Hermes 3: the learning loop -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="심층 분석 · Hermes · 3/4">deep dive &#183; hermes &#183; 3/4</p>
+    <h2 data-ko="Agent loop를 감싸는 학습 loop">A learning loop around the agent loop</h2>
+    <div class="card-grid two">
+      <div class="card"><h3 data-ko="Skill이 절차가 된다">Skills become procedures</h3><p data-ko="복잡한 작업을 마치면 Hermes는 &lt;b&gt;재사용 가능한 skill을 만들고&lt;/b&gt; 이후 쓰면서 다듬을 수 있다. skill은 이식 가능한 &lt;b&gt;agentskills.io&lt;/b&gt; format을 따른다.">After complex work, Hermes can <b>create a reusable skill</b> and improve it during later use. Skills follow the portable <b>agentskills.io</b> format.</p></div>
+      <div class="card"><h3 data-ko="기억이 개인화된다">Memory becomes personal</h3><p data-ko="&lt;code&gt;MEMORY.md&lt;/code&gt;와 &lt;code&gt;USER.md&lt;/code&gt;가 중요한 것을 남긴다. &lt;b&gt;Honcho&lt;/b&gt;는 session을 넘어 사용자를 modeling하고, &lt;code&gt;SOUL.md&lt;/code&gt;는 agent의 정체성을 정의한다."><code>MEMORY.md</code> and <code>USER.md</code> persist what matters. <b>Honcho</b> models the user across sessions; <code>SOUL.md</code> defines the agent's identity.</p></div>
+      <div class="card"><h3 data-ko="지난 session은 계속 검색된다">Past sessions stay searchable</h3><p data-ko="SQLite와 &lt;b&gt;FTS5&lt;/b&gt; 전체 텍스트 index가 &lt;b&gt;전체 텍스트 검색&lt;/b&gt;을 제공한다. 긴 대화는 압축되지만 session 계보는 보존된다.">SQLite with its <b>FTS5</b> full-text index provides <b>full-text recall</b>. Long conversations are compressed while session lineage is preserved.</p></div>
+      <div class="card"><h3 data-ko="지켜보지 않아도 일이 이어진다">Work continues unattended</h3><p data-ko="Subagent가 병렬 작업을 격리하고, Python이 &lt;b&gt;tool 호출을 묶을&lt;/b&gt; 수 있으며, cron job이 결과를 messaging platform으로 보낸다.">Subagents isolate parallel work, Python can <b>batch tool calls</b>, and cron jobs deliver results to messaging platforms.</p></div>
+    </div>
+    <p style="max-width:none;margin-top:0.9em;text-align:center;font-size:1.02em;font-style:italic" data-ko="경험 → 기억 또는 skill → 다음번엔 더 나은 동작.">Experience &#8594; memory or skill &#8594; better behavior next time.</p>
+    <p class="src">src: docs/developer-guide/architecture &#183; docs/user-guide/features/{skills,memory,cron,honcho}</p>
+  </section>
+
+  <!-- 14 &#183; Hermes 3: reach and trust -->
+  <section class="slide dense">
+    <p class="eyebrow" data-ko="심층 분석 · Hermes · 4/4">deep dive &#183; hermes &#183; 4/4</p>
+    <h2 data-ko="어디서나 닿지만, 필요할 땐 격리된다">Available everywhere; isolated when it matters</h2>
+    <div class="cols">
+      <div>
+        <p class="lede" data-ko="&lt;b&gt;하나의 gateway, 25+ adapter.&lt;/b&gt; Hermes가 다른 머신에서 일하는 동안에도 Telegram, Discord, Slack, WhatsApp, Signal, Teams, email 등으로 메시지를 보낼 수 있다."><b>One gateway, 25+ adapters.</b> Message Hermes through Telegram, Discord, Slack, WhatsApp, Signal, Teams, email and more while it works on another machine.</p>
+        <div class="card" style="margin-top:0.9em"><h3 data-ko="다층 방어">Defense in depth</h3><p data-ko="&lt;code&gt;smart&lt;/code&gt; / &lt;code&gt;manual&lt;/code&gt; / &lt;code&gt;off&lt;/code&gt; 명령 승인보다 &lt;b&gt;해제할 수 없는 차단 목록&lt;/b&gt;이 우선한다. Hermes는 자격 증명 경로도 보호하고, 비밀값을 걸러내며, context file에 prompt injection이 있는지 검사한다."><code>smart</code> / <code>manual</code> / <code>off</code> command approval sits above an <b>unoverrideable blocklist</b>. Hermes also protects credential paths, filters secrets and scans context files for prompt injection.</p></div>
+        <div class="card" style="margin-top:0.7em"><h3 data-ko="강한 격리">Hard isolation</h3><p data-ko="Container backend는 최소 permission과 &lt;code&gt;no-new-privileges&lt;/code&gt;를 쓴다. 그 안에서는 명령 승인이 생략되는데, &lt;b&gt;container가 곧 경계&lt;/b&gt;이기 때문이다.">Container backends use minimal capabilities and <code>no-new-privileges</code>. Inside them, command approval is skipped because <b>the container is the boundary</b>.</p></div>
+      </div>
+      <div>
+        <p data-ko="&lt;b&gt;경계가 어디인지 알아 두자:&lt;/b&gt;"><b>Know where the boundaries are:</b></p>
+        <ul style="margin-top:0.3em">
+          <li data-ko="쓰기 가드는 &lt;code&gt;write_file&lt;/code&gt;과 &lt;code&gt;patch&lt;/code&gt;를 보호하지, &lt;b&gt;shell은 보호하지 않는다&lt;/b&gt;.">Write guards protect <code>write_file</code> and <code>patch</code>, <b>not the shell</b>.</li>
+          <li data-ko="Local과 SSH backend는 sandbox가 아니다.">Local and SSH backends are not sandboxes.</li>
+          <li data-ko="deny 규칙은 &lt;em&gt;선의지만 실수하는&lt;/em&gt; agent를 겨냥한 것이지, 악의적인 code를 막기 위한 것이 아니다.">Deny rules target an <em>honest-but-wrong</em> agent, not hostile code.</li>
+        </ul>
+        <p style="margin-top:1em;font-style:italic" data-ko="무인 실행이나 messaging 용도라면 호스트에 직접 두지 말고 Docker나 cloud sandbox에서 Hermes를 돌리자.">For unattended or messaging use, run Hermes in Docker or a cloud sandbox rather than directly on the host.</p>
+      </div>
+    </div>
+    <p class="src">src: docs/user-guide/security &#183; docs/user-guide/messaging &#183; docs/developer-guide/architecture</p>
+  </section>
+
+  <!-- Personal synthesis -->
+  <section class="slide" data-section="My take" data-section-ko="내 생각">
+    <p class="eyebrow" data-ko="내 생각">my take</p>
+    <h2 data-ko="같은 원리, 다른 믿음">Same mechanics, different beliefs</h2>
+    <p class="lede" data-ko="제품들이 비슷해 보이는 건 원리가 수렴하기 때문이다. 다르게 느껴지는 건 각자가 지능·통제·신뢰를 서로 다른 곳에 두기 때문이다.">The products look alike because the mechanics converge. They feel different because each puts intelligence, control and trust in a different place.</p>
+    <div class="cols" style="margin-top:1em">
+      <div class="card">
+        <span class="who" data-ko="수렴하는 것">WHAT CONVERGES</span>
+        <h3 style="margin-top:0.25em" data-ko="공통의 설계도">A common blueprint</h3>
+        <p data-ko="loop 안의 model · tool · context 관리 · session · permission 또는 격리 · extension 지점.">Model in a loop &#183; tools &#183; context management &#183; sessions &#183; permissions or isolation &#183; extension points.</p>
+      </div>
+      <div class="card">
+        <span class="who" data-ko="갈리는 것">WHAT DIFFERS</span>
+        <h3 style="margin-top:0.25em" data-ko="harness에 대한 철학">A philosophy of the harness</h3>
+        <p data-ko="Model은 제품인가, 설정인가? harness는 작아져야 하는가, 설정되어야 하는가, 교체되어야 하는가? 무엇이 남는가? 신뢰 경계는 어디인가?">Is the model the product or a setting? Should the harness shrink, be configured, or be replaced? What persists? Where is the trust boundary?</p>
+      </div>
+    </div>
+    <div class="loop" style="margin-top:1.1em;padding:0.8em 1em;line-height:1.8;font-size:0.84em;text-align:center">
+      <span class="fn">Claude Code</span>: model capability &nbsp;&#183;&nbsp;
+      <span class="fn">pi</span>: minimalism + ownership &nbsp;&#183;&nbsp;
+      <span class="fn">opencode</span>: configurable server &nbsp;&#183;&nbsp;
+      <span class="fn">dsh</span>: replaceable harness &nbsp;&#183;&nbsp;
+      <span class="fn">Hermes</span>: learning + memory
+    </div>
+    <p style="max-width:none;margin-top:1em;text-align:center;font-size:1.08em;font-style:italic" data-ko="Agent는 model + tool만이 아니다. &lt;b&gt;지능이 어디에 있어야 하는가&lt;/b&gt;에 대한 이론이다.">An agent is not only model + tools. It is a theory of <b>where the intelligence should live.</b></p>
+  </section>
+
+  <!-- 17 &#183; Comparison -->
+  <section class="slide dense" data-section="Comparison &amp; takeaways" data-section-ko="비교와 정리">
+    <p class="eyebrow" data-ko="나란히 보기">side by side</p>
+    <h2 data-ko="다섯 harness, 다섯 개의 무게중심">Five harnesses, five centers of gravity</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th></th><th>Claude Code</th><th>pi</th><th>opencode</th><th>dsh</th><th>Hermes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td data-ko="제품의 중심">Product center</td><td data-ko="완성된 coding agent">finished coding agent</td><td data-ko="투명하고 소유 가능한 core">transparent, ownable core</td><td data-ko="agent server">agent server</td><td data-ko="harness 실험실">harness laboratory</td><td data-ko="지속형 개인 agent">persistent personal agent</td></tr>
+          <tr><td data-ko="loop">Loop</td><td data-ko="고정, 비공개">fixed, closed</td><td data-ko="고정, 최소">fixed, minimal</td><td data-ko="고정 + plugin hook">fixed + plugin hooks</td><td data-ko="&lt;b&gt;교체 가능한 plugin&lt;/b&gt;"><b>replaceable plugin</b></td><td data-ko="고정된 실행 + 학습 계층">fixed execution + learning layer</td></tr>
+          <tr><td data-ko="Model">Models</td><td data-ko="Claude 전용">Claude only</td><td data-ko="무엇이든 (15+)">any (15+)</td><td data-ko="무엇이든 (75+)">any (75+)</td><td data-ko="무엇이든 (40+)">any (40+)</td><td data-ko="다수; Portal로 300+">many; 300+ through Portal</td></tr>
+          <tr><td data-ko="Tool 철학">Tool philosophy</td><td data-ko="풍부한 내장 tool + MCP">rich built-ins + MCP</td><td data-ko="&lt;b&gt;핵심 tool 4개&lt;/b&gt;, bash 우선"><b>4 core tools</b>, bash-first</td><td data-ko="내장 tool + MCP + LSP">built-ins + MCP + LSP</td><td data-ko="plugin + 선택 가능한 mode">plugins + selectable modes</td><td data-ko="toolset 70+ + MCP">70+ toolsets + MCP</td></tr>
+          <tr><td data-ko="Context">Context</td><td data-ko="자동 관리">managed for you</td><td data-ko="&lt;b&gt;명시적, 사용자 통제&lt;/b&gt;"><b>explicit, user-controlled</b></td><td data-ko="server session + subagent">server sessions + subagents</td><td data-ko="append-only event log">append-only event log</td><td data-ko="기억 + SQLite/FTS5">memory + SQLite/FTS5</td></tr>
+          <tr><td data-ko="강한 격리">Hard isolation</td><td data-ko="&lt;b&gt;내장 OS sandbox&lt;/b&gt;"><b>built-in OS sandbox</b></td><td data-ko="container는 직접 준비">bring a container</td><td data-ko="없음 — permission만">none &#8212; permissions only</td><td data-ko="plugin에 따라 다름">plugin-dependent</td><td data-ko="container backend">container backends</td></tr>
+          <tr><td data-ko="대표 베팅">Signature bet</td><td data-ko="model 성능">model capability</td><td data-ko="&lt;b&gt;minimalism + 소유권&lt;/b&gt;"><b>minimalism + ownership</b></td><td data-ko="설정 가능한 server">configurable server</td><td data-ko="교체 가능한 harness">replaceable harness</td><td data-ko="&lt;b&gt;시간이 갈수록 나아짐&lt;/b&gt;"><b>improves over time</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="footnote" data-ko="단순화한 비교, 2026년 8월 기준 — 각 project는 한 범주 이상에 걸쳐 있다.">Simplified comparison, Aug 2026 &#8212; each project overlaps more than one category.</p>
+  </section>
+
+  <!-- 18 &#183; Takeaways -->
+  <section class="slide">
+    <p class="eyebrow">exit code 0</p>
+    <h2 data-ko="정리">Takeaways</h2>
+    <ul style="font-size:1.08em">
+      <li data-ko="loop는 아주 작다; &lt;strong&gt;그것을 둘러싼 system이 결과를 정한다&lt;/strong&gt; — 같은 가중치에서 benchmark 7–10점의 가치다.">The loop is tiny; <strong>the system around it decides the result</strong> &#8212; worth 7&#8211;10 benchmark points on identical weights.</li>
+      <li data-ko="&lt;span class=&quot;t&quot;&gt;Claude Code&lt;/span&gt;와 &lt;span class=&quot;t&quot;&gt;pi&lt;/span&gt;는 고정된 loop를 두고 정반대에 건다: 풍부한 제품이냐, 의도적으로 작은 core냐."><span class="t">Claude Code</span> and <span class="t">pi</span> are opposite fixed-loop bets: a rich product versus a deliberately small core.</li>
+      <li data-ko="&lt;span class=&quot;t&quot;&gt;opencode&lt;/span&gt;는 model, interface, 정책을 설정 가능하게 만든다. &lt;span class=&quot;t&quot;&gt;dsh&lt;/span&gt;는 한 겹 더 내려가 &lt;strong&gt;loop 자체&lt;/strong&gt;를 설정 가능하게 만든다."><span class="t">opencode</span> makes the model, interface and policy configurable. <span class="t">dsh</span> goes one layer deeper and makes <strong>the loop itself</strong> configurable.</li>
+      <li data-ko="&lt;span class=&quot;t&quot;&gt;Hermes&lt;/span&gt;는 목표 자체를 바꾼다: 저장소 우선 copilot이 아니라, 사람을 중심으로 구성된 지속형 agent다."><span class="t">Hermes</span> changes the target: not a repository-first copilot, but a persistent agent organized around a person.</li>
+      <li data-ko="&lt;em&gt;어떤 model?&lt;/em&gt;만 묻지 말자. &lt;strong&gt;무엇을 고정하고, 무엇을 교체 가능하게 두며, 신뢰 경계는 어디인가?&lt;/strong&gt;를 묻자.">Do not ask only <em>which model?</em> Ask <strong>what should be fixed, what should be replaceable, and where is the trust boundary?</strong></li>
+    </ul>
+    <p class="prompt" style="margin-top:1.8em">exit<span class="cursor"></span></p>
+  </section>
+
+  <!-- 19 &#183; Q&amp;A -->
+  <section class="slide">
+    <p class="prompt">man agent &#8212;help<span class="cursor"></span></p>
+    <h1 data-ko="질문 있으신가요?">Questions?</h1>
+  </section>
+
+  <!-- 20 &#183; Ending / contact -->
+  <section class="slide">
+    <p class="prompt">exit 0<span class="cursor"></span></p>
+    <h1 data-ko="감사합니다">Thanks</h1>
+    <p class="lede" style="margin-top:1.3em">Han Cheol Moon</p>
+    <p class="footnote" style="font-size:1.2em">https://han8931.github.io</p>
+  </section>
+
+</div>
+
+<div class="hud">
+  <div class="counter" id="counter">slide 01/47</div>
+  <div class="keys">
+    <span class="lang-toggle" role="group" aria-label="Language / 언어">
+      <button class="lang" data-lang="en" aria-label="English">EN</button><button class="lang" data-lang="ko" aria-label="한국어">KR</button>
+    </span>
+    <span class="nav-label" id="nav-label">navigate with</span> <span>&#8592;</span> <span>&#8594;</span> <span class="nav-label" id="or-label">or</span>
+    <button id="prev" aria-label="Previous slide">prev</button><button id="next" aria-label="Next slide">next</button>
+  </div>
+</div>
+
+<script src="deck.js" defer></script>
