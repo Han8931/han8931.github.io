@@ -9,7 +9,9 @@ tags: ["python", "uv", "package manager", "virtual environment"]
 categories: ["python", "uv"]
 ---
 
-> 📝**Update** (2025-09-06): I've added a new section on using `--native-tls` with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.
+> 📝**Update** (2025-09-06): I've added a new section on using system certificates with corporate proxies. It covers why uv may fail with SSL errors at work and how to fix it by making uv trust your system certificates.
+>
+> 📝**Update** (2026-08-30): Since uv **0.11.0** (March 2026), `--native-tls` is deprecated in favor of `--system-certs`. The section below has been rewritten to use the new flag.
 
 ## Meet **uv** – A Blazingly Fast, All‑in‑One Python Package Manager
 
@@ -218,30 +220,44 @@ export NO_PROXY="localhost,127.0.0.1,.mycompany.net"
 
 ---
 
-### Why `--native-tls` Matters
+### Why `--system-certs` Matters
 
-By default, `uv` uses **Rustls** for TLS/SSL. That's fine at home, but at work you'll often hit errors like:
+`uv` uses **Rustls** for TLS/SSL, and by default it verifies servers against its own **bundled Mozilla root certificates**. That's fine at home, but at work you'll often hit errors like:
 
 ```
 certificate verify failed: unable to get local issuer certificate
 ```
 
-This happens because Rustls doesn't automatically trust your company's custom root certificates.
+This happens because that bundled root store doesn't include your company's custom root certificates—the ones your proxy uses to re-sign traffic.
 
-The fix: tell `uv` to use your operating system's certificate store:
+The fix: tell `uv` to verify against your operating system's certificate store instead:
 
 ```sh
-uv add --native-tls requests
+uv add --system-certs requests
 ```
 
 or make it permanent in your config:
 
 ```toml
 # ~/.config/uv/uv.toml
-native-tls = true
+system-certs = true
 ```
 
-Now `uv` respects the certificates your IT team has already installed (OpenSSL on Linux, Schannel on Windows, SecureTransport on macOS).
+You can also set it via the environment, which is handy in CI or a shell profile:
+
+```sh
+export UV_SYSTEM_CERTS=1
+```
+
+Now `uv` respects the certificates your IT team has already installed (the system trust store on Linux, Schannel on Windows, Security.framework on macOS).
+
+> ⚠️ **Note on `--native-tls`:** older guides (including the earlier version of this post) tell you to use `--native-tls` / `native-tls = true` / `UV_NATIVE_TLS`. As of uv **0.11.0** these are **deprecated** in favor of `--system-certs`. They still work and behave identically, so nothing breaks—but the new name is clearer, since uv always uses Rustls and never the `native-tls` library. Prefer `--system-certs` in new setups.
+
+If your company hands you a **specific CA bundle file** rather than installing it system-wide, point `uv` at it directly instead:
+
+```sh
+export SSL_CERT_FILE=/path/to/corporate-ca-bundle.pem
+```
 
 
 ### Cheat Sheet
