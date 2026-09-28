@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<style>*,*::before,*::after{box-sizing:border-box}img,svg,canvas{max-width:100%}
+</style>
+<title>Jev — Typed Decisions for Software</title>
+<meta content="A source-linked introduction to Jev, TypeSafe's System One model: what it is, its three primitives, confidence, and how to build with it." name="description"/>
+<style>
+/* ============================= TOKENS ============================= */
+:root{
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua","URW Palladio L",Georgia,serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,"Liberation Mono",monospace;
+
+  /* dark is the presentation default; the toolbar toggle opts into light */
+  --paper:#0E161C;
+  --paper-2:#0A1116;
+  --plate:#152028;
+  --ink:#E4EBEC;
+  --ink-2:#A0AFB5;
+  --ink-3:#6D7E86;
+  --rule:#2A3942;
+  --rule-soft:#213038;
+
+  /* semantic roles — each recurs with one fixed meaning */
+  --fore:#4FC3DC;                       /* the model / its outputs */
+  --fore-wash:rgba(79,195,220,.10);
+  --fore-line:rgba(79,195,220,.30);
+  --real:#F2708E;                       /* risk / caveat / reality check */
+  --real-wash:rgba(242,112,142,.09);
+  --real-line:rgba(242,112,142,.26);
+  --thr:#E0B155;                        /* your application / decision rules */
+  --thr-wash:rgba(224,177,85,.10);
+  --thr-line:rgba(224,177,85,.30);
+
+  --shadow:0 1px 2px rgba(0,0,0,.45), 0 10px 30px -20px rgba(0,0,0,.95);
+}
+:root[data-theme="dark"]{
+  --paper:#0E161C; --paper-2:#0A1116; --plate:#152028;
+  --ink:#E4EBEC; --ink-2:#A0AFB5; --ink-3:#6D7E86;
+  --rule:#2A3942; --rule-soft:#213038;
+  --fore:#4FC3DC; --fore-wash:rgba(79,195,220,.10); --fore-line:rgba(79,195,220,.30);
+  --real:#F2708E; --real-wash:rgba(242,112,142,.09); --real-line:rgba(242,112,142,.26);
+  --thr:#E0B155; --thr-wash:rgba(224,177,85,.10); --thr-line:rgba(224,177,85,.30);
+  --shadow:0 1px 2px rgba(0,0,0,.45), 0 10px 30px -20px rgba(0,0,0,.95);
+}
+:root[data-theme="light"]{
+  --paper:#E8ECEC; --paper-2:#DDE3E3; --plate:#F8FAFA;
+  --ink:#16202A; --ink-2:#47565F; --ink-3:#7B8A92;
+  --rule:#C2CCCC; --rule-soft:#D7DEDE;
+  --fore:#0F6E8C; --fore-wash:rgba(15,110,140,.075); --fore-line:rgba(15,110,140,.28);
+  --real:#A3324B; --real-wash:rgba(163,50,75,.07); --real-line:rgba(163,50,75,.26);
+  --thr:#9A6B0F; --thr-wash:rgba(154,107,15,.09); --thr-line:rgba(154,107,15,.32);
+  --shadow:0 1px 2px rgba(22,32,42,.05), 0 8px 26px -18px rgba(22,32,42,.4);
+}
+
+/* ============================= BASE ============================= */
+html{ font-size:clamp(13px,1.2vw,18px); }
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--serif); line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--fore); color:var(--plate); }
+
+.progress{ position:fixed; top:0; left:0; height:2px; width:100%; background:var(--rule-soft); z-index:40; }
+.progress > i{ display:block; height:100%; width:0; background:var(--fore); transition:width .4s cubic-bezier(.4,0,.2,1); }
+
+.slide{
+  display:none; min-height:100svh; box-sizing:border-box;
+  padding:clamp(1.8rem,4.5vh,3rem) clamp(1.1rem,4vw,3.2rem) 5.6rem;
+  align-items:center; justify-content:center;
+}
+.slide.is-on{ display:flex; }
+.wrap{ width:100%; max-width:64rem; margin:0 auto; }
+.slide.is-on .wrap{ animation:rise .42s cubic-bezier(.22,.7,.3,1) both; }
+@keyframes rise{ from{ opacity:0; transform:translateY(9px); } to{ opacity:1; transform:none; } }
+@media (prefers-reduced-motion:reduce){
+  .slide.is-on .wrap{ animation:none; }
+  .progress > i{ transition:none; }
+}
+
+/* ============================= NAV ============================= */
+.nav{ position:fixed; right:clamp(.8rem,3vw,2rem); bottom:clamp(.8rem,3vh,1.5rem); display:flex; align-items:center; gap:.5rem; z-index:41; font-family:var(--mono); }
+.nav button{
+  font:inherit; font-size:.76rem; color:var(--ink-2); background:var(--plate);
+  border:1px solid var(--rule); border-radius:2px; padding:.5rem .65rem; cursor:pointer; line-height:1;
+  transition:color .15s,border-color .15s;
+}
+.nav button:hover{ color:var(--ink); border-color:var(--ink-3); }
+.nav button:focus-visible{ outline:2px solid var(--fore); outline-offset:2px; }
+.nav button[disabled]{ opacity:.3; cursor:default; }
+.counter{ font-family:var(--mono); font-size:.74rem; color:var(--ink-3); font-variant-numeric:tabular-nums; padding:0 .3rem; min-width:4.4em; text-align:center; }
+.hint{ position:fixed; left:clamp(.8rem,3vw,2rem); bottom:clamp(.9rem,3vh,1.6rem); font-family:var(--mono); font-size:.7rem; color:var(--ink-3); z-index:41; }
+@media (max-width:660px){ .hint{ display:none; } }
+
+/* ============================= FURNITURE ============================= */
+.eyebrow{ font-family:var(--mono); font-size:.7rem; letter-spacing:.06em; color:var(--ink-3); display:flex; align-items:center; gap:.7rem; margin-bottom:1.4rem; }
+.eyebrow .n{ color:var(--fore); }
+.eyebrow::after{ content:""; flex:1; height:1px; background:var(--rule-soft); }
+
+h1{ font-size:clamp(2.5rem,6vw,4.3rem); line-height:1.03; margin:0; font-weight:400; letter-spacing:-.02em; text-wrap:balance; }
+h2{ font-size:clamp(1.65rem,3.2vw,2.45rem); line-height:1.13; margin:0 0 1rem; font-weight:400; letter-spacing:-.015em; text-wrap:balance; }
+h3{ font-family:var(--mono); font-size:.72rem; letter-spacing:.05em; color:var(--ink-3); margin:0 0 .55rem; text-transform:uppercase; }
+p{ margin:0 0 .85rem; color:var(--ink-2); font-size:1.01rem; max-width:62ch; }
+p.lead{ font-size:1.17rem; color:var(--ink); max-width:56ch; }
+strong{ font-weight:650; color:var(--ink); }
+.stack{ display:flex; flex-direction:column; gap:1rem; }
+.grid2{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; align-items:start; }
+.grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:.85rem; align-items:stretch; }
+@media (max-width:780px){ .grid2,.grid3{ grid-template-columns:1fr; } }
+
+/* provenance stamp — every slide declares what kind of claim it is */
+.prov{
+  position:fixed; left:50%; transform:translateX(-50%); bottom:clamp(.9rem,3vh,1.6rem);
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.03em; color:var(--ink-3);
+  display:flex; align-items:center; gap:.45rem; z-index:41; white-space:nowrap;
+  pointer-events:none;
+}
+.prov .dot{ width:.5rem; height:.5rem; border-radius:50%; flex:none; }
+.prov[data-kind="doc"] .dot{ background:var(--fore); }
+.prov[data-kind="math"] .dot{ background:var(--thr); }
+.prov[data-kind="unk"] .dot{ background:var(--real); }
+.prov[data-kind="ext"] .dot{ background:var(--ink-3); }
+@media (max-width:900px){ .prov{ display:none; } }
+
+/* ============================= MATH ============================= */
+.m{ font-family:var(--serif); font-variant-numeric:lining-nums tabular-nums; }
+.m i{ font-style:italic; }
+.op{ padding:0 .3em; }
+.hat{ position:relative; }
+.frac{ display:inline-grid; vertical-align:middle; text-align:center; font-size:.9em; }
+.frac > .num{ padding:0 .5em .12em; border-bottom:1.2px solid currentColor; }
+.frac > .den{ padding:.12em .5em 0; }
+
+.eq{ background:var(--plate); border:1px solid var(--rule); border-radius:3px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+.eq-field{ padding:1.45rem 1.4rem 1.3rem; overflow-x:auto; }
+.eqline{ font-size:clamp(1.05rem,2.05vw,1.5rem); line-height:2.4; text-align:center; white-space:nowrap; color:var(--ink); }
+.eqline.wrapable{ white-space:normal; line-height:2.25; }
+.eqline + .eqline{ margin-top:.15rem; }
+.eqtag{
+  position:absolute; top:0; right:0; font-family:var(--mono); font-size:.65rem; letter-spacing:.05em;
+  color:var(--ink-3); background:var(--paper-2); border-left:1px solid var(--rule); border-bottom:1px solid var(--rule);
+  padding:.3rem .55rem; border-radius:0 3px 0 3px;
+}
+.aloud{ border-top:1px solid var(--rule-soft); background:var(--paper-2); padding:.8rem 1.4rem; margin:0; font-size:.97rem; color:var(--ink-2); max-width:none; }
+.aloud b{ display:block; font-family:var(--mono); font-size:.64rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); margin-bottom:.22rem; }
+
+.analogy{ border-left:2.5px solid var(--fore); padding:.15rem 0 .15rem 1.05rem; font-size:1.01rem; color:var(--ink-2); max-width:62ch; }
+.analogy b{ display:block; font-family:var(--mono); font-size:.64rem; letter-spacing:.06em; text-transform:uppercase; color:var(--fore); margin-bottom:.28rem; }
+.analogy i{ color:var(--ink); font-style:italic; }
+
+.note{ font-size:.92rem; color:var(--ink-3); border-left:1px solid var(--rule); padding-left:.85rem; max-width:62ch; }
+.card{ background:var(--plate); border:1px solid var(--rule); border-radius:3px; padding:1rem 1.1rem; box-shadow:var(--shadow); }
+.card p{ font-size:.94rem; margin-bottom:0; }
+.card p + p{ margin-top:.55rem; }
+.card.fore{ background:var(--fore-wash); border-color:var(--fore-line); }
+.card.real{ background:var(--real-wash); border-color:var(--real-line); }
+.card.thr{ background:var(--thr-wash); border-color:var(--thr-line); }
+
+/* tables */
+.tbl-wrap{ overflow-x:auto; border:1px solid var(--rule); border-radius:3px; background:var(--plate); box-shadow:var(--shadow); }
+table{ border-collapse:collapse; width:100%; font-size:.94rem; }
+th,td{ padding:.55rem .8rem; text-align:left; border-bottom:1px solid var(--rule-soft); }
+thead th{ font-family:var(--mono); font-size:.66rem; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-3); background:var(--paper-2); border-bottom:1px solid var(--rule); white-space:nowrap; }
+tbody tr:last-child td{ border-bottom:none; }
+td.num{ font-variant-numeric:tabular-nums; white-space:nowrap; }
+td.m{ white-space:nowrap; }
+tr.hl td{ background:var(--fore-wash); }
+td small{ color:var(--ink-3); font-size:.86em; }
+
+ul.plain{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.55rem; }
+ul.plain li{ font-size:.96rem; color:var(--ink-2); padding-left:1.05rem; position:relative; }
+ul.plain li::before{ content:"—"; position:absolute; left:0; color:var(--ink-3); }
+
+.code{ font-family:var(--mono); font-size:.86em; background:var(--paper-2); border:1px solid var(--rule-soft); border-radius:2px; padding:.06em .3em; color:var(--ink); }
+
+/* dot grid — echoes the calibration deck's 10-case visual */
+.dots{ display:flex; gap:.45rem; flex-wrap:wrap; margin:.5rem 0 .3rem; }
+.dots i{ width:1.1rem; height:1.1rem; border-radius:50%; border:1.5px solid var(--fore); display:block; }
+.dots i.on{ background:var(--fore); }
+.dotkey{ font-family:var(--mono); font-size:.72rem; color:var(--ink-3); display:flex; gap:1.1rem; margin-top:.4rem; }
+.dotkey span{ display:flex; align-items:center; gap:.35rem; }
+.dotkey b{ width:.7rem; height:.7rem; border-radius:50%; border:1.5px solid var(--fore); display:inline-block; }
+.dotkey b.on{ background:var(--fore); }
+
+/* figures */
+.fig{ background:var(--plate); border:1px solid var(--rule); border-radius:3px; box-shadow:var(--shadow); overflow:hidden; }
+.fig canvas{ display:block; width:100%; height:auto; }
+.ctrl{ border-top:1px solid var(--rule-soft); background:var(--paper-2); padding:.75rem 1rem; display:flex; align-items:center; gap:.85rem; flex-wrap:wrap; }
+.ctrl label{ font-family:var(--mono); font-size:.7rem; color:var(--ink-3); white-space:nowrap; }
+.ctrl input[type=range]{ flex:1; min-width:7rem; accent-color:var(--fore); height:1.2rem; }
+.ctrl input[type=range]:focus-visible{ outline:2px solid var(--fore); outline-offset:3px; }
+.readout{ font-family:var(--mono); font-size:.77rem; color:var(--ink-2); font-variant-numeric:tabular-nums; white-space:nowrap; }
+.readout span{ color:var(--fore); }
+.readout u{ color:var(--thr); text-decoration:none; }
+.readout em{ color:var(--ink-3); font-style:normal; }
+
+.flow{ display:flex; align-items:stretch; overflow-x:auto; padding-bottom:.4rem; }
+.flow .node{ flex:1; min-width:8rem; background:var(--plate); border:1px solid var(--rule); border-radius:3px; padding:.7rem .75rem; box-shadow:var(--shadow); }
+.flow .node h4{ margin:0 0 .25rem; font-family:var(--mono); font-size:.72rem; font-weight:500; color:var(--ink); }
+.flow .node p{ margin:0; font-size:.78rem; color:var(--ink-3); }
+.flow .arrow{ flex:none; width:1.5rem; display:grid; place-items:center; color:var(--ink-3); }
+
+.title-rule{ height:1px; background:var(--rule); margin:1.7rem 0; }
+.byline{ font-family:var(--mono); font-size:.78rem; color:var(--ink-3); max-width:60ch; line-height:1.7; }
+.byline b{ color:var(--ink-2); font-weight:500; }
+.provkey{ display:flex; flex-direction:column; gap:.5rem; margin-top:.7rem; font-family:var(--mono); font-size:.74rem; color:var(--ink-2); }
+.provkey span{ display:flex; align-items:center; gap:.55rem; }
+.provkey b{ width:.55rem; height:.55rem; border-radius:50%; flex:none; font-weight:400; }
+
+.chip{ display:inline-block; font-family:var(--mono); font-size:.64rem; letter-spacing:.05em; text-transform:uppercase; padding:.2rem .42rem; border-radius:2px; border:1px solid currentColor; line-height:1; }
+.chip.fore{ color:var(--fore); } .chip.real{ color:var(--real); } .chip.thr{ color:var(--thr); }
+/* Presentation polish: readable stage, optional detail, and offline controls. */
+:root{--sans:Inter,"Segoe UI",Arial,sans-serif}
+body{font-family:var(--sans);line-height:1.5}
+h1,h2,.m,.big-value{font-family:var(--serif)}
+h1 em{color:var(--fore)}
+.slide{padding-top:3.8rem;padding-bottom:5rem}
+.wrap{max-width:70rem}
+p{max-width:70ch}
+.card,.eq,.fig,.tbl-wrap{border-radius:10px}
+.card{padding:1.15rem 1.25rem}
+.eq-field{padding:1.5rem 1.4rem}
+.eyebrow{margin-bottom:1rem}
+.hero-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:3rem;align-items:center}
+.hero-card{border:1px solid var(--fore-line);background:var(--fore-wash);padding:2rem;border-radius:16px}
+.hero-number{font-family:var(--serif);font-size:7rem;line-height:1.2;color:var(--fore)}
+.hero-number span{font-size:3rem}
+.hero-card .dots{margin:1rem 0}
+.hero-card small,.micro{font: .7rem var(--mono);color:var(--ink-2)}
+.hero-card p{margin-top:1rem}
+.chapter-strip{display:flex;gap:2rem;padding:1.2rem 0;margin:1.5rem 0;border-block:1px solid var(--rule)}
+.chapter-strip span{font-size:.85rem}.chapter-strip b{font-family:var(--mono);color:var(--fore);margin-right:.4rem}
+.big-value{font-size:2.8rem!important;line-height:1.3;color:var(--fore)!important}
+/* Korean mode: Latin faces first so English terms keep their look, Hangul falls back
+   to Noto CJK KR per glyph. keep-all stops Korean lines breaking mid-word. */
+html[lang="ko"]{
+  --sans:Inter,"Segoe UI","Pretendard","Apple SD Gothic Neo","Noto Sans CJK KR","Noto Sans KR","Malgun Gothic",sans-serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Noto Serif CJK KR","Noto Serif KR","Apple SD Gothic Neo",Georgia,serif;
+}
+html[lang="ko"] body{word-break:keep-all;line-height:1.62}
+html[lang="ko"] h1,html[lang="ko"] h2{letter-spacing:-.01em;line-height:1.24}
+html[lang="ko"] .cover-title,html[lang="ko"] .chapter-num{letter-spacing:-.03em}
+html[lang="ko"] .lead{line-height:1.55}
+html[lang="ko"] .eyebrow,html[lang="ko"] h3,html[lang="ko"] .micro,html[lang="ko"] .chapter-kicker{letter-spacing:.02em}
+html[lang="ko"] td,html[lang="ko"] th,html[lang="ko"] .toc-list p{word-break:keep-all}
+#lang{font-weight:600}
+.toc-list{list-style:none;padding:0;margin:1.5rem 0 0;border-top:1px solid var(--rule)}
+.toc-list li{border-bottom:1px solid var(--rule-soft)}
+.toc-list a{display:flex;align-items:baseline;gap:1.5rem;flex-wrap:wrap;padding:.95rem .5rem;text-decoration:none;color:inherit;border-radius:6px}
+.toc-list a:hover{background:var(--fore-wash)}
+.toc-list b{font:.78rem var(--mono);color:var(--fore);min-width:2.2rem}
+.toc-list h3{margin:0;font-family:var(--serif);font-size:1.3rem;font-weight:400;letter-spacing:-.01em;text-transform:none;color:var(--ink);flex:0 0 17rem}
+.toc-list p{margin:0;flex:1;min-width:14rem;color:var(--ink-3);font-size:.95rem;max-width:none}
+.toc-list .pg{font:.7rem var(--mono);color:var(--ink-3);white-space:nowrap}
+.toc .prov{display:none}
+.chapter .wrap{max-width:58rem}
+.chapter-kicker{font:.72rem var(--mono);letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase}
+.chapter-num{font-family:var(--serif);font-size:clamp(4.5rem,13vw,9rem);line-height:.9;color:var(--fore);margin:.6rem 0 .2rem;letter-spacing:-.03em}
+.chapter-h{font-size:clamp(2rem,5vw,3.4rem)!important;margin:0 0 1.1rem!important}
+.chapter-toc{list-style:none;padding:0;margin:0;border-top:1px solid var(--rule);max-width:44rem}
+.chapter-toc li{padding:.6rem 0;border-bottom:1px solid var(--rule-soft);font-size:1rem;color:var(--ink-2);display:flex;gap:.9rem}
+.chapter-toc li b{font:.72rem var(--mono);color:var(--fore);padding-top:.18rem;min-width:1.6rem}
+.chapter .prov{display:none}
+.cover .wrap{max-width:52rem}
+.cover-title{font-size:clamp(4rem,14vw,10rem);line-height:1.02;letter-spacing:-.04em;color:var(--fore)}
+.cover-sub{font-family:var(--serif);font-size:clamp(1.2rem,2.6vw,1.9rem);color:var(--ink-2);margin:1.3rem 0 0;max-width:none}
+.cover .prov{display:none}
+.cover-rule{height:1px;background:var(--rule);margin:2.6rem 0 1.4rem}
+.cover-by{font-size:1.05rem;margin:0}
+.cover-by strong{color:var(--ink);font-weight:600}
+.cover-meta{font:.72rem var(--mono);color:var(--ink-3);margin:.45rem 0 0;letter-spacing:.06em}
+a{color:var(--fore);text-underline-offset:3px}
+a:focus-visible,summary:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--fore);outline-offset:4px}
+.speaker-note{margin-top:.8rem;color:var(--ink-2)}
+.speaker-note summary{font:.72rem var(--mono);cursor:pointer;color:var(--fore);padding:.35rem 0}
+.speaker-note[open]>summary{margin-bottom:.7rem}
+.speaker-note .analogy{margin:.5rem 0}
+.toolbar{position:fixed;top:.7rem;left:clamp(.8rem,3vw,2rem);right:clamp(.8rem,3vw,2rem);display:flex;gap:.5rem;z-index:45;align-items:center}
+.toolbar button,.toolbar select{font:.7rem var(--mono);color:var(--ink-2);border:1px solid var(--rule);background:var(--plate);border-radius:5px;padding:.5rem;cursor:pointer;min-height:34px}
+.toolbar select{max-width:28rem;min-width:0;margin-right:auto}
+.toolbar button[aria-pressed="true"]{color:var(--fore);border-color:var(--fore)}
+.prov{position:static;transform:none;padding:.3rem 0;font-size:.65rem;white-space:normal;margin-top:1.1rem;pointer-events:auto}
+.hint{font-size:.65rem}
+.readout{white-space:normal}.ctrl output{font:.75rem var(--mono);min-width:3em;color:var(--ink)}
+.fig canvas{min-height:240px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.codeblock{font-family:var(--mono);font-size:.76rem;line-height:1.6;background:var(--paper-2);border:1px solid var(--rule-soft);border-radius:8px;padding:.85rem 1rem;overflow-x:auto;white-space:pre;color:var(--ink);margin:0;max-width:none}
+.codeblock b{color:var(--fore);font-weight:600}
+.codeblock i{color:var(--ink-3);font-style:normal}
+@media(max-width:900px){.prov{display:flex}.hero-grid{gap:1.2rem}.chapter-strip{gap:1rem}}
+@media(max-width:660px){.hero-grid{grid-template-columns:1fr}.hero-card{padding:1rem}.hero-number{font-size:4rem}.chapter-strip{flex-direction:column;gap:.5rem}.toolbar{flex-wrap:wrap}.toolbar select{flex:1}.toolbar #fullscreen{display:none}.slide{padding-top:5rem}.grid2,.grid3{gap:.7rem}.flow{flex-wrap:wrap}.flow .node{min-width:40%}.flow .arrow{width:1rem}}
+@media print{
+ @page{size:A4 landscape;margin:10mm}
+ :root{--paper:#fff;--paper-2:#f0f3f3;--plate:#fff;--ink:#16202a;--ink-2:#47565f;--ink-3:#52616a;--rule:#bdc8c8;--rule-soft:#d7dede;--fore:#0f6e8c;--real:#a3324b;--thr:#825600}
+ html{font-size:11px}body{background:white}.toolbar,.nav,.hint,.progress{display:none!important}
+ .slide,.slide.is-on{display:block;min-height:0;padding:0;break-after:page}.slide:last-of-type{break-after:auto}
+ .slide .wrap{animation:none!important;max-width:none;zoom:1!important}.grid2{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:repeat(3,1fr)}
+ .speaker-note{display:none}.card,.eq,.fig,.tbl-wrap{box-shadow:none;break-inside:avoid}.fig canvas{max-height:310px;object-fit:contain}
+ a{color:var(--fore)}.prov{display:none}
+}
+
+@media screen and (min-width:781px){
+ .eqline{line-height:1.9}.eqline.wrapable{line-height:1.9}
+ .eq-field{padding:1.05rem 1.3rem}.aloud{padding:.65rem 1.3rem}
+ .card{padding:.9rem 1.1rem}
+ .slide{padding-top:3.8rem;padding-bottom:4.4rem}
+ .speaker-note{margin-top:.55rem}
+}
+</style>
+</head>
+<body>
+<div aria-label="Presentation tools" class="toolbar"><label data-i18n="t001" data-ko="슬라이드 이동" class="sr-only" for="jump">Jump to slide</label><select id="jump"></select><button data-i18n="t002" data-ko="발표 노트" aria-pressed="false" id="notes" title="Expand teaching notes (N)" type="button">Notes</button><button aria-pressed="false" id="lang" title="Korean / English (L)" type="button">한국어</button><button data-i18n="t003" data-ko="다크 모드" aria-pressed="false" id="theme" type="button">Dark</button><button data-i18n="t004" data-ko="전체화면" id="fullscreen" title="Fullscreen (F)" type="button">Fullscreen</button><button data-i18n="t005" data-ko="인쇄" id="print" type="button">Print</button></div><div aria-live="polite" class="sr-only" id="announcement" role="status"></div><noscript><style>.slide{display:block}.toolbar,.nav,.hint,.progress{display:none}</style><p data-i18n="t006" data-ko="그림을 조작하고 슬라이드를 이동하려면 JavaScript를 활성화하세요.">Enable JavaScript for interactive figures and navigation.</p></noscript><div aria-hidden="true" class="progress"><i id="bar"></i></div>
+<div class="deck" id="deck">
+<!-- 01 -->
+<section aria-label="1: Jev" aria-roledescription="slide" class="slide cover" data-prov="doc" data-provtext="TypeSafe documentation · checked 27 September 2026" id="slide-1"><div class="wrap">
+<div data-i18n="t007" data-ko="&lt;span class=&quot;n&quot;&gt;00&lt;/span&gt; TypeSafe / System One" class="eyebrow"><span class="n">00</span> TypeSafe / System One</div>
+<h1 data-i18n="t008" data-ko="Jev" class="cover-title">Jev</h1>
+<p data-i18n="t009" data-ko="Jev 이해와 활용 가이드" class="cover-sub">A field guide to the model</p>
+<div class="cover-rule"></div>
+<p data-i18n="t010" data-ko="발표자 &lt;strong&gt;Han&lt;/strong&gt;" class="cover-by">Presented by <strong>Han Cheol Moon</strong></p>
+<p data-i18n="t011" data-ko="2026년 9월 27일" class="cover-meta">27 September 2026</p>
+</div></section>
+<!-- 02 -->
+<section aria-label="2: Decisions your code can act on." aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe documentation · checked 27 September 2026" id="slide-2"><div class="wrap">
+<div data-i18n="t012" data-ko="&lt;span class=&quot;n&quot;&gt;00&lt;/span&gt; Jev / 이해와 활용 가이드" class="eyebrow"><span class="n">00</span> Jev / A field guide to the model</div>
+<div class="hero-grid"><div><h1 data-i18n="t013" data-ko="코드에서&lt;br/&gt; 바로 &lt;em&gt;활용하는&lt;/em&gt; 판단.">Decisions your code<br/> can <em>act on.</em></h1><p data-i18n="t014" data-ko="&lt;strong&gt;Jev&lt;/strong&gt; · TypeSafe의 대표 모델이자 최초의 System One 모델" class="lead" style="margin-top:1.5rem"><strong>Jev</strong> · TypeSafe's flagship model, and the first System One model</p><p data-i18n="t015" data-ko="정해진 타입의 질문을 보내면, 확률과 함께 정해진 타입의 답이 돌아온다.">A typed question goes in. A typed answer with probabilities comes out.</p></div>
+<div class="hero-card"><span data-i18n="t016" data-ko="문서에 나온 실제 응답 형식" class="micro">ONE ANSWER, VERBATIM SHAPE</span>
+<pre class="codeblock" style="margin-top:1rem;background:transparent;border:none;padding:0">"department": {
+  "type": "choice",
+  "choice": <b>"returns"</b>,
+  "confidence": 1.0,
+  "probabilities": {
+    "returns":  1.0,
+    "shipping": 0.0,
+    "billing":  0.0
+  }
+}</pre>
+<p data-i18n="t017" data-ko="반환값으로 분기하고, 정렬하고, 처리 경로를 정한다.">Branch on it. Sort by it. Route with it.</p><small data-i18n="t018" data-ko="Choice 문서에 나온 응답 형태">Response shape from the Choice documentation</small></div></div>
+<div class="chapter-strip"><span><b>01</b> The idea</span><span><b>02</b> The primitives</span><span><b>03</b> Building with it</span><span><b>04</b> The case against</span><span><b>05</b> Hands on</span></div>
+<details class="speaker-note"><summary data-i18n="t019" data-ko="이 발표 자료를 읽는 법">How to read this deck</summary><div class="stack"><p data-i18n="t020" data-ko="채팅이나 서술형 답변 없이, 파싱도 필요 없는 응답을 제공한다는 것이 핵심이다. 응답 객체의 모든 값은 기계가 바로 읽을 수 있다. 애플리케이션은 문장에서 필요한 정보를 추출할 필요 없이 반환값으로 바로 분기할 수 있다.">No chat, no prose, no parsing — that is the pitch in three negatives. Everything in that response object is machine-readable, so the application branches on it directly instead of scraping a sentence.</p><p data-i18n="t021" data-ko="문서에서 확인한 내용과 설명을 위한 예시는 구분해 표시했다. 각 슬라이드 하단에서 확인할 수 있으며, 표식의 의미는 마지막 슬라이드에 정리했다.">Documented claims are kept separate from illustration throughout: the stamp at the foot of each slide says which is which, and the key is on the final slide.</p><p data-i18n="t022" data-ko="함께 제공되는 &lt;a href=&quot;rlcd-math-slides.html&quot;&gt;RLCD — 보정된 확률에 기반한 의사결정의 수학&lt;/a&gt;에서는 이 자료에 등장하는 수치의 확률론적 배경을 다룬다.">A companion deck, <a href="rlcd-math-slides.html">RLCD — The Mathematics of Calibrated Decisions</a>, covers the probability theory behind the numbers shown here.</p></div></details>
+</div></section>
+<!-- 03 -->
+<section aria-label="3: Contents" aria-roledescription="slide" class="slide toc" data-prov="doc" data-provtext="" id="slide-3"><div class="wrap"><div data-i18n="t023" data-ko="&lt;span class=&quot;n&quot;&gt;00&lt;/span&gt; 발표 구성" class="eyebrow"><span class="n">00</span> Where this goes</div><h2 data-i18n="t024" data-ko="목차">Contents</h2><p data-i18n="t025" data-ko="다섯 장으로 살펴보는 Jev: 개념, 질문 방식, 활용 방법, 비판과 대안, 코드 예제." class="lead">Five chapters: what Jev is, how to ask it things, how to build on it, what the critics say, and the code.</p><ul class="toc-list"><li><a href="#4"><b>01</b><h3 data-i18n="t026" data-ko="기본 개념">The idea</h3><p data-i18n="t027" data-ko="텍스트를 생성하지 않는 모델이 필요한 이유">Why a model that refuses to write text</p><span data-i18n="t028" data-ko="슬라이드 04" class="pg">slide 04</span></a></li><li><a href="#9"><b>02</b><h3 data-i18n="t029" data-ko="세 가지 질문 타입">The three primitives</h3><p data-i18n="t030" data-ko="Choice, Score, Noul — 그리고 신뢰도">Choice, Score, Noul — and confidence</p><span data-i18n="t031" data-ko="슬라이드 09" class="pg">slide 09</span></a></li><li><a href="#21"><b>03</b><h3 data-i18n="t032" data-ko="Jev 활용하기">Building with it</h3><p data-i18n="t033" data-ko="모델 카드, 한계, 개발 원칙">The model card, the limits, the method</p><span data-i18n="t034" data-ko="슬라이드 21" class="pg">slide 21</span></a></li><li><a href="#27"><b>04</b><h3 data-i18n="t035" data-ko="비판과 대안">The case against</h3><p data-i18n="t036" data-ko="선행 연구, 과장, 그리고 오픈소스 경쟁자">Prior art, hype, and an open-source rival</p><span data-i18n="t037" data-ko="슬라이드 27" class="pg">slide 27</span></a></li><li><a href="#33"><b>05</b><h3 data-i18n="t038" data-ko="직접 해보기">Hands on</h3><p data-i18n="t039" data-ko="코드 예제와 핵심 정리">Real code, and what to take away</p><span data-i18n="t040" data-ko="슬라이드 33" class="pg">slide 33</span></a></li></ul></div></section>
+<!-- 04 -->
+<section aria-label="4: The idea" aria-roledescription="slide" class="slide chapter" data-prov="doc" data-provtext="" id="slide-4"><div class="wrap"><p data-i18n="t041" data-ko="1장 / 전체 5장" class="chapter-kicker">Chapter 01 of 05</p><div class="chapter-num">01</div><h2 data-i18n="t042" data-ko="기본 개념" class="chapter-h">The idea</h2><ul class="chapter-toc"><li><b>01</b><span data-i18n="t043" data-ko="Jev가 해결하려는 문제">The problem Jev answers</span></li><li><b>02</b><span data-i18n="t044" data-ko="Jev란 무엇인가">What Jev is</span></li><li><b>03</b><span data-i18n="t045" data-ko="System One이라는 범주">System One, the category</span></li><li><b>04</b><span data-i18n="t046" data-ko="실제 정답률에 맞는 확률을 학습">Trained for calibrated decisions</span></li></ul></div></section>
+<!-- 05 -->
+<section aria-label="5: The problem Jev answers" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · introduction and AI primer" id="slide-5"><div class="wrap">
+<div data-i18n="t047" data-ko="&lt;span class=&quot;n&quot;&gt;01&lt;/span&gt; 새로운 유형의 모델이 필요한 이유" class="eyebrow"><span class="n">01</span> Why another kind of model</div>
+<h2 data-i18n="t048" data-ko="Jev가 해결하려는 문제">The problem Jev answers</h2>
+<p data-i18n="t049" data-ko="대부분의 AI 제품은 사람이 읽을 텍스트를 만든다. 하지만 자동화에 필요한 것은 소프트웨어가 바로 활용할 수 있는 판단이다." class="lead">Most AI products generate text for people. Most automation needs decisions for software.</p>
+<div class="grid2" style="margin:1.2rem 0">
+<div class="card real"><h3 data-i18n="t050" data-ko="기존의 우회 방법" style="color:var(--real)">The usual workaround</h3><p data-i18n="t051" data-ko="텍스트 생성 모델에 정해진 형식을 요구하고, 결과를 다시 파싱한다." style="color:var(--ink)">Coerce a text generator into structure, then parse the result back.</p><p data-i18n="t052" data-ko="형식 지정 · 파싱 · 재시도. 그래도 불확실성을 제대로 파악하기는 어렵다.">Prompt for a format · parse · retry · still no honest uncertainty.</p></div>
+<div class="card fore"><h3 data-i18n="t053" data-ko="System One의 접근법" style="color:var(--fore)">The System One answer</h3><p data-i18n="t054" data-ko="텍스트 생성을 건너뛴다. 타입이 지정된 값과 확률 분포를 반환한다." style="color:var(--ink)">Skip text generation. Return typed values and probability distributions.</p><p data-i18n="t055" data-ko="파싱 단계가 없으므로 파싱 오류도 없다.">No parsing step exists, so no parsing step can fail.</p></div>
+</div>
+<p data-i18n="t056" data-ko="TypeSafe가 이 목표에 붙인 이름: &lt;strong&gt;Machine Native Intelligence&lt;/strong&gt;.">TypeSafe's name for the goal: <strong>Machine Native Intelligence</strong>.</p>
+<details class="speaker-note"><summary data-i18n="t057" data-ko="제품의 전제">The premise behind the product</summary><div class="stack"><p data-i18n="t058" data-ko="공식 문서는 기존 방식을 “텍스트 생성 시스템에 구조화된 판단을 출력하도록 요구한 뒤, 코드에서 안정적으로 사용할 수 있도록 결과를 다시 파싱하는 것”이라고 설명한다. System One은 이 과정 대신 소프트웨어가 곧바로 활용할 수 있는 판단을 반환한다. 출력은 분기, 정렬, 처리 경로 선택에 사용할 수 있는 값과 확률 분포로 구성된다.">The docs describe the workaround in their own words: teams end up “coercing a text-generation system into outputting structured decisions, then parsing the results back into something your code can depend on.” The alternative: “System One models make fast, structured decisions for software,” returning “typed values and probability distributions that your code can branch on, sort by, and route with.”</p><p data-i18n="t059" data-ko="&lt;strong&gt;Machine Native Intelligence&lt;/strong&gt;는 “구조, 신뢰성, 관측 가능성, 테스트 가능성, 속도, 일관성, 낮은 비용처럼 소프트웨어를 닮은 속성을 갖춘 AI”로 정의된다."><strong>Machine Native Intelligence</strong> is defined as “AI with software-like properties such as structure, reliability, observability, testability, speed, consistency, and low cost.”</p><p data-i18n="t060" data-ko="TypeSafe는 대규모 자동화의 대부분이 사람과의 채팅이 아닌 &lt;strong&gt;기계 간 상호작용&lt;/strong&gt;으로 이루어질 것이라고 본다. 따라서 사람이 읽기 좋은 응답보다 소프트웨어가 검사하고 검증하기 좋은 응답을 우선한다. 범용 모델을 목표로 하지 않으며, 텍스트 생성·설명·대화는 의도적으로 지원 범위에서 제외했다.">TypeSafe's stated premise is that large-scale automation will consist mostly of <strong>machine-to-machine interactions</strong>, not human-facing chat — which shifts the design priority from readable responses to inspectable ones. The company explicitly does not aim to build an all-purpose model; text generation, explanation, and conversation are out of scope by design.</p></div></details></div></section>
+<!-- 06 -->
+<section aria-label="6: What Jev is" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · System One concept page" id="slide-6"><div class="wrap">
+<div data-i18n="t061" data-ko="&lt;span class=&quot;n&quot;&gt;02&lt;/span&gt; 모델" class="eyebrow"><span class="n">02</span> The model</div>
+<h2 data-i18n="t062" data-ko="Jev란 무엇인가">What Jev is</h2>
+<p data-i18n="t063" data-ko="평가할 내용인 &lt;strong&gt;state&lt;/strong&gt;를 제공하고 정해진 타입으로 질문한다. 답도 정해진 타입으로, 확률과 함께 돌아온다." class="lead">Typed questions, asked against a <strong>state</strong> you supply. Typed answers with probabilities come back.</p>
+<div class="flow" style="margin:1.1rem 0 .9rem">
+<div class="node"><h4 data-i18n="t064" data-ko="state">state</h4><p data-i18n="t065" data-ko="평가할 내용">your content</p></div>
+<div class="arrow">→</div>
+<div class="node"><h4 data-i18n="t066" data-ko="질문">questions</h4><p data-i18n="t067" data-ko="choice · score · noul">choice · score · noul</p></div>
+<div class="arrow">→</div>
+<div class="node" style="border-color:var(--fore-line); background:var(--fore-wash)"><h4 data-i18n="t068" data-ko="jev">jev</h4><p data-i18n="t069" data-ko="한 번의 호출">one call</p></div>
+<div class="arrow">→</div>
+<div class="node"><h4 data-i18n="t070" data-ko="타입이 정해진 답">typed answers</h4><p data-i18n="t071" data-ko="값 + 확률">values + probabilities</p></div>
+<div class="arrow">→</div>
+<div class="node" style="border-color:var(--thr-line); background:var(--thr-wash)"><h4 data-i18n="t072" data-ko="애플리케이션 코드">your code</h4><p data-i18n="t073" data-ko="임계값 · 처리 경로">thresholds · routing</p></div>
+</div>
+<div class="grid3">
+<div class="card"><h3 data-i18n="t074" data-ko="텍스트 생성기가 아니다">Not a text generator</h3><p data-i18n="t075" data-ko="주어진 질문에 판단 결과를 반환하며, 서술형 답변은 생성하지 않는다.">It answers your questions. It never writes a reply.</p></div>
+<div class="card"><h3 data-i18n="t076" data-ko="타입을 따르도록 설계">Typed by construction</h3><p data-i18n="t077" data-ko="답은 사용자가 지정한 선택지 안에서만 나온다.">Every answer is constrained to the options you supplied.</p></div>
+<div class="card fore"><h3 data-i18n="t078" data-ko="학습을 통한 확률 보정" style="color:var(--fore)">Calibrated by training</h3><p data-i18n="t079" data-ko="예측 확률이 실제 결과와 맞도록 최적화한다.">Probabilities optimized against outcomes.</p></div>
+</div>
+<details class="speaker-note"><summary data-i18n="t080" data-ko="공식 설명과 주요 명칭">The documented wording, and where the names sit</summary><div class="stack"><p data-i18n="t081" data-ko="공식 문서는 Jev를 TypeSafe의 대표 모델이자 최초의 System One 모델로 소개한다. jev-1.13은 텍스트 생성용으로 학습되지 않았으며, 판단 결과와 확률은 소프트웨어가 기대하는 타입과 JSON 스키마를 따른다. 학습 목표는 예측 확률이 실제 결과와 일치하도록 하여 불확실성을 정확히 반영하는 것이다.">“Jev is TypeSafe's flagship model and the first System One model.” “jev-1.13 is not trained to generate text.” “Decisions and probabilities conform to the structured software types and JSON schema your code expects.” System One models are “trained for calibrated decisions: their probabilities are optimized against outcomes to reflect uncertainty.”</p><p data-i18n="t082" data-ko="&lt;strong&gt;TypeSafe&lt;/strong&gt;는 회사 이름이다. &lt;strong&gt;System One&lt;/strong&gt;은 모델의 범주로, 이중 과정 이론의 빠른 직관 체계에서 이름을 따왔다. &lt;strong&gt;Jev&lt;/strong&gt;는 이 범주의 대표 모델이다. 현재 버전은 &lt;span class=&quot;code&quot;&gt;jev-1.13.0&lt;/span&gt;이며, SDK의 기본 별칭은 &lt;span class=&quot;code&quot;&gt;jev-latest&lt;/span&gt;다."><strong>TypeSafe</strong> is the company. <strong>System One</strong> is the model category — named after the fast-intuition system in dual-process psychology. <strong>Jev</strong> is the flagship model in it; <span class="code">jev-1.13.0</span> is current and <span class="code">jev-latest</span> is the SDK default alias.</p><p data-i18n="t083" data-ko="모든 요청은 &lt;span class=&quot;code&quot;&gt;POST /v1/systemone&lt;/span&gt; 엔드포인트로 보내며, &lt;span class=&quot;code&quot;&gt;model&lt;/span&gt; 필드로 버전을 선택한다. Python과 JavaScript용 클라이언트 SDK를 제공한다. state에는 메시지, 레코드, 애플리케이션의 현재 상태 등 평가할 내용을 담는다. 응답의 answers에는 각 질문의 ID를 키로 하여 답이 담긴다.">Requests go to a single endpoint, <span class="code">POST /v1/systemone</span>, with the <span class="code">model</span> field selecting the version. Client SDKs exist for Python and JavaScript. The state is your content — a message, a record, an application snapshot; answers come back keyed by question id.</p></div></details></div></section>
+<!-- 07 -->
+<section aria-label="7: System One — thinking fast, for software" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · System One concept page — the psychology framing is the name's own allusion" id="slide-7"><div class="wrap">
+<div data-i18n="t084" data-ko="&lt;span class=&quot;n&quot;&gt;03&lt;/span&gt; 범주" class="eyebrow"><span class="n">03</span> The category</div>
+<h2 data-i18n="t085" data-ko="System One — 소프트웨어를 위한 빠른 판단">System One — thinking fast, for software</h2>
+<p data-i18n="t086" data-ko="이중 과정 이론은 빠른 직관과 느린 숙고를 구분한다. TypeSafe는 빠른 직관에 해당하는 역할을 소프트웨어에 적용한다." class="lead">Dual-process psychology splits fast intuition from slow deliberation. TypeSafe claims the fast half for machines.</p>
+<div class="grid2" style="margin:1.1rem 0">
+<div class="card fore"><h3 data-i18n="t087" data-ko="System One · Jev" style="color:var(--fore)">System One · Jev</h3><p data-i18n="t550" data-ko="&lt;strong&gt;“그냥 안다.”&lt;/strong&gt; 빠르고 자동적이며 직관적인 사고. 화난 얼굴을 보자마자 알아채고, 쉬운 단어를 읽고, &lt;span class=&quot;code&quot;&gt;2+2&lt;/span&gt;에 답하는 것." style="color:var(--ink)"><strong>“I just know.”</strong> Fast, automatic, intuitive: spotting an angry face, reading simple words, answering <span class="code">2+2</span>.</p><p data-i18n="t088" data-ko="&lt;strong&gt;순간적인 판단을 대규모로 처리한다.&lt;/strong&gt;" style="color:var(--ink)"><strong>Snap judgments, at machine volume.</strong></p><p data-i18n="t089" data-ko="밀리초 단위의 응답. 건당 1센트 미만. 하루 수백만 건.">Milliseconds. Fractions of a cent. Millions of times a day.</p></div>
+<div class="card"><h3 data-i18n="t090" data-ko="System Two · 추론 모델 &amp;amp; 사람">System Two · reasoning models &amp; people</h3><p data-i18n="t551" data-ko="&lt;strong&gt;“생각 좀 해 보자.”&lt;/strong&gt; 느리고 신중하며 노력이 드는 사고. &lt;span class=&quot;code&quot;&gt;27 × 43&lt;/span&gt;을 계산하고, 대출 조건을 비교하고, 논증이 맞는지 꼼꼼히 따지는 것." style="color:var(--ink)"><strong>“Let me think about this.”</strong> Slow, deliberate, effortful: working out <span class="code">27 × 43</span>, comparing mortgages, checking an argument.</p><p data-i18n="t091" data-ko="&lt;strong&gt;시간을 들여 추론하고 답을 생성한다.&lt;/strong&gt;" style="color:var(--ink)"><strong>Slow, deliberate, generative.</strong></p><p data-i18n="t092" data-ko="계획, 설명, 낯선 상황에 대한 판단을 맡고, System One이 넘긴 어려운 건을 처리한다.">Plans, explains, handles the novel — and takes the escalations.</p></div>
+</div>
+<p data-i18n="t552" data-ko="&lt;b&gt;System 1이 먼저 답한다&lt;/b&gt;“배트와 공의 가격은 합쳐서 1달러 10센트다. 배트는 공보다 1달러 비싸다. 공은 얼마인가?” System 1은 &lt;i&gt;10센트&lt;/i&gt;라고 외친다. System 2가 확인하면 합계가 1달러 20센트가 되므로 틀렸다. 정답은 &lt;i&gt;5센트&lt;/i&gt;다." class="analogy" style="margin-bottom:1.1rem"><b>System 1 answers first</b>“A bat and a ball cost $1.10. The bat costs $1 more than the ball. How much is the ball?” System 1 shouts <i>10¢</i>. System 2 checks: that makes $1.20. The answer is <i>5¢</i>.</p>
+<div class="eq"><p data-i18n="t093" data-ko="&lt;b&gt;역할 분담&lt;/b&gt;System One은 수많은 작은 판단을 처리한다. System Two는 그중 어려운 소수의 문제를 맡는다. &lt;strong&gt;신뢰도를 기준으로 처리 주체를 정한다.&lt;/strong&gt;" class="aloud"><b>The division of labor</b>System One takes the million small judgments. System Two takes the rare hard residue. <strong>Confidence is the handoff signal.</strong></p></div>
+<details class="speaker-note"><summary data-i18n="t094" data-ko="심리학에서 빌린 이름이 성능을 보장하지는 않는다">Take the psychology as branding, not as a spec</summary><div class="stack"><p data-i18n="t095" data-ko="문서에 명시된 특징은 빠르고 구조화된 판단, 서술형 답변이나 설명을 생성하지 않는 출력 방식, 실제 결과에 맞는 확률을 학습한다는 목표다. 불확실한 판단은 사람이나 비용이 더 드는 추론 모델에 맡기도록 안내한다. 따라서 정확도 수치 하나만큼이나 중요한 것이 뒤에서 살펴볼 처리 경로 설계다.">The documented claims: System One models “make fast, structured decisions for software,” “don't write replies or generate explanations,” and are “trained for calibrated decisions.” The escalation target is spelled out too — “escalate uncertain cases to a person or a more expensive reasoning model.” That is why the routing slides later matter more than any single accuracy number.</p><p data-i18n="t096" data-ko="System 1과 System 2라는 용어는 Kahneman의 &lt;em&gt;Thinking, Fast and Slow&lt;/em&gt;를 통해 널리 알려졌다. 이 이름은 설계 의도를 전달할 뿐, 성능을 보장하지 않는다. 확인해야 할 것은 문서에 명시된 속성이다. 타입이 정해진 출력, 확률 보정이라는 학습 목표, 텍스트 전용 입력, 서로 독립적으로 병렬 평가되는 질문이 그것이다.">The System 1 / System 2 vocabulary was popularized by Kahneman's <em>Thinking, Fast and Slow</em>. It communicates intent but guarantees nothing; the properties that matter are the documented ones — typed outputs, a calibration target, text-only input, independent parallel questions.</p><p data-i18n="t553" data-ko="Kahneman은 뇌 안에 실제로 두 개의 시스템이나 물리적 영역이 있다고 말하지 않았다. 두 용어는 &lt;em&gt;자동적&lt;/em&gt; 인지 과정과 &lt;em&gt;의도적&lt;/em&gt; 인지 과정을 가리키는 개념적 이름이다. 핵심은 System 1이 보통 먼저 답하고, System 2는 그 답을 그대로 받아들이는 경우가 많다는 점이다. 그래서 일상은 효율적이지만 편향과 실수도 생긴다.">Kahneman did not mean two literal systems or physical parts of the brain; they are conceptual labels for <em>automatic</em> versus <em>deliberate</em> processes. The key dynamic: System 1 usually acts first, and System 2 often just accepts its answer. That makes everyday life efficient, and it is also where the biases come from.</p><p data-i18n="t097" data-ko="이 비유에는 주의할 점도 있다. 사람의 System 1은 빠르지만 &lt;em&gt;편향되기도 한다&lt;/em&gt;. 뒤에서 살펴볼 성능 한계는 이 모델도 예외가 아님을 보여 준다. 사람과 마찬가지로 기계의 빠른 판단에도 신중한 검증이 필요하다.">The analogy imports a useful warning: human System 1 is fast <em>and biased</em>. The jaggedness slide is exactly this model's bias list. Fast intuition needs slow verification around it, in machines as in people.</p><p data-i18n="t098" data-ko="System One을 내세우는 모델은 이제 Jev만이 아니다. 4장에서 다룰 오픈소스 Laya도 스스로를 “System-1 decision model”이라고 소개한다.">Jev is also “no longer the only claimant to the label” — the open-source Laya (chapter 04) calls itself a “System-1 decision model” too.</p></div></details></div></section>
+<!-- 08 -->
+<section aria-label="8: Trained for calibrated decisions" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="Stated goal, documented · the training recipe itself is not disclosed" id="slide-8"><div class="wrap">
+<div data-i18n="t099" data-ko="&lt;span class=&quot;n&quot;&gt;04&lt;/span&gt; 학습 방식 개요" class="eyebrow"><span class="n">04</span> The training story, briefly</div>
+<h2 data-i18n="t100" data-ko="실제 정답률에 맞는 확률을 학습">Trained for calibrated decisions</h2>
+<p data-i18n="t101" data-ko="&lt;strong&gt;RLCD&lt;/strong&gt; — 보정된 확률에 기반한 의사결정을 위한 강화학습. RLHF, RLVR에 이은 세 번째 사후 학습 계열." class="lead"><strong>RLCD</strong> — reinforcement learning for calibrated decisions — as a third post-training family.</p>
+<div class="grid3" style="margin-top:1.1rem">
+<div class="card"><h3 data-i18n="t102" data-ko="RLHF">RLHF</h3><p data-i18n="t103" data-ko="&lt;strong&gt;사람이 선호하는 답에 보상한다.&lt;/strong&gt;" style="color:var(--ink)"><strong>Rewards answers people prefer.</strong></p><p data-i18n="t104" data-ko="사용자에게 무조건 동조하거나, 틀린 답을 확신하는 위험.">Risks sycophancy and confident hallucination.</p></div>
+<div class="card"><h3 data-i18n="t105" data-ko="RLVR">RLVR</h3><p data-i18n="t106" data-ko="&lt;strong&gt;검사를 통과하는 답에 보상한다.&lt;/strong&gt;" style="color:var(--ink)"><strong>Rewards answers that pass a check.</strong></p><p data-i18n="t107" data-ko="컴파일 성공 여부, 계산 결과의 정확성 등을 확인한다.">The code compiles; the sum is right.</p></div>
+<div class="card fore"><h3 data-i18n="t108" data-ko="RLCD" style="color:var(--fore)">RLCD</h3><p data-i18n="t109" data-ko="&lt;strong&gt;예측 확률과 실제 정답률의 일치를 목표로 한다.&lt;/strong&gt;" style="color:var(--ink)"><strong>Targets calibrated probabilities.</strong></p><p data-i18n="t110" data-ko="예측 확률이 0.8인 답은 실제로도 약 80%가 맞아야 한다.">0.8 predictions should hold about 80% of the time.</p></div>
+</div>
+<div class="card" style="margin-top:1.1rem; max-width:34rem">
+<h3 data-i18n="t111" data-ko="확률 보정의 목표">The calibration target</h3>
+<div class="dots">
+<i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+<i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i>
+</div>
+<div class="dotkey"><span data-i18n="t112" data-ko="&lt;b class=&quot;on&quot;&gt;&lt;/b&gt; 정답  ×8"><b class="on"></b> correct  ×8</span><span data-i18n="t113" data-ko="&lt;b&gt;&lt;/b&gt; 오답  ×2"><b></b> not  ×2</span></div>
+<p data-i18n="t114" data-ko="예측 확률이 80%인 비슷한 답 10개 중 약 8개가 정답." style="margin-top:.5rem">Among comparable 80% answers, about 8 in 10 correct.</p>
+</div>
+<p data-i18n="t115" data-ko="&lt;strong&gt;구체적인 학습 방법은 비공개다.&lt;/strong&gt; 관련 수학은 함께 제공되는 &lt;a href=&quot;rlcd-math-slides.html&quot;&gt;RLCD 자료&lt;/a&gt;에서 다룬다." class="note" style="margin-top:1rem"><strong>The recipe is not published.</strong> The mathematics is in the companion deck: <a href="rlcd-math-slides.html">RLCD</a>.</p>
+<details class="speaker-note"><summary data-i18n="t116" data-ko="소프트웨어에 확률 보정이 필요한 이유">Why calibration is the property software needs</summary><div class="stack"><p data-i18n="t117" data-ko="문서는 RLHF가 사람의 선호를 최적화하는 과정에서 사용자에게 무조건 동조하거나 틀린 답을 확신하는 경향을 키우고, 출력의 다양성을 줄일 수 있다고 지적한다. RLVR은 검증기로 확인 가능한 결과를 최적화한다. RLCD의 목표는 예측 확률이 0.2인 답은 실제로 약 20%, 0.8인 답은 약 80%가 맞도록 하는 것이다.">The docs' critique of RLHF: optimizing preference can encourage “sycophancy and confident-sounding hallucinations,” and narrows output diversity. RLVR optimizes what a verifier can confirm. RLCD's stated aim is that predictions marked 0.2 succeed about 20% of the time and those marked 0.8 about 80%.</p><p data-i18n="t118" data-ko="분류 결과만으로는 자동 처리할지 사람의 확인을 받을지 결정하기 어렵다. 보정된 확률이 있으면 오답 확률에 오류 비용을 곱해 검토 비용과 비교할 수 있다. 이런 비용 계산은 예측 확률이 실제 결과의 빈도를 잘 반영할 때에만 의미가 있다.">A category alone cannot tell your application whether to act automatically or ask a person. A calibrated probability can be multiplied by the cost of being wrong and compared with the cost of checking — that arithmetic is the whole automation decision, and it only works if the probability honestly reflects how often outcomes occur.</p><p data-i18n="t119" data-ko="문서는 사람의 선호와 기계의 신뢰성을 서로 다른 최적화 목표로 설명한다. 두 목표가 겹칠 수는 있지만 어디에 중점을 두느냐가 다르다는 주장이다. 검토한 자료에는 RLCD의 목표만 제시되어 있으며, 보상·손실 함수·업데이트 규칙은 공개되어 있지 않다. 문서는 TypeSafe 공동창업자 Diogo Almeida를 RLHF의 공동 발명자로 소개한다.">“Human preference and machine trustworthiness are different optimization targets” is the docs' one-line version. These goals overlap; the claim is about emphasis. Reviewed sources state the goal, not the reward, loss, or update rule — the recipe itself is undisclosed. One biographical note the docs offer: TypeSafe cofounder Diogo Almeida co-invented RLHF.</p></div></details></div></section>
+<!-- 09 -->
+<section aria-label="9: The three primitives" aria-roledescription="slide" class="slide chapter" data-prov="doc" data-provtext="" id="slide-9"><div class="wrap"><p data-i18n="t120" data-ko="2장 / 전체 5장" class="chapter-kicker">Chapter 02 of 05</p><div class="chapter-num">02</div><h2 data-i18n="t121" data-ko="세 가지 질문 타입" class="chapter-h">The three primitives</h2><ul class="chapter-toc"><li><b>01</b><span data-i18n="t122" data-ko="state와 질문">State and questions</span></li><li><b>02</b><span data-i18n="t123" data-ko="Choice · Score · Noul">Choice · Score · Noul</span></li><li><b>03</b><span data-i18n="t124" data-ko="신뢰도(Confidence)">Confidence</span></li><li><b>04</b><span data-i18n="t125" data-ko="신뢰도에 따른 처리 경로">Routing on confidence</span></li></ul></div></section>
+<!-- 10 -->
+<section aria-label="10: State — the content you evaluate" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · state page" id="slide-10"><div class="wrap">
+<div data-i18n="t126" data-ko="&lt;span class=&quot;n&quot;&gt;05&lt;/span&gt; 요청의 구성 · state" class="eyebrow"><span class="n">05</span> Anatomy of a call · state</div>
+<h2 data-i18n="t127" data-ko="State — 평가 대상이 되는 내용">State — the content you evaluate</h2>
+<p data-i18n="t128" data-ko="요청당 &lt;strong&gt;state&lt;/strong&gt; 하나. 세 가지 형태를 지원한다." class="lead">One <strong>state</strong> per request. Three shapes are accepted.</p>
+<div class="grid3" style="margin:1.2rem 0">
+<div class="card"><h3 data-i18n="t129" data-ko="문자열(String)">String</h3><p data-i18n="t130" data-ko="&lt;span class=&quot;code&quot;&gt;&quot;My card was charged twice.&quot;&lt;/span&gt;" class="m" style="color:var(--ink)"><span class="code">"My card was charged twice."</span></p><p data-i18n="t131" data-ko="간단한 내용을 전달할 때.">Simple cases.</p></div>
+<div class="card fore"><h3 data-i18n="t132" data-ko="객체(Object) — 권장" style="color:var(--fore)">Object — recommended</h3><p data-i18n="t133" data-ko="&lt;span class=&quot;code&quot;&gt;{&quot;message&quot;: …, &quot;order_id&quot;: &quot;A-104&quot;}&lt;/span&gt;" class="m" style="color:var(--ink)"><span class="code">{"message": …, "order_id": "A-104"}</span></p><p data-i18n="t134" data-ko="각 항목에 이름을 붙여 관계를 명확하게 표현한다.">Named parts, clear relationships.</p></div>
+<div class="card"><h3 data-i18n="t135" data-ko="배열(Array)">Array</h3><p data-i18n="t136" data-ko="&lt;span class=&quot;code&quot;&gt;[&quot;Hi&quot;, &quot;My number is TS1337.&quot;, …]&lt;/span&gt;" class="m" style="color:var(--ink)"><span class="code">["Hi", "My number is TS1337.", …]</span></p><p data-i18n="t137" data-ko="순서가 있는 메시지나 레코드를 전달할 때.">Sequential messages or records.</p></div>
+</div>
+<p data-i18n="t138" data-ko="텍스트 전용 — 이미지·오디오·비디오 입력은 없다." class="note">Text only — no image, audio, or video input.</p>
+<details class="speaker-note"><summary data-i18n="t139" data-ko="문서에 명시된 state의 역할">What the docs say about state</summary><div class="stack"><p data-i18n="t140" data-ko="“State는 System One 모델에 평가를 요청할 내용이다. … 평가 대상과 이를 뒷받침하는 사실을 담는다. questions는 이 자료를 바탕으로 모델이 어떤 판단을 내려야 하는지 정의한다.”">“State is the content you ask a System One model to evaluate… The state contains the content and supporting facts. Questions define the judgments the model should make about that material.”</p><p data-i18n="t141" data-ko="문서는 “대부분의 요청에서” 객체를 사용하도록 권장한다. 각 항목에 의미를 알 수 있는 이름을 붙이고 항목 간 관계를 명확하게 표현할 수 있기 때문이다. 개발 가이드는 &lt;span class=&quot;code&quot;&gt;support.tickets[0].message&lt;/span&gt;처럼 정확한 경로로 값을 참조하고, state에는 필요한 내용만 담으라고 덧붙인다. 무관한 내용이 많아지면 정확도가 떨어지고 입력 토큰 비용도 늘어난다.">On shape: use an object “for most requests so each part of the state has a descriptive name and its relationships remain clear.” The build guide adds that you should reference exact values by path, like <span class="code">support.tickets[0].message</span>, and keep the state lean — accuracy falls as unrelated content grows, and you pay per input token.</p></div></details></div></section>
+<!-- 11 -->
+<section aria-label="11: Questions — batch, don't loop" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · primitives and quickstart pages" id="slide-11"><div class="wrap">
+<div data-i18n="t142" data-ko="&lt;span class=&quot;n&quot;&gt;05&lt;/span&gt; 요청의 구성 · questions" class="eyebrow"><span class="n">05</span> Anatomy of a call · questions</div>
+<h2 data-i18n="t143" data-ko="Questions — 여러 질문을 한 번에">Questions — batch, don't loop</h2>
+<p data-i18n="t144" data-ko="같은 state에 대한 질문은 모두 &lt;strong&gt;하나의 요청&lt;/strong&gt;으로 보낸다. 각 질문은 서로 독립적으로 병렬 평가된다." class="lead">Every question about the same state travels in <strong>one request</strong>, evaluated independently and in parallel.</p>
+<div class="grid2" style="margin:1.2rem 0">
+<div class="card thr"><h3 data-i18n="t145" data-ko="질문 간 독립성 보장" style="color:var(--thr)">Independent by design</h3><p data-i18n="t146" data-ko="한 질문의 답이 다른 질문의 판단에 암묵적으로 영향을 주지 않는다." style="color:var(--ink)">One answer never becomes hidden context for another.</p></div>
+<div class="card"><h3 data-i18n="t147" data-ko="크기 제한">Size limits</h3><p data-i18n="t148" data-ko="요청 전체는 64k 토큰 · state와 가장 긴 질문의 합은 32k 토큰.">64k tokens per request · 32k for state + the longest single question.</p></div>
+</div>
+<p data-i18n="t149" data-ko="질문 타입은 세 가지다. &lt;strong&gt;Choice&lt;/strong&gt; · &lt;strong&gt;Score&lt;/strong&gt; · &lt;strong&gt;Noul&lt;/strong&gt;을 차례로 살펴본다.">Three question types: <strong>Choice</strong> · <strong>Score</strong> · <strong>Noul</strong> — one slide each, next.</p>
+<details class="speaker-note"><summary data-i18n="t150" data-ko="Python 11줄로 시작하기">The quickstart, in eleven lines of Python</summary><div class="stack"><p data-i18n="t151" data-ko="문서는 “같은 state를 사용하는 질문은 모두 하나의 요청으로 보내라”고 안내한다. 또한 “한 질문의 결과가 다른 질문의 결과를 바꾸는 숨은 맥락으로 작용하지 않는다”고 명시한다.">The documented rule: “Send every question that uses the same state in one request” — “one primitive's result does not become hidden context that changes another primitive's result.”</p>
+<pre class="codeblock">from typesafe_sdk import Choice, Noul, Score, TypeSafeClient
+
+client = TypeSafeClient()
+response = client.system_one(
+    state=ticket,                       <i># one state…</i>
+    questions={                          <i># …many judgments</i>
+        "department":  Choice(instructions="Which team should handle this",
+                              criteria={"billing": …, "technical": …, "sales": …}),
+        "frustration": Score(instructions="How frustrated the customer appears",
+                             criteria=["Calm, just stating facts",
+                                       "Frustrated but civil",
+                                       "Very angry, strong language"]),
+        "is_urgent":   Noul(instructions="The message conveys urgency"),
+    },
+)
+response.answers["department"].choice   <i># "technical"</i>
+response.answers["frustration"].score   <i># 1.0</i>
+response.answers["is_urgent"].noul      <i># 1.0</i></pre>
+<p data-i18n="t152" data-ko="세 가지 질문 타입, 한 번의 API 호출, 타입이 정해진 세 개의 답.">Three question types, one API call, three typed answers.</p></div></details></div></section>
+<!-- 12 -->
+<section aria-label="12: Choice — which of these options?" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · Choice reference, example reproduced verbatim" id="slide-12"><div class="wrap">
+<div data-i18n="t153" data-ko="&lt;span class=&quot;n&quot;&gt;06&lt;/span&gt; 질문 타입 1 / 3" class="eyebrow"><span class="n">06</span> Primitive 1 of 3</div>
+<h2 data-i18n="t154" data-ko="Choice — &lt;em&gt;어느 선택지인가?&lt;/em&gt;">Choice — <em>which of these options?</em></h2>
+<p data-i18n="t155" data-ko="주어진 선택지 중 하나를 고른다. 선택지에 &lt;strong&gt;순서가 없을 때&lt;/strong&gt; 사용한다. 처리 경로 선택, 분류, 언어 감지 등이 해당한다." class="lead">One option from a defined set, when the options have <strong>no order</strong>: routing, classification, language detection.</p>
+<div class="grid2" style="margin:1rem 0">
+<div class="card"><h3 data-i18n="t156" data-ko="요청 예시">You ask</h3>
+<pre class="codeblock">"state": "My running shoes arrived in the
+          wrong size. Can I swap them for
+          a size 10?",
+"questions": {
+  "department": {
+    "type": "choice",
+    "instructions": "Which team should handle this?",
+    "criteria": {
+      "returns":  "Exchanges, wrong or damaged items",
+      "shipping": "Delivery status, delays, lost packages",
+      "billing":  "Charges, invoices, payment problems"
+    } } }</pre></div>
+<div class="card fore"><h3 data-i18n="t157" data-ko="응답 예시" style="color:var(--fore)">Jev answers</h3>
+<pre class="codeblock" style="background:transparent;border:none;padding:0">"department": {
+  "type": "choice",
+  "choice": <b>"returns"</b>,
+  "confidence": 1.0,
+  "probabilities": {
+    "returns":  1.0,
+    "shipping": 0.0,
+    "billing":  0.0
+  }
+}</pre>
+<p data-i18n="t158" data-ko="&lt;span class=&quot;code&quot;&gt;choice&lt;/span&gt;는 확률이 가장 높은 선택지다. 그 결과를 실제로 실행에 옮길지는 애플리케이션 코드에서 결정한다."><span class="code">choice</span> is just the top probability. Acting on it is your code's call.</p></div>
+</div>
+<ul class="plain">
+<li data-i18n="t159" data-ko="&lt;strong&gt;선택지를 구체적으로 설명한다.&lt;/strong&gt; 각 선택지를 구별할 수 있는 설명을 한 줄씩 적는다."><strong>Describe options concretely</strong> — one differentiating line each.</li>
+<li data-i18n="t160" data-ko="&lt;strong&gt;“other” 선택지를 포함한다.&lt;/strong&gt; 어느 항목에도 해당하지 않는 경우에 대비한다."><strong>Include an “other” option</strong> so edge cases have somewhere to go.</li>
+<li data-i18n="t161" data-ko="최대 &lt;strong&gt;255개 선택지&lt;/strong&gt;를 지원한다. 일부 후보만 추리지 말고 전체 목록을 제공한다.">Up to <strong>255 options</strong> — give the full list, not a shortlist.</li>
+</ul>
+<details class="speaker-note"><summary data-i18n="t162" data-ko="모호한 설명, 그리고 한 줄로 부족할 때">Vague descriptions, and when one line isn't enough</summary><div class="stack"><p data-i18n="t163" data-ko="Choice는 정해진 집합에서 하나의 선택지를 고르는 System One 질문 타입이다. 응답에는 선택된 항목, 각 선택지의 확률, 신뢰도가 포함된다. 문서는 선택지 설명이 모호하면 오분류가 발생할 수 있다고 지적한다.">The definition: “A Choice is a System One question type for selecting one option from a defined set. The answer includes the selected option, a probability for each option, and confidence.” Vague option descriptions are the documented cause of misclassification.</p><p data-i18n="t164" data-ko="선택지끼리 비슷해 혼동하기 쉽다면 구조화된 객체로 설명하는 것이 좋다. 문서는 &lt;span class=&quot;code&quot;&gt;what&lt;/span&gt;(정의), &lt;span class=&quot;code&quot;&gt;not_for&lt;/span&gt;(해당하지 않는 경우), &lt;span class=&quot;code&quot;&gt;examples&lt;/span&gt;(대표 사례) 등의 필드를 권장한다. 예시는 판단에 큰 영향을 주므로 실제 입력을 잘 대표하는 것만 사용한다.">When options are similar enough to risk confusion, the docs recommend structured option objects with fields like <span class="code">what</span> (the definition), <span class="code">not_for</span> (what belongs elsewhere), and <span class="code">examples</span> (typical cases). Examples strongly influence behavior — only use ones that match your real inputs.</p><p data-i18n="t165" data-ko="함께 제공되는 RLCD 자료에서도 강조하듯, 확률이 가장 높은 항목을 &lt;em&gt;선택&lt;/em&gt;하는 것이 비용이 가장 적은 &lt;em&gt;행동&lt;/em&gt;을 뜻하지는 않는다. 세 선택지 중 41%로 1위를 차지한 답이라면 여전히 사람의 확인이 필요할 수 있다.">Remember the companion deck's caution: the largest probability wins the <em>selection</em>, but it is not necessarily the cheapest <em>action</em>. A 41% winner in a three-way split may still warrant a human check.</p></div></details></div></section>
+<!-- 13 -->
+<section aria-label="13: Score — which level?" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · Score reference, example reproduced verbatim" id="slide-13"><div class="wrap">
+<div data-i18n="t166" data-ko="&lt;span class=&quot;n&quot;&gt;07&lt;/span&gt; 질문 타입 2 / 3" class="eyebrow"><span class="n">07</span> Primitive 2 of 3</div>
+<h2 data-i18n="t167" data-ko="Score — &lt;em&gt;어느 수준인가?&lt;/em&gt;">Score — <em>which level?</em></h2>
+<p data-i18n="t168" data-ko="낮은 수준부터 높은 수준까지 2–10개의 단계를 정의한다. 각 단계에 해당할 확률을 반환한다." class="lead">2–10 ordered levels, low to high. A probability comes back for each.</p>
+<div class="grid2" style="margin:1rem 0">
+<div class="card"><h3 data-i18n="t169" data-ko="요청 예시">You ask</h3>
+<pre class="codeblock">"state": "Export button crashes Safari
+          settings page. Works in Chrome.",
+"questions": {
+  "bug_severity": {
+    "type": "score",
+    "instructions": "How severe is the reported issue?",
+    "criteria": [
+      "Cosmetic; no impact to functionality",
+      "Broken or degraded feature, but workaround exists",
+      "Blocking issue; no workaround exists"
+    ] } }</pre></div>
+<div class="card fore"><h3 data-i18n="t170" data-ko="응답 예시" style="color:var(--fore)">Jev answers</h3>
+<pre class="codeblock" style="background:transparent;border:none;padding:0">"bug_severity": {
+  "type": "score",
+  "score": <b>1.43</b>,
+  "confidence": 0.35,
+  "probabilities": {
+    "0": 0.00,
+    "1": 0.57,
+    "2": 0.43
+  },
+  "legend": { "0": "Cosmetic; …", … }
+}</pre></div>
+</div>
+<p data-i18n="t554" data-ko="&lt;b&gt;이 순서로 읽는다&lt;/b&gt;&lt;span class=&quot;code&quot;&gt;probabilities&lt;/span&gt; — 어느 단계인가: 우회 방법 있음 57%, 차단 43%. &lt;span class=&quot;code&quot;&gt;confidence&lt;/span&gt; — 얼마나 확실한가: 0.35, 확실하지 않다. &lt;span class=&quot;code&quot;&gt;score&lt;/span&gt; — 한 숫자 요약: 1.43, 1단계와 2단계 사이이며 1에 조금 더 가깝다." class="analogy"><b>Read it in this order</b><span class="code">probabilities</span> — where: 57% workaround, 43% blocking. <span class="code">confidence</span> — how sure: 0.35, not very. <span class="code">score</span> — a one-number summary: 1.43, between levels 1 and 2, closer to 1.</p>
+<details class="speaker-note"><summary data-i18n="t171" data-ko="평가 단계를 정의하는 방법">Designing levels that work</summary><div class="stack"><p data-i18n="t172" data-ko="Score는 설명과 순서가 부여된 여러 단계를 기준으로 내용을 평가하는 System One 질문 타입이다.">The definition: “A Score is a System One question type for rating content against ordered, descriptive levels.”</p><p data-i18n="t173" data-ko="&lt;strong&gt;추상적인 정도보다 구체적인 상황을 설명한다.&lt;/strong&gt; “심각도 중간”보다는 “기능이 작동하지 않거나 성능이 저하되었지만 우회 방법이 있음”이 낫다. 모델은 각 단계를 독립적으로 평가하므로 “이전 단계보다 나쁨” 같은 상대적인 설명은 도움이 되지 않는다."><strong>Describe concrete situations, not abstract degrees.</strong> “Broken or degraded feature, but workaround exists” beats “moderately severe” — the model evaluates each level independently, so comparative language (“worse than the previous level”) means nothing to it.</p><p data-i18n="t174" data-ko="&lt;strong&gt;Score 하나로는 한 가지 기준만 평가한다.&lt;/strong&gt; 심각도와 긴급도는 별개의 질문으로 나눈다. 여러 기준을 한데 묶으면 숫자 하나에 서로 다른 판단이 뒤섞인다."><strong>One dimension per Score.</strong> Severity and urgency are two questions; a multifaceted judgment hides several answers behind one number.</p><p data-i18n="t175" data-ko="&lt;strong&gt;여러 Score를 합치기 전에 정규화한다.&lt;/strong&gt; 단계 수가 서로 다르면 각 점수를 해당 척도의 최상위 단계 번호로 나눈 뒤, 목적에 맞는 가중치를 적용한다."><strong>Normalize before combining.</strong> To weight several Scores of different lengths together, divide each by its top level number first, then apply your domain weights.</p></div></details></div></section>
+<!-- 14 -->
+<section aria-label="14: What the score actually is" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · Score reference — the score is defined as a probability-weighted mean" id="slide-14"><div class="wrap">
+<div data-i18n="t176" data-ko="&lt;span class=&quot;n&quot;&gt;07&lt;/span&gt; 질문 타입 2 / 3 · 결과 해석" class="eyebrow"><span class="n">07</span> Primitive 2 of 3 · reading it</div>
+<h2 data-i18n="t177" data-ko="score 값의 의미">What the score actually is</h2>
+<p data-i18n="t178" data-ko="“각 단계의 번호에 해당 확률을 곱한 뒤 모두 더한 값.”" class="lead">“Each level number multiplied by its probability, added up.”</p>
+<div class="eq" style="margin-top:1.1rem">
+<div data-i18n="t179" data-ko="score" class="eqtag">The score</div>
+<div class="eq-field"><div class="eqline m wrapable">score <span class="op">=</span> ∑<sub><i>i</i></sub> <i>i</i> · <i>p</i><sub><i>i</i></sub> <span class="op">=</span> 0×0.00 <span class="op">+</span> 1×0.57 <span class="op">+</span> 2×0.43 <span class="op">=</span> <strong style="color:var(--fore)">1.43</strong></div></div>
+<p data-i18n="t180" data-ko="&lt;b&gt;1.43은 무엇을 뜻하나&lt;/b&gt;1.43이라는 단계는 없다. 실제 측정값이 아니라 &lt;strong&gt;단계 번호의 기댓값&lt;/strong&gt;이다." class="aloud"><b>What 1.43 is not</b>There is no level 1.43. It is an <strong>expected index</strong>, not a measurement.</p>
+</div>
+<div class="grid2" style="margin-top:1.1rem">
+<div class="card fore"><h3 data-i18n="t555" data-ko="이 답을 읽는 법" style="color:var(--fore)">Reading this answer</h3><p data-i18n="t556" data-ko="&lt;strong&gt;1.43은 1단계(우회 방법 있음)와 2단계(차단) 사이이며, 1에 조금 더 가깝다.&lt;/strong&gt;" style="color:var(--ink)"><strong>1.43 sits between level 1 (workaround) and level 2 (blocking), a bit closer to 1.</strong></p><p data-i18n="t557" data-ko="confidence 0.35는 모델이 두 단계 사이에서 갈피를 잡지 못한다는 뜻이다. 사람에게 넘기고, 확인할 질문은 “우회 방법이 있는가?”다.">Confidence 0.35 says the model is torn between the two. Send it to a person, and the question to settle is “is there a workaround?”</p></div>
+<div class="card real"><h3 data-i18n="t181" data-ko="점수가 같아도 의미는 다르다" style="color:var(--real)">Same score, opposite meanings</h3>
+<div class="tbl-wrap" style="box-shadow:none; border:none; background:transparent">
+<table>
+<thead><tr><th data-i18n="t558" data-ko="확률 0 / 1 / 2">p 0 / 1 / 2</th><th>score</th><th data-i18n="t559" data-ko="의미">meaning</th></tr></thead>
+<tbody>
+<tr><td class="num">0.00 / 1.00 / 0.00</td><td class="num"><strong>1.00</strong></td><td data-i18n="t560" data-ko="확실히 1단계 → 처리">surely level 1 → act</td></tr>
+<tr><td class="num">0.50 / 0.00 / 0.50</td><td class="num"><strong>1.00</strong></td><td data-i18n="t561" data-ko="사소하거나 차단 → 사람에게">trivial <em>or</em> blocking → escalate</td></tr>
+</tbody>
+</table>
+</div>
+<p data-i18n="t182" data-ko="score만 보고 행동하지 않는다. 먼저 &lt;span class=&quot;code&quot;&gt;probabilities&lt;/span&gt;와 &lt;span class=&quot;code&quot;&gt;confidence&lt;/span&gt;를 확인한다." style="color:var(--ink); margin-top:.7rem">Never act on the score alone. Check <span class="code">probabilities</span> and <span class="code">confidence</span> first.</p></div>
+</div>
+<details class="speaker-note"><summary data-i18n="t183" data-ko="분포가 달라도 점수는 같을 수 있다">Two distributions, one score</summary><div class="stack"><p data-i18n="t184" data-ko="확률이 대부분 1단계에 몰린 분포와 “사소함 아니면 치명적”이라는 양극단에 몰린 분포는 같은 score 값을 낼 수 있다. 전자는 중간 수준이라는 판단이 뚜렷하지만, 후자는 추가 검토가 필요할 수 있다. score만으로는 둘을 구분할 수 없으므로 문서는 “항상 &lt;span class=&quot;code&quot;&gt;probabilities&lt;/span&gt;와 &lt;span class=&quot;code&quot;&gt;confidence&lt;/span&gt;를 살펴보라”고 안내한다.">A confident “middling” answer — nearly all mass on level 1 — and a bimodal “either trivial or catastrophic” answer can report the same score. The first is safe to act on; the second is precisely the case to escalate. The score alone cannot tell them apart, which is why the docs say “always examine <span class="code">probabilities</span> and <span class="code">confidence</span>.”</p><p data-i18n="t185" data-ko="다음 슬라이드에서 분포를 직접 바꾸며 서로 다른 분포가 같은 점수를 만드는지 확인해 볼 수 있다.">The next slide lets you build both distributions by hand and watch the number stay put.</p></div></details></div></section>
+<!-- 15 -->
+<section aria-label="15: Play with a Score distribution" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Illustrative widget · local arithmetic, not model output" id="slide-15"><div class="wrap">
+<div data-i18n="t186" data-ko="&lt;span class=&quot;n&quot;&gt;08&lt;/span&gt; Score 실습" class="eyebrow"><span class="n">08</span> The Score, alive</div>
+<h2 data-i18n="t187" data-ko="분포를 바꾸며 Score 이해하기">Play with a Score distribution</h2>
+<p data-i18n="t188" data-ko="세 심각도 단계의 확률을 조절하며 score가 0–2 사이에서 어떻게 달라지는지 살펴본다." class="lead">Move probability mass between three severity levels; watch the score slide along the 0–2 axis.</p>
+<div class="fig" style="margin-top:.9rem">
+<canvas aria-label="Bar chart of probabilities over three ordered levels, with the resulting expected score marked on a 0 to 2 axis" height="430" id="cvA" role="img" width="1200"></canvas>
+<div class="ctrl">
+<label data-i18n="t189" data-ko="P(0단계 · 사소한 문제)" for="dP0">P(level 0 · cosmetic)</label>
+<input aria-describedby="roA" id="dP0" max="100" min="0" step="1" type="range" value="0"/>
+<label data-i18n="t190" data-ko="P(2단계 · 사용 불가)" for="dP2">P(level 2 · blocking)</label>
+<input aria-describedby="roA" id="dP2" max="100" min="0" step="1" type="range" value="43"/>
+<span class="readout" id="roA"></span>
+</div>
+</div>
+<div class="grid2" style="margin-top:1rem">
+<div data-i18n="t191" data-ko="&lt;strong&gt;문서의 예시:&lt;/strong&gt; P(0) = 0, P(2) = 0.43 → score 1.43." class="note"><strong>The docs' example:</strong> P(0) = 0, P(2) = 0.43 → score 1.43.</div>
+<div data-i18n="t192" data-ko="&lt;strong&gt;이번에는 양극단에 확률을 배분해 1.00을 만들어 보자.&lt;/strong&gt; 점수는 같아도 의미는 전혀 다르다." class="note"><strong>Now reach 1.00 from the extremes.</strong> Same number, very different situation.</div>
+</div>
+<details class="speaker-note"><summary data-i18n="t193" data-ko="이 실습에서 확인할 수 있는 것">What this widget does and does not show</summary><div class="stack"><p data-i18n="t194" data-ko="이 그래프는 Jev의 출력이 아니다. 슬라이더로 지정한 확률의 가중 평균을 브라우저에서 계산해 score의 정의를 보여 준다. 실제 응답에서는 모델이 확률 분포를 반환하고, 별도의 &lt;span class=&quot;code&quot;&gt;confidence&lt;/span&gt; 필드가 분포의 집중도를 요약한다.">The bars are set by your sliders, not by Jev — this page computes the weighted average locally to make the definition tangible. In a real response the distribution comes from the model, and a separate <span class="code">confidence</span> field summarizes how concentrated it is.</p><p data-i18n="t195" data-ko="가운데 단계의 확률은 1에서 두 슬라이더의 값을 뺀 나머지다. 두 값의 합이 1을 넘으면 비율을 유지한 채 조정한다. 따라서 실제 Score 응답처럼 세 확률의 합은 항상 1이다.">The middle level's probability is whatever the two sliders leave over; if their sum exceeds 1, the widget rescales proportionally, so the three always sum to one — as in a real Score answer.</p><p data-i18n="t196" data-ko="핵심은 두 번째 실험이다. 가운데 단계의 확률을 거의 0으로 줄이고 양극단에 확률을 배분해 score를 1.00으로 맞춰 보자. “사소함 아니면 치명적”인 분포와 “중간 수준”에 집중된 분포가 같은 점수를 낼 수 있다. 따라서 위험이 큰 행동을 score 하나만으로 결정해서는 안 된다.">The second experiment is the point of the slide: push mass to the extremes until the score reads 1.00 with almost nothing on level 1. A bimodal “either trivial or catastrophic” distribution and a confident “middling” one can report the same score — which is why the score alone should never drive a high-stakes action.</p></div></details></div></section>
+<!-- 16 -->
+<section aria-label="16: Noul — is this true?" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · Noul reference — Noul is the documented name" id="slide-16"><div class="wrap">
+<div data-i18n="t197" data-ko="&lt;span class=&quot;n&quot;&gt;09&lt;/span&gt; 질문 타입 3 / 3" class="eyebrow"><span class="n">09</span> Primitive 3 of 3</div>
+<h2 data-i18n="t198" data-ko="Noul — &lt;em&gt;이것이 참인가?&lt;/em&gt;">Noul — <em>is this true?</em></h2>
+<p data-i18n="t199" data-ko="답이 “예”일 확률을 숫자 하나로 반환한다." class="lead">The probability that the answer is yes. One number, and that number is the whole answer.</p>
+<div class="grid3" style="margin:1.2rem 0">
+<div class="card fore"><h3 data-i18n="t200" data-ko="1에 가까움" style="color:var(--fore)">Near 1</h3><p class="big-value">0.99</p><p data-i18n="t201" data-ko="“예”일 가능성이 높다.">A strong yes.</p></div>
+<div class="card thr"><h3 data-i18n="t202" data-ko="0.5에 가까움" style="color:var(--thr)">Near 0.5</h3><p class="big-value" style="color:var(--thr)!important">0.50</p><p data-i18n="t203" data-ko="&lt;strong&gt;중간 정도가 아니라 판단이 불확실하다는 뜻이다.&lt;/strong&gt; 정도나 강도를 나타내는 값이 아니다."><strong>Uncertain — not medium.</strong> Not an intensity dial.</p></div>
+<div class="card"><h3 data-i18n="t204" data-ko="0에 가까움">Near 0</h3><p class="big-value" style="color:var(--ink-3)!important">0.02</p><p data-i18n="t205" data-ko="“아니오”일 가능성이 높다. 값이 클수록 “예”를 뜻하도록 질문한다.">A strong no. Phrase so high means yes.</p></div>
+</div>
+<p data-i18n="t206" data-ko="&lt;strong&gt;Noul은 문서에 나온 정식 이름이다&lt;/strong&gt; — Bool의 오타가 아니다. &lt;a href=&quot;https://docs.typesafe.ai/primitives/noul&quot;&gt;레퍼런스 ↗&lt;/a&gt;" class="note"><strong>Noul is the documented name</strong> — not a typo for Bool. <a href="https://docs.typesafe.ai/primitives/noul">Reference ↗</a></p>
+<details class="speaker-note"><summary data-i18n="t207" data-ko="Noul 하나에 질문 하나">One question per Noul</summary><div class="stack"><p data-i18n="t208" data-ko="문서는 Noul을 “예/아니오 질문을 평가하고 답이 예일 확률을 반환하는 질문 타입”으로 정의한다. 별도의 confidence 필드는 없으며, 반환된 확률 자체로 불확실성을 판단한다. 0.5에 가깝다면 예와 아니오의 가능성이 비슷하다는 뜻이다. 문서의 &lt;span class=&quot;code&quot;&gt;is_human_escalation&lt;/span&gt; 예시는 &lt;span class=&quot;code&quot;&gt;&quot;noul&quot;: 0.99&lt;/span&gt;를 반환한다. API 식별자는 &lt;span class=&quot;code&quot;&gt;noul&lt;/span&gt;이며, 문서에 이름의 유래는 설명되어 있지 않다.">The definition: “A Noul question asks the model to evaluate a yes/no question and return the probability that the answer is yes.” There is no separate confidence field — the number is the confidence. Near 0.5 means “yes and no get similar probability.” The docs' example <span class="code">is_human_escalation</span> returns <span class="code">"noul": 0.99</span>. The API identifier is <span class="code">noul</span>; the docs don't explain the etymology.</p><p data-i18n="t209" data-ko="예/아니오로 답할 수 있는 질문에는 Noul을 사용한다. 환불 요청인지, 이력서에 분산 시스템 경험이 언급되는지, 댓글에 개인정보가 포함되는지 등이 해당한다. “긴급하면서 &lt;em&gt;동시에&lt;/em&gt; 유료 고객의 요청인가?”처럼 조건이 여러 개라면 각각 Noul로 묻고, 코드의 불리언 논리로 결합한다.">Use a Noul when the answer is yes or no — does the message request a refund, does the résumé mention distributed systems, does the comment contain personal data. A question with multiple conditions (“urgent <em>and</em> from a paying customer?”) should become separate Nouls combined with boolean logic in your code.</p><p data-i18n="t210" data-ko="성능 한계 문서에 따르면 질문 간 논리적 관계는 보장되지 않는다. 같은 명제를 긍정형과 부정형으로 각각 물어도 두 확률의 합이 1이 아닐 수 있다. 하나의 질문으로 묻고, 값이 클수록 “예”를 뜻하도록 작성한다.">From the jaggedness page: structural invariants across separate questions are not guaranteed — a Noul and its negation may not give probabilities summing to one. Ask one question, phrased so high means yes.</p></div></details></div></section>
+<!-- 17 -->
+<section aria-label="17: Sharpening a Noul" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · Noul reference — threshold guidance quoted" id="slide-17"><div class="wrap">
+<div data-i18n="t211" data-ko="&lt;span class=&quot;n&quot;&gt;09&lt;/span&gt; 질문 타입 3 / 3 · 활용" class="eyebrow"><span class="n">09</span> Primitive 3 of 3 · in practice</div>
+<h2 data-i18n="t212" data-ko="Noul의 판단 기준 정하기">Sharpening a Noul</h2>
+<p data-i18n="t213" data-ko="선택 항목인 &lt;span class=&quot;code&quot;&gt;criteria&lt;/span&gt;로 판단 기준을 명확히 한다. 결과에 따라 행동할지는 임계값으로 정한다." class="lead">Optional <span class="code">criteria</span> draw the boundary. Your threshold decides what to do about it.</p>
+<div class="grid2" style="margin:1.1rem 0">
+<div class="card"><h3 data-i18n="t214" data-ko="criteria로 판단 기준 명확히 하기">Criteria sharpen the boundary</h3>
+<pre class="codeblock">"is_repeat_contact": {
+  "type": "noul",
+  "instructions": "Has the customer contacted
+                   support about this before?",
+  "criteria": {
+    "true":  "Mentions a prior attempt, ticket,
+              or that they have asked before",
+    "false": "No sign of any previous contact"
+  } }</pre></div>
+<div class="card thr"><h3 data-i18n="t215" data-ko="임계값을 어디에 둘 것인가" style="color:var(--thr)">Where to set your threshold</h3><p data-i18n="t216" data-ko="잘못된 “예”로 행동할 때 손실이 크면 &lt;strong&gt;높인다.&lt;/strong&gt; 담당자 호출이나 환불 집행 등이 해당한다." style="color:var(--ink)"><strong>Raise it</strong> when a false yes is expensive — paging someone, issuing a refund.</p><p data-i18n="t217" data-ko="실제 “예”인 상황을 놓칠 때 손실이 크면 &lt;strong&gt;낮춘다.&lt;/strong&gt; 안전 문제를 감지해야 하는 경우가 해당한다." style="color:var(--ink)"><strong>Lower it</strong> when a missed yes is expensive — failing to flag a safety issue.</p></div>
+</div>
+<details class="speaker-note"><summary data-i18n="t218" data-ko="두 오류의 비용을 비교해 임계값을 정한다">The threshold is a ratio of your costs</summary><div class="stack"><p data-i18n="t219" data-ko="문서는 잘못된 “예”에 따라 담당자를 호출하거나 환불하는 비용이 크면 임계값을 높이라고 안내한다. 반대로 실제 안전 문제처럼 “예”인 상황을 놓치는 비용이 크면 임계값을 낮추라고 권한다.">The documented guidance, verbatim: “Raise it when acting on a false yes is expensive, such as paging someone or issuing a refund. Lower it when missing a true yes is expensive, such as failing to flag a safety issue.”</p><p data-i18n="t220" data-ko="이는 함께 제공되는 RLCD 자료의 비용 계산 원리와 같다. 적절한 임계값은 두 종류의 오류 비용에 따라 달라지며, 모든 상황에 통하는 값은 없다. RLCD 자료의 사기 탐지 예시는 실제 금액을 넣어 이 계산을 보여 준다.">That is the cost logic from the companion deck in miniature: the right cutoff is a ratio of the two error costs, not a universal number. The RLCD deck's fraud example works it out with actual dollar amounts.</p></div></details></div></section>
+<!-- 18 -->
+<section aria-label="18: Confidence — the shape of the answer" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · confidence page — a shape summary, not the winner's probability" id="slide-18"><div class="wrap">
+<div data-i18n="t221" data-ko="&lt;span class=&quot;n&quot;&gt;10&lt;/span&gt; 네 번째 필드" class="eyebrow"><span class="n">10</span> The fourth field</div>
+<h2 data-i18n="t222" data-ko="Confidence — 확률 분포의 집중도">Confidence — the shape of the answer</h2>
+<p data-i18n="t223" data-ko="0–1 사이의 값. 확률이 한곳에 몰리면 높고, 여러 곳에 퍼지면 낮다." class="lead">One number, 0 to 1. Concentrated → high. Spread → low.</p>
+<div class="grid2" style="margin:1.2rem 0">
+<div class="card"><h3 data-i18n="t224" data-ko="문서의 Score 예시에서">From the documented Score example</h3>
+<div class="tbl-wrap" style="box-shadow:none; border:none">
+<table>
+<tbody>
+<tr><td>top probability <small data-i18n="t225" data-ko="(1단계)">(level 1)</small></td><td class="num m" style="color:var(--fore)"><strong>0.57</strong></td></tr>
+<tr><td>runner-up <small data-i18n="t226" data-ko="(2단계)">(level 2)</small></td><td class="num m">0.43</td></tr>
+<tr><td data-i18n="t227" data-ko="보고된 &lt;span class=&quot;code&quot;&gt;confidence&lt;/span&gt;">reported <span class="code">confidence</span></td><td class="num m" style="color:var(--real)"><strong>0.35</strong></td></tr>
+</tbody>
+</table>
+</div></div>
+<div class="card real"><h3 data-i18n="t228" data-ko="가장 높은 확률과는 다르다" style="color:var(--real)">Not the winner's probability</h3><p data-i18n="t229" data-ko="두 단계의 확률이 비슷하면 분포가 분산되어 있다. confidence는 이 특성을 반영하므로 최댓값 0.57과 다른 0.35가 된다." style="color:var(--ink)">Two levels nearly tied is a spread-out shape, and the confidence says so — 0.35, not 0.57.</p></div>
+</div>
+<details class="speaker-note"><summary data-i18n="t230" data-ko="이 숫자는 어디서 오는가">Where the number comes from</summary><div class="stack"><p data-i18n="t231" data-ko="Choice와 Score 응답에는 모두 &lt;span class=&quot;code&quot;&gt;confidence&lt;/span&gt;가 포함된다. 임계값과 비교해 사용할 수 있는 0–1 사이의 값이며, 확률 분포의 모양을 요약한다. 한 결과에 확률이 집중되어 있으면 높고, 여러 결과에 퍼져 있으면 낮다. Noul은 확률 자체가 답이므로 이 필드가 없다.">Every Choice and Score answer carries a <span class="code">confidence</span>: “a single number from 0 to 1” you can threshold on. It summarizes the distribution's shape — “concentrated on one outcome means a confident answer, spread out means an uncertain one.” Nouls have none; the probability is the answer.</p><p data-i18n="t232" data-ko="함께 제공되는 RLCD 자료의 Choice 예시도 같은 점을 보여 준다. 선택지별 확률은 0.60 / 0.38 / 0.02이지만 confidence는 0.39다. 가장 높은 확률인 0.60과 다르며, 그 값만으로 confidence를 계산할 수도 없다.">The companion deck's lecture example makes the same point with a Choice: probabilities of 0.60 / 0.38 / 0.02 shipped with a confidence of 0.39 — not 0.60, and not derivable from the winner alone.</p></div></details></div></section>
+<!-- 19 -->
+<section aria-label="19: Two non-negotiables, three bands" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · confidence page — use probabilities for decision rules" id="slide-19"><div class="wrap">
+<div data-i18n="t233" data-ko="&lt;span class=&quot;n&quot;&gt;10&lt;/span&gt; 네 번째 필드 · 활용" class="eyebrow"><span class="n">10</span> The fourth field · using it</div>
+<h2 data-i18n="t234" data-ko="두 가지 주의점, 세 가지 처리 구간">Two non-negotiables, three bands</h2>
+<p data-i18n="t562" data-ko="&lt;span class=&quot;code&quot;&gt;confidence&lt;/span&gt;는 답이 얼마나 &lt;em&gt;한곳에 집중&lt;/em&gt;되어 있는지를 알려 줄 뿐, 정답인지를 알려 주지 않는다. &lt;em&gt;다음에 무엇을 할지&lt;/em&gt; 정하는 데 사용한다." class="lead" style="margin-top:.6rem"><span class="code">confidence</span> tells you how <em>concentrated</em> the answer is — not whether it is right. Use it to decide <em>what to do next</em>.</p>
+<div class="grid2" style="margin:1.1rem 0">
+<div class="card real"><h3 data-i18n="t235" data-ko="공식을 임의로 추정하지 않는다" style="color:var(--real)">Don't reverse-engineer a formula</h3><p data-i18n="t563" data-ko="문서가 보장하는 규칙은 &lt;em&gt;집중될수록 높고, 분산될수록 낮다&lt;/em&gt;는 것뿐이다. 정확한 계산식에 의존하는 로직을 만들지 않는다. 상위 두 선택지의 차이처럼 특정 지표가 필요하면 전체 &lt;span class=&quot;code&quot;&gt;probabilities&lt;/span&gt;로 직접 계산한다." style="color:var(--ink)">The only documented rule: <em>concentrated → high, spread → low</em>. Don't build logic on the exact math. Need a specific measure, like the gap between the top two options? Compute it from the full <span class="code">probabilities</span>.</p></div>
+<div class="card real"><h3 data-i18n="t237" data-ko="ℙ(정답)으로 읽지 않는다" style="color:var(--real)">Don't read it as ℙ(correct)</h3><p data-i18n="t564" data-ko="모델은 &lt;em&gt;확신하면서도 틀릴&lt;/em&gt; 수 있다. &lt;em&gt;틀린&lt;/em&gt; 선택지에 확률이 몰려 있어도 confidence는 높다. 집중도는 정확성이 아니다." style="color:var(--ink)">The model can be <em>confidently wrong</em>: probabilities piled on the <em>wrong</em> option still give high confidence. Concentration is not correctness.</p></div>
+</div>
+<div class="grid3">
+<div class="card fore"><h3 data-i18n="t239" data-ko="높음" style="color:var(--fore)">High</h3><p data-i18n="t240" data-ko="자동으로 실행한다.">Act automatically.</p></div>
+<div class="card thr"><h3 data-i18n="t241" data-ko="중간" style="color:var(--thr)">Medium</h3><p data-i18n="t242" data-ko="확인을 받거나 검토 큐에 넣는다.">Confirm, or queue for review.</p></div>
+<div class="card"><h3 data-i18n="t243" data-ko="낮음">Low</h3><p data-i18n="t565" data-ko="실행하지 않는다. 사람에게 넘기거나, 추가 설명을 요청하거나, 다른 시스템으로 처리한다.">Do not act. Route to a human, ask for clarification, or fall back to another system.</p></div>
+</div>
+<p data-i18n="t566" data-ko="&lt;b&gt;임계값은 행동마다 다르다&lt;/b&gt;틀렸을 때의 비용에 따라 행동별로 기준을 따로 정한다. 환불이나 삭제는 읽기 전용 조회보다 높은 기준이 필요하다. 보수적으로 시작한 뒤, 실제 결과로 신뢰도와 정확도의 관계를 그려 보고 조정한다." class="analogy" style="margin-top:1.1rem"><b>Thresholds depend on the action</b>Set a separate gate for each action, based on the cost of being wrong: a refund or delete needs a higher bar than a read-only lookup. Start conservative, then plot confidence against accuracy on your own outcomes and adjust.</p>
+<details class="speaker-note"><summary data-i18n="t245" data-ko="오류가 초래할 결과에 따라 임계값을 정한다">Thresholds scale with consequences</summary><div class="stack"><p data-i18n="t246" data-ko="신뢰도가 낮으면 바로 실행하지 않는다. 문서는 사람에게 판단을 넘기거나, 추가 설명을 요청하거나, 다른 시스템으로 처리하도록 안내한다.">On low confidence the guidance is explicit: “do not act. Route to a human, request clarification, or fall back to a different system.”</p><p data-i18n="t247" data-ko="문서는 같은 시스템에서도 행동별로 오류의 영향이 다르므로 서로 다른 신뢰도 임계값을 적용해야 한다고 설명한다. 같은 작업 흐름 안에서도 되돌리기 어려운 작업에는 읽기 전용 작업보다 높은 기준이 필요하다.">“A confidence threshold is not one number. Different actions within the same system should be gated at different levels depending on the consequences of getting it wrong.” A destructive operation deserves a higher gate than a read-only one, even inside the same workflow.</p><p data-i18n="t248" data-ko="문서는 보수적인 임계값으로 시작해 자체 데이터로 시험하고, 결과를 관찰하면서 조정하라고 권한다. 개발 가이드에서는 실제 결과를 바탕으로 신뢰도와 정확도의 관계를 그래프로 확인하도록 안내한다. 이런 검증을 거쳐야 경험적인 기준을 근거 있는 설계로 발전시킬 수 있다. 다음 슬라이드에서 각 구간의 경계를 조절해 볼 수 있다.">“Start with conservative thresholds, test with your own data, and adjust as you observe results” — and from the build guide: plot confidence against accuracy on your own outcomes. That validation is what turns a heuristic into an engineering decision. The next slide makes the bands draggable.</p></div></details></div></section>
+<!-- 20 -->
+<section aria-label="20: Route on confidence" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Illustrative thresholds · calibrate against your own outcome data" id="slide-20"><div class="wrap">
+<div data-i18n="t249" data-ko="&lt;span class=&quot;n&quot;&gt;11&lt;/span&gt; 처리 구간 실습" class="eyebrow"><span class="n">11</span> The three bands, alive</div>
+<h2 data-i18n="t250" data-ko="신뢰도에 따라 처리 경로 정하기">Route on confidence</h2>
+<p data-i18n="t567" data-ko="두 개의 기준선이 신뢰도 축을 &lt;strong&gt;판단 이관&lt;/strong&gt;, &lt;strong&gt;확인&lt;/strong&gt;, &lt;strong&gt;자동 실행&lt;/strong&gt;의 세 구간으로 나눈다. 신뢰도는 모델이 주고, 기준선의 위치는 &lt;em&gt;우리가&lt;/em&gt; 정한다." class="lead">Two gates split the confidence axis into three zones: <strong>escalate</strong>, <strong>confirm</strong>, <strong>act</strong>. The model supplies the confidence; <em>you</em> choose where the gates sit.</p>
+<div class="fig" style="margin-top:.9rem">
+<canvas aria-label="A 0 to 1 confidence axis divided into escalate, confirm, and act zones by two adjustable thresholds, with a marker showing one answer's confidence" height="380" id="cvB" role="img" width="1200"></canvas>
+<div class="ctrl">
+<span style="display:flex; align-items:center; gap:.6rem; flex:1 1 17rem"><label data-i18n="t568" data-ko="기준선 1 · 미만이면 판단 이관" for="dTe">gate 1 · escalate below</label>
+<input aria-describedby="roB" id="dTe" max="100" min="0" step="1" type="range" value="40"/></span>
+<span style="display:flex; align-items:center; gap:.6rem; flex:1 1 17rem"><label data-i18n="t569" data-ko="기준선 2 · 이상이면 자동 실행" for="dTa">gate 2 · act at or above</label>
+<input aria-describedby="roB" id="dTa" max="100" min="0" step="1" type="range" value="80"/></span>
+<span style="display:flex; align-items:center; gap:.6rem; flex:1 1 17rem"><label data-i18n="t570" data-ko="모델 출력 · 응답의 신뢰도" for="dC">model output · this answer's confidence</label>
+<input aria-describedby="roB" id="dC" max="100" min="0" step="1" type="range" value="62"/></span>
+<span class="readout" id="roB"></span>
+</div>
+</div>
+<div class="grid2" style="margin-top:1rem; align-items:start">
+<div class="card thr"><h3 data-i18n="t571" data-ko="같은 응답, 다른 처리" style="color:var(--thr)">Same answer, different actions</h3><p data-i18n="t572" data-ko="신뢰도 &lt;strong&gt;0.80&lt;/strong&gt;인 응답이 있다고 하자.&lt;br/&gt;내부 태그 추가 — 기준선 0.60 → &lt;strong&gt;자동 실행&lt;/strong&gt;&lt;br/&gt;환불 처리 — 기준선 0.95 → 먼저 &lt;strong&gt;확인&lt;/strong&gt;&lt;br/&gt;&lt;span style=&quot;color:var(--ink-3)&quot;&gt;(예시 수치)&lt;/span&gt;" style="color:var(--ink)">Take one answer with confidence <strong>0.80</strong>.<br/>Add an internal tag — gate at 0.60 → <strong>act</strong><br/>Issue a refund — gate at 0.95 → <strong>confirm</strong> first<br/><span style="color:var(--ink-3)">(illustrative numbers)</span></p></div>
+<p data-i18n="t573" data-ko="&lt;b&gt;직접 해 보기&lt;/b&gt;① 응답의 신뢰도를 움직여 처리 방식이 바뀌는 지점을 확인한다.&lt;br/&gt;② 두 기준선을 움직여 같은 응답이 다른 구간에 들어가는 것을 확인한다.&lt;br/&gt;기준선은 모델이 아니라 코드에 있는 값이다." class="analogy"><b>Try it</b>① Move the answer's confidence and watch where the route changes.<br/>② Move the two gates and watch the same answer land in a different zone.<br/>The gates are values in your code, not in the model.</p>
+</div>
+<details class="speaker-note"><summary data-i18n="t258" data-ko="임계값 설정의 두 가지 실패 사례">Try the two failure modes</summary><div class="stack"><p data-i18n="t257" data-ko="&lt;strong&gt;판단 이관은 문서에도 명시되어 있다.&lt;/strong&gt; 불확실한 경우에는 “사람이나 비용이 더 드는 추론 모델”에 맡긴다." class="note"><strong>Escalation is documented:</strong> uncertain cases go “to a person or a more expensive reasoning model.”</p><p data-i18n="t259" data-ko="&lt;strong&gt;자동 실행 기준이 너무 낮을 때:&lt;/strong&gt; “이상이면 자동 실행”을 0.5로 내려 보자. 판단이 불확실한 응답도 자동으로 처리된다. 태그 추가에는 허용할 수 있어도 환불에는 위험할 수 있다."><strong>Gates too generous:</strong> drag “act above” down to 0.5. More answers auto-execute, including near-ties — fine for tagging, reckless for refunds.</p><p data-i18n="t260" data-ko="&lt;strong&gt;판단 이관 기준이 너무 높을 때:&lt;/strong&gt; 하한을 자동 실행 임계값 가까이 올려 보자. 확인 구간이 줄고 대부분의 판단을 사람에게 넘기게 된다. 자동화 효과는 줄고 처리 단계만 늘어난다."><strong>Gates too timid:</strong> drag “escalate below” up toward the act gate. The confirm band vanishes and nearly everything lands on humans, which is the old manual process with extra steps.</p><p data-i18n="t261" data-ko="임계값은 행동별 오류 비용을 고려해 정하고, 실제 데이터에서 신뢰도와 정확도의 관계를 확인해 검증한다. 여기의 기본값 0.40과 0.80은 실습용으로 임의 설정한 값이다.">Set each gate from the cost of that action going wrong, then validate by plotting confidence against accuracy on your own data. The defaults here (0.40 / 0.80) are arbitrary starting points for the demo.</p></div></details></div></section>
+<!-- 21 -->
+<section aria-label="21: Building with it" aria-roledescription="slide" class="slide chapter" data-prov="doc" data-provtext="" id="slide-21"><div class="wrap"><p data-i18n="t262" data-ko="3장 / 전체 5장" class="chapter-kicker">Chapter 03 of 05</p><div class="chapter-num">03</div><h2 data-i18n="t263" data-ko="Jev 활용하기" class="chapter-h">Building with it</h2><ul class="chapter-toc"><li><b>01</b><span data-i18n="t264" data-ko="모델 카드">The model card</span></li><li><b>02</b><span data-i18n="t265" data-ko="작업별 성능 한계">Jagged edges</span></li><li><b>03</b><span data-i18n="t266" data-ko="주요 활용 사례">What people build</span></li><li><b>04</b><span data-i18n="t267" data-ko="여섯 가지 개발 원칙">The six build habits</span></li></ul></div></section>
+<!-- 22 -->
+<section aria-label="22: The model card, in numbers" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · models page, checked 27 September 2026 · subject to change" id="slide-22"><div class="wrap">
+<div data-i18n="t268" data-ko="&lt;span class=&quot;n&quot;&gt;12&lt;/span&gt; 주요 사양" class="eyebrow"><span class="n">12</span> Practical facts</div>
+<h2 data-i18n="t269" data-ko="모델 카드의 주요 수치">The model card, in numbers</h2>
+<div class="tbl-wrap" style="margin-top:1rem">
+<table>
+<thead><tr><th data-i18n="t270" data-ko="항목">Property</th><th data-i18n="t271" data-ko="값">Value</th><th data-i18n="t272" data-ko="비고">Note</th></tr></thead>
+<tbody>
+<tr class="hl"><td data-i18n="t273" data-ko="현재 모델">Current model</td><td data-i18n="t274" data-ko="&lt;strong&gt;jev-1.13.0&lt;/strong&gt;" class="m num"><strong>jev-1.13.0</strong></td><td data-i18n="t275" data-ko="현재 &lt;span class=&quot;code&quot;&gt;jev-latest&lt;/span&gt;와 &lt;span class=&quot;code&quot;&gt;jev-preview&lt;/span&gt;가 이를 가리킨다"><span class="code">jev-latest</span> and <span class="code">jev-preview</span> alias it today</td></tr>
+<tr><td data-i18n="t276" data-ko="컨텍스트 길이">Context length</td><td data-i18n="t277" data-ko="요청당 64k 토큰" class="num">64k tokens per request</td><td data-i18n="t278" data-ko="state와 가장 긴 질문의 합은 32k 토큰">32k for state + longest question</td></tr>
+<tr><td data-i18n="t279" data-ko="입력">Input</td><td data-i18n="t280" data-ko="텍스트만">Text only</td><td data-i18n="t281" data-ko="문자열, 객체, 배열 — 이미지·오디오·비디오 미지원">string, object, or array — no image, audio, video</td></tr>
+<tr><td data-i18n="t282" data-ko="가격">Price</td><td data-i18n="t283" data-ko="$42 / Btok · $0.042 / Mtok" class="num">$42 / Btok · $0.042 / Mtok</td><td data-i18n="t284" data-ko="&lt;strong&gt;입력&lt;/strong&gt; 토큰 기준 과금, 출력은 무료">charged per <strong>input</strong> token; output free</td></tr>
+<tr><td data-i18n="t285" data-ko="요청 한도">Rate limits</td><td data-i18n="t286" data-ko="250,000 tok/s · 1,200 req/min" class="num">250,000 tok/s · 1,200 req/min</td><td data-i18n="t287" data-ko="수요에 따라 동적으로 조정된다">adjusts dynamically under demand</td></tr>
+<tr><td data-i18n="t288" data-ko="언어">Languages</td><td data-i18n="t289" data-ko="영어 우선">English primary</td><td data-i18n="t290" data-ko="다른 언어는 성능이 낮을 수 있어 운영 전 검증 필요">others reduced — test before production</td></tr>
+<tr><td data-i18n="t291" data-ko="커스터마이징">Customization</td><td data-i18n="t292" data-ko="요청 매개변수로만 조정 가능">Request parameters only</td><td data-i18n="t293" data-ko="고객별 미세 조정 가중치는 제공하지 않음">no per-customer fine-tuned weights</td></tr>
+</tbody>
+</table>
+</div>
+<p data-i18n="t294" data-ko="2026년 9월 27일 확인한 &lt;a href=&quot;https://docs.typesafe.ai/models&quot;&gt;모델 문서&lt;/a&gt; 기준이다. 사양은 변경될 수 있다." class="note" style="margin-top:1.1rem">A snapshot of <a href="https://docs.typesafe.ai/models">docs.typesafe.ai/models</a> on 27 September 2026 — not a contract.</p>
+<details class="speaker-note"><summary data-i18n="t295" data-ko="가격 구조가 시사하는 것">What the pricing shape implies</summary><div class="stack"><p data-i18n="t296" data-ko="응답이 생성된 텍스트가 아니라 타입이 정해진 값이므로 출력 크기가 작고, TypeSafe는 출력에 과금하지 않는다. 비용은 입력량에 따라 결정된다. state에 필요한 내용만 담으면 정확도를 높이면서 비용도 줄일 수 있다.">Because answers are typed values rather than generated text, output is tiny and TypeSafe simply doesn't charge for it — the bill is a function of how much state you send. That makes the build guide's advice to keep state lean a cost lever as well as an accuracy lever.</p><p data-i18n="t297" data-ko="입력 100만 토큰당 $0.042이므로 1,000토큰의 비용은 $0.000042다. 여기에 질문의 토큰 비용이 추가된다. 백그라운드에서 대량으로 반복 실행하는 용도에 맞춘 가격 구조다.">At $0.042 per million input tokens, a 1,000-token state with a handful of questions costs on the order of hundredths of a cent — the “run it a million times in the background” use cases are priced deliberately.</p><p data-i18n="t298" data-ko="요청 한도는 수요에 따라 동적으로 조정되며 예고 없이 달라질 수 있다. 가격과 한도는 제공업체의 정책에 따른다.">Rate limits are “adjusting dynamically” under demand and may change without notice; pricing and limits are the vendor's to change.</p></div></details></div></section>
+<!-- 23 -->
+<section aria-label="23: Jagged edges — reading and arithmetic" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · jev-1.13 jaggedness page — vendor-documented limitations" id="slide-23"><div class="wrap">
+<div data-i18n="t299" data-ko="&lt;span class=&quot;n&quot;&gt;13&lt;/span&gt; 문서화된 한계 · 1 / 2" class="eyebrow"><span class="n">13</span> Documented limitations · 1 of 2</div>
+<h2 data-i18n="t300" data-ko="작업별 한계 — 문장 해석과 산술">Jagged edges — reading and arithmetic</h2>
+<p data-i18n="t301" data-ko="제공업체가 공개한 실패 사례다. 대응 원칙은 같다. &lt;strong&gt;코드가 잘하는 일은 코드에 맡긴다.&lt;/strong&gt;" class="lead">The vendor's own failure list. The pattern in the fixes: <strong>let code do what code does best.</strong></p>
+<div class="tbl-wrap" style="margin-top:1rem">
+<table>
+<thead><tr><th data-i18n="t302" data-ko="한계">Edge</th><th data-i18n="t303" data-ko="문서에 명시된 한계">Documented behavior</th><th data-i18n="t304" data-ko="대응 방법">Do instead</th></tr></thead>
+<tbody>
+<tr><td data-i18n="t305" data-ko="&lt;strong&gt;문자 그대로 해석&lt;/strong&gt;"><strong>Literal reading</strong></td><td data-i18n="t306" data-ko="질문의 의도를 추론하기보다 적힌 내용에 답한다">Answers the written question, not the intent</td><td data-i18n="t307" data-ko="조건을 정확히 적는다">State the exact condition</td></tr>
+<tr class="hl"><td data-i18n="t308" data-ko="&lt;strong&gt;개수 세기&lt;/strong&gt;"><strong>Counting</strong></td><td data-i18n="t309" data-ko="안정적으로 세지 못한다">Does not count reliably</td><td data-i18n="t310" data-ko="&lt;strong&gt;코드에서 센다&lt;/strong&gt;"><strong>Count in code</strong></td></tr>
+<tr><td data-i18n="t311" data-ko="&lt;strong&gt;날짜 &amp;amp; 기간&lt;/strong&gt;"><strong>Dates &amp; durations</strong></td><td data-i18n="t312" data-ko="순서와 간격이 부정확하다">Ordering and gaps are unreliable</td><td data-i18n="t313" data-ko="코드에서 비교하고 결과만 넘긴다">Compare in code; pass the verdict in</td></tr>
+<tr><td data-i18n="t314" data-ko="&lt;strong&gt;숫자 인코딩&lt;/strong&gt;"><strong>Numeric encodings</strong></td><td data-i18n="t315" data-ko="16진수·RGB 값은 단어로 표현할 때보다 인식이 부정확하다">Hex and RGB worse than words</td><td data-i18n="t316" data-ko="의미를 알 수 있는 말로 설명한다">Use semantic descriptions</td></tr>
+</tbody>
+</table>
+</div>
+<details class="speaker-note"><summary data-i18n="t317" data-ko="성능 한계 문서를 활용하는 방법">Why publishing this list matters</summary><div class="stack"><p data-i18n="t318" data-ko="문서는 “Jev는 완벽하지 않다”며 jev-1.13에서 확인한 성능 한계를 소개한다. 실패 사례를 공개하는 것은 제품이 내세우는 관측 가능성과 테스트 가능성을 실천하는 일이다. 이 목록은 검증 계획에도 활용할 수 있다. 각 항목을 출시 전 평가 데이터에 포함해 실제로 확인해야 한다.">The page opens plainly: “Jev isn't perfect. Here are some jagged edges we are aware of with jev-1.13.” A vendor documenting its model's failure modes is exactly the observability-and-testability posture the manifesto claims — and it gives you a concrete test plan: each row is a category of cases for your own evaluation set before shipping.</p><p data-i18n="t319" data-ko="의미 해석은 Jev에 맡기고 산술은 코드로 처리한다. “이 메시지가 주문을 두 건 이상 언급하는가?”라고 한 번에 묻기보다, 어떤 주문을 언급하는지 판단한 뒤 코드에서 &lt;span class=&quot;code&quot;&gt;len()&lt;/span&gt;으로 개수를 세는 방식이다.">Ask Jev the semantic part and keep the arithmetic in code: “does this message mention more than one order?” is a bad question; “which orders does it mention?” plus <span class="code">len()</span> is a good one.</p></div></details></div></section>
+<!-- 24 -->
+<section aria-label="24: Jagged edges — context and composition" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · jev-1.13 jaggedness page — vendor-documented limitations" id="slide-24"><div class="wrap">
+<div data-i18n="t320" data-ko="&lt;span class=&quot;n&quot;&gt;13&lt;/span&gt; 문서화된 한계 · 2 / 2" class="eyebrow"><span class="n">13</span> Documented limitations · 2 of 2</div>
+<h2 data-i18n="t321" data-ko="작업별 한계 — 맥락과 질문 간 관계">Jagged edges — context and composition</h2>
+<div class="tbl-wrap" style="margin-top:1rem">
+<table>
+<thead><tr><th data-i18n="t322" data-ko="한계">Edge</th><th data-i18n="t323" data-ko="문서에 명시된 한계">Documented behavior</th><th data-i18n="t324" data-ko="대응 방법">Do instead</th></tr></thead>
+<tbody>
+<tr><td data-i18n="t325" data-ko="&lt;strong&gt;간접 참조&lt;/strong&gt;"><strong>Indirection</strong></td><td data-i18n="t326" data-ko="다단계 조회는 정확도를 떨어뜨린다">Multi-hop lookups degrade accuracy</td><td data-i18n="t327" data-ko="참조할 내용을 미리 찾아 직접 전달한다">Resolve references first</td></tr>
+<tr class="hl"><td data-i18n="t328" data-ko="&lt;strong&gt;무관한 맥락&lt;/strong&gt;"><strong>Irrelevant context</strong></td><td data-i18n="t329" data-ko="state가 커질수록 정확도가 떨어진다">Accuracy falls as the state grows</td><td data-i18n="t330" data-ko="state에는 필요한 내용만 담는다">Keep state lean</td></tr>
+<tr><td data-i18n="t331" data-ko="&lt;strong&gt;적대적 입력&lt;/strong&gt;"><strong>Adversarial content</strong></td><td data-i18n="t332" data-ko="혼동을 유도하는 표현에 판단이 흔들릴 수 있다">Misleading framings can sway answers</td><td data-i18n="t333" data-ko="state를 신뢰할 수 없는 입력으로 다룬다">Treat state as untrusted input</td></tr>
+<tr><td data-i18n="t334" data-ko="&lt;strong&gt;질문 간 논리적 관계&lt;/strong&gt;"><strong>Cross-question invariants</strong></td><td data-i18n="t335" data-ko="서로 다른 답 사이의 논리적 일관성은 보장되지 않는다">Relations between answers aren't guaranteed</td><td data-i18n="t336" data-ko="하나만 질문하고 나머지는 코드로 도출한다">Ask one question; derive the rest</td></tr>
+</tbody>
+</table>
+</div>
+<p data-i18n="t337" data-ko="jev-1.13에서 확인된 한계이며, 버전에 따라 달라질 수 있다." class="note" style="margin-top:1.1rem">These are jev-1.13 notes, not permanent truths.</p>
+<details class="speaker-note"><summary data-i18n="t338" data-ko="같은 문서의 나머지 두 가지">Two more edges from the same page</summary><div class="stack"><p data-i18n="t339" data-ko="&lt;strong&gt;모순되는 지시:&lt;/strong&gt; &lt;span class=&quot;code&quot;&gt;instructions&lt;/span&gt;와 &lt;span class=&quot;code&quot;&gt;criteria&lt;/span&gt;가 어긋나면 답변 품질이 떨어진다 — 서로 맞춰둔다."><strong>Contradictory instructions:</strong> when <span class="code">instructions</span> and <span class="code">criteria</span> disagree, answers degrade — keep them aligned.</p><p data-i18n="t340" data-ko="&lt;strong&gt;텍스트 생성 없음:&lt;/strong&gt; 결함이 아니라 설계다. 문장이 필요하면 Jev를 LLM과 함께 쓴다 — Jev가 결정하고 LLM이 쓴다."><strong>No text generation:</strong> by design rather than defect. When you need prose, pair Jev with an LLM — Jev decides, the LLM writes.</p><p data-i18n="t341" data-ko="모델 버전이 바뀌면 이 문서를 다시 확인한다. 목록은 jev-1.13 기준이다.">Recheck the jaggedness page when the model version changes; the list is versioned to jev-1.13.</p></div></details></div></section>
+<!-- 25 -->
+<section aria-label="25: What people build with it" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · use-case map — vendor-described applications" id="slide-25"><div class="wrap">
+<div data-i18n="t342" data-ko="&lt;span class=&quot;n&quot;&gt;14&lt;/span&gt; 활용 분야" class="eyebrow"><span class="n">14</span> Where it fits</div>
+<h2 data-i18n="t343" data-ko="주요 활용 사례">What people build with it</h2>
+<p data-i18n="t344" data-ko="문서가 제시하는 목표는 “사람이 지켜보지 않아도 백그라운드에서 백만 번 실행할 수 있는” 시스템이다." class="lead">The ambition, in the docs' words: “run it a million times in the background without a human co-pilot.”</p>
+<div class="grid3" style="margin-top:1.1rem">
+<div class="card fore"><h3 data-i18n="t345" data-ko="LLM 가드레일" style="color:var(--fore)">LLM guardrails</h3><p data-i18n="t346" data-ko="모든 LLM 입력·출력·도구 호출에 대한 의미 검사.">Semantic checks on every LLM input, output, and tool call.</p></div>
+<div class="card"><h3 data-i18n="t347" data-ko="LLM 오케스트레이션">LLM orchestration</h3><p data-i18n="t348" data-ko="프롬프트를 적절한 모델에 배정하고 도구 호출을 제어한다.">Route prompts between models; gate tool calls.</p></div>
+<div class="card"><h3 data-i18n="t349" data-ko="범용 검증">Universal verification</h3><p data-i18n="t350" data-ko="추출 결과, 추론 과정, 도구 호출을 검사한다.">Check extractions, reasoning traces, tool calls.</p></div>
+<div class="card"><h3 data-i18n="t351" data-ko="RAG &amp;amp; map-reduce">RAG &amp; map-reduce</h3><p data-i18n="t352" data-ko="대규모 데이터셋에 대한 의미 검색·점수화·순위 매기기.">Semantic search, scoring, and ranking over big datasets.</p></div>
+<div class="card"><h3 data-i18n="t353" data-ko="실시간 결정">Real-time decisions</h3><p data-i18n="t354" data-ko="게임과 임베디드 UI에서 사용자가 지연을 느끼기 전에 판단한다.">Faster than human perception — games, embedded UI.</p></div>
+<div class="card"><h3 data-i18n="t355" data-ko="운영 자동화">Operations automation</h3><p data-i18n="t356" data-ko="분류, 보험 청구, 콘텐츠 검토, 잠재 고객 평가, 의심 거래 탐지.">Triage, claims, moderation, lead scoring, fraud signals.</p></div>
+</div>
+<p data-i18n="t357" data-ko="제공업체가 소개한 활용 사례이며, 독립적인 성능 검증 결과는 아니다." class="note" style="margin-top:1.1rem">Vendor-described applications, not independently benchmarked results.</p>
+<details class="speaker-note"><summary data-i18n="t358" data-ko="공통점">The common thread</summary><div class="stack"><p data-i18n="t359" data-ko="공통점은 작은 판단을 대량으로 처리한다는 것이다. 각 판단의 실행과 검증 비용이 낮고, 결과에 따른 처리는 명시적인 규칙으로 동작하는 소프트웨어가 맡는다. 모델에 대화, 계획, 설명을 요구하는 사례는 없다.">Every entry has the same silhouette: a high-volume stream of small judgments, each cheap to make and cheap to check, feeding deterministic software that owns the consequences. None asks the model to converse, plan, or explain.</p><p data-i18n="t360" data-ko="반대로 법률 의견서나 아키텍처 결정처럼 새롭고 복잡한 문제를 여러 단계에 걸쳐 풀어야 한다면 추론 모델에 적합한 작업이다. 이때 Jev는 개별 판단이나 중간 결과를 검증하는 역할을 맡을 수 있다.">The inverse is a useful negative test: if your task needs one large, novel, multi-step judgment — a legal brief, an architecture decision — that is reasoning-model territory, and Jev's role shrinks to verifying pieces of it.</p><p data-i18n="t361" data-ko="문서에는 저비용 가드레일, 프롬프트별 LLM 선택, RAG 파이프라인에서 임베딩 대체·보완, 회사별 세부 기준에 따른 콘텐츠 검토 등이 소개되어 있다. 쿡북에는 재순위화, RAG 문단 분류, 인용 검증, 함수 호출, 가드레일 등의 구현 예제가 있다.">The docs' own phrasings are worth quoting: guardrails “at a fraction of the cost”; “build a custom router that chooses which LLM receives each prompt”; “replace or supplement embeddings in RAG pipelines”; moderation against “company-specific, nuanced criteria.” The cookbook has worked recipes for most of them — re-ranking, classifying RAG passages, double-checking citations, function calling, and guardrails.</p></div></details></div></section>
+<!-- 26 -->
+<section aria-label="26: How to build with it" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · How to build with System One" id="slide-26"><div class="wrap">
+<div data-i18n="t362" data-ko="&lt;span class=&quot;n&quot;&gt;15&lt;/span&gt; 방법론" class="eyebrow"><span class="n">15</span> The method</div>
+<h2 data-i18n="t363" data-ko="Jev로 시스템을 만드는 방법">How to build with it</h2>
+<p data-i18n="t364" data-ko="여섯 가지 개발 원칙의 핵심: &lt;strong&gt;처리 흐름은 코드로 제어하고, 모델에는 범위가 명확한 판단을 맡긴다.&lt;/strong&gt;" class="lead">Six habits, one principle: <strong>code owns control flow; the model makes narrow judgments.</strong></p>
+<div class="grid3" style="margin-top:1.1rem">
+<div class="card"><h3 data-i18n="t365" data-ko="1 · 코드 우선">1 · Code first</h3><p data-i18n="t366" data-ko="&lt;span class=&quot;code&quot;&gt;if&lt;/span&gt;문으로 충분한 작업에 에이전트 루프를 사용하지 않는다.">No agent loop where an <span class="code">if</span> suffices.</p></div>
+<div class="card"><h3 data-i18n="t367" data-ko="2 · 필요한 내용만 입력">2 · Lean state</h3><p data-i18n="t368" data-ko="무관한 맥락은 정확도를 낮추고 비용을 늘린다.">Irrelevant context costs accuracy and money.</p></div>
+<div class="card"><h3 data-i18n="t369" data-ko="3 · 구조화된 state">3 · Structured state</h3><p data-i18n="t370" data-ko="중첩된 JSON, 의미가 명확한 이름, 정확한 참조 경로.">Nested JSON, descriptive names, exact paths.</p></div>
+<div class="card fore"><h3 data-i18n="t371" data-ko="4 · 질문을 작은 단위로 분리" style="color:var(--fore)">4 · Atomize questions</h3><p data-i18n="t372" data-ko="질문 하나에 판단 하나. 개발 가이드의 핵심 원칙이다." style="color:var(--ink)">One judgment per question. The guide's most important idea.</p></div>
+<div class="card"><h3 data-i18n="t373" data-ko="5 · 병렬화">5 · Parallelize</h3><p data-i18n="t374" data-ko="작은 질문 여러 개, 요청 한 번.">Many small questions, one request.</p></div>
+<div class="card"><h3 data-i18n="t375" data-ko="6 · 코드에서 조합">6 · Compose in code</h3><p data-i18n="t376" data-ko="명시적인 규칙이나 가중합으로 결합한다.">Deterministic rules or weighted sums.</p></div>
+</div>
+<div data-i18n="t377" data-ko="&lt;strong&gt;판단을 넘길 경로도 설계한다.&lt;/strong&gt; 불확실하면 사람이나 다른 모델에 맡기고, 임계값은 실제 결과로 검증한다." class="note" style="margin-top:1.1rem"><strong>The escape hatch is part of the design:</strong> escalate uncertain cases; validate thresholds against your outcomes.</div>
+<details class="speaker-note"><summary data-i18n="t378" data-ko="질문을 작은 단위로 나누는 예시">Atomization, worked</summary><div class="stack"><p data-i18n="t379" data-ko="개발 가이드는 규칙으로 처리할 수 있는 작업을 코드에 맡기라고 권한다. 코드가 더 안정적이고 저렴하기 때문이다. 또한 질문을 작은 단위로 나누는 것을 핵심 원칙으로 꼽는다. 넓은 범위의 질문에는 여러 판단이 뒤섞이기 쉽다. 개별 결과는 명시적인 규칙이나 가중합으로 조합하거나, 확률을 전통적인 머신러닝 모델의 입력으로 사용할 수 있다. 값은 &lt;span class=&quot;code&quot;&gt;support.tickets[0].message&lt;/span&gt;처럼 정확한 경로로 참조한다.">The guide's wording: “Keep deterministic work in code. It is reliable and cheap.” Atomization is “probably the most important concept in this guide. Broad questions hide several judgments behind one answer.” Compose with “deterministic rules or weighted sums” — or feed the probabilities into a classical ML model. Reference exact values by path, like <span class="code">support.tickets[0].message</span>.</p><p data-i18n="t380" data-ko="문서의 환불 예시는 “이 고객에게 환불해야 하는가?”라는 질문을 여러 개로 나눈다. 고객 메시지·거래 내역·정책을 state에 담고 독립적인 질문을 함께 보낸다. &lt;em&gt;환불을 요청하는가?&lt;/em&gt;(Noul), &lt;em&gt;주문이 정책상 기한 안에 있는가?&lt;/em&gt;(Noul), &lt;em&gt;불만 수준은 어느 정도인가?&lt;/em&gt;(Score), &lt;em&gt;어느 팀이 담당해야 하는가?&lt;/em&gt;(Choice).">Instead of one broad question — “should we refund this customer?” — the docs' refund example builds a state holding the customer's message, the transactions, and the policy, then asks independent questions together: <em>does the message request a refund?</em> (Noul) · <em>is the order within the policy window?</em> (Noul) · <em>how frustrated is the customer?</em> (Score) · <em>which team owns this?</em> (Choice).</p><p data-i18n="t381" data-ko="최종 환불 여부는 코드의 불리언 식으로 결정하므로 판단 근거를 추적할 수 있다. 문제가 생기면 &lt;em&gt;어느 판단&lt;/em&gt;이 틀렸는지 확인할 수 있다. 하나의 포괄적인 질문으로는 얻기 어려운 관측 가능성이다.">The refund decision is then an auditable boolean expression in your code. When it misfires you can see <em>which judgment</em> was wrong — the observability a broad question destroys.</p></div></details></div></section>
+<!-- 27 -->
+<section aria-label="27: The case against" aria-roledescription="slide" class="slide chapter" data-prov="doc" data-provtext="" id="slide-27"><div class="wrap"><p data-i18n="t382" data-ko="4장 / 전체 5장" class="chapter-kicker">Chapter 04 of 05</p><div class="chapter-num">04</div><h2 data-i18n="t383" data-ko="비판과 대안" class="chapter-h">The case against</h2><ul class="chapter-toc"><li><b>01</b><span data-i18n="t384" data-ko="미세 조정한 분류기와 무엇이 다른가?">Just a fine-tuned classifier?</span></li><li><b>02</b><span data-i18n="t385" data-ko="과장된 주장은 없는가">How much is hype</span></li><li><b>03</b><span data-i18n="t386" data-ko="독립적인 테스트 하나">One independent test</span></li><li><b>04</b><span data-i18n="t387" data-ko="오픈소스 경쟁자 Laya">Laya, the open-source rival</span></li></ul></div></section>
+<!-- 28 -->
+<section aria-label="28: “Isn't this just a fine-tuned classifier?”" aria-roledescription="slide" class="slide" data-prov="ext" data-provtext="Third-party criticism · Jev's internals are undisclosed, so the question stays open" id="slide-28"><div class="wrap">
+<div data-i18n="t388" data-ko="&lt;span class=&quot;n&quot;&gt;16&lt;/span&gt; 반론 · 1 / 3" class="eyebrow"><span class="n">16</span> The case against · 1 of 3</div>
+<h2 data-i18n="t389" data-ko="“미세 조정한 분류기와 무엇이 다른가?”">“Isn't this just a fine-tuned classifier?”</h2>
+<p data-i18n="t390" data-ko="자주 제기되는 타당한 반론이다. 정해진 범주로 분류하는 기술은 이미 10년 이상 축적되어 왔다." class="lead">The most common objection — and a fair one. Typed classification has a decade of published practice behind it.</p>
+<div class="grid2" style="margin:1.1rem 0">
+<div class="card real"><h3 data-i18n="t391" data-ko="기존 연구와 구현이 있다" style="color:var(--real)">The prior art is real</h3><p data-i18n="t392" data-ko="BERT는 2018년에 기반을 마련했고, &lt;span class=&quot;code&quot;&gt;bert-base-uncased&lt;/span&gt;는 지금도 &lt;strong&gt;월 4,700만 회 이상&lt;/strong&gt; 다운로드된다." style="color:var(--ink)">BERT set the template in 2018; <span class="code">bert-base-uncased</span> still sees <strong>47M+ downloads a month</strong>.</p><p data-i18n="t393" data-ko="커뮤니티의 평가: “업계가 분류 모델을 재발견하는 중.”">Community verdict: “the industry rediscovering classification models.”</p></div>
+<div class="card"><h3 data-i18n="t394" data-ko="공개된 평가">The published assessment</h3><p data-i18n="t395" data-ko="KDnuggets: &lt;strong&gt;“분류는 새롭지 않다. 의도 탐지도 새롭지 않다.”&lt;/strong&gt;" style="color:var(--ink)">KDnuggets: <strong>“Classification is not new. Intent detection is not new.”</strong></p><p data-i18n="t396" data-ko="같은 글: “그 주변의 아키텍처와 제품은 새로울 수 있다.”">Same piece: “the architecture and product around it may be new.”</p></div>
+</div>
+<div class="eq">
+<div data-i18n="t397" data-ko="공개 정보만으로는 판단하기 어렵다" class="eqtag">Why it stays open</div>
+<p data-i18n="t398" data-ko="&lt;b&gt;공개 정보의 한계&lt;/b&gt;아키텍처, 파라미터 수, 학습 데이터, RLCD 보상은 모두 비공개다. 따라서 &lt;strong&gt;“단순한 미세 조정 모델”이라는 주장은 확인도 반박도 어렵다.&lt;/strong&gt;" class="aloud"><b>The transparency gap</b>Architecture, parameter count, training data, and the RLCD reward are undisclosed. So <strong>“just a fine-tune” can be neither confirmed nor refuted.</strong></p>
+</div>
+<details class="speaker-note"><summary data-i18n="t399" data-ko="관련 선행 연구와 반론의 의미">The literature the objection leans on — and the fair restatement</summary><div class="stack"><p data-i18n="t400" data-ko="&lt;span class=&quot;code&quot;&gt;facebook/bart-large-mnli&lt;/span&gt; 같은 제로샷 분류기와 GLiNER 계열 인코더가 “이미 비슷한 일을 한다.” Reddit과 GeekNews의 평가에는 “본질적으로 데이터를 더 먹인 BERT”, “몇 년 전에 BERT 계열 모델로 같은 기능을 구현했다”가 있다. KDnuggets도 Jev를 “GPT, Claude, Gemini 같은 프런티어 LLM과 같은 범주”에 두지 않는다.">Zero-shot classifiers such as <span class="code">facebook/bart-large-mnli</span> and GLiNER-style encoders “already do something similar.” Reddit and GeekNews verdicts include “essentially BERT with more data” and “I implemented the same functionality with BERT-family models years ago.” KDnuggets also places Jev outside “the same category as GPT, Claude, Gemini, or other frontier LLMs.”</p><p data-i18n="t401" data-ko="관련 기술에는 이미 선행 연구가 있다. 분류를 위한 사전 학습 인코더의 미세 조정(&lt;a href=&quot;https://arxiv.org/abs/1810.04805&quot;&gt;Devlin et al., 2018&lt;/a&gt;), 자연어 추론(NLI)을 이용한 제로샷 분류(&lt;a href=&quot;https://arxiv.org/abs/1909.00161&quot;&gt;Yin et al., 2019&lt;/a&gt;), 온도 조정(temperature scaling) 등을 이용한 사후 확률 보정(&lt;a href=&quot;https://arxiv.org/abs/1706.04599&quot;&gt;Guo et al., 2017&lt;/a&gt;)이 대표적이다.">Each ingredient has a citable history: fine-tuning pretrained encoders for classification (<a href="https://arxiv.org/abs/1810.04805">Devlin et al., 2018</a>), zero-shot classification via NLI (<a href="https://arxiv.org/abs/1909.00161">Yin et al., 2019</a>), and post-hoc calibration including temperature scaling (<a href="https://arxiv.org/abs/1706.04599">Guo et al., 2017</a>).</p><p data-i18n="t402" data-ko="문서에서 확인할 수 있는 차이도 있다. 모든 계정이 같은 가중치를 사용하고, 고객별 미세 조정 없이 질문 내용에 따라 실행 시점에 작업을 정한다. 내부 아키텍처와 별개로, 작업마다 분류기를 따로 만드는 방식과는 운영상 차이가 있다. 따라서 새로운 종류의 AI라는 주장과 기존 기술을 제품으로 구현한 가치는 구분해서 평가해야 한다.">What <em>is</em> documented: one shared set of weights for all accounts, no per-customer fine-tuning, and the task chosen at runtime by the question text — an operational difference from one-classifier-per-task, whatever the architecture turns out to be. The fair restatement of the claim is narrower than the marketing: not a new kind of AI, but engineering on a known recipe.</p></div></details></div></section>
+<!-- 29 -->
+<section aria-label="29: How much of it is hype?" aria-roledescription="slide" class="slide" data-prov="ext" data-provtext="Third-party analysis · claims restated against their definitions" id="slide-29"><div class="wrap">
+<div data-i18n="t403" data-ko="&lt;span class=&quot;n&quot;&gt;17&lt;/span&gt; 반론 · 2 / 3" class="eyebrow"><span class="n">17</span> The case against · 2 of 3</div>
+<h2 data-i18n="t404" data-ko="어디까지가 과장인가?">How much of it is hype?</h2>
+<p data-i18n="t405" data-ko="출시 당시 소개 글에는 인플루언서의 평가가 많았다. 수식어보다 검증 가능한 주장을 살펴보자." class="lead">Much of the launch coverage came from influencers. Strip the adjectives and measure the claims.</p>
+<div class="grid2" style="margin:1.2rem 0">
+<div class="card real"><h3 data-i18n="t406" data-ko="“환각 제로” ≠ 오류 제로" style="color:var(--real)">“Zero hallucinations” ≠ zero errors</h3><p data-i18n="t407" data-ko="스키마를 &lt;em&gt;벗어나는&lt;/em&gt; 출력이 없다는 뜻이다. 정답이 Technical인데 Billing을 선택하는 오류는 여전히 가능하다." style="color:var(--ink)">It means zero <em>out-of-schema</em> outputs. Jev can still choose Billing when the answer was Technical.</p><p data-i18n="t408" data-ko="0%는 측정값이 아니라 정의다.">The 0% is a definition, not a measurement.</p></div>
+<div class="card real"><h3 data-i18n="t409" data-ko="68%라는 수치만으로 정확도를 알 수는 없다" style="color:var(--real)">The vendor's 68% is unanchored</h3><p data-i18n="t410" data-ko="실제 정답이 아니라 다른 고성능 모델의 답변을 기준으로 평가했다." style="color:var(--ink)">Scored against frontier-model reference answers, not ground truth.</p><p data-i18n="t411" data-ko="실제 정확도에 대해 공개된 평가는 이렇다. “우리는 아직 제대로 알지 못한다.”">On real accuracy, the published verdict: “we do not really know yet.”</p></div>
+</div>
+<details class="speaker-note"><summary data-i18n="t412" data-ko="두 수치는 어디서 나왔는가">Where the two figures come from</summary><div class="stack"><p data-i18n="t413" data-ko="“환각 0%”는 스키마 준수가 설계상 보장된다는 뜻이다. 모델은 사용자가 정의한 선택지 밖의 값을 반환할 수 없으므로 이 지표는 구조적으로 0이 된다. 선택한 답이 맞는지는 별개의 문제다.">The flagship 0% hallucination figure “was plotted at zero because schema conformance is guaranteed by design” — the model cannot emit a value outside the options you defined, so the metric is true by construction and says nothing about whether the chosen option is right.</p><p data-i18n="t414" data-ko="TypeSafe의 정확도 벤치마크는 프런티어 모델의 참조 답변을 기준으로 Jev를 채점한다. 이는 정확성이 아니라 다른 모델과의 일치도를 재는 것이므로, 일반적인 정확도 주장을 뒷받침하지 못한다.">TypeSafe's accuracy benchmark scores Jev against frontier-model reference answers. That measures agreement with another model, not correctness, so it cannot support a general accuracy claim.</p><p data-i18n="t415" data-ko="이 지적만으로 제품의 품질이 나쁘다고 결론 내릴 수는 없다. 다만 두 수치가 품질을 입증하지 못한다는 뜻이다. 다음 슬라이드에서는 독립적인 측정 사례를 살펴본다.">Neither observation says the product is bad — they say these two numbers are not evidence of quality. The next slide is someone actually measuring.</p></div></details></div></section>
+<!-- 30 -->
+<section aria-label="30: One independent test" aria-roledescription="slide" class="slide" data-prov="ext" data-provtext="Independent test · one synthetic task, 17 Sep 2026 — directional, not general" id="slide-30"><div class="wrap">
+<div data-i18n="t416" data-ko="&lt;span class=&quot;n&quot;&gt;17&lt;/span&gt; 반론 · 2 / 3 · 측정" class="eyebrow"><span class="n">17</span> The case against · 2 of 3 · measured</div>
+<h2 data-i18n="t417" data-ko="독립적인 테스트 하나">One independent test</h2>
+<p data-i18n="t418" data-ko="피싱 탐지, 합성 이메일 2,000건." class="lead">Phishing detection, 2,000 synthetic emails.</p>
+<div class="tbl-wrap" style="margin-top:1rem">
+<table>
+<thead><tr><th data-i18n="t419" data-ko="접근법">Approach</th><th data-i18n="t420" data-ko="정확도">Accuracy</th><th></th></tr></thead>
+<tbody>
+<tr><td data-i18n="t421" data-ko="Jev · Noul 질문 하나">Jev · one Noul question</td><td class="num">62.6%</td><td><small data-i18n="t422" data-ko="제로샷">zero-shot</small></td></tr>
+<tr><td data-i18n="t423" data-ko="Claude Haiku 4.5 · 질문 하나">Claude Haiku 4.5 · one question</td><td class="num">81.3%</td><td><small data-i18n="t424" data-ko="제로샷">zero-shot</small></td></tr>
+<tr><td data-i18n="t425" data-ko="두 줄짜리 정규식">A two-line regex</td><td class="num">91.8%</td><td><small data-i18n="t426" data-ko="단순한 규칙으로도 대부분 구분 가능한 데이터셋">dataset nearly separable by construction</small></td></tr>
+<tr><td data-i18n="t427" data-ko="Haiku · 질문 다섯 개 조합">Haiku · five-question composite</td><td class="num">93.2%</td><td></td></tr>
+<tr class="hl"><td data-i18n="t428" data-ko="Jev · 질문 다섯 개 + 학습한 가중치">Jev · five questions + fitted weights</td><td class="num"><strong>95.0%</strong></td><td><small data-i18n="t429" data-ko="Haiku 대비 p = 0.063 — 통계적으로 유의하지 않음">p = 0.063 vs Haiku — not significant</small></td></tr>
+</tbody>
+</table>
+</div>
+<div class="eq" style="margin-top:1rem"><p data-i18n="t430" data-ko="&lt;b&gt;측정 결과로 확인한 점&lt;/b&gt;&lt;strong&gt;비용과 속도에서는 이점이 확인됐다.&lt;/strong&gt; Haiku보다 12–27배 저렴하고 2.9–5배 빠르다. 반면 &lt;strong&gt;기본 설정의 정확도와 질문 표현이 달라져도 일관된 결과를 내는 능력은 기대에 미치지 못했다.&lt;/strong&gt;" class="aloud"><b>What survives measurement</b><strong>Cost and speed do</strong> — 12–27× cheaper, 2.9–5× faster than Haiku. <strong>Out-of-box accuracy and phrasing robustness don't.</strong></p></div>
+<details class="speaker-note"><summary data-i18n="t431" data-ko="해석의 한계와 긍정적인 평가">The caveats, and a fair defense from the same source</summary><div class="stack"><p data-i18n="t432" data-ko="질문 형식을 바꿨을 때의 일관성에도 한계가 있었다. 같은 내용을 Noul로 물었을 때는 0.22가 나왔지만, 예/아니오 Choice로 물었을 때는 “no”에 0.99의 확률을 부여했다. 확률 보정 성능도 작업에 따라 달랐다. ECE는 피싱 탐지에서 0.154로 Haiku의 0.097보다 높았고, 도구 호출 분류에서는 0.0712였다.">On phrasing robustness: the same question asked as a Noul returned 0.22 — asked as a yes/no Choice, “no” at probability 0.99. Measured calibration is task-dependent: ECE 0.154 on phishing (worse than Haiku's 0.097), 0.0712 on tool-call classification.</p><p data-i18n="t433" data-ko="작은 질문 다섯 개와 레이블이 있는 사례 1,000개로 학습한 가중치를 조합했을 때는 Jev의 점수가 더 높았다. 판단 로직을 검토 가능한 코드로 옮기는 방식이 효과를 보인 것이다. 다만 다른 분류기와 마찬가지로 레이블이 있는 데이터와 가중치 학습이 필요했다.">The decomposition workflow — five narrow questions, weights fitted on 1,000 labels — is where Jev won, and it pushes the logic onto the code side where it can be audited. That is the product's thesis working as advertised; it just required labeled data and fitting, like any classifier.</p><p data-i18n="t434" data-ko="정규식이 91.8%를 기록했다는 점은 양쪽 해석 모두에 제약이 된다. 합성 데이터셋이 비교적 쉬웠으므로 Jev의 우위도, 단일 질문 성능에 근거한 비판도 일반화하기 어렵다. GeekNews의 한 상위 댓글은 제품의 기능과 용도를 명확하게 전달하는 능력도 혁신의 일부라고 평가했다. 분류 문제를 몇 주가 아닌 몇 분 만에 해결할 수 있다는 실용적 가치에 주목한 의견도 있었다.">The regex's 91.8% cuts both ways: this synthetic benchmark was easy, which weakens both Jev's win <em>and</em> the criticism drawn from its single-question loss. GeekNews' top comment offers the charitable reading: “the skill of clearly communicating what something does and where it's useful is equally part of innovation.” Others noted the practical value plainly: solving a classification problem “in minutes instead of weeks.”</p></div></details></div></section>
+<!-- 31 -->
+<section aria-label="31: Laya — the open-source rival" aria-roledescription="slide" class="slide" data-prov="ext" data-provtext="Laya model card · specifications, checked 27 September 2026" id="slide-31"><div class="wrap">
+<div data-i18n="t435" data-ko="&lt;span class=&quot;n&quot;&gt;18&lt;/span&gt; 반론 · 3 / 3" class="eyebrow"><span class="n">18</span> The case against · 3 of 3</div>
+<h2 data-i18n="t436" data-ko="Laya — 오픈소스 경쟁자">Laya — the open-source rival</h2>
+<p data-i18n="t437" data-ko="가중치까지 공개한 대안이다. 같은 세 가지 질문 타입을 제공하며, Apache 2.0 라이선스와 공개된 학습 방법을 사용한다." class="lead">The strongest version of the criticism ships weights: same three primitives, Apache 2.0, recipe published.</p>
+<div class="tbl-wrap" style="margin-top:1rem">
+<table>
+<thead><tr><th></th><th data-i18n="t438" data-ko="jev-1.13.0">jev-1.13.0</th><th data-i18n="t439" data-ko="laya">laya</th></tr></thead>
+<tbody>
+<tr><td data-i18n="t440" data-ko="질문 타입">Primitives</td><td data-i18n="t441" data-ko="choice · score · noul">choice · score · noul</td><td data-i18n="t442" data-ko="동일한 세 가지">the same three</td></tr>
+<tr class="hl"><td data-i18n="t443" data-ko="가중치">Weights</td><td data-i18n="t444" data-ko="비공개 — 호스팅 API">closed — hosted API</td><td data-i18n="t445" data-ko="&lt;strong&gt;공개&lt;/strong&gt; — 421M, ModernBERT-large"><strong>open</strong> — 421M, ModernBERT-large</td></tr>
+<tr><td data-i18n="t446" data-ko="RLCD 학습 방법">RLCD recipe</td><td data-i18n="t447" data-ko="비공개">undisclosed</td><td data-i18n="t448" data-ko="공개됨">published</td></tr>
+<tr><td data-i18n="t449" data-ko="응답 지연">Latency</td><td data-i18n="t450" data-ko="중앙값 ~239 ms" class="num">~239 ms median</td><td data-i18n="t451" data-ko="로컬 GPU ~33 ms" class="num">~33 ms local GPU</td></tr>
+<tr><td data-i18n="t452" data-ko="언어">Languages</td><td data-i18n="t453" data-ko="영어 중심">English primary</td><td>100+</td></tr>
+<tr><td data-i18n="t454" data-ko="가격">Price</td><td data-i18n="t455" data-ko="$0.042 / Mtok" class="num">$0.042 / Mtok</td><td data-i18n="t456" data-ko="모델은 무료 — 실행용 하드웨어 필요">free — your hardware</td></tr>
+</tbody>
+</table>
+</div>
+<details class="speaker-note"><summary data-i18n="t457" data-ko="사양과 출처">Specifications and sources</summary><div class="stack"><p data-i18n="t458" data-ko="Laya(Convai Innovations)는 세 가지 질문 타입을 약 33ms의 순전파 한 번으로 처리하며, 배치 처리 시 질문당 7.2ms에 보정된 확률을 반환한다고 소개한다. 학습 방법도 공개했다. 가우시안 로짓 잡음을 추가하고 적정 점수 규칙(proper scoring rule)에 기반한 보상을 사용한다. 질문 스키마는 Jev와 거의 같다.">Laya (Convai Innovations) serves the three primitives with calibrated probabilities in one ~33 ms forward pass, 7.2 ms/question batched, and publishes its recipe: proper-scoring-rule reward with Gaussian logit noise. Its question schema is near-identical to Jev's.</p><p data-i18n="t459" data-ko="&lt;a href=&quot;https://huggingface.co/convaiinnovations/laya&quot;&gt;Hugging Face 모델 카드&lt;/a&gt;(2026년 9월 27일 확인)에는 ModernBERT-large 기반의 4억 2,100만 파라미터 영어 기본 모델, 3억 2,200만 파라미터 mmBERT 다국어 모델, 타입별 판단에 미세 조정한 모델이 소개되어 있다. Tesla T4에서 초당 103–332개 질문을 처리하며, 평가한 51개 언어 중 45개에서 무작위 수준을 넘었다고 보고한다. Jev의 응답 지연 중앙값 약 239ms는 앞서 소개한 독립 테스트의 수치다.">From the <a href="https://huggingface.co/convaiinnovations/laya">Hugging Face model card</a> (checked 27 September 2026): three checkpoints (English root 421M on ModernBERT-large, a 322M mmBERT multilingual variant, a typed-decisions fine-tune), 103–332 questions/second on a Tesla T4, and 45 of 51 tested languages above chance. Jev's ~239 ms median latency is from the independent test on the previous slide.</p></div></details></div></section>
+<!-- 32 -->
+<section aria-label="32: Laya cuts both ways" aria-roledescription="slide" class="slide" data-prov="ext" data-provtext="Laya model card &amp; vendor benchmark · head-to-head numbers are not independently verified" id="slide-32"><div class="wrap">
+<div data-i18n="t460" data-ko="&lt;span class=&quot;n&quot;&gt;18&lt;/span&gt; 반론 · 3 / 3 · 비교 시 주의점" class="eyebrow"><span class="n">18</span> The case against · 3 of 3 · the caveats</div>
+<h2 data-i18n="t461" data-ko="Laya가 보여 주는 가능성과 한계">Laya cuts both ways</h2>
+<div class="grid2" style="margin:1.1rem 0">
+<div class="card real"><h3 data-i18n="t462" data-ko="“완전히 같은 모델”로 보기는 어렵다" style="color:var(--real)">“Exactly the same thing” needs a caveat</h3><p data-i18n="t463" data-ko="Laya의 기본 체크포인트는 추가 학습 없이 평가하면 &lt;strong&gt;다수 클래스만 예측하는 기준 모델보다 낮은 점수&lt;/strong&gt;를 낸다. 대표 성능 수치는 미세 조정 모델의 결과이며, 이 모델도 확률을 과신하는 경향이 있다." style="color:var(--ink)">Zero-shot, Laya's base checkpoints score <strong>below the majority-class baseline</strong>. The headline number is a fine-tuned checkpoint, and it ships overconfident.</p></div>
+<div data-i18n="t464" data-ko="&lt;strong&gt;비교표는 신중하게 해석해야 한다.&lt;/strong&gt; 공개된 비교는 Laya 개발사가 직접 수행했다. 확실한 사실은 가중치가 공개되어 있고 인터페이스가 Jev와 유사하다는 점이다." class="note"><strong>Handle the head-to-head with tongs.</strong> The circulating comparison is Laya benchmarking Laya. What needs no tongs: the weights are open and the interface matches.</div>
+</div>
+<div class="eq"><p data-i18n="t465" data-ko="&lt;b&gt;두 가지를 함께 봐야 한다&lt;/b&gt;4억 2,100만 파라미터의 미세 조정 인코더로도 이 API를 구현할 수 있다. 하지만 &lt;em&gt;별도 조정 없이 확률이 잘 보정된 결과를 내는 것&lt;/em&gt;은 여전히 어렵다. 어느 쪽이든 &lt;strong&gt;Laya는 Jev의 성능을 비교할 기준 모델이다.&lt;/strong&gt;" class="aloud"><b>Both things are true</b>A 421M fine-tuned encoder can serve this API — <em>and</em> out-of-box calibrated quality is the hard part. Either way, <strong>Laya is the baseline to benchmark Jev against.</strong></p></div>
+<details class="speaker-note"><summary data-i18n="t466" data-ko="모델 카드의 수치를 자세히 보면">The numbers behind the caveat</summary><div class="stack"><p data-i18n="t467" data-ko="Laya 모델 카드에 따르면 기본 체크포인트의 제로샷 점수는 0.362로, 다수 클래스 기준 모델의 0.461보다 낮다. 대표 수치인 0.766은 미세 조정 모델의 결과다. 온도 재조정 전 ECE는 0.213–0.466이며, Noul은 state보다 선택지의 이름에 영향을 받을 수 있다고 명시되어 있다.">By Laya's own model card, its base checkpoints score 0.362 zero-shot against a 0.461 majority-class baseline — near random. The headline 0.766 is a fine-tuned checkpoint; ECE runs 0.213–0.466 before temperature refitting, and its noul “can follow its option labels instead of the state.”</p><p data-i18n="t468" data-ko="공개된 비교 수치(정확도 0.766 대 0.727, ECE 0.081 대 0.246)는 Laya 개발사가 자체 데이터셋으로 자사의 미세 조정 모델을 평가한 결과다. TypeSafe의 68%와 마찬가지로, 독립적으로 재현되기 전까지는 업체가 제시한 성능 주장으로 봐야 한다.">The circulating head-to-head (accuracy 0.766 vs 0.727; ECE 0.081 vs 0.246) is Laya's vendor benchmarking its fine-tuned model on its own dataset — treat it exactly like TypeSafe's 68%: an advert until independently reproduced.</p><p data-i18n="t469" data-ko="GeekNews에는 영업 전환 예제 모델을 학습하는 과정에서 결과 레이블이 유출되었다는 주장도 있다. 출처는 검증되지 않은 익명 댓글 하나이므로 확인된 사실로 받아들여서는 안 된다.">One further allegation in the GeekNews comments — that a sales-conversion demo model had outcome labels leak into training — is from a single anonymous commenter and is unverified; it is mentioned only so you know it exists.</p><p data-i18n="t470" data-ko="이 장의 핵심은 도입 비용을 지불하기 전에 Laya와 직접 비교해 보라는 것이다.">If the audience takes one thing from this chapter: run Laya as your baseline before paying for anything.</p></div></details></div></section>
+<!-- 33 -->
+<section aria-label="33: Hands on, and what to take away" aria-roledescription="slide" class="slide chapter" data-prov="doc" data-provtext="" id="slide-33"><div class="wrap"><p data-i18n="t471" data-ko="5장 / 전체 5장" class="chapter-kicker">Chapter 05 of 05</p><div class="chapter-num">05</div><h2 data-i18n="t472" data-ko="코드 실습과 핵심 정리" class="chapter-h">Hands on, and what to take away</h2><ul class="chapter-toc"><li><b>01</b><span data-i18n="t473" data-ko="같은 질문을 두 모델에 보내기">The same question in Python, twice</span></li><li><b>02</b><span data-i18n="t474" data-ko="슬라이드 한 장으로 보는 Jev">Jev on one slide</span></li><li><b>03</b><span data-i18n="t475" data-ko="출처와 범위">Sources and scope</span></li></ul></div></section>
+<!-- 34 -->
+<section aria-label="34: The same question in Python, twice" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="Vendor quickstarts · TypeSafe SDK docs and the Laya model card, lightly condensed onto one shared example" id="slide-34"><div class="wrap">
+<div data-i18n="t476" data-ko="&lt;span class=&quot;n&quot;&gt;19&lt;/span&gt; 직접 해보기" class="eyebrow"><span class="n">19</span> Hands on</div>
+<h2 data-i18n="t477" data-ko="같은 질문을 두 모델에 보내기">The same question in Python, twice</h2>
+<p data-i18n="t478" data-ko="질문 스키마는 거의 같다. 핵심 차이는 모델을 어디서 실행하느냐다." class="lead">Near-identical schemas. What changes is who runs the weights.</p>
+<div class="grid2" style="margin:1rem 0">
+<div class="card fore"><h3 data-i18n="t479" data-ko="Jev — 호스팅 API" style="color:var(--fore)">Jev — hosted API</h3>
+<pre class="codeblock" style="background:transparent;border:none;padding:0"><i>$ pip install typesafe-sdk</i>
+
+from typesafe_sdk import Choice, Noul, TypeSafeClient
+
+client = TypeSafeClient()   <i># needs TYPESAFE_API_KEY</i>
+state  = "Billed twice for March — refund today or we cancel."
+
+r = client.system_one(state=state, questions={
+    "department": Choice(
+        instructions="Which department should handle this?",
+        criteria={"billing":   "invoices, payments, refunds",
+                  "technical": "bugs, outages, system errors",
+                  "other":     "everything else"}),
+    "churn_risk": Noul(
+        instructions="Does the user threaten to cancel?"),
+})
+
+r.answers["department"].choice       <i># "billing"</i>
+r.answers["department"].confidence   <i># 0–1 — gate on it</i>
+r.answers["churn_risk"].noul         <i># probability of yes</i></pre></div>
+<div class="card"><h3 data-i18n="t480" data-ko="Laya — 공개 가중치, 로컬 실행">Laya — open weights, runs locally</h3>
+<pre class="codeblock" style="background:transparent;border:none;padding:0"><i>$ pip install laya</i>
+
+from laya import Router
+
+router = Router()   <i># downloads checkpoints on first use</i>
+state  = "Billed twice for March — refund today or we cancel."
+
+result = router.predict(state, {
+    "department": {
+        "type": "choice",
+        "instructions": "Which department should handle this?",
+        "criteria": {"billing":   "invoices, payments, refunds",
+                     "technical": "bugs, outages, system errors",
+                     "other":     "everything else"}},
+    "churn_risk": {
+        "type": "noul",
+        "instructions": "Does the user threaten to cancel?"},
+})
+
+result["answers"]["department"]["choice"]   <i># "billing"</i>
+result["answers"]["churn_risk"]["noul"]     <i># e.g. 0.892</i></pre></div>
+</div>
+<div class="eq"><p data-i18n="t481" data-ko="&lt;b&gt;실용적인 의미&lt;/b&gt;인터페이스가 비슷하므로 &lt;em&gt;자사 서비스&lt;/em&gt;에서 수집해 레이블을 붙인 예시 1,000개로 두 모델을 빠르게 비교해 볼 수 있다." class="aloud"><b>Why this matters</b>An interface this close means you can A/B both on a thousand labeled examples of <em>your</em> traffic in an afternoon.</p></div>
+<details class="speaker-note"><summary data-i18n="t482" data-ko="코드 출처와 사용 시 확인할 조건">Provenance of the code, and each vendor's fine print</summary><div class="stack"><p data-i18n="t483" data-ko="Jev 예제는 공식 시작 가이드의 &lt;span class=&quot;code&quot;&gt;TypeSafeClient().system_one&lt;/span&gt; 및 &lt;span class=&quot;code&quot;&gt;Choice&lt;/span&gt;/&lt;span class=&quot;code&quot;&gt;Score&lt;/span&gt;/&lt;span class=&quot;code&quot;&gt;Noul&lt;/span&gt; 사용법을 따른다. 문서의 Stripe 문의 대신 이 자료의 청구 문의를 사용했다. Laya 예제는 모델 카드의 &lt;span class=&quot;code&quot;&gt;Router.predict&lt;/span&gt;를 따르며, Noul 값 0.892도 그 예시에서 가져왔다. Jev의 응답값은 실행에 따라 달라진다. 여기에 적힌 값은 실제 실행으로 재현한 결과가 아닌 예시 표기다.">The Jev snippet is the documented quickstart pattern (<span class="code">TypeSafeClient().system_one</span> with <span class="code">Choice</span>/<span class="code">Score</span>/<span class="code">Noul</span> objects) with this deck's billing example substituted for the docs' Stripe ticket. The Laya snippet follows its model card's <span class="code">Router.predict</span> usage; the 0.892 noul is the card's own example output. Jev-side values will vary run to run — they are labels here, not reproduced results.</p><p data-i18n="t484" data-ko="두 SDK 모두 pip으로 설치할 수 있다. Laya는 자동으로 모델을 선택하는 &lt;span class=&quot;code&quot;&gt;Router&lt;/span&gt; 외에, 특정 체크포인트를 고정해 쓰는 &lt;span class=&quot;code&quot;&gt;laya.load(&quot;convaiinnovations/laya&quot;)&lt;/span&gt;도 제공한다.">Both SDKs are pip-installable today. Laya also exposes <span class="code">laya.load("convaiinnovations/laya")</span> for pinning a single checkpoint instead of the auto-routing <span class="code">Router</span>.</p><p data-i18n="t485" data-ko="각 제공업체가 안내하는 적용 조건도 확인해야 한다. Laya는 운영에 투입하기 전에 미세 조정과 온도 재조정이 필요하다. Jev는 자체 데이터의 실제 결과로 신뢰도 임계값을 검증해야 한다.">The fine print each vendor states: Laya wants a fine-tune and a temperature refit before production; Jev wants confidence thresholds validated against your own outcomes.</p></div></details></div></section>
+<!-- 35 -->
+<section aria-label="35: Jev on one slide" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="Mixed · see each slide's own stamp" id="slide-35"><div class="wrap">
+<div data-i18n="t486" data-ko="&lt;span class=&quot;n&quot;&gt;20&lt;/span&gt; 핵심 정리" class="eyebrow"><span class="n">20</span> Take this away</div>
+<h2 data-i18n="t487" data-ko="한 장으로 보는 Jev">Jev on one slide</h2>
+<div class="tbl-wrap" style="margin-top:1rem">
+<table>
+<thead><tr><th>#</th><th data-i18n="t488" data-ko="개념">Idea</th><th data-i18n="t489" data-ko="한 문장으로">In one sentence</th><th data-i18n="t490" data-ko="현황">Status</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="num">1</td><td data-i18n="t491" data-ko="System One">System One</td><td data-i18n="t492" data-ko="타입이 정해진 판단 결과와 확률을 반환한다.">Typed decisions with probabilities — never text.</td><td data-i18n="t493" data-ko="&lt;span class=&quot;chip fore&quot;&gt;문서화됨&lt;/span&gt;"><span class="chip fore">documented</span></td></tr>
+<tr><td class="num">2</td><td data-i18n="t494" data-ko="한 번의 호출">One call</td><td data-i18n="t495" data-ko="하나의 state에 대한 여러 질문을 독립적으로 병렬 평가한다.">One state, many independent questions, in parallel.</td><td data-i18n="t496" data-ko="&lt;span class=&quot;chip fore&quot;&gt;문서화됨&lt;/span&gt;"><span class="chip fore">documented</span></td></tr>
+<tr><td class="num">3</td><td data-i18n="t497" data-ko="Choice · Score · Noul">Choice · Score · Noul</td><td data-i18n="t498" data-ko="어느 선택지인가 — 어느 수준인가 — 참인가.">Which option — which level — is this true.</td><td data-i18n="t499" data-ko="&lt;span class=&quot;chip fore&quot;&gt;문서화됨&lt;/span&gt;"><span class="chip fore">documented</span></td></tr>
+<tr class="hl"><td class="num">4</td><td data-i18n="t500" data-ko="확률 보정(Calibration)">Calibration</td><td data-i18n="t501" data-ko="RLCD는 예측 확률과 실제 정답률의 일치를 목표로 한다. 학습 방법은 비공개다.">RLCD targets honest probabilities; recipe unpublished.</td><td data-i18n="t502" data-ko="&lt;span class=&quot;chip real&quot;&gt;목표로 제시&lt;/span&gt;"><span class="chip real">goal only</span></td></tr>
+<tr><td class="num">5</td><td data-i18n="t503" data-ko="신뢰도(Confidence)">Confidence</td><td data-i18n="t504" data-ko="분포의 집중도를 요약한다. 정답일 확률과는 다르다.">A shape summary — not ℙ(correct).</td><td data-i18n="t505" data-ko="&lt;span class=&quot;chip fore&quot;&gt;문서화됨&lt;/span&gt;"><span class="chip fore">documented</span></td></tr>
+<tr><td class="num">6</td><td data-i18n="t506" data-ko="임계값">Thresholds</td><td data-i18n="t507" data-ko="행동별 오류 비용을 바탕으로 개발자가 정한다.">Your numbers, set per action from costs.</td><td data-i18n="t508" data-ko="&lt;span class=&quot;chip thr&quot;&gt;개발자 책임&lt;/span&gt;"><span class="chip thr">your job</span></td></tr>
+<tr><td class="num">7</td><td data-i18n="t509" data-ko="작업별 성능 한계">Jagged edges</td><td data-i18n="t510" data-ko="코드에서 세고, 비교하고, 조합한다.">Count, compare, and compose in code.</td><td data-i18n="t511" data-ko="&lt;span class=&quot;chip fore&quot;&gt;문서화됨&lt;/span&gt;"><span class="chip fore">documented</span></td></tr>
+<tr class="hl"><td class="num">8</td><td data-i18n="t512" data-ko="검증">Verification</td><td data-i18n="t513" data-ko="형식이 맞아도 답이 틀릴 수 있다. 실제 결과를 기록하고 검증한다.">Valid doesn't mean true — log outcomes.</td><td data-i18n="t514" data-ko="&lt;span class=&quot;chip thr&quot;&gt;개발자 책임&lt;/span&gt;"><span class="chip thr">your job</span></td></tr>
+<tr><td class="num">9</td><td data-i18n="t515" data-ko="반론">The case against</td><td data-i18n="t516" data-ko="관련 선행 연구가 있다. Laya를 비교 기준으로 삼을 수 있다.">Prior art is real; Laya is the natural baseline.</td><td data-i18n="t517" data-ko="&lt;span class=&quot;chip real&quot;&gt;논쟁 중&lt;/span&gt;"><span class="chip real">contested</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="title-rule"></div>
+<p data-i18n="t518" data-ko="질문을 명확하게 정의하고, 처리 흐름은 코드로 제어하며, 반환된 확률은 실제 결과로 검증한다." class="lead" style="max-width:54ch">Define the question precisely, keep control flow in code, and test the probabilities against your own outcomes.</p>
+<details class="speaker-note"><summary data-i18n="t519" data-ko="두 발표 자료의 관계">The two decks together</summary><div class="stack"><p data-i18n="t520" data-ko="이 자료는 &lt;em&gt;Jev가 무엇이며 어떻게 활용하는지&lt;/em&gt;를 다룬다. 제품 구조, 질문 타입, 알려진 한계, 개발 방법이 주제다. 함께 제공되는 &lt;a href=&quot;rlcd-math-slides.html&quot;&gt;RLCD — 보정된 확률에 기반한 의사결정의 수학&lt;/a&gt;에서는 &lt;em&gt;확률을 신뢰하려면 어떤 조건이 필요하고, 이를 어떻게 의사결정에 사용할지&lt;/em&gt;를 살펴본다. 확률 보정, 적정 점수 규칙, 기대비용에 따른 의사결정이 주요 내용이다.">This deck answers <em>what Jev is and how to hold it</em>: the product shape, the primitives, the documented limits, the build method. The companion deck, <a href="rlcd-math-slides.html">RLCD — The Mathematics of Calibrated Decisions</a>, answers <em>why the probabilities can be trusted and what to do with them</em>: calibration, proper scoring rules, and expected-cost decisions.</p><p data-i18n="t521" data-ko="두 자료로 함께 발표한다면 이 자료를 먼저 사용한다. 실제 응답 객체와 확률 분포를 본 뒤에 수학적 원리를 살펴보면 이해하기 쉽다.">Presented together, run this one first — the mathematics lands better once the audience has seen a real answer object with a probability distribution in it.</p><p data-i18n="t522" data-ko="출처: TypeSafe의 소개, System One, 질문 타입, 신뢰도, 모델 사양, 성능 한계, 활용 사례, 개발 가이드 문서(2026년 9월 27일 확인). 외부 자료는 다음 슬라이드에 정리했다.">Sources: TypeSafe documentation (introduction, System One, primitives, confidence, models, jaggedness, use-case map, build guide), reviewed 27 September 2026, plus the third-party material listed on the next slide.</p></div></details></div></section>
+<!-- 36 -->
+<section aria-label="36: Sources and scope" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="Primary references · checked 27 September 2026" id="slide-36"><div class="wrap"><div data-i18n="t523" data-ko="&lt;span class=&quot;n&quot;&gt;21&lt;/span&gt; 출처 &amp;amp; 범위" class="eyebrow"><span class="n">21</span> Sources &amp; scope</div><h2 data-i18n="t524" data-ko="출처와 범위">Sources and scope</h2><div class="grid3"><div class="card"><h3 data-i18n="t525" data-ko="개념">Concepts</h3><ul class="plain"><li data-i18n="t526" data-ko="&lt;a href=&quot;https://docs.typesafe.ai/introduction&quot;&gt;소개&lt;/a&gt; · &lt;a href=&quot;https://docs.typesafe.ai/concepts/system-one&quot;&gt;System One&lt;/a&gt;"><a href="https://docs.typesafe.ai/introduction">Introduction</a> · <a href="https://docs.typesafe.ai/concepts/system-one">System One</a></li><li data-i18n="t527" data-ko="&lt;a href=&quot;https://docs.typesafe.ai/introduction/machine-learning-primer&quot;&gt;AI 기초&lt;/a&gt; — RLCD, RLHF, RLVR"><a href="https://docs.typesafe.ai/introduction/machine-learning-primer">AI primer</a> — RLCD, RLHF, RLVR</li><li data-i18n="t528" data-ko="&lt;a href=&quot;https://docs.typesafe.ai/concepts/state&quot;&gt;State&lt;/a&gt; · &lt;a href=&quot;https://docs.typesafe.ai/concepts/how-to-build-with-system-one&quot;&gt;개발 가이드&lt;/a&gt;"><a href="https://docs.typesafe.ai/concepts/state">State</a> · <a href="https://docs.typesafe.ai/concepts/how-to-build-with-system-one">Build guide</a></li><li data-i18n="t529" data-ko="&lt;a href=&quot;https://docs.typesafe.ai/concepts/use-case-map&quot;&gt;활용 사례&lt;/a&gt;"><a href="https://docs.typesafe.ai/concepts/use-case-map">Use-case map</a></li></ul></div><div class="card"><h3 data-i18n="t530" data-ko="참고 문서">Reference</h3><ul class="plain"><li data-i18n="t531" data-ko="&lt;a href=&quot;https://docs.typesafe.ai/primitives/choice&quot;&gt;Choice&lt;/a&gt; · &lt;a href=&quot;https://docs.typesafe.ai/primitives/score&quot;&gt;Score&lt;/a&gt; · &lt;a href=&quot;https://docs.typesafe.ai/primitives/noul&quot;&gt;Noul&lt;/a&gt;"><a href="https://docs.typesafe.ai/primitives/choice">Choice</a> · <a href="https://docs.typesafe.ai/primitives/score">Score</a> · <a href="https://docs.typesafe.ai/primitives/noul">Noul</a></li><li data-i18n="t532" data-ko="&lt;a href=&quot;https://docs.typesafe.ai/confidence&quot;&gt;신뢰도(Confidence)&lt;/a&gt;"><a href="https://docs.typesafe.ai/confidence">Confidence</a></li><li data-i18n="t533" data-ko="&lt;a href=&quot;https://docs.typesafe.ai/models&quot;&gt;모델 사양&lt;/a&gt; · &lt;a href=&quot;https://docs.typesafe.ai/model-jaggedness/jev-1.13&quot;&gt;Jev 1.13의 성능 한계&lt;/a&gt;"><a href="https://docs.typesafe.ai/models">Models</a> · <a href="https://docs.typesafe.ai/model-jaggedness/jev-1.13">Jev 1.13 jaggedness</a></li><li data-i18n="t534" data-ko="&lt;a href=&quot;https://docs.typesafe.ai/introduction/quickstart&quot;&gt;시작 가이드&lt;/a&gt;"><a href="https://docs.typesafe.ai/introduction/quickstart">Quickstart</a></li></ul></div><div class="card"><h3 data-i18n="t535" data-ko="비판과 대안">Criticism &amp; alternatives</h3><ul class="plain"><li data-i18n="t536" data-ko="&lt;a href=&quot;https://www.kdnuggets.com/what-everyone-is-getting-wrong-about-typesafe-ais-jev&quot;&gt;KDnuggets&lt;/a&gt; — 기술적 새로움에 대한 평가"><a href="https://www.kdnuggets.com/what-everyone-is-getting-wrong-about-typesafe-ais-jev">KDnuggets</a> — novelty assessment</li><li data-i18n="t537" data-ko="&lt;a href=&quot;https://xenospectrum.com/en/jev-typesafe-bert-classifier-decomposition/&quot;&gt;XenoSpectrum&lt;/a&gt; — 피싱 벤치마크"><a href="https://xenospectrum.com/en/jev-typesafe-bert-classifier-decomposition/">XenoSpectrum</a> — phishing benchmark</li><li data-i18n="t538" data-ko="&lt;a href=&quot;https://news.hada.io/topic?id=33944&quot;&gt;GeekNews #33944&lt;/a&gt; — Laya 스레드"><a href="https://news.hada.io/topic?id=33944">GeekNews #33944</a> — Laya thread</li><li data-i18n="t539" data-ko="&lt;a href=&quot;https://huggingface.co/convaiinnovations/laya&quot;&gt;Laya 모델 카드&lt;/a&gt; · &lt;a href=&quot;https://www.oreilly.com/radar/will-typesafes-jev-change-how-we-build-ai-applications/&quot;&gt;O&#x27;Reilly Radar&lt;/a&gt;"><a href="https://huggingface.co/convaiinnovations/laya">Laya model card</a> · <a href="https://www.oreilly.com/radar/will-typesafes-jev-change-how-we-build-ai-applications/">O'Reilly Radar</a></li></ul></div></div>
+<div class="provkey" style="margin-top:1.2rem"><span data-i18n="t540" data-ko="&lt;b style=&quot;background:var(--fore)&quot;&gt;&lt;/b&gt; 문서화됨"><b style="background:var(--fore)"></b> documented</span><span data-i18n="t541" data-ko="&lt;b style=&quot;background:var(--thr)&quot;&gt;&lt;/b&gt; 예시"><b style="background:var(--thr)"></b> illustrative</span><span data-i18n="t542" data-ko="&lt;b style=&quot;background:var(--real)&quot;&gt;&lt;/b&gt; 비공개"><b style="background:var(--real)"></b> undisclosed</span><span data-i18n="t543" data-ko="외부 자료"><b style="background:var(--ink-3)"></b> third-party</span></div>
+<details class="speaker-note"><summary data-i18n="t544" data-ko="자료의 범위">Scope notes</summary><div class="stack"><p data-i18n="t545" data-ko="출처 표식의 의미: &lt;strong&gt;문서화됨&lt;/strong&gt;은 TypeSafe 문서에서 확인한 내용이다. &lt;strong&gt;예시&lt;/strong&gt;는 설명용 도구나 시각화이며 모델의 출력이 아니다. &lt;strong&gt;비공개&lt;/strong&gt;는 목표는 제시되어 있지만 구체적인 방법이 공개되지 않은 경우다. &lt;strong&gt;외부 자료&lt;/strong&gt;는 독립 테스트, 논평, Laya 모델 카드 등을 뜻한다. 다양한 관점을 소개하기 위해 인용했으며, 해당 주장을 모두 지지한다는 의미는 아니다.">Provenance key in full: <strong>documented</strong> — reproduced from TypeSafe documentation; <strong>illustrative</strong> — local widgets and teaching devices, not model output; <strong>undisclosed</strong> — stated goals whose mechanisms the sources do not specify; <strong>third-party</strong> — external tests, commentary, and the Laya model card, quoted for balance, not endorsed.</p><p data-i18n="t546" data-ko="예시 값(신발 관련 문의의 1.0, 버그 예시의 1.43 / 0.35, Noul의 0.99)은 위 문서에서 가져왔다. 문서가 개정되면 달라질 수 있다.">Example values (the shoe ticket's 1.0, the bug's 1.43 / 0.35, the 0.99 noul) are reproduced from the documentation pages above and may change as the docs evolve.</p><p data-i18n="t547" data-ko="함께 제공되는 자료: &lt;a href=&quot;rlcd-math-slides.html&quot;&gt;RLCD — 보정된 확률에 기반한 의사결정의 수학&lt;/a&gt;. 이 폴더에 있는 강의 영상을 바탕으로 작성했다.">Companion deck: <a href="rlcd-math-slides.html">RLCD — The Mathematics of Calibrated Decisions</a>, which reviews the lecture video in this folder.</p></div></details></div></section>
+</div>
+<div class="prov" id="prov"><span class="dot"></span><span id="provtext"></span></div>
+<nav aria-label="Slide navigation" class="nav">
+<button data-i18n="t548" data-ko="← 이전" aria-label="Previous slide" id="prev" type="button">← Prev</button>
+<span aria-hidden="true" class="counter" id="count">01 / 22</span>
+<button data-i18n="t549" data-ko="다음 →" aria-label="Next slide" id="next" type="button">Next →</button>
+</nav>
+<div class="hint" data-i18n="hint" data-ko="← → 슬라이드 · N 발표 노트 · L 언어 · F 전체화면">← → slides · N notes · L language · F fullscreen</div>
+<script>
+(function(){
+  "use strict";
+
+  var slides = Array.prototype.slice.call(document.querySelectorAll(".slide"));
+  var bar = document.getElementById("bar");
+  var count = document.getElementById("count");
+  var prev = document.getElementById("prev");
+  var next = document.getElementById("next");
+  var prov = document.getElementById("prov");
+  var provtext = document.getElementById("provtext");
+
+  // --- language ------------------------------------------------------------
+  var LANG = "en";
+  var STR = {
+    en: {
+      dark:"Dark", light:"Light", langBtn:"한국어",
+      slideOf:function(a,b,t){return "Slide " + a + " of " + b + ": " + t;},
+      noFs:"Fullscreen is unavailable in this browser.",
+      levels:["0 · cosmetic", "1 · workaround exists", "2 · blocking"],
+      score:"score", confidence:"confidence",
+      escalate:"escalate", confirm:"confirm / review", act:"act automatically",
+      escSub:"a person, or a reasoning model", actSub:"no human involvement",
+      aAct:"act", aConfirm:"confirm", aEscalate:"escalate",
+      roDocs:"the docs' bug example",
+      roPolar:"polarized — same axis, hollow middle",
+      roSigma:"Σ i · pᵢ, locally computed",
+      roThis:"this answer:", roGates:"gates live in your code, per action"
+    },
+    ko: {
+      dark:"다크 모드", light:"라이트 모드", langBtn:"EN",
+      slideOf:function(a,b,t){return "슬라이드 " + a + " / " + b + ": " + t;},
+      noFs:"이 브라우저에서는 전체화면을 사용할 수 없습니다.",
+      levels:["0 · 사소한 문제", "1 · 우회 가능", "2 · 사용 불가"],
+      score:"점수", confidence:"신뢰도",
+      escalate:"판단 이관", confirm:"확인 / 검토", act:"자동 실행",
+      escSub:"사람 또는 추론 모델", actSub:"사람의 개입 없이 처리",
+      aAct:"실행", aConfirm:"확인", aEscalate:"판단 이관",
+      roDocs:"문서의 버그 예시",
+      roPolar:"양극단에 확률이 몰린 분포",
+      roSigma:"Σ i · pᵢ, 브라우저에서 계산",
+      roThis:"현재 응답:", roGates:"행동별 임계값은 코드에서 설정"
+    }
+  };
+  function T(k){ var v = STR[LANG] && STR[LANG][k]; return v == null ? STR.en[k] : v; }
+
+  var i = 0;
+  var jump = document.getElementById("jump");
+  function buildJump(){
+    jump.innerHTML = "";
+    slides.forEach(function(s,k){
+      var option = document.createElement("option"); option.value = k;
+      option.textContent = String(k+1).padStart(2,"0") + " · " + s.querySelector("h1,h2").textContent;
+      jump.appendChild(option);
+    });
+    jump.value = i;
+  }
+  buildJump();
+  jump.addEventListener("change",function(){show(Number(jump.value));});
+  var notes = document.getElementById("notes");
+  notes.addEventListener("click",function(){
+    var open = notes.getAttribute("aria-pressed") !== "true";
+    notes.setAttribute("aria-pressed",String(open));
+    document.querySelectorAll(".speaker-note").forEach(function(d){d.open=open;});
+    layout();
+  });
+  var theme = document.getElementById("theme");
+  function syncTheme(){var dark=getComputedStyle(document.documentElement).getPropertyValue("--paper").trim().toLowerCase()==="#0e161c";theme.setAttribute("aria-pressed",String(dark));theme.textContent=dark?T("light"):T("dark");}
+  theme.addEventListener("click",function(){document.documentElement.dataset.theme=theme.getAttribute("aria-pressed")==="true"?"light":"dark";syncTheme();});syncTheme();
+  document.getElementById("fullscreen").addEventListener("click",function(){
+    var task=document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();
+    if(task&&task.catch)task.catch(function(){document.getElementById("announcement").textContent=T("noFs");});
+  });
+  document.getElementById("print").addEventListener("click",function(){window.print();});
+  window.addEventListener("hashchange",function(){var n=Number(location.hash.slice(1));show(Number.isFinite(n)&&n>0?n-1:0);});
+  document.querySelectorAll('input[type="range"]').forEach(function(input){
+    var out=document.createElement("output");out.htmlFor=input.id;input.after(out);
+    function update(){out.value=(Number(input.value)/100).toFixed(2);}
+    input.addEventListener("input",update);update();
+  });
+
+  function pad(n){ return (n < 10 ? "0" : "") + n; }
+
+  function show(n){
+    i = Math.max(0, Math.min(slides.length - 1, Number.isFinite(n) ? Math.floor(n) : 0));
+    slides.forEach(function(s, k){ s.classList.toggle("is-on", k === i); });
+    bar.style.width = ((i + 1) / slides.length * 100) + "%";
+    count.textContent = pad(i + 1) + " / " + pad(slides.length);
+    prev.disabled = (i === 0);
+    next.disabled = (i === slides.length - 1);
+    prov.setAttribute("data-kind", slides[i].getAttribute("data-prov") || "doc");
+    provtext.textContent = slides[i].getAttribute("data-provtext") || "";
+    slides[i].querySelector(".wrap").appendChild(prov);
+    jump.value = i;
+    document.getElementById("announcement").textContent = T("slideOf")(i+1, slides.length, slides[i].querySelector("h1,h2").textContent);
+    window.scrollTo(0, 0);
+    if (location.hash !== "#" + (i + 1)) history.replaceState(null, "", "#" + (i + 1));
+    layout();
+  }
+
+  prev.addEventListener("click", function(){ show(i - 1); });
+  next.addEventListener("click", function(){ show(i + 1); });
+
+  document.addEventListener("keydown", function(e){
+    if (e.target && /^(INPUT|TEXTAREA|SELECT|BUTTON|SUMMARY|A)$/.test(e.target.tagName)) return;
+    if (e.altKey || e.ctrlKey || e.metaKey || e.target.isContentEditable) return;
+    if (e.key.toLowerCase() === "n") { notes.click(); return; }
+    if (e.key.toLowerCase() === "l") { langBtn.click(); return; }
+    if (e.key.toLowerCase() === "f") { document.getElementById("fullscreen").click(); return; }
+    if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") { e.preventDefault(); show(i + 1); }
+    else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); show(i - 1); }
+    else if (e.key === "Home") { e.preventDefault(); show(0); }
+    else if (e.key === "End") { e.preventDefault(); show(slides.length - 1); }
+  });
+
+  /* ---------- canvas helpers ---------- */
+  function tok(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+  function monoFont(px, w){ return (w || "") + " " + px + "px ui-monospace, Menlo, Consolas, monospace"; }
+
+  function fit(cv){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = cv.clientWidth || 1200;
+    var ratio = Number(cv.dataset.ratio);
+    if (!ratio) { ratio = Number(cv.getAttribute("height")) / Number(cv.getAttribute("width")); cv.dataset.ratio=ratio; }
+    var h = Math.max(260, Math.min(310, Math.round(w * ratio)));
+    cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+    cv.style.height = h + "px";
+    var ctx = cv.getContext("2d");
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = tok("--plate"); ctx.fillRect(0, 0, w, h);
+    return { ctx: ctx, w: w, h: h };
+  }
+
+  /* ---------- FIG A : score playground ---------- */
+  var cvA = document.getElementById("cvA"), dP0 = document.getElementById("dP0"), dP2 = document.getElementById("dP2"), roA = document.getElementById("roA");
+
+
+  function probsA(){
+    var p0 = parseInt(dP0.value, 10) / 100;
+    var p2 = parseInt(dP2.value, 10) / 100;
+    var s = p0 + p2;
+    if (s > 1){ p0 = p0 / s; p2 = p2 / s; }
+    var p1 = Math.max(0, 1 - p0 - p2);
+    return [p0, p1, p2];
+  }
+
+  function drawA(){
+    if (!cvA.clientWidth) return;
+    var f = fit(cvA), ctx = f.ctx, W = f.w, H = f.h;
+    var p = probsA();
+    var score = 0 * p[0] + 1 * p[1] + 2 * p[2];
+
+    var ink = tok("--ink"), ink3 = tok("--ink-3"), rule = tok("--rule-soft");
+    var fore = tok("--fore"), thr = tok("--thr");
+
+    var padL = 56, padR = 30, padT = 26;
+    var axisY = H - 46;                 // the 0–2 score axis
+    var barsBottom = axisY - 58;        // bars sit above the axis
+    var barsTop = padT + 8;
+    var x0 = padL, x1 = W - padR;
+    var barW = Math.min(110, (x1 - x0) / 5);
+
+    // bar geometry: three bars centred at level positions 0,1,2 on the axis,
+    // inset so the outer bars and their labels stay inside the canvas
+    var xA = x0 + barW * .75, xB = x1 - barW * .75;
+    function AX(v){ return xA + (v / 2) * (xB - xA); }
+
+    // horizontal gridlines for probability 0..1 across the bar region
+    ctx.strokeStyle = rule; ctx.lineWidth = 1;
+    for (var g = 0; g <= 4; g++){
+      var gy = barsBottom - (g / 4) * (barsBottom - barsTop);
+      ctx.beginPath(); ctx.moveTo(x0 - 18, gy); ctx.lineTo(x1 + 8, gy); ctx.stroke();
+    }
+    ctx.fillStyle = ink3; ctx.font = monoFont(10); ctx.textAlign = "right";
+    for (var g2 = 0; g2 <= 4; g2++){
+      var gy2 = barsBottom - (g2 / 4) * (barsBottom - barsTop);
+      ctx.fillText((g2 / 4).toFixed(2), x0 - 24, gy2 + 3);
+    }
+
+    // bars
+    p.forEach(function(pv, k){
+      var cx = AX(k);
+      var bh = pv * (barsBottom - barsTop);
+      ctx.fillStyle = fore; ctx.globalAlpha = k === 1 ? .55 : .8;
+      ctx.fillRect(cx - barW / 2, barsBottom - bh, barW, bh);
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = ink; ctx.font = monoFont(12, "600"); ctx.textAlign = "center";
+      ctx.fillText(pv.toFixed(2), cx, barsBottom - bh - 8);
+      ctx.fillStyle = ink3; ctx.font = monoFont(10);
+      ctx.fillText(T("levels")[k], cx, barsBottom + 16);
+    });
+
+    // score axis
+    ctx.strokeStyle = ink3; ctx.lineWidth = 1.2;
+    ctx.beginPath(); ctx.moveTo(x0, axisY); ctx.lineTo(x1, axisY); ctx.stroke();
+    ctx.font = monoFont(10); ctx.fillStyle = ink3; ctx.textAlign = "center";
+    for (var t = 0; t <= 8; t++){
+      var v = t / 4;
+      ctx.beginPath(); ctx.moveTo(AX(v), axisY - 4); ctx.lineTo(AX(v), axisY + 4);
+      ctx.strokeStyle = rule; ctx.stroke();
+      if (t % 2 === 0) ctx.fillText(v.toFixed(1), AX(v), axisY + 18);
+    }
+    // score marker
+    ctx.strokeStyle = thr; ctx.lineWidth = 1.4; ctx.setLineDash([3,3]);
+    ctx.beginPath(); ctx.moveTo(AX(score), barsBottom + 26); ctx.lineTo(AX(score), axisY); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = thr;
+    ctx.beginPath(); ctx.arc(AX(score), axisY, 6, 0, 6.2832); ctx.fill();
+    ctx.strokeStyle = tok("--plate"); ctx.lineWidth = 1.5; ctx.stroke();
+    ctx.fillStyle = thr; ctx.font = monoFont(13, "600"); ctx.textAlign = "center";
+    var lx = Math.max(x0 + 40, Math.min(x1 - 40, AX(score)));
+    ctx.fillText(T("score") + " = " + score.toFixed(2), lx, axisY + 22 + 12);
+
+    roA.innerHTML = "p = [" + p.map(function(v){return v.toFixed(2);}).join(", ") + "] · score = <span>" +
+      score.toFixed(2) + "</span> &nbsp;<em>" +
+      (Math.abs(score - 1.43) < 0.005 ? T("roDocs") : (p[1] < 0.15 && p[0] > 0.2 && p[2] > 0.2 ? T("roPolar") : T("roSigma"))) + "</em>";
+  }
+  dP0.addEventListener("input", drawA);
+  dP2.addEventListener("input", drawA);
+
+  /* ---------- FIG B : confidence routing bands ---------- */
+  var cvB = document.getElementById("cvB"), dTe = document.getElementById("dTe"), dTa = document.getElementById("dTa"), dC = document.getElementById("dC"), roB = document.getElementById("roB");
+
+  function drawB(){
+    if (!cvB.clientWidth) return;
+    var f = fit(cvB), ctx = f.ctx, W = f.w, H = f.h;
+    var te = parseInt(dTe.value, 10) / 100;
+    var ta = parseInt(dTa.value, 10) / 100;
+    if (te > ta) te = ta;               // the gates may touch but never cross
+    var c = parseInt(dC.value, 10) / 100;
+
+    var ink = tok("--ink"), ink3 = tok("--ink-3"), rule = tok("--rule-soft");
+    var fore = tok("--fore"), real = tok("--real"), thr = tok("--thr");
+
+    var padL = 56, padR = 30;
+    var x0 = padL, x1 = W - padR;
+    var bandY = H * 0.46, bandH = Math.min(64, H * 0.24);
+
+    function X(v){ return x0 + v * (x1 - x0); }
+
+    // zones
+    ctx.globalAlpha = .16;
+    ctx.fillStyle = real; ctx.fillRect(X(0), bandY, X(te) - X(0), bandH);
+    ctx.fillStyle = thr;  ctx.fillRect(X(te), bandY, X(ta) - X(te), bandH);
+    ctx.fillStyle = fore; ctx.fillRect(X(ta), bandY, X(1) - X(ta), bandH);
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = rule; ctx.lineWidth = 1;
+    ctx.strokeRect(X(0), bandY, X(1) - X(0), bandH);
+
+    // gate lines
+    [[te, real], [ta, fore]].forEach(function(gv){
+      ctx.strokeStyle = gv[1]; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(X(gv[0]), bandY - 14); ctx.lineTo(X(gv[0]), bandY + bandH + 14); ctx.stroke();
+    });
+
+    // zone labels
+    ctx.font = monoFont(12, "600"); ctx.textAlign = "center";
+    var midE = (0 + te) / 2, midM = (te + ta) / 2, midA = (ta + 1) / 2;
+    ctx.fillStyle = real; if (te > 0.09) ctx.fillText(T("escalate"), X(midE), bandY - 24);
+    ctx.fillStyle = thr;  if (ta - te > 0.09) ctx.fillText(T("confirm"), X(midM), bandY - 24);
+    ctx.fillStyle = fore; if (1 - ta > 0.09) ctx.fillText(T("act"), X(midA), bandY - 24);
+    ctx.font = monoFont(10); ctx.fillStyle = ink3;
+    if (te > 0.12) ctx.fillText(T("escSub"), X(midE), bandY + bandH + 30);
+    if (1 - ta > 0.12) ctx.fillText(T("actSub"), X(midA), bandY + bandH + 30);
+
+    // axis ticks
+    ctx.strokeStyle = rule; ctx.fillStyle = ink3; ctx.font = monoFont(10); ctx.textAlign = "center";
+    for (var t = 0; t <= 10; t++){
+      var v = t / 10;
+      ctx.beginPath(); ctx.moveTo(X(v), bandY + bandH); ctx.lineTo(X(v), bandY + bandH + 5); ctx.stroke();
+      if (t % 2 === 0) ctx.fillText(v.toFixed(1), X(v), bandY + bandH + 46);
+    }
+    ctx.fillText(T("confidence"), (x0 + x1) / 2, H - 8);
+
+    // the answer's marker
+    var action = c >= ta ? T("aAct") : (c >= te ? T("aConfirm") : T("aEscalate"));
+    var mcol = c >= ta ? fore : (c >= te ? thr : real);
+    ctx.strokeStyle = mcol; ctx.lineWidth = 1.6; ctx.setLineDash([3,3]);
+    ctx.beginPath(); ctx.moveTo(X(c), 24); ctx.lineTo(X(c), bandY); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = mcol;
+    ctx.beginPath(); ctx.arc(X(c), bandY + bandH / 2, 7, 0, 6.2832); ctx.fill();
+    ctx.strokeStyle = tok("--plate"); ctx.lineWidth = 1.6; ctx.stroke();
+    ctx.font = monoFont(13, "600"); ctx.textAlign = X(c) > W / 2 ? "right" : "left";
+    ctx.fillStyle = mcol;
+    ctx.fillText(T("confidence") + " " + c.toFixed(2) + " → " + action, X(c) + (X(c) > W / 2 ? -10 : 10), 18);
+
+    roB.innerHTML = T("aAct") + " ≥ <span>" + ta.toFixed(2) + "</span> · " + T("aEscalate") + " &lt; <u>" + te.toFixed(2) +
+      "</u> · " + T("roThis") + " " + c.toFixed(2) + " → <strong>" + action + "</strong> &nbsp;<em>" + T("roGates") + "</em>";
+  }
+  dTe.addEventListener("input", drawB);
+  dTa.addEventListener("input", drawB);
+  dC.addEventListener("input", drawB);
+
+  /* ---------- orchestration ---------- */
+  function draw(){ drawA(); drawB(); }
+  function layout(){
+    var slide=slides[i], wrap=slide.querySelector(".wrap");
+    wrap.style.zoom="1";
+    draw();
+    if(window.innerWidth>780 && !slide.querySelector("details[open]")){
+      var style=getComputedStyle(slide);
+      var available=innerHeight-parseFloat(style.paddingTop)-parseFloat(style.paddingBottom);
+      wrap.style.zoom=String(Math.min(1,Math.max(.72,(available-8)/wrap.scrollHeight)));
+      draw();
+    }
+  }
+  document.addEventListener("toggle",function(e){if(e.target.matches("details")) layout();},true);
+  window.addEventListener("beforeprint",function(){
+    slides.forEach(function(s){s.style.display="block";s.querySelector(".wrap").style.zoom="1";});draw();
+  });
+  window.addEventListener("afterprint",function(){slides.forEach(function(s){s.style.removeProperty("display");});layout();});
+
+  var rt;
+  window.addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(layout, 120); });
+  new MutationObserver(draw).observe(document.documentElement, { attributes:true, attributeFilter:["data-theme","class","style"] });
+  if (window.matchMedia){
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    if (mq.addEventListener) mq.addEventListener("change", function(){draw();syncTheme();}); else if (mq.addListener) mq.addListener(draw);
+  }
+
+
+  // swap every [data-i18n] element between its English original and its data-ko text
+  var langBtn = document.getElementById("lang");
+  function applyLang(lang){
+    LANG = (lang === "ko") ? "ko" : "en";
+    document.documentElement.lang = LANG;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      if (!el.hasAttribute("data-en")) el.setAttribute("data-en", el.innerHTML);
+      var ko = el.getAttribute("data-ko");
+      el.innerHTML = (LANG === "ko" && ko) ? ko : el.getAttribute("data-en");
+    });
+    langBtn.textContent = T("langBtn");
+    langBtn.setAttribute("aria-pressed", String(LANG === "ko"));
+    langBtn.title = LANG === "ko" ? "English / 한국어 (L)" : "한국어 / English (L)";
+    try { localStorage.setItem("jev-lang", LANG); } catch (err) {}
+    buildJump();
+    syncTheme();
+    draw();
+    layout();
+    document.getElementById("announcement").textContent =
+      T("slideOf")(i + 1, slides.length, slides[i].querySelector("h1,h2").textContent);
+  }
+  langBtn.addEventListener("click", function(){ applyLang(LANG === "ko" ? "en" : "ko"); });
+
+  var start = parseInt((location.hash || "#1").slice(1), 10);
+  show(isNaN(start) ? 0 : start - 1);
+  var saved = null; try { saved = localStorage.getItem("jev-lang"); } catch (err) {}
+  if (saved === "ko") applyLang("ko");
+  setTimeout(layout, 60);
+})();
+</script>
+</body>
+</html>

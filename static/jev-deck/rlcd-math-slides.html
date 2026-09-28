@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<style>*,*::before,*::after{box-sizing:border-box}img,svg,canvas{max-width:100%}
+</style>
+<title>RLCD — The Mathematics of Calibrated Decisions</title>
+<meta content="An interactive, source-linked introduction to RLCD, calibration, proper scoring rules, and cost-based decisions." name="description"/>
+<style>
+/* ============================= TOKENS ============================= */
+:root{
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua","URW Palladio L",Georgia,serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,"Liberation Mono",monospace;
+
+  --paper:#E8ECEC;
+  --paper-2:#DDE3E3;
+  --plate:#F8FAFA;
+  --ink:#16202A;
+  --ink-2:#47565F;
+  --ink-3:#7B8A92;
+  --rule:#C2CCCC;
+  --rule-soft:#D7DEDE;
+
+  /* semantic roles — each recurs with one fixed meaning */
+  --fore:#0F6E8C;                       /* the model's forecast */
+  --fore-wash:rgba(15,110,140,.075);
+  --fore-line:rgba(15,110,140,.28);
+  --real:#A3324B;                       /* observed outcome / reality */
+  --real-wash:rgba(163,50,75,.07);
+  --real-line:rgba(163,50,75,.26);
+  --thr:#9A6B0F;                        /* decision threshold / caution */
+  --thr-wash:rgba(154,107,15,.09);
+  --thr-line:rgba(154,107,15,.32);
+
+  --shadow:0 1px 2px rgba(22,32,42,.05), 0 8px 26px -18px rgba(22,32,42,.4);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#0E161C; --paper-2:#0A1116; --plate:#152028;
+    --ink:#E4EBEC; --ink-2:#A0AFB5; --ink-3:#6D7E86;
+    --rule:#2A3942; --rule-soft:#213038;
+    --fore:#4FC3DC; --fore-wash:rgba(79,195,220,.10); --fore-line:rgba(79,195,220,.30);
+    --real:#F2708E; --real-wash:rgba(242,112,142,.09); --real-line:rgba(242,112,142,.26);
+    --thr:#E0B155; --thr-wash:rgba(224,177,85,.10); --thr-line:rgba(224,177,85,.30);
+    --shadow:0 1px 2px rgba(0,0,0,.45), 0 10px 30px -20px rgba(0,0,0,.95);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E161C; --paper-2:#0A1116; --plate:#152028;
+  --ink:#E4EBEC; --ink-2:#A0AFB5; --ink-3:#6D7E86;
+  --rule:#2A3942; --rule-soft:#213038;
+  --fore:#4FC3DC; --fore-wash:rgba(79,195,220,.10); --fore-line:rgba(79,195,220,.30);
+  --real:#F2708E; --real-wash:rgba(242,112,142,.09); --real-line:rgba(242,112,142,.26);
+  --thr:#E0B155; --thr-wash:rgba(224,177,85,.10); --thr-line:rgba(224,177,85,.30);
+  --shadow:0 1px 2px rgba(0,0,0,.45), 0 10px 30px -20px rgba(0,0,0,.95);
+}
+:root[data-theme="light"]{
+  --paper:#E8ECEC; --paper-2:#DDE3E3; --plate:#F8FAFA;
+  --ink:#16202A; --ink-2:#47565F; --ink-3:#7B8A92;
+  --rule:#C2CCCC; --rule-soft:#D7DEDE;
+  --fore:#0F6E8C; --fore-wash:rgba(15,110,140,.075); --fore-line:rgba(15,110,140,.28);
+  --real:#A3324B; --real-wash:rgba(163,50,75,.07); --real-line:rgba(163,50,75,.26);
+  --thr:#9A6B0F; --thr-wash:rgba(154,107,15,.09); --thr-line:rgba(154,107,15,.32);
+  --shadow:0 1px 2px rgba(22,32,42,.05), 0 8px 26px -18px rgba(22,32,42,.4);
+}
+
+/* ============================= BASE ============================= */
+html{ font-size:clamp(13px,1.2vw,18px); }
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--serif); line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--fore); color:var(--plate); }
+
+.progress{ position:fixed; top:0; left:0; height:2px; width:100%; background:var(--rule-soft); z-index:40; }
+.progress > i{ display:block; height:100%; width:0; background:var(--fore); transition:width .4s cubic-bezier(.4,0,.2,1); }
+
+.slide{
+  display:none; min-height:100svh; box-sizing:border-box;
+  padding:clamp(1.8rem,4.5vh,3rem) clamp(1.1rem,4vw,3.2rem) 5.6rem;
+  align-items:center; justify-content:center;
+}
+.slide.is-on{ display:flex; }
+.wrap{ width:100%; max-width:64rem; margin:0 auto; }
+.slide.is-on .wrap{ animation:rise .42s cubic-bezier(.22,.7,.3,1) both; }
+@keyframes rise{ from{ opacity:0; transform:translateY(9px); } to{ opacity:1; transform:none; } }
+@media (prefers-reduced-motion:reduce){
+  .slide.is-on .wrap{ animation:none; }
+  .progress > i{ transition:none; }
+}
+
+/* ============================= NAV ============================= */
+.nav{ position:fixed; right:clamp(.8rem,3vw,2rem); bottom:clamp(.8rem,3vh,1.5rem); display:flex; align-items:center; gap:.5rem; z-index:41; font-family:var(--mono); }
+.nav button{
+  font:inherit; font-size:.76rem; color:var(--ink-2); background:var(--plate);
+  border:1px solid var(--rule); border-radius:2px; padding:.5rem .65rem; cursor:pointer; line-height:1;
+  transition:color .15s,border-color .15s;
+}
+.nav button:hover{ color:var(--ink); border-color:var(--ink-3); }
+.nav button:focus-visible{ outline:2px solid var(--fore); outline-offset:2px; }
+.nav button[disabled]{ opacity:.3; cursor:default; }
+.counter{ font-family:var(--mono); font-size:.74rem; color:var(--ink-3); font-variant-numeric:tabular-nums; padding:0 .3rem; min-width:4.4em; text-align:center; }
+.hint{ position:fixed; left:clamp(.8rem,3vw,2rem); bottom:clamp(.9rem,3vh,1.6rem); font-family:var(--mono); font-size:.7rem; color:var(--ink-3); z-index:41; }
+@media (max-width:660px){ .hint{ display:none; } }
+
+/* ============================= FURNITURE ============================= */
+.eyebrow{ font-family:var(--mono); font-size:.7rem; letter-spacing:.06em; color:var(--ink-3); display:flex; align-items:center; gap:.7rem; margin-bottom:1.4rem; }
+.eyebrow .n{ color:var(--fore); }
+.eyebrow::after{ content:""; flex:1; height:1px; background:var(--rule-soft); }
+
+h1{ font-size:clamp(2.5rem,6vw,4.3rem); line-height:1.03; margin:0; font-weight:400; letter-spacing:-.02em; text-wrap:balance; }
+h2{ font-size:clamp(1.65rem,3.2vw,2.45rem); line-height:1.13; margin:0 0 1rem; font-weight:400; letter-spacing:-.015em; text-wrap:balance; }
+h3{ font-family:var(--mono); font-size:.72rem; letter-spacing:.05em; color:var(--ink-3); margin:0 0 .55rem; text-transform:uppercase; }
+p{ margin:0 0 .85rem; color:var(--ink-2); font-size:1.01rem; max-width:62ch; }
+p.lead{ font-size:1.17rem; color:var(--ink); max-width:56ch; }
+strong{ font-weight:650; color:var(--ink); }
+.stack{ display:flex; flex-direction:column; gap:1rem; }
+.grid2{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; align-items:start; }
+.grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:.85rem; align-items:stretch; }
+@media (max-width:780px){ .grid2,.grid3{ grid-template-columns:1fr; } }
+
+/* provenance stamp — every slide declares what kind of claim it is */
+.prov{
+  position:fixed; left:50%; transform:translateX(-50%); bottom:clamp(.9rem,3vh,1.6rem);
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.03em; color:var(--ink-3);
+  display:flex; align-items:center; gap:.45rem; z-index:41; white-space:nowrap;
+  pointer-events:none;
+}
+.prov .dot{ width:.5rem; height:.5rem; border-radius:50%; flex:none; }
+.prov[data-kind="doc"] .dot{ background:var(--fore); }
+.prov[data-kind="math"] .dot{ background:var(--thr); }
+.prov[data-kind="unk"] .dot{ background:var(--real); }
+@media (max-width:900px){ .prov{ display:none; } }
+
+/* ============================= MATH ============================= */
+.m{ font-family:var(--serif); font-variant-numeric:lining-nums tabular-nums; }
+.m i{ font-style:italic; }
+.op{ padding:0 .3em; }
+.hat{ position:relative; }
+.frac{ display:inline-grid; vertical-align:middle; text-align:center; font-size:.9em; }
+.frac > .num{ padding:0 .5em .12em; border-bottom:1.2px solid currentColor; }
+.frac > .den{ padding:.12em .5em 0; }
+
+.eq{ background:var(--plate); border:1px solid var(--rule); border-radius:3px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+.eq-field{ padding:1.45rem 1.4rem 1.3rem; overflow-x:auto; }
+.eqline{ font-size:clamp(1.05rem,2.05vw,1.5rem); line-height:2.4; text-align:center; white-space:nowrap; color:var(--ink); }
+.eqline.wrapable{ white-space:normal; line-height:2.25; }
+.eqline + .eqline{ margin-top:.15rem; }
+.eqtag{
+  position:absolute; top:0; right:0; font-family:var(--mono); font-size:.65rem; letter-spacing:.05em;
+  color:var(--ink-3); background:var(--paper-2); border-left:1px solid var(--rule); border-bottom:1px solid var(--rule);
+  padding:.3rem .55rem; border-radius:0 3px 0 3px;
+}
+.aloud{ border-top:1px solid var(--rule-soft); background:var(--paper-2); padding:.8rem 1.4rem; margin:0; font-size:.97rem; color:var(--ink-2); max-width:none; }
+.aloud b{ display:block; font-family:var(--mono); font-size:.64rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); margin-bottom:.22rem; }
+
+.analogy{ border-left:2.5px solid var(--fore); padding:.15rem 0 .15rem 1.05rem; font-size:1.01rem; color:var(--ink-2); max-width:62ch; }
+.analogy b{ display:block; font-family:var(--mono); font-size:.64rem; letter-spacing:.06em; text-transform:uppercase; color:var(--fore); margin-bottom:.28rem; }
+.analogy i{ color:var(--ink); font-style:italic; }
+
+.note{ font-size:.92rem; color:var(--ink-3); border-left:1px solid var(--rule); padding-left:.85rem; max-width:62ch; }
+.card{ background:var(--plate); border:1px solid var(--rule); border-radius:3px; padding:1rem 1.1rem; box-shadow:var(--shadow); }
+.card p{ font-size:.94rem; margin-bottom:0; }
+.card p + p{ margin-top:.55rem; }
+.card.fore{ background:var(--fore-wash); border-color:var(--fore-line); }
+.card.real{ background:var(--real-wash); border-color:var(--real-line); }
+.card.thr{ background:var(--thr-wash); border-color:var(--thr-line); }
+
+/* tables */
+.tbl-wrap{ overflow-x:auto; border:1px solid var(--rule); border-radius:3px; background:var(--plate); box-shadow:var(--shadow); }
+table{ border-collapse:collapse; width:100%; font-size:.94rem; }
+th,td{ padding:.55rem .8rem; text-align:left; border-bottom:1px solid var(--rule-soft); }
+thead th{ font-family:var(--mono); font-size:.66rem; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-3); background:var(--paper-2); border-bottom:1px solid var(--rule); white-space:nowrap; }
+tbody tr:last-child td{ border-bottom:none; }
+td.num{ font-variant-numeric:tabular-nums; white-space:nowrap; }
+td.m{ white-space:nowrap; }
+tr.hl td{ background:var(--fore-wash); }
+td small{ color:var(--ink-3); font-size:.86em; }
+
+ul.plain{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.55rem; }
+ul.plain li{ font-size:.96rem; color:var(--ink-2); padding-left:1.05rem; position:relative; }
+ul.plain li::before{ content:"—"; position:absolute; left:0; color:var(--ink-3); }
+
+.code{ font-family:var(--mono); font-size:.86em; background:var(--paper-2); border:1px solid var(--rule-soft); border-radius:2px; padding:.06em .3em; color:var(--ink); }
+
+/* dot grid — echoes the lecture's own 10-case visual */
+.dots{ display:flex; gap:.45rem; flex-wrap:wrap; margin:.5rem 0 .3rem; }
+.dots i{ width:1.1rem; height:1.1rem; border-radius:50%; border:1.5px solid var(--fore); display:block; }
+.dots i.on{ background:var(--fore); }
+.dotkey{ font-family:var(--mono); font-size:.72rem; color:var(--ink-3); display:flex; gap:1.1rem; margin-top:.4rem; }
+.dotkey span{ display:flex; align-items:center; gap:.35rem; }
+.dotkey b{ width:.7rem; height:.7rem; border-radius:50%; border:1.5px solid var(--fore); display:inline-block; }
+.dotkey b.on{ background:var(--fore); }
+
+/* figures */
+.fig{ background:var(--plate); border:1px solid var(--rule); border-radius:3px; box-shadow:var(--shadow); overflow:hidden; }
+.fig canvas{ display:block; width:100%; height:auto; }
+.ctrl{ border-top:1px solid var(--rule-soft); background:var(--paper-2); padding:.75rem 1rem; display:flex; align-items:center; gap:.85rem; flex-wrap:wrap; }
+.ctrl label{ font-family:var(--mono); font-size:.7rem; color:var(--ink-3); white-space:nowrap; }
+.ctrl input[type=range]{ flex:1; min-width:7rem; accent-color:var(--fore); height:1.2rem; }
+.ctrl input[type=range]:focus-visible{ outline:2px solid var(--fore); outline-offset:3px; }
+.readout{ font-family:var(--mono); font-size:.77rem; color:var(--ink-2); font-variant-numeric:tabular-nums; white-space:nowrap; }
+.readout span{ color:var(--fore); }
+.readout u{ color:var(--thr); text-decoration:none; }
+.readout em{ color:var(--ink-3); font-style:normal; }
+
+.flow{ display:flex; align-items:stretch; overflow-x:auto; padding-bottom:.4rem; }
+.flow .node{ flex:1; min-width:8rem; background:var(--plate); border:1px solid var(--rule); border-radius:3px; padding:.7rem .75rem; box-shadow:var(--shadow); }
+.flow .node h4{ margin:0 0 .25rem; font-family:var(--mono); font-size:.72rem; font-weight:500; color:var(--ink); }
+.flow .node p{ margin:0; font-size:.78rem; color:var(--ink-3); }
+.flow .arrow{ flex:none; width:1.5rem; display:grid; place-items:center; color:var(--ink-3); }
+
+.title-rule{ height:1px; background:var(--rule); margin:1.7rem 0; }
+.byline{ font-family:var(--mono); font-size:.78rem; color:var(--ink-3); max-width:60ch; line-height:1.7; }
+.byline b{ color:var(--ink-2); font-weight:500; }
+.provkey{ display:flex; flex-direction:column; gap:.5rem; margin-top:.7rem; font-family:var(--mono); font-size:.74rem; color:var(--ink-2); }
+.provkey span{ display:flex; align-items:center; gap:.55rem; }
+.provkey b{ width:.55rem; height:.55rem; border-radius:50%; flex:none; font-weight:400; }
+
+.chip{ display:inline-block; font-family:var(--mono); font-size:.64rem; letter-spacing:.05em; text-transform:uppercase; padding:.2rem .42rem; border-radius:2px; border:1px solid currentColor; line-height:1; }
+.chip.fore{ color:var(--fore); } .chip.real{ color:var(--real); } .chip.thr{ color:var(--thr); }
+/* Presentation polish: readable stage, optional detail, and offline controls. */
+:root{--sans:Inter,"Segoe UI",Arial,sans-serif}
+body{font-family:var(--sans);line-height:1.5}
+h1,h2,.m,.big-value{font-family:var(--serif)}
+h1 em{color:var(--fore)}
+.slide{padding-top:3.8rem;padding-bottom:5rem}
+.wrap{max-width:70rem}
+p{max-width:70ch}
+.card,.eq,.fig,.tbl-wrap{border-radius:10px}
+.card{padding:1.15rem 1.25rem}
+.eq-field{padding:1.5rem 1.4rem}
+.eyebrow{margin-bottom:1rem}
+.hero-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:3rem;align-items:center}
+.hero-card{border:1px solid var(--fore-line);background:var(--fore-wash);padding:2rem;border-radius:16px}
+.hero-number{font-family:var(--serif);font-size:7rem;line-height:1.2;color:var(--fore)}
+.hero-number span{font-size:3rem}
+.hero-card .dots{margin:1rem 0}
+.hero-card small,.micro{font: .7rem var(--mono);color:var(--ink-2)}
+.hero-card p{margin-top:1rem}
+.chapter-strip{display:flex;gap:2rem;padding:1.2rem 0;margin:1.5rem 0;border-block:1px solid var(--rule)}
+.chapter-strip span{font-size:.85rem}.chapter-strip b{font-family:var(--mono);color:var(--fore);margin-right:.4rem}
+.big-value{font-size:2.8rem!important;line-height:1.3;color:var(--fore)!important}
+a{color:var(--fore);text-underline-offset:3px}
+a:focus-visible,summary:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--fore);outline-offset:4px}
+.speaker-note{margin-top:.8rem;color:var(--ink-2)}
+.speaker-note summary{font:.72rem var(--mono);cursor:pointer;color:var(--fore);padding:.35rem 0}
+.speaker-note[open]>summary{margin-bottom:.7rem}
+.speaker-note .analogy{margin:.5rem 0}
+.toolbar{position:fixed;top:.7rem;left:clamp(.8rem,3vw,2rem);right:clamp(.8rem,3vw,2rem);display:flex;gap:.5rem;z-index:45;align-items:center}
+.toolbar button,.toolbar select{font:.7rem var(--mono);color:var(--ink-2);border:1px solid var(--rule);background:var(--plate);border-radius:5px;padding:.5rem;cursor:pointer;min-height:34px}
+.toolbar select{max-width:28rem;min-width:0;margin-right:auto}
+.toolbar button[aria-pressed="true"]{color:var(--fore);border-color:var(--fore)}
+.prov{position:static;transform:none;padding:.3rem 0;font-size:.65rem;white-space:normal;margin-top:1.1rem;pointer-events:auto}
+.hint{font-size:.65rem}
+.readout{white-space:normal}.ctrl output{font:.75rem var(--mono);min-width:3em;color:var(--ink)}
+.fig canvas{min-height:240px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(max-width:900px){.prov{display:flex}.hero-grid{gap:1.2rem}.chapter-strip{gap:1rem}}
+@media(max-width:660px){.hero-grid{grid-template-columns:1fr}.hero-card{padding:1rem}.hero-number{font-size:4rem}.chapter-strip{flex-direction:column;gap:.5rem}.toolbar{flex-wrap:wrap}.toolbar select{flex:1}.toolbar #fullscreen{display:none}.slide{padding-top:5rem}.grid2,.grid3{gap:.7rem}.flow{flex-wrap:wrap}.flow .node{min-width:40%}.flow .arrow{width:1rem}}
+@media print{
+ @page{size:A4 landscape;margin:10mm}
+ :root{--paper:#fff;--paper-2:#f0f3f3;--plate:#fff;--ink:#16202a;--ink-2:#47565f;--ink-3:#52616a;--rule:#bdc8c8;--rule-soft:#d7dede;--fore:#0f6e8c;--real:#a3324b;--thr:#825600}
+ html{font-size:11px}body{background:white}.toolbar,.nav,.hint,.progress{display:none!important}
+ .slide,.slide.is-on{display:block;min-height:0;padding:0;break-after:page}.slide:last-of-type{break-after:auto}
+ .slide .wrap{animation:none!important;max-width:none;zoom:1!important}.grid2{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:repeat(3,1fr)}
+ .speaker-note{display:none}.card,.eq,.fig,.tbl-wrap{box-shadow:none;break-inside:avoid}.fig canvas{max-height:310px;object-fit:contain}
+ a{color:var(--fore)}.prov{display:none}
+}
+
+@media screen and (min-width:781px){
+ .eqline{line-height:1.9}.eqline.wrapable{line-height:1.9}
+ .eq-field{padding:1.05rem 1.3rem}.aloud{padding:.65rem 1.3rem}
+ .card{padding:.9rem 1.1rem}
+ .slide{padding-top:3.8rem;padding-bottom:4.4rem}
+ .speaker-note{margin-top:.55rem}
+}
+</style>
+</head>
+<body>
+<div aria-label="Presentation tools" class="toolbar"><label class="sr-only" for="jump">Jump to slide</label><select id="jump"></select><button aria-pressed="false" id="notes" title="Expand teaching notes (N)" type="button">Notes</button><button aria-pressed="false" id="theme" type="button">Dark</button><button id="fullscreen" title="Fullscreen (F)" type="button">Fullscreen</button><button id="print" type="button">Print</button></div><div aria-live="polite" class="sr-only" id="announcement" role="status"></div><noscript><style>.slide{display:block}.toolbar,.nav,.hint,.progress{display:none}</style><p>Enable JavaScript for interactive charts and navigation.</p></noscript><div aria-hidden="true" class="progress"><i id="bar"></i></div>
+<div class="deck" id="deck">
+<!-- 01 -->
+<section aria-label="1: From probability to decision." aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe’s stated goal · examples are illustrative" id="slide-1"><div class="wrap">
+<div class="eyebrow"><span class="n">00</span> Jev / A mathematical field guide</div>
+<div class="hero-grid"><div><h1>From probability<br/> to <em>decision.</em></h1><p class="lead" style="margin-top:1.5rem"><strong>RLCD</strong> · Reinforcement Learning for Calibrated Decisions</p><p>What an 80% forecast means, why honest probabilities can win, and how uncertainty becomes an action.</p></div>
+<div class="hero-card"><span class="micro">THE CALIBRATION TARGET</span><div class="hero-number">80<span>%</span></div><div aria-label="8 events out of 10 illustrative cases" class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><p>Among comparable 80% forecasts,<br/>about 8 in 10 events should occur.</p><small>Illustration · individual batches vary</small></div></div>
+<div class="chapter-strip"><span><b>01</b> Check the forecast</span><span><b>02</b> Understand the incentive</span><span><b>03</b> Price the decision</span></div>
+<p class="note">Eight mathematical ideas. Jev’s documented goal is distinguished from the teaching examples; the reviewed sources do not specify its training recipe.</p>
+</div></section>
+<!-- 02 -->
+<section aria-label="2: Why probabilities matter" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Illustrative motivation · RLCD targets calibration" id="slide-2"><div class="wrap">
+<div class="eyebrow"><span class="n">01</span> Why we need probabilities</div>
+<h2>Why probabilities matter</h2>
+<p class="lead">A category tells your application what the model predicts. A probability tells it how uncertain that prediction is.</p>
+<p>For two different support tickets, the model predicts the same category: <span class="code">returns</span>.</p>
+<div class="grid2" style="margin:1.2rem 0">
+<div class="card fore"><h3>Ticket A · predicted category: returns</h3><p class="big-value">98%</p><p>The model estimates a <strong>98% chance</strong> that returns is the correct queue.</p></div>
+<div class="card real"><h3>Ticket B · predicted category: returns</h3><p class="big-value">41%</p><p>Returns is the most likely category, but only has a <strong>41% chance</strong> of being correct.</p></div>
+</div>
+<p>Your application can use these probabilities and the cost of mistakes to choose whether to <strong>route automatically or request a human check</strong>. The model’s category prediction is not the action.</p>
+<div class="eq"><p class="aloud"><b>Where RLCD comes in</b>Those numbers are useful only if they reflect real outcomes. <strong>RLCD targets calibration:</strong> across many predictions assigned 98%, about 98% should be correct.</p></div>
+<p class="note" style="margin-top:1rem">This example explains why probabilities matter. The next slides explain what makes them calibrated.</p>
+<details class="speaker-note"><summary>Why can 41% still be the selected category?</summary><div class="stack"><p>This example uses <strong>one model on two different tickets</strong>. On Ticket B, the probabilities could be returns 41%, billing 35%, and shipping 24%. Returns is the largest individual probability, so the model selects it. That does not make returns more likely than all the alternatives combined.</p><p>The model predicts the category. Your application chooses what to do with that prediction. It may route the ticket automatically or request a human check, depending on the probability and the costs of those actions.</p><p><strong>Purpose of this slide:</strong> motivate the need for probabilities. RLCD’s stated goal is to make the probabilities calibrated; this routing example does not describe its training algorithm.</p></div></details></div></section>
+<!-- 03 -->
+<section aria-label="3: What training rewards" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Illustrative framing · these families overlap in practice" id="slide-3"><div class="wrap">
+<div class="eyebrow"><span class="n">02</span> Where RLCD sits</div>
+<h2>What training rewards</h2>
+<p>Reinforcement learning optimises whatever you reward. So the interesting question about any RL method is simply: <strong>what is it rewarding?</strong></p>
+<div class="grid3" style="margin-top:1.1rem">
+<div class="card">
+<h3>Human feedback</h3>
+<p style="color:var(--ink); font-size:1rem"><strong>Rewards answers people prefer.</strong></p>
+<p>Can reflect usefulness, correctness, style, and other human preferences.</p>
+</div>
+<div class="card">
+<h3>Verifiable reward</h3>
+<p style="color:var(--ink); font-size:1rem"><strong>Rewards answers that pass a check.</strong></p>
+<p>Optimises for what a test can confirm — the code compiles, the sum is right.</p>
+</div>
+<div class="card fore">
+<h3 style="color:var(--fore)">RLCD</h3>
+<p style="color:var(--ink); font-size:1rem"><strong>Targets calibrated probabilities.</strong></p>
+<p>Optimises for forecasts whose stated rates actually occur.</p>
+</div>
+</div>
+<details class="speaker-note"><summary>Teaching notes</summary><div class="grid2" style="margin-top:1.2rem">
+<div class="note"><strong>These are distinct goals, not rival superpowers.</strong> They overlap, and a system can pursue more than one. An answer can be preferred, correct, <em>and</em> accompanied by an honest probability — or any two out of three.</div>
+<details class="speaker-note"><summary>Explanation &amp; analogy</summary><div class="analogy">
+<b>Analogy</b>
+      Three different exams for a doctor. One grades <i>bedside manner</i>. One grades <i>the diagnosis</i>. RLCD grades a third thing entirely — <i>“when you say you're 70 % sure, are you right about 70 % of the time?”</i> You can pass any of these and fail the others.
+    </div></details>
+</div></details>
+<details class="speaker-note"><summary>How a reward changes model behavior</summary><div class="stack"><p>During reinforcement learning, a training procedure adjusts a model to increase its expected reward. What the reward measures influences what the model learns to do.</p><p>A human-preference reward evaluates which response people favor. A correctness reward evaluates whether a prediction passes a check. A probability-sensitive reward can distinguish 60% from 99%, even when both forecasts select the same category.</p><p>These goals can overlap. The next slide compares two models to show what a category-only reward misses.</p></div></details></div></section>
+<!-- 04 -->
+<section aria-label="4: Reward the probability" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Standard mathematics · illustrative, not Jev internals" id="slide-4"><div class="wrap"><div class="eyebrow"><span class="n">03</span> Training: what should the reward measure?</div>
+<h2>Reward the probability</h2>
+<p class="lead">Two models classify the <strong>same ticket</strong> as <span class="code">returns</span>. They attach different probabilities to that prediction.</p>
+<div class="grid2" style="margin:1rem 0">
+<div class="card fore"><h3>Model A</h3><p class="big-value">60%</p><p>Model A predicts <strong>returns</strong>, with a 60% estimated chance of being correct.</p></div>
+<div class="card real"><h3>Model B</h3><p class="big-value">99%</p><p>Model B predicts <strong>returns</strong>, with a 99% estimated chance of being correct.</p></div></div>
+<div class="eq"><p class="aloud"><b>If training rewards only the correct category</b>If returns is correct, <strong>both models receive +1</strong>. If it is incorrect, both receive 0. This reward cannot distinguish a realistic probability from an exaggerated one.</p></div>
+<p style="margin-top:1rem"><strong>A possible alternative:</strong> score each model’s probability against the observed outcome. Brier loss, <span class="m">L = (p − y)²</span>, is one way to do this; lower loss means a better forecast score.</p>
+<p class="note">This illustrates the incentive behind calibrated probabilities. It does not establish which reward Jev uses.</p><details class="speaker-note"><summary>Worked example: Model A vs Model B</summary><div class="stack"><p>Here <strong>p</strong> is a model’s probability that returns is the correct queue. The observed label supplies <strong>y = 1</strong> when returns is correct, and <strong>y = 0</strong> otherwise. Neither model chooses the observed label.</p>
+<div class="tbl-wrap"><table><thead><tr><th>Observed outcome</th><th>Model A · p = 0.60</th><th>Model B · p = 0.99</th></tr></thead><tbody><tr><td>Returns is correct (y = 1)</td><td>(0.60 − 1)² = 0.16</td><td>(0.99 − 1)² = 0.0001</td></tr><tr><td>Returns is incorrect (y = 0)</td><td>(0.60 − 0)² = 0.36</td><td>(0.99 − 0)² = 0.9801</td></tr></tbody></table></div>
+<p>Model B receives a lower loss when correct, but a much higher loss when wrong. <strong>One ticket does not tell us which probability was better calibrated.</strong> We must consider both possible outcomes and how often each occurs.</p>
+<p>Suppose returns is truly correct in 60% of comparable cases, and the models keep reporting these probabilities. Model A’s expected loss is <strong>0.60 × 0.16 + 0.40 × 0.36 = 0.24</strong>. Model B’s is <strong>0.60 × 0.0001 + 0.40 × 0.9801 = 0.3921</strong>. Model A performs better on average because its probability matches the true rate.</p>
+<p>Training could use <strong>reward = −loss</strong>: −0.24 is higher, and therefore better, than −0.3921. The later derivation shows why matching the true rate minimizes expected Brier loss.</p></div></details></div></section>
+<!-- 05 -->
+<section aria-label="5: What 80% means" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Illustrative cases · synthetic, not a Jev benchmark" id="slide-5"><div class="wrap">
+<div class="eyebrow"><span class="n">04</span> Calibration, before any notation</div>
+<h2>What 80% means</h2>
+<p>One model predicts an 80% probability of <strong>returns</strong> for each of ten tickets. In this illustration, returns is the correct queue for eight tickets and incorrect for two.</p>
+<div class="card" style="margin:1.1rem 0; max-width:34rem">
+<h3>Ten forecasts of 80 %</h3>
+<div class="dots">
+<i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+<i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i>
+</div>
+<div class="dotkey"><span><b class="on"></b> event happened  ×8</span><span><b></b> did not  ×2</span></div>
+</div>
+<div class="grid2" style=";grid-template-columns:1fr">
+<div class="stack">
+<p><strong>Calibration is a property of a group, never of one case.</strong> It asks whether the agreement persists across similar forecasts: among all the 80 % predictions, does the event occur roughly 80 % of the time?</p>
+<div class="note">Not every batch of ten contains exactly eight. Samples fluctuate — and calibration <em>cannot tell you which individual case will be the exception</em>. That information does not exist in the number.</div>
+</div>
+</div><details class="speaker-note"><summary>Explanation &amp; analogy</summary><div class="analogy">
+<b>Analogy</b>
+      A forecast, not a promise. <i>“80 % chance of rain”</i> is never falsified by one dry Tuesday. A hundred comparable days of which only forty were wet would be strong evidence of miscalibration. Judge the number the way you'd judge a weather service: <i>over a season, not over an afternoon.</i>
+</div></details>
+<details class="speaker-note"><summary>What is being counted?</summary><div class="stack"><p>Each dot represents a different ticket, not a different model. A filled dot means the observed category was returns. An empty dot means the observed category was something else.</p><p>The model’s 80% prediction does not identify which tickets will be mistakes. Calibration asks whether the frequency matches the prediction across many comparable cases. Ten tickets make the idea visible, but are not enough to establish calibration reliably.</p></div></details></div></section>
+<!-- 06 -->
+<section aria-label="6: Calibration in symbols" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Standard definition · the lecture's slide 04" id="slide-6"><div class="wrap">
+<div class="eyebrow"><span class="n">05</span> The calibration equation</div>
+<h2>Calibration in symbols</h2>
+<div class="grid3" style="margin-bottom:1.1rem">
+<div class="card"><h3>Y</h3><p><span class="m" style="color:var(--ink)"><i>Y</i> = 1</span> when returns is the correct queue, <span class="m" style="color:var(--ink)"><i>Y</i> = 0</span> otherwise. The outcome, after the fact.</p></div>
+<div class="card"><h3>p̂   “p-hat”</h3><p>The model’s predicted probability that returns is the correct queue. A random variable — it changes case to case.</p></div>
+<div class="card"><h3>p</h3><p>One particular forecast <em>value</em> we want to talk about, e.g. the number 0.8.</p></div>
+</div>
+<div class="eq">
+<div class="eqtag">Eq. 1</div>
+<div class="eq-field"><div class="eqline m">
+      ℙ<span class="op"></span>(<span class="op"></span> <i>Y</i> = 1 <span class="op">|</span> <i>p̂</i> = <i>p</i> <span class="op"></span>)
+      <span class="op">=</span> <i>p</i>
+</div></div>
+<p class="aloud"><b>In words</b>Look at every case where the model happened to say <i>p</i>. Among exactly those cases, the event's true rate should <em>be</em> <i>p</i>. Forecasts of 80 % should approach 80 % frequency across comparable cases.</p>
+<details class="speaker-note"><summary>Worked detail</summary><p class="aloud"><b>Concrete example</b>Suppose the model makes 100 predictions, and for each one it says <em>“there is a 70 % chance this is correct.”</em> If the model is well calibrated, roughly 70 of those 100 predictions should actually be correct. That is Equation 1 with <span class="m"><i>p</i> = 0.7</span> — and “roughly” matters: sampling uncertainty and dependence between cases affect the strength of the evidence.</p></details>
+</div>
+<details class="speaker-note"><summary>Teaching notes</summary><div class="grid2" style="margin-top:1.2rem">
+<details class="speaker-note"><summary>Explanation &amp; analogy</summary><div class="analogy">
+<b>Analogy</b>
+      Read the vertical bar <span class="m">|</span> as <i>“restricted to”</i>. The equation says: <i>filter your history down to the rows where the model wrote 0.8 in the forecast column, then count how often the outcome column says yes.</i> If the answer is 80 %, this forecast value is calibrated.
+    </div></details>
+<div class="note"><strong>Why it must be a conditional.</strong> Averaging over <em>all</em> predictions would let a model hide: wild overconfidence on one group could cancel wild underconfidence on another. The condition <span class="m"><i>p̂</i> = <i>p</i></span> forces the promise to hold <em>separately at every value the model is allowed to say</em>.</div>
+</div></details>
+<details class="speaker-note"><summary>Read the equation from left to right</summary><div class="stack"><p><strong>ℙ</strong> means probability. <strong>Y = 1</strong> means the event occurred. The vertical bar <strong>|</strong> means “given that.” <strong>p̂ = p</strong> restricts attention to cases where the model reported the value p.</p><p>Read the equation as: “Given that the model reported p, the actual chance of the event is p.” For p = 0.8, the target event rate is 80%. This is a population condition, not a requirement that every finite batch match exactly.</p><p>For continuously valued forecasts, the precise statement is <span class="m">𝔼[Y | p̂] = p̂</span> almost surely. In a finite dataset, we estimate agreement using nearby probabilities, as on the next slide.</p></div></details></div></section>
+<!-- 07 -->
+<section aria-label="7: Check forecasts against outcomes" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Illustrative held-out bins · synthetic data, not a Jev benchmark" id="slide-7"><div class="wrap">
+<div class="eyebrow"><span class="n">06</span> Checking it</div>
+<h2>Check forecasts against outcomes</h2>
+<p>Group nearby held-out forecasts into bins. For each nonempty bin, compare the mean prediction with the observed event frequency.</p>
+<div class="grid3" style="margin-bottom:1.1rem">
+<div class="card"><h3><i>B</i><sub>k</sub></h3><p>Bucket number <span class="m"><i>k</i></span> — the set of cases whose forecasts fell in that range.</p></div>
+<div class="card"><h3>|<i>B</i><sub>k</sub>|</h3><p>How many cases landed in the bucket. Just a count.</p></div>
+<div class="card"><h3>∑  then  ÷</h3><p>Sum the values, then divide by the number of cases. A bar over a symbol means “average”.</p></div>
+</div>
+<div class="eq" style="margin-top:1rem">
+<div class="eqtag">Eq. 2</div>
+<div class="eq-field"><div class="eqline m wrapable">
+<span style="color:var(--fore)"><i>p̄</i><sub>k</sub> = <span class="frac"><span class="num">1</span><span class="den">|<i>B</i><sub>k</sub>|</span></span> ∑<sub><i>i</i>∈<i>B</i><sub>k</sub></sub> <i>p̂</i><sub><i>i</i></sub></span>
+<span class="op">  vs  </span>
+<span style="color:var(--real)"><i>ȳ</i><sub>k</sub> = <span class="frac"><span class="num">1</span><span class="den">|<i>B</i><sub>k</sub>|</span></span> ∑<sub><i>i</i>∈<i>B</i><sub>k</sub></sub> <i>y</i><sub><i>i</i></sub></span>
+</div></div>
+<p class="aloud"><b>In words</b><span style="color:var(--fore)">What the model said, on average, in this bin</span> — against <span style="color:var(--real)">how often the event actually happened in that same bin</span>. Plot one point per bin: said on the horizontal axis, happened on the vertical. Perfect population calibration corresponds to the diagonal; finite samples fluctuate around it.</p>
+<details class="speaker-note"><summary>Worked detail</summary><p class="aloud"><b>Concrete example</b>A bin holds five forecasts: <span class="m">0.78, 0.80, 0.82, 0.81, 0.79</span>. Their average — <span style="color:var(--fore)">what the model said</span> — is <span class="m" style="color:var(--fore)"><i>p̄</i><sub>k</sub> = 0.80</span>. The outcomes were <span class="m">1, 1, 0, 1, 0</span> — the event happened 3 times out of 5, so <span class="m" style="color:var(--real)"><i>ȳ</i><sub>k</sub> = 0.60</span>. The model <em>said</em> 80 % but the event <em>occurred</em> 60 % of the time: plot the point <span class="m">(0.80, 0.60)</span>, below the diagonal — <strong>overstated in this sample</strong>. Five cases alone do not establish miscalibration.</p></details>
+</div>
+<details class="speaker-note"><summary>Teaching notes</summary><div class="grid2" style="margin-top:1.1rem">
+<div class="note"><strong>Read the geometry.</strong> <span style="color:var(--fore)">→</span> is the promise; <span style="color:var(--real)">↑</span> is reality. <strong>Below the diagonal = overstated probability</strong> — the event probability exceeds the observed rate. Above it = understated. At low probabilities, overstated event probability need not mean overconfidence in the selected class.</div>
+<div class="note"><strong>Always check the counts.</strong> A bin with six cases tells you almost nothing: 4 out of 6 gives <span class="m">0.67</span>, and that could easily be luck. The same 0.67 from a bin of 6,000 cases is real evidence. A reliability diagram without sample sizes is a decoration, not proof.</div>
+</div></details>
+<details class="speaker-note"><summary>Why use bins, and what does held-out mean?</summary><div class="stack"><p>A bin is a group of tickets with similar predicted probabilities, such as 75%–85%. The predictions need not repeat exactly for us to compare their mean with the group’s observed frequency.</p><p><strong>Held-out cases</strong> were not used to fit the model or tune the calibration procedure. Checking these cases helps assess whether the probabilities remain useful on new data. Bin choices, sample size, and dependence between cases affect the evidence.</p></div></details></div></section>
+<!-- 08 -->
+<section aria-label="8: Reading the reliability diagram" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Illustrative held-out bins · synthetic data, not a Jev benchmark" id="slide-8"><div class="wrap">
+<div class="eyebrow"><span class="n">07</span> The reliability diagram</div>
+<h2>Reading the reliability diagram</h2>
+<p>Nine equally weighted synthetic forecast groups. Drag right: extreme predictions become overconfident and observed rates move toward 50%.</p>
+<div class="fig" style="margin-top:.9rem">
+<canvas aria-label="Reliability diagram: mean predicted probability against observed event frequency" height="480" id="cvA" role="img" width="1200"></canvas>
+<div class="ctrl">
+<label for="dA">under ← confidence → over</label>
+<input aria-describedby="roA" id="dA" max="100" min="-50" step="1" type="range" value="0"/>
+<span class="readout" id="roA"></span>
+</div>
+</div>
+<details class="speaker-note"><summary>Teaching notes</summary><div class="grid2" style="margin-top:1rem">
+<div class="note"><strong>Set the slider to zero.</strong> Every point sits on the diagonal: what was promised is what occurred. This is the target RLCD is named for.</div>
+<div class="note"><strong>Push it right.</strong> The curve flattens toward the base rate. A model saying “95 %” while the event happens 70 % of the time may still select the right <em>answer</em> — it is overstating <em>how sure it is</em>, and that is the error that breaks automated decisions.</div>
+</div></details>
+<details class="speaker-note"><summary>How to read one point</summary><div class="stack"><p>A point at <strong>(0.80, 0.60)</strong> means the model predicted 80% on average for that group, while the event occurred in 60% of cases. The point lies below the diagonal because the event probability was overstated in that group.</p><p>Moving the slider changes the synthetic observed frequencies, keeping the forecast positions fixed. This lets you inspect different calibration patterns; it is not a simulation of Jev training.</p><p>When extreme forecasts are overconfident, high probabilities can lie below the diagonal and low probabilities above it. For example, a 10% event forecast with a 30% event rate is too certain that the event will not occur.</p></div></details></div></section>
+<!-- 09 -->
+<section aria-label="9: Goal known, recipe unspecified" aria-roledescription="slide" class="slide" data-prov="unk" data-provtext="Reviewed sources do not specify RLCD’s reward, loss or update rule" id="slide-9"><div class="wrap">
+<div class="eyebrow"><span class="n">08</span> An honest pause</div>
+<h2>Goal known, recipe unspecified</h2>
+<p class="lead">TypeSafe names RLCD's <strong>goal</strong> — calibrated decisions. Reviewed sources <strong>do not disclose its exact reward, loss, or update algorithm.</strong></p>
+<div class="card real" style="margin:1.2rem 0">
+<h3 style="color:var(--real)">So read the next few slides correctly</h3>
+<p style="color:var(--ink); font-size:1.02rem">The scoring-rule examples that follow are a <strong>teaching illustration of how a calibration reward <em>could</em> work</strong> — standard, well-understood mathematics that makes the incentive visible. It is not a reconstruction of Jev's implementation, and you should not cite it as one.</p>
+</div>
+<div class="grid2" style=";grid-template-columns:1fr">
+<div class="stack">
+<h3>An illustrative training loop</h3>
+<div class="eq">
+<div class="eq-field"><div class="eqline m wrapable" style="font-size:clamp(1rem,1.8vw,1.25rem)">
+          context <span class="op">→</span> model <span class="op">→</span> probability <span class="op">→</span> observed outcome <span class="op">→</span> feedback
+        </div></div>
+<p class="aloud"><b>In words</b>Context enters a model, a probability comes out, and the outcome that eventually occurs supplies the feedback signal. This is a conceptual example, not a claim about Jev’s training pipeline.</p>
+</div>
+</div>
+</div><details class="speaker-note"><summary>Explanation &amp; analogy</summary><div class="analogy">
+<b>Why bother with an illustration at all</b>
+      Because the interesting question — <i>what kind of reward could possibly make honesty the winning strategy?</i> — has a beautiful and completely general answer. Understanding that answer tells you what RLCD is <i>aiming at</i>, even without the source code. That is worth four slides.
+    </div></details>
+</div></section>
+<!-- 10 -->
+<section aria-label="10: From loss to reward" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Illustrative maths · not Jev internals" id="slide-10"><div class="wrap"><div class="eyebrow"><span class="n">09</span> Setting up the training objective</div><h2>From loss to reward</h2>
+<p class="lead">A loss measures prediction error: <strong>smaller is better</strong>. A reward scores the model’s behavior: <strong>larger is better</strong>.</p>
+<div class="eq"><div class="eq-field"><div class="eqline m wrapable">R = −L   ⟹   max<sub>θ</sub> 𝔼[R] = max<sub>θ</sub> (−𝔼[L])</div></div><p class="aloud"><b>The same preference, with the sign reversed</b>Maximizing expected negative loss is equivalent to minimizing expected loss.</p></div>
+<div class="grid2" style="margin:1rem 0"><div class="card fore"><h3>Model A · reports 60%</h3><p>Expected loss: <strong>0.24</strong><br/>Expected reward: <strong>−0.24</strong></p></div><div class="card real"><h3>Model B · reports 99%</h3><p>Expected loss: <strong>0.3921</strong><br/>Expected reward: <strong>−0.3921</strong></p></div></div>
+<p>These reuse slide 4’s example, where the true rate is 60%. Model A has the lower loss and the higher reward: <strong>−0.24 &gt; −0.3921</strong>.</p>
+<p class="note">θ denotes the model’s trainable parameters. 𝔼 means an average over possible outcomes, weighted by their probabilities. This defines an objective, not the algorithm used to update θ.</p><details class="speaker-note"><summary>Why use an average instead of a single outcome?</summary><div class="stack"><p>A model reporting 99% can be correct on one ticket and receive an excellent score. That does not establish that 99% is a realistic probability. Expected reward includes both correct and incorrect outcomes at their underlying rates.</p><p>Training estimates the objective from data. Finite data, imperfect labels, model limitations, and optimization can prevent it from reaching the population optimum. A proper scoring rule supplies an incentive; it does not by itself guarantee calibration.</p></div></details></div></section>
+<!-- 11 -->
+<section aria-label="11: Scoring a probability" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Illustrative maths · not Jev internals" id="slide-11"><div class="wrap">
+<div class="eyebrow"><span class="n">10</span> A proper scoring rule</div>
+<h2>Scoring a probability</h2>
+<p>Let p be the model’s probability that returns is correct, and y be the observed result: 1 if returns is correct, 0 otherwise.</p>
+<div class="eq" style="margin-top:1rem">
+<div class="eqtag">Eq. 3</div>
+<div class="eq-field"><div class="eqline m">
+<i>L</i> <span class="op">=</span> (<span class="op"></span><i>p</i> − <i>y</i><span class="op"></span>)<sup>2</sup>
+</div></div>
+<p class="aloud"><b>In words</b>The model’s reported probability minus the outcome — which is 0 or 1 — squared. Smaller is better. (This is the single binary squared-error convention; some texts double it.)</p>
+</div>
+<div class="grid2" style="margin-top:1.2rem;grid-template-columns:1fr">
+<div class="stack">
+<h3>Predict 80 %, and wait</h3>
+<div class="tbl-wrap">
+<table>
+<thead><tr><th>Outcome</th><th class="num">y</th><th>Loss (p − y)²</th></tr></thead>
+<tbody>
+<tr><td>Event happens</td><td class="num">1</td><td class="num m">(0.8 − 1)² = <strong>0.04</strong></td></tr>
+<tr><td>No event</td><td class="num">0</td><td class="num m">(0.8 − 0)² = <strong>0.64</strong></td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">For p = 0.8, a non-event incurs 16 times the loss of an event. To understand the incentive, average over <strong>both outcomes</strong>, as the next slide does.</p>
+</div>
+</div><details class="speaker-note"><summary>Explanation &amp; analogy</summary><div class="analogy"><b>Compare the same model’s possible forecasts</b>When y = 1, reporting 99% gives loss 0.0001. When y = 0, that same report gives loss 0.9801. A report of 50% gives loss 0.25 in either case. Which report is better on average depends on how often the event actually occurs; 50% is optimal when the true rate is 50%.</div></details>
+<details class="speaker-note"><summary>Loss is a score, not a dollar cost</summary><div class="stack"><p>At p = 0.8, an observed event produces (0.8 − 1)² = 0.04. A non-event produces (0.8 − 0)² = 0.64. These are forecast losses, not probabilities and not business costs.</p><p>The model reports p before the outcome is known. The outcome y is then used to evaluate that report. The application’s financial cost of acting on the prediction is a separate question, covered later.</p></div></details></div></section>
+<!-- 12 -->
+<section aria-label="12: Why the true rate wins" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Illustrative maths · not Jev internals" id="slide-12"><div class="wrap">
+<div class="eyebrow"><span class="n">11</span> The central result</div>
+<h2>Why the true rate wins</h2>
+<p>One outcome isn't enough to judge a forecast. Let <span class="m"><i>p</i></span> be the model’s report and <span class="m"><i>q</i></span> the <strong>true</strong> event rate for cases like this one. Events occur with probability <span class="m"><i>q</i></span>, non-events with <span class="m">1 − <i>q</i></span>. Average the two losses.</p>
+<div class="eq" style="margin-top:1rem">
+<div class="eqtag">Eq. 4</div>
+<div class="eq-field">
+<div class="eqline m wrapable" style="font-size:clamp(.98rem,1.85vw,1.3rem); color:var(--ink-2)">
+        𝔼[<i>L</i>] <span class="op">=</span> <i>q</i>(1 − <i>p</i>)<sup>2</sup> + (1 − <i>q</i>)<i>p</i><sup>2</sup>
+<span class="op">  =  </span> <i>p</i><sup>2</sup> − 2<i>pq</i> + <i>q</i>
+</div>
+<div class="eqline m wrapable" style="margin-top:.5rem">
+        𝔼[<i>L</i>] <span class="op">=</span>
+<span style="color:var(--fore)">(<i>p</i> − <i>q</i>)<sup>2</sup></span>
+<span class="op">+</span>
+<span style="color:var(--thr)"><i>q</i>(1 − <i>q</i>)</span>
+</div>
+<div class="eqline wrapable" style="font-size:.78rem; line-height:1.6; color:var(--ink-3); font-family:var(--mono); white-space:normal; margin-top:.3rem">
+<span style="color:var(--fore)">forecast-dependent</span>  ·  <span style="color:var(--thr)">fixed for this q</span>
+</div>
+</div>
+<p class="aloud"><b>In words</b>Complete the square and the expected loss splits into two pieces. <span style="color:var(--thr)">The second is irreducible</span> — it is the outcome variance for this fixed q. Changing your report cannot reduce it; better information may change q. <span style="color:var(--fore)">The first is the only part you control</span>, and it is a <em>squared distance from the truth</em>.</p>
+</div>
+<div class="grid2" style="margin-top:1.1rem;grid-template-columns:1fr">
+<div class="card fore">
+<h3 style="color:var(--fore)">The conclusion</h3>
+<p style="color:var(--ink); font-size:1.05rem">A squared distance is smallest when it is zero. So expected loss is minimised at <strong><span class="m"><i>p</i> = <i>q</i></span></strong>.</p>
+<p><strong>Truthful reporting is the optimal strategy</strong> — not because we asked nicely, but because every alternative is arithmetically worse. The unique optimum makes Brier <em>strictly proper</em>. This is a population result; finite training does not guarantee calibration.</p>
+</div>
+</div><details class="speaker-note"><summary>Explanation &amp; analogy</summary><div class="analogy"><b>What the result does and does not say</b>For a fixed true rate q, reporting p = q has the smallest expected loss. This is a statement about the scoring rule. It does not imply that the model knows q, or that training will discover it exactly.</div></details>
+<details class="speaker-note"><summary>The derivation, one step at a time</summary><div class="stack"><p><strong>1. Weight both outcomes.</strong> The event occurs with probability q, giving loss (1 − p)². The non-event occurs with probability 1 − q, giving loss p². Therefore 𝔼[L] = q(1 − p)² + (1 − q)p².</p><p><strong>2. Expand.</strong> q(1 − 2p + p²) + p² − qp² = p² − 2pq + q.</p><p><strong>3. Complete the square.</strong> Add and subtract q²: (p² − 2pq + q²) + q − q² = (p − q)² + q(1 − q).</p><p><strong>4. Find the minimum.</strong> Holding q fixed, the second term does not depend on the model’s report. The first term is nonnegative and is zero only when p = q.</p></div></details></div></section>
+<!-- 13 -->
+<section aria-label="13: Explore the scoring rule" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Illustrative maths · not Jev internals" id="slide-13"><div class="wrap">
+<div class="eyebrow"><span class="n">12</span> Equation 4, alive</div>
+<h2>Explore the scoring rule</h2>
+<p>The horizontal axis is the model’s reported probability p; the vertical axis is its expected loss. Set the assumed true rate q, then move p to compare reports.</p>
+<div class="fig" style="margin-top:.9rem">
+<canvas aria-label="Expected Brier loss as a function of the reported probability, a parabola with its minimum at p equals q" height="430" id="cvB" role="img" width="1200"></canvas>
+<div class="ctrl">
+<label for="dQ">true rate q</label>
+<input aria-describedby="roB" id="dQ" max="95" min="5" step="1" type="range" value="80"/>
+<label for="dP">model report p</label>
+<input aria-describedby="roB" id="dP" max="100" min="0" step="1" type="range" value="95"/>
+<span class="readout" id="roB"></span>
+</div>
+</div>
+<div class="grid3" style="margin-top:1rem">
+<div class="note"><strong>The floor never moves</strong> as you drag <span class="m"><i>p</i></span>. That dashed line is <span class="m"><i>q</i>(1 − <i>q</i>)</span> — the irreducible term. You cannot get under it by forecasting cleverly.</div>
+<div class="note"><strong>The valley sits at <span class="m"><i>p</i> = <i>q</i></span></strong>, always. Slide <span class="m"><i>q</i></span> and the whole parabola follows. The optimum tracks the truth because it <em>is</em> the truth.</div>
+<div class="note"><strong>Note the symmetry.</strong> Overstating by 0.15 costs precisely what understating by 0.15 costs. Brier punishes <em>distance</em>, not direction — it has no opinion about optimism.</div>
+</div>
+<details class="speaker-note"><summary>Try q = 0.80, then change p</summary><div class="stack"><p>Keep q at 0.80. Set the model’s report p to 0.80: expected loss is 0.16, the minimum. Move p to 0.95: loss rises to 0.1825. Move p to 0.50: loss rises to 0.25.</p><p>You are controlling the assumed population and the model’s report for illustration. In deployment, the true conditional rate q is generally unknown; we evaluate predictions using observed outcomes.</p></div></details></div></section>
+<!-- 14 -->
+<section aria-label="14: Three forecasts, one population" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Illustrative maths · calculations, not measured Jev results" id="slide-14"><div class="wrap">
+<div class="eyebrow"><span class="n">13</span> The same result, in numbers</div>
+<h2>Three forecasts, one population</h2>
+<p>Take a toy population whose true rate is <span class="m"><i>q</i> = 0.8</span>. The irreducible term is <span class="m">0.8 × 0.2 = <strong>0.16</strong></span>. Now compare three ways of reporting it.</p>
+<div class="tbl-wrap" style="margin-top:1.1rem">
+<table>
+<thead><tr><th>Model report</th><th>Squared distance (p − q)²</th><th>Irreducible q(1−q)</th><th>Expected Brier loss</th><th></th></tr></thead>
+<tbody>
+<tr class="hl">
+<td class="m num"><strong>p = 0.80</strong> <small>honest</small></td>
+<td class="num m">(0.80 − 0.80)² = 0</td><td class="num">0.16</td>
+<td class="num"><strong>0.1600</strong></td><td><span class="chip fore">best</span></td>
+</tr>
+<tr>
+<td class="m num">p = 0.95 <small>overconfident</small></td>
+<td class="num m">(0.15)² = 0.0225</td><td class="num">0.16</td>
+<td class="num">0.1825</td><td><small>+14 %</small></td>
+</tr>
+<tr>
+<td class="m num">p = 0.50 <small>hedging</small></td>
+<td class="num m">(0.30)² = 0.09</td><td class="num">0.16</td>
+<td class="num">0.2500</td><td><small>+56 %</small></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="grid2" style="margin-top:1.2rem">
+<div class="note"><strong>Same underlying outcome distribution in all three rows.</strong> The world did not change — only the reported number did. 80 % wins in expectation purely by matching the true rate. Note also that <em>hedging toward 50 % is punished harder here than overconfidence</em>: the penalty depends on distance from q, not on the direction of the error.</div>
+<div class="card thr">
+<p><strong>These are calculations, not measured Jev results.</strong> The value of the table is the <em>mechanism</em> it exposes — that a squared-error reward on the probability itself makes honesty the profit-maximising move. The reviewed sources do not specify whether Jev uses Brier, log loss, or another objective.</p>
+</div>
+</div>
+<details class="speaker-note"><summary>What is being compared?</summary><div class="stack"><p>Each row represents a possible model forecast for the same kind of case. These could be three models, or three candidate reports from one model. The true rate q = 0.8 stays fixed across the comparison.</p><p>The expected loss of 0.16 does not mean 16% classification errors. Brier loss measures the quality of probabilities. Even the optimal probability report has a nonzero expected loss when outcomes remain uncertain.</p></div></details></div></section>
+<!-- 15 -->
+<section aria-label="15: Jev’s three output types" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · Jev's documented output types" id="slide-15"><div class="wrap">
+<div class="eyebrow"><span class="n">14</span> Back to documented ground</div>
+<h2>Jev’s three output types</h2>
+<p>Your application defines the question and what the answers mean. Jev returns one of three shapes.</p>
+<div class="grid3" style="margin-top:1.1rem">
+<div class="card">
+<h3 style="color:var(--fore)">Choice</h3>
+<p style="color:var(--ink)">Selects among supplied alternatives — <span class="code">returns</span>, <span class="code">billing</span>, <span class="code">shipping</span>.</p>
+<p class="m" style="margin-top:.5rem">∑<sub><i>c</i></sub> <i>p</i><sub><i>c</i></sub> = 1</p>
+<p>The option with the highest probability is the <strong>selected category</strong>. Your application separately decides how to act on it.</p>
+</div>
+<div class="card">
+<h3 style="color:var(--fore)">Noul</h3>
+<p style="color:var(--ink)">A binary proposition. <em>“Does the customer request a person?”</em></p>
+<p class="m" style="margin-top:.5rem">yes .50  ·  no .50  →  <i>p</i> = 0.5</p>
+<p><strong>0.5 means uncertain, not medium.</strong> It is not an intensity dial, and there is no separate confidence field here.</p>
+</div>
+<div class="card">
+<h3 style="color:var(--fore)">Score</h3>
+<p style="color:var(--ink)">Ordered levels you define.</p>
+<p class="m" style="margin-top:.5rem">0 cosmetic  ·  1 workaround  ·  2 blocking</p>
+<p>The lecture’s example assigns probabilities <span class="m">0, 0.7, 0.3</span>. Next slide turns that into one number.</p>
+</div>
+</div>
+<div class="note" style="margin-top:1.2rem"><strong>Noul is the documented name.</strong> The API identifier is <span class="code">noul</span>; its value is the probability of “yes”. <a href="https://docs.typesafe.ai/primitives/noul">TypeSafe reference ↗</a></div>
+<details class="speaker-note"><summary>Choose the question before choosing an action</summary><div class="stack"><p><strong>Choice:</strong> “Which queue should handle this ticket?” The model predicts a category and returns probabilities over the options.</p><p><strong>Noul:</strong> “Does this customer request a human?” The model returns the probability of yes. A value of 0.5 means uncertainty about that proposition, not a halfway request.</p><p><strong>Score:</strong> “Which severity level describes this bug?” The model returns a distribution over rubric levels and its mean index. The application can use these predictions in a routing or prioritization rule.</p></div></details></div></section>
+<!-- 16 -->
+<section aria-label="16: Reading a Score" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="Score semantics documented · numbers reproduced from the lecture" id="slide-16"><div class="wrap">
+<div class="eyebrow"><span class="n">15</span> Reading a Score</div>
+<h2>Reading a Score</h2>
+<p>Ordered levels carry an index. Multiply each index by its probability and add them up.</p>
+<div class="eq" style="margin-top:1rem">
+<div class="eqtag">Eq. 5</div>
+<div class="eq-field">
+<div class="eqline m wrapable">
+        𝔼[level] <span class="op">=</span> ∑<sub><i>i</i></sub> <i>i</i> · <i>p</i><sub><i>i</i></sub>
+<span class="op"> = </span> 0×0 <span class="op">+</span> 1×0.7 <span class="op">+</span> 2×0.3 <span class="op">=</span> <strong style="color:var(--fore)">1.3</strong>
+</div>
+</div>
+<p class="aloud"><b>In words</b>A probability-weighted average of the level numbers. With most of the mass on “workaround” and 30% on “blocking”, the expectation lands just above 1.</p>
+</div>
+<div class="grid2" style="margin-top:1.2rem;grid-template-columns:1fr">
+<div class="card real">
+<h3 style="color:var(--real)">What 1.3 is not</h3>
+<p>It is <strong>not a percentage</strong>. It is <strong>not a physical measurement</strong>. There is no level 1.3 — nothing in your system is “1.3 broken”.</p>
+<p style="color:var(--ink)">It is an <strong>expected index</strong>: a weighted average under the model’s predicted distribution, not necessarily the true outcome distribution.</p>
+</div>
+</div><details class="speaker-note"><summary>Explanation &amp; analogy</summary><div class="analogy">
+<b>Analogy</b>
+      “The average household has 1.8 children.” No household does. The number is still useful — for stocking a school, for sizing a budget — precisely because you remember it describes <i>a population, not a case.</i>
+<br/><br/>
+      Practical consequence: ordering alone does not establish equal spacing. The mean summarizes the chosen index scale; it does not measure severity in natural units. Never compute this over an unordered Choice — the expected index of <span class="code">returns/billing/shipping</span> is nonsense.
+    </div></details>
+<details class="speaker-note"><summary>Work through the weighted average</summary><div class="stack"><p>The model assigns 0% to level 0, 70% to level 1, and 30% to level 2. Multiplying each index by its probability gives 0, 0.7, and 0.6. Their sum is <strong>1.3</strong>.</p><p>That number summarizes the model’s uncertainty over defined levels. It does not mean the bug is “130% severe,” nor does it prove the model’s probabilities are calibrated. Different probability distributions can have the same mean, so inspect the distribution when the distinction affects your action.</p></div></details></div></section>
+<!-- 17 -->
+<section aria-label="17: Probability vs. confidence" aria-roledescription="slide" class="slide" data-prov="unk" data-provtext="Lecture example · current docs describe confidence, but do not specify its formula" id="slide-17"><div class="wrap">
+<div class="eyebrow"><span class="n">16</span> A trap worth naming</div>
+<h2>Probability vs. confidence</h2>
+<p>The lecture’s Choice example uses this distribution, and alongside it a separate field called <span class="code">confidence</span>.</p>
+<div class="grid2" style="margin:1.1rem 0">
+<div class="card">
+<h3>Choice probabilities</h3>
+<div class="tbl-wrap" style="box-shadow:none; border:none">
+<table>
+<tbody>
+<tr><td><span class="code">returns</span></td><td class="num m" style="color:var(--fore)"><strong>0.60</strong></td><td class="num"><small>← the winner</small></td></tr>
+<tr><td><span class="code">billing</span></td><td class="num m">0.38</td><td></td></tr>
+<tr><td><span class="code">shipping</span></td><td class="num m">0.02</td><td></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="card real">
+<h3 style="color:var(--real)">Reported confidence</h3>
+<p class="m" style="font-size:2.1rem; color:var(--ink); line-height:1.2">0.39</p>
+<p style="margin-top:.4rem"><strong>Not 0.60.</strong> Not the winning probability. Not anything you can derive from the winner alone.</p>
+<p><small>The lecture’s Score example reports confidence 0.54 — again unequal to any single probability in it.</small></p>
+</div>
+</div>
+<div class="eq">
+<div class="eqtag">Eq. 6</div>
+<div class="eq-field"><div class="eqline m wrapable">
+      confidence need not equal <i>p</i><sub>winner</sub>
+<span class="op">   </span>
+      confidence is not defined as ℙ(the answer is correct)
+    </div></div>
+<p class="aloud"><b>In words</b>Documentation describes confidence as summarising the <em>shape</em> of the distribution — how concentrated it is — without specifying the formula. Two non-negotiables follow: <strong>don't invent a formula</strong>, and <strong>don't read it as a probability of correctness</strong>.</p>
+</div>
+<details class="speaker-note"><summary>Teaching notes</summary><div class="grid2" style="margin-top:1.1rem">
+<div class="note"><strong>The obvious guesses don't fit.</strong> Normalised entropy gives 0.32 for that distribution, the top-two margin gives 0.22, the sum of squared probabilities gives 0.50 — none is 0.39. Which is exactly the lecture's point: if you reverse-engineer a formula and ship logic that depends on it, a silent change upstream breaks you.</div>
+<div class="note"><strong>And concentration isn't correctness.</strong> A model can be confidently, concentratedly wrong. <strong>Use the probabilities for decision rules</strong>, and if you want to route on confidence, validate that routing against your own outcome data first.</div>
+</div></details>
+<details class="speaker-note"><summary>Which number answers which question?</summary><div class="stack"><p>In this lecture example, <strong>0.60</strong> answers “What probability does the model assign to returns?” The separate <strong>0.39 confidence</strong> value summarizes the distribution’s shape.</p><p>Do not interpret confidence 0.39 as “the selected category has a 39% chance of being correct.” The model’s probability for that category is 0.60. Whether 0.60 matches actual correctness rates still needs evaluation on outcomes.</p><p>A distribution concentrated on the wrong category can have high confidence. Confidence may help route cases, but its usefulness must be checked against the task’s observed results.</p></div></details></div></section>
+<!-- 18 -->
+<section aria-label="18: From prediction to action" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Illustrative cost model · your costs will differ" id="slide-18"><div class="wrap">
+<div class="eyebrow"><span class="n">17</span> From probability to action</div>
+<h2>From prediction to action</h2>
+<p>Here the predicted event changes: <strong>p is the model’s probability that a transaction is fraudulent</strong>. The application chooses approval or review. Under this illustrative cost model: approving fraud costs <strong>$100</strong>, approving a legitimate transaction costs <strong>nothing</strong>, and review costs <strong>$5</strong> and prevents all fraud loss.</p>
+<div class="eq" style="margin-top:1rem">
+<div class="eqtag">Eq. 7</div>
+<div class="eq-field">
+<div class="eqline m wrapable">
+<i>C</i><sub>approve</sub> <span class="op">=</span> 100<i>p</i> <span class="op">+</span> 0(1 − <i>p</i>) <span class="op">=</span> <span style="color:var(--fore)">100<i>p</i></span>
+<span class="op">   </span>
+<i>C</i><sub>review</sub> <span class="op">=</span> <span style="color:var(--thr)">5</span>
+</div>
+<div class="eqline m wrapable" style="margin-top:.4rem">
+        review wins  ⟺  100<i>p</i> &gt; 5  ⟺  <strong><i>p</i> &gt; 0.05</strong>
+</div>
+</div>
+<p class="aloud"><b>In words</b>Expected cost is each outcome's cost weighted by its probability. Compare the two numbers and take the smaller one. The whole decision collapses to a single threshold — <span class="m"><i>p</i>* = <i>C</i><sub>review</sub> ⁄ <i>C</i><sub>fraud</sub></span>, here 5⁄100.</p>
+</div>
+<div class="grid3" style="margin-top:1.1rem">
+<div class="card"><h3>p = 0.02</h3><p class="m" style="color:var(--ink)">100 × 0.02 = <strong>$2</strong>  vs  $5</p><p><strong>Application: approve.</strong> Its expected cost is lower under these assumptions.</p></div>
+<div class="card"><h3>p = 0.05</h3><p class="m" style="color:var(--ink)">100 × 0.05 = <strong>$5</strong>  vs  $5</p><p><strong>A tie.</strong> Exactly the threshold; the cost rule is indifferent.</p></div>
+<div class="card thr"><h3 style="color:var(--thr)">p = 0.12</h3><p class="m" style="color:var(--ink)">100 × 0.12 = <strong>$12</strong>  vs  $5</p><p><strong>Application: review.</strong> This saves $7 in expectation under the stated assumptions.</p></div>
+</div>
+<div class="note" style="margin-top:1.1rem"><strong>Real review is imperfect.</strong> It doesn't catch everything and it isn't free of knock-on cost. Measure your own review cost and effectiveness before wiring this up.</div>
+<details class="speaker-note"><summary>Why multiply the probability by $100?</summary><div class="stack"><p>If the application approves, it loses $100 when fraud occurs and $0 otherwise. With fraud probability p, expected approval cost is p × $100 + (1 − p) × $0 = $100p.</p><p>At p = 0.02, the model estimates a 2% chance of fraud. Approval costs $2 on average across comparable cases, while review costs $5. An individual transaction does not incur exactly $2: the average combines possible $100 and $0 outcomes.</p><p>At p = 0.12, expected approval cost is $12. Under the assumption that a $5 review prevents all fraud loss, review is cheaper. Both transactions are more likely legitimate than fraudulent, yet the application’s preferred actions differ.</p><p>Setting $100p = $5 gives p = 0.05. Below that value, approval is cheaper; above it, review is cheaper; at it, the expected costs tie.</p></div></details></div></section>
+<!-- 19 -->
+<section aria-label="19: Choose a cost threshold" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Illustrative cost model · your costs will differ" id="slide-19"><div class="wrap">
+<div class="eyebrow"><span class="n">18</span> The threshold, alive</div>
+<h2>Choose a cost threshold</h2>
+<p>Two expected-cost lines. Where they cross is your automation threshold. Change the costs and watch it move.</p>
+<div class="fig" style="margin-top:.9rem">
+<canvas aria-label="Expected cost of approving versus reviewing, as a function of fraud probability" height="400" id="cvC" role="img" width="1200"></canvas>
+<div class="ctrl">
+<label for="dM">cost of missed fraud</label>
+<input aria-describedby="roC" id="dM" max="400" min="20" step="5" type="range" value="100"/>
+<label for="dR">cost of review</label>
+<input aria-describedby="roC" id="dR" max="40" min="1" step="1" type="range" value="5"/>
+<span class="readout" id="roC"></span>
+</div>
+</div>
+<div class="grid2" style="margin-top:1rem">
+<div class="card fore">
+<h3 style="color:var(--fore)">The lesson to take to your team</h3>
+<p style="color:var(--ink); font-size:1.02rem"><strong>Probabilities describe uncertainty. Costs determine action.</strong> Keep them in separate parts of your code.</p>
+<p>The model estimates fraud probability. The application supplies the costs and chooses the lower-cost action. Changing review costs can change the action without changing the prediction.</p>
+</div>
+<div class="note"><strong>There is no universal automation threshold.</strong> Not 0.9, not 0.95, not “high confidence”. The correct threshold is a ratio of <em>your</em> costs, and it moves when your costs move. Anyone who quotes you a fixed number across products needs to justify the cost assumptions.</div>
+</div>
+<details class="speaker-note"><summary>Try changing the application’s costs</summary><div class="stack"><p>With missed fraud costing $100 and review costing $5, the threshold is 5%. Raise the review cost to $10: the threshold becomes 10%, so review is justified only at higher fraud probabilities.</p><p>Keep review at $5 but raise missed-fraud cost to $200: the threshold falls to 2.5%. More expensive mistakes justify reviewing lower-risk transactions.</p><p>The sliders change the application’s cost assumptions, not the model’s probability. If review costs more than the maximum possible fraud loss, approval is cheaper for every probability in this simplified model.</p></div></details></div></section>
+<!-- 20 -->
+<section aria-label="20: Calibration is not enough" aria-roledescription="slide" class="slide" data-prov="math" data-provtext="Illustrative populations · standard decomposition" id="slide-20"><div class="wrap">
+<div class="eyebrow"><span class="n">19</span> The limit of the goal</div>
+<h2>Calibration is not enough</h2>
+<p>Suppose half your cases are positive. A model that says <strong>50 % to everything</strong> is <em>perfectly calibrated</em> — among its 50 % forecasts, the event does occur half the time. It provides a useful base-rate forecast, but cannot distinguish one case from another.</p>
+<div class="grid2" style="margin:1.1rem 0">
+<div class="card"><h3>Model A · constant forecast</h3><p class="m" style="color:var(--ink)">always <i>p</i> = 0.5</p><p>Calibrated ✓  ·  Expected Brier <strong>0.25</strong></p></div>
+<div class="card fore"><h3 style="color:var(--fore)">Model B · two calibrated groups</h3><p class="m" style="color:var(--ink)"><i>p</i> = 0.2  and  <i>p</i> = 0.8</p><p>Calibrated ✓  ·  Expected Brier <strong>0.16</strong></p></div>
+</div>
+<div class="eq">
+<div class="eqtag">Eq. 8</div>
+<div class="eq-field">
+<div class="eqline m wrapable">
+        𝔼[<i>L</i>] <span class="op">=</span>
+<span style="color:var(--real)">reliability</span> <span class="op">−</span> <span style="color:var(--fore)">resolution</span> <span class="op">+</span> <span style="color:var(--thr)">uncertainty</span>
+</div>
+<div class="eqline m wrapable" style="font-size:clamp(.9rem,1.6vw,1.1rem); color:var(--ink-2); margin-top:.35rem">
+        constant<span class="op">:</span> <span style="color:var(--real)">0</span> − <span style="color:var(--fore)">0</span> + <span style="color:var(--thr)">0.25</span> = 0.25
+        <span class="op">   </span>
+        two groups<span class="op">:</span> <span style="color:var(--real)">0</span> − <span style="color:var(--fore)">0.09</span> + <span style="color:var(--thr)">0.25</span> = 0.16
+      </div>
+</div>
+<p class="aloud"><b>In words</b>Brier splits three ways. <span style="color:var(--real)">Reliability</span> is miscalibration — both models score 0, both are honest. <span style="color:var(--thr)">Uncertainty</span> is the base rate's own noise — identical for both. The difference is entirely <span style="color:var(--fore)">resolution</span>: <strong>how much the conditional event rates differ across forecast groups</strong>, while staying honest.</p>
+<details class="speaker-note"><summary>Exact population definition</summary><p class="aloud"><b>Population definition</b>Let m(p̂) = 𝔼[Y | p̂] and μ = 𝔼[Y]. Reliability = 𝔼[(p̂ − m(p̂))²]; resolution = 𝔼[(m(p̂) − μ)²]; uncertainty = μ(1 − μ). Arbitrary finite bins only approximate these population terms.</p></details>
+</div>
+<p class="note" style="margin-top:1.1rem"><strong>So the constant baseline was never miscalibrated</strong> — it simply offered no discrimination between cases. Calibration is necessary and not sufficient; you want a model that is honest <em>and</em> discriminating. <em>(This three-way split is standard forecast-verification mathematics, included to make the lecture's point precise — it is not part of any stated Jev method.)</em></p>
+<details class="speaker-note"><summary>Two models evaluated on the same population</summary><div class="stack"><p>Imagine 100 cases. Model A reports 50% for every case, and 50 cases are positive. Model A is calibrated at its single forecast value, but it cannot distinguish higher-risk from lower-risk cases.</p><p>Model B reports 20% for 50 cases and 80% for the other 50. In this illustrative sample, the first group has 10 positive cases and the second has 40. Model B is calibrated in both groups, and there are still 50 positives overall.</p><p>Model B gives the application more useful distinctions. Its Brier score is 0.16, versus Model A’s 0.25. That improvement comes from separating groups whose actual outcome rates differ, not merely from making predictions more extreme.</p></div></details></div></section>
+<!-- 21 -->
+<section aria-label="21: Check predictions in practice" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="TypeSafe docs · stated scope and limitations" id="slide-21"><div class="wrap">
+<div class="eyebrow"><span class="n">20</span> Before you ship</div>
+<h2>Check predictions in practice</h2>
+<div class="grid2" style="margin-top:1rem">
+<div class="stack">
+<div class="card real">
+<h3 style="color:var(--real)">Valid does not mean true</h3>
+<p>Type safety prevents <strong>invalid schema answers</strong> — you will never get <span class="code">shippng</span> or a stray paragraph where an enum belongs.</p>
+<p style="color:var(--ink)">It does not prevent <strong>wrong valid choices</strong>. Ambiguous inputs and missing information remain exactly as hard as they were.</p>
+</div>
+<div class="card thr">
+<h3 style="color:var(--thr)">Yesterday's calibration may not survive tomorrow</h3>
+<p>Evaluate on <strong>held-out cases and subgroups</strong> — a model can be calibrated overall and badly miscalibrated for one customer segment. Log outcomes, check sample sizes, monitor distribution shift.</p>
+</div>
+</div>
+<div class="stack">
+<h3>The loop that has to exist in your system</h3>
+<div class="flow" style="margin:.2rem 0 .6rem">
+<div class="node"><h4>context</h4><p>unstructured input + a defined question</p></div>
+<div class="arrow">→</div>
+<div class="node" style="border-color:var(--fore-line); background:var(--fore-wash)"><h4>model prediction</h4><p>category + probabilities</p></div>
+<div class="arrow">→</div>
+<div class="node"><h4>application action</h4><p>compare expected costs; act or ask</p></div>
+<div class="arrow">→</div>
+<div class="node" style="border-color:var(--real-line); background:var(--real-wash)"><h4>outcome</h4><p>what actually happened</p></div>
+</div>
+<div class="note" style="border-color:var(--real)"><strong>The arrow back from “outcome” is the one teams forget to build.</strong> Without it you can never check whether the probabilities mean anything in <em>your</em> setting — and monitoring belongs in the system, not in a quarterly review.</div>
+<details class="speaker-note"><summary>Explanation &amp; analogy</summary><div class="analogy">
+<b>Why separate prediction from decision</b>
+        Keeping the model's probability and your cost rule in different places is what <i>exposes the business trade-off</i>. When finance asks why you auto-approve at 4 % but not 6 %, you want to point at a threshold in your own code — not shrug at a model.
+      </div></details>
+</div>
+</div>
+<details class="speaker-note"><summary>What to log and compare</summary><div class="stack"><p>Record the predicted event, its probability, the application’s action, and the eventual observed outcome. Then compare forecasts with event frequencies on new cases and on relevant subgroups.</p><p>Keep the event definition consistent. If p predicts fraud, the evaluation outcome must indicate fraud; it should not silently become “a loss happened after our intervention.” Review may prevent losses, and outcomes may be missing for some actions. A biased set of observed labels can give a misleading calibration picture.</p><p>A valid output such as returns still can be the wrong category. Type safety checks the output’s allowed form; outcome evaluation checks its accuracy and calibration.</p></div></details></div></section>
+<!-- 22 -->
+<section aria-label="22: The eight ideas together" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="Mixed · see each slide's own stamp" id="slide-22"><div class="wrap">
+<div class="eyebrow"><span class="n">21</span> Take this away</div>
+<h2>The eight ideas together</h2>
+<div class="tbl-wrap" style="margin-top:1rem">
+<table>
+<thead><tr><th>#</th><th>Equation</th><th>Say it in one sentence</th><th>Status</th></tr></thead>
+<tbody>
+<tr class="hl"><td class="num">1</td><td class="m">ℙ(<i>Y</i>=1 | <i>p̂</i>=<i>p</i>) = <i>p</i></td><td>Among cases where you said <i>p</i>, the event happens <i>p</i> of the time.</td><td><span class="chip thr">standard</span></td></tr>
+<tr><td class="num">2</td><td class="m"><i>p̄</i><sub>k</sub> vs <i>ȳ</i><sub>k</sub></td><td>Bin held-out forecasts and plot promised against observed.</td><td><span class="chip thr">standard</span></td></tr>
+<tr><td class="num">3</td><td class="m"><i>L</i> = (<i>p</i> − <i>y</i>)²</td><td>Brier: square the gap between claim and outcome.</td><td><span class="chip thr">illustrative</span></td></tr>
+<tr class="hl"><td class="num">4</td><td class="m">𝔼[<i>L</i>] = (<i>p</i>−<i>q</i>)² + <i>q</i>(1−<i>q</i>)</td><td><strong>Honesty is optimal</strong> — the only term you control is a squared distance from the truth.</td><td><span class="chip thr">illustrative</span></td></tr>
+<tr><td class="num">5</td><td class="m">𝔼[level] = ∑ <i>i</i>·<i>p</i><sub><i>i</i></sub> = 1.3</td><td>An expected index over ordered levels — not a measurement.</td><td><span class="chip fore">documented</span></td></tr>
+<tr><td class="num">6</td><td class="m">confidence ≠ probability (in general)</td><td>A distribution summary; validate any routing rule on outcome data.</td><td><span class="chip real">undisclosed</span></td></tr>
+<tr class="hl"><td class="num">7</td><td class="m"><i>C</i><sub>approve</sub>=100<i>p</i> vs <i>C</i><sub>review</sub>=5</td><td>Act when expected cost is lower; the threshold is a cost ratio.</td><td><span class="chip thr">illustrative</span></td></tr>
+<tr><td class="num">8</td><td class="m">reliability − resolution + uncertainty</td><td>Useful forecasts distinguish groups with different outcome rates.</td><td><span class="chip thr">illustrative</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="title-rule"></div>
+<p class="lead" style="max-width:54ch">Ask what the probabilities mean, <strong>test them against reality</strong>, and connect them to the consequences of acting.</p>
+<p class="byline"><b>Sources:</b> TypeSafe documentation as presented in the Jev RLCD lecture, plus standard statistical references for the Brier score and forecast verification. The sources reviewed here do not specify RLCD’s reward, loss, or update algorithm. See the source notes on the next slide.</p>
+<details class="speaker-note"><summary>How the ideas connect</summary><div class="stack"><p><strong>Prediction:</strong> the model supplies an event probability. <strong>Calibration:</strong> we ask whether those probabilities agree with observed frequencies. <strong>Training:</strong> a proper score illustrates why reporting accurate probabilities can earn a higher expected reward.</p><p><strong>Decision:</strong> the application combines probabilities with action costs. <strong>Evaluation:</strong> we verify both calibration and the ability to distinguish cases, then monitor outcomes over time.</p><p>RLCD names Jev’s calibration-oriented training approach. The mathematical examples explain the goal and possible incentives; they do not identify its implementation.</p></div></details></div></section>
+<section aria-label="23: Sources and scope" aria-roledescription="slide" class="slide" data-prov="doc" data-provtext="Primary references · checked 26 September 2026" id="slide-23"><div class="wrap"><div class="eyebrow"><span class="n">22</span> Sources &amp; scope</div><h2>Sources and scope</h2><div class="grid2"><div class="card"><h3>Jev &amp; RLCD</h3><ul class="plain"><li><a href="https://docs.typesafe.ai/introduction/machine-learning-primer">TypeSafe · AI primer</a><br/>RLCD’s stated calibration goal.</li><li><a href="https://docs.typesafe.ai/primitives/choice">Choice</a> · <a href="https://docs.typesafe.ai/primitives/noul">Noul</a> · <a href="https://docs.typesafe.ai/primitives/score">Score</a><br/>Output definitions and probability semantics.</li><li><a href="https://docs.typesafe.ai/confidence">Confidence</a><br/>A summary of the probability distribution.</li></ul></div><div class="card"><h3>Mathematical foundations</h3><ul class="plain"><li><a href="https://sites.stat.washington.edu/people/raftery/Research/PDF/Gneiting2007jasa.pdf">Gneiting &amp; Raftery (2007)</a><br/>Strictly proper scoring rules.</li><li><a href="https://arxiv.org/abs/0806.0813">Bröcker (2008)</a><br/>Reliability, resolution, and score decomposition.</li></ul></div></div><p class="note" style="margin-top:1rem">Video reviewed: <a href="https://www.youtube.com/watch?v=xwtG4NY5vIA">What is RLCD in Jev AI?</a> · 9:59. Calibration 1:07–2:27; scoring 2:33–5:19; output types 5:24–7:12; decision costs 7:17–8:19.</p><p class="note">The 0.60 / 0.38 / 0.02 distribution, confidence 0.39, and score 1.3 are lecture examples; current documentation uses different numerical examples. Brier loss and the cost model are teaching illustrations, not Jev benchmarks or a reconstruction of its training algorithm.</p></div></section>
+</div>
+<div class="prov" id="prov"><span class="dot"></span><span id="provtext"></span></div>
+<nav aria-label="Slide navigation" class="nav">
+<button aria-label="Previous slide" id="prev" type="button">← Prev</button>
+<span aria-hidden="true" class="counter" id="count">01 / 22</span>
+<button aria-label="Next slide" id="next" type="button">Next →</button>
+</nav>
+<div class="hint">← → slides · N notes · F fullscreen</div>
+<script>
+(function(){
+  "use strict";
+
+  var slides = Array.prototype.slice.call(document.querySelectorAll(".slide"));
+  var bar = document.getElementById("bar");
+  var count = document.getElementById("count");
+  var prev = document.getElementById("prev");
+  var next = document.getElementById("next");
+  var prov = document.getElementById("prov");
+  var provtext = document.getElementById("provtext");
+  var i = 0;
+  var jump = document.getElementById("jump");
+  slides.forEach(function(s,k){
+    var option = document.createElement("option"); option.value = k;
+    option.textContent = String(k+1).padStart(2,"0") + " · " + s.querySelector("h1,h2").textContent;
+    jump.appendChild(option);
+  });
+  jump.addEventListener("change",function(){show(Number(jump.value));});
+  var notes = document.getElementById("notes");
+  notes.addEventListener("click",function(){
+    var open = notes.getAttribute("aria-pressed") !== "true";
+    notes.setAttribute("aria-pressed",String(open));
+    document.querySelectorAll(".speaker-note").forEach(function(d){d.open=open;});
+    layout();
+  });
+  var theme = document.getElementById("theme");
+  function syncTheme(){var dark=getComputedStyle(document.documentElement).getPropertyValue("--paper").trim().toLowerCase()==="#0e161c";theme.setAttribute("aria-pressed",String(dark));theme.textContent=dark?"Light":"Dark";}
+  theme.addEventListener("click",function(){document.documentElement.dataset.theme=theme.getAttribute("aria-pressed")==="true"?"light":"dark";syncTheme();});syncTheme();
+  document.getElementById("fullscreen").addEventListener("click",function(){
+    var task=document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();
+    if(task&&task.catch)task.catch(function(){document.getElementById("announcement").textContent="Fullscreen is unavailable in this browser.";});
+  });
+  document.getElementById("print").addEventListener("click",function(){window.print();});
+  window.addEventListener("hashchange",function(){var n=Number(location.hash.slice(1));show(Number.isFinite(n)&&n>0?n-1:0);});
+  document.querySelectorAll('input[type="range"]').forEach(function(input){
+    var out=document.createElement("output");out.htmlFor=input.id;input.after(out);
+    function update(){out.value=(input.id==='dM'||input.id==='dR')?'$'+input.value:input.id==='dA'?input.value:(Number(input.value)/100).toFixed(2);}
+    input.addEventListener("input",update);update();
+  });
+
+  function pad(n){ return (n < 10 ? "0" : "") + n; }
+
+  function show(n){
+    i = Math.max(0, Math.min(slides.length - 1, Number.isFinite(n) ? Math.floor(n) : 0));
+    slides.forEach(function(s, k){ s.classList.toggle("is-on", k === i); });
+    bar.style.width = ((i + 1) / slides.length * 100) + "%";
+    count.textContent = pad(i + 1) + " / " + pad(slides.length);
+    prev.disabled = (i === 0);
+    next.disabled = (i === slides.length - 1);
+    prov.setAttribute("data-kind", slides[i].getAttribute("data-prov") || "math");
+    provtext.textContent = slides[i].getAttribute("data-provtext") || "";
+    slides[i].querySelector(".wrap").appendChild(prov);
+    jump.value = i;
+    document.getElementById("announcement").textContent = "Slide " + (i+1) + " of " + slides.length + ": " + slides[i].querySelector("h1,h2").textContent;
+    window.scrollTo(0, 0);
+    if (location.hash !== "#" + (i + 1)) history.replaceState(null, "", "#" + (i + 1));
+    layout();
+  }
+
+  prev.addEventListener("click", function(){ show(i - 1); });
+  next.addEventListener("click", function(){ show(i + 1); });
+
+  document.addEventListener("keydown", function(e){
+    if (e.target && /^(INPUT|TEXTAREA|SELECT|BUTTON|SUMMARY|A)$/.test(e.target.tagName)) return;
+    if (e.altKey || e.ctrlKey || e.metaKey || e.target.isContentEditable) return;
+    if (e.key.toLowerCase() === "n") { notes.click(); return; }
+    if (e.key.toLowerCase() === "f") { document.getElementById("fullscreen").click(); return; }
+    if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") { e.preventDefault(); show(i + 1); }
+    else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); show(i - 1); }
+    else if (e.key === "Home") { e.preventDefault(); show(0); }
+    else if (e.key === "End") { e.preventDefault(); show(slides.length - 1); }
+  });
+
+  /* ---------- canvas helpers ---------- */
+  function tok(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+  function monoFont(px, w){ return (w || "") + " " + px + "px ui-monospace, Menlo, Consolas, monospace"; }
+
+  function fit(cv){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = cv.clientWidth || 1200;
+    var ratio = Number(cv.dataset.ratio);
+    if (!ratio) { ratio = Number(cv.getAttribute("height")) / Number(cv.getAttribute("width")); cv.dataset.ratio=ratio; }
+    var h = Math.max(260, Math.min(310, Math.round(w * ratio)));
+    cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+    cv.style.height = h + "px";
+    var ctx = cv.getContext("2d");
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = tok("--plate"); ctx.fillRect(0, 0, w, h);
+    return { ctx: ctx, w: w, h: h };
+  }
+
+  /* ---------- FIG A : reliability diagram ---------- */
+  var cvA = document.getElementById("cvA"), dA = document.getElementById("dA"), roA = document.getElementById("roA");
+  var BINS = [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9];
+
+  function drawA(){
+    if (!cvA.clientWidth) return;
+    var f = fit(cvA), ctx = f.ctx, W = f.w, H = f.h;
+    var c = parseInt(dA.value, 10) / 100;             // >0 overconfident, <0 underconfident
+    var base = 0.5;
+
+    var ink = tok("--ink"), ink3 = tok("--ink-3"), rule = tok("--rule-soft");
+    var fore = tok("--fore"), real = tok("--real");
+
+    var pad = 54, size = Math.min(H - pad - 34, W - 100) ;
+    var x0 = pad + 16, y1 = H - pad + 6, x1 = x0 + size, y0 = y1 - size;
+
+    function X(v){ return x0 + v * size; }
+    function Y(v){ return y1 - v * size; }
+
+    // grid
+    ctx.strokeStyle = rule; ctx.lineWidth = 1;
+    for (var g = 0; g <= 5; g++){
+      var t = g / 5;
+      ctx.beginPath(); ctx.moveTo(X(t), y0); ctx.lineTo(X(t), y1); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x0, Y(t)); ctx.lineTo(x1, Y(t)); ctx.stroke();
+    }
+    // axes labels
+    ctx.fillStyle = ink3; ctx.font = monoFont(11); ctx.textAlign = "center";
+    for (var g2 = 0; g2 <= 5; g2++){ var t2 = g2/5; ctx.fillText(t2.toFixed(1), X(t2), y1 + 18); }
+    ctx.textAlign = "right";
+    for (var g3 = 0; g3 <= 5; g3++){ var t3 = g3/5; ctx.fillText(t3.toFixed(1), x0 - 10, Y(t3) + 4); }
+
+    ctx.textAlign = "center"; ctx.fillStyle = fore;
+    ctx.fillText("mean predicted probability  p̄", (x0 + x1) / 2, H - 12);
+    ctx.save();
+    ctx.translate(16, (y0 + y1) / 2); ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = real; ctx.fillText("observed event frequency  ȳ", 0, 0);
+    ctx.restore();
+
+    // diagonal
+    ctx.strokeStyle = ink3; ctx.setLineDash([4,4]); ctx.lineWidth = 1.2;
+    ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(1), Y(1)); ctx.stroke();
+    ctx.setLineDash([]);
+
+    // points
+    var pts = BINS.map(function(p){ return [p, Math.max(0, Math.min(1, base + (p - base) * (1 - c)))]; });
+
+    ctx.strokeStyle = fore; ctx.lineWidth = 2; ctx.globalAlpha = .5;
+    ctx.beginPath();
+    pts.forEach(function(pt, k){ if (k === 0) ctx.moveTo(X(pt[0]), Y(pt[1])); else ctx.lineTo(X(pt[0]), Y(pt[1])); });
+    ctx.stroke(); ctx.globalAlpha = 1;
+
+    pts.forEach(function(pt){
+      // gap stick to the diagonal
+      ctx.strokeStyle = real; ctx.globalAlpha = .35; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(X(pt[0]), Y(pt[0])); ctx.lineTo(X(pt[0]), Y(pt[1])); ctx.stroke();
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = fore;
+      ctx.beginPath(); ctx.arc(X(pt[0]), Y(pt[1]), 5, 0, 6.2832); ctx.fill();
+      ctx.strokeStyle = tok("--plate"); ctx.lineWidth = 1.5; ctx.stroke();
+    });
+
+    // side legend
+    var lx = x1 + 30;
+    if (lx < W - 150){
+      ctx.textAlign = "left"; ctx.font = monoFont(11);
+      ctx.fillStyle = ink3; ctx.fillText("one point per bin", lx, y0 + 18);
+      ctx.fillStyle = ink3; ctx.fillText("dashed = perfect", lx, y0 + 38);
+      ctx.fillStyle = ink3; ctx.fillText("calibration", lx, y0 + 54);
+      var verdict = Math.abs(c) < 0.02 ? "CALIBRATED" : (c > 0 ? "OVERCONFIDENT" : "UNDERCONFIDENT");
+      ctx.fillStyle = Math.abs(c) < 0.02 ? fore : real;
+      ctx.font = monoFont(13, "600");
+      ctx.fillText(verdict, lx, y0 + 90);
+      ctx.fillStyle = ink3; ctx.font = monoFont(11);
+      ctx.fillText(Math.abs(c) < 0.02 ? "points on the line" : (c > 0 ? "rates toward 50%" : "rates away from 50%"), lx, y0 + 108);
+      if (W > 760) {
+        var observed80 = Math.max(0,Math.min(1,.5+.3*(1-c)));
+        ctx.fillStyle=fore;ctx.font=monoFont(24,"600");
+        ctx.fillText("80% forecast",lx,y0+153);
+        ctx.fillStyle=real;ctx.fillText((observed80*100).toFixed(0)+"% observed",lx,y0+188);
+        ctx.fillStyle=ink3;ctx.font=monoFont(11);
+        ctx.fillText("One group, read directly from the curve",lx,y0+212);
+      }
+    }
+
+    var rel = 0;
+    pts.forEach(function(pt){ rel += Math.pow(pt[0] - pt[1], 2); });
+    rel /= pts.length;
+    roA.innerHTML = "equal-weight mean gap² = <span>" + rel.toFixed(4) + "</span> &nbsp;<em>0 is perfect</em>";
+  }
+  dA.addEventListener("input", drawA);
+
+  /* ---------- FIG B : expected Brier parabola ---------- */
+  var cvB = document.getElementById("cvB"), dQ = document.getElementById("dQ"), dP = document.getElementById("dP"), roB = document.getElementById("roB");
+
+  function drawB(){
+    if (!cvB.clientWidth) return;
+    var f = fit(cvB), ctx = f.ctx, W = f.w, H = f.h;
+    var q = parseInt(dQ.value, 10) / 100;
+    var p = parseInt(dP.value, 10) / 100;
+    var floor = q * (1 - q);
+    var E = Math.pow(p - q, 2) + floor;
+
+    var ink = tok("--ink"), ink3 = tok("--ink-3"), rule = tok("--rule-soft");
+    var fore = tok("--fore"), thr = tok("--thr"), real = tok("--real");
+
+    var padL = 56, padR = 30, padT = 26, padB = 46;
+    var x0 = padL, x1 = W - padR, y1 = H - padB, y0 = padT;
+    var yMax = 1.02;
+
+    function X(v){ return x0 + v * (x1 - x0); }
+    function Y(v){ return y1 - (v / yMax) * (y1 - y0); }
+
+    // grid + axes
+    ctx.strokeStyle = rule; ctx.lineWidth = 1;
+    for (var g = 0; g <= 5; g++){
+      var t = g / 5;
+      ctx.beginPath(); ctx.moveTo(X(t), y0); ctx.lineTo(X(t), y1); ctx.stroke();
+    }
+    for (var h = 0; h <= 4; h++){
+      var v = h * 0.25;
+      ctx.beginPath(); ctx.moveTo(x0, Y(v)); ctx.lineTo(x1, Y(v)); ctx.stroke();
+    }
+    ctx.fillStyle = ink3; ctx.font = monoFont(11); ctx.textAlign = "center";
+    for (var g2 = 0; g2 <= 5; g2++){ ctx.fillText((g2/5).toFixed(1), X(g2/5), y1 + 18); }
+    ctx.textAlign = "right";
+    for (var h2 = 0; h2 <= 4; h2++){ ctx.fillText((h2*0.25).toFixed(2), x0 - 8, Y(h2*0.25) + 4); }
+    ctx.textAlign = "center";
+    ctx.fillText("probability you report   p", (x0 + x1) / 2, H - 10);
+    ctx.save(); ctx.translate(14, (y0 + y1) / 2); ctx.rotate(-Math.PI/2);
+    ctx.fillText("expected Brier loss  E[L]", 0, 0); ctx.restore();
+
+    // irreducible floor
+    ctx.strokeStyle = thr; ctx.setLineDash([5,4]); ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(x0, Y(floor)); ctx.lineTo(x1, Y(floor)); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = thr; ctx.textAlign = "left"; ctx.font = monoFont(11, "600");
+    ctx.fillText("q(1−q) = " + floor.toFixed(3) + "  irreducible", x0 + 8, Y(floor) - 8);
+
+    // parabola
+    ctx.strokeStyle = fore; ctx.lineWidth = 2.4;
+    ctx.beginPath();
+    for (var k = 0; k <= 300; k++){
+      var pv = k / 300;
+      var ev = Math.pow(pv - q, 2) + floor;
+      if (k === 0) ctx.moveTo(X(pv), Y(ev)); else ctx.lineTo(X(pv), Y(ev));
+    }
+    ctx.stroke();
+
+    // minimum marker
+    ctx.strokeStyle = fore; ctx.globalAlpha = .4; ctx.setLineDash([3,3]); ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(X(q), Y(floor)); ctx.lineTo(X(q), y1); ctx.stroke();
+    ctx.setLineDash([]); ctx.globalAlpha = 1;
+    ctx.fillStyle = fore; ctx.beginPath(); ctx.arc(X(q), Y(floor), 5, 0, 6.2832); ctx.fill();
+    ctx.textAlign = "center"; ctx.font = monoFont(11, "600");
+    // The optimum value is in the accessible readout to avoid axis-label collisions.
+
+    // your report
+    ctx.strokeStyle = real; ctx.lineWidth = 1.6;
+    ctx.beginPath(); ctx.moveTo(X(p), Y(E)); ctx.lineTo(X(p), y1); ctx.stroke();
+    // the penalty bracket
+    ctx.strokeStyle = real; ctx.lineWidth = 2.4;
+    ctx.beginPath(); ctx.moveTo(X(p), Y(floor)); ctx.lineTo(X(p), Y(E)); ctx.stroke();
+    ctx.fillStyle = real; ctx.beginPath(); ctx.arc(X(p), Y(E), 5.5, 0, 6.2832); ctx.fill();
+    ctx.strokeStyle = tok("--plate"); ctx.lineWidth = 1.5; ctx.stroke();
+    if (Math.abs(p - q) > 0.04){
+      ctx.fillStyle = real; ctx.font = monoFont(11, "600"); ctx.textAlign = X(p) > W/2 ? "right" : "left";
+      ctx.fillText("(p−q)² = " + Math.pow(p-q,2).toFixed(3), X(p) + (X(p) > W/2 ? -10 : 10), (Y(floor) + Y(E)) / 2 + 4);
+    }
+
+    roB.innerHTML = "q = " + q.toFixed(2) + "; p = " + p.toFixed(2) + " · E[L] = <span>" + Math.pow(p-q,2).toFixed(4) + "</span> + <u>" + floor.toFixed(4) +
+      "</u> = <strong>" + E.toFixed(4) + "</strong> &nbsp;<em>" +
+      (Math.abs(p-q) < 0.005 ? "honest — minimum" : "costs " + ((E/ (floor||1e-9) - 1) * 100).toFixed(0) + "% more than honesty") + "</em>";
+  }
+  dQ.addEventListener("input", drawB);
+  dP.addEventListener("input", drawB);
+
+  /* ---------- FIG C : cost lines ---------- */
+  var cvC = document.getElementById("cvC"), dM = document.getElementById("dM"), dR = document.getElementById("dR"), roC = document.getElementById("roC");
+
+  function drawC(){
+    if (!cvC.clientWidth) return;
+    var f = fit(cvC), ctx = f.ctx, W = f.w, H = f.h;
+    var cMiss = parseInt(dM.value, 10);
+    var cRev = parseInt(dR.value, 10);
+    var star = cRev / cMiss;
+
+    var ink = tok("--ink"), ink3 = tok("--ink-3"), rule = tok("--rule-soft");
+    var fore = tok("--fore"), thr = tok("--thr");
+
+    var xMax = Math.min(1, Math.max(0.2, star * 2.6));
+    var yMax = Math.max(cMiss * xMax, cRev) * 1.16;
+
+    var padL = 62, padR = 28, padT = 28, padB = 46;
+    var x0 = padL, x1 = W - padR, y1 = H - padB, y0 = padT;
+    function X(v){ return x0 + (v / xMax) * (x1 - x0); }
+    function Y(v){ return y1 - (v / yMax) * (y1 - y0); }
+
+    // shaded "approve is cheaper" region
+    ctx.fillStyle = fore; ctx.globalAlpha = .08;
+    ctx.fillRect(X(0), y0, X(Math.min(star, xMax)) - X(0), y1 - y0);
+    ctx.globalAlpha = 1;
+
+    ctx.strokeStyle = rule; ctx.lineWidth = 1;
+    for (var g = 0; g <= 5; g++){ ctx.beginPath(); ctx.moveTo(X(xMax*g/5), y0); ctx.lineTo(X(xMax*g/5), y1); ctx.stroke(); }
+    for (var h = 0; h <= 4; h++){ ctx.beginPath(); ctx.moveTo(x0, Y(yMax*h/4)); ctx.lineTo(x1, Y(yMax*h/4)); ctx.stroke(); }
+
+    ctx.fillStyle = ink3; ctx.font = monoFont(11); ctx.textAlign = "center";
+    for (var g2 = 0; g2 <= 5; g2++){ ctx.fillText((xMax*g2/5).toFixed(2), X(xMax*g2/5), y1 + 18); }
+    ctx.textAlign = "right";
+    for (var h2 = 0; h2 <= 4; h2++){ ctx.fillText("$" + (yMax*h2/4).toFixed(0), x0 - 8, Y(yMax*h2/4) + 4); }
+    ctx.textAlign = "center";
+    ctx.fillText("probability of fraud   p", (x0 + x1) / 2, H - 10);
+    ctx.save(); ctx.translate(14, (y0 + y1) / 2); ctx.rotate(-Math.PI/2);
+    ctx.fillText("expected cost", 0, 0); ctx.restore();
+
+    // approve line
+    ctx.strokeStyle = fore; ctx.lineWidth = 2.4;
+    ctx.beginPath(); ctx.moveTo(X(0), Y(0)); ctx.lineTo(X(xMax), Y(cMiss * xMax)); ctx.stroke();
+    // review line
+    ctx.strokeStyle = thr; ctx.lineWidth = 2.4;
+    ctx.beginPath(); ctx.moveTo(X(0), Y(cRev)); ctx.lineTo(X(xMax), Y(cRev)); ctx.stroke();
+
+    // labels on lines
+    ctx.textAlign = "right"; ctx.font = monoFont(12, "600");
+    ctx.fillStyle = fore; ctx.fillText("C approve = " + cMiss + "p", X(xMax) - 6, Y(cMiss * xMax) + 18);
+    ctx.fillStyle = thr;  ctx.fillText("C review = $" + cRev, X(xMax) - 6, Y(cRev) - 10);
+
+    // threshold
+    if (star <= xMax){
+      ctx.strokeStyle = ink3; ctx.setLineDash([4,4]); ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.moveTo(X(star), Y(cRev)); ctx.lineTo(X(star), y1); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = ink; ctx.beginPath(); ctx.arc(X(star), Y(cRev), 5, 0, 6.2832); ctx.fill();
+      ctx.textAlign = "center"; ctx.font = monoFont(12, "600");
+      ctx.fillStyle = ink; // The threshold value is displayed below the chart.
+      ctx.font = monoFont(10); ctx.fillStyle = ink3;
+      ctx.textAlign = "left";
+      ctx.fillText("← approve", Math.max(x0+4,X(star) - 96), y0 + 16);
+      if (star < xMax * .8) ctx.fillText("review →", X(star) + 12, y0 + 16);
+    }
+
+    roC.innerHTML = "threshold p* = <span>" + cRev + " / " + cMiss + " = " + star.toFixed(3) +
+      "</span> &nbsp;<em>" + (star > 1 ? "approval is cheaper for every p ∈ [0,1]" : star === 1 ? "approve below 100%; tie at 100%" : "review above " + (star * 100).toFixed(1) + "%; tie at the threshold") + "</em>";
+  }
+  dM.addEventListener("input", drawC);
+  dR.addEventListener("input", drawC);
+
+  /* ---------- orchestration ---------- */
+  function draw(){ drawA(); drawB(); drawC(); }
+  function layout(){
+    var slide=slides[i], wrap=slide.querySelector(".wrap");
+    wrap.style.zoom="1";
+    draw();
+    if(window.innerWidth>780 && !slide.querySelector("details[open]")){
+      var style=getComputedStyle(slide);
+      var available=innerHeight-parseFloat(style.paddingTop)-parseFloat(style.paddingBottom);
+      wrap.style.zoom=String(Math.min(1,Math.max(.72,(available-8)/wrap.scrollHeight)));
+      draw();
+    }
+  }
+  document.addEventListener("toggle",function(e){if(e.target.matches("details")) layout();},true);
+  window.addEventListener("beforeprint",function(){
+    slides.forEach(function(s){s.style.display="block";s.querySelector(".wrap").style.zoom="1";});draw();
+  });
+  window.addEventListener("afterprint",function(){slides.forEach(function(s){s.style.removeProperty("display");});layout();});
+
+  var rt;
+  window.addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(layout, 120); });
+  new MutationObserver(draw).observe(document.documentElement, { attributes:true, attributeFilter:["data-theme","class","style"] });
+  if (window.matchMedia){
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    if (mq.addEventListener) mq.addEventListener("change", function(){draw();syncTheme();}); else if (mq.addListener) mq.addListener(draw);
+  }
+
+  var start = parseInt((location.hash || "#1").slice(1), 10);
+  show(isNaN(start) ? 0 : start - 1);
+  setTimeout(layout, 60);
+})();
+</script>
+</body>
+</html>
