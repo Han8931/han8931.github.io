@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 740" width="880" height="740">
+  <style>
+    text { font-family: Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #0f172a; }
+    .mono { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; }
+    .tick { font-size: 11px; fill: #64748b; text-anchor: middle; }
+    .ttl { font-size: 15px; font-weight: 700; text-anchor: middle; letter-spacing: 1px; }
+    .d { font-size: 12px; fill: #475569; }
+  </style>
+  <defs>
+    <marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+    <pattern id="tgrid" x="430" y="90" width="5.625" height="5.625" patternUnits="userSpaceOnUse">
+      <path d="M5.625,0 V5.625 H0" fill="none" stroke="#e2e8f0" stroke-width="0.6"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <!-- ================= Panel 1: grid -> block -> thread ================= -->
+  <rect x="16" y="12" width="848" height="330" rx="10" fill="none" stroke="#cbd5e1" stroke-dasharray="6 4"/>
+
+  <!-- GRID -->
+  <text class="ttl" x="190" y="310">GRID</text>
+  <text class="mono" x="190" y="42" text-anchor="middle" fill="#b45309">blockIdx.x →</text>
+  <text class="tick" x="130" y="82">0</text><text class="tick" x="190" y="82">1</text><text class="tick" x="250" y="82">2</text>
+  <rect x="100" y="90" width="180" height="180" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <rect x="220" y="150" width="60" height="60" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <path d="M160,90 V270 M220,90 V270 M100,150 H280 M100,210 H280" stroke="#d97706" stroke-width="1"/>
+  <text x="250" y="177" style="font-size:12px; text-anchor:middle; fill:#b45309">block</text>
+  <text x="250" y="193" style="font-size:12px; text-anchor:middle; fill:#b45309">(2,1)</text>
+  <text class="tick" x="88" y="124">0</text><text class="tick" x="88" y="184">1</text><text class="tick" x="88" y="244">2</text>
+  <text class="mono" transform="translate(60,180) rotate(-90)" text-anchor="middle" fill="#1d4ed8">gridDim.y = 3</text>
+  <text class="mono" x="190" y="290" text-anchor="middle" fill="#1d4ed8">gridDim.x = 3</text>
+  <text class="mono" transform="translate(300,180) rotate(90)" text-anchor="middle" fill="#b45309">blockIdx.y →</text>
+
+  <!-- zoom -->
+  <line x1="322" y1="180" x2="372" y2="180" stroke="#94a3b8" stroke-width="2" marker-end="url(#ak)"/>
+
+  <!-- BLOCK -->
+  <text class="ttl" x="520" y="310">BLOCK</text>
+  <text class="mono" x="520" y="42" text-anchor="middle" fill="#b91c1c">threadIdx.x →</text>
+  <text class="tick" x="433" y="82">0</text><text class="tick" x="607" y="82">31</text>
+  <rect x="430" y="90" width="180" height="180" fill="url(#tgrid)" stroke="#d97706" stroke-width="2"/>
+  <rect x="430" y="90" width="180" height="5.625" fill="#bbf7d0" stroke="#16a34a" stroke-width="1"/>
+  <rect x="604.375" y="101.25" width="5.625" height="5.625" fill="#dc2626"/>
+  <text class="tick" x="420" y="96">0</text><text class="tick" x="420" y="272">31</text>
+  <text class="mono" transform="translate(396,180) rotate(-90)" text-anchor="middle" fill="#b45309">blockDim.y = 32</text>
+  <text class="mono" x="520" y="290" text-anchor="middle" fill="#b45309">blockDim.x = 32</text>
+  <text class="mono" transform="translate(630,180) rotate(90)" text-anchor="middle" fill="#b91c1c">threadIdx.y →</text>
+
+  <!-- annotations -->
+  <path d="M672,62 C640,62 625,80 614,90" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#ag)"/>
+  <text x="678" y="58" style="font-size:13px; font-weight:600; fill:#15803d">warp</text>
+  <text x="678" y="74" class="d">= one row: 32 threads with</text>
+  <text x="678" y="90" class="d">consecutive threadIdx.x</text>
+  <path d="M672,128 C645,124 628,112 614,106" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="678" y="126" style="font-size:13px; font-weight:600; fill:#b91c1c">thread (31, 2)</text>
+  <text x="678" y="142" class="d">threadIdx.x = 31, threadIdx.y = 2</text>
+
+  <text x="678" y="200" style="font-size:13px; font-weight:700; fill:#b91c1c">THREAD</text>
+  <text x="678" y="218" class="d">runs the kernel code; finds its</text>
+  <text x="678" y="234" class="d">data using blockIdx, blockDim,</text>
+  <text x="678" y="250" class="d">and threadIdx</text>
+
+  <!-- ================= Panel 2: clusters ================= -->
+  <rect x="16" y="356" width="848" height="306" rx="10" fill="none" stroke="#cbd5e1" stroke-dasharray="6 4"/>
+  <text x="32" y="380" style="font-size:13px; font-weight:600; fill:#334155">Optional, Hopper+: grouping blocks into clusters</text>
+
+  <!-- GRID of clusters -->
+  <text class="ttl" x="190" y="648">GRID</text>
+  <text class="mono" x="190" y="408" text-anchor="middle" fill="#15803d">%clusterid.x →</text>
+  <text class="tick" x="145" y="426">0</text><text class="tick" x="235" y="426">1</text>
+  <rect x="100" y="434" width="180" height="150" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <rect x="190" y="434" width="90" height="75" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <path d="M190,434 V584 M100,509 H280" stroke="#16a34a" stroke-width="1"/>
+  <text x="235" y="467" style="font-size:12px; text-anchor:middle; fill:#15803d">cluster</text>
+  <text x="235" y="483" style="font-size:12px; text-anchor:middle; fill:#15803d">(1,0)</text>
+  <text class="tick" x="88" y="476">0</text><text class="tick" x="88" y="551">1</text>
+  <text class="mono" transform="translate(64,509) rotate(-90)" text-anchor="middle" fill="#1d4ed8">%nclusterid.y</text>
+  <text class="mono" x="190" y="604" text-anchor="middle" fill="#1d4ed8">%nclusterid.x (grid size in clusters)</text>
+  <text class="mono" transform="translate(300,509) rotate(90)" text-anchor="middle" fill="#15803d">%clusterid.y →</text>
+
+  <line x1="322" y1="514" x2="372" y2="514" stroke="#94a3b8" stroke-width="2" marker-end="url(#ak)"/>
+
+  <!-- CLUSTER of blocks -->
+  <text class="ttl" x="520" y="648">CLUSTER</text>
+  <text class="mono" x="520" y="398" text-anchor="middle" fill="#b45309">%cluster_ctaid.x →</text>
+  <text class="tick" x="460" y="416">0</text><text class="tick" x="520" y="416">1</text><text class="tick" x="580" y="416">2</text>
+  <rect x="430" y="424" width="180" height="180" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+  <rect x="550" y="484" width="60" height="60" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <path d="M490,424 V604 M550,424 V604 M430,484 H610 M430,544 H610" stroke="#d97706" stroke-width="1"/>
+  <text x="580" y="511" style="font-size:12px; text-anchor:middle; fill:#b45309">block</text>
+  <text x="580" y="527" style="font-size:12px; text-anchor:middle; fill:#b45309">(2,1)</text>
+  <text class="tick" x="420" y="458">0</text><text class="tick" x="420" y="518">1</text><text class="tick" x="420" y="578">2</text>
+  <text class="mono" transform="translate(398,514) rotate(-90)" text-anchor="middle" fill="#15803d">%cluster_nctaid.y</text>
+  <text class="mono" x="520" y="620" text-anchor="middle" fill="#15803d" style="font-size:11px">%cluster_nctaid.x (cluster size in CTAs)</text>
+  <text class="mono" transform="translate(630,514) rotate(90)" text-anchor="middle" fill="#b45309">%cluster_ctaid.y →</text>
+
+  <text x="660" y="500" class="d">Inside each block,</text>
+  <text x="660" y="516" class="d">threads are indexed</text>
+  <text x="660" y="532" class="d">exactly as above.</text>
+
+  <!-- notes -->
+  <text x="24" y="688" class="d">• A third dimension (.z) exists for all of these, but deep-learning kernels rarely use it.</text>
+  <text x="24" y="706" class="d">• Clusters have no CUDA C++ built-ins yet: use the cooperative-groups API or PTX special registers (prefixed %).</text>
+  <text x="24" y="724" class="d">• PTX naming: thread block = CTA (cooperative thread array); cluster = CGA (cooperative grid array).</text>
+</svg>

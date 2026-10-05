@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="470" viewBox="0 0 800 470">
+<defs>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#f1f5f9"/><line x1="0" y1="0" x2="0" y2="6" stroke="#cbd5e1" stroke-width="2"/></pattern>
+<marker id="a475569" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+<marker id="s475569" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+<marker id="a2563eb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+<marker id="s2563eb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+<marker id="adc2626" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+<marker id="sdc2626" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+<marker id="a16a34a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+<marker id="s16a34a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+<marker id="a7c3aed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker>
+<marker id="s7c3aed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker>
+<marker id="ad97706" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d97706"/></marker>
+<marker id="sd97706" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d97706"/></marker>
+<marker id="a0f172a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/></marker>
+<marker id="s0f172a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="24" y="38" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" fill="#0f172a" font-weight="600">Normal kernel: a new thread block for every output tile</text>
+<text x="24" y="74" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#64748b" font-weight="normal">TMA (loads)</text>
+<text x="24" y="118" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#64748b" font-weight="normal">Tensor Cores</text>
+<line x1="150" y1="146" x2="785" y2="146" stroke="#475569" stroke-width="1.2" marker-end="url(#a475569)"/>
+<rect x="150" y="54" width="70" height="30" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="185.0" y="73" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">load t0</text>
+<rect x="220" y="98" width="50" height="30" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="245.0" y="117" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">mma t0</text>
+<rect x="220" y="54" width="70" height="30" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="255.0" y="73" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">load t0</text>
+<rect x="290" y="98" width="50" height="30" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="315.0" y="117" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">mma t0</text>
+<rect x="290" y="54" width="70" height="30" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="325.0" y="73" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">load t0</text>
+<rect x="360" y="98" width="50" height="30" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="385.0" y="117" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">mma t0</text>
+<rect x="410" y="98" width="60" height="30" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="440.0" y="117" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">store</text>
+<rect x="470" y="98" width="35" height="30" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="487.5" y="117" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#0f172a" font-weight="normal">exit</text>
+<rect x="505" y="98" width="40" height="30" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="525.0" y="117" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#0f172a" font-weight="normal">init</text>
+<rect x="360" y="54" width="145" height="30" rx="6" fill="url(#hatch)" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3"/>
+<rect x="505" y="54" width="40" height="30" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="525.0" y="73" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#0f172a" font-weight="normal">init</text>
+<rect x="545" y="54" width="70" height="30" rx="6" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="1.5"/>
+<text x="580.0" y="73" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">load t1</text>
+<rect x="615" y="54" width="70" height="30" rx="6" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="1.5"/>
+<text x="650.0" y="73" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">load t1</text>
+<rect x="685" y="54" width="91" height="30" rx="6" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="1.5"/>
+<text x="730.5" y="73" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">load t1</text>
+<rect x="615" y="98" width="50" height="30" rx="6" fill="#fecaca" stroke="#b91c1c" stroke-width="1.5"/>
+<text x="640.0" y="117" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">mma t1</text>
+<rect x="685" y="98" width="50" height="30" rx="6" fill="#fecaca" stroke="#b91c1c" stroke-width="1.5"/>
+<text x="710.0" y="117" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">mma t1</text>
+<line x1="362" y1="162" x2="543" y2="162" stroke="#dc2626" stroke-width="1.5" marker-end="url(#adc2626)" marker-start="url(#sdc2626)"/>
+<text x="452" y="180" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#b91c1c" font-weight="600">TMA idles: store + exit + new block setup</text>
+<text x="24" y="244" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" fill="#0f172a" font-weight="600">Persistent kernel: one long-lived block per SM loops over tiles</text>
+<text x="24" y="280" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#64748b" font-weight="normal">TMA (loads)</text>
+<text x="24" y="324" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#64748b" font-weight="normal">Tensor Cores</text>
+<line x1="150" y1="352" x2="785" y2="352" stroke="#475569" stroke-width="1.2" marker-end="url(#a475569)"/>
+<rect x="150" y="260" width="70" height="30" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="185.0" y="279" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">load t0</text>
+<rect x="220" y="260" width="70" height="30" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="255.0" y="279" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">load t0</text>
+<rect x="290" y="260" width="70" height="30" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="325.0" y="279" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">load t0</text>
+<rect x="360" y="260" width="70" height="30" rx="6" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="1.5"/>
+<text x="395.0" y="279" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">load t1</text>
+<rect x="430" y="260" width="70" height="30" rx="6" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="1.5"/>
+<text x="465.0" y="279" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">load t1</text>
+<rect x="500" y="260" width="70" height="30" rx="6" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="1.5"/>
+<text x="535.0" y="279" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">load t1</text>
+<rect x="570" y="260" width="70" height="30" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="605.0" y="279" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">load t2</text>
+<rect x="640" y="260" width="70" height="30" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="675.0" y="279" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">load t2</text>
+<rect x="710" y="260" width="66" height="30" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="743.0" y="279" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">load t2</text>
+<rect x="220" y="304" width="50" height="30" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="245.0" y="323" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">mma t0</text>
+<rect x="290" y="304" width="50" height="30" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="315.0" y="323" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">mma t0</text>
+<rect x="360" y="304" width="50" height="30" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="385.0" y="323" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">mma t0</text>
+<rect x="410" y="304" width="60" height="30" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="440.0" y="323" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">store</text>
+<rect x="470" y="304" width="50" height="30" rx="6" fill="#fecaca" stroke="#b91c1c" stroke-width="1.5"/>
+<text x="495.0" y="323" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">mma t1</text>
+<rect x="520" y="304" width="50" height="30" rx="6" fill="#fecaca" stroke="#b91c1c" stroke-width="1.5"/>
+<text x="545.0" y="323" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">mma t1</text>
+<rect x="570" y="304" width="50" height="30" rx="6" fill="#fecaca" stroke="#b91c1c" stroke-width="1.5"/>
+<text x="595.0" y="323" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">mma t1</text>
+<rect x="620" y="304" width="60" height="30" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="650.0" y="323" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">store</text>
+<rect x="680" y="304" width="50" height="30" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="705.0" y="323" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">mma t2</text>
+<line x1="361" y1="254" x2="361" y2="340" stroke="#16a34a" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="366" y="372" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#15803d" font-weight="600">next tile&#x27;s loads start immediately; the store overlaps with them</text>
+<text x="24" y="412.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#64748b" font-weight="normal">t0, t1, t2 = consecutive output tiles handled by the same SM. With N SMs, launch N blocks that persist for the</text>
+<text x="24" y="428.8" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#64748b" font-weight="normal">whole kernel and each compute many tiles. Later (async TMA stores), the store also leaves the Tensor Core lane.</text>
+</svg>

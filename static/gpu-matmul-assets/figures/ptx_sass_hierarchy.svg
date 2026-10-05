@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <style>
+    text { font-family: Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #0f172a; }
+    .muted { fill: #64748b; }
+    .mono { font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .box { font-size: 16px; font-weight: 600; text-anchor: middle; }
+    .note { font-size: 12px; fill: #475569; }
+  </style>
+  <defs>
+    <marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#475569" /></marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb" /></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626" /></marker>
+    <marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#d97706" /></marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff" />
+
+
+  <rect x="110" y="28" width="180" height="46" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="1.5" />
+  <text class="box" x="200" y="57">CUDA C++</text>
+  <text class="note" x="300" y="48">(or Fortran, etc.)</text>
+
+  <line x1="200" y1="74" x2="200" y2="102" stroke="#475569" stroke-width="1.5" marker-end="url(#ak)" />
+  <rect x="160" y="104" width="80" height="32" rx="6" fill="#ffffff" stroke="#475569" stroke-width="1.5" />
+  <text x="200" y="125" class="mono" style="font-size:14px; text-anchor:middle">nvcc</text>
+
+
+  <line x1="200" y1="136" x2="200" y2="176" stroke="#475569" stroke-width="1.5" marker-end="url(#ak)" />
+  <text class="note" x="210" y="161">GPU (device) code</text>
+
+  <rect x="110" y="178" width="180" height="50" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" />
+  <text class="box" x="200" y="209">PTX</text>
+  <text x="304" y="196" style="font-size:14px; font-weight:600; fill:#1d4ed8">NVIDIA's virtual ISA</text>
+  <text class="note" x="304" y="214">PTX targets and features have compatibility requirements;</text>
+  <text class="note" x="304" y="230">a compatible driver can compile PTX to device machine code</text>
+
+  <line x1="200" y1="228" x2="200" y2="270" stroke="#475569" stroke-width="1.5" marker-end="url(#ak)" />
+  <text x="210" y="254" class="mono" style="font-size:12px; fill:#475569">ptxas</text>
+
+  <rect x="110" y="272" width="180" height="50" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" />
+  <text class="box" x="200" y="303">SASS</text>
+  <text x="304" y="292" style="font-size:14px; font-weight:600; fill:#b91c1c">native ISA</text>
+  <text class="note" x="304" y="310">real machine code for one architecture (e.g. sm_90a)</text>
+
+
+  <path d="M240,120 H690 V138" fill="none" stroke="#d97706" stroke-width="1.5" marker-end="url(#aa)" />
+  <text class="note" x="460" y="112" style="fill:#b45309">CPU (host) code</text>
+  <rect x="610" y="140" width="160" height="40" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" />
+  <text x="690" y="165" style="font-size:14px; text-anchor:middle; font-weight:600">host C++ compiler</text>
+
+
+  <rect x="380" y="360" width="300" height="214" rx="10" fill="#f8fafc" stroke="#475569" stroke-width="1.5" />
+  <text x="394" y="382" style="font-size:14px; font-weight:600">executable</text>
+  <rect x="400" y="392" width="260" height="36" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" />
+  <text x="530" y="415" style="font-size:13px; text-anchor:middle">CPU binary</text>
+  <rect x="400" y="440" width="260" height="122" rx="8" fill="#ffffff" stroke="#475569" stroke-width="1.2" stroke-dasharray="6 4" />
+  <text x="412" y="459" style="font-size:13px; font-weight:600">fatbin</text>
+  <rect x="416" y="466" width="228" height="26" rx="4" fill="#fee2e2" stroke="#dc2626" />
+  <text x="530" y="484" class="mono" style="font-size:12px; text-anchor:middle">sm_70 cubin (SASS)</text>
+  <rect x="416" y="498" width="228" height="26" rx="4" fill="#fee2e2" stroke="#dc2626" />
+  <text x="530" y="516" class="mono" style="font-size:12px; text-anchor:middle">sm_86 cubin (SASS)</text>
+  <rect x="416" y="530" width="228" height="26" rx="4" fill="#dbeafe" stroke="#2563eb" />
+  <text x="530" y="548" class="mono" style="font-size:12px; text-anchor:middle">compute_70 PTX</text>
+
+
+  <path d="M690,180 V410 H664" fill="none" stroke="#d97706" stroke-width="1.5" marker-end="url(#aa)" />
+  <path d="M200,322 C200,420 300,495 412,500" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#ar)" />
+  <text class="note" x="222" y="356" style="fill:#b91c1c">embedded with metadata</text>
+  <path d="M110,203 C40,260 40,540 412,543" fill="none" stroke="#2563eb" stroke-width="1.5" marker-end="url(#ab)" />
+  <text class="note" x="84" y="352" style="fill:#1d4ed8">PTX embedded too</text>
+
+
+  <rect x="460" y="28" width="316" height="62" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-dasharray="6 4" />
+  <text x="472" y="50" style="font-size:12px; fill:#5b21b6">ISA = the instructions a processor can run,</text>
+  <text x="472" y="66" style="font-size:12px; fill:#5b21b6">their binary encoding, and their behavior.</text>
+  <text x="472" y="82" style="font-size:12px; fill:#5b21b6">Virtual ISA = an ISA for an abstract processor.</text>
+
+  <text class="note" x="380" y="594" style="font-size:11.5px">cubin = ELF file with SASS + metadata (symbol table, …)</text>
+</svg>

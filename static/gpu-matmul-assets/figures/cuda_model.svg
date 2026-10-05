@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500">
+  <style>
+    text { font-family: Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #0f172a; }
+    .name { font-size: 14px; font-weight: 600; text-anchor: middle; }
+    .h { font-size: 15px; font-weight: 700; }
+    .d { font-size: 12px; fill: #475569; }
+    .s { font-size: 12px; fill: #15803d; }
+    .scope { font-size: 13px; fill: #64748b; font-style: italic; }
+  </style>
+  <defs>
+    <marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626" /></marker>
+    <marker id="ma" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d97706" /></marker>
+    <marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a" /></marker>
+    <marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb" /></marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff" />
+
+  <text x="230" y="28" style="font-size:14px; font-weight:700; text-anchor:middle">Memory (hardware)</text>
+  <text x="440" y="28" style="font-size:14px; font-weight:700">CUDA programming model (software)</text>
+
+
+  <polygon points="230,40 271.9,140 188.1,140" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" />
+  <polygon points="188.1,140 271.9,140 309.5,230 150.5,230" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" />
+  <polygon points="150.5,230 309.5,230 343,310 117,310" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" />
+  <polygon points="117,310 343,310 376.5,390 83.5,390" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" />
+  <polygon points="83.5,390 376.5,390 410,470 50,470" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" />
+  <text class="name" x="230" y="120">RMEM</text>
+  <text class="name" x="230" y="190">L1 / SMEM</text>
+  <text class="name" x="230" y="275">DSMEM</text>
+  <text class="name" x="230" y="355">L2 cache</text>
+  <text class="name" x="230" y="435">HBM (GMEM)</text>
+
+  <text class="scope" x="24" y="150">per SM</text>
+  <text class="scope" x="24" y="275">per GPC</text>
+  <text class="scope" x="24" y="355">whole</text>
+  <text class="scope" x="24" y="371">GPU</text>
+
+
+  <text class="h" x="440" y="58">thread</text>
+  <text class="d" x="440" y="76">has its own private registers</text>
+  <text class="s" x="440" y="92">can exchange data via: SMEM</text>
+
+  <rect x="430" y="106" width="426" height="84" rx="8" fill="#f8fafc" stroke="#64748b" stroke-dasharray="6 4" />
+  <text class="h" x="440" y="128">warp <tspan class="d" style="font-weight:400">(32 threads)</tspan></text>
+  <text class="d" x="440" y="146">Warps group 32 thread identities for instruction issue.</text>
+  <text class="d" x="440" y="162">Banks and warp width are different hardware concepts;</text>
+  <text class="d" x="440" y="178">an access pattern determines whether banks conflict.</text>
+
+  <text class="h" x="440" y="214">thread block (CTA)</text>
+  <text class="d" x="440" y="232">up to 1024 threads, guaranteed to run together on one SM</text>
+  <text class="s" x="440" y="248">can exchange data via: SMEM</text>
+
+  <text class="h" x="440" y="280">thread block cluster</text>
+  <text class="d" x="440" y="298">up to 8 blocks (16 opt-in), co-scheduled on one GPC</text>
+  <text class="s" x="440" y="314">can exchange data via: DSMEM</text>
+
+  <text class="h" x="440" y="350">grid</text>
+  <text class="d" x="440" y="368">all thread blocks (or clusters) of one kernel launch</text>
+  <text class="s" x="440" y="384">can exchange data via: global memory</text>
+
+  <text x="440" y="440" style="font-size:12px; fill:#5b21b6">Shared storage enables communication, not synchronization.</text>
+  <text x="440" y="456" style="font-size:12px; fill:#5b21b6">Use the required barriers and memory-ordering operations.</text>
+
+
+  <path d="M258,108 C330,100 360,78 426,72" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5 4" marker-start="url(#mr)" marker-end="url(#mr)" />
+  <path d="M290,188 C350,190 380,226 426,224" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="5 4" marker-start="url(#ma)" marker-end="url(#ma)" />
+  <path d="M326,272 C370,272 390,290 426,290" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="5 4" marker-start="url(#mg)" marker-end="url(#mg)" />
+  <path d="M362,352 C390,352 400,360 426,360" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5 4" marker-start="url(#mb)" marker-end="url(#mb)" />
+</svg>

@@ -1,0 +1,221 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 660" width="800" height="660">
+  <style>
+    text { font-family: Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #0f172a; }
+    .b { font-size: 14px; text-anchor: middle; font-weight: 600; }
+    .bs { font-size: 12px; text-anchor: middle; fill: #475569; }
+    .n { font-size: 12px; fill: #334155; }
+  </style>
+  <defs>
+    <marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569" /></marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb" /></marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff" />
+
+  <rect x="24" y="24" width="752" height="508" rx="12" fill="#f8fafc" stroke="#475569" stroke-width="1.5" stroke-dasharray="7 4" />
+  <text x="40" y="52" style="font-size:16px; font-weight:700">H100 package (chip + HBM)</text>
+  <text x="760" y="52" style="font-size:12px; text-anchor:end; fill:#64748b">power limit (TDP): 700 W SXM · 350 W PCIe</text>
+
+<rect x="40" y="78" width="170" height="80" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="1.5" />
+<text x="48" y="94" style="font-size:11px; font-weight:600; fill:#b45309">GPC 0</text>
+<rect x="48.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="65.5" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="83.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="100.5" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="118.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="135.5" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="153.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="170.5" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="188.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="48.0" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="65.5" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="83.0" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="100.5" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="118.0" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="135.5" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="153.0" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="170.5" y="129" width="14" height="22" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
+<rect x="188.0" y="129" width="14" height="22" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
+<rect x="222" y="78" width="170" height="80" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="1.5" />
+<text x="230" y="94" style="font-size:11px; font-weight:600; fill:#b45309">GPC 1</text>
+<rect x="230.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="247.5" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="265.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="282.5" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="300.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="317.5" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="335.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="352.5" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="370.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="230.0" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="247.5" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="265.0" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="282.5" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="300.0" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="317.5" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="335.0" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="352.5" y="129" width="14" height="22" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
+<rect x="370.0" y="129" width="14" height="22" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
+<rect x="404" y="78" width="170" height="80" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="1.5" />
+<text x="412" y="94" style="font-size:11px; font-weight:600; fill:#b45309">GPC 2</text>
+<rect x="412.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="429.5" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="447.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="464.5" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="482.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="499.5" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="517.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="534.5" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="552.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="412.0" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="429.5" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="447.0" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="464.5" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="482.0" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="499.5" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="517.0" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="534.5" y="129" width="14" height="22" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
+<rect x="552.0" y="129" width="14" height="22" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
+<rect x="586" y="78" width="170" height="80" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="1.5" />
+<text x="594" y="94" style="font-size:11px; font-weight:600; fill:#b45309">GPC 3</text>
+<rect x="594.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="611.5" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="629.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="646.5" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="664.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="681.5" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="699.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="716.5" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="734.0" y="102" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="594.0" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="611.5" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="629.0" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="646.5" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="664.0" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="681.5" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="699.0" y="129" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="716.5" y="129" width="14" height="22" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
+<rect x="734.0" y="129" width="14" height="22" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
+<rect x="40" y="168" width="170" height="80" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="1.5" />
+<text x="48" y="184" style="font-size:11px; font-weight:600; fill:#b45309">GPC 4</text>
+<rect x="48.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="65.5" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="83.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="100.5" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="118.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="135.5" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="153.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="170.5" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="188.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="48.0" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="65.5" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="83.0" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="100.5" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="118.0" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="135.5" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="153.0" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="170.5" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="188.0" y="219" width="14" height="22" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
+<rect x="222" y="168" width="170" height="80" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="1.5" />
+<text x="230" y="184" style="font-size:11px; font-weight:600; fill:#b45309">GPC 5</text>
+<rect x="230.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="247.5" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="265.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="282.5" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="300.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="317.5" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="335.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="352.5" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="370.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="230.0" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="247.5" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="265.0" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="282.5" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="300.0" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="317.5" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="335.0" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="352.5" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="370.0" y="219" width="14" height="22" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
+<rect x="404" y="168" width="170" height="80" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="1.5" />
+<text x="412" y="184" style="font-size:11px; font-weight:600; fill:#b45309">GPC 6</text>
+<rect x="412.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="429.5" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="447.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="464.5" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="482.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="499.5" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="517.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="534.5" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="552.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="412.0" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="429.5" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="447.0" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="464.5" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="482.0" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="499.5" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="517.0" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="534.5" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="552.0" y="219" width="14" height="22" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
+<rect x="586" y="168" width="170" height="80" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="1.5" />
+<text x="594" y="184" style="font-size:11px; font-weight:600; fill:#b45309">GPC 7</text>
+<rect x="594.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="611.5" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="629.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="646.5" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="664.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="681.5" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="699.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="716.5" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="734.0" y="192" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="594.0" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="611.5" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="629.0" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="646.5" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="664.0" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="681.5" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="699.0" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="716.5" y="219" width="14" height="22" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="734.0" y="219" width="14" height="22" rx="2" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
+
+  <text x="40" y="270" class="n">8 GPCs × 18 SMs = 144 SMs on the die. Only <tspan font-weight="600">132 (SXM5)</tspan> or <tspan font-weight="600">114 (PCIe)</tspan> are enabled;</text>
+  <text x="40" y="287" class="n">the rest are fused off for manufacturing yield.</text>
+  <rect x="560" y="276" width="14" height="14" rx="2" fill="#fee2e2" stroke="#dc2626" /><text x="580" y="288" class="n">SM</text>
+  <rect x="614" y="276" width="14" height="14" rx="2" fill="#f1f5f9" stroke="#94a3b8" /><text x="634" y="288" class="n">disabled (illustrative)</text>
+
+
+  <line x1="245" y1="300" x2="245" y2="326" stroke="#2563eb" stroke-width="1.5" marker-start="url(#ab)" marker-end="url(#ab)" />
+  <line x1="555" y1="300" x2="555" y2="326" stroke="#2563eb" stroke-width="1.5" marker-start="url(#ab)" marker-end="url(#ab)" />
+  <rect x="120" y="328" width="250" height="56" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" />
+  <text class="b" x="245" y="352">L2 partition</text>
+  <text class="bs" x="245" y="370">half of the L2</text>
+  <rect x="430" y="328" width="250" height="56" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" />
+  <text class="b" x="555" y="352">L2 partition</text>
+  <text class="bs" x="555" y="370">half of the L2</text>
+  <line x1="374" y1="356" x2="426" y2="356" stroke="#475569" stroke-width="1.5" marker-start="url(#ak)" marker-end="url(#ak)" />
+  <text x="400" y="400" class="bs">crossbar</text>
+  <text x="40" y="418" class="n">L2: 50 MB exposed · shared cache; cost depends on pattern and load</text>
+  <text x="40" y="436" class="n" style="fill:#64748b">Cache lines contain sectors · supports global atomics · replacement policy affects reuse</text>
+
+
+  <line x1="400" y1="442" x2="400" y2="458" stroke="#7c3aed" stroke-width="1.5" />
+  <rect x="150" y="458" width="500" height="64" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" />
+  <text x="166" y="478" style="font-size:14px; font-weight:600">Device memory (HBM) · 80 GB</text>
+  <text x="634" y="478" style="font-size:10px; text-anchor:end; fill:#5b21b6">SXM 3.35 TB/s · PCIe 2 TB/s</text>
+  <rect x="166" y="486" width="186" height="28" rx="4" fill="#ffffff" stroke="#7c3aed" />
+  <text x="259" y="505" class="bs">GMEM (global memory)</text>
+  <rect x="360" y="486" width="132" height="28" rx="4" fill="#ffffff" stroke="#7c3aed" stroke-dasharray="4 3" />
+  <text x="426" y="505" class="bs">constant · 64 KiB</text>
+  <rect x="500" y="486" width="134" height="28" rx="4" fill="#ffffff" stroke="#7c3aed" stroke-dasharray="4 3" />
+  <text x="567" y="505" class="bs">local · spills, per thread</text>
+
+
+  <line x1="180" y1="532" x2="180" y2="590" stroke="#94a3b8" stroke-width="2" />
+  <line x1="620" y1="532" x2="620" y2="590" stroke="#475569" stroke-width="3" />
+  <text x="192" y="560" class="n" style="font-weight:600">PCIe Gen5</text>
+  <text x="192" y="576" class="n" style="fill:#64748b">64 GB/s each way</text>
+  <text x="632" y="560" class="n" style="font-weight:600">NVLink 4</text>
+  <text x="632" y="576" class="n" style="fill:#64748b">450 GB/s each way (18 links)</text>
+  <rect x="90" y="592" width="180" height="48" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+  <text class="b" x="180" y="621" style="fill:#475569">host CPU</text>
+  <rect x="530" y="592" width="180" height="48" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="1.5" />
+  <text class="b" x="620" y="621">other GPUs</text>
+</svg>

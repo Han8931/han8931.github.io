@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="650" viewBox="0 0 800 650" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<defs><marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker><marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="ah-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d97706"/></marker><marker id="ah-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker><marker id="ah-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker><marker id="ah-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker><marker id="ah-idle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f1f5f9"/><line x1="0" y1="0" x2="0" y2="8" stroke="#94a3b8" stroke-width="2"/></pattern></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="430" y="50" width="330" height="230" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+<text x="430" y="42" font-size="15" fill="#0f172a" text-anchor="start" font-weight="bold">B</text>
+<text x="448" y="42" font-size="12" fill="#64748b" text-anchor="start" font-weight="normal">(K × N)</text>
+<rect x="60" y="350" width="330" height="230" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+<text x="60" y="342" font-size="15" fill="#0f172a" text-anchor="start" font-weight="bold">A</text>
+<text x="78" y="342" font-size="12" fill="#64748b" text-anchor="start" font-weight="normal">(M × K)</text>
+<rect x="430" y="350" width="330" height="230" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+<text x="430" y="342" font-size="15" fill="#0f172a" text-anchor="start" font-weight="bold">C</text>
+<text x="448" y="342" font-size="12" fill="#64748b" text-anchor="start" font-weight="normal">(M × N)</text>
+<rect x="430" y="50" width="64" height="230" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+<rect x="430" y="160" width="64" height="12" rx="0" fill="#fca5a5" stroke="#dc2626" stroke-width="2"/>
+<text x="504" y="170" font-size="12" fill="#dc2626" text-anchor="start" font-weight="normal">row k, columns 0…31</text>
+<text x="462.0" y="270" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="normal">cols 0–31</text>
+<rect x="60" y="350" width="330" height="12" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+<rect x="210" y="350" width="12" height="12" rx="0" fill="#93c5fd" stroke="#2563eb" stroke-width="2"/>
+<path d="M 216 412 L 216 368" fill="none" stroke="#2563eb" stroke-width="1.5" marker-end="url(#ah-blue)"/>
+<text x="80" y="432" font-size="12" fill="#0f172a" text-anchor="start" font-weight="normal">A[0][k]: the SAME address for all</text>
+<text x="80" y="448" font-size="12" fill="#0f172a" text-anchor="start" font-weight="normal">32 threads → fetched once, broadcast</text>
+<text x="80" y="464" font-size="12" fill="#2563eb" text-anchor="start" font-weight="normal">row 0 of A (walk along k →)</text>
+<rect x="430" y="350" width="64" height="12" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<path d="M 470 412 L 458 368" fill="none" stroke="#d97706" stroke-width="1.5" marker-end="url(#ah-amber)"/>
+<text x="450" y="432" font-size="12" fill="#0f172a" text-anchor="start" font-weight="normal">warp 0 computes C[0][0…31]</text>
+<text x="450" y="448" font-size="12" fill="#64748b" text-anchor="start" font-weight="normal">one output cell per thread</text>
+<text x="450" y="464" font-size="12" fill="#16a34a" text-anchor="start" font-weight="normal">writes are contiguous too ✓</text>
+<text x="60" y="60" font-size="14" fill="#0f172a" text-anchor="start" font-weight="bold">One load instruction for the whole warp</text>
+<text x="60" y="88" font-size="12" fill="#64748b" text-anchor="start" font-weight="normal">32 threads</text>
+<rect x="60" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="65" y1="120" x2="65" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="70" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="75" y1="120" x2="75" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="80" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="85" y1="120" x2="85" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="90" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="95" y1="120" x2="95" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="100" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="105" y1="120" x2="105" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="110" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="115" y1="120" x2="115" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="120" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="125" y1="120" x2="125" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="130" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="135" y1="120" x2="135" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="140" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="145" y1="120" x2="145" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="150" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="155" y1="120" x2="155" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="160" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="165" y1="120" x2="165" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="170" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="175" y1="120" x2="175" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="180" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="185" y1="120" x2="185" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="190" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="195" y1="120" x2="195" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="200" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="205" y1="120" x2="205" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="210" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="215" y1="120" x2="215" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="220" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="225" y1="120" x2="225" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="230" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="235" y1="120" x2="235" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="240" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="245" y1="120" x2="245" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="250" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="255" y1="120" x2="255" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="260" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="265" y1="120" x2="265" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="270" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="275" y1="120" x2="275" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="280" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="285" y1="120" x2="285" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="290" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="295" y1="120" x2="295" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="300" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="305" y1="120" x2="305" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="310" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="315" y1="120" x2="315" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="320" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="325" y1="120" x2="325" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="330" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="335" y1="120" x2="335" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="340" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="345" y1="120" x2="345" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="350" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="355" y1="120" x2="355" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="360" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="365" y1="120" x2="365" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<rect x="370" y="98" width="10" height="20" rx="0" fill="#e2e8f0" stroke="#475569" stroke-width="0.8"/>
+<line x1="375" y1="120" x2="375" y2="142" stroke="#94a3b8" stroke-width="0.8"/>
+<text x="60" y="82" font-size="1" fill="#0f172a" text-anchor="start" font-weight="normal"></text>
+<rect x="60" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="70" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="80" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="90" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="100" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="110" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="120" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="130" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="140" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="150" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="160" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="170" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="180" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="190" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="200" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="210" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="220" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="230" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="240" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="250" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="260" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="270" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="280" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="290" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="300" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="310" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="320" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="330" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="340" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="350" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="360" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<rect x="370" y="144" width="10" height="20" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="0.8"/>
+<text x="60" y="180" font-size="11" fill="#64748b" text-anchor="start" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">B[k][0]</text>
+<text x="380" y="180" font-size="11" fill="#64748b" text-anchor="end" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">B[k][31]</text>
+<text x="220" y="180" font-size="11" fill="#64748b" text-anchor="middle" font-weight="normal">32 × 4 B = 128 B contiguous</text>
+<text x="60" y="208" font-size="13" fill="#16a34a" text-anchor="start" font-weight="bold">→ four aligned 32-byte sectors ✓</text>
+<text x="60" y="228" font-size="12" fill="#64748b" text-anchor="start" font-weight="normal">(1 cache line, every byte fetched is used)</text>
+<path d="M 382 154 C 400 154, 405 166, 426 166" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ah-red)"/>
+<text x="60" y="632" font-size="12" fill="#64748b" text-anchor="start" font-weight="normal">Coalesced naive kernel: a warp = 32 consecutive columns of C. Measured ≈ 3171 GFLOP/s (fp32, H100 PCIe, 4096²).</text>
+</svg>

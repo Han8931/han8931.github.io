@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="650" viewBox="0 0 800 650" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<defs><marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb" /></marker><marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626" /></marker><marker id="ah-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d97706" /></marker><marker id="ah-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a" /></marker><marker id="ah-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed" /></marker><marker id="ah-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569" /></marker><marker id="ah-idle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8" /></marker><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f1f5f9" /><line x1="0" y1="0" x2="0" y2="8" stroke="#94a3b8" stroke-width="2" /></pattern></defs>
+<rect width="100%" height="100%" fill="#ffffff" />
+<rect x="430" y="50" width="330" height="230" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="1.5" />
+<text x="430" y="42" font-size="15" fill="#0f172a" text-anchor="start" font-weight="bold">B</text>
+<text x="448" y="42" font-size="12" fill="#64748b" text-anchor="start" font-weight="normal">(K × N)</text>
+<rect x="60" y="350" width="330" height="230" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="1.5" />
+<text x="60" y="342" font-size="15" fill="#0f172a" text-anchor="start" font-weight="bold">A</text>
+<text x="78" y="342" font-size="12" fill="#64748b" text-anchor="start" font-weight="normal">(M × K)</text>
+<rect x="430" y="350" width="330" height="230" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="1.5" />
+<text x="430" y="342" font-size="15" fill="#0f172a" text-anchor="start" font-weight="bold">C</text>
+<text x="448" y="342" font-size="12" fill="#64748b" text-anchor="start" font-weight="normal">(M × N)</text>
+<rect x="430" y="50" width="12" height="230" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+<rect x="430" y="160" width="12" height="12" rx="0" fill="#fca5a5" stroke="#dc2626" stroke-width="2" />
+<text x="452" y="170" font-size="12" fill="#0f172a" text-anchor="start" font-weight="normal">B[k][0]: same address for all 32 threads</text>
+<text x="452" y="186" font-size="12" fill="#16a34a" text-anchor="start" font-weight="normal">→ broadcast (fine)</text>
+<rect x="60" y="350" width="330" height="64" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="1" />
+<rect x="210" y="350" width="12" height="64" rx="0" fill="#93c5fd" stroke="#2563eb" stroke-width="2" />
+<text x="398" y="364" font-size="1" fill="#0f172a" text-anchor="start" font-weight="normal" />
+<text x="52" y="362" font-size="11" fill="#64748b" text-anchor="end" font-weight="normal">0</text>
+<text x="52" y="414" font-size="11" fill="#64748b" text-anchor="end" font-weight="normal">31</text>
+<path d="M 216 462 L 216 420" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#ah-red)" />
+<text x="80" y="482" font-size="12" fill="#0f172a" text-anchor="start" font-weight="normal">A[0…31][k]: one element from each of</text>
+<text x="80" y="498" font-size="12" fill="#0f172a" text-anchor="start" font-weight="normal">32 rows, each 4096 floats (16 KiB) apart</text>
+<text x="80" y="516" font-size="12" fill="#dc2626" text-anchor="start" font-weight="bold">→ 32 separate sectors requested</text>
+<rect x="430" y="350" width="12" height="64" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="2" />
+<path d="M 480 462 L 444 382.0" fill="none" stroke="#d97706" stroke-width="1.5" marker-end="url(#ah-amber)" />
+<text x="450" y="482" font-size="12" fill="#0f172a" text-anchor="start" font-weight="normal">warp 0 now computes C[0…31][0]</text>
+<text x="450" y="498" font-size="12" fill="#dc2626" text-anchor="start" font-weight="normal">a column: writes are strided too ✗</text>
+<text x="60" y="60" font-size="14" fill="#0f172a" text-anchor="start" font-weight="bold">The warp's load of A[0…31][k]</text>
+<text x="80" y="98" font-size="12" fill="#64748b" text-anchor="middle" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">t0</text>
+<line x1="64" y1="104" x2="64" y2="118" stroke="#94a3b8" stroke-width="1" />
+<rect x="60" y="120" width="40" height="22" rx="0" fill="url(#hatch)" stroke="#94a3b8" stroke-width="1" />
+<rect x="60" y="120" width="8" height="22" rx="0" fill="#93c5fd" stroke="#2563eb" stroke-width="1.5" />
+<text x="162" y="98" font-size="12" fill="#64748b" text-anchor="middle" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">t1</text>
+<line x1="146" y1="104" x2="146" y2="118" stroke="#94a3b8" stroke-width="1" />
+<rect x="142" y="120" width="40" height="22" rx="0" fill="url(#hatch)" stroke="#94a3b8" stroke-width="1" />
+<rect x="142" y="120" width="8" height="22" rx="0" fill="#93c5fd" stroke="#2563eb" stroke-width="1.5" />
+<text x="244" y="98" font-size="12" fill="#64748b" text-anchor="middle" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">t2</text>
+<line x1="228" y1="104" x2="228" y2="118" stroke="#94a3b8" stroke-width="1" />
+<rect x="224" y="120" width="40" height="22" rx="0" fill="url(#hatch)" stroke="#94a3b8" stroke-width="1" />
+<rect x="224" y="120" width="8" height="22" rx="0" fill="#93c5fd" stroke="#2563eb" stroke-width="1.5" />
+<text x="360" y="98" font-size="12" fill="#64748b" text-anchor="middle" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">t31</text>
+<line x1="344" y1="104" x2="344" y2="118" stroke="#94a3b8" stroke-width="1" />
+<rect x="340" y="120" width="40" height="22" rx="0" fill="url(#hatch)" stroke="#94a3b8" stroke-width="1" />
+<rect x="340" y="120" width="8" height="22" rx="0" fill="#93c5fd" stroke="#2563eb" stroke-width="1.5" />
+<text x="126" y="135" font-size="12" fill="#64748b" text-anchor="middle" font-weight="normal">…</text>
+<text x="208" y="135" font-size="12" fill="#64748b" text-anchor="middle" font-weight="normal">…</text>
+<text x="290" y="135" font-size="12" fill="#64748b" text-anchor="middle" font-weight="normal">…</text>
+<text x="60" y="164" font-size="12" fill="#64748b" text-anchor="start" font-weight="normal">each thread hits a different 32 B sector, 16 KiB apart</text>
+<rect x="60" y="178" width="10" height="10" rx="0" fill="#93c5fd" stroke="#2563eb" stroke-width="1" />
+<text x="76" y="187" font-size="12" fill="#0f172a" text-anchor="start" font-weight="normal">4 B used</text>
+<rect x="150" y="178" width="10" height="10" rx="0" fill="url(#hatch)" stroke="#94a3b8" stroke-width="1" />
+<text x="166" y="187" font-size="12" fill="#0f172a" text-anchor="start" font-weight="normal">28 B fetched but unused</text>
+<text x="60" y="216" font-size="13" fill="#dc2626" text-anchor="start" font-weight="bold">32 sectors, versus 4 for contiguous floats</text>
+<text x="60" y="236" font-size="12" fill="#64748b" text-anchor="start" font-weight="normal">(some unused bytes may be L1/L2 hits for later</text>
+<text x="60" y="252" font-size="12" fill="#64748b" text-anchor="start" font-weight="normal">iterations, but most bandwidth is wasted)</text>
+<text x="60" y="632" font-size="12" fill="#64748b" text-anchor="start" font-weight="normal">Swapping row/col indexing: a warp = 32 rows of one column. Measured: 3171 → 243 GFLOP/s (13× slower).</text>
+</svg>

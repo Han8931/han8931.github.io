@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <style>
+    text { font-family: Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #0f172a; }
+    .b { font-size: 13px; text-anchor: middle; }
+    .bs { font-size: 11px; text-anchor: middle; fill: #475569; }
+    .hdr { font-size: 12px; text-anchor: middle; fill: #64748b; font-weight: 600; }
+    .n { font-size: 12px; fill: #334155; }
+  </style>
+  <rect width="100%" height="100%" fill="#ffffff" />
+
+
+  <rect x="24" y="24" width="752" height="450" rx="12" fill="#f8fafc" stroke="#475569" stroke-width="2" />
+  <text x="40" y="50" style="font-size:16px; font-weight:700">One SM</text>
+  <text x="108" y="50" style="font-size:13px; fill:#64748b">(H100 SXM5 has 132 of these; each has 4 sub-partitions)</text>
+
+
+  <g id="sp0">
+    <rect x="36" y="64" width="173" height="238" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" />
+    <text class="hdr" x="122.5" y="84">sub-partition 0</text>
+    <rect x="46" y="94" width="153" height="32" rx="6" fill="#f1f5f9" stroke="#475569" />
+    <text class="b" x="122.5" y="115">warp scheduler</text>
+    <rect x="46" y="132" width="153" height="40" rx="6" fill="#dbeafe" stroke="#2563eb" />
+    <text class="b" x="122.5" y="149">register file</text>
+    <text class="bs" x="122.5" y="164">16K × 32-bit (64 KiB)</text>
+    <rect x="46" y="178" width="153" height="32" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" />
+    <text class="b" x="122.5" y="199" font-weight="600">Tensor Core</text>
+    <rect x="46" y="216" width="153" height="40" rx="6" fill="#fee2e2" stroke="#dc2626" />
+    <text class="b" x="122.5" y="233">other compute</text>
+    <text class="bs" x="122.5" y="248">CUDA cores (FP32, INT)</text>
+    <rect x="46" y="262" width="153" height="30" rx="6" fill="#dbeafe" stroke="#2563eb" />
+    <text class="b" x="122.5" y="282">LD/ST units</text>
+  </g>
+  <use href="#sp0" x="185" />
+  <use href="#sp0" x="370" />
+  <use href="#sp0" x="555" />
+
+  <rect x="236" y="70" width="150" height="20" fill="#ffffff" />
+  <text class="hdr" x="307.5" y="84">sub-partition 1</text>
+  <rect x="421" y="70" width="150" height="20" fill="#ffffff" />
+  <text class="hdr" x="492.5" y="84">sub-partition 2</text>
+  <rect x="606" y="70" width="150" height="20" fill="#ffffff" />
+  <text class="hdr" x="677.5" y="84">sub-partition 3</text>
+
+
+  <rect x="36" y="316" width="300" height="44" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" />
+  <text class="b" x="186" y="335" font-weight="600">TMA (Tensor Memory Accelerator)</text>
+  <text class="bs" x="186" y="351">async bulk copies GMEM ↔ SMEM, with swizzling</text>
+  <rect x="350" y="316" width="414" height="44" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="6 4" />
+  <text class="b" x="557" y="335" font-weight="600">DSMEM link</text>
+  <text class="bs" x="557" y="351">access other SMs' SMEM in the cluster (between SMEM and L2 speed)</text>
+
+
+  <rect x="36" y="374" width="728" height="72" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" />
+  <line x1="500" y1="380" x2="500" y2="440" stroke="#d97706" stroke-width="1.5" stroke-dasharray="5 4" />
+  <text class="b" x="268" y="400" font-weight="600">Shared memory (SMEM)</text>
+  <text class="bs" x="268" y="418">up to 228 KiB · you manage it · 32 banks</text>
+  <text class="bs" x="268" y="434">On-chip; bank conflicts matter</text>
+  <text class="b" x="632" y="400" font-weight="600">L1 cache</text>
+  <text class="bs" x="632" y="418">the rest · hardware-managed</text>
+  <text class="bs" x="632" y="434">128 B cache lines</text>
+  <text x="400" y="464" style="font-size:11px; text-anchor:middle; fill:#b45309">← 256 KiB of on-chip SRAM per SM, split by a configurable "dial" →</text>
+
+
+  <text x="24" y="500" style="font-size:13px; font-weight:600">Good to know</text>
+  <text class="n" x="24" y="522">• Instruction latency depends on the operation.</text>
+  <text class="n" x="24" y="540">• Hopper Tensor Cores need wgmma instructions to reach peak.</text>
+  <text class="n" x="24" y="558">• Register file total: 4 × 16K = 64K regs = 256 KiB per SM.</text>
+  <text class="n" x="408" y="522">• 1 KiB of SMEM is reserved per resident block.</text>
+  <text class="n" x="408" y="540">• L1 line = 128 B = a warp of 32 threads × 4 B.</text>
+  <text class="n" x="408" y="558">• L1 can absorb register spills when pressure is high.</text>
+  <text class="n" x="24" y="586" style="fill:#64748b">For small requests TMA has higher latency than regular async copies (address-generation overhead).</text>
+</svg>

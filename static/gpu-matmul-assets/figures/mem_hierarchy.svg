@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="490" viewBox="0 0 800 490" role="img" aria-labelledby="title desc">
+<title id="title">Storage near and far from H100 execution units</title>
+<desc id="desc">Registers, shared memory and L1, L2, and HBM differ in capacity, scope, and who manages them. These are storage choices, not a required path for every load.</desc>
+<style>text { font-family: sans-serif; fill: #0f172a; font-size: 15px; } .label { font-weight: bold; font-size: 18px; } .note { fill: #475569; font-size: 13px; }</style>
+<rect width="800" height="490" fill="white"/>
+<text x="32" y="34" class="label">Where does the working data live?</text>
+<text x="32" y="59" class="note">H100 example. Capacity, access latency, and bandwidth are different properties.</text>
+<rect x="32" y="80" width="736" height="70" rx="8" fill="#fef3c7" stroke="#d97706"/>
+<text x="50" y="107" class="label">Registers</text>
+<text x="50" y="132">Private values for each thread, including partial sums</text>
+<text x="566" y="108" class="note">256 KiB register file per SM</text>
+<rect x="32" y="165" width="736" height="90" rx="8" fill="#dbeafe" stroke="#2563eb"/>
+<text x="50" y="192" class="label">Shared memory and L1 cache</text>
+<text x="50" y="217">Shared memory: the block's program-managed working space</text>
+<text x="50" y="240">L1: hardware-managed cached data near the execution units</text>
+<text x="525" y="192" class="note">256 KiB combined pool per SM</text>
+<rect x="32" y="270" width="736" height="70" rx="8" fill="#ede9fe" stroke="#7c3aed"/>
+<text x="50" y="297" class="label">L2 cache</text>
+<text x="50" y="322">Cached data shared across the GPU's SMs</text>
+<text x="566" y="297" class="note">50 MB on H100</text>
+<rect x="32" y="355" width="736" height="70" rx="8" fill="#e0f2fe" stroke="#0284c7"/>
+<text x="50" y="382" class="label">HBM</text>
+<text x="50" y="407">Large off-chip memory holding inputs and outputs</text>
+<text x="566" y="382" class="note">80 GB configurations</text>
+<text x="32" y="452" class="note">Near storage is smaller. Retain useful data there to reduce repeated transfers.</text>
+<text x="32" y="474" class="note">Global loads do not automatically stage data in shared memory.</text>
+</svg>

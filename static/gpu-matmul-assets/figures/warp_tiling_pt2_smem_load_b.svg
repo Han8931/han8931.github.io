@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+<defs><marker id="arr-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker><marker id="arr-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="arr-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d97706"/></marker><marker id="arr-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker><marker id="arr-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker><marker id="arr-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker><marker id="arr-idle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arr-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0d9488"/></marker><marker id="arr-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#db2777"/></marker><marker id="arr-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<circle cx="40" cy="40" r="11" fill="#475569"/>
+<text x="40.0" y="44.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ffffff" font-weight="bold">1</text>
+<text x="58.0" y="45.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" fill="#0f172a" font-weight="bold">128 threads as 4 × 32</text>
+<text x="332.0" y="70.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748b" font-weight="normal">innerColB = tid % 32</text>
+<text x="146.0" y="86.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">0</text>
+<text x="518.0" y="86.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">31</text>
+<rect x="140.0" y="92.0" width="384.0" height="18.0" rx="2" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="332.0" y="105.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#2563eb" font-weight="bold">warp 0</text>
+<text x="134.0" y="105.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">0</text>
+<rect x="140.0" y="110.0" width="384.0" height="18.0" rx="2" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="332.0" y="123.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#d97706" font-weight="bold">warp 1</text>
+<text x="134.0" y="123.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">1</text>
+<rect x="140.0" y="128.0" width="384.0" height="18.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="332.0" y="141.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#7c3aed" font-weight="bold">warp 2</text>
+<text x="134.0" y="141.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">2</text>
+<rect x="140.0" y="146.0" width="384.0" height="18.0" rx="2" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+<text x="332.0" y="159.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#db2777" font-weight="bold">warp 3</text>
+<text x="134.0" y="159.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">3</text>
+<text x="40.0" y="122.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#64748b" font-weight="normal">innerRowB</text>
+<text x="40.0" y="138.8" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#64748b" font-weight="normal">= tid / 32</text>
+<text x="548.0" y="100.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="normal">A warp's 32 threads × 4 floats</text>
+<text x="548.0" y="118.2" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="normal">= 128 floats = one full row of B.</text>
+<text x="548.0" y="136.4" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="normal">Each thread: LDG.128 then STS.128.</text>
+<circle cx="40" cy="221" r="11" fill="#475569"/>
+<text x="40.0" y="225.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ffffff" font-weight="bold">2</text>
+<text x="60.0" y="226.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" fill="#0f172a" font-weight="bold">     B tile in GMEM (16 × 128)</text>
+<text x="60.0" y="246.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#64748b" font-weight="normal"></text>
+<rect x="60.0" y="260.0" width="300.0" height="192.0" rx="2" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+<rect x="60.0" y="260.0" width="300.0" height="12.0" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="0.8"/>
+<rect x="60.0" y="272.0" width="300.0" height="12.0" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="0.8"/>
+<rect x="60.0" y="284.0" width="300.0" height="12.0" rx="0" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="60.0" y="296.0" width="300.0" height="12.0" rx="0" fill="#fce7f3" stroke="#db2777" stroke-width="0.8"/>
+<rect x="60.0" y="308.0" width="300.0" height="12.0" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="0.8"/>
+<rect x="60.0" y="320.0" width="300.0" height="12.0" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="0.8"/>
+<rect x="60.0" y="332.0" width="300.0" height="12.0" rx="0" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="60.0" y="344.0" width="300.0" height="12.0" rx="0" fill="#fce7f3" stroke="#db2777" stroke-width="0.8"/>
+<rect x="60.0" y="356.0" width="300.0" height="12.0" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="0.8"/>
+<rect x="60.0" y="368.0" width="300.0" height="12.0" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="0.8"/>
+<rect x="60.0" y="380.0" width="300.0" height="12.0" rx="0" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="60.0" y="392.0" width="300.0" height="12.0" rx="0" fill="#fce7f3" stroke="#db2777" stroke-width="0.8"/>
+<rect x="60.0" y="404.0" width="300.0" height="12.0" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="0.8"/>
+<rect x="60.0" y="416.0" width="300.0" height="12.0" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="0.8"/>
+<rect x="60.0" y="428.0" width="300.0" height="12.0" rx="0" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="60.0" y="440.0" width="300.0" height="12.0" rx="0" fill="#fce7f3" stroke="#db2777" stroke-width="0.8"/>
+<text x="54.0" y="270.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">0</text>
+<text x="54.0" y="282.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">1</text>
+<text x="54.0" y="294.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">2</text>
+<text x="54.0" y="306.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">3</text>
+<text x="54.0" y="318.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">4</text>
+<text x="54.0" y="330.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">5</text>
+<text x="54.0" y="342.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">6</text>
+<text x="54.0" y="354.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">7</text>
+<text x="54.0" y="366.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">8</text>
+<text x="54.0" y="378.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">9</text>
+<text x="54.0" y="390.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">10</text>
+<text x="54.0" y="402.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">11</text>
+<text x="54.0" y="414.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">12</text>
+<text x="54.0" y="426.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">13</text>
+<text x="54.0" y="438.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">14</text>
+<text x="54.0" y="450.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">15</text>
+<line x1="60.0" y1="466.0" x2="360.0" y2="466.0" stroke="#475569" stroke-width="1.2"/>
+<line x1="60.0" y1="461.0" x2="60.0" y2="471.0" stroke="#475569" stroke-width="1.2"/>
+<line x1="360.0" y1="461.0" x2="360.0" y2="471.0" stroke="#475569" stroke-width="1.2"/>
+<text x="210.0" y="482.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#475569" font-weight="normal">128 floats</text>
+<circle cx="420" cy="221" r="11" fill="#475569"/>
+<text x="420.0" y="225.5" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ffffff" font-weight="bold">3</text>
+<text x="440.0" y="226.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" fill="#0f172a" font-weight="bold">     Bs in SMEM (16 × 128)</text>
+<text x="440.0" y="246.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#64748b" font-weight="normal"></text>
+<rect x="440.0" y="260.0" width="300.0" height="192.0" rx="2" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+<rect x="440.0" y="260.0" width="300.0" height="12.0" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="0.8"/>
+<rect x="440.0" y="272.0" width="300.0" height="12.0" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="0.8"/>
+<rect x="440.0" y="284.0" width="300.0" height="12.0" rx="0" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="440.0" y="296.0" width="300.0" height="12.0" rx="0" fill="#fce7f3" stroke="#db2777" stroke-width="0.8"/>
+<rect x="440.0" y="308.0" width="300.0" height="12.0" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="0.8"/>
+<rect x="440.0" y="320.0" width="300.0" height="12.0" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="0.8"/>
+<rect x="440.0" y="332.0" width="300.0" height="12.0" rx="0" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="440.0" y="344.0" width="300.0" height="12.0" rx="0" fill="#fce7f3" stroke="#db2777" stroke-width="0.8"/>
+<rect x="440.0" y="356.0" width="300.0" height="12.0" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="0.8"/>
+<rect x="440.0" y="368.0" width="300.0" height="12.0" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="0.8"/>
+<rect x="440.0" y="380.0" width="300.0" height="12.0" rx="0" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="440.0" y="392.0" width="300.0" height="12.0" rx="0" fill="#fce7f3" stroke="#db2777" stroke-width="0.8"/>
+<rect x="440.0" y="404.0" width="300.0" height="12.0" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="0.8"/>
+<rect x="440.0" y="416.0" width="300.0" height="12.0" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="0.8"/>
+<rect x="440.0" y="428.0" width="300.0" height="12.0" rx="0" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+<rect x="440.0" y="440.0" width="300.0" height="12.0" rx="0" fill="#fce7f3" stroke="#db2777" stroke-width="0.8"/>
+<text x="434.0" y="270.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">0</text>
+<text x="434.0" y="282.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">1</text>
+<text x="434.0" y="294.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">2</text>
+<text x="434.0" y="306.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">3</text>
+<text x="434.0" y="318.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">4</text>
+<text x="434.0" y="330.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">5</text>
+<text x="434.0" y="342.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">6</text>
+<text x="434.0" y="354.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">7</text>
+<text x="434.0" y="366.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">8</text>
+<text x="434.0" y="378.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">9</text>
+<text x="434.0" y="390.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">10</text>
+<text x="434.0" y="402.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">11</text>
+<text x="434.0" y="414.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">12</text>
+<text x="434.0" y="426.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">13</text>
+<text x="434.0" y="438.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">14</text>
+<text x="434.0" y="450.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#64748b" font-weight="normal">15</text>
+<line x1="440.0" y1="466.0" x2="740.0" y2="466.0" stroke="#475569" stroke-width="1.2"/>
+<line x1="440.0" y1="461.0" x2="440.0" y2="471.0" stroke="#475569" stroke-width="1.2"/>
+<line x1="740.0" y1="461.0" x2="740.0" y2="471.0" stroke="#475569" stroke-width="1.2"/>
+<text x="590.0" y="482.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#475569" font-weight="normal">128 floats</text>
+<line x1="374.0" y1="356.0" x2="406.0" y2="356.0" stroke="#16a34a" stroke-width="2" marker-end="url(#arr-green)"/>
+<text x="392.0" y="322.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#16a34a" font-weight="normal">same</text>
+<text x="392.0" y="338.8" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#16a34a" font-weight="normal">layout</text>
+<text x="40.0" y="518.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="normal">Rows 0–3 are loaded in pass 0 (one row per warp); the loop then adds rowStrideB = 4,</text>
+<text x="40.0" y="536.2" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="normal">so 4 passes cover all 16 rows. Row r is loaded by warp r % 4.</text>
+<text x="40.0" y="568.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#16a34a" font-weight="normal">No transpose here, so both the GMEM load and the SMEM store are vectorized (128-bit).</text>
+<rect x="440.0" y="27.0" width="16.0" height="16.0" rx="3" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="462.0" y="40.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#0f172a" font-weight="normal">warp 0</text>
+<rect x="532.0" y="27.0" width="16.0" height="16.0" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="554.0" y="40.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#0f172a" font-weight="normal">warp 1</text>
+<rect x="624.0" y="27.0" width="16.0" height="16.0" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="646.0" y="40.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#0f172a" font-weight="normal">warp 2</text>
+<rect x="716.0" y="27.0" width="16.0" height="16.0" rx="3" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+<text x="738.0" y="40.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#0f172a" font-weight="normal">warp 3</text>
+</svg>

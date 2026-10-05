@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560">
+<defs>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#f1f5f9"/><line x1="0" y1="0" x2="0" y2="6" stroke="#cbd5e1" stroke-width="2"/></pattern>
+<marker id="a475569" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+<marker id="s475569" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+<marker id="a2563eb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+<marker id="s2563eb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+<marker id="adc2626" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+<marker id="sdc2626" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+<marker id="a16a34a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+<marker id="s16a34a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+<marker id="a7c3aed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker>
+<marker id="s7c3aed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker>
+<marker id="ad97706" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d97706"/></marker>
+<marker id="sd97706" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d97706"/></marker>
+<marker id="a0f172a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/></marker>
+<marker id="s0f172a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="24" y="34.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="normal">Example: 1024×1024 matrices, 128×256 output tiles → C is 8 rows × 4 columns of tiles.</text>
+<text x="480" y="88" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" fill="#0f172a" font-weight="600">B</text>
+<rect x="270" y="70" width="200" height="130" rx="0" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+<rect x="370" y="70" width="50" height="130" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="124" y="222" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" fill="#0f172a" font-weight="600">A</text>
+<rect x="24" y="230" width="200" height="200" rx="0" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+<rect x="24" y="380" width="200" height="25" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<rect x="24" y="405" width="200" height="25" rx="0" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="1.5"/>
+<text x="124" y="397" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">A rows for tile ①</text>
+<text x="124" y="422" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">A rows for tile ②</text>
+<text x="480" y="248" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" fill="#0f172a" font-weight="600">C</text>
+<line x1="270" y1="230" x2="470" y2="230" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="270" y1="255" x2="470" y2="255" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="270" y1="280" x2="470" y2="280" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="270" y1="305" x2="470" y2="305" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="270" y1="330" x2="470" y2="330" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="270" y1="355" x2="470" y2="355" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="270" y1="380" x2="470" y2="380" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="270" y1="405" x2="470" y2="405" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="270" y1="430" x2="470" y2="430" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="270" y1="230" x2="270" y2="430" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="320" y1="230" x2="320" y2="430" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="370" y1="230" x2="370" y2="430" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="420" y1="230" x2="420" y2="430" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="470" y1="230" x2="470" y2="430" stroke="#cbd5e1" stroke-width="1"/>
+<rect x="270" y="230" width="200" height="200" rx="0" fill="none" stroke="#475569" stroke-width="1.5"/>
+<rect x="370" y="380" width="50" height="25" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<rect x="370" y="405" width="50" height="25" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="395" y="397" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0f172a" font-weight="600">①</text>
+<text x="395" y="422" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0f172a" font-weight="600">②</text>
+<rect x="362" y="372" width="66" height="66" rx="6" fill="none" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="395" y="452" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0f172a" font-weight="600">2×1 cluster</text>
+<line x1="395" y1="204" x2="395" y2="370" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#adc2626)"/>
+<text x="402" y="226" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#b91c1c" font-weight="normal">same B chunk for both</text>
+<rect x="510" y="70" width="266" height="44" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+<text x="643" y="97" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="600">L2 cache / global memory</text>
+<rect x="502" y="230" width="282" height="170" rx="8" fill="none" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="643" y="418" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748b" font-weight="normal">cluster: 2 SMs in the same GPC</text>
+<rect x="510" y="250" width="126" height="136" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+<text x="573" y="376" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0f172a" font-weight="600">SM 0  (tile ①)</text>
+<rect x="518" y="262" width="110" height="92" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="573" y="346" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">SMEM</text>
+<rect x="522" y="290" width="48" height="40" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="546" y="314" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">A ①</text>
+<rect x="576" y="290" width="48" height="40" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="600" y="314" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">B</text>
+<rect x="650" y="250" width="126" height="136" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+<text x="713" y="376" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0f172a" font-weight="600">SM 1  (tile ②)</text>
+<rect x="658" y="262" width="110" height="92" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="713" y="346" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">SMEM</text>
+<rect x="716" y="290" width="48" height="40" rx="4" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="1.5"/>
+<text x="740" y="314" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">A ②</text>
+<rect x="662" y="290" width="48" height="40" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="686" y="314" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0f172a" font-weight="normal">B</text>
+<line x1="546" y1="116" x2="546" y2="288" stroke="#2563eb" stroke-width="1.6" marker-end="url(#a2563eb)"/>
+<line x1="740" y1="116" x2="740" y2="288" stroke="#2563eb" stroke-width="1.6" marker-end="url(#a2563eb)"/>
+<line x1="643" y1="116" x2="643" y2="200" stroke="#dc2626" stroke-width="2.2"/>
+<path d="M600,288 L600,200 L686,200 L686,288" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-opacity="1" stroke-linejoin="round"/>
+<line x1="600" y1="240" x2="600" y2="288" stroke="#dc2626" stroke-width="2.2" marker-end="url(#adc2626)"/>
+<line x1="686" y1="240" x2="686" y2="288" stroke="#dc2626" stroke-width="2.2" marker-end="url(#adc2626)"/>
+<text x="650" y="146" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#b91c1c" font-weight="600">B: 1 TMA multicast</text>
+<text x="650" y="162" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#b91c1c" font-weight="normal">→ both SMs</text>
+<text x="552" y="196" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#1d4ed8" font-weight="normal">A: own</text>
+<text x="734" y="196" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#1d4ed8" font-weight="normal">A: own</text>
+<text x="24" y="470.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#0f172a" font-weight="normal">• The two output tiles share the same B chunk but each needs its own A chunk.</text>
+<text x="24" y="486.8" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#0f172a" font-weight="normal">• One SM loads B once and TMA multicasts it into both SMs&#x27; shared memory: one fewer L2/GMEM load.</text>
+<text x="24" y="503.6" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#0f172a" font-weight="normal">• Together the cluster computes a 256×256 super-tile. (1×2 or 2×2 clusters work the same way.)</text>
+<text x="24" y="520.4" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#0f172a" font-weight="normal">• Cost: both blocks must free that SMEM slot (empty barrier) before the multicast, so the SMs sync with each other.</text>
+</svg>

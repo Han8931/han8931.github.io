@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="570" viewBox="0 0 900 570" role="img" aria-labelledby="title desc">
+<title id="title">One output = one row paired with one column</title><desc id="desc">The first row of A and second column of B produce C[0,1]=6. Four products, one for each k, are added.</desc>
+<style>text{font-family:DejaVu Sans,sans-serif;fill:#0f172a} .mono{font-family:DejaVu Sans Mono,monospace}</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="32" y="38" font-size="24" style="fill:#0f172a" font-weight="700" text-anchor="start">One output = one row paired with one column</text>
+<text x="32" y="67" font-size="16" style="fill:#475569" font-weight="400" text-anchor="start">Follow C[0,1]. Indices start at zero; k runs through the four input pairs.</text>
+<text x="70" y="102" font-size="18" style="fill:#2563eb" font-weight="700" text-anchor="start">A: select row 0</text>
+<text x="355" y="102" font-size="18" style="fill:#dc2626" font-weight="700" text-anchor="start">B: select column 1</text>
+<text x="650" y="102" font-size="18" style="fill:#d97706" font-weight="700" text-anchor="start">C: output (0,1)</text>
+<rect x="70" y="130" width="44" height="44" fill="#dbeafe" stroke="#2563eb" stroke-width="2" rx="0"/>
+<text x="92.0" y="159.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">1</text>
+<rect x="114" y="130" width="44" height="44" fill="#dbeafe" stroke="#2563eb" stroke-width="2" rx="0"/>
+<text x="136.0" y="159.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">2</text>
+<rect x="158" y="130" width="44" height="44" fill="#dbeafe" stroke="#2563eb" stroke-width="2" rx="0"/>
+<text x="180.0" y="159.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">3</text>
+<rect x="202" y="130" width="44" height="44" fill="#dbeafe" stroke="#2563eb" stroke-width="2" rx="0"/>
+<text x="224.0" y="159.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">4</text>
+<rect x="70" y="174" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="92.0" y="203.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">5</text>
+<rect x="114" y="174" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="136.0" y="203.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">6</text>
+<rect x="158" y="174" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="180.0" y="203.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">7</text>
+<rect x="202" y="174" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="224.0" y="203.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">8</text>
+<rect x="70" y="218" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="92.0" y="247.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">9</text>
+<rect x="114" y="218" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="136.0" y="247.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">10</text>
+<rect x="158" y="218" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="180.0" y="247.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">11</text>
+<rect x="202" y="218" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="224.0" y="247.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">12</text>
+<rect x="70" y="262" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="92.0" y="291.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">13</text>
+<rect x="114" y="262" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="136.0" y="291.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">14</text>
+<rect x="158" y="262" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="180.0" y="291.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">15</text>
+<rect x="202" y="262" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="224.0" y="291.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">16</text>
+<text x="92.0" y="120" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">0</text>
+<text x="136.0" y="120" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">1</text>
+<text x="180.0" y="120" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">2</text>
+<text x="224.0" y="120" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">3</text>
+<text x="58" y="157.0" font-size="14" style="fill:#475569" font-weight="400" text-anchor="end">0</text>
+<text x="58" y="201.0" font-size="14" style="fill:#475569" font-weight="400" text-anchor="end">1</text>
+<text x="58" y="245.0" font-size="14" style="fill:#475569" font-weight="400" text-anchor="end">2</text>
+<text x="58" y="289.0" font-size="14" style="fill:#475569" font-weight="400" text-anchor="end">3</text>
+<rect x="355" y="130" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="377.0" y="159.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">1</text>
+<rect x="399" y="130" width="44" height="44" fill="#fee2e2" stroke="#dc2626" stroke-width="2" rx="0"/>
+<text x="421.0" y="159.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">0</text>
+<rect x="443" y="130" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="465.0" y="159.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">2</text>
+<rect x="487" y="130" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="509.0" y="159.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">0</text>
+<rect x="355" y="174" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="377.0" y="203.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">0</text>
+<rect x="399" y="174" width="44" height="44" fill="#fee2e2" stroke="#dc2626" stroke-width="2" rx="0"/>
+<text x="421.0" y="203.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">1</text>
+<rect x="443" y="174" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="465.0" y="203.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">0</text>
+<rect x="487" y="174" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="509.0" y="203.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">2</text>
+<rect x="355" y="218" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="377.0" y="247.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">1</text>
+<rect x="399" y="218" width="44" height="44" fill="#fee2e2" stroke="#dc2626" stroke-width="2" rx="0"/>
+<text x="421.0" y="247.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">0</text>
+<rect x="443" y="218" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="465.0" y="247.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">1</text>
+<rect x="487" y="218" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="509.0" y="247.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">0</text>
+<rect x="355" y="262" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="377.0" y="291.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">0</text>
+<rect x="399" y="262" width="44" height="44" fill="#fee2e2" stroke="#dc2626" stroke-width="2" rx="0"/>
+<text x="421.0" y="291.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">1</text>
+<rect x="443" y="262" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="465.0" y="291.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">0</text>
+<rect x="487" y="262" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="509.0" y="291.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">1</text>
+<text x="377.0" y="120" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">0</text>
+<text x="421.0" y="120" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">1</text>
+<text x="465.0" y="120" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">2</text>
+<text x="509.0" y="120" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">3</text>
+<text x="343" y="157.0" font-size="14" style="fill:#475569" font-weight="400" text-anchor="end">0</text>
+<text x="343" y="201.0" font-size="14" style="fill:#475569" font-weight="400" text-anchor="end">1</text>
+<text x="343" y="245.0" font-size="14" style="fill:#475569" font-weight="400" text-anchor="end">2</text>
+<text x="343" y="289.0" font-size="14" style="fill:#475569" font-weight="400" text-anchor="end">3</text>
+<rect x="650" y="130" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="672.0" y="159.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">·</text>
+<rect x="694" y="130" width="44" height="44" fill="#fef3c7" stroke="#d97706" stroke-width="2" rx="0"/>
+<text x="716.0" y="159.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">6</text>
+<rect x="738" y="130" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="760.0" y="159.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">·</text>
+<rect x="782" y="130" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="804.0" y="159.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">·</text>
+<rect x="650" y="174" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="672.0" y="203.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">·</text>
+<rect x="694" y="174" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="716.0" y="203.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">·</text>
+<rect x="738" y="174" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="760.0" y="203.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">·</text>
+<rect x="782" y="174" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="804.0" y="203.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">·</text>
+<rect x="650" y="218" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="672.0" y="247.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">·</text>
+<rect x="694" y="218" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="716.0" y="247.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">·</text>
+<rect x="738" y="218" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="760.0" y="247.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">·</text>
+<rect x="782" y="218" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="804.0" y="247.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">·</text>
+<rect x="650" y="262" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="672.0" y="291.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">·</text>
+<rect x="694" y="262" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="716.0" y="291.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">·</text>
+<rect x="738" y="262" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="760.0" y="291.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">·</text>
+<rect x="782" y="262" width="44" height="44" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="0"/>
+<text x="804.0" y="291.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">·</text>
+<text x="672.0" y="120" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">0</text>
+<text x="716.0" y="120" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">1</text>
+<text x="760.0" y="120" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">2</text>
+<text x="804.0" y="120" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">3</text>
+<text x="638" y="157.0" font-size="14" style="fill:#475569" font-weight="400" text-anchor="end">0</text>
+<text x="638" y="201.0" font-size="14" style="fill:#475569" font-weight="400" text-anchor="end">1</text>
+<text x="638" y="245.0" font-size="14" style="fill:#475569" font-weight="400" text-anchor="end">2</text>
+<text x="638" y="289.0" font-size="14" style="fill:#475569" font-weight="400" text-anchor="end">3</text>
+<text x="292" y="229" font-size="32" style="fill:#0f172a" font-weight="400" text-anchor="middle">×</text>
+<text x="590" y="229" font-size="32" style="fill:#0f172a" font-weight="400" text-anchor="middle">=</text>
+<text x="70" y="337" font-size="16" style="fill:#475569" font-weight="400" text-anchor="start">Same k pairs an A column position with a B row position.</text>
+<rect x="32" y="360" width="836" height="168" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="12"/>
+<text x="135" y="390" font-size="15" style="fill:#475569" font-weight="400" text-anchor="middle">k = 0</text>
+<text x="135" y="426" font-size="25" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">1 × 0</text>
+<text x="238" y="426" font-size="24" style="fill:#0f172a" font-weight="400" text-anchor="middle">+</text>
+<text x="340" y="390" font-size="15" style="fill:#475569" font-weight="400" text-anchor="middle">k = 1</text>
+<text x="340" y="426" font-size="25" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">2 × 1</text>
+<text x="443" y="426" font-size="24" style="fill:#0f172a" font-weight="400" text-anchor="middle">+</text>
+<text x="545" y="390" font-size="15" style="fill:#475569" font-weight="400" text-anchor="middle">k = 2</text>
+<text x="545" y="426" font-size="25" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">3 × 0</text>
+<text x="648" y="426" font-size="24" style="fill:#0f172a" font-weight="400" text-anchor="middle">+</text>
+<text x="750" y="390" font-size="15" style="fill:#475569" font-weight="400" text-anchor="middle">k = 3</text>
+<text x="750" y="426" font-size="25" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">4 × 1</text>
+<text x="450" y="475" font-size="23" style="fill:#d97706" font-weight="700" text-anchor="middle" class="mono">C[0,1] = 0 + 2 + 0 + 4 = 6</text>
+<text x="450" y="506" font-size="16" style="fill:#475569" font-weight="400" text-anchor="middle">Each other C entry uses its own row/column pair.</text>
+</svg>

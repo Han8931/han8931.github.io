@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" width="800" height="440">
+  <style>
+    text { font-family: Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #0f172a; }
+    .mono { font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .lbl { font-size: 13px; text-anchor: middle; fill: #334155; }
+    .big { font-size: 24px; font-weight: 700; text-anchor: middle; }
+    .note { font-size: 12px; text-anchor: middle; fill: #64748b; }
+    .op { font-size: 26px; text-anchor: middle; fill: #64748b; }
+  </style>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <text x="400" y="44" class="mono" style="font-size:15px; text-anchor:middle">bf16 peak = clock × Tensor Cores × FLOPs per Tensor Core per clock</text>
+  <text x="400" y="68" style="font-size:12px; text-anchor:middle; fill:#64748b">H100 SXM5, dense (no sparsity)</text>
+
+  <!-- factor boxes -->
+  <rect x="33" y="92" width="158" height="120" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text class="lbl" x="112" y="118">clock (max)</text>
+  <text class="big" x="112" y="156">1830 MHz</text>
+  <text class="note" x="112" y="182">"boost" clock</text>
+  <text class="note" x="112" y="198">(1755 MHz on PCIe)</text>
+
+  <text class="op" x="208" y="160">×</text>
+
+  <rect x="225" y="92" width="158" height="120" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text class="lbl" x="304" y="118">Tensor Cores</text>
+  <text class="big" x="304" y="156">528</text>
+  <text class="note" x="304" y="182">132 SMs × 4 per SM</text>
+
+  <text class="op" x="400" y="160">×</text>
+
+  <rect x="417" y="92" width="158" height="120" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text class="lbl" x="496" y="118">FLOPs / TC / clock</text>
+  <text class="big" x="496" y="156">1024</text>
+  <text class="note" x="496" y="182">= 512 bf16 FMAs</text>
+  <text class="note" x="496" y="198">(1 FMA = 2 FLOPs)</text>
+
+  <text class="op" x="592" y="160">=</text>
+
+  <rect x="609" y="92" width="158" height="120" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text class="lbl" x="688" y="118">speed of light</text>
+  <text class="big" x="688" y="156">989</text>
+  <text class="lbl" x="688" y="178">TFLOP/s</text>
+  <text class="note" x="688" y="198">matches the whitepaper</text>
+
+  <!-- notes -->
+  <rect x="33" y="236" width="734" height="44" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="400" y="263" style="font-size:13px; text-anchor:middle">⚠ The clock drops when the GPU is power-bound, so the real ceiling is below this number.</text>
+
+  <text x="400" y="310" style="font-size:12px; text-anchor:middle; fill:#64748b">For scale: one A100 Tensor Core does an 8×4×8 FMA per clock = 256 FMAs = 512 FLOPs.</text>
+
+  <rect x="33" y="332" width="734" height="72" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="400" y="358" style="font-size:13px; text-anchor:middle; fill:#5b21b6">Spec sheets often quote 2× this (~1979 TFLOP/s). That figure assumes 2:4 structured sparsity,</text>
+  <text x="400" y="380" style="font-size:13px; text-anchor:middle; fill:#5b21b6">which only applies if the model's weights are pruned to that pattern.</text>
+</svg>

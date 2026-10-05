@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="590" viewBox="0 0 900 590" role="img" aria-labelledby="title desc">
+<title id="title">Which output belongs to this thread?</title><desc id="desc">A 4 by 4 output is divided into 2 by 2 teaching blocks. Thread (1,0) in block (1,0) computes C[0,3]=8.</desc>
+<style>text{font-family:DejaVu Sans,sans-serif;fill:#0f172a} .mono{font-family:DejaVu Sans Mono,monospace}</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="32" y="38" font-size="24" style="fill:#0f172a" font-weight="700" text-anchor="start">Which output belongs to this thread?</text>
+<text x="32" y="68" font-size="16" style="fill:#475569" font-weight="400" text-anchor="start">Teaching launch: grid(2,2), block(2,2). CUDA coordinate pairs are (x,y).</text>
+<text x="55" y="111" font-size="18" style="fill:#0f172a" font-weight="700" text-anchor="start">C: four output regions</text>
+<rect x="55" y="147" width="53" height="53" fill="#dbeafe" stroke="#94a3b8" stroke-width="2" rx="0"/>
+<text x="81.5" y="180.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">4</text>
+<rect x="108" y="147" width="53" height="53" fill="#dbeafe" stroke="#94a3b8" stroke-width="2" rx="0"/>
+<text x="134.5" y="180.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">6</text>
+<rect x="161" y="147" width="53" height="53" fill="#fef3c7" stroke="#94a3b8" stroke-width="2" rx="0"/>
+<text x="187.5" y="180.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">5</text>
+<rect x="214" y="147" width="53" height="53" fill="#fef3c7" stroke="#dc2626" stroke-width="2" rx="0"/>
+<text x="240.5" y="180.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">8</text>
+<rect x="55" y="200" width="53" height="53" fill="#dbeafe" stroke="#94a3b8" stroke-width="2" rx="0"/>
+<text x="81.5" y="233.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">12</text>
+<rect x="108" y="200" width="53" height="53" fill="#dbeafe" stroke="#94a3b8" stroke-width="2" rx="0"/>
+<text x="134.5" y="233.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">14</text>
+<rect x="161" y="200" width="53" height="53" fill="#fef3c7" stroke="#94a3b8" stroke-width="2" rx="0"/>
+<text x="187.5" y="233.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">17</text>
+<rect x="214" y="200" width="53" height="53" fill="#fef3c7" stroke="#94a3b8" stroke-width="2" rx="0"/>
+<text x="240.5" y="233.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">20</text>
+<rect x="55" y="253" width="53" height="53" fill="#ede9fe" stroke="#94a3b8" stroke-width="2" rx="0"/>
+<text x="81.5" y="286.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">20</text>
+<rect x="108" y="253" width="53" height="53" fill="#ede9fe" stroke="#94a3b8" stroke-width="2" rx="0"/>
+<text x="134.5" y="286.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">22</text>
+<rect x="161" y="253" width="53" height="53" fill="#dcfce7" stroke="#94a3b8" stroke-width="2" rx="0"/>
+<text x="187.5" y="286.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">29</text>
+<rect x="214" y="253" width="53" height="53" fill="#dcfce7" stroke="#94a3b8" stroke-width="2" rx="0"/>
+<text x="240.5" y="286.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">32</text>
+<rect x="55" y="306" width="53" height="53" fill="#ede9fe" stroke="#94a3b8" stroke-width="2" rx="0"/>
+<text x="81.5" y="339.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">28</text>
+<rect x="108" y="306" width="53" height="53" fill="#ede9fe" stroke="#94a3b8" stroke-width="2" rx="0"/>
+<text x="134.5" y="339.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">30</text>
+<rect x="161" y="306" width="53" height="53" fill="#dcfce7" stroke="#94a3b8" stroke-width="2" rx="0"/>
+<text x="187.5" y="339.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">41</text>
+<rect x="214" y="306" width="53" height="53" fill="#dcfce7" stroke="#94a3b8" stroke-width="2" rx="0"/>
+<text x="240.5" y="339.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">44</text>
+<text x="81.5" y="137" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">0</text>
+<text x="134.5" y="137" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">1</text>
+<text x="187.5" y="137" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">2</text>
+<text x="240.5" y="137" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">3</text>
+<text x="43" y="178.5" font-size="14" style="fill:#475569" font-weight="400" text-anchor="end">0</text>
+<text x="43" y="231.5" font-size="14" style="fill:#475569" font-weight="400" text-anchor="end">1</text>
+<text x="43" y="284.5" font-size="14" style="fill:#475569" font-weight="400" text-anchor="end">2</text>
+<text x="43" y="337.5" font-size="14" style="fill:#475569" font-weight="400" text-anchor="end">3</text>
+<rect x="55" y="147" width="106" height="106" fill="none" stroke="#475569" stroke-width="3" rx="0"/>
+<rect x="161" y="147" width="106" height="106" fill="none" stroke="#d97706" stroke-width="3" rx="0"/>
+<rect x="55" y="253" width="106" height="106" fill="none" stroke="#475569" stroke-width="3" rx="0"/>
+<rect x="161" y="253" width="106" height="106" fill="none" stroke="#475569" stroke-width="3" rx="0"/>
+<text x="108" y="385" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">block x=0</text>
+<text x="214" y="385" font-size="14" style="fill:#475569" font-weight="400" text-anchor="middle">block x=1</text>
+<text x="297" y="192" font-size="14" style="fill:#475569" font-weight="400" text-anchor="start">block y=0</text>
+<text x="297" y="300" font-size="14" style="fill:#475569" font-weight="400" text-anchor="start">block y=1</text>
+<path d="M 271 166 C 355 100 393 115 471 164" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="485" y="111" font-size="18" style="fill:#d97706" font-weight="700" text-anchor="start">Zoom: blockIdx = (1,0)</text>
+<rect x="485" y="146" width="164" height="103" fill="#f8fafc" stroke="#94a3b8" stroke-width="1" rx="0"/>
+<text x="567" y="174" font-size="17" style="fill:#0f172a" font-weight="400" text-anchor="middle">thread (0,0)</text>
+<text x="567" y="209" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">C[0,2]</text>
+<text x="567" y="234" font-size="15" style="fill:#475569" font-weight="400" text-anchor="middle">value = 5</text>
+<rect x="649" y="146" width="164" height="103" fill="#fef3c7" stroke="#dc2626" stroke-width="3" rx="0"/>
+<text x="731" y="174" font-size="17" style="fill:#0f172a" font-weight="700" text-anchor="middle">thread (1,0)</text>
+<text x="731" y="209" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">C[0,3]</text>
+<text x="731" y="234" font-size="15" style="fill:#475569" font-weight="400" text-anchor="middle">value = 8</text>
+<rect x="485" y="249" width="164" height="103" fill="#f8fafc" stroke="#94a3b8" stroke-width="1" rx="0"/>
+<text x="567" y="277" font-size="17" style="fill:#0f172a" font-weight="400" text-anchor="middle">thread (0,1)</text>
+<text x="567" y="312" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">C[1,2]</text>
+<text x="567" y="337" font-size="15" style="fill:#475569" font-weight="400" text-anchor="middle">value = 17</text>
+<rect x="649" y="249" width="164" height="103" fill="#f8fafc" stroke="#94a3b8" stroke-width="1" rx="0"/>
+<text x="731" y="277" font-size="17" style="fill:#0f172a" font-weight="400" text-anchor="middle">thread (1,1)</text>
+<text x="731" y="312" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">C[1,3]</text>
+<text x="731" y="337" font-size="15" style="fill:#475569" font-weight="400" text-anchor="middle">value = 20</text>
+<rect x="32" y="420" width="836" height="127" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="10"/>
+<text x="55" y="452" font-size="18" style="fill:#0f172a" font-weight="400" text-anchor="start" class="mono">col = blockIdx.x × blockDim.x + threadIdx.x = 1×2 + 1 = 3</text>
+<text x="55" y="484" font-size="18" style="fill:#0f172a" font-weight="400" text-anchor="start" class="mono">row = blockIdx.y × blockDim.y + threadIdx.y = 0×2 + 0 = 0</text>
+<text x="55" y="521" font-size="16" style="fill:#475569" font-weight="400" text-anchor="start">This thread computes the whole dot product for C[0,3], not just one term.</text>
+<text x="32" y="574" font-size="15" style="fill:#475569" font-weight="400" text-anchor="start">These tiny blocks explain indexing. The runnable example uses 16×16 blocks.</text>
+<rect x="214" y="147" width="53" height="53" fill="none" stroke="#dc2626" stroke-width="3"/>
+</svg>

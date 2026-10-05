@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="660" viewBox="0 0 900 660" role="img" aria-labelledby="title desc">
+<title id="title">Build one output tile in two K steps</title><desc id="desc">For the top-left 2 by 2 output, the first two k values contribute [[1,2],[5,6]] and the next two contribute [[3,4],[7,8]]. Their sum is [[4,6],[12,14]].</desc>
+<style>text{font-family:DejaVu Sans,sans-serif;fill:#0f172a} .mono{font-family:DejaVu Sans Mono,monospace}</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="32" y="38" font-size="24" style="fill:#0f172a" font-weight="700" text-anchor="start">Build one output tile in two K steps</text>
+<text x="32" y="68" font-size="16" style="fill:#475569" font-weight="400" text-anchor="start">Keep output rows 0–1 and columns 0–1 fixed. Change only the input k range.</text>
+<text x="34" y="114" font-size="21" style="fill:#0f172a" font-weight="700" text-anchor="start">k = 0,1</text>
+<text x="180" y="115" font-size="17" style="fill:#2563eb" font-weight="700" text-anchor="start">A slice</text>
+<text x="409" y="115" font-size="17" style="fill:#dc2626" font-weight="700" text-anchor="start">B slice</text>
+<text x="639" y="115" font-size="17" style="fill:#d97706" font-weight="700" text-anchor="start">Contribution to C</text>
+<rect x="180" y="135" width="48" height="48" fill="#dbeafe" stroke="#2563eb" stroke-width="1" rx="0"/>
+<text x="204.0" y="166.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">1</text>
+<rect x="228" y="135" width="48" height="48" fill="#dbeafe" stroke="#2563eb" stroke-width="1" rx="0"/>
+<text x="252.0" y="166.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">2</text>
+<rect x="180" y="183" width="48" height="48" fill="#dbeafe" stroke="#2563eb" stroke-width="1" rx="0"/>
+<text x="204.0" y="214.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">5</text>
+<rect x="228" y="183" width="48" height="48" fill="#dbeafe" stroke="#2563eb" stroke-width="1" rx="0"/>
+<text x="252.0" y="214.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">6</text>
+<text x="337" y="194" font-size="28" style="fill:#0f172a" font-weight="400" text-anchor="middle">×</text>
+<rect x="409" y="135" width="48" height="48" fill="#fee2e2" stroke="#dc2626" stroke-width="1" rx="0"/>
+<text x="433.0" y="166.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">1</text>
+<rect x="457" y="135" width="48" height="48" fill="#fee2e2" stroke="#dc2626" stroke-width="1" rx="0"/>
+<text x="481.0" y="166.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">0</text>
+<rect x="409" y="183" width="48" height="48" fill="#fee2e2" stroke="#dc2626" stroke-width="1" rx="0"/>
+<text x="433.0" y="214.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">0</text>
+<rect x="457" y="183" width="48" height="48" fill="#fee2e2" stroke="#dc2626" stroke-width="1" rx="0"/>
+<text x="481.0" y="214.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">1</text>
+<text x="570" y="194" font-size="28" style="fill:#0f172a" font-weight="400" text-anchor="middle">=</text>
+<rect x="639" y="135" width="48" height="48" fill="#fef3c7" stroke="#d97706" stroke-width="1" rx="0"/>
+<text x="663.0" y="166.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">1</text>
+<rect x="687" y="135" width="48" height="48" fill="#fef3c7" stroke="#d97706" stroke-width="1" rx="0"/>
+<text x="711.0" y="166.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">2</text>
+<rect x="639" y="183" width="48" height="48" fill="#fef3c7" stroke="#d97706" stroke-width="1" rx="0"/>
+<text x="663.0" y="214.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">5</text>
+<rect x="687" y="183" width="48" height="48" fill="#fef3c7" stroke="#d97706" stroke-width="1" rx="0"/>
+<text x="711.0" y="214.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">6</text>
+<text x="180" y="259" font-size="15" style="fill:#0f172a" font-weight="400" text-anchor="start" class="mono">A[0:2, 0:2]</text>
+<text x="409" y="259" font-size="15" style="fill:#0f172a" font-weight="400" text-anchor="start" class="mono">B[0:2, 0:2]</text>
+<text x="34" y="301" font-size="21" style="fill:#0f172a" font-weight="700" text-anchor="start">k = 2,3</text>
+<text x="180" y="302" font-size="17" style="fill:#2563eb" font-weight="700" text-anchor="start">A slice</text>
+<text x="409" y="302" font-size="17" style="fill:#dc2626" font-weight="700" text-anchor="start">B slice</text>
+<text x="639" y="302" font-size="17" style="fill:#d97706" font-weight="700" text-anchor="start">Contribution to C</text>
+<rect x="180" y="322" width="48" height="48" fill="#dbeafe" stroke="#2563eb" stroke-width="1" rx="0"/>
+<text x="204.0" y="353.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">3</text>
+<rect x="228" y="322" width="48" height="48" fill="#dbeafe" stroke="#2563eb" stroke-width="1" rx="0"/>
+<text x="252.0" y="353.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">4</text>
+<rect x="180" y="370" width="48" height="48" fill="#dbeafe" stroke="#2563eb" stroke-width="1" rx="0"/>
+<text x="204.0" y="401.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">7</text>
+<rect x="228" y="370" width="48" height="48" fill="#dbeafe" stroke="#2563eb" stroke-width="1" rx="0"/>
+<text x="252.0" y="401.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">8</text>
+<text x="337" y="381" font-size="28" style="fill:#0f172a" font-weight="400" text-anchor="middle">×</text>
+<rect x="409" y="322" width="48" height="48" fill="#fee2e2" stroke="#dc2626" stroke-width="1" rx="0"/>
+<text x="433.0" y="353.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">1</text>
+<rect x="457" y="322" width="48" height="48" fill="#fee2e2" stroke="#dc2626" stroke-width="1" rx="0"/>
+<text x="481.0" y="353.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">0</text>
+<rect x="409" y="370" width="48" height="48" fill="#fee2e2" stroke="#dc2626" stroke-width="1" rx="0"/>
+<text x="433.0" y="401.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">0</text>
+<rect x="457" y="370" width="48" height="48" fill="#fee2e2" stroke="#dc2626" stroke-width="1" rx="0"/>
+<text x="481.0" y="401.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">1</text>
+<text x="570" y="381" font-size="28" style="fill:#0f172a" font-weight="400" text-anchor="middle">=</text>
+<rect x="639" y="322" width="48" height="48" fill="#fef3c7" stroke="#d97706" stroke-width="1" rx="0"/>
+<text x="663.0" y="353.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">3</text>
+<rect x="687" y="322" width="48" height="48" fill="#fef3c7" stroke="#d97706" stroke-width="1" rx="0"/>
+<text x="711.0" y="353.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">4</text>
+<rect x="639" y="370" width="48" height="48" fill="#fef3c7" stroke="#d97706" stroke-width="1" rx="0"/>
+<text x="663.0" y="401.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">7</text>
+<rect x="687" y="370" width="48" height="48" fill="#fef3c7" stroke="#d97706" stroke-width="1" rx="0"/>
+<text x="711.0" y="401.0" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">8</text>
+<text x="180" y="446" font-size="15" style="fill:#0f172a" font-weight="400" text-anchor="start" class="mono">A[0:2, 2:4]</text>
+<text x="409" y="446" font-size="15" style="fill:#0f172a" font-weight="400" text-anchor="start" class="mono">B[2:4, 0:2]</text>
+<rect x="32" y="490" width="836" height="136" fill="#fffbeb" stroke="#f59e0b" stroke-width="1" rx="10"/>
+<text x="51" y="521" font-size="19" style="fill:#0f172a" font-weight="700" text-anchor="start">Add the two</text>
+<text x="51" y="547" font-size="19" style="fill:#0f172a" font-weight="700" text-anchor="start">contributions:</text>
+<rect x="252" y="511" width="43" height="43" fill="#fff" stroke="#94a3b8" stroke-width="1" rx="0"/>
+<text x="273.5" y="539.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">1</text>
+<rect x="295" y="511" width="43" height="43" fill="#fff" stroke="#94a3b8" stroke-width="1" rx="0"/>
+<text x="316.5" y="539.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">2</text>
+<rect x="252" y="554" width="43" height="43" fill="#fff" stroke="#94a3b8" stroke-width="1" rx="0"/>
+<text x="273.5" y="582.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">5</text>
+<rect x="295" y="554" width="43" height="43" fill="#fff" stroke="#94a3b8" stroke-width="1" rx="0"/>
+<text x="316.5" y="582.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">6</text>
+<text x="379" y="564" font-size="27" style="fill:#0f172a" font-weight="400" text-anchor="middle">+</text>
+<rect x="420" y="511" width="43" height="43" fill="#fff" stroke="#94a3b8" stroke-width="1" rx="0"/>
+<text x="441.5" y="539.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">3</text>
+<rect x="463" y="511" width="43" height="43" fill="#fff" stroke="#94a3b8" stroke-width="1" rx="0"/>
+<text x="484.5" y="539.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">4</text>
+<rect x="420" y="554" width="43" height="43" fill="#fff" stroke="#94a3b8" stroke-width="1" rx="0"/>
+<text x="441.5" y="582.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">7</text>
+<rect x="463" y="554" width="43" height="43" fill="#fff" stroke="#94a3b8" stroke-width="1" rx="0"/>
+<text x="484.5" y="582.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">8</text>
+<text x="552" y="564" font-size="27" style="fill:#0f172a" font-weight="400" text-anchor="middle">=</text>
+<rect x="601" y="511" width="43" height="43" fill="#fef3c7" stroke="#d97706" stroke-width="1" rx="0"/>
+<text x="622.5" y="539.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">4</text>
+<rect x="644" y="511" width="43" height="43" fill="#fef3c7" stroke="#d97706" stroke-width="1" rx="0"/>
+<text x="665.5" y="539.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">6</text>
+<rect x="601" y="554" width="43" height="43" fill="#fef3c7" stroke="#d97706" stroke-width="1" rx="0"/>
+<text x="622.5" y="582.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">12</text>
+<rect x="644" y="554" width="43" height="43" fill="#fef3c7" stroke="#d97706" stroke-width="1" rx="0"/>
+<text x="665.5" y="582.5" font-size="21" style="fill:#0f172a" font-weight="400" text-anchor="middle" class="mono">14</text>
+<text x="728" y="544" font-size="17" style="fill:#d97706" font-weight="700" text-anchor="start">Top-left</text>
+<text x="728" y="570" font-size="17" style="fill:#d97706" font-weight="700" text-anchor="start">tile of C</text>
+</svg>

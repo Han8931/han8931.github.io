@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<defs><marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker><marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="ah-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d97706"/></marker><marker id="ah-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker><marker id="ah-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker><marker id="ah-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker><marker id="ah-idle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f1f5f9"/><line x1="0" y1="0" x2="0" y2="8" stroke="#94a3b8" stroke-width="2"/></pattern></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="400" y="36" font-size="15" fill="#0f172a" text-anchor="middle" font-weight="bold">Same thread, different output shapes: how many loads per result?</text>
+<rect x="30" y="56" width="236" height="400" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="44" y="82" font-size="14" fill="#0f172a" text-anchor="start" font-weight="bold">1 · one output</text>
+<rect x="156" y="108" width="96" height="96" rx="1" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+<text x="156" y="102" font-size="12" fill="#0f172a" text-anchor="start" font-weight="bold">B</text>
+<rect x="46" y="224" width="96" height="96" rx="1" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+<text x="46" y="218" font-size="12" fill="#0f172a" text-anchor="start" font-weight="bold">A</text>
+<rect x="156" y="224" width="96" height="96" rx="1" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+<text x="156" y="218" font-size="12" fill="#0f172a" text-anchor="start" font-weight="bold">C</text>
+<rect x="46" y="264" width="96" height="8" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+<rect x="204" y="108" width="8" height="96" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+<rect x="204" y="264" width="8" height="8" rx="0" fill="#fcd34d" stroke="#d97706" stroke-width="1.2"/>
+<text x="44" y="128" font-size="12" fill="#2563eb" text-anchor="start" font-weight="normal">1 row of A</text>
+<text x="44" y="146" font-size="12" fill="#dc2626" text-anchor="start" font-weight="normal">1 column of B</text>
+<text x="44" y="164" font-size="12" fill="#d97706" text-anchor="start" font-weight="normal">→ 1 output</text>
+<text x="46" y="356" font-size="13" fill="#64748b" text-anchor="start" font-weight="normal">loads:</text>
+<text x="250" y="356" font-size="13" fill="#0f172a" text-anchor="end" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">2K</text>
+<text x="46" y="378" font-size="13" fill="#64748b" text-anchor="start" font-weight="normal">results:</text>
+<text x="250" y="378" font-size="13" fill="#0f172a" text-anchor="end" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">1</text>
+<line x1="46" y1="390" x2="250" y2="390" stroke="#cbd5e1" stroke-width="1"/>
+<text x="46" y="414" font-size="13" fill="#0f172a" text-anchor="start" font-weight="bold">loads / result:</text>
+<text x="250" y="414" font-size="15" fill="#0f172a" text-anchor="end" font-weight="bold" font-family="ui-monospace, Menlo, Consolas, monospace">2K</text>
+<rect x="286" y="56" width="236" height="400" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="300" y="82" font-size="14" fill="#0f172a" text-anchor="start" font-weight="bold">2 · thin 4×1 slice</text>
+<rect x="412" y="108" width="96" height="96" rx="1" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+<text x="412" y="102" font-size="12" fill="#0f172a" text-anchor="start" font-weight="bold">B</text>
+<rect x="302" y="224" width="96" height="96" rx="1" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+<text x="302" y="218" font-size="12" fill="#0f172a" text-anchor="start" font-weight="bold">A</text>
+<rect x="412" y="224" width="96" height="96" rx="1" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+<text x="412" y="218" font-size="12" fill="#0f172a" text-anchor="start" font-weight="bold">C</text>
+<rect x="302" y="256" width="96" height="8" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+<rect x="302" y="264" width="96" height="8" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+<rect x="302" y="272" width="96" height="8" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+<rect x="302" y="280" width="96" height="8" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+<rect x="460" y="108" width="8" height="96" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+<rect x="460" y="256" width="8" height="8" rx="0" fill="#fcd34d" stroke="#d97706" stroke-width="1.2"/>
+<rect x="460" y="264" width="8" height="8" rx="0" fill="#fcd34d" stroke="#d97706" stroke-width="1.2"/>
+<rect x="460" y="272" width="8" height="8" rx="0" fill="#fcd34d" stroke="#d97706" stroke-width="1.2"/>
+<rect x="460" y="280" width="8" height="8" rx="0" fill="#fcd34d" stroke="#d97706" stroke-width="1.2"/>
+<text x="300" y="128" font-size="12" fill="#2563eb" text-anchor="start" font-weight="normal">4 rows of A</text>
+<text x="300" y="146" font-size="12" fill="#dc2626" text-anchor="start" font-weight="normal">1 column of B</text>
+<text x="300" y="164" font-size="12" fill="#d97706" text-anchor="start" font-weight="normal">→ 4 outputs</text>
+<text x="302" y="356" font-size="13" fill="#64748b" text-anchor="start" font-weight="normal">loads:</text>
+<text x="506" y="356" font-size="13" fill="#0f172a" text-anchor="end" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">5K</text>
+<text x="302" y="378" font-size="13" fill="#64748b" text-anchor="start" font-weight="normal">results:</text>
+<text x="506" y="378" font-size="13" fill="#0f172a" text-anchor="end" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">4</text>
+<line x1="302" y1="390" x2="506" y2="390" stroke="#cbd5e1" stroke-width="1"/>
+<text x="302" y="414" font-size="13" fill="#0f172a" text-anchor="start" font-weight="bold">loads / result:</text>
+<text x="506" y="414" font-size="15" fill="#0f172a" text-anchor="end" font-weight="bold" font-family="ui-monospace, Menlo, Consolas, monospace">1.25K</text>
+<rect x="542" y="56" width="236" height="400" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+<text x="556" y="82" font-size="14" fill="#0f172a" text-anchor="start" font-weight="bold">3 · square 2×2 tile</text>
+<rect x="668" y="108" width="96" height="96" rx="1" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+<text x="668" y="102" font-size="12" fill="#0f172a" text-anchor="start" font-weight="bold">B</text>
+<rect x="558" y="224" width="96" height="96" rx="1" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+<text x="558" y="218" font-size="12" fill="#0f172a" text-anchor="start" font-weight="bold">A</text>
+<rect x="668" y="224" width="96" height="96" rx="1" fill="#ffffff" stroke="#0f172a" stroke-width="1.2"/>
+<text x="668" y="218" font-size="12" fill="#0f172a" text-anchor="start" font-weight="bold">C</text>
+<rect x="558" y="264" width="96" height="8" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+<rect x="558" y="272" width="96" height="8" rx="0" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+<rect x="716" y="108" width="8" height="96" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+<rect x="724" y="108" width="8" height="96" rx="0" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+<rect x="716" y="264" width="8" height="8" rx="0" fill="#fcd34d" stroke="#d97706" stroke-width="1.2"/>
+<rect x="724" y="264" width="8" height="8" rx="0" fill="#fcd34d" stroke="#d97706" stroke-width="1.2"/>
+<rect x="716" y="272" width="8" height="8" rx="0" fill="#fcd34d" stroke="#d97706" stroke-width="1.2"/>
+<rect x="724" y="272" width="8" height="8" rx="0" fill="#fcd34d" stroke="#d97706" stroke-width="1.2"/>
+<text x="556" y="128" font-size="12" fill="#2563eb" text-anchor="start" font-weight="normal">2 rows of A</text>
+<text x="556" y="146" font-size="12" fill="#dc2626" text-anchor="start" font-weight="normal">2 columns of B</text>
+<text x="556" y="164" font-size="12" fill="#d97706" text-anchor="start" font-weight="normal">→ 4 outputs</text>
+<text x="558" y="356" font-size="13" fill="#64748b" text-anchor="start" font-weight="normal">loads:</text>
+<text x="762" y="356" font-size="13" fill="#0f172a" text-anchor="end" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">4K</text>
+<text x="558" y="378" font-size="13" fill="#64748b" text-anchor="start" font-weight="normal">results:</text>
+<text x="762" y="378" font-size="13" fill="#0f172a" text-anchor="end" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">4</text>
+<line x1="558" y1="390" x2="762" y2="390" stroke="#cbd5e1" stroke-width="1"/>
+<text x="558" y="414" font-size="13" fill="#0f172a" text-anchor="start" font-weight="bold">loads / result:</text>
+<text x="762" y="414" font-size="15" fill="#16a34a" text-anchor="end" font-weight="bold" font-family="ui-monospace, Menlo, Consolas, monospace">K</text>
+<text x="400" y="484" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="normal">A square tile reuses every loaded row AND column, so it has the fewest loads per result:</text>
+<text x="400" y="502" font-size="12" fill="#64748b" text-anchor="middle" font-weight="normal">the highest arithmetic intensity. (Counts K-element rows/columns loaded; ignores writing C.)</text>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="760" viewBox="0 0 800 760">
+<defs><marker id="arr-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker><marker id="arr-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="arr-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d97706"/></marker><marker id="arr-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker><marker id="arr-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker><marker id="arr-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker><marker id="arr-idle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arr-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0d9488"/></marker><marker id="arr-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#db2777"/></marker><marker id="arr-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="40.0" y="60.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" fill="#0f172a" font-weight="bold">Block tiling</text>
+<text x="40.0" y="92.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="normal">Each thread block owns ONE output tile of C</text>
+<text x="40.0" y="110.2" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="normal">(128×128) and builds it as a sum of small</text>
+<text x="40.0" y="128.4" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="normal">partial matmuls: (128×16) @ (16×128).</text>
+<text x="40.0" y="160.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="normal">The k-loop walks the panels in steps of BK = 16:</text>
+<text x="40.0" y="178.2" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="normal">4096 / 16 = 256 steps.</text>
+<text x="40.0" y="214.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="normal">Blocks never talk to each other: every</text>
+<text x="40.0" y="232.2" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="normal">output tile is computed independently.</text>
+<text x="40.0" y="268.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#64748b" font-weight="normal">Classic (fp32) warp-tiling kernel:</text>
+<text x="40.0" y="284.8" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#64748b" font-weight="normal">BM = BN = 128, BK = 16. Sizes not to scale.</text>
+<rect x="460.0" y="70.0" width="300.0" height="300.0" rx="2" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+<text x="772.0" y="84.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" fill="#0f172a" font-weight="bold">B</text>
+<text x="610.0" y="40.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748b" font-weight="normal">N = 4096</text>
+<text x="772.0" y="220.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#64748b" font-weight="normal">K</text>
+<rect x="460.0" y="70.0" width="56.0" height="300.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.5"/>
+<rect x="460.0" y="70.0" width="56.0" height="30.0" rx="2" fill="#fca5a5" stroke="#dc2626" stroke-width="2"/>
+<rect x="460.0" y="100.0" width="56.0" height="30.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+<rect x="460.0" y="340.0" width="56.0" height="30.0" rx="2" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+<text x="488.0" y="224.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" fill="#dc2626" font-weight="normal">⋮</text>
+<line x1="538.0" y1="90.0" x2="538.0" y2="350.0" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-red)"/>
+<text x="546.0" y="220.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#dc2626" font-weight="normal">k = 0 … 255</text>
+<line x1="460.0" y1="60.0" x2="516.0" y2="60.0" stroke="#dc2626" stroke-width="1.2"/>
+<line x1="460.0" y1="55.0" x2="460.0" y2="65.0" stroke="#dc2626" stroke-width="1.2"/>
+<line x1="516.0" y1="55.0" x2="516.0" y2="65.0" stroke="#dc2626" stroke-width="1.2"/>
+<text x="488.0" y="53.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#dc2626" font-weight="normal">BN = 128</text>
+<line x1="450.0" y1="70.0" x2="450.0" y2="100.0" stroke="#dc2626" stroke-width="1.2"/>
+<line x1="445.0" y1="70.0" x2="455.0" y2="70.0" stroke="#dc2626" stroke-width="1.2"/>
+<line x1="445.0" y1="100.0" x2="455.0" y2="100.0" stroke="#dc2626" stroke-width="1.2"/>
+<text x="442.0" y="89.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="end" fill="#dc2626" font-weight="normal">BK = 16</text>
+<rect x="714.0" y="70.0" width="46.0" height="300.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.6"/>
+<rect x="120.0" y="420.0" width="300.0" height="300.0" rx="2" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+<text x="430.0" y="434.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" fill="#0f172a" font-weight="bold">A</text>
+<text x="270.0" y="742.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748b" font-weight="normal">K = 4096</text>
+<text x="94.0" y="600.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#64748b" font-weight="normal">M</text>
+<rect x="120.0" y="420.0" width="300.0" height="56.0" rx="2" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.5"/>
+<rect x="120.0" y="420.0" width="30.0" height="56.0" rx="2" fill="#93c5fd" stroke="#2563eb" stroke-width="2"/>
+<rect x="150.0" y="420.0" width="30.0" height="56.0" rx="2" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<rect x="390.0" y="420.0" width="30.0" height="56.0" rx="2" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="270.0" y="453.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" fill="#2563eb" font-weight="normal">…</text>
+<line x1="140.0" y1="498.0" x2="400.0" y2="498.0" stroke="#2563eb" stroke-width="2" marker-end="url(#arr-blue)"/>
+<text x="270.0" y="518.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#2563eb" font-weight="normal">k = 0 … 255</text>
+<line x1="110.0" y1="420.0" x2="110.0" y2="476.0" stroke="#2563eb" stroke-width="1.2"/>
+<line x1="105.0" y1="420.0" x2="115.0" y2="420.0" stroke="#2563eb" stroke-width="1.2"/>
+<line x1="105.0" y1="476.0" x2="115.0" y2="476.0" stroke="#2563eb" stroke-width="1.2"/>
+<text x="102.0" y="452.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="end" fill="#2563eb" font-weight="normal">BM = 128</text>
+<line x1="120.0" y1="410.0" x2="150.0" y2="410.0" stroke="#2563eb" stroke-width="1.2"/>
+<line x1="120.0" y1="405.0" x2="120.0" y2="415.0" stroke="#2563eb" stroke-width="1.2"/>
+<line x1="150.0" y1="405.0" x2="150.0" y2="415.0" stroke="#2563eb" stroke-width="1.2"/>
+<text x="135.0" y="403.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#2563eb" font-weight="normal">BK = 16</text>
+<rect x="120.0" y="654.0" width="300.0" height="46.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="6 4" fill-opacity="0.6"/>
+<rect x="460.0" y="420.0" width="300.0" height="300.0" rx="2" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+<text x="772.0" y="434.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" fill="#0f172a" font-weight="bold">C</text>
+<rect x="460.0" y="420.0" width="56.0" height="56.0" rx="2" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="526.0" y="440.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#d97706" font-weight="normal">this block's tile</text>
+<text x="526.0" y="458.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#d97706" font-weight="normal">= Σ (A tile @ B tile)</text>
+<rect x="714.0" y="654.0" width="46.0" height="46.0" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+<text x="704.0" y="622.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="end" fill="#7c3aed" font-weight="normal">another block:</text>
+<text x="704.0" y="638.8" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="end" fill="#7c3aed" font-weight="normal">independent work</text>
+<line x1="420.0" y1="448.0" x2="456.0" y2="448.0" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arr-amber)"/>
+<line x1="488.0" y1="370.0" x2="488.0" y2="416.0" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arr-amber)"/>
+</svg>

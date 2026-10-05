@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="490" viewBox="0 0 800 490" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<defs><marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker><marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="ah-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d97706"/></marker><marker id="ah-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker><marker id="ah-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker><marker id="ah-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker><marker id="ah-idle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f1f5f9"/><line x1="0" y1="0" x2="0" y2="8" stroke="#94a3b8" stroke-width="2"/></pattern></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="40" y="44" font-size="14" fill="#0f172a" text-anchor="start" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">row = blockIdx.y * 32 + <tspan fill="#dc2626" font-weight="bold">threadIdx.x</tspan></text>
+<text x="40" y="68" font-size="14" fill="#0f172a" text-anchor="start" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">col = blockIdx.x * 32 + <tspan fill="#dc2626" font-weight="bold">threadIdx.y</tspan></text>
+<text x="470" y="56" font-size="13" fill="#dc2626" text-anchor="start" font-weight="bold">← just swapped x and y</text>
+<rect x="80" y="130" width="26" height="320" rx="0" fill="#fde68a" stroke="#d97706" stroke-width="1"/>
+<line x1="80" y1="140.0" x2="106" y2="140.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="150.0" x2="106" y2="150.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="160.0" x2="106" y2="160.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="170.0" x2="106" y2="170.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="180.0" x2="106" y2="180.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="190.0" x2="106" y2="190.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="200.0" x2="106" y2="200.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="210.0" x2="106" y2="210.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="220.0" x2="106" y2="220.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="230.0" x2="106" y2="230.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="240.0" x2="106" y2="240.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="250.0" x2="106" y2="250.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="260.0" x2="106" y2="260.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="270.0" x2="106" y2="270.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="280.0" x2="106" y2="280.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="290.0" x2="106" y2="290.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="300.0" x2="106" y2="300.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="310.0" x2="106" y2="310.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="320.0" x2="106" y2="320.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="330.0" x2="106" y2="330.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="340.0" x2="106" y2="340.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="350.0" x2="106" y2="350.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="360.0" x2="106" y2="360.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="370.0" x2="106" y2="370.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="380.0" x2="106" y2="380.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="390.0" x2="106" y2="390.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="400.0" x2="106" y2="400.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="410.0" x2="106" y2="410.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="420.0" x2="106" y2="420.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="430.0" x2="106" y2="430.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="80" y1="440.0" x2="106" y2="440.0" stroke="#f59e0b" stroke-width="0.4"/>
+<rect x="85" y="208.0" width="16" height="164" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="97.0" y="290.0" font-size="11" fill="#0f172a" text-anchor="middle" font-weight="normal" transform="rotate(-90 97.0 290.0)">warp 0 · threads 0–31</text>
+<rect x="106" y="130" width="26" height="320" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+<line x1="106" y1="140.0" x2="132" y2="140.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="150.0" x2="132" y2="150.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="160.0" x2="132" y2="160.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="170.0" x2="132" y2="170.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="180.0" x2="132" y2="180.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="190.0" x2="132" y2="190.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="200.0" x2="132" y2="200.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="210.0" x2="132" y2="210.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="220.0" x2="132" y2="220.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="230.0" x2="132" y2="230.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="240.0" x2="132" y2="240.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="250.0" x2="132" y2="250.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="260.0" x2="132" y2="260.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="270.0" x2="132" y2="270.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="280.0" x2="132" y2="280.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="290.0" x2="132" y2="290.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="300.0" x2="132" y2="300.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="310.0" x2="132" y2="310.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="320.0" x2="132" y2="320.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="330.0" x2="132" y2="330.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="340.0" x2="132" y2="340.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="350.0" x2="132" y2="350.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="360.0" x2="132" y2="360.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="370.0" x2="132" y2="370.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="380.0" x2="132" y2="380.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="390.0" x2="132" y2="390.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="400.0" x2="132" y2="400.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="410.0" x2="132" y2="410.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="420.0" x2="132" y2="420.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="430.0" x2="132" y2="430.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="106" y1="440.0" x2="132" y2="440.0" stroke="#f59e0b" stroke-width="0.4"/>
+<rect x="111" y="208.0" width="16" height="164" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="123.0" y="290.0" font-size="11" fill="#0f172a" text-anchor="middle" font-weight="normal" transform="rotate(-90 123.0 290.0)">warp 1 · threads 32–63</text>
+<rect x="132" y="130" width="26" height="320" rx="0" fill="#fde68a" stroke="#d97706" stroke-width="1"/>
+<line x1="132" y1="140.0" x2="158" y2="140.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="150.0" x2="158" y2="150.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="160.0" x2="158" y2="160.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="170.0" x2="158" y2="170.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="180.0" x2="158" y2="180.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="190.0" x2="158" y2="190.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="200.0" x2="158" y2="200.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="210.0" x2="158" y2="210.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="220.0" x2="158" y2="220.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="230.0" x2="158" y2="230.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="240.0" x2="158" y2="240.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="250.0" x2="158" y2="250.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="260.0" x2="158" y2="260.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="270.0" x2="158" y2="270.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="280.0" x2="158" y2="280.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="290.0" x2="158" y2="290.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="300.0" x2="158" y2="300.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="310.0" x2="158" y2="310.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="320.0" x2="158" y2="320.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="330.0" x2="158" y2="330.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="340.0" x2="158" y2="340.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="350.0" x2="158" y2="350.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="360.0" x2="158" y2="360.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="370.0" x2="158" y2="370.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="380.0" x2="158" y2="380.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="390.0" x2="158" y2="390.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="400.0" x2="158" y2="400.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="410.0" x2="158" y2="410.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="420.0" x2="158" y2="420.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="430.0" x2="158" y2="430.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="132" y1="440.0" x2="158" y2="440.0" stroke="#f59e0b" stroke-width="0.4"/>
+<rect x="137" y="208.0" width="16" height="164" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="149.0" y="290.0" font-size="11" fill="#0f172a" text-anchor="middle" font-weight="normal" transform="rotate(-90 149.0 290.0)">warp 2 · threads 64–95</text>
+<text x="174" y="290.0" font-size="18" fill="#64748b" text-anchor="middle" font-weight="normal">⋯</text>
+<rect x="190" y="130" width="26" height="320" rx="0" fill="#fde68a" stroke="#d97706" stroke-width="1"/>
+<line x1="190" y1="140.0" x2="216" y2="140.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="150.0" x2="216" y2="150.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="160.0" x2="216" y2="160.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="170.0" x2="216" y2="170.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="180.0" x2="216" y2="180.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="190.0" x2="216" y2="190.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="200.0" x2="216" y2="200.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="210.0" x2="216" y2="210.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="220.0" x2="216" y2="220.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="230.0" x2="216" y2="230.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="240.0" x2="216" y2="240.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="250.0" x2="216" y2="250.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="260.0" x2="216" y2="260.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="270.0" x2="216" y2="270.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="280.0" x2="216" y2="280.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="290.0" x2="216" y2="290.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="300.0" x2="216" y2="300.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="310.0" x2="216" y2="310.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="320.0" x2="216" y2="320.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="330.0" x2="216" y2="330.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="340.0" x2="216" y2="340.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="350.0" x2="216" y2="350.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="360.0" x2="216" y2="360.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="370.0" x2="216" y2="370.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="380.0" x2="216" y2="380.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="390.0" x2="216" y2="390.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="400.0" x2="216" y2="400.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="410.0" x2="216" y2="410.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="420.0" x2="216" y2="420.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="430.0" x2="216" y2="430.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="190" y1="440.0" x2="216" y2="440.0" stroke="#f59e0b" stroke-width="0.4"/>
+<rect x="195" y="208.0" width="16" height="164" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="207.0" y="290.0" font-size="11" fill="#0f172a" text-anchor="middle" font-weight="normal" transform="rotate(-90 207.0 290.0)">warp 30 · threads 960–991</text>
+<rect x="216" y="130" width="26" height="320" rx="0" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+<line x1="216" y1="140.0" x2="242" y2="140.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="150.0" x2="242" y2="150.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="160.0" x2="242" y2="160.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="170.0" x2="242" y2="170.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="180.0" x2="242" y2="180.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="190.0" x2="242" y2="190.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="200.0" x2="242" y2="200.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="210.0" x2="242" y2="210.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="220.0" x2="242" y2="220.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="230.0" x2="242" y2="230.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="240.0" x2="242" y2="240.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="250.0" x2="242" y2="250.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="260.0" x2="242" y2="260.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="270.0" x2="242" y2="270.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="280.0" x2="242" y2="280.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="290.0" x2="242" y2="290.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="300.0" x2="242" y2="300.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="310.0" x2="242" y2="310.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="320.0" x2="242" y2="320.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="330.0" x2="242" y2="330.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="340.0" x2="242" y2="340.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="350.0" x2="242" y2="350.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="360.0" x2="242" y2="360.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="370.0" x2="242" y2="370.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="380.0" x2="242" y2="380.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="390.0" x2="242" y2="390.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="400.0" x2="242" y2="400.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="410.0" x2="242" y2="410.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="420.0" x2="242" y2="420.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="430.0" x2="242" y2="430.0" stroke="#f59e0b" stroke-width="0.4"/>
+<line x1="216" y1="440.0" x2="242" y2="440.0" stroke="#f59e0b" stroke-width="0.4"/>
+<rect x="221" y="208.0" width="16" height="164" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="233.0" y="290.0" font-size="11" fill="#0f172a" text-anchor="middle" font-weight="normal" transform="rotate(-90 233.0 290.0)">warp 31 · threads 992–1023</text>
+<text x="80" y="118" font-size="12" fill="#dc2626" text-anchor="start" font-weight="normal">threadIdx.y → (now the column)</text>
+<text x="66" y="290.0" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="normal" transform="rotate(-90 66 290.0)">threadIdx.x ↓ (now the row, fastest-varying)</text>
+<text x="161.0" y="474" font-size="12" fill="#64748b" text-anchor="middle" font-weight="normal">one 32×32 block of C</text>
+<text x="380" y="160" font-size="13" fill="#0f172a" text-anchor="start" font-weight="bold">Each COLUMN of the block is now one warp:</text>
+<text x="380" y="182" font-size="12" fill="#0f172a" text-anchor="start" font-weight="normal">32 threads, same column, 32 different rows</text>
+<text x="380" y="214" font-size="12" fill="#0f172a" text-anchor="start" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">A[row][k]  →  rows 4096 floats apart</text>
+<text x="380" y="232" font-size="12" fill="#dc2626" text-anchor="start" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">             uncoalesced ✗</text>
+<text x="380" y="258" font-size="12" fill="#0f172a" text-anchor="start" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">C[row][col] →  strided writes</text>
+<text x="380" y="276" font-size="12" fill="#dc2626" text-anchor="start" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">             uncoalesced ✗</text>
+<text x="380" y="302" font-size="12" fill="#0f172a" text-anchor="start" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">B[k][col]  →  same address</text>
+<text x="380" y="320" font-size="12" fill="#64748b" text-anchor="start" font-weight="normal" font-family="ui-monospace, Menlo, Consolas, monospace">             broadcast</text>
+<rect x="370" y="352" width="380" height="70" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="560" y="380" font-size="13" fill="#0f172a" text-anchor="middle" font-weight="normal">Same math, same threads, same results</text>
+<text x="560" y="404" font-size="14" fill="#dc2626" text-anchor="middle" font-weight="bold">3171 → 243 GFLOP/s (13× slower)</text>
+</svg>

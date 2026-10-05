@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="470" viewBox="0 0 800 470">
+<defs>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#f1f5f9"/><line x1="0" y1="0" x2="0" y2="6" stroke="#cbd5e1" stroke-width="2"/></pattern>
+<marker id="a475569" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+<marker id="s475569" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+<marker id="a2563eb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+<marker id="s2563eb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+<marker id="adc2626" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+<marker id="sdc2626" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+<marker id="a16a34a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+<marker id="s16a34a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+<marker id="a7c3aed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker>
+<marker id="s7c3aed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker>
+<marker id="ad97706" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d97706"/></marker>
+<marker id="sd97706" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d97706"/></marker>
+<marker id="a0f172a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/></marker>
+<marker id="s0f172a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="24" y="36" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" fill="#0f172a" font-weight="600">Circular buffer with 2 SMEM slots (case shown: loads slower than compute)</text>
+<text x="24" y="94.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#64748b" font-weight="normal">TMA</text>
+<text x="24" y="112.2" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#64748b" font-weight="normal">async copies</text>
+<text x="24" y="74" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#1d4ed8" font-weight="600">Producer</text>
+<text x="24" y="264.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#64748b" font-weight="normal">Tensor Cores</text>
+<text x="24" y="282.2" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#64748b" font-weight="normal">wgmma</text>
+<text x="24" y="244" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#b91c1c" font-weight="600">Consumer</text>
+<text x="24" y="134" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#64748b" font-weight="normal">1 thread issues TMA,</text>
+<text x="24" y="148" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#64748b" font-weight="normal">returns immediately</text>
+<text x="24" y="304" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#64748b" font-weight="normal">128-thread warp group</text>
+<rect x="200" y="80" width="130" height="34" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="265.0" y="102" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0f172a" font-weight="normal">load → slot 0</text>
+<rect x="330" y="80" width="130" height="34" rx="6" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="395.0" y="102" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0f172a" font-weight="normal">load → slot 1</text>
+<rect x="460" y="80" width="130" height="34" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="525.0" y="102" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0f172a" font-weight="normal">load → slot 0</text>
+<rect x="590" y="80" width="130" height="34" rx="6" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="655.0" y="102" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0f172a" font-weight="normal">load → slot 1</text>
+<rect x="200" y="250" width="130" height="34" rx="6" fill="url(#hatch)" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3"/>
+<rect x="330" y="250" width="56" height="34" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="358.0" y="272" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0f172a" font-weight="normal">slot 0</text>
+<rect x="386" y="250" width="74" height="34" rx="6" fill="url(#hatch)" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3"/>
+<rect x="460" y="250" width="56" height="34" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="488.0" y="272" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0f172a" font-weight="normal">slot 1</text>
+<rect x="516" y="250" width="74" height="34" rx="6" fill="url(#hatch)" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3"/>
+<rect x="590" y="250" width="56" height="34" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="618.0" y="272" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0f172a" font-weight="normal">slot 0</text>
+<rect x="646" y="250" width="74" height="34" rx="6" fill="url(#hatch)" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3"/>
+<rect x="720" y="250" width="56" height="34" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="748.0" y="272" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0f172a" font-weight="normal">slot 1</text>
+<line x1="330" y1="116" x2="330" y2="246" stroke="#16a34a" stroke-width="1.8" marker-end="url(#a16a34a)"/>
+<text x="335" y="152" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" text-anchor="start" fill="#15803d" font-weight="600">full[0]</text>
+<line x1="386" y1="248" x2="386" y2="118" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="5 3" marker-end="url(#a7c3aed)"/>
+<text x="391" y="210" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" text-anchor="start" fill="#6d28d9" font-weight="600">empty[0]</text>
+<line x1="460" y1="116" x2="460" y2="246" stroke="#16a34a" stroke-width="1.8" marker-end="url(#a16a34a)"/>
+<text x="465" y="152" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" text-anchor="start" fill="#15803d" font-weight="600">full[1]</text>
+<line x1="516" y1="248" x2="516" y2="118" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="5 3" marker-end="url(#a7c3aed)"/>
+<text x="521" y="210" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" text-anchor="start" fill="#6d28d9" font-weight="600">empty[1]</text>
+<line x1="590" y1="116" x2="590" y2="246" stroke="#16a34a" stroke-width="1.8" marker-end="url(#a16a34a)"/>
+<text x="595" y="152" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" text-anchor="start" fill="#15803d" font-weight="600">full[0]</text>
+<line x1="646" y1="248" x2="646" y2="118" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="5 3" marker-end="url(#a7c3aed)"/>
+<text x="651" y="210" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" text-anchor="start" fill="#6d28d9" font-weight="600">empty[0]</text>
+<line x1="720" y1="116" x2="720" y2="246" stroke="#16a34a" stroke-width="1.8" marker-end="url(#a16a34a)"/>
+<text x="725" y="152" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" text-anchor="start" fill="#15803d" font-weight="600">full[1]</text>
+<line x1="200" y1="320" x2="785" y2="320" stroke="#475569" stroke-width="1.2" marker-end="url(#a475569)"/>
+<text x="785" y="338" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="end" fill="#64748b" font-weight="normal">time</text>
+<rect x="24" y="336" width="28" height="16" rx="3" fill="url(#hatch)" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="58" y="348" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#64748b" font-weight="normal">= idle</text>
+<text x="24" y="380" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="start" fill="#15803d" font-weight="600">full[i]</text>
+<text x="90" y="380" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="normal">TMA delivered every byte of slot i → the consumer may start its wgmmas on it.</text>
+<text x="24" y="404" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="start" fill="#6d28d9" font-weight="600">empty[i]</text>
+<text x="90" y="404" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="normal">consumer finished reading slot i → the producer may refill it (slots wrap 0, 1, 0, 1 …).</text>
+<text x="24" y="436.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#64748b" font-weight="normal">Here TMA is the bottleneck, so the queue never fills up and the Tensor Cores still idle between chunks.</text>
+<text x="24" y="452.8" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" fill="#64748b" font-weight="normal">More slots help absorb jitter, but nothing can beat the speed of the slower side.</text>
+</svg>

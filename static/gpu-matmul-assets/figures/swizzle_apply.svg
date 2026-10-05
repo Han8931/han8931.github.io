@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="570" viewBox="0 0 800 570">
+<defs><marker id="arr-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker><marker id="arr-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="arr-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d97706"/></marker><marker id="arr-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker><marker id="arr-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker><marker id="arr-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker><marker id="arr-idle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker><marker id="arr-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0d9488"/></marker><marker id="arr-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#db2777"/></marker><marker id="arr-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="40.0" y="40.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" fill="#0f172a" font-weight="bold">Worked example: row 3 (bytes 384–511), XOR mask = 3 × 16 = 48 = 0b0110000</text>
+<text x="40.0" y="108.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="bold">GMEM row 3</text>
+<text x="40.0" y="126.2" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="bold">logical order</text>
+<text x="40.0" y="388.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="bold">SMEM row 3</text>
+<text x="40.0" y="406.2" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#0f172a" font-weight="bold">after swizzle</text>
+<rect x="164.0" y="90.0" width="70.0" height="44.0" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="199.0" y="117.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="normal">(3,0)</text>
+<text x="199.0" y="152.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">384–399</text>
+<rect x="240.0" y="90.0" width="70.0" height="44.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="275.0" y="117.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="normal">(3,1)</text>
+<text x="275.0" y="152.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">400–415</text>
+<rect x="316.0" y="90.0" width="70.0" height="44.0" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="351.0" y="117.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="normal">(3,2)</text>
+<text x="351.0" y="152.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">416–431</text>
+<rect x="392.0" y="90.0" width="70.0" height="44.0" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="427.0" y="117.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="normal">(3,3)</text>
+<text x="427.0" y="152.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">432–447</text>
+<rect x="468.0" y="90.0" width="70.0" height="44.0" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="503.0" y="117.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="normal">(3,4)</text>
+<text x="503.0" y="152.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">448–463</text>
+<rect x="544.0" y="90.0" width="70.0" height="44.0" rx="4" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+<text x="579.0" y="117.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="normal">(3,5)</text>
+<text x="579.0" y="152.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">464–479</text>
+<rect x="620.0" y="90.0" width="70.0" height="44.0" rx="4" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+<text x="655.0" y="117.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="normal">(3,6)</text>
+<text x="655.0" y="152.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">480–495</text>
+<rect x="696.0" y="90.0" width="70.0" height="44.0" rx="4" fill="#e2e8f0" stroke="#475569" stroke-width="1.5"/>
+<text x="731.0" y="117.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="normal">(3,7)</text>
+<text x="731.0" y="152.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">496–511</text>
+<rect x="164.0" y="370.0" width="70.0" height="44.0" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="199.0" y="397.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="normal">(3,3)</text>
+<text x="199.0" y="432.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">384–399</text>
+<rect x="240.0" y="370.0" width="70.0" height="44.0" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="275.0" y="397.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="normal">(3,2)</text>
+<text x="275.0" y="432.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">400–415</text>
+<rect x="316.0" y="370.0" width="70.0" height="44.0" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="351.0" y="397.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="normal">(3,1)</text>
+<text x="351.0" y="432.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">416–431</text>
+<rect x="392.0" y="370.0" width="70.0" height="44.0" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="427.0" y="397.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="normal">(3,0)</text>
+<text x="427.0" y="432.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">432–447</text>
+<rect x="468.0" y="370.0" width="70.0" height="44.0" rx="4" fill="#e2e8f0" stroke="#475569" stroke-width="1.5"/>
+<text x="503.0" y="397.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="normal">(3,7)</text>
+<text x="503.0" y="432.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">448–463</text>
+<rect x="544.0" y="370.0" width="70.0" height="44.0" rx="4" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+<text x="579.0" y="397.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="normal">(3,6)</text>
+<text x="579.0" y="432.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">464–479</text>
+<rect x="620.0" y="370.0" width="70.0" height="44.0" rx="4" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+<text x="655.0" y="397.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="normal">(3,5)</text>
+<text x="655.0" y="432.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">480–495</text>
+<rect x="696.0" y="370.0" width="70.0" height="44.0" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="731.0" y="397.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" text-anchor="middle" fill="#0f172a" font-weight="normal">(3,4)</text>
+<text x="731.0" y="432.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="11" text-anchor="middle" fill="#64748b" font-weight="normal">496–511</text>
+<path d="M199.0,164 C199.0,270 427.0,260 427.0,362" fill="none" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+<path d="M275.0,164 C275.0,270 351.0,260 351.0,362" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arr-red)"/>
+<path d="M351.0,164 C351.0,270 275.0,260 275.0,362" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arr-green)"/>
+<path d="M427.0,164 C427.0,270 199.0,260 199.0,362" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arr-amber)"/>
+<path d="M503.0,164 C503.0,270 731.0,260 731.0,362" fill="none" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arr-purple)"/>
+<path d="M579.0,164 C579.0,270 655.0,260 655.0,362" fill="none" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arr-teal)"/>
+<path d="M655.0,164 C655.0,270 579.0,260 579.0,362" fill="none" stroke="#db2777" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arr-pink)"/>
+<path d="M731.0,164 C731.0,270 503.0,260 503.0,362" fill="none" stroke="#475569" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arr-gray)"/>
+<text x="40.0" y="470.0" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" text-anchor="start" fill="#0f172a" font-weight="normal">(3,0): bytes 384–399 = 0b1_1000_0000 …  XOR 0b0110000  →  432–447 = slot 3  (moves 3 slots right)</text>
+<text x="40.0" y="486.8" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="12" text-anchor="start" fill="#0f172a" font-weight="normal">(3,1): bytes 400–415  XOR 48  →  416–431 = slot 2  (moves 1 slot right)</text>
+<text x="40.0" y="516.0" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#16a34a" font-weight="normal">Shortcut: within a row, slot = c XOR r. Row 3 becomes 3,2,1,0,7,6,5,4.</text>
+</svg>
