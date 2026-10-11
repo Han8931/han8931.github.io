@@ -21,11 +21,12 @@ And there's a bigger shift underway: with AI, you don't just *read* a paper anym
 
 <p align="center">
   <img 
-    src="https://github.com/Han8931/gorae/blob/main/assets/gorae_final_demo.gif?raw=true" 
+    src="https://github.com/Han8931/gorae/blob/main/assets/gorae_demo.gif?raw=true" 
     alt="Gorae App Demo" 
     style="max-width: 120%; height: auto; border-radius: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
   >
 </p>
+<p align="center"><em>A quick tour: browsing folders, metadata and abstract previews, the reading tabs, tag and full-text search with page-numbered hits, the in-app metadata editor, reading state, the tree pane, and live theme switching.</em></p>
 
 ### The TUI Librarian You've Been Waiting For
 **Gorae** (고래, meaning *whale*) is a terminal-first librarian for your PDFs, EPUBs, and Markdown notes.
@@ -38,8 +39,12 @@ If you prefer the keyboard over the mouse, Gorae will feel immediately familiar.
 #### ⚡ Navigate at the Speed of Thought
 Forget clicking through endless nested folders. Gorae offers Vim-style browsing. Fly through your library with `j` and `k`. It's snappy, responsive, and designed to keep you in your flow state. And if you *do* reach for the mouse now and then, it works out of the box—scroll, click, select.
 
+Tabs along the top of the file pane — *Library*, *Recent*, *Reading*, *To Read*, *Added*, *Unread*, *Read* — slice your collection without any extra folders; flip between them with `Left`/`Right`. As you move, the side pane previews each paper's metadata and abstract (and the first page itself in Kitty or iTerm2). Need the big picture? `,n` unfolds a tree pane of your whole library.
+
 #### 🧾 Stop Manually Typing Metadata
 Bringing new papers into your library shouldn't be a chore. Gorae automatically scans new PDFs for DOIs or arXiv identifiers and fetches the correct titles, authors, and publication years for you.
+
+When something still needs a touch-up, press `e`: the metadata opens right inside Gorae, one field per row. Move with `j`/`k`, hit `Enter` to edit a field, `Tab` to jump to the next one—every change is saved instantly, so `Esc` is always safe.
 
 #### 🤖 Talk to Your Library — A Document AI in Your Terminal
 > *The heart of Gorae—and where most of this release's work went.*
@@ -55,11 +60,11 @@ This is where Gorae goes beyond a traditional library manager. Storing PDFs neat
 It all respects the terminal: `Esc` into a Vim-style navigation mode, hop between messages with `j`/`k`, yank answers with `y`. No web app, no browser tab, no context switch.
 
 #### 🔎 Find That One Quote, Instantly
-Where was that specific paragraph about transformer attention mechanisms? Don't open ten different PDFs to find it. Gorae's full-text search indexes every document (with stemming, so *running* also finds *run*) and surfaces **every** hit—not just the first. Walk through the matches with `n`/`N`, then hit `Enter` to open the PDF **right at the page where the match lives**. Narrow things down with scoped flags like `-a` (author), `-y` (year), or `--tag`, or query your metadata directly.
+Where was that specific paragraph about transformer attention mechanisms? Don't open ten different PDFs to find it. Gorae's full-text search indexes every document (with stemming, so *running* also finds *run*) and surfaces **every** hit—not just the first—each labeled with the page it's on. Walk through the matches with `n`/`N`, then hit `Enter` to open the PDF **right at the page where the match lives**. Narrow things down with scoped flags like `-a` (author), `-y` (year), or `--tag`, or query your metadata directly.
 
 #### 🗃️ Get Organized Without the Headache
 Gorae helps you tackle your reading list without complicated folder structures.
-* **Track Your Progress:** Easily mark papers as *Unread*, *Reading*, or *Read*.
+* **Track Your Progress:** Press `r` to cycle a paper through *Unread*, *Reading*, and *Read*—it moves to the matching tab immediately.
 * **Stash for Later:** Use the To-Read queue to keep track of what's next.
 * **Hierarchical tags:** Tag a paper `ml/transformers` and searching the `ml/` prefix pulls in the whole family—structure without folders.
 * **Link your thinking:** Write Markdown notes with `[[wikilinks]]`, and Gorae builds the backlinks for you—Obsidian-style. Related papers and ideas start connecting themselves.
